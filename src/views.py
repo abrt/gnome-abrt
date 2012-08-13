@@ -88,7 +88,11 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.lbl_summary.set_text(problem['reason'])
             self.lbl_app_name_value.set_text(app.name)
             self.lbl_app_version_value.set_text(problem['package'])
-            self.img_app_icon.set_from_pixbuf(app.icon)
+
+            if app.icon:
+                self.img_app_icon.set_from_pixbuf(app.icon)
+            else:
+                self.img_app_icon.set_from_stock(Gtk.STOCK_MISSING_IMAGE, 3)
 
             if problem['is_reported']:
                 self.lbl_reported_value.set_text('yes')

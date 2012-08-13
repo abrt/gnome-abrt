@@ -1,3 +1,5 @@
+import os
+
 from gi.repository import Gtk
 from gi.repository import Gdk
 
@@ -11,7 +13,12 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.set_default_size(640, 480)
 
-        self._load_widgets_from_file('oops.glade')
+        if os.path.exists('oops.glade'):
+            self._load_widgets_from_builder(filename='oops.glade')
+        else:
+            import gnome_abrt_glade
+            self._load_widgets_from_builder(content=gnome_abrt_glade.GNOME_ABRT_GLADE_CONTENTS)
+
         self._source = source
         self._controller = controller
         self._reload_problems(self._source)
@@ -26,9 +33,16 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self._source.attach(SourceObserver(self))
 
-    def _load_widgets_from_file(self, file_name):
+    def _load_widgets_from_builder(self, filename=None, content=None):
         builder = Gtk.Builder()
-        builder.add_from_file(file_name)
+
+        if filename:
+            builder.add_from_file(filename)
+        elif content:
+            builder.add_from_string(content)
+        else:
+            raise ValueError("One of the arguments must be set")
+
         self.gr_main_layout = builder.get_object('gr_main_layout')
         wnd = builder.get_object('wnd_main')
         wnd.remove(self.gr_main_layout)

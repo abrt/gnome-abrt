@@ -1,0 +1,42 @@
+Name:		gnome-abrt
+Version:	0.1
+Release:	1%{?dist}
+Summary:	A utility for viewing problems that have occurred with the system. 
+
+Group:		User Interface/Desktops
+License:    GPLv2+
+URL:	    https://fedorahosted.org/abrt/		
+Source0:    http://jfilak.fedorapeople.org/media/%{name}-%{version}.tar.gz
+
+BuildRequires: python2-devel
+Requires:	pyxdg >= 0.19
+Requires:	pygobject3 >= 3.2.2
+Requires:   libreport-python >= 2.0.10
+
+%description
+...
+
+%prep
+%setup -q
+
+
+%install
+mkdir -p $RPM_BUILD_ROOT%{_bindir}/
+
+install -d $RPM_BUILD_ROOT%{python_sitelib}/%{name}
+install -pm 0644 src/*.py $RPM_BUILD_ROOT%{python_sitelib}/%{name}/
+install -pm 0644 src/oops.glade $RPM_BUILD_ROOT%{python_sitelib}/%{name}/
+install -pm 0655 src/gnome-abrt $RPM_BUILD_ROOT%{python_sitelib}/%{name}/
+
+ln -sf %{python_sitelib}/%{name}/gnome-abrt $RPM_BUILD_ROOT%{_bindir}/gnome-abrt
+
+
+%files
+%dir %{python_sitelib}/%{name}
+%{python_sitelib}/%{name}/*
+%{_bindir}/gnome-abrt
+
+
+%changelog
+* Mon Aug 13 2012 Jakub Filak <jfilak@redhat.com> - 0.1-1
+- Initial version

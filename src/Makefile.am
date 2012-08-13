@@ -13,7 +13,7 @@ gnome_abrt_PYTHON = \
 	views.py \
 	gnome_abrt_glade.py
 
-gnome_abrt_glade.py : oops.glade
+gnome_abrt_glade.py: oops.glade
 	{ \
 	  echo '# coding=utf-8'; \
 	  echo 'GNOME_ABRT_GLADE_CONTENTS ="\'; \

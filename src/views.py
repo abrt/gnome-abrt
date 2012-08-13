@@ -54,31 +54,54 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lbl_app_name_value = builder.get_object('lbl_app_name_value')
         self.lbl_app_version_value = builder.get_object('lbl_app_version_value')
         self.lbl_reported_value = builder.get_object('lbl_reported_value')
+        self.tv_problems = builder.get_object('tv_problems')
         self.tvs_problems = builder.get_object('tvs_problems')
         self.img_app_icon = builder.get_object('img_app_icon')
+        self.nb_problem_layout = builder.get_object('nb_problem_layout')
+        self.tb_delete = builder.get_object('tb_delete')
+        self.tb_report = builder.get_object('tb_report')
+        self.btn_detail = builder.get_object('btn_detail')
 
         builder.connect_signals(self)
 
     def _reload_problems(self, source):
-        for p in source.get_problems():
+        problems = source.get_problems()
+        for p in problems:
             app = p.get_application()
-            self.ls_problems.append(["%s\n%s" % (app.name, p['type']),
-                                     "%s\n%s" % (fancydate(p['date']), p['count']),
+            self.ls_problems.append(["{0!s}\n{1!s}".format(app.name, p['type']),
+                                     "{0!s}\n{1!s}".format(fancydate(p['date']), p['count']),
                                      p])
 
-    def _set_problem(self, problem):
-        self.selected_problem = problem
-        app = problem['application']
-        self.lbl_reason.set_text(app.name + ' crashed');
-        self.lbl_summary.set_text(problem['reason'])
-        self.lbl_app_name_value.set_text(app.name)
-        self.lbl_app_version_value.set_text(problem['package'])
-        self.img_app_icon.set_from_pixbuf(app.icon)
-
-        if problem['is_reported']:
-            self.lbl_reported_value.set_text('yes')
+        if len(problems) > 0:
+            self.tv_problems.set_cursor(0)
+            self._set_problem(problems[0])
         else:
-            self.lbl_reported_value.set_text('no')
+            self._set_problem(None)
+
+    def _set_problem(self, problem):
+        if problem:
+            self.nb_problem_layout.set_current_page(0)
+            self.selected_problem = problem
+            app = problem['application']
+            self.lbl_reason.set_text(app.name + ' crashed');
+            self.lbl_summary.set_text(problem['reason'])
+            self.lbl_app_name_value.set_text(app.name)
+            self.lbl_app_version_value.set_text(problem['package'])
+            self.img_app_icon.set_from_pixbuf(app.icon)
+
+            if problem['is_reported']:
+                self.lbl_reported_value.set_text('yes')
+            else:
+                self.lbl_reported_value.set_text('no')
+
+            self.tb_delete.set_sensitive(True)
+            self.tb_report.set_sensitive(True)
+            self.btn_detail.set_sensitive(True)
+        else:
+            self.nb_problem_layout.set_current_page(1)
+            self.tb_delete.set_sensitive(False)
+            self.tb_report.set_sensitive(False)
+            self.btn_detail.set_sensitive(False)
 
     def _get_selected(self, selection):
         model, path = selection.get_selected()

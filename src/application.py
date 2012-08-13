@@ -28,7 +28,6 @@ def find_application(component, executable):
             ll = len(lookup_exec)
             for dai in Gio.DesktopAppInfo.get_all():
                 if dai.get_executable()[:ll] == lookup_exec:
-                    print lookup_exec, dai.get_name(), dai.get_icon().get_names()
                     __globa_app_cache__[executable] = Application(executable,
                                                                   name=dai.get_name(),
                                                                   icon=Gtk.IconTheme.get_default().load_icon(dai.get_icon().get_names()[0], 48, Gtk.IconLookupFlags.USE_BUILTIN))

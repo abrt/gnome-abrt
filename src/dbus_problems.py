@@ -41,5 +41,5 @@ class DBusProblemSource(problems.ProblemSource):
         return [problems.Problem(pid, self) for pid in prblms]
 
     def delete_problem(self, problem_id):
-        self.interface.DeleteProblem(problem_id)
+        self.interface.DeleteProblem([problem_id])
         self.notify()

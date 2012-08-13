@@ -65,6 +65,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         builder.connect_signals(self)
 
     def _reload_problems(self, source):
+        self.ls_problems.clear()
         problems = source.get_problems()
         for p in problems:
             app = p.get_application()
@@ -105,7 +106,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _get_selected(self, selection):
         model, path = selection.get_selected()
-        return model[path][2]
+        if path:
+            return model[path][2]
+
+        return None
 
     def on_tvs_problems_changed(self, selection):
         self._set_problem(self._get_selected(selection))

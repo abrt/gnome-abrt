@@ -70,7 +70,7 @@ class Problem:
         return None
 
     def delete(self):
-        self.source.delete(self.problem_id)
+        self.source.delete_problem(self.problem_id)
 
     def is_reported(self):
         return None != self['reported']
@@ -93,7 +93,7 @@ class MultipleSources(ProblemSource):
                 self.parent = parent
 
             def problem_source_updated(self, source):
-                slef.parent.notify()
+                self.parent.notify()
 
         observer = SourceObserver(self)
         for s in self.sources:

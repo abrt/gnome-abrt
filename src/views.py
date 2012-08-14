@@ -129,3 +129,43 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def on_gac_report_activate(self, action):
         self._controller.report(self._get_selected(self.tvs_problems))
+
+    def on_te_search_focus_out_event(self, search_entry, data):
+        search_entry.set_text("")
+
+    def on_te_search_changed(self, search_entry):
+        def match_pattern(pattern, problem):
+            def item_match(pattern, problem, items):
+                for i in items:
+                    v = problem[i]
+                    if v and pattern in v:
+                        return True
+
+            return item_match(pattern, problem, ['component', 'reason', 'executable', 'package']) or pattern in problem['application'].name
+
+        pattern = search_entry.get_text()
+
+        if len(pattern) == 0:
+            return
+
+        model, it = self.tvs_problems.get_selected()
+
+        if not it:
+            return
+
+        origin_path = model.get_path(it)
+        while True:
+             problem = self.ls_problems[it][2]
+
+             if match_pattern(pattern, problem):
+                 self.tvs_problems.select_iter(it)
+                 self.tv_problems.scroll_to_cell(model.get_path(it))
+                 break
+
+             it = model.iter_next(it)
+
+             if not it:
+                 it = model.get_iter_first()
+
+             if model.get_path(it) == origin_path:
+                break

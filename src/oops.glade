@@ -57,6 +57,8 @@
                 <property name="model">ls_problems</property>
                 <property name="headers_visible">False</property>
                 <property name="headers_clickable">False</property>
+                <property name="enable_search">False</property>
+                <property name="enable_grid_lines">horizontal</property>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="tvs_problems">
                     <signal name="changed" handler="on_tvs_problems_changed" swapped="no"/>
@@ -107,6 +109,8 @@
             <property name="caps_lock_warning">False</property>
             <property name="secondary_icon_stock">gtk-zoom-in</property>
             <property name="placeholder_text">Search</property>
+            <signal name="changed" handler="on_te_search_changed" swapped="no"/>
+            <signal name="focus-out-event" handler="on_te_search_focus_out_event" swapped="no"/>
           </object>
           <packing>
             <property name="left_attach">0</property>

@@ -16,7 +16,7 @@ class DirectoryProblemSource(problems.ProblemSource):
 
         dd = report.dd_opendir(problem_id)
         if not dd:
-            raise InvalidProblem()
+            raise errors.InvalidProblem("Can't open directory")
 
         items = {}
         for field_name in args:
@@ -37,12 +37,17 @@ class DirectoryProblemSource(problems.ProblemSource):
                 dd = report.dd_opendir(problem_id)
                 if dd:
                     dd.close()
-                    problem_ids.append(problems.Problem(problem_id, self))
+                    try:
+                        problem_ids.append(problems.Problem(problem_id, self))
+                    except errors.InvalidProblem as e:
+                        loggin.warning("Invalid problem directory '{0}': {1}".format(problem_id, e.message))
 
         return problem_ids
 
     def delete_problem(self, problem_id):
-        d = report.dd_opendir(problem_id)
-        # TODO : delete over abrtd
-        d.delete()
-        self.notify()
+        dd = report.dd_opendir(problem_id)
+        if dd:
+            # TODO : delete over abrtd
+            dd.delete()
+            # dd.close()
+            self.notify()

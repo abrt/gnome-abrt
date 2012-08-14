@@ -1,4 +1,5 @@
 import datetime
+import logging
 
 import application
 
@@ -23,8 +24,8 @@ class ProblemSource(object):
     def detach(self, observer):
         try:
             self._observers.remove(observer)
-        except ValueError:
-            pass
+        except ValueError as e:
+            logging.debug(e.message)
 
     def notify(self):
         for observer in self._observers:
@@ -86,6 +87,10 @@ class MultipleSources(ProblemSource):
 
     def __init__(self, *args):
         super(MultipleSources, self).__init__()
+
+        if len(args) == 0:
+            raise ValueError("At least one source must be passed")
+
         self.sources = args
 
         class SourceObserver:

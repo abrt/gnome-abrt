@@ -2,6 +2,7 @@
 
 import os
 import sys
+import logging
 
 # pygobject
 from gi.repository import Gtk
@@ -17,6 +18,7 @@ import problems
 import dbus_problems
 import directory_problems
 import controller
+import errors
 
 class OopsApplication(Gtk.Application):
     
@@ -26,9 +28,23 @@ class OopsApplication(Gtk.Application):
         conf = config.get_configuration()
         conf.add_option("all_problems", default_value=False)
 
-        self.source = problems.MultipleSources(dbus_problems.DBusProblemSource(),
-                                               # TODO : use pyxdg-0.21 save_cache_path()
-                                               directory_problems.DirectoryProblemSource(os.path.join(xdg.BaseDirectory.xdg_cache_home, "abrt/spool")))
+        sources = []
+        try:
+            sources.append(dbus_problems.DBusProblemSource())
+        except errors.UnavailableSource as e:
+            logging.warning(e.message)
+
+        try:
+            # TODO : use pyxdg-0.21 save_cache_path()
+            # or event better pass a directory through command line
+            sources.append(directory_problems.DirectoryProblemSource(os.path.join(xdg.BaseDirectory.xdg_cache_home, "abrt/spool")))
+        except errors.UnavailableSource as e:
+            logging.warning(e.message)
+
+        if len(sources) == 0:
+            raise errors.UnavailableSource("No available problem source.")
+
+        self.source = problems.MultipleSources(*sources)
 
     def do_activate(self):
         self.window = views.OopsWindow(self, self.source, controller.Controller())
@@ -40,6 +56,12 @@ class OopsApplication(Gtk.Application):
 
 
 if __name__ == "__main__":
-    app = OopsApplication()
+    app = None
+    try:
+        app = OopsApplication()
+    except errors.UnavailableSource as e:
+        logging.error(e.message)
+        sys.exit(1)
+
     exit_code = app.run(sys.argv)
     sys.exit(exit_code)

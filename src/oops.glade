@@ -188,6 +188,9 @@
                                 <property name="halign">end</property>
                                 <property name="xpad">10</property>
                                 <property name="label" translatable="yes">Name</property>
+                                <attributes>
+                                  <attribute name="foreground" value="#87877e7e8080"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -203,6 +206,9 @@
                                 <property name="halign">end</property>
                                 <property name="xpad">10</property>
                                 <property name="label" translatable="yes">Version</property>
+                                <attributes>
+                                  <attribute name="foreground" value="#87877e7e8080"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -218,6 +224,9 @@
                                 <property name="halign">end</property>
                                 <property name="xpad">10</property>
                                 <property name="label" translatable="yes">Reported</property>
+                                <attributes>
+                                  <attribute name="foreground" value="#87877e7e8080"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>

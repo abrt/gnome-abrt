@@ -5,11 +5,12 @@ from gi.repository import Gdk
 
 import problems
 from tools import fancydate
+from l10n import _, GETTEXT_PROGNAME
 
 class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, source, controller):
-        super(OopsWindow, self).__init__(title='Oops!', application=application)
+        super(OopsWindow, self).__init__(title=_('Oops!'), application=application)
 
         self.set_default_size(640, 480)
 
@@ -35,6 +36,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _load_widgets_from_builder(self, filename=None, content=None):
         builder = Gtk.Builder()
+        builder.set_translation_domain(GETTEXT_PROGNAME)
 
         if filename:
             builder.add_from_file(filename)
@@ -69,6 +71,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         problems = source.get_problems()
         for p in problems:
             app = p.get_application()
+            # not localizable, it is a format for tree view column
             self.ls_problems.append(["{0!s}\n{1!s}".format(app.name, p['type']),
                                      "{0!s}\n{1!s}".format(fancydate(p['date']), p['count']),
                                      p])
@@ -84,7 +87,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.nb_problem_layout.set_current_page(0)
             self.selected_problem = problem
             app = problem['application']
-            self.lbl_reason.set_text(app.name + ' crashed');
+            self.lbl_reason.set_text(app.name + _(' crashed'));
             self.lbl_summary.set_text(problem['reason'])
             self.lbl_app_name_value.set_text(app.name)
             self.lbl_app_version_value.set_text(problem['package'])
@@ -95,9 +98,9 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.img_app_icon.set_from_stock(Gtk.STOCK_MISSING_IMAGE, 3)
 
             if problem['is_reported']:
-                self.lbl_reported_value.set_text('yes')
+                self.lbl_reported_value.set_text(_('yes'))
             else:
-                self.lbl_reported_value.set_text('no')
+                self.lbl_reported_value.set_text(_('no'))
 
             self.tb_delete.set_sensitive(True)
             self.tb_report.set_sensitive(True)

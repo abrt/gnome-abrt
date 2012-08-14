@@ -19,6 +19,7 @@ import dbus_problems
 import directory_problems
 import controller
 import errors
+import l10n
 
 class OopsApplication(Gtk.Application):
     
@@ -56,6 +57,8 @@ class OopsApplication(Gtk.Application):
 
 
 if __name__ == "__main__":
+    l10n.init('gnome_abrt')
+
     app = None
     try:
         app = OopsApplication()

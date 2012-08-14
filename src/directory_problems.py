@@ -2,6 +2,7 @@ import os
 import report
 import problems
 import errors
+from l10n import _
 
 class DirectoryProblemSource(problems.ProblemSource):
 
@@ -16,7 +17,7 @@ class DirectoryProblemSource(problems.ProblemSource):
 
         dd = report.dd_opendir(problem_id)
         if not dd:
-            raise errors.InvalidProblem("Can't open directory")
+            raise errors.InvalidProblem(_("Can't open directory"))
 
         items = {}
         for field_name in args:
@@ -40,7 +41,7 @@ class DirectoryProblemSource(problems.ProblemSource):
                     try:
                         problem_ids.append(problems.Problem(problem_id, self))
                     except errors.InvalidProblem as e:
-                        loggin.warning("Invalid problem directory '{0}': {1}".format(problem_id, e.message))
+                        loggin.warning(_("Invalid problem directory '{0}': {1}").format(problem_id, e.message))
 
         return problem_ids
 

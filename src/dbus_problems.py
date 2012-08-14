@@ -4,6 +4,7 @@ import logging
 import problems
 import config
 import errors
+from l10n import _
 
 BUS_NAME = 'org.freedesktop.problems'
 BUS_PATH = '/org/freedesktop/problems'
@@ -20,12 +21,12 @@ class DBusProblemSource(problems.ProblemSource):
         try:
             self.proxy = bus.get_object(BUS_NAME, BUS_PATH)
         except dbus.exceptions.DBusException as e:
-            raise errors.UnavailableSource("Can't connect to DBus system bus '{0}' path '{1}': {2}".format(BUS_NAME, BUS_PATH, e.message))
+            raise errors.UnavailableSource(_("Can't connect to DBus system bus '{0}' path '{1}': {2}").format(BUS_NAME, BUS_PATH, e.message))
 
         try:
             self.interface = dbus.Interface(self.proxy, BUS_IFACE)
         except dbus.exceptions.DBusException as e:
-            raise errors.UnavailableSource("Can't get interface '{0}' on path '{1}' in bus '{2}': {3}".format(BUS_IFACE, BUS_PATH, BUS_NAME, e.message))
+            raise errors.UnavailableSource(_("Can't get interface '{0}' on path '{1}' in bus '{2}': {3}").format(BUS_IFACE, BUS_PATH, BUS_NAME, e.message))
 
         class ConfigObserver():
             def __init__(self, source):
@@ -45,7 +46,7 @@ class DBusProblemSource(problems.ProblemSource):
             try:
                 info = self.interface.GetInfo(problem_id, args)
             except dbus.exceptions.DBusException as e:
-                logging.warning("Can't get problem data from DBus service: {0!s}".format(e.message))
+                logging.warning(_("Can't get problem data from DBus service: {0!s}").format(e.message))
 
         return info
 
@@ -60,7 +61,7 @@ class DBusProblemSource(problems.ProblemSource):
             else:
                 prblms  = self.interface.GetProblems()
         except dbus.exceptions.DBusException as e:
-            logging.warning("Can't get list of problems from DBus service: {0!s}".format(e.message))
+            logging.warning(_("Can't get list of problems from DBus service: {0!s}").format(e.message))
             return []
 
         return [problems.Problem(pid, self) for pid in prblms]
@@ -69,7 +70,7 @@ class DBusProblemSource(problems.ProblemSource):
         try:
             self.interface.DeleteProblem([problem_id])
         except dbus.exceptions.DBusException as e:
-            logging.warning("Can't delete problem over DBus service: {0!s}".format(e.message))
+            logging.warning(_("Can't delete problem over DBus service: {0!s}").format(e.message))
             return
 
         self.notify()

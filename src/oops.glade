@@ -107,7 +107,7 @@
             <property name="can_focus">True</property>
             <property name="invisible_char">●</property>
             <property name="caps_lock_warning">False</property>
-            <property name="secondary_icon_stock">gtk-zoom-in</property>
+            <property name="secondary_icon_stock">gtk-find</property>
             <property name="placeholder_text">Search</property>
             <signal name="changed" handler="on_te_search_changed" swapped="no"/>
           </object>

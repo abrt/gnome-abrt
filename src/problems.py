@@ -74,7 +74,7 @@ class Problem:
         self.source.delete_problem(self.problem_id)
 
     def is_reported(self):
-        return None != self['reported']
+        return not self['reported_to'] is None
 
     def get_application(self):
         if not self.app:

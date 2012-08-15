@@ -7,6 +7,45 @@ import problems
 from tools import fancydate
 from l10n import _, GETTEXT_PROGNAME
 
+def problems_filter(model, it, data):
+    def match_pattern(pattern, problem):
+        def item_match(pattern, problem):
+            for i in ['component', 'reason', 'executable', 'package']:
+                v = problem[i]
+                if v and pattern in v:
+                    return True
+
+        return (item_match(pattern, problem)
+                or pattern in problem['application'].name
+                or pattern in problem.problem_id)
+
+    pattern = data.current_pattern
+
+    if len(pattern) == 0:
+        return True
+
+    return match_pattern(pattern, model[it][2])
+
+
+class ProblemsFilter:
+
+    def __init__(self, window, view):
+        self.current_pattern = ""
+        self.window = window
+        self.view = view
+        self.tm_filter = view.get_model().filter_new()
+        self.tm_filter.set_visible_func(problems_filter, self)
+        self.view.set_model(self.tm_filter)
+
+    def set_pattern(self, pattern):
+        self.current_pattern = pattern
+        self.tm_filter.refilter()
+
+        it = self.view.get_model().get_iter_first()
+        if it:
+            self.window._select_problem_iter(it)
+
+
 class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, source, controller):
@@ -23,7 +62,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.selected_problem = None
         self._source = source
         self._controller = controller
-        self._reload_problems(self._source)
+        self._filter = ProblemsFilter(self, self.tv_problems)
 
         class SourceObserver:
             def __init__(self, wnd):
@@ -33,6 +72,9 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.wnd._reload_problems(source)
 
         self._source.attach(SourceObserver(self))
+
+        self.tv_problems.grab_focus()
+        self._reload_problems(self._source)
 
     def _load_widgets_from_builder(self, filename=None, content=None):
         builder = Gtk.Builder()
@@ -63,6 +105,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.tb_delete = builder.get_object('tb_delete')
         self.tb_report = builder.get_object('tb_report')
         self.btn_detail = builder.get_object('btn_detail')
+        self.te_search = builder.get_object('te_search')
 
         builder.connect_signals(self)
 
@@ -133,41 +176,5 @@ class OopsWindow(Gtk.ApplicationWindow):
     def on_gac_report_activate(self, action):
         self._controller.report(self._get_selected(self.tvs_problems))
 
-    def on_te_search_focus_out_event(self, search_entry, data):
-        search_entry.set_text("")
-
-    def on_te_search_changed(self, search_entry):
-        def match_pattern(pattern, problem):
-            def item_match(pattern, problem, items):
-                for i in items:
-                    v = problem[i]
-                    if v and pattern in v:
-                        return True
-
-            return item_match(pattern, problem, ['component', 'reason', 'executable', 'package']) or pattern in problem['application'].name or pattern in problem.problem_id
-
-        pattern = search_entry.get_text()
-
-        if len(pattern) == 0:
-            return
-
-        model, it = self.tvs_problems.get_selected()
-
-        if not it:
-            return
-
-        origin_path = model.get_path(it)
-        while True:
-             problem = self.ls_problems[it][2]
-
-             if match_pattern(pattern, problem):
-                 self._select_problem_iter(it)
-                 break
-
-             it = model.iter_next(it)
-
-             if not it:
-                 it = model.get_iter_first()
-
-             if model.get_path(it) == origin_path:
-                break
+    def on_te_search_changed(self, entry):
+        self._filter.set_pattern(entry.get_text())

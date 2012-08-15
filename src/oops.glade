@@ -110,7 +110,6 @@
             <property name="secondary_icon_stock">gtk-zoom-in</property>
             <property name="placeholder_text">Search</property>
             <signal name="changed" handler="on_te_search_changed" swapped="no"/>
-            <signal name="focus-out-event" handler="on_te_search_focus_out_event" swapped="no"/>
           </object>
           <packing>
             <property name="left_attach">0</property>

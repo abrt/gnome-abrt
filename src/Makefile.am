@@ -11,6 +11,7 @@ gnome_abrt_PYTHON = \
 	problems.py \
 	tools.py \
 	views.py \
+	l10n.py \
 	gnome_abrt_glade.py
 
 gnome_abrt_glade.py: oops.glade

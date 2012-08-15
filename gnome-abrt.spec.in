@@ -1,6 +1,6 @@
 Name:		gnome-abrt
 Version:	0.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A utility for viewing problems that have occurred with the system. 
 
 Group:		User Interface/Desktops
@@ -38,6 +38,9 @@ ln -sf %{python_sitelib}/%{name}/gnome-abrt $RPM_BUILD_ROOT%{_bindir}/gnome-abrt
 
 
 %changelog
+* Wed Aug 15 2012 Jakub Filak <jfilak@redhat.com> - 0.2-2
+- Add missing files
+
 * Wed Aug 15 2012 Jakub Filak <jfilak@redhat.com> - 0.2-1
 - Problems filtering
 - Errors handling

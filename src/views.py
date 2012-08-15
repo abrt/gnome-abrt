@@ -141,7 +141,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                     if v and pattern in v:
                         return True
 
-            return item_match(pattern, problem, ['component', 'reason', 'executable', 'package']) or pattern in problem['application'].name
+            return item_match(pattern, problem, ['component', 'reason', 'executable', 'package']) or pattern in problem['application'].name or pattern in problem.problem_id
 
         pattern = search_entry.get_text()
 

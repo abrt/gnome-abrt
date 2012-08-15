@@ -30,7 +30,7 @@ def find_application(component, executable):
                 if dai.get_executable()[:ll] == lookup_exec:
                     __globa_app_cache__[executable] = Application(executable,
                                                                   name=dai.get_name(),
-                                                                  icon=Gtk.IconTheme.get_default().load_icon(dai.get_icon().get_names()[0], 48, Gtk.IconLookupFlags.USE_BUILTIN))
+                                                                  icon=Gtk.IconTheme.get_default().load_icon(dai.get_icon().get_names()[0], 128, Gtk.IconLookupFlags.USE_BUILTIN))
                     return __globa_app_cache__[executable]
         __globa_app_cache__[executable] = Application(executable, name=component)
 

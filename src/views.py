@@ -20,10 +20,10 @@ class OopsWindow(Gtk.ApplicationWindow):
             import gnome_abrt_glade
             self._load_widgets_from_builder(content=gnome_abrt_glade.GNOME_ABRT_GLADE_CONTENTS)
 
+        self.selected_problem = None
         self._source = source
         self._controller = controller
         self._reload_problems(self._source)
-        self.selected_problem = None
 
         class SourceObserver:
             def __init__(self, wnd):

@@ -77,15 +77,25 @@ class OopsWindow(Gtk.ApplicationWindow):
                                      p])
 
         if len(problems) > 0:
-            self.tv_problems.set_cursor(0)
+            self._select_problem_iter(self.tv_problems.get_model().get_iter_first())
             self._set_problem(problems[0])
         else:
             self._set_problem(None)
 
+    def _select_problem_iter(self, it):
+         self.tvs_problems.select_iter(it)
+         self.tv_problems.scroll_to_cell(self.tv_problems.get_model().get_path(it))
+
     def _set_problem(self, problem):
+        self.selected_problem = problem
+
+        sensitive_btn = not problem is None
+        self.tb_delete.set_sensitive(sensitive_btn)
+        self.tb_report.set_sensitive(sensitive_btn)
+        self.btn_detail.set_sensitive(sensitive_btn)
+
         if problem:
             self.nb_problem_layout.set_current_page(0)
-            self.selected_problem = problem
             app = problem['application']
             self.lbl_reason.set_text(app.name + _(' crashed'));
             self.lbl_summary.set_text(problem['reason'])
@@ -101,15 +111,8 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.lbl_reported_value.set_text(_('yes'))
             else:
                 self.lbl_reported_value.set_text(_('no'))
-
-            self.tb_delete.set_sensitive(True)
-            self.tb_report.set_sensitive(True)
-            self.btn_detail.set_sensitive(True)
         else:
             self.nb_problem_layout.set_current_page(1)
-            self.tb_delete.set_sensitive(False)
-            self.tb_report.set_sensitive(False)
-            self.btn_detail.set_sensitive(False)
 
     def _get_selected(self, selection):
         model, path = selection.get_selected()
@@ -158,8 +161,7 @@ class OopsWindow(Gtk.ApplicationWindow):
              problem = self.ls_problems[it][2]
 
              if match_pattern(pattern, problem):
-                 self.tvs_problems.select_iter(it)
-                 self.tv_problems.scroll_to_cell(model.get_path(it))
+                 self._select_problem_iter(it)
                  break
 
              it = model.iter_next(it)

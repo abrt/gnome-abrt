@@ -45,6 +45,12 @@ class ProblemsFilter:
         if it:
             self.window._select_problem_iter(it)
 
+# default on None :)
+def doN(text, default_text):
+    if text:
+        return text
+    return default_text
+
 
 class OopsWindow(Gtk.ApplicationWindow):
 
@@ -115,7 +121,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         for p in problems:
             app = p.get_application()
             # not localizable, it is a format for tree view column
-            self.ls_problems.append(["{0!s}\n{1!s}".format(app.name, p['type']),
+            self.ls_problems.append(["{0!s}\n{1!s}".format(doN(app.name, _("N/A")), doN(p['type'], "")),
                                      "{0!s}\n{1!s}".format(fancydate(p['date']), p['count']),
                                      p])
 
@@ -140,10 +146,10 @@ class OopsWindow(Gtk.ApplicationWindow):
         if problem:
             self.nb_problem_layout.set_current_page(0)
             app = problem['application']
-            self.lbl_reason.set_text(app.name + _(' crashed'));
-            self.lbl_summary.set_text(problem['reason'])
-            self.lbl_app_name_value.set_text(app.name)
-            self.lbl_app_version_value.set_text(problem['package'])
+            self.lbl_reason.set_text(doN(app.name, _("N/A")) + _(' crashed'));
+            self.lbl_summary.set_text(doN(problem['reason'], ""))
+            self.lbl_app_name_value.set_text(doN(app.name, _("N/A")))
+            self.lbl_app_version_value.set_text(doN(problem['package'], ""))
 
             if app.icon:
                 self.img_app_icon.set_from_pixbuf(app.icon)

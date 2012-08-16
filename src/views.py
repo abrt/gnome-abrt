@@ -81,6 +81,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.tv_problems.grab_focus()
         self._reload_problems(self._source)
+        self._controller.set_view(self)
 
     def _load_widgets_from_builder(self, filename=None, content=None):
         builder = Gtk.Builder()
@@ -169,6 +170,9 @@ class OopsWindow(Gtk.ApplicationWindow):
             return model[path][2]
 
         return None
+
+    def refresh(self):
+        self._reload_problems(self._source)
 
     def on_tvs_problems_changed(self, selection):
         self._set_problem(self._get_selected(selection))

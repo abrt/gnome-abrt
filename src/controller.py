@@ -1,9 +1,18 @@
 import os
+import signal
 
 class Controller(object):
 
     def __init__(self):
-        pass
+        signal.signal(signal.SIGCHLD, lambda signum, frame: self._handle_signal(signum))
+        self.view = None
+
+    def _handle_signal(self, signum):
+        if self.view:
+            self.view.refresh()
+
+    def set_view(self, view):
+        self.view = view
 
     def report(self, problem):
         self._run_event_on_problem("report-gui", problem)

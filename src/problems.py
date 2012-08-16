@@ -68,6 +68,9 @@ class Problem:
         if item in loaded:
             return loaded[item]
 
+        if item == 'count':
+            return 0
+
         return None
 
     def delete(self):

@@ -8,6 +8,7 @@ License:    GPLv2+
 URL:	    https://fedorahosted.org/abrt/		
 Source0:    http://jfilak.fedorapeople.org/media/%{name}-%{version}.tar.gz
 
+BuildArch:     noarch
 BuildRequires: python2-devel
 Requires:	pyxdg >= 0.19
 Requires:	pygobject3 >= 3.2.2

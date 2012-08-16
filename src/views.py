@@ -4,6 +4,7 @@ from gi.repository import Gtk
 from gi.repository import Gdk
 
 import problems
+import config
 from tools import fancydate
 from l10n import _, GETTEXT_PROGNAME
 
@@ -188,3 +189,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def on_te_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())
+
+    def on_gac_opt_all_problems_activate(self, action):
+        conf = config.get_configuration()
+        conf['all_problems'] = self.chb_all_problems.get_active()

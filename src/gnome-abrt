@@ -48,7 +48,7 @@ class OopsApplication(Gtk.Application):
         self.source = problems.MultipleSources(*sources)
 
     def do_activate(self):
-        self.window = views.OopsWindow(self, self.source, controller.Controller())
+        self.window = views.OopsWindow(self, self.source, controller.Controller(self.source))
         self.window.connect("delete-event", self.on_window_delete_event)
         self.window.show_all()
 

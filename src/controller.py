@@ -3,16 +3,13 @@ import signal
 
 class Controller(object):
 
-    def __init__(self):
+    def __init__(self, source):
         signal.signal(signal.SIGCHLD, lambda signum, frame: self._handle_signal(signum))
-        self.view = None
+        self.source = source
 
     def _handle_signal(self, signum):
-        if self.view:
-            self.view.refresh()
-
-    def set_view(self, view):
-        self.view = view
+        self.source.drop_cache()
+        pass
 
     def report(self, problem):
         self._run_event_on_problem("report-gui", problem)

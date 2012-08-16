@@ -31,6 +31,9 @@ class ProblemSource(object):
         for observer in self._observers:
             observer.problem_source_updated(self)
 
+    def drop_cache(self):
+        pass
+
 class Problem:
 
     def __init__(self, problem_id, source):
@@ -45,6 +48,14 @@ class Problem:
 
     def __str__(self):
         return self.problem_id
+
+    def __eq__(self, other):
+        if isinstance(other, str):
+            return self.problem_id == other
+        elif isinstance(other, Problem):
+            return self.problem_id == other.problem_id
+
+        raise TypeError('Not allowed type in __eq__')
 
     def __loaditems__(self, *args):
         items = self.source.get_items(self.problem_id, *args)
@@ -107,8 +118,10 @@ class MultipleSources(ProblemSource):
         for s in self.sources:
             s.attach(observer)
 
+        self._disable_notify = False
+
     def get_items(self, problem_id, *args):
-        return problem_id.source.get_items(problem_id, *args)
+        pass
 
     def get_problems(self):
         result = []
@@ -118,6 +131,50 @@ class MultipleSources(ProblemSource):
         return result
 
     def delete_problem(self, problem_id):
-        return problem_id.source.delete_problem(problem_id)
+        pass
 
+    def notify(self):
+        if self._disable_notify:
+            return
 
+        super(MultipleSources, self).notify()
+
+    def drop_cache(self):
+        self._disable_notify = True
+
+        try:
+            for s in self.sources:
+                s.drop_cache()
+        finally:
+            self._disable_notify = False
+
+        self.notify()
+
+class CachedSource(ProblemSource):
+
+    def __init__(self):
+        super(CachedSource, self).__init__()
+
+        self._cache = None
+
+    def get_problems(self):
+        if not self._cache:
+            self._cache = self.impl_get_problems()
+
+        return self._cache if self._cache else []
+
+    def drop_cache(self):
+        self._cache = None
+        self.notify()
+
+    def delete_problem(self, problem_id):
+        if not self.impl_delete_problem(problem_id):
+            return
+
+        try:
+            self._cache.remove(problem_id)
+        except ValueError as e:
+            logging.warning(_('Not found in cache but deleted: {0}'), e.message)
+            self._cache = None
+
+        self.notify()

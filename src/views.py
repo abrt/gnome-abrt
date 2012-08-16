@@ -68,6 +68,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.selected_problem = None
         self._source = source
+        self._reloading = False
         self._controller = controller
         self._filter = ProblemsFilter(self, self.tv_problems)
 
@@ -82,7 +83,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.tv_problems.grab_focus()
         self._reload_problems(self._source)
-        self._controller.set_view(self)
 
     def _load_widgets_from_builder(self, filename=None, content=None):
         builder = Gtk.Builder()
@@ -114,18 +114,23 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.tb_report = builder.get_object('tb_report')
         self.btn_detail = builder.get_object('btn_detail')
         self.te_search = builder.get_object('te_search')
+        self.chb_all_problems = builder.get_object('chb_all_problems')
 
         builder.connect_signals(self)
 
     def _reload_problems(self, source):
-        self.ls_problems.clear()
-        problems = source.get_problems()
-        for p in problems:
-            app = p.get_application()
-            # not localizable, it is a format for tree view column
-            self.ls_problems.append(["{0!s}\n{1!s}".format(doN(app.name, _("N/A")), doN(p['type'], "")),
-                                     "{0!s}\n{1!s}".format(fancydate(p['date']), p['count']),
-                                     p])
+        self._reloading = True
+        try:
+            self.ls_problems.clear()
+            problems = source.get_problems()
+            for p in problems:
+                app = p.get_application()
+                # not localizable, it is a format for tree view column
+                self.ls_problems.append(["{0!s}\n{1!s}".format(doN(app.name, _("N/A")), doN(p['type'], "")),
+                                         "{0!s}\n{1!s}".format(fancydate(p['date']), p['count']),
+                                         p])
+        finally:
+            self._reloading = False
 
         if len(problems) > 0:
             self._select_problem_iter(self.tv_problems.get_model().get_iter_first())
@@ -172,11 +177,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         return None
 
-    def refresh(self):
-        self._reload_problems(self._source)
-
     def on_tvs_problems_changed(self, selection):
-        self._set_problem(self._get_selected(selection))
+        if not self._reloading:
+            self._set_problem(self._get_selected(selection))
 
     def on_gac_delete_activate(self, action):
         self._controller.delete(self._get_selected(self.tvs_problems))

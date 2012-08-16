@@ -17,7 +17,7 @@ ABRTD_DBUS_PATH = '/com/redhat/abrt'
 ABRTD_DBUS_IFACE = 'com.redhat.abrt'
 ABRTD_DBUS_SIGNAL = 'Crash'
 
-class DBusProblemSource(problems.ProblemSource):
+class DBusProblemSource(problems.CachedSource):
 
     def __init__(self, mainloop = None):
         super(DBusProblemSource, self).__init__()
@@ -40,10 +40,11 @@ class DBusProblemSource(problems.ProblemSource):
 
             def option_updated(self, conf, option):
                 if option == "all_problems":
-                    self.source.notify()
+                    self.source.drop_cache()
 
         conf = config.get_configuration()
         conf.set_watch("all_problems", ConfigObserver(self))
+        self._all_problems = None
 
     def _connect_to_problems_bus(self):
         # I can't find any description of raised exceptions
@@ -85,7 +86,7 @@ class DBusProblemSource(problems.ProblemSource):
 
         return info
 
-    def get_problems(self):
+    def impl_get_problems(self):
         conf = config.get_configuration()
 
         prblms = None
@@ -97,15 +98,14 @@ class DBusProblemSource(problems.ProblemSource):
                 prblms  = self._send_dbus_message(lambda iface, *args: self.interface.GetProblems(*args))
         except dbus.exceptions.DBusException as e:
             logging.warning(_("Can't get list of problems from DBus service: {0!s}").format(e.message))
-            return []
+            return None
 
-        return [problems.Problem(pid, self) for pid in prblms]
+        return [problems.Problem(str(pid), self) for pid in prblms]
 
-    def delete_problem(self, problem_id):
+    def impl_delete_problem(self, problem_id):
         try:
             self._send_dbus_message(lambda iface, *args: iface.DeleteProblem(*args), [problem_id])
+            return True
         except dbus.exceptions.DBusException as e:
             logging.warning(_("Can't delete problem over DBus service: {0!s}").format(e.message))
-            return
-
-        self.notify()
+            return False

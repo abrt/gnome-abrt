@@ -69,7 +69,7 @@ class Problem:
             return loaded[item]
 
         if item == 'count':
-            return 0
+            return 1
 
         return None
 

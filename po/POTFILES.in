@@ -1,4 +1,6 @@
-src/views.py
 src/dbus_problems.py
 src/directory_problems.py
-srt/tools.py
+src/oops.glade
+src/problems.py
+src/tools.py
+src/views.py

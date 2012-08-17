@@ -9,13 +9,15 @@ URL:	    https://fedorahosted.org/abrt/
 Source0:    http://jfilak.fedorapeople.org/media/%{name}-%{version}.tar.gz
 
 BuildArch:     noarch
+
 BuildRequires: intltool
 BuildRequires: gettext
 BuildRequires: libtool
 BuildRequires: python2-devel
-Requires:	pyxdg >= 0.19
+
 Requires:	pygobject3 >= 3.2.2
 Requires:   libreport-python >= 2.0.10
+Requires:   dbus-python >= 0.83.0
 
 %description
 ...

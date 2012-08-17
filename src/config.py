@@ -38,7 +38,7 @@ class Configuration(object):
 
     def add_option(self, short_key, long_key=None, description=None, default_value=None):
         if short_key in self.options:
-            raise KeyError, "The option already exists"
+            raise KeyError("The option already exists")
 
         option = collections.namedtuple('Option', 'long_key description value observers')
         option.long_key = long_key

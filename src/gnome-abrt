@@ -32,9 +32,11 @@ class OopsApplication(Gtk.Application):
         except errors.UnavailableSource as e:
             logging.warning(e.message)
 
+        # TODO : really ? move it somewhere else ...
+        self.gcontext = GLib.main_context_default()
         try:
             # TODO : pass the directory over command line
-            sources.append(directory_problems.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool")))
+            sources.append(directory_problems.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool"), context=self.gcontext))
         except errors.UnavailableSource as e:
             logging.warning(e.message)
 

@@ -28,6 +28,7 @@ class ProblemSource(object):
             logging.debug(e.message)
 
     def notify(self):
+        logging.debug("Notify")
         for observer in self._observers:
             observer.problem_source_updated(self)
 
@@ -165,6 +166,15 @@ class CachedSource(ProblemSource):
 
     def drop_cache(self):
         self._cache = None
+        self.notify()
+
+    def insert_to_cache(self, problem):
+        if self._cache:
+            if problem in self._cache:
+                raise errors.InvalidProblem(_("Problem '{0}' is already in the cache").format(problem.problem_id))
+
+            self._cache.append(problem)
+
         self.notify()
 
     def delete_problem(self, problem_id):

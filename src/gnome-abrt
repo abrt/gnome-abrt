@@ -58,7 +58,7 @@ class OopsApplication(Gtk.Application):
 
 if __name__ == "__main__":
     l10n.init('gnome_abrt')
-
+    #logging.getLogger().setLevel(logging.DEBUG)
     app = None
     try:
         app = OopsApplication()

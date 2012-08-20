@@ -1,7 +1,11 @@
 import datetime
 import logging
 
+# gnome-abrt
 import application
+import errors
+import problems
+from l10n import _
 
 class ProblemSource(object):
 
@@ -188,3 +192,14 @@ class CachedSource(ProblemSource):
             self._cache = None
 
         self.notify()
+
+    def create_new_problem(self, problem_id):
+        return problems.Problem(problem_id, self)
+
+    def process_new_problem_id(self, problem_id):
+        try:
+            self.insert_to_cache(self.create_new_problem(problem_id))
+        except errors.InvalidProblem as e:
+            logging.warning(_("Can't process '{0}': {1}").format(problem_id, e.message))
+        except errors.UnavailableSource as e:
+            logging.warning(_("Source failed on processing of '{0}': {1}").format(problem_id, e.message))

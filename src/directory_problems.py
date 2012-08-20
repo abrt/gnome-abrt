@@ -51,15 +51,7 @@ class INOTIFYHandler(ProcessEvent):
         self.source = source
 
     def process_IN_MOVED_TO(self, event):
-        try:
-            # !!! FIXIT, TODO - ugly hack, insert to cache doesn't require constructed object !!!!
-            # even more it uses private method of source !!!
-            # !!! CachedSource have to have an factory method !!!
-            self.source.insert_to_cache(problems.Problem(os.path.join(event.path, event.name), self.source))
-        except errors.InvalidProblem as e:
-            logging.warning(e.message)
-        except errors.UnavailableSource as e:
-            logging.warning(e.message)
+        self.source.process_new_problem_id(os.path.join(event.path, event.name))
 
 class DirectoryProblemSource(problems.CachedSource):
 

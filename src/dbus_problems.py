@@ -1,3 +1,4 @@
+import os
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
 
@@ -69,24 +70,24 @@ class DBusProblemSource(problems.CachedSource):
             try:
                 return method(self.interface, *args)
             except dbus.exceptions.DBusException as e:
-                logging.warning("Reconnecting to dbus: {0}".format(e.message))
-                self._close_problems_bus()
-                self._connect_to_problems_bus()
-                return method(self.interface, *args)
+                if e.get_dbus_name() == "org.freedesktop.DBus.Error.ServiceUnknown":
+                    logging.warning("Reconnecting to dbus: {0}".format(e.message))
+                    self._close_problems_bus()
+                    self._connect_to_problems_bus()
+                    return method(self.interface, *args)
+
+                raise
 
     def _on_new_problem(self, *args):
         if len(args) < 2:
             logging.debug("Received new problem signal with invalid number of arguments {0}".format(args))
             return
 
-        try:
-            self.insert_to_cache(problems.Problem(str(args[1]), self))
-            logging.debug("Signal processed")
-        except errors.InvalidProblem as e:
-            logging.warning(_("Can't process '{0}': {1}").format(args[1], e.message))
-        except errors.UnavailableSource as e:
-            logging.warning(_("Source failed on processing of '{0}': {1}").format(args[1], e.message))
+        if len(args) > 2 and int(args[2]) != os.getuid():
+            logging.debug("Received new problem signal with different uid '{0}'".format(args[2]))
+            return
 
+        self.process_new_problem_id(str(args[1]))
 
     def get_items(self, problem_id, *args):
         info = {}
@@ -95,7 +96,7 @@ class DBusProblemSource(problems.CachedSource):
             try:
                 info = self._send_dbus_message(lambda iface, *params: iface.GetInfo(*params), problem_id, args)
             except dbus.exceptions.DBusException as e:
-                if e.message == "'{0}' is not a valid problem directory".format(problem_id):
+                if e.get_dbus_name() in ["org.freedesktop.problems.AuthFailure", "org.freedesktop.problems.InvalidProblemDir"]:
                     raise errors.InvalidProblem(e.message)
 
                 logging.warning(_("Can't get problem data from DBus service: {0!s}").format(e.message))
@@ -123,5 +124,8 @@ class DBusProblemSource(problems.CachedSource):
             self._send_dbus_message(lambda iface, *args: iface.DeleteProblem(*args), [problem_id])
             return True
         except dbus.exceptions.DBusException as e:
+            if e.get_dbus_name() in ["org.freedesktop.problems.AuthFailure", "org.freedesktop.problems.InvalidProblemDir"]:
+                raise errors.InvalidProblem(e.message)
+
             logging.warning(_("Can't delete problem over DBus service: {0!s}").format(e.message))
             return False

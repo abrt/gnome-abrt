@@ -117,7 +117,7 @@ class DBusProblemSource(problems.CachedSource):
             logging.warning(_("Can't get list of problems from DBus service: {0!s}").format(e.message))
             return None
 
-        return [problems.Problem(str(pid), self) for pid in prblms]
+        return (str(pid) for pid in prblms)
 
     def impl_delete_problem(self, problem_id):
         try:

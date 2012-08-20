@@ -95,12 +95,7 @@ class DirectoryProblemSource(problems.CachedSource):
                 dd = report.dd_opendir(problem_id)
                 if dd:
                     dd.close()
-                    try:
-                        all_problems.append(problems.Problem(problem_id, self))
-                    except errors.InvalidProblem as e:
-                        loggin.warning(_("Invalid problem directory '{0}': {1}").format(problem_id, e.message))
-
-        return all_problems
+                    yield problem_id
 
     def impl_delete_problem(self, problem_id):
         dd = report.dd_opendir(problem_id)

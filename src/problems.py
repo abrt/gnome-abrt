@@ -164,7 +164,14 @@ class CachedSource(ProblemSource):
 
     def get_problems(self):
         if not self._cache:
-            self._cache = self.impl_get_problems()
+            self._cache = []
+            for prblmid in self.impl_get_problems():
+                try:
+                    self._cache.append(self.create_new_problem(prblmid))
+                except errors.InvalidProblem as e:
+                    logging.warning(e.message)
+                except errors.UnavailableSource as e:
+                    logging.warning(e.message)
 
         return self._cache if self._cache else []
 

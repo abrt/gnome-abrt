@@ -8,6 +8,9 @@ import problems
 from l10n import _
 
 class ProblemSource(object):
+    NEW_PROBLEM = 0
+    DELETED_PROBLEM = 1
+    UPDATED_PROBLEM = 2
 
     def __init__(self):
         self._observers = set()
@@ -31,10 +34,10 @@ class ProblemSource(object):
         except ValueError as e:
             logging.debug(e.message)
 
-    def notify(self):
+    def notify(self, update_type=None, problem=None):
         logging.debug("Notify")
         for observer in self._observers:
-            observer.problem_source_updated(self)
+            observer.problem_source_updated(self, update_type, problem)
 
     def drop_cache(self):
         pass
@@ -116,8 +119,8 @@ class MultipleSources(ProblemSource):
             def __init__(self, parent):
                 self.parent = parent
 
-            def problem_source_updated(self, source):
-                self.parent.notify()
+            def problem_source_updated(self, source, update_type=None, problem=None):
+                self.parent.notify(update_type, problem)
 
         observer = SourceObserver(self)
         for s in self.sources:
@@ -138,11 +141,11 @@ class MultipleSources(ProblemSource):
     def delete_problem(self, problem_id):
         pass
 
-    def notify(self):
+    def notify(self, update_type=None, problem=None):
         if self._disable_notify:
             return
 
-        super(MultipleSources, self).notify()
+        super(MultipleSources, self).notify(update_type, problem)
 
     def drop_cache(self):
         self._disable_notify = True
@@ -179,21 +182,22 @@ class CachedSource(ProblemSource):
         self._cache = None
         self.notify()
 
-    def insert_to_cache(self, problem):
+    def _insert_to_cache(self, problem):
         if self._cache:
             if problem in self._cache:
                 raise errors.InvalidProblem(_("Problem '{0}' is already in the cache").format(problem.problem_id))
 
             self._cache.append(problem)
 
-        self.notify()
-
     def delete_problem(self, problem_id):
         if not self.impl_delete_problem(problem_id):
             return
 
         try:
+            p = self._cache[self._cache.index(problem_id)]
             self._cache.remove(problem_id)
+            self.notify(ProblemSource.DELETED_PROBLEM, p)
+            return
         except ValueError as e:
             logging.warning(_('Not found in cache but deleted: {0}'), e.message)
             self._cache = None
@@ -205,7 +209,9 @@ class CachedSource(ProblemSource):
 
     def process_new_problem_id(self, problem_id):
         try:
-            self.insert_to_cache(self.create_new_problem(problem_id))
+            p = self.create_new_problem(problem_id)
+            self._insert_to_cache(p)
+            self.notify(ProblemSource.NEW_PROBLEM, p)
         except errors.InvalidProblem as e:
             logging.warning(_("Can't process '{0}': {1}").format(problem_id, e.message))
         except errors.UnavailableSource as e:

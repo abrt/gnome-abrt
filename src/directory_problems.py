@@ -43,15 +43,6 @@ class INOTIFYGlibSource(GLib.Source):
     def finalize(self, *args):
         self.notifier.stop()
 
-class INOTIFYHandler(ProcessEvent):
-
-    def __init__(self, source):
-        super(INOTIFYHandler, self).__init__()
-
-        self.source = source
-
-    def process_IN_MOVED_TO(self, event):
-        self.source.process_new_problem_id(os.path.join(event.path, event.name))
 
 class DirectoryProblemSource(problems.CachedSource):
 
@@ -63,6 +54,16 @@ class DirectoryProblemSource(problems.CachedSource):
         # context is the instance variable because the source is to be used in Problems
         self._context = context
         if self._context:
+            # avoid multiple inheritance ...
+            class INOTIFYHandler(ProcessEvent):
+
+                def __init__(self, source):
+                    super(INOTIFYHandler, self).__init__()
+                    self.source = source
+
+                def process_IN_MOVED_TO(self, event):
+                    self.source.process_new_problem_id(os.path.join(event.path, event.name))
+
             self._wm = WatchManager()
             self._gsource = INOTIFYGlibSource(self._wm, self.directory,
                                               pyinotify.IN_MOVED_TO, INOTIFYHandler(self))
@@ -85,6 +86,10 @@ class DirectoryProblemSource(problems.CachedSource):
         dd.close()
 
         return items
+
+    # overrides base implementation
+    def create_new_problem(self, problem_id):
+        return problems.Problem(problem_id, self)
 
     def impl_get_problems(self):
         all_problems = []

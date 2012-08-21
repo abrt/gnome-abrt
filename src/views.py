@@ -53,6 +53,14 @@ def doN(text, default_text):
     return default_text
 
 
+def problem_to_storage_values(problem):
+    # not localizable, it is a format for tree view column
+    app = problem.get_application()
+    return ["{0!s}\n{1!s}".format(doN(app.name, _("N/A")), doN(problem['type'], "")),
+            "{0!s}\n{1!s}".format(fancydate(problem['date']), problem['count']),
+            problem]
+
+
 class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, source, controller):
@@ -76,8 +84,15 @@ class OopsWindow(Gtk.ApplicationWindow):
             def __init__(self, wnd):
                 self.wnd = wnd
 
-            def problem_source_updated(self, source):
-                self.wnd._reload_problems(source)
+            def problem_source_updated(self, source, update_type=None, problem=None):
+                if not update_type:
+                    self.wnd._reload_problems(source)
+                elif update_type == problems.ProblemSource.NEW_PROBLEM:
+                    self.wnd._add_problem_to_storage(problem)
+                elif update_type == problems.ProblemSource.DELETED_PROBLEM:
+                    self.wnd._remove_problem_from_storage(problem)
+                elif update_type == problems.ProblemSource.CHANGED_PROBLEM:
+                    self.wnd._update_problem_in_storage(problem)
 
         self._source.attach(SourceObserver(self))
 
@@ -118,17 +133,33 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         builder.connect_signals(self)
 
+    def _find_problem_iter(self, problem):
+        pit = self.ls_problems.get_iter_first()
+        while pit:
+            if self.ls_problems[pit][2] == problem:
+                return pit
+            pit = self.ls_problems.iter_next(pit)
+
+    def _add_problem_to_storage(self, problem):
+        self.ls_problems.append(problem_to_storage_values(problem))
+
+    def _remove_problem_from_storage(self, problem):
+        pit = self._find_problem_iter(problem)
+        if pit:
+            self.ls_problems.remove(pit)
+
+    def _update_problem_in_storage(self, problem):
+        pit = self._find_problem_iter(problem)
+        if pit:
+            self.ls_problems.set_values(pit, problem_to_storage_values(problem))
+
     def _reload_problems(self, source):
         self._reloading = True
         try:
             self.ls_problems.clear()
             problems = source.get_problems()
             for p in problems:
-                app = p.get_application()
-                # not localizable, it is a format for tree view column
-                self.ls_problems.append(["{0!s}\n{1!s}".format(doN(app.name, _("N/A")), doN(p['type'], "")),
-                                         "{0!s}\n{1!s}".format(fancydate(p['date']), p['count']),
-                                         p])
+                self._add_problem_to_storage(p)
         finally:
             self._reloading = False
 
@@ -138,9 +169,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         else:
             self._set_problem(None)
 
-    def _select_problem_iter(self, it):
-         self.tvs_problems.select_iter(it)
-         self.tv_problems.scroll_to_cell(self.tv_problems.get_model().get_path(it))
+    def _select_problem_iter(self, pit):
+         self.tvs_problems.select_iter(pit)
+         self.tv_problems.scroll_to_cell(self.tv_problems.get_model().get_path(pit))
 
     def _set_problem(self, problem):
         self.selected_problem = problem

@@ -10,7 +10,7 @@ from l10n import _
 class ProblemSource(object):
     NEW_PROBLEM = 0
     DELETED_PROBLEM = 1
-    UPDATED_PROBLEM = 2
+    CHANGED_PROBLEM = 2
 
     def __init__(self):
         self._observers = set()
@@ -35,7 +35,7 @@ class ProblemSource(object):
             logging.debug(e.message)
 
     def notify(self, change_type=None, problem=None):
-        logging.debug("Notify")
+        logging.debug("{0} : Notify", self.__class__.__name__)
         for observer in self._observers:
             observer.changed(self, change_type, problem)
 
@@ -48,22 +48,20 @@ class Problem:
         self.problem_id = problem_id
         self.source = source
         self.app = None
-        self.data = source.get_items(problem_id,
-                                     'component',
-                                     'executable',
-                                     'time',
-                                     'reason')
+        self.data = self._get_initial_data(self.source)
 
     def __str__(self):
         return self.problem_id
 
     def __eq__(self, other):
-        if isinstance(other, str):
+        if not other:
+            return False
+        elif isinstance(other, str):
             return self.problem_id == other
         elif isinstance(other, Problem):
             return self.problem_id == other.problem_id
 
-        raise TypeError('Not allowed type in __eq__')
+        raise TypeError('Not allowed type in __eq__: ' + other.__class__.__name__)
 
     def __loaditems__(self, *args):
         items = self.source.get_items(self.problem_id, *args)
@@ -91,6 +89,18 @@ class Problem:
             return 1
 
         return None
+
+    def _get_initial_data(self, source):
+        return source.get_items(self.problem_id,
+                                'component',
+                                'executable',
+                                'time',
+                                'reason')
+
+    def refresh(self):
+        logging.debug("Refreshing problem '{0}'".format(self.problem_id))
+        self.data = self._get_initial_data(self.source)
+        self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
 
     def delete(self):
         self.source.delete_problem(self.problem_id)

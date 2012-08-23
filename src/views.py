@@ -151,7 +151,12 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _update_problem_in_storage(self, problem):
         pit = self._find_problem_iter(problem)
         if pit:
-            self.ls_problems.set_values(pit, problem_to_storage_values(problem))
+            values = problem_to_storage_values(problem)
+            for i in xrange(0, len(values)-1):
+                self.ls_problems.set_value(pit, i, values[i])
+
+        if problem == self._get_selected(self.tvs_problems):
+            self._set_problem(problem)
 
     def _reload_problems(self, source):
         self._reloading = True

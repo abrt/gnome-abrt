@@ -1,4 +1,5 @@
 import os
+import time
 
 from gi.repository import Gtk
 from gi.repository import Gdk
@@ -60,6 +61,8 @@ def problem_to_storage_values(problem):
             "{0!s}\n{1!s}".format(fancydate(problem['date']), problem['count']),
             problem]
 
+def time_sort_func(model, first, second, data):
+    return time.mktime(model[first][2]['date'].timetuple()) - time.mktime(model[second][2]['date'].timetuple())
 
 class OopsWindow(Gtk.ApplicationWindow):
 
@@ -78,7 +81,11 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._source = source
         self._reloading = False
         self._controller = controller
+
+        self.ls_problems.set_sort_column_id(0,Gtk.SortType.DESCENDING)
+        self.ls_problems.set_sort_func(0, time_sort_func, None)
         self._filter = ProblemsFilter(self, self.tv_problems)
+
 
         class SourceObserver:
             def __init__(self, wnd):

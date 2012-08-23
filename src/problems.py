@@ -49,6 +49,7 @@ class Problem:
         self.source = source
         self.app = None
         self.data = self._get_initial_data(self.source)
+        self._deleted = False
 
     def __str__(self):
         return self.problem_id
@@ -64,6 +65,10 @@ class Problem:
         raise TypeError('Not allowed type in __eq__: ' + other.__class__.__name__)
 
     def __loaditems__(self, *args):
+        if self._deleted:
+            logging.debug("Accessing deleted problem '{0}'".format(self.problem_id))
+            return {}
+
         items = self.source.get_items(self.problem_id, *args)
         for k, v in items.items():
             self.data[k] = v
@@ -98,12 +103,21 @@ class Problem:
                                 'reason')
 
     def refresh(self):
+        if self._deleted:
+            logging.debug("Not refreshing deleted problem '{0}'".format(self.problem_id))
+            return
+
         logging.debug("Refreshing problem '{0}'".format(self.problem_id))
         self.data = self._get_initial_data(self.source)
         self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
 
     def delete(self):
-        self.source.delete_problem(self.problem_id)
+        self._deleted = True
+        try:
+            self.source.delete_problem(self.problem_id)
+        except Exception as e:
+            logging.warning(_("Can't delete problem '{0}': '{1}'").format(self.problem_id, e.message))
+            self._deleted = False
 
     def is_reported(self):
         return not self['reported_to'] is None

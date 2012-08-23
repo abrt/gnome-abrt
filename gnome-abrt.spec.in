@@ -1,6 +1,6 @@
 Name:		gnome-abrt
 Version:	0.2
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	A utility for viewing problems that have occurred with the system. 
 
 Group:		User Interface/Desktops
@@ -20,7 +20,8 @@ Requires:   libreport-python >= 2.0.10
 Requires:   dbus-python >= 0.83.0
 
 %description
-...
+GNOME application allows users to browse through detected problems and
+provides them with convenient way for managing these problems.
 
 %prep
 %setup -q
@@ -44,6 +45,11 @@ ln -sf %{python_sitelib}/%{name}/gnome-abrt $RPM_BUILD_ROOT%{_bindir}/gnome-abrt
 
 
 %changelog
+* Thu Aug 23 2012 Jakub Filak <jfilak@redhat.com> - 0.2-4
+- Update GUI on various signals (new problem, problem changed, etc.)
+- Sort problems by time in descending order
+- Correct internationalization in date string generator
+
 * Wed Aug 15 2012 Jakub Filak <jfilak@redhat.com> - 0.2-3
 - Reconnect to DBus bus
 - Default values for missing items

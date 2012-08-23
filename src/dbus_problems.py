@@ -84,7 +84,7 @@ class DBusProblemSource(problems.CachedSource):
             return
 
         if len(args) > 2 and int(args[2]) != os.getuid():
-            logging.debug("Received new problem signal with different uid '{0}'".format(args[2]))
+            logging.debug("Received new problem signal with different uid '{0}' ('{1}')".format(args[2], os.getuid()))
             return
 
         self.process_new_problem_id(str(args[1]))

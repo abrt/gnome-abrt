@@ -34,10 +34,10 @@ class ProblemSource(object):
         except ValueError as e:
             logging.debug(e.message)
 
-    def notify(self, update_type=None, problem=None):
+    def notify(self, change_type=None, problem=None):
         logging.debug("Notify")
         for observer in self._observers:
-            observer.problem_source_updated(self, update_type, problem)
+            observer.changed(self, change_type, problem)
 
     def drop_cache(self):
         pass
@@ -119,8 +119,8 @@ class MultipleSources(ProblemSource):
             def __init__(self, parent):
                 self.parent = parent
 
-            def problem_source_updated(self, source, update_type=None, problem=None):
-                self.parent.notify(update_type, problem)
+            def changed(self, source, change_type=None, problem=None):
+                self.parent.notify(change_type, problem)
 
         observer = SourceObserver(self)
         for s in self.sources:
@@ -141,11 +141,11 @@ class MultipleSources(ProblemSource):
     def delete_problem(self, problem_id):
         pass
 
-    def notify(self, update_type=None, problem=None):
+    def notify(self, change_type=None, problem=None):
         if self._disable_notify:
             return
 
-        super(MultipleSources, self).notify(update_type, problem)
+        super(MultipleSources, self).notify(change_type, problem)
 
     def drop_cache(self):
         self._disable_notify = True

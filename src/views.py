@@ -84,14 +84,14 @@ class OopsWindow(Gtk.ApplicationWindow):
             def __init__(self, wnd):
                 self.wnd = wnd
 
-            def problem_source_updated(self, source, update_type=None, problem=None):
-                if not update_type:
+            def changed(self, source, change_type=None, problem=None):
+                if not change_type:
                     self.wnd._reload_problems(source)
-                elif update_type == problems.ProblemSource.NEW_PROBLEM:
+                elif change_type == problems.ProblemSource.NEW_PROBLEM:
                     self.wnd._add_problem_to_storage(problem)
-                elif update_type == problems.ProblemSource.DELETED_PROBLEM:
+                elif change_type == problems.ProblemSource.DELETED_PROBLEM:
                     self.wnd._remove_problem_from_storage(problem)
-                elif update_type == problems.ProblemSource.CHANGED_PROBLEM:
+                elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
                     self.wnd._update_problem_in_storage(problem)
 
         self._source.attach(SourceObserver(self))

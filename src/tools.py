@@ -1,5 +1,7 @@
 import datetime
 import calendar
+import time
+import locale
 
 from l10n import _
 
@@ -15,11 +17,10 @@ def fancydate(value, base_date=None):
     if base_date < old_date:
         return _('Future')
 
-    d = base_date - old_date
+    d = base_date.date() - old_date.date()
 
     if d.days == 0:
-        # TODO add l10n
-        return "%d:%d" % (old_date.hour, old_date.minute)
+        return old_date.time().strftime(locale.nl_langinfo(locale.T_FMT))
     elif d.days == 1:
         return _('Yesterday')
 

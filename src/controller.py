@@ -4,21 +4,26 @@ import signal
 class Controller(object):
 
     def __init__(self, source):
-        signal.signal(signal.SIGCHLD, lambda signum, frame: self._handle_signal(signum))
         self.source = source
+        self.run_event_fn = self._first_event_run
 
     def _handle_signal(self, signum):
         self.source.drop_cache()
-        pass
 
     def report(self, problem):
-        self._run_event_on_problem("report-gui", problem)
+        self.run_event_fn("report-gui", problem)
 
     def delete(self, problem):
         problem.delete()
 
     def detail(self, problem):
-        self._run_event_on_problem("open-gui", problem)
+        self.run_event_fn("open-gui", problem)
+
+    def _first_event_run(self, event, problem):
+        signal.signal(signal.SIGCHLD, lambda signum, frame: self._handle_signal(signum))
+
+        self.run_event_fn = self._run_event_on_problem
+        self.run_event_fn(event, problem)
 
     def _run_event_on_problem(self, event, problem):
         try:

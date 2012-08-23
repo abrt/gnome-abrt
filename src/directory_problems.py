@@ -40,9 +40,13 @@ class INOTIFYGlibSource(GLib.Source):
         super(INOTIFYGlibSource, self).__init__()
 
         self.wm = wm
+        self.handler = handler
         # set timeout to 0 -> don't wait
         self.notifier = Notifier(self.wm, handler, timeout=0)
         self.wdd = self.wm.add_watch(path, handler.MASK, rec=True)
+
+    def get_handler(self):
+        return self.handler
 
     def prepare(self, *args):
         # return 0 -> don't wait
@@ -66,6 +70,9 @@ class INOTIFYProblemHandler(ProcessEvent):
 
     def __init__(self, problem):
         super(INOTIFYProblemHandler, self).__init__()
+        self.set_problem(problem)
+
+    def set_problem(self, problem):
         self.problem = problem
 
     def _handle_event(self, event):
@@ -141,12 +148,16 @@ class DirectoryProblemSource(problems.CachedSource):
     def create_new_problem(self, problem_id):
         p = problems.Problem(problem_id, self)
 
-        if self._context and not problem_id in self._problems_watcher:
-            logging.debug("Adding watcher for '{0}'".format(problem_id))
-            pgs = INOTIFYGlibSource(WatchManager(), problem_id, INOTIFYProblemHandler(p))
-            # TODO : add detach after reload ...
-            pgs.attach(self._context)
-            self._problems_watcher[problem_id] = pgs
+        if self._context:
+            if problem_id in self._problems_watcher:
+                logging.debug("Updating watcher for '{0}'".format(problem_id))
+                self._problems_watcher[problem_id].get_handler().set_problem(p)
+            else:
+                logging.debug("Adding watcher for '{0}'".format(problem_id))
+                pgs = INOTIFYGlibSource(WatchManager(), problem_id, INOTIFYProblemHandler(p))
+                # TODO : add detach after reload ...
+                pgs.attach(self._context)
+                self._problems_watcher[problem_id] = pgs
 
         return p
 

@@ -1,7 +1,7 @@
 Name:		gnome-abrt
 Version:	0.2
 Release:	4%{?dist}
-Summary:	A utility for viewing problems that have occurred with the system. 
+Summary:	A utility for viewing problems that have occurred with the system
 
 Group:		User Interface/Desktops
 License:    GPLv2+

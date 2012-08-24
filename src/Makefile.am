@@ -1,27 +1,10 @@
+SUBDIRS = gnome_abrt
+
 bin_SCRIPTS=gnome-abrt
 
-gnome_abrt_PYTHON = \
-    __init__.py \
-	application.py \
-	config.py \
-	controller.py \
-	dbus_problems.py \
-	directory_problems.py \
-	errors.py \
-	problems.py \
-	tools.py \
-	views.py \
-	l10n.py \
-	gnome_abrt_glade.py
+@INTLTOOL_DESKTOP_RULE@
+desktopdir = $(datadir)/applications
+desktop_in_files = gnome-abrt.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
-gnome_abrt_glade.py: oops.glade
-	{ \
-	  echo '# coding=utf-8'; \
-	  echo 'GNOME_ABRT_GLADE_CONTENTS ="\'; \
-	  cat oops.glade | sed -e 's/\"/\\\"/g' -e 's/$$/\\/'; \
-	  echo '"'; \
-	} >gnome_abrt_glade.py
-
-gnome_abrtdir = $(pythondir)/gnome-abrt
-
-EXTRA_DIST = oops.glade $(gnome_abrt_PYTHON) $(bin_SCRIPTS)
+EXTRA_DIST = $(bin_SCRIPTS) $(desktop_in_files)

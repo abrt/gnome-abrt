@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Automatic Bug Reporting Tool
+Comment=ABRT notification applet
+Icon=abrt
+Exec=gnome-abrt
+Terminal=false
+Type=Application
+Categories=System;
+StartupNotify=true
+X-Desktop-File-Install-Version=0.15

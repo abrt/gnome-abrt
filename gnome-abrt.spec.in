@@ -14,6 +14,7 @@ BuildRequires: intltool
 BuildRequires: gettext
 BuildRequires: libtool
 BuildRequires: python2-devel
+BuildRequires: desktop-file-utils
 
 Requires:	pygobject3 >= 3.2.2
 Requires:   libreport-python >= 2.0.10
@@ -27,22 +28,26 @@ provides them with convenient way for managing these problems.
 %setup -q
 
 
+%build
+autoconf
+%configure
+
+
 %install
-mkdir -p $RPM_BUILD_ROOT%{_bindir}/
+make install DESTDIR=$RPM_BUILD_ROOT
+#%find_lang %{name}
 
-install -d $RPM_BUILD_ROOT%{python_sitelib}/%{name}
-install -pm 0644 src/*.py $RPM_BUILD_ROOT%{python_sitelib}/%{name}/
-install -pm 0644 src/oops.glade $RPM_BUILD_ROOT%{python_sitelib}/%{name}/
-install -pm 0655 src/gnome-abrt $RPM_BUILD_ROOT%{python_sitelib}/%{name}/
-
-ln -sf %{python_sitelib}/%{name}/gnome-abrt $RPM_BUILD_ROOT%{_bindir}/gnome-abrt
+desktop-file-install \
+    --dir ${RPM_BUILD_ROOT}%{_datadir}/applications \
+    --delete-original \
+    ${RPM_BUILD_ROOT}%{_datadir}/applications/%{name}.desktop
 
 
 %files
-%dir %{python_sitelib}/%{name}
-%{python_sitelib}/%{name}/*
+%dir %{python_sitelib}/gnome_abrt
+%{python_sitelib}/gnome_abrt/*
 %{_bindir}/gnome-abrt
-
+%{_datadir}/applications/*
 
 %changelog
 * Thu Aug 23 2012 Jakub Filak <jfilak@redhat.com> - 0.2-4

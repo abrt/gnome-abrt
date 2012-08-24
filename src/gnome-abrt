@@ -26,45 +26,38 @@ import signal
 from gi.repository import Gtk
 from gi.repository import GLib
 
-# oops
-import config
-import views
-import problems
-import dbus_problems
-import directory_problems
-import controller
-import errors
-import l10n
+# gnome-abrt
+import gnome_abrt
 
 class OopsApplication(Gtk.Application):
     
     def __init__(self):
         super(OopsApplication, self).__init__()
 
-        conf = config.get_configuration()
+        conf = gnome_abrt.get_configuration()
         conf.add_option("all_problems", default_value=False)
 
         sources = []
         try:
-            sources.append(dbus_problems.DBusProblemSource())
-        except errors.UnavailableSource as e:
+            sources.append(gnome_abrt.DBusProblemSource())
+        except gnome_abrt.UnavailableSource as e:
             logging.warning(e.message)
 
         # TODO : really ? move it somewhere else ...
         self.gcontext = GLib.main_context_default()
         try:
             # TODO : pass the directory over command line
-            sources.append(directory_problems.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool"), context=self.gcontext))
-        except errors.UnavailableSource as e:
+            sources.append(gnome_abrt.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool"), context=self.gcontext))
+        except gnome_abrt.UnavailableSource as e:
             logging.warning(e.message)
 
         if len(sources) == 0:
-            raise errors.UnavailableSource("No available problem source.")
+            raise gnome_abrt.UnavailableSource("No available problem source.")
 
-        self.source = problems.MultipleSources(*sources)
+        self.source = gnome_abrt.MultipleSources(*sources)
 
     def do_activate(self):
-        self.window = views.OopsWindow(self, self.source, controller.Controller(self.source))
+        self.window = gnome_abrt.OopsWindow(self, self.source, gnome_abrt.Controller(self.source))
         self.window.connect("delete-event", self.on_window_delete_event)
         self.window.show_all()
 
@@ -75,12 +68,12 @@ class OopsApplication(Gtk.Application):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))
 
-    l10n.init('gnome_abrt')
-    logging.getLogger().setLevel(logging.DEBUG)
+    gnome_abrt.init()
+    #logging.getLogger().setLevel(logging.DEBUG)
     app = None
     try:
         app = OopsApplication()
-    except errors.UnavailableSource as e:
+    except gnome_abrt.UnavailableSource as e:
         logging.error(e.message)
         sys.exit(1)
 

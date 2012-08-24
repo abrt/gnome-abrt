@@ -67,6 +67,7 @@ AC_CONFIG_FILES([
     gnome-abrt.spec
     Makefile
     doc/Makefile
+    icons/Makefile
     src/Makefile
     src/gnome_abrt/Makefile
     po/Makefile.in

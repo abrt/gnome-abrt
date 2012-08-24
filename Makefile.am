@@ -1,5 +1,5 @@
 ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = src po doc
+SUBDIRS = src po doc icons
 
 EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf
 

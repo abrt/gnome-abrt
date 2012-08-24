@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Automatic Bug Reporting Tool
 Comment=ABRT notification applet
-Icon=abrt
+Icon=gnome-abrt
 Exec=gnome-abrt
 Terminal=false
 Type=Application

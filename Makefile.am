@@ -1,10 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = src po
 
-EXTRA_DIST = gnome-abrt.spec.in gnome-abrt.pc.in
-
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gnome-abrt.pc
+EXTRA_DIST = gnome-abrt.spec.in
 
 RPM_DIRS = --define "_sourcedir `pwd`" \
 	   --define "_rpmdir `pwd`" \

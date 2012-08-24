@@ -65,7 +65,6 @@ dnl PKG_CHECK_MODULES([LIBREPORT_PYTHON], [libreport-python])
 
 AC_CONFIG_FILES([
     gnome-abrt.spec
-    gnome-abrt.pc
 	Makefile
 	src/Makefile
     po/Makefile.in

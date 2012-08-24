@@ -21,7 +21,7 @@ Requires:   libreport-python >= 2.0.10
 Requires:   dbus-python >= 0.83.0
 
 %description
-GNOME application allows users to browse through detected problems and
+A GNOME application allows users to browse through detected problems and
 provides them with convenient way for managing these problems.
 
 %prep
@@ -31,11 +31,11 @@ provides them with convenient way for managing these problems.
 %build
 autoconf
 %configure
+make
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
-#%find_lang %{name}
+make install DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir}
 
 desktop-file-install \
     --dir ${RPM_BUILD_ROOT}%{_datadir}/applications \
@@ -44,10 +44,12 @@ desktop-file-install \
 
 
 %files
+%doc COPYING
 %dir %{python_sitelib}/gnome_abrt
 %{python_sitelib}/gnome_abrt/*
-%{_bindir}/gnome-abrt
+%{_bindir}/%{name}
 %{_datadir}/applications/*
+%{_mandir}/man6/%{name}.6.gz
 
 %changelog
 * Thu Aug 23 2012 Jakub Filak <jfilak@redhat.com> - 0.2-4

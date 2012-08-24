@@ -1,7 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = src po
+SUBDIRS = src po doc
 
-EXTRA_DIST = gnome-abrt.spec.in
+EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf
 
 RPM_DIRS = --define "_sourcedir `pwd`" \
 	   --define "_rpmdir `pwd`" \

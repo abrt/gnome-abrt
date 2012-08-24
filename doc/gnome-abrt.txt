@@ -1,0 +1,19 @@
+gnome-abrt(6)
+=============
+
+NAME
+----
+gnome-abrt - A utility for viewing problems that have occurred with the system
+
+OPTIONS
+-------
+The application does not have any option now
+
+DESCRIPTION
+-----------
+A GNOME application allows users to browse through detected problems and
+provides them with convenient way for managing these problems.
+
+AUTHORS
+-------
+* ABRT team

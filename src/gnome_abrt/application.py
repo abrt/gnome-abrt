@@ -17,8 +17,10 @@
 
 import os
 import sys
+import logging
 
 # PyGObject
+import gi
 from gi.repository import Gtk
 from gi.repository import Gio
 

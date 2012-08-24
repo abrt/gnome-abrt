@@ -1,5 +1,53 @@
 *.py[co]
 
+# generated Files
+*Makefile.in
+*Makefile
+src/gnome-abrt.desktop
+src/gnome_abrt/gnome_abrt_glade.py
+
+# autotools
+config.guess
+config.log
+config.mak
+config.rpath
+config.status
+config.sub
+configure
+depcomp
+missing
+m4
+aclocal.m4
+gnome-abrt.spec
+install-sh
+libtool
+ltmain.sh
+autom4te.cache
+
+# misc
+\#*
+*~
+abrt.spec
+abrt-version
+
+# po files
+po/Makevars.template
+po/notexist
+po/POTFILES
+po/Rules-quot
+po/boldquot.sed
+po/en@boldquot.header
+po/en@quot.header
+po/insert-header.sin
+po/quot.sed
+po/remove-potcdate.sed
+po/remove-potcdate.sin
+po/stamp-po
+po/stamp-it
+po/*.gmo
+po/.intltool-merge-cache
+po/gnome-abrt.po
+
 # Packages
 *.egg
 *.egg-info

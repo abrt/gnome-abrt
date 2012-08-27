@@ -1,6 +1,6 @@
-src/dbus_problems.py
-src/directory_problems.py
-src/oops.glade
-src/problems.py
-src/tools.py
-src/views.py
+src/gnome_abrt/dbus_problems.py
+src/gnome_abrt/directory_problems.py
+src/gnome_abrt/oops.glade
+src/gnome_abrt/problems.py
+src/gnome_abrt/tools.py
+src/gnome_abrt/views.py

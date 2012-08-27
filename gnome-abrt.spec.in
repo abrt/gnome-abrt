@@ -1,11 +1,11 @@
-Name:		gnome-abrt
-Version:	0.2
-Release:	6%{?dist}
-Summary:	A utility for viewing problems that have occurred with the system
+Name:       gnome-abrt
+Version:    0.2
+Release:    7%{?dist}
+Summary:    A utility for viewing problems that have occurred with the system
 
-Group:		User Interface/Desktops
+Group:      User Interface/Desktops
 License:    GPLv2+
-URL:	    https://fedorahosted.org/abrt/		
+URL:        https://fedorahosted.org/abrt/
 Source0:    https://github.com/downloads/jfilak/abrt-gnome-oops/%{name}-%{version}.tar.gz
 
 BuildArch:     noarch
@@ -18,10 +18,10 @@ BuildRequires: desktop-file-utils
 BuildRequires: asciidoc
 BuildRequires: xmlto
 
-Requires:   python-inotify >= 0.9.3
-Requires:	pygobject3 >= 3.2.2
-Requires:   libreport-python >= 2.0.10
-Requires:   dbus-python >= 0.83.0
+Requires:   python-inotify
+Requires:   pygobject3
+Requires:   libreport
+Requires:   dbus-python
 
 %description
 A GNOME application allows users to browse through detected problems and
@@ -66,18 +66,23 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
 %doc COPYING
-%dir %{python_sitelib}/gnome_abrt
+%{python_sitelib}/gnome_abrt
 %dir %{_datadir}/%{name}
-%{python_sitelib}/gnome_abrt/*
 %{_bindir}/%{name}
 %{_datadir}/applications/*
-%{_mandir}/man6/%{name}.6.gz
+%{_mandir}/man6/%{name}.6*
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/icons/hicolor/*/status/*
 %{_datadir}/%{name}/icons/hicolor/*/status/*
 
 
 %changelog
+* Mon Aug 27 2012 Jakub Filak <jfilak@redhat.com> - 0.2-7
+- Dropped versions from requires
+- Simplified spec
+- Removed pylint check from configure.ac
+- Whitespace cleanup (rmarko@redhat.com)
+
 * Fri Aug 24 2012 Jakub Filak <jfilak@redhat.com> - 0.2-6
 - Use own icons set
 

@@ -1,6 +1,6 @@
 Name:       gnome-abrt
 Version:    0.2
-Release:    7%{?dist}
+Release:    8%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
@@ -67,16 +67,19 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %files
 %doc COPYING
 %{python_sitelib}/gnome_abrt
-%dir %{_datadir}/%{name}
+%{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/*
 %{_mandir}/man6/%{name}.6*
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/icons/hicolor/*/status/*
-%{_datadir}/%{name}/icons/hicolor/*/status/*
 
 
 %changelog
+* Mon Aug 28 2012 Jakub Filak <jfilak@redhat.com> - 0.2-8
+- Take ownership of all installed directories
+- Correct paths to translated files
+
 * Mon Aug 27 2012 Jakub Filak <jfilak@redhat.com> - 0.2-7
 - Dropped versions from requires
 - Simplified spec

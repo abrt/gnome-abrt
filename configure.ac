@@ -9,6 +9,7 @@ AC_DISABLE_STATIC
 AC_PROG_CC
 AC_GNU_SOURCE
 AC_PROG_LIBTOOL
+AC_PROG_LN_S
 
 AM_PATH_PYTHON([2.7])
 #AX_PYTHON_MODULE([rpm], [1])
@@ -49,9 +50,13 @@ IT_PROG_INTLTOOL([0.35.0])
 
 dnl ****** END ****************************************
 
+PYTHON_CFLAGS=`python-config --cflags 2> /dev/null`
+AC_SUBST(PYTHON_CFLAGS)
+
+PKG_CHECK_MODULES([GTK], [gtk+-3.0])
+PKG_CHECK_MODULES([LIBREPORT_GTK], [libreport-gtk])
+PKG_CHECK_MODULES([PYGOBJECT3], [pygobject-3.0])
 dnl PKG_CHECK_MODULES([PYXDG], [pyxdg >= 0.19])
-dnl PKG_CHECK_MODULES([PYGOBJECT3], [pygobject3 >= 3.2.2])
-dnl PKG_CHECK_MODULES([LIBREPORT_PYTHON], [libreport-python])
 
 AC_CONFIG_FILES([
     gnome-abrt.spec
@@ -60,6 +65,7 @@ AC_CONFIG_FILES([
     icons/Makefile
     src/Makefile
     src/gnome_abrt/Makefile
+    src/gnome_abrt/wrappers/Makefile
     po/Makefile.in
 ])
 

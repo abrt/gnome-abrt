@@ -1,4 +1,8 @@
-gnome_abrt_PYTHON = \
+SUBDIRS = wrappers
+
+gnome_abrtexecdir = $(pyexecdir)/gnome_abrt
+
+gnome_abrtexec_PYTHON = \
     __init__.py \
 	application.py \
 	config.py \

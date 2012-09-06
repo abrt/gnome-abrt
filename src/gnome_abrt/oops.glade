@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkActionGroup" id="gag_control_actions">
+    <child>
+      <object class="GtkAction" id="gac_control_preferences">
+        <property name="label" translatable="yes">Preferences</property>
+        <signal name="activate" handler="on_gac_control_preferences_activate" swapped="no"/>
+      </object>
+    </child>
+  </object>
   <object class="GtkActionGroup" id="gag_problem_actions">
     <child>
       <object class="GtkAction" id="gac_delete">
@@ -74,6 +82,22 @@
             <property name="halign">end</property>
             <property name="toolbar_style">text</property>
             <property name="show_arrow">False</property>
+            <child>
+              <object class="GtkToolButton" id="tb_preferences">
+                <property name="use_action_appearance">False</property>
+                <property name="related_action">gac_control_preferences</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="related_action">gac_control_preferences</property>
+                <property name="use_action_appearance">False</property>
+                <property name="label" translatable="yes">Preferences</property>
+                <property name="use_underline">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
             <child>
               <object class="GtkToolButton" id="tb_delete">
                 <property name="related_action">gac_delete</property>

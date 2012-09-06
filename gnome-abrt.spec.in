@@ -1,14 +1,18 @@
+# TODO: https://fedoraproject.org/wiki/Packaging:AutoProvidesAndRequiresFiltering
+#       rpmlint warns about private-shared-object-provides
+#       can't use filter because the package doesn't met any of the required criteria
+#         ! Noarch package       ... caused by libreport wrappers shared library
+#         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
+
 Name:       gnome-abrt
 Version:    0.2
-Release:    8%{?dist}
+Release:    9%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
 License:    GPLv2+
 URL:        https://fedorahosted.org/abrt/
 Source0:    https://github.com/downloads/jfilak/abrt-gnome-oops/%{name}-%{version}.tar.gz
-
-BuildArch:     noarch
 
 BuildRequires: intltool
 BuildRequires: gettext
@@ -17,10 +21,12 @@ BuildRequires: python2-devel
 BuildRequires: desktop-file-utils
 BuildRequires: asciidoc
 BuildRequires: xmlto
+BuildRequires: pygobject3-devel
+BuildRequires: libreport-gtk-devel
+BuildRequires: gtk3-devel
 
 Requires:   python-inotify
 Requires:   pygobject3
-Requires:   libreport
 Requires:   dbus-python
 
 %description
@@ -41,6 +47,9 @@ make
 %install
 make install DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir}
 #find_lang {name}
+
+# remove all .la and .a files
+find $RPM_BUILD_ROOT -name '*.la' -or -name '*.a' | xargs rm -f
 
 desktop-file-install \
     --dir ${RPM_BUILD_ROOT}%{_datadir}/applications \
@@ -66,7 +75,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
 %doc COPYING
-%{python_sitelib}/gnome_abrt
+%{python_sitearch}/gnome_abrt
 %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/*
@@ -76,6 +85,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Sep 06 2012 Jakub Filak <jfilak@redhat.com> - 0.2-9
+- Remove noarch because of binary wrappers
+- Added support for adjusting libreport preferences
+
 * Mon Aug 28 2012 Jakub Filak <jfilak@redhat.com> - 0.2-8
 - Take ownership of all installed directories
 - Correct paths to translated files

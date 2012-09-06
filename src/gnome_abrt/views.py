@@ -6,6 +6,7 @@ from gi.repository import Gdk
 
 import problems
 import config
+import wrappers
 from tools import fancydate
 from l10n import _, GETTEXT_PROGNAME
 
@@ -239,3 +240,10 @@ class OopsWindow(Gtk.ApplicationWindow):
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()
         conf['all_problems'] = self.chb_all_problems.get_active()
+
+    def on_gac_control_preferences_activate(self, action):
+        wrappers.show_events_list_dialog(self)
+
+    def on_wnd_main_button_press_event(self, button):
+        print "press"
+        self.gm_control.poppup()

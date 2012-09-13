@@ -15,12 +15,17 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
-class InvalidProblem(Exception):
+class GnomeAbrtError(Exception):
+
+    def __init__(self, message=None):
+        super(GnomeAbrtError, self).__init__(message)
+
+class InvalidProblem(GnomeAbrtError):
 
     def __init__(self, message=None):
         super(InvalidProblem, self).__init__(message)
 
-class UnavailableSource(Exception):
+class UnavailableSource(GnomeAbrtError):
 
     def __init__(self, message=None):
         super(UnavailableSource, self).__init__(message)

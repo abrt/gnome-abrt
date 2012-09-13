@@ -147,9 +147,12 @@ class Problem:
         self._deleted = True
         try:
             self.source.delete_problem(self.problem_id)
-        except Exception as e:
+        except errors.GnomeAbrtError as e:
             logging.warning(_("Can't delete problem '{0}': '{1}'").format(self.problem_id, e.message))
             self._deleted = False
+        except Exception as e:
+            self._deleted = False
+            raise
 
     def is_reported(self):
         return not self['reported_to'] is None

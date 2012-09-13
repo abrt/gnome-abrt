@@ -68,7 +68,7 @@ def time_sort_func(model, first, second, data):
 class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, source, controller):
-        super(OopsWindow, self).__init__(title=_('Oops!'), application=application)
+        super(OopsWindow, self).__init__(title=_('Automatic Bug Reporting Tool'), application=application)
 
         self.set_default_size(640, 480)
 

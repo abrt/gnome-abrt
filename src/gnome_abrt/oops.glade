@@ -485,6 +485,7 @@
                     <property name="enable_search">False</property>
                     <property name="search_column">0</property>
                     <property name="enable_grid_lines">horizontal</property>
+                    <signal name="button-press-event" handler="on_tv_problems_button_press_event" swapped="no"/>
                     <child internal-child="selection">
                       <object class="GtkTreeSelection" id="tvs_problems">
                         <property name="mode">multiple</property>

@@ -156,6 +156,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.te_search = builder.get_object('te_search')
         self.chb_all_problems = builder.get_object('chb_all_problems')
         self.vbx_links = builder.get_object('vbx_links')
+        self.gac_report = builder.get_object('gac_report')
 
         builder.connect_signals(self)
 
@@ -289,3 +290,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     def on_wnd_main_button_press_event(self, button):
         print "press"
         self.gm_control.poppup()
+
+    def on_tv_problems_button_press_event(self, sender, e):
+        if e.type == type.__getattribute__(Gdk.EventType, '2BUTTON_PRESS'):
+            self.gac_report.activate()

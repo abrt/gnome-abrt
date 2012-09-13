@@ -61,10 +61,22 @@ class ProblemSource(object):
 
 class Problem:
 
+    class Submission:
+        URL = "URL"
+        MSG = "MSG"
+        BTHASH = "BTHASH"
+
+        def __init__(self, title, rtype, data):
+            self.title = title
+            self.rtype = rtype
+            self.data = data
+
+
     def __init__(self, problem_id, source):
         self.problem_id = problem_id
         self.source = source
         self.app = None
+        self.submission = None
         self.data = self._get_initial_data(self.source)
         self._deleted = False
 
@@ -99,6 +111,8 @@ class Problem:
             return self.get_application()
         elif item == 'is_reported':
             return self.is_reported()
+        elif item == 'submission':
+            return self.get_submission()
 
         if cached and item in self.data:
             return self.data[item]
@@ -126,6 +140,7 @@ class Problem:
 
         logging.debug("Refreshing problem '{0}'".format(self.problem_id))
         self.data = self._get_initial_data(self.source)
+        self.submission = None
         self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
 
     def delete(self):
@@ -145,6 +160,44 @@ class Problem:
                                                     self['executable'])
 
         return self.app
+
+    def get_submission(self):
+        if not self.submission:
+            self.submission = []
+            if self['reported_to']:
+                # Most common type of line in reported_to file
+                # Bugzilla: URL=http://bugzilla.com/?=123456
+                for l in self['reported_to'].split('\n'):
+                    if len(l) == 0:
+                        continue
+
+                    p = []
+                    for i in xrange(0,len(l)):
+                        if l[i] == ':':
+                            break
+                        p.append(l[i])
+
+                    p = ''.join(p)
+                    i += 1
+
+                    for i in xrange(i, len(l)):
+                        if not l[i] == ' ':
+                            break
+
+                    r = []
+                    for i in xrange(i, len(l)):
+                        if l[i] == '=':
+                            break
+                        r.append(l[i])
+
+                    r = ''.join(r)
+                    i += 1
+
+                    self.submission.append(
+                        Problem.Submission(p, r, l[i:]))
+
+        return self.submission
+
 
 class MultipleSources(ProblemSource):
 

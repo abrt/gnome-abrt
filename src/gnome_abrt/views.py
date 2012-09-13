@@ -135,9 +135,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.nb_problem_layout = builder.get_object('nb_problem_layout')
         self.tb_delete = builder.get_object('tb_delete')
         self.tb_report = builder.get_object('tb_report')
-        self.btn_detail = builder.get_object('btn_detail')
         self.te_search = builder.get_object('te_search')
         self.chb_all_problems = builder.get_object('chb_all_problems')
+        self.vbx_links = builder.get_object('vbx_links')
 
         builder.connect_signals(self)
 
@@ -192,7 +192,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         sensitive_btn = not problem is None
         self.tb_delete.set_sensitive(sensitive_btn)
         self.tb_report.set_sensitive(sensitive_btn)
-        self.btn_detail.set_sensitive(sensitive_btn)
+        self.vbx_links.foreach(lambda w, u: w.destroy(), None)
 
         if problem:
             self.nb_problem_layout.set_current_page(0)
@@ -209,6 +209,18 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             if problem['is_reported']:
                 self.lbl_reported_value.set_text(_('yes'))
+                for s in problem['submission']:
+                    if problems.Problem.Submission.URL == s.rtype:
+                        lnk = Gtk.LinkButton(s.data, s.title)
+                        lnk.set_visible(True)
+                        lnk.set_valign(Gtk.Align.START)
+
+                        self.vbx_links.pack_start(lnk, False, True, 0)
+
+                space = Gtk.Alignment()
+                space.set_visible(True)
+                space.set_vexpand(True)
+                self.vbx_links.pack_start(space, False, True, 0)
             else:
                 self.lbl_reported_value.set_text(_('no'))
         else:

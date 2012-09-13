@@ -133,8 +133,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.tvs_problems = builder.get_object('tvs_problems')
         self.img_app_icon = builder.get_object('img_app_icon')
         self.nb_problem_layout = builder.get_object('nb_problem_layout')
-        self.tb_delete = builder.get_object('tb_delete')
-        self.tb_report = builder.get_object('tb_report')
+        self.btn_delete = builder.get_object('btn_delete')
+        self.btn_report = builder.get_object('btn_report')
         self.te_search = builder.get_object('te_search')
         self.chb_all_problems = builder.get_object('chb_all_problems')
         self.vbx_links = builder.get_object('vbx_links')
@@ -190,8 +190,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.selected_problem = problem
 
         sensitive_btn = not problem is None
-        self.tb_delete.set_sensitive(sensitive_btn)
-        self.tb_report.set_sensitive(sensitive_btn)
+        self.btn_delete.set_sensitive(sensitive_btn)
+        self.btn_report.set_sensitive(sensitive_btn)
         self.vbx_links.foreach(lambda w, u: w.destroy(), None)
 
         if problem:

@@ -87,7 +87,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.ls_problems.set_sort_func(0, time_sort_func, None)
         self._filter = ProblemsFilter(self, self.tv_problems)
 
-
         class SourceObserver:
             def __init__(self, wnd):
                 self.wnd = wnd
@@ -157,6 +156,12 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.chb_all_problems = builder.get_object('chb_all_problems')
         self.vbx_links = builder.get_object('vbx_links')
         self.gac_report = builder.get_object('gac_report')
+        self.gac_delete = builder.get_object('gac_delete')
+
+        self.ag_accelerators = Gtk.AccelGroup()
+        self.ag_accelerators.connect_by_path(self.gac_report.get_accel_path(), lambda *args: self.gac_report.activate())
+        self.ag_accelerators.connect_by_path(self.gac_delete.get_accel_path(), lambda *args: self.gac_delete.activate())
+        self.add_accel_group(self.ag_accelerators)
 
         builder.connect_signals(self)
 

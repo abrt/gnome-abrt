@@ -12,18 +12,23 @@
     </child>
   </object>
   <object class="GtkActionGroup" id="gag_problem_actions">
+    <property name="name">problems</property>
     <child>
       <object class="GtkAction" id="gac_delete">
         <property name="label" translatable="yes">Delete</property>
+        <property name="tooltip" translatable="yes">Delete selected problems</property>
         <property name="stock_id">gtk-delete</property>
         <signal name="activate" handler="on_gac_delete_activate" swapped="no"/>
       </object>
+      <accelerator key="Delete"/>
     </child>
     <child>
       <object class="GtkAction" id="gac_report">
         <property name="label" translatable="yes">_Report</property>
+        <property name="tooltip" translatable="yes">Submits selected problem</property>
         <signal name="activate" handler="on_gac_report_activate" swapped="no"/>
       </object>
+      <accelerator key="Return"/>
     </child>
     <child>
       <object class="GtkAction" id="gac_detail">
@@ -35,6 +40,7 @@
     <child>
       <object class="GtkAction" id="gac_opt_all_problems">
         <property name="label" translatable="yes">_All problems</property>
+        <property name="tooltip" translatable="yes">Show all known problems from all system users</property>
         <signal name="activate" handler="on_gac_opt_all_problems_activate" swapped="no"/>
       </object>
     </child>
@@ -53,6 +59,7 @@
     <property name="width_request">640</property>
     <property name="height_request">480</property>
     <property name="can_focus">False</property>
+    <property name="icon_name">gnome-abrt</property>
     <child>
       <object class="GtkGrid" id="gr_main_layout">
         <property name="visible">True</property>

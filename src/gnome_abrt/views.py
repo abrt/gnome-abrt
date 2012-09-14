@@ -186,7 +186,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if len(problems) > 0:
             self._select_problem_iter(self.tv_problems.get_model().get_iter_first())
-            self._set_problem(problems[0])
         else:
             self._set_problem(None)
 

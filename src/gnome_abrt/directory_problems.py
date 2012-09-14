@@ -105,6 +105,9 @@ class DirectoryProblemSource(problems.CachedSource):
     def __init__(self, directory, context=None):
         super(DirectoryProblemSource, self).__init__()
 
+        if not os.path.isdir(directory):
+            raise errors.UnavailableSource(_("No directory: {0}").format(directory))
+
         self.directory = directory
         self._problems_watcher = {}
 

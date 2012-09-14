@@ -160,7 +160,8 @@ class Problem:
     def get_application(self):
         if not self.app:
             self.app = application.find_application(self['component'],
-                                                    self['executable'])
+                                                    self['executable'],
+                                                    self['cmdline'])
 
         return self.app
 

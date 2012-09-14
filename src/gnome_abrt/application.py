@@ -36,30 +36,45 @@ class Application(object):
 
         self.icon = icon
 
+
 __globa_app_cache__ = {}
 
-def find_application(component, executable):
+
+def compare_executable(executable, de):
+    dexec = de.get_executable()
+    return os.path.basename(executable) == os.path.basename(dexec) or executable == dexec
+
+def compare_cmdline(cmdline, de):
+    dcmdline = de.get_commandline()
+    return os.path.basename(cmdline) == os.path.basename(dcmdline) or cmdline == dcmdline
+
+def find_application(component, executable, cmdline):
     global __globa_app_cache__
 
-    if not executable in __globa_app_cache__:
-        if executable and len(executable) > 0:
-            lookup_exec = os.path.basename(executable)
-            ll = len(lookup_exec)
-            theme = Gtk.IconTheme.get_default()
-            for dai in Gio.DesktopAppInfo.get_all():
-                if dai.get_executable()[:ll] == lookup_exec:
-                    icon = None
-                    for name in dai.get_icon().get_names():
-                        try:
-                            icon = theme.load_icon(name, 128, Gtk.IconLookupFlags.USE_BUILTIN)
-                            break
-                        except gi._glib.GError as e:
-                            logging.debug(e.message)
+    lookupnames = [(cmdline, compare_cmdline), (executable, compare_executable)]
 
-                    __globa_app_cache__[executable] = Application(executable,
-                                                                  name=dai.get_name(),
-                                                                  icon=icon)
-                    return __globa_app_cache__[executable]
-        __globa_app_cache__[executable] = Application(executable, name=component)
+    for n in lookupnames:
+        if not n[0]:
+            continue
 
+        if n[0] in __globa_app_cache__:
+            return __globa_app_cache__[executable]
+
+        theme = Gtk.IconTheme.get_default()
+        for dai in Gio.DesktopAppInfo.get_all():
+            if n[1](n[0], dai):
+                icon = None
+                for name in dai.get_icon().get_names():
+                    try:
+                        icon = theme.load_icon(name, 128, Gtk.IconLookupFlags.USE_BUILTIN)
+                        break
+                    except gi._glib.GError as e:
+                        logging.debug(e.message)
+
+                __globa_app_cache__[executable] = Application(executable,
+                                                              name=dai.get_name(),
+                                                              icon=icon)
+                return __globa_app_cache__[executable]
+
+    __globa_app_cache__[executable] = Application(executable, name=component)
     return __globa_app_cache__[executable]

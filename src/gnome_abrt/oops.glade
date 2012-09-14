@@ -5,6 +5,8 @@
     <child>
       <object class="GtkAction" id="gac_control_preferences">
         <property name="label" translatable="yes">Preferences</property>
+        <property name="stock_id">gtk-preferences</property>
+        <property name="always_show_image">True</property>
         <signal name="activate" handler="on_gac_control_preferences_activate" swapped="no"/>
       </object>
     </child>
@@ -19,8 +21,7 @@
     </child>
     <child>
       <object class="GtkAction" id="gac_report">
-        <property name="label" translatable="yes">Report</property>
-        <property name="stock_id">gtk-network</property>
+        <property name="label" translatable="yes">_Report</property>
         <signal name="activate" handler="on_gac_report_activate" swapped="no"/>
       </object>
     </child>
@@ -33,7 +34,7 @@
     </child>
     <child>
       <object class="GtkAction" id="gac_opt_all_problems">
-        <property name="label" translatable="yes">All problems</property>
+        <property name="label" translatable="yes">_All problems</property>
         <signal name="activate" handler="on_gac_opt_all_problems_activate" swapped="no"/>
       </object>
     </child>
@@ -103,6 +104,7 @@
                       <object class="GtkAlignment" id="alignment4">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="margin_bottom">20</property>
                         <property name="hexpand">True</property>
                         <child>
                           <object class="GtkGrid" id="grid1">
@@ -567,6 +569,7 @@
                 <property name="halign">start</property>
                 <property name="margin_left">10</property>
                 <property name="related_action">gac_control_preferences</property>
+                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -598,6 +601,7 @@
                 <property name="halign">end</property>
                 <property name="margin_right">5</property>
                 <property name="related_action">gac_delete</property>
+                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>

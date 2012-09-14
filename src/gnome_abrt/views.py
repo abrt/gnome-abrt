@@ -70,7 +70,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     def __init__(self, application, source, controller):
         super(OopsWindow, self).__init__(title=_('Automatic Bug Reporting Tool'), application=application)
 
-        self.set_default_size(640, 480)
+        self.set_default_size(780, 480)
 
         if os.path.exists('oops.glade'):
             self._load_widgets_from_builder(filename='oops.glade')
@@ -224,7 +224,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             if app.icon:
                 self.img_app_icon.set_from_pixbuf(app.icon)
             else:
-                self.img_app_icon.set_from_stock(Gtk.STOCK_MISSING_IMAGE, 3)
+                self.img_app_icon.clear()
 
             if problem['is_reported']:
                 self.lbl_reported_value.set_text(_('yes'))

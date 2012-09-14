@@ -5,8 +5,8 @@
 #         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
 
 Name:       gnome-abrt
-Version:    0.2
-Release:    9%{?dist}
+Version:    0.2.1
+Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
@@ -85,6 +85,13 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Sep 14 2012 Jakub Filak <jfilak@redhat.com> - 0.2.1-1
+- Detail button replaced by list of reported_to links
+- Improved look (margins, icons, wider window by default)
+- Implemented multiple delete
+- Changed window tiple
+- Double click and keyboard shortcuts
+
 * Thu Sep 06 2012 Jakub Filak <jfilak@redhat.com> - 0.2-9
 - Remove noarch because of binary wrappers
 - Added support for adjusting libreport preferences

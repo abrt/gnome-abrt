@@ -90,14 +90,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         class SourceObserver:
             def __init__(self, wnd):
                 self.wnd = wnd
-                self.enabled = True
-                self.need_reload = False
 
             def changed(self, source, change_type=None, problem=None):
-                if not self.enabled:
-                    self.need_reload = True
-                    return
-
                 if not change_type:
                     self.wnd._reload_problems(source)
                 elif change_type == problems.ProblemSource.NEW_PROBLEM:
@@ -106,16 +100,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                     self.wnd._remove_problem_from_storage(problem)
                 elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
                     self.wnd._update_problem_in_storage(problem)
-
-            def disable(self):
-                self.enabled = False
-
-            def enable(self):
-                self.enabled = True
-
-                if self.changed:
-                    self.need_reload = False
-                    self.wnd._reload_problems(source)
 
 
         self._source_observer = SourceObserver(self)
@@ -259,22 +243,15 @@ class OopsWindow(Gtk.ApplicationWindow):
         if only_first:
             return model[rows[0]][2]
 
-        return (model[p][2] for p in rows)
+        return [model[p][2] for p in rows]
 
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
             self._set_problem(self._get_selected(selection))
 
     def on_gac_delete_activate(self, action):
-        # must be dissabled because delete removes a problem from treeview
-        # and it breaks a selection
-        self._source_observer.disable()
-
-        try:
-            for p in self._get_selected(self.tvs_problems, False):
-                self._controller.delete(p)
-        finally:
-            self._source_observer.enable()
+        for p in self._get_selected(self.tvs_problems, False):
+            self._controller.delete(p)
 
     def on_gac_detail_activate(self, action):
         self._controller.detail(self._get_selected(self.tvs_problems))

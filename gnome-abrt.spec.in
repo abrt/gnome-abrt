@@ -6,7 +6,7 @@
 
 Name:       gnome-abrt
 Version:    0.2.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
@@ -85,6 +85,11 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Sep 14 2012 Jakub Filak <jfilak@redhat.com> - 0.2.1-2
+- Fixed problem with selection of problem after start up
+- Corrected application icon look up algorithm
+- Fixed problem with missing problems directory
+
 * Fri Sep 14 2012 Jakub Filak <jfilak@redhat.com> - 0.2.1-1
 - Detail button replaced by list of reported_to links
 - Improved look (margins, icons, wider window by default)

@@ -185,7 +185,7 @@
                                 <property name="halign">start</property>
                                 <property name="hexpand">True</property>
                                 <property name="xpad">5</property>
-                                <property name="label" translatable="yes">app</property>
+                                <property name="label">app</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -201,7 +201,7 @@
                                 <property name="halign">start</property>
                                 <property name="hexpand">True</property>
                                 <property name="xpad">5</property>
-                                <property name="label" translatable="yes">2.0.13-2</property>
+                                <property name="label">2.0.13-2</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -217,7 +217,7 @@
                                 <property name="halign">start</property>
                                 <property name="hexpand">True</property>
                                 <property name="xpad">5</property>
-                                <property name="label" translatable="yes">no</property>
+                                <property name="label">no</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -261,7 +261,7 @@
                                     <property name="orientation">vertical</property>
                                     <child>
                                       <object class="GtkLinkButton" id="linkbutton1">
-                                        <property name="label" translatable="yes">button</property>
+                                        <property name="label">button</property>
                                         <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -281,7 +281,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkLinkButton" id="linkbutton2">
-                                        <property name="label" translatable="yes">button</property>
+                                        <property name="label">button</property>
                                         <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -365,7 +365,7 @@
                         <property name="xalign">0</property>
                         <property name="yalign">2.2351741291171123e-10</property>
                         <property name="ypad">11</property>
-                        <property name="label" translatable="yes">Application killed by signal</property>
+                        <property name="label">Application killed by signal</property>
                         <attributes>
                           <attribute name="font-desc" value="Sans Bold 11"/>
                         </attributes>
@@ -383,7 +383,7 @@
                         <property name="hexpand">True</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
-                        <property name="label" translatable="yes">Application can't continue becuase of received signal</property>
+                        <property name="label">Application can't continue becuase of received signal</property>
                         <property name="wrap">True</property>
                       </object>
                       <packing>
@@ -425,7 +425,7 @@
               <object class="GtkLabel" id="lbl_page_problem">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Problem page</property>
+                <property name="label">Problem page</property>
               </object>
               <packing>
                 <property name="tab_fill">False</property>
@@ -457,7 +457,7 @@
               <object class="GtkLabel" id="lbl_page_empty">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Empty page</property>
+                <property name="label">Empty page</property>
               </object>
               <packing>
                 <property name="position">1</property>

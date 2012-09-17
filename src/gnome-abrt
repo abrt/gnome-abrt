@@ -30,7 +30,7 @@ from gi.repository import GLib
 import gnome_abrt
 
 class OopsApplication(Gtk.Application):
-    
+
     def __init__(self):
         super(OopsApplication, self).__init__()
 
@@ -57,9 +57,13 @@ class OopsApplication(Gtk.Application):
         self.source = gnome_abrt.MultipleSources(*sources)
 
     def do_activate(self):
-        self.window = gnome_abrt.OopsWindow(self, self.source, gnome_abrt.Controller(self.source))
-        self.window.connect("delete-event", self.on_window_delete_event)
-        self.window.show_all()
+        try:
+            self.window = gnome_abrt.OopsWindow(self, self.source, gnome_abrt.Controller(self.source))
+            self.window.connect("delete-event", self.on_window_delete_event)
+            self.window.show_all()
+        except Exception as e:
+            logging.error(e.message)
+            sys.exit(1)
 
     def on_window_delete_event(self, widget, data):
         self.quit()

@@ -64,14 +64,16 @@ def find_application(component, executable, cmdline):
         for dai in Gio.DesktopAppInfo.get_all():
             if n[1](n[0], dai):
                 icon = None
-                for name in dai.get_icon().get_names():
-                    try:
-                        icon = theme.load_icon(name, 128, Gtk.IconLookupFlags.USE_BUILTIN)
-                        break
-                    except gi._glib.GError as e:
-                        logging.debug(e.message)
+                dai_icon = dai.get_icon()
+                if dai_icon:
+                    for name in dai_icon.get_names():
+                        try:
+                            icon = theme.load_icon(name, 128, Gtk.IconLookupFlags.USE_BUILTIN)
+                            break
+                        except gi._glib.GError as e:
+                            logging.debug(e.message)
 
-                __globa_app_cache__[executable] = Application(executable,
+                    __globa_app_cache__[executable] = Application(executable,
                                                               name=dai.get_name(),
                                                               icon=icon)
                 return __globa_app_cache__[executable]

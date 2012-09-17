@@ -1,3 +1,5 @@
+src/gnome-abrt.desktop.in
+
 src/gnome_abrt/dbus_problems.py
 src/gnome_abrt/directory_problems.py
 src/gnome_abrt/oops.glade

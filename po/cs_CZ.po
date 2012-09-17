@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-17 12:03+0200\n"
-"PO-Revision-Date: 2012-09-17 10:10+0000\n"
+"POT-Creation-Date: 2012-09-17 16:47+0200\n"
+"PO-Revision-Date: 2012-09-17 14:48+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
+msgid "Automatic Bug Reporting Tool"
+msgstr "Nástroj pro automatické reportování chyb"
+
+#: ../src/gnome-abrt.desktop.in.h:2
+msgid "View and report application crashes"
+msgstr "Prohlédni a nahlas chyby aplikací"
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -158,10 +166,6 @@ msgstr "Před {0:d} {1!s}"
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
 msgstr "Nedostupné"
-
-#: ../src/gnome_abrt/views.py:71
-msgid "Automatic Bug Reporting Tool"
-msgstr "Nástroj pro automatické reportování chyb"
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"

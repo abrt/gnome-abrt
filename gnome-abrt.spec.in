@@ -6,7 +6,7 @@
 
 Name:       gnome-abrt
 Version:    0.2.1
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
@@ -46,7 +46,7 @@ make
 
 %install
 make install DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir}
-#find_lang {name}
+%find_lang %{name}
 
 # remove all .la and .a files
 find $RPM_BUILD_ROOT -name '*.la' -or -name '*.a' | xargs rm -f
@@ -73,7 +73,7 @@ fi
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
-%files
+%files -f %{name}.lang
 %doc COPYING
 %{python_sitearch}/gnome_abrt
 %{_datadir}/%{name}
@@ -85,6 +85,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Sep 17 2012 Jakub Filak <jfilak@redhat.com> - 0.2.1-3
+- Add cs and et translations
+
 * Fri Sep 14 2012 Jakub Filak <jfilak@redhat.com> - 0.2.1-2
 - Fixed problem with selection of problem after start up
 - Corrected application icon look up algorithm

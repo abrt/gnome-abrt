@@ -52,7 +52,7 @@ class ProblemSource(object):
             logging.debug(e.message)
 
     def notify(self, change_type=None, problem=None):
-        logging.debug("{0} : Notify", self.__class__.__name__)
+        logging.debug("{0} : Notify".format(self.__class__.__name__))
         for observer in self._observers:
             observer.changed(self, change_type, problem)
 

@@ -21,6 +21,7 @@ import os
 import sys
 import logging
 import signal
+from argparse import ArgumentParser
 
 # pygobject
 from gi.repository import Gtk
@@ -28,6 +29,7 @@ from gi.repository import GLib
 
 # gnome-abrt
 import gnome_abrt
+from gnome_abrt.l10n import _
 
 class OopsApplication(Gtk.Application):
 
@@ -73,7 +75,15 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))
 
     gnome_abrt.init()
-    #logging.getLogger().setLevel(logging.DEBUG)
+
+    CMDARGS = ArgumentParser(description = _('View and report application crashes'))
+    CMDARGS.add_argument('-v', '--verbose', action='count', help=_('Be verbose'))
+
+    OPTIONS = CMDARGS.parse_args()
+
+    if OPTIONS.verbose > 0:
+        logging.getLogger().setLevel(logging.DEBUG)
+
     app = None
     try:
         app = OopsApplication()
@@ -81,5 +91,5 @@ if __name__ == "__main__":
         logging.error(e.message)
         sys.exit(1)
 
-    exit_code = app.run(sys.argv)
+    exit_code = app.run(None)
     sys.exit(exit_code)

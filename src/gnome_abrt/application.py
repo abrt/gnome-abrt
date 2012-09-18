@@ -73,7 +73,7 @@ def find_application(component, executable, cmdline):
                         except gi._glib.GError as e:
                             logging.debug(e.message)
 
-                    __globa_app_cache__[executable] = Application(executable,
+                __globa_app_cache__[executable] = Application(executable,
                                                               name=dai.get_name(),
                                                               icon=icon)
                 return __globa_app_cache__[executable]

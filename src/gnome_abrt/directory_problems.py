@@ -77,7 +77,11 @@ class INOTIFYProblemHandler(ProcessEvent):
 
     def _handle_event(self, event):
         if event.name != '.lock':
-            self.problem.refresh()
+            try:
+                self.problem.refresh()
+            except errors.InvalidProblem as e:
+                logging.warning(e.message)
+                self.problem.delete()
 
     def process_IN_MOVED_TO(self, event):
         logging.debug("IN_MOVED_TO '{0}/{1}'".format(event.path, event.name))

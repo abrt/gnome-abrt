@@ -178,7 +178,8 @@ class DirectoryProblemSource(problems.CachedSource):
     def impl_delete_problem(self, problem_id):
         dd = report.dd_opendir(problem_id)
         if not dd:
-            return False
+            # we can safely declare problem as deleted if directory doesn't exist
+            return not os.path.isdir(problem_id)
 
         # TODO : add detach from self._context
         # TODO : delete over abrtd

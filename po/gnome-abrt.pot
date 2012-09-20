@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
@@ -15,166 +14,166 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
 msgid "Automatic Bug Reporting Tool"
-msgstr ""
+msgstr "Automatic Bug Reporting Tool"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
-msgstr ""
+msgstr "View and report application crashes"
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
+msgstr "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:73
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:119
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "Can't get problem data from DBus service: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:134
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "Can't get list of problems from DBus service: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:147
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "Can't delete problem over DBus service: {0!s}"
 
 #: ../src/gnome_abrt/directory_problems.py:113
 msgid "No directory: {0}"
-msgstr ""
+msgstr "No directory: {0}"
 
 #: ../src/gnome_abrt/directory_problems.py:142
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "Can't open directory: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Preferences"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete"
-msgstr "Kustuta"
+msgstr "Delete"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "Delete selected problems"
-msgstr ""
+msgstr "Delete selected problems"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "_Report"
-msgstr ""
+msgstr "_Report"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Submits selected problem"
-msgstr ""
+msgstr "Submits selected problem"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Detail"
-msgstr "Üksikasjad"
+msgstr "Detail"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
-msgstr ""
+msgstr "_All problems"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "Show all known problems from all system users"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "Name"
-msgstr "Nimi"
+msgstr "Name"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Version"
-msgstr "Versioon"
+msgstr "Version"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "Reported"
-msgstr ""
+msgstr "Reported"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "No oopses!"
-msgstr ""
+msgstr "No oopses!"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
-msgstr "Rakendus"
+msgstr "App"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
-msgstr "Kuupäev"
+msgstr "Date"
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
-msgstr ""
+msgstr "Can't delete problem '{0}': '{1}'"
 
 #: ../src/gnome_abrt/problems.py:286
 msgid "Problem '{0}' is already in the cache"
-msgstr ""
+msgstr "Problem '{0}' is already in the cache"
 
 #: ../src/gnome_abrt/problems.py:300
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "Not found in cache but deleted: {0}"
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
-msgstr "Ei saa töödelda '{0}': {1}"
+msgstr "Can't process '{0}': {1}"
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
-msgstr ""
+msgstr "Source failed on processing of '{0}': {1}"
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr "Tulevik"
+msgstr "Future"
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr "Eile"
+msgstr "Yesterday"
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr "nädal"
+msgstr "week"
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr "kuu"
+msgstr "month"
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr "aasta"
+msgstr "year"
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr "Viimased {0!s}"
+msgstr "Last {0!s}"
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s tagasi"
+msgstr "{0:d} {1!s}s ago"
 
 #: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
-msgstr "Pole"
+msgstr "N/A"
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"
-msgstr "kokku jooksnud"
+msgstr " crashed"
 
 #: ../src/gnome_abrt/views.py:218
 msgid "yes"
-msgstr "jah"
+msgstr "yes"
 
 #: ../src/gnome_abrt/views.py:232
 msgid "no"
-msgstr "ei"
+msgstr "no"

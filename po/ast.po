@@ -3,24 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-20 05:44+0200\n"
-"PO-Revision-Date: 2012-09-20 08:37+0000\n"
+"PO-Revision-Date: 2012-09-20 08:42+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
+"Language: ast\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
 msgid "Automatic Bug Reporting Tool"
-msgstr ""
+msgstr "Ferramienta d'Informe de Fallos Automática"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -64,7 +63,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete"
-msgstr "Kustuta"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "Delete selected problems"
@@ -72,7 +71,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "_Report"
-msgstr ""
+msgstr "Informe"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Submits selected problem"
@@ -80,7 +79,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Detail"
-msgstr "Üksikasjad"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -92,15 +91,15 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "Name"
-msgstr "Nimi"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Version"
-msgstr "Versioon"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "Reported"
-msgstr ""
+msgstr "Informe"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "No oopses!"
@@ -108,11 +107,11 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
-msgstr "Rakendus"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
-msgstr "Kuupäev"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
@@ -128,7 +127,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
-msgstr "Ei saa töödelda '{0}': {1}"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
@@ -136,45 +135,45 @@ msgstr ""
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr "Tulevik"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr "Eile"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr "nädal"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr "kuu"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr "aasta"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr "Viimased {0!s}"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s tagasi"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
-msgstr "Pole"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"
-msgstr "kokku jooksnud"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:218
 msgid "yes"
-msgstr "jah"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:232
 msgid "no"
-msgstr "ei"
+msgstr ""

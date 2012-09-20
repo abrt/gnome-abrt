@@ -25,7 +25,7 @@ class Controller(object):
         self.run_event_fn = self._first_event_run
 
     def _handle_signal(self, signum):
-        self.source.drop_cache()
+        self.source.refresh()
 
     def report(self, problem):
         self.run_event_fn("report-gui", problem)

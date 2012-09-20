@@ -56,7 +56,7 @@ class ProblemSource(object):
         for observer in self._observers:
             observer.changed(self, change_type, problem)
 
-    def drop_cache(self):
+    def refresh(self):
         pass
 
 class Problem:
@@ -245,12 +245,12 @@ class MultipleSources(ProblemSource):
 
         super(MultipleSources, self).notify(change_type, problem)
 
-    def drop_cache(self):
+    def refresh(self):
         self._disable_notify = True
 
         try:
             for s in self.sources:
-                s.drop_cache()
+                s.refresh()
         finally:
             self._disable_notify = False
 
@@ -276,7 +276,7 @@ class CachedSource(ProblemSource):
 
         return self._cache if self._cache else []
 
-    def drop_cache(self):
+    def refresh(self):
         self._cache = None
         self.notify()
 

@@ -57,7 +57,7 @@ class DBusProblemSource(problems.CachedSource):
 
             def option_updated(self, conf, option):
                 if option == "all_problems":
-                    self.source.drop_cache()
+                    self.source.refresh()
 
         conf = config.get_configuration()
         conf.set_watch("all_problems", ConfigObserver(self))

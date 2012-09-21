@@ -80,7 +80,7 @@ class INOTIFYProblemHandler(ProcessEvent):
             try:
                 self.problem.refresh()
             except errors.InvalidProblem as e:
-                logging.warning(e.message)
+                logging.debug(e.message)
                 self.problem.delete()
 
     def process_IN_MOVED_TO(self, event):

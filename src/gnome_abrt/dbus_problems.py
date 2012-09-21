@@ -97,11 +97,16 @@ class DBusProblemSource(problems.CachedSource):
 
     def _on_new_problem(self, *args):
         if len(args) < 2:
-            logging.debug("Received new problem signal with invalid number of arguments {0}".format(args))
+            logging.debug("Received the new problem signal with invalid number of arguments {0}".format(args))
             return
 
-        if len(args) > 2 and int(args[2]) != os.getuid():
-            logging.debug("Received new problem signal with different uid '{0}' ('{1}')".format(args[2], os.getuid()))
+        conf = config.get_configuration()
+        if len(args) > 2 and int(args[2]) != os.getuid() and not conf['all_problems']:
+            logging.debug("Received the new problem signal with different uid '{0}' ('{1}') and the all problems option is not configured".format(args[2], os.getuid()))
+            return
+
+        if len(args) == 2 and not conf['all_problems']:
+            logging.debug("Received the new problem signal without the uid argument and the all problems option is not configured")
             return
 
         self.process_new_problem_id(str(args[1]))

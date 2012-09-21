@@ -49,8 +49,8 @@ class INOTIFYGlibSource(GLib.Source):
         return self.handler
 
     def prepare(self, *args):
-        # return 0 -> don't wait
-        return (self.notifier.check_events(), 0)
+        # wait 10 milisecond before next prepare() call
+        return (self.notifier.check_events(), 10)
 
     def check(self, *args):
         # just to be sure

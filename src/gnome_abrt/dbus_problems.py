@@ -88,7 +88,7 @@ class DBusProblemSource(problems.CachedSource):
             return method(self.interface, *args)
         except dbus.exceptions.DBusException as e:
             if e.get_dbus_name() == "org.freedesktop.DBus.Error.ServiceUnknown":
-                logging.warning("Reconnecting to dbus: {0}".format(e.message))
+                logging.debug("Reconnecting to dbus: {0}".format(e.message))
                 self._close_problems_bus()
                 self._connect_to_problems_bus()
                 return method(self.interface, *args)

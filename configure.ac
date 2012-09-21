@@ -1,4 +1,4 @@
-AC_INIT([gnome-abrt], [0.2.1],
+AC_INIT([gnome-abrt], [0.2.2],
         [crash-catcher@fedorahosted.org])
 
 AC_CONFIG_MACRO_DIR([m4])

@@ -5,8 +5,8 @@
 #         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
 
 Name:       gnome-abrt
-Version:    0.2.1
-Release:    4%{?dist}
+Version:    0.2.2
+Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
@@ -85,6 +85,18 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Sep 21 2012 Jakub Filak <jfilak@redhat.com> - 0.2.2-1
+- Lazy initialization of directory source
+- Don't utilize CPU for 99%
+- Code refactorization
+- Add translation from the ABRT project
+- Properly log exceptions
+- Delete directory problems marked as invalid after refresh in inotify handler
+- Declare directory problems deleted if its directory doesn't exist
+- Fix indentation bug in icon look up algorithm
+- Add --verbose command line argument
+- Add directory name to error messages
+
 * Mon Sep 17 2012 Jakub Filak <jfilak@redhat.com> - 0.2.1-4
 - Fix a problem with desktop items without icons
 - A bit better handling of uncaght exceptions

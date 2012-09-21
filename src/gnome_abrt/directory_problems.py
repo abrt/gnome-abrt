@@ -104,14 +104,31 @@ class INOTIFYProblemHandler(ProcessEvent):
         self._handle_event(event)
 
 
-class DirectoryProblemSource(problems.CachedSource):
+class NotInitializedDirectorySource():
 
-    def __init__(self, directory, context=None):
-        super(DirectoryProblemSource, self).__init__()
+    def __init__(self, parent):
+        self._parent = parent
 
-        if not os.path.isdir(directory):
-            raise errors.UnavailableSource(_("No directory: {0}").format(directory))
+    def get_items(self, problem_id, *args):
+        logging.debug("Getting items from unitialized directory source")
+        return
 
+    def create_new_problem(self, problem_id):
+        logging.debug("Creating problem from unitialized directory source")
+        return problems.Problem(problem_id, self.parent)
+
+    def impl_get_problems(self):
+        return []
+
+    def impl_delete_problem(self, problem_id):
+        logging.debug("Deleting problem from unitialized directory source")
+        return True
+
+
+class InitializedDirectoryProblemSource():
+
+    def __init__(self, parent, directory, context=None):
+        self._parent = parent
         self.directory = directory
         self._problems_watcher = {}
 
@@ -130,7 +147,7 @@ class DirectoryProblemSource(problems.CachedSource):
                     self.source.process_new_problem_id(os.path.join(event.path, event.name))
 
             self._wm = WatchManager()
-            self._gsource = INOTIFYGlibSource(self._wm, self.directory, INOTIFYHandler(self))
+            self._gsource = INOTIFYGlibSource(self._wm, self.directory, INOTIFYHandler(self._parent))
             self._gsource.attach(self._context)
 
     def get_items(self, problem_id, *args):
@@ -153,7 +170,7 @@ class DirectoryProblemSource(problems.CachedSource):
 
     # overrides base implementation
     def create_new_problem(self, problem_id):
-        p = problems.Problem(problem_id, self)
+        p = problems.Problem(problem_id, self._parent)
 
         if self._context:
             if problem_id in self._problems_watcher:
@@ -190,3 +207,37 @@ class DirectoryProblemSource(problems.CachedSource):
         dd.delete()
         # dd.close()
         return True
+
+
+class DirectoryProblemSource(problems.CachedSource):
+
+    def __init__(self, directory, context=None):
+        super(DirectoryProblemSource, self).__init__()
+
+        self._directory = directory
+        self._context = context
+        self._initialized = None
+        self._notinitialized = NotInitializedDirectorySource(self)
+        self._impl_()
+
+    def _impl_(self):
+        if self._initialized or os.path.isdir(self._directory):
+
+            if not self._initialized:
+                self._initialized = InitializedDirectoryProblemSource(self, self._directory, self._context)
+
+            return self._initialized
+
+        return self._notinitialized
+
+    def get_items(self, problem_id, *args):
+        return self._impl_().get_items(problem_id, *args)
+
+    def create_new_problem(self, problem_id):
+        return self._impl_().create_new_problem(problem_id)
+
+    def impl_get_problems(self):
+        return self._impl_().impl_get_problems()
+
+    def impl_delete_problem(self, problem_id):
+        return self._impl_().impl_delete_problem(problem_id)

@@ -84,16 +84,16 @@ class DBusProblemSource(problems.CachedSource):
         self.bus = None
 
     def _send_dbus_message(self, method, *args):
-            try:
+        try:
+            return method(self.interface, *args)
+        except dbus.exceptions.DBusException as e:
+            if e.get_dbus_name() == "org.freedesktop.DBus.Error.ServiceUnknown":
+                logging.warning("Reconnecting to dbus: {0}".format(e.message))
+                self._close_problems_bus()
+                self._connect_to_problems_bus()
                 return method(self.interface, *args)
-            except dbus.exceptions.DBusException as e:
-                if e.get_dbus_name() == "org.freedesktop.DBus.Error.ServiceUnknown":
-                    logging.warning("Reconnecting to dbus: {0}".format(e.message))
-                    self._close_problems_bus()
-                    self._connect_to_problems_bus()
-                    return method(self.interface, *args)
 
-                raise
+            raise
 
     def _on_new_problem(self, *args):
         if len(args) < 2:

@@ -104,6 +104,50 @@ class INOTIFYProblemHandler(ProcessEvent):
         self._handle_event(event)
 
 
+class INOTIFYSourceHandler(ProcessEvent):
+    MASK = pyinotify.IN_MOVED_TO
+
+    def __init__(self, source):
+        super(INOTIFYSourceHandler, self).__init__()
+        self.source = source
+
+    def process_IN_MOVED_TO(self, event):
+        self.source.process_new_problem_id(os.path.join(event.path, event.name))
+
+
+class INOTIFYWatcher:
+
+    def __init__(self, source, directory, context):
+        # context is the instance variable because the source is to be used in Problems
+        self._source = source
+        self._directory = directory
+        self._context = context
+
+        if self._context:
+            self._problems_watcher = {}
+
+            self._wm = WatchManager()
+            self._gsource = INOTIFYGlibSource(self._wm, self._directory, INOTIFYSourceHandler(self._source))
+            self._gsource.attach(self._context)
+
+    def watch_problem(self, problem):
+        if problem.problem_id in self._problems_watcher:
+            logging.debug("Updating watcher for '{0}'".format(problem.problem_id))
+            self._problems_watcher[problem.problem_id].get_handler().set_problem(problem)
+        else:
+            logging.debug("Adding watcher for '{0}'".format(problem.problem_id))
+            pgs = INOTIFYGlibSource(WatchManager(), problem.problem_id, INOTIFYProblemHandler(problem))
+            # TODO : add detach after reload ...
+            pgs.attach(self._context)
+            self._problems_watcher[problem.problem_id] = pgs
+
+    def unwatch_problem(self, problem_id):
+        if problem_id in self._problems_watcher:
+            pgs = self._problems_watcher[problem_id]
+            del self._problems_watcher[problem_id]
+            pgs.destroy()
+
+
 class NotInitializedDirectorySource():
 
     def __init__(self, parent):
@@ -113,14 +157,14 @@ class NotInitializedDirectorySource():
         logging.debug("Getting items from unitialized directory source")
         return
 
-    def create_new_problem(self, problem_id):
-        logging.debug("Creating problem from unitialized directory source")
-        return problems.Problem(problem_id, self.parent)
-
-    def impl_get_problems(self):
+    def get_problems(self):
         return []
 
-    def impl_delete_problem(self, problem_id):
+    def create_new_problem(self, problem_id):
+        logging.debug("Creating a problem from unitialized directory source")
+        return problems.Problem(problem_id, self._parent)
+
+    def delete_problem(self, problem_id):
         logging.debug("Deleting problem from unitialized directory source")
         return True
 
@@ -130,25 +174,7 @@ class InitializedDirectoryProblemSource():
     def __init__(self, parent, directory, context=None):
         self._parent = parent
         self.directory = directory
-        self._problems_watcher = {}
-
-        # context is the instance variable because the source is to be used in Problems
-        self._context = context
-        if self._context:
-            # avoid multiple inheritance ...
-            class INOTIFYHandler(ProcessEvent):
-                MASK = pyinotify.IN_MOVED_TO
-
-                def __init__(self, source):
-                    super(INOTIFYHandler, self).__init__()
-                    self.source = source
-
-                def process_IN_MOVED_TO(self, event):
-                    self.source.process_new_problem_id(os.path.join(event.path, event.name))
-
-            self._wm = WatchManager()
-            self._gsource = INOTIFYGlibSource(self._wm, self.directory, INOTIFYHandler(self._parent))
-            self._gsource.attach(self._context)
+        self._watcher = INOTIFYWatcher(self._parent, self.directory, context)
 
     def get_items(self, problem_id, *args):
         if len(args) == 0:
@@ -168,24 +194,7 @@ class InitializedDirectoryProblemSource():
 
         return items
 
-    # overrides base implementation
-    def create_new_problem(self, problem_id):
-        p = problems.Problem(problem_id, self._parent)
-
-        if self._context:
-            if problem_id in self._problems_watcher:
-                logging.debug("Updating watcher for '{0}'".format(problem_id))
-                self._problems_watcher[problem_id].get_handler().set_problem(p)
-            else:
-                logging.debug("Adding watcher for '{0}'".format(problem_id))
-                pgs = INOTIFYGlibSource(WatchManager(), problem_id, INOTIFYProblemHandler(p))
-                # TODO : add detach after reload ...
-                pgs.attach(self._context)
-                self._problems_watcher[problem_id] = pgs
-
-        return p
-
-    def impl_get_problems(self):
+    def get_problems(self):
         all_problems = []
 
         for dir_entry in os.listdir(self.directory):
@@ -196,15 +205,20 @@ class InitializedDirectoryProblemSource():
                     dd.close()
                     yield problem_id
 
-    def impl_delete_problem(self, problem_id):
+    def create_new_problem(self, problem_id):
+        p = problems.Problem(problem_id, self._parent)
+        self._watcher.watch_problem(p)
+        return p
+
+    def delete_problem(self, problem_id):
         dd = report.dd_opendir(problem_id)
         if not dd:
             # we can safely declare problem as deleted if directory doesn't exist
             return not os.path.isdir(problem_id)
 
-        # TODO : add detach from self._context
         # TODO : delete over abrtd
         dd.delete()
+        self._watcher.unwatch_problem(problem_id)
         # dd.close()
         return True
 
@@ -218,9 +232,9 @@ class DirectoryProblemSource(problems.CachedSource):
         self._context = context
         self._initialized = None
         self._notinitialized = NotInitializedDirectorySource(self)
-        self._impl_()
+        self._impl()
 
-    def _impl_(self):
+    def _impl(self):
         if self._initialized or os.path.isdir(self._directory):
 
             if not self._initialized:
@@ -231,13 +245,13 @@ class DirectoryProblemSource(problems.CachedSource):
         return self._notinitialized
 
     def get_items(self, problem_id, *args):
-        return self._impl_().get_items(problem_id, *args)
+        return self._impl().get_items(problem_id, *args)
 
     def create_new_problem(self, problem_id):
-        return self._impl_().create_new_problem(problem_id)
+        return self._impl().create_new_problem(problem_id)
 
     def impl_get_problems(self):
-        return self._impl_().impl_get_problems()
+        return self._impl().get_problems()
 
     def impl_delete_problem(self, problem_id):
-        return self._impl_().impl_delete_problem(problem_id)
+        return self._impl().delete_problem(problem_id)

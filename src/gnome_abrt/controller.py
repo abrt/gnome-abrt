@@ -15,7 +15,9 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
+import logging
 import os
+import sys
 import signal
 
 class Controller(object):
@@ -43,9 +45,10 @@ class Controller(object):
         self.run_event_fn(event, problem)
 
     def _run_event_on_problem(self, event, problem):
-        try:
-            if os.fork() == 0:
+        if os.fork() == 0:
+            try:
                 os.execvp("/usr/libexec/abrt-handle-event", ["/usr/libexec/abrt-handle-event", "-e", event, "--", problem.problem_id])
-        except OSError, e:
-            print e
+            except Exception as e:
+                logging.exception(e)
+                sys.exit(1)
 

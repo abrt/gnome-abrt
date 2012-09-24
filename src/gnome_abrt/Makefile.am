@@ -3,7 +3,7 @@ SUBDIRS = wrappers
 gnome_abrtexecdir = $(pyexecdir)/gnome_abrt
 
 gnome_abrtexec_PYTHON = \
-    __init__.py \
+	__init__.py \
 	application.py \
 	config.py \
 	controller.py \
@@ -16,6 +16,9 @@ gnome_abrtexec_PYTHON = \
 	l10n.py \
 	gnome_abrt_glade.py
 
+controller.py: controller.py.in
+	sed -e s,\@libexecdir\@,$(libexecdir),g $< > $@
+
 gnome_abrt_glade.py: oops.glade
 	{ \
 	  echo '# coding=utf-8'; \
@@ -26,4 +29,4 @@ gnome_abrt_glade.py: oops.glade
 
 gnome_abrtdir = $(pythondir)/gnome_abrt
 
-EXTRA_DIST = oops.glade $(gnome_abrt_PYTHON)
+EXTRA_DIST = oops.glade controller.py.in

@@ -22,6 +22,8 @@
 
 PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args)
 {
+    (void)module;
+
     PyGObject *pygtkwnd = NULL;
     if (PyArg_ParseTuple(args, "|O", &pygtkwnd))
     {

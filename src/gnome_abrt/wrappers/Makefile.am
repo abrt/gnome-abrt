@@ -10,6 +10,7 @@ _wrappers_la_SOURCES = \
     common.h
 
 _wrappers_la_CPPFLAGS = \
+    $(CFLAGS) \
     $(GLIB_CFLAGS) \
     $(PYTHON_CFLAGS) \
     $(PYGOBJECT3_CFLAGS) \

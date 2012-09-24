@@ -4,12 +4,19 @@ AC_INIT([gnome-abrt], [0.2.2],
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wall])
 AM_MAINTAINER_MODE
+# Support silent build rules. Disable by either passing --disable-silent-rules
+# to ./configure or passing V=1 to make
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
+# The 'yes' argument is undocumented but it is common knowledge that it works.
+AM_SILENT_RULES([yes])
 
 AC_DISABLE_STATIC
 AC_PROG_CC
 AC_GNU_SOURCE
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
+
+CFLAGS="$CFLAGS -std=c99 -pedantic -Wall -Wwrite-strings -Wextra"
 
 AM_PATH_PYTHON([2.7])
 #AX_PYTHON_MODULE([rpm], [1])

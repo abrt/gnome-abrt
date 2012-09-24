@@ -30,7 +30,7 @@ BUS_NAME = 'org.freedesktop.problems'
 BUS_PATH = '/org/freedesktop/problems'
 BUS_IFACE = 'org.freedesktop.problems'
 
-ABRTD_DBUS_PATH = '/com/redhat/abrt'
+ABRTD_DBUS_PATH = '/org/freedesktop/problems'
 ABRTD_DBUS_SIGNAL = 'Crash'
 
 class DBusProblemSource(problems.CachedSource):

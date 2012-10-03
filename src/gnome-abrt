@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# coding=UTF-8
 
 ## Copyright (C) 2012 ABRT team <abrt-devel-list@redhat.com>
 ## Copyright (C) 2001-2005 Red Hat, Inc.
@@ -26,10 +27,13 @@ from argparse import ArgumentParser
 # pygobject
 from gi.repository import Gtk
 from gi.repository import GLib
+from gi.repository import Gio
+from gi.repository import GObject
 
 # gnome-abrt
 import gnome_abrt
 from gnome_abrt.l10n import _
+from gnome_abrt.wrappers import show_events_list_dialog
 
 class OopsApplication(Gtk.Application):
 
@@ -66,6 +70,59 @@ class OopsApplication(Gtk.Application):
         except Exception as e:
             logging.exception(e.message)
             sys.exit(1)
+
+    def do_startup(self):
+        Gtk.Application.do_startup(self)
+
+        menu = Gio.Menu()
+        menu.append(_("_Preferences"), "app.preferences")
+        menu.append(_("_About"), "app.about")
+        menu.append(_("_Quit"), "app.quit")
+
+        action = Gio.SimpleAction.new("preferences", None)
+        action.connect("activate", self.on_action_prefrences);
+        self.add_action(action);
+
+        action = Gio.SimpleAction.new("about", None)
+        action.connect("activate", self.on_action_about);
+        self.add_action(action);
+
+        action = Gio.SimpleAction.new("quit", None)
+        action.connect("activate", self.on_action_quit);
+        self.add_action(action);
+
+        self.set_app_menu(menu)
+
+    def on_action_prefrences(self, action, parameter):
+        show_events_list_dialog(self.window)
+
+    def on_action_about(self, action, parameter):
+        dialog = Gtk.AboutDialog()
+        dialog.set_icon_name("abrt");
+        #dialog.set_version(VERSION);
+        dialog.set_logo_icon_name("abrt");
+        dialog.set_program_name("ABRT");
+        dialog.set_copyright("Copyright © 2012 Red Hat, Inc");
+        dialog.set_license(
+                "This program is free software; you can redistribut"
+                "e it and/or modify it under the terms of the GNU General Public License "
+                "as published by the Free Software Foundation; either version 2 of the Li"
+                "cense, or (at your option) any later version.\n\nThis program is distrib"
+                "uted in the hope that it will be useful, but WITHOUT ANY WARRANTY; witho"
+                "ut even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICU"
+                "LAR PURPOSE.  See the GNU General Public License for more details.\n\nYo"
+                "u should have received a copy of the GNU General Public License along wi"
+                "th this program.  If not, see <http://www.gnu.org/licenses/>.");
+        dialog.set_wrap_license(True);
+        dialog.set_website("https://fedorahosted.org/abrt/");
+        dialog.set_authors(["ABRT Team"]);
+        #dialog.set_artists(artists);
+        #dialog.set_translator_credits(_("translator-credits"));
+        dialog.run()
+        dialog.destroy()
+
+    def on_action_quit(self, action, parameter):
+        self.quit()
 
     def on_window_delete_event(self, widget, data):
         self.quit()

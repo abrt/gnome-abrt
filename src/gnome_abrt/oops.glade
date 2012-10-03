@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkActionGroup" id="gag_control_actions">
-    <child>
-      <object class="GtkAction" id="gac_control_preferences">
-        <property name="label" translatable="yes">Preferences</property>
-        <property name="stock_id">gtk-preferences</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="on_gac_control_preferences_activate" swapped="no"/>
-      </object>
-    </child>
-  </object>
   <object class="GtkActionGroup" id="gag_problem_actions">
     <property name="name">problems</property>
     <child>
@@ -262,13 +252,11 @@
                                     <child>
                                       <object class="GtkLinkButton" id="linkbutton1">
                                         <property name="label">button</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="has_tooltip">True</property>
                                         <property name="border_width">1</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="relief">none</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="uri">http://glade.gnome.org</property>
@@ -282,12 +270,10 @@
                                     <child>
                                       <object class="GtkLinkButton" id="linkbutton2">
                                         <property name="label">button</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="relief">none</property>
                                         <property name="uri">http://glade.gnome.org</property>
                                       </object>
@@ -544,7 +530,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="margin_top">10</property>
-                <property name="related_action">gac_opt_all_problems</property>
                 <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
               </object>
@@ -568,23 +553,6 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkButton" id="btn_preferences">
-                <property name="related_action">gac_control_preferences</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="margin_left">10</property>
-                <property name="related_action">gac_control_preferences</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkAlignment" id="alignment5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -607,7 +575,6 @@
                 <property name="receives_default">True</property>
                 <property name="halign">end</property>
                 <property name="margin_right">5</property>
-                <property name="related_action">gac_delete</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -624,7 +591,6 @@
                 <property name="receives_default">True</property>
                 <property name="halign">end</property>
                 <property name="margin_left">5</property>
-                <property name="related_action">gac_report</property>
               </object>
               <packing>
                 <property name="expand">False</property>

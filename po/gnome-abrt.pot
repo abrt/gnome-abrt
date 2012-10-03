@@ -1,179 +1,171 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:44+0200\n"
-"PO-Revision-Date: 2012-09-20 08:37+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"POT-Creation-Date: 2012-10-03 15:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
 msgid "Automatic Bug Reporting Tool"
-msgstr "Automatic Bug Reporting Tool"
+msgstr ""
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
-msgstr "View and report application crashes"
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:73
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr "Can't connect to DBus system bus '{0}' path '{1}': {2}"
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
+msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:119
+#: ../src/gnome_abrt/dbus_problems.py:124
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr "Can't get problem data from DBus service: {0!s}"
+msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:134
+#: ../src/gnome_abrt/dbus_problems.py:139
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr "Can't get list of problems from DBus service: {0!s}"
+msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:147
+#: ../src/gnome_abrt/dbus_problems.py:152
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr "Can't delete problem over DBus service: {0!s}"
+msgstr ""
 
-#: ../src/gnome_abrt/directory_problems.py:113
-msgid "No directory: {0}"
-msgstr "No directory: {0}"
-
-#: ../src/gnome_abrt/directory_problems.py:142
+#: ../src/gnome_abrt/directory_problems.py:185
 msgid "Can't open directory: '{0}'"
-msgstr "Can't open directory: '{0}'"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:1
-msgid "Preferences"
-msgstr "Preferences"
+msgid "Delete"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
-msgid "Delete"
-msgstr "Delete"
+msgid "Delete selected problems"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:3
-msgid "Delete selected problems"
-msgstr "Delete selected problems"
+msgid "_Report"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:4
-msgid "_Report"
-msgstr "_Report"
+msgid "Submits selected problem"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:5
-msgid "Submits selected problem"
-msgstr "Submits selected problem"
+msgid "Detail"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:6
-msgid "Detail"
-msgstr "Detail"
+msgid "_All problems"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:7
-msgid "_All problems"
-msgstr "_All problems"
+msgid "Show all known problems from all system users"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:8
-msgid "Show all known problems from all system users"
-msgstr "Show all known problems from all system users"
+msgid "Name"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:9
-msgid "Name"
-msgstr "Name"
+msgid "Version"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:10
-msgid "Version"
-msgstr "Version"
+msgid "Reported"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:11
-msgid "Reported"
-msgstr "Reported"
+msgid "No oopses!"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:12
-msgid "No oopses!"
-msgstr "No oopses!"
+msgid "App"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "App"
-msgstr "App"
-
-#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
-msgstr "Can't delete problem '{0}': '{1}'"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:286
 msgid "Problem '{0}' is already in the cache"
-msgstr "Problem '{0}' is already in the cache"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:300
 msgid "Not found in cache but deleted: {0}"
-msgstr "Not found in cache but deleted: {0}"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
-msgstr "Can't process '{0}': {1}"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
-msgstr "Source failed on processing of '{0}': {1}"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr "Future"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr "Yesterday"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr "week"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr "month"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr "year"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr "Last {0!s}"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s ago"
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
-#: ../src/gnome_abrt/views.py:209
+#: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:211
+#: ../src/gnome_abrt/views.py:213
 msgid "N/A"
-msgstr "N/A"
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:207
+#: ../src/gnome_abrt/views.py:211
 msgid " crashed"
-msgstr " crashed"
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:218
+#: ../src/gnome_abrt/views.py:222
 msgid "yes"
-msgstr "yes"
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:232
+#: ../src/gnome_abrt/views.py:236
 msgid "no"
-msgstr "no"
+msgstr ""

@@ -5,6 +5,7 @@
 *Makefile
 src/gnome-abrt.desktop
 src/gnome_abrt/gnome_abrt_glade.py
+src/gnome_abrt/controller.py
 
 # autotools
 config.guess
@@ -23,10 +24,13 @@ install-sh
 libtool
 ltmain.sh
 autom4te.cache
+.deps
+.libs
 
 # misc
 \#*
 *~
+.*.swp
 abrt.spec
 abrt-version
 
@@ -73,3 +77,8 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#Binary files
+*.so
+*.la
+*.lo

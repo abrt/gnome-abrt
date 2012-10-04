@@ -1,4 +1,5 @@
-AC_INIT([gnome-abrt], [0.2.2],
+AC_INIT([gnome-abrt],
+        m4_esyscmd([cat ./gnome-abrt-version]),
         [crash-catcher@fedorahosted.org])
 
 AC_CONFIG_MACRO_DIR([m4])
@@ -58,7 +59,12 @@ IT_PROG_INTLTOOL([0.35.0])
 dnl ****** END ****************************************
 
 PYTHON_CFLAGS=`python-config --cflags 2> /dev/null`
+GNOME_ABRT_VERSION=`cat ./gnome-abrt-version`
+GNOME_ABRT_RELEASE=`cat ./gnome-abrt-release`
+
 AC_SUBST(PYTHON_CFLAGS)
+AC_SUBST(GNOME_ABRT_VERSION)
+AC_SUBST(GNOME_ABRT_RELEASE)
 
 PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([LIBREPORT_GTK], [libreport-gtk])

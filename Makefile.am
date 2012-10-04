@@ -1,7 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = src po doc icons
 
-EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf
+EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf gnome-abrt-version gnome-abrt-release
 
 RPM_DIRS = --define "_sourcedir `pwd`" \
 	   --define "_rpmdir `pwd`" \
@@ -10,11 +10,15 @@ RPM_DIRS = --define "_sourcedir `pwd`" \
 	   --define "_srcrpmdir `pwd`"
 
 rpm:
+	./gen-version | head -1 | tr -d "\n" > gnome-abrt-version
+	./gen-version | tail -1 | tr -d "\n" > gnome-abrt-release
 	autoconf --force
 	$(MAKE) dist
 	rpmbuild $(RPM_DIRS) -ba gnome-abrt.spec
 
 srpm:
+	./gen-version | head -1 | tr -d "\n" > gnome-abrt-version
+	./gen-version | tail -1 | tr -d "\n" > gnome-abrt-release
 	autoconf --force
 	$(MAKE) dist
 	rpmbuild $(RPM_DIRS) -bs gnome-abrt.spec

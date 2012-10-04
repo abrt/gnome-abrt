@@ -1,4 +1,10 @@
 #! /bin/sh
+echo "Running gen-version"
+./gen-version | head -1 | tr -d "\n" > gnome-abrt-version
+
+echo "Running gen-release"
+./gen-version | tail -1 | tr -d "\n" > gnome-abrt-release
+
 mkdir -p m4
 echo "Creating m4/aclocal.m4 ..."
 test -r m4/aclocal.m4 || touch m4/aclocal.m4

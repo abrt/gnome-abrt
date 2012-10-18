@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-03 15:22+0200\n"
+"POT-Creation-Date: 2012-10-18 17:58+0200\n"
 "PO-Revision-Date: 2012-09-20 08:42+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,19 +155,19 @@ msgstr ""
 msgid "{0:d} {1!s}s ago"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:211
-#: ../src/gnome_abrt/views.py:213
+#: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
+#: ../src/gnome_abrt/views.py:209
 msgid "N/A"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:211
+#: ../src/gnome_abrt/views.py:207
 msgid " crashed"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:222
+#: ../src/gnome_abrt/views.py:218
 msgid "yes"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:236
+#: ../src/gnome_abrt/views.py:232
 msgid "no"
 msgstr ""

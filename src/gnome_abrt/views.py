@@ -142,6 +142,14 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.gac_report = builder.get_object('gac_report')
         self.gac_delete = builder.get_object('gac_delete')
 
+        gv_links = builder.get_object('gv_links')
+        stl_ctx = gv_links.get_style_context()
+        css_prv = Gtk.CssProvider()
+        css_prv.load_from_data("GtkViewport {\n"
+                               "  background-color : @bg_color;\n"
+                               "}\n")
+        stl_ctx.add_provider(css_prv, 6000)
+
         self.ag_accelerators = Gtk.AccelGroup()
         self.ag_accelerators.connect_by_path(self.gac_report.get_accel_path(), lambda *args: self.gac_report.activate())
         self.ag_accelerators.connect_by_path(self.gac_delete.get_accel_path(), lambda *args: self.gac_delete.activate())

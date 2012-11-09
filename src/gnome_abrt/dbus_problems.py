@@ -111,6 +111,14 @@ class DBusProblemSource(problems.CachedSource):
 
         self.process_new_problem_id(str(args[1]))
 
+    def chown_problem(self, problem_id):
+        try:
+            self._send_dbus_message(lambda iface, *params: iface.ChownProblemDir(*params), problem_id)
+            return True
+        except dbus.exceptions.DBusException as e:
+            logging.warning(_("Can't chown problem '{0}' over DBus service: {1!s}").format(problem_id, e.message))
+            return False
+
     def get_items(self, problem_id, *args):
         info = {}
 

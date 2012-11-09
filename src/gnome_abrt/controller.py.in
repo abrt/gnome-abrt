@@ -45,10 +45,11 @@ class Controller(object):
         self.run_event_fn(event, problem)
 
     def _run_event_on_problem(self, event, problem):
-        if os.fork() == 0:
-            try:
-                os.execvp("@libexecdir@/abrt-handle-event", ["@libexecdir@/abrt-handle-event", "-e", event, "--", problem.problem_id])
-            except Exception as e:
-                logging.exception(e)
-                sys.exit(1)
+        if problem.assure_ownership():
+            if os.fork() == 0:
+                try:
+                    os.execvp("@libexecdir@/abrt-handle-event", ["@libexecdir@/abrt-handle-event", "-e", event, "--", problem.problem_id])
+                except Exception as e:
+                    logging.exception(e)
+                    sys.exit(1)
 

@@ -244,6 +244,9 @@ class DirectoryProblemSource(problems.CachedSource):
 
         return self._notinitialized
 
+    def chown_problem(self, problem_id):
+        return True
+
     def get_items(self, problem_id, *args):
         return self._impl().get_items(problem_id, *args)
 

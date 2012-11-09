@@ -38,6 +38,9 @@ class ProblemSource(object):
     def get_problems(self):
         pass
 
+    def chown_problem(self, problem_id):
+        pass
+
     def delete_problem(self, problem_id):
         pass
 
@@ -157,6 +160,9 @@ class Problem:
     def is_reported(self):
         return not self['reported_to'] is None
 
+    def assure_ownership(self):
+        return self.source.chown_problem(self.problem_id);
+
     def get_application(self):
         if not self.app:
             self.app = application.find_application(self['component'],
@@ -235,6 +241,9 @@ class MultipleSources(ProblemSource):
             result.extend(s.get_problems())
 
         return result
+
+    def chown_problem(self, problem_id):
+        pass
 
     def delete_problem(self, problem_id):
         pass

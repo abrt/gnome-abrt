@@ -85,6 +85,18 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Oct 05 2012 Jakub Filak <jfilak@redhat.com> - 0.2.3-1
+- Generate version
+- Add GNOME3 application menu
+- Use correct D-Bus path to listen on for Crash signal
+- Make path to abrt-handle-event configurable
+- Fix a bug in running of subprocesses
+- Refactorize directory problems implementation
+- Don't print weired debug message
+- Don't show the 'reconnecting to dbus' warning
+- Don't show new root's crashes by default
+- Fix indentation
+
 * Fri Sep 21 2012 Jakub Filak <jfilak@redhat.com> - 0.2.2-1
 - Lazy initialization of directory source
 - Don't utilize CPU for 99%

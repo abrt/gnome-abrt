@@ -27,6 +27,13 @@ class Controller(object):
         self.run_event_fn = self._first_event_run
 
     def _handle_signal(self, signum):
+        while True:
+            try:
+                os.wait3(os.WNOHANG)
+            except OSError as e:
+                logging.debug(e.message)
+                break
+
         self.source.refresh()
 
     def report(self, problem):

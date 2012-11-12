@@ -85,6 +85,13 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Oct 05 2012 Jakub Filak <jfilak@redhat.com> - 0.2.4-1
+- Fix label fields size
+- Assure ownership of reported problem
+- Remove unnecessary GtkEventBox
+- Fix appearance of link button widget to no longer have a white background
+- Update translations
+
 * Fri Oct 05 2012 Jakub Filak <jfilak@redhat.com> - 0.2.3-1
 - Generate version
 - Add GNOME3 application menu

@@ -30,3 +30,5 @@ gnome_abrt_glade.py: oops.glade
 gnome_abrtdir = $(pythondir)/gnome_abrt
 
 EXTRA_DIST = oops.glade controller.py.in
+
+DISTCLEANFILES = controller.py

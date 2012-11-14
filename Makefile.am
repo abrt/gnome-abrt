@@ -22,3 +22,7 @@ srpm:
 	autoconf --force
 	$(MAKE) dist
 	rpmbuild $(RPM_DIRS) -bs gnome-abrt.spec
+
+run: all dist
+	cp src/gnome_abrt/wrappers/.libs/_wrappers.so src/gnome_abrt/wrappers/
+	PYTHONPATH="../src" ./src/gnome-abrt

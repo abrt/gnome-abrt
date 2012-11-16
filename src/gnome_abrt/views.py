@@ -270,7 +270,18 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
-            self._set_problem(self._get_selected(selection))
+            p = self._get_selected(selection)
+            if p:
+                self._set_problem(p)
+                return
+
+            pit = self.tv_problems.get_model().get_iter_first()
+            if pit:
+                self._select_problem_iter(pit);
+                return
+
+            # Clear window because of empty list of problems!
+            self._set_problem(None)
 
     def on_gac_delete_activate(self, action):
         for p in self._get_selected(self.tvs_problems, False):

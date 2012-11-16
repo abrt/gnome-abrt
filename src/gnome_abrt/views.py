@@ -158,8 +158,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         builder.connect_signals(self)
 
-    def _find_problem_iter(self, problem):
-        model = self.tv_problems.get_model()
+    def _find_problem_iter(self, problem, model):
         pit = model.get_iter_first()
         while pit:
             if model[pit][2] == problem:
@@ -172,12 +171,12 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.ls_problems.append(problem_to_storage_values(problem))
 
     def _remove_problem_from_storage(self, problem):
-        pit = self._find_problem_iter(problem)
+        pit = self._find_problem_iter(problem, self.ls_problems)
         if pit:
             self.ls_problems.remove(pit)
 
     def _update_problem_in_storage(self, problem):
-        pit = self._find_problem_iter(problem)
+        pit = self._find_problem_iter(problem, self.ls_problems)
         if pit:
             values = problem_to_storage_values(problem)
             for i in xrange(0, len(values)-1):
@@ -199,7 +198,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if len(problems) > 0:
             if old:
-                pit = self._find_problem_iter(old)
+                pit = self._find_problem_iter(old, self.tv_problems.get_model())
                 if pit:
                     self._select_problem_iter(pit)
                     return

@@ -244,6 +244,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                     if problems.Problem.Submission.URL == s.rtype:
                         lnk = Gtk.LinkButton(s.data, s.title)
                         lnk.set_visible(True)
+                        lnk.set_halign(Gtk.Align.START)
                         lnk.set_valign(Gtk.Align.START)
 
                         self.vbx_links.pack_start(lnk, False, True, 0)

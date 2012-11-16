@@ -147,7 +147,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         stl_ctx = gv_links.get_style_context()
         css_prv = Gtk.CssProvider()
         css_prv.load_from_data("GtkViewport {\n"
-                               "  background-color : @bg_color;\n"
+                               "  background-color : @theme_bg_color;\n"
                                "}\n")
         stl_ctx.add_provider(css_prv, 6000)
 

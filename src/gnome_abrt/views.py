@@ -1,5 +1,6 @@
 import os
 import time
+import logging
 
 from gi.repository import Gtk
 from gi.repository import Gdk
@@ -158,11 +159,14 @@ class OopsWindow(Gtk.ApplicationWindow):
         builder.connect_signals(self)
 
     def _find_problem_iter(self, problem):
-        pit = self.ls_problems.get_iter_first()
+        model = self.tv_problems.get_model()
+        pit = model.get_iter_first()
         while pit:
-            if self.ls_problems[pit][2] == problem:
+            if model[pit][2] == problem:
                 return pit
-            pit = self.ls_problems.iter_next(pit)
+            pit = model.iter_next(pit)
+
+        return None
 
     def _add_problem_to_storage(self, problem):
         self.ls_problems.append(problem_to_storage_values(problem))
@@ -184,6 +188,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _reload_problems(self, source):
         self._reloading = True
+        old = self._get_selected(self.tvs_problems);
         try:
             self.ls_problems.clear()
             problems = source.get_problems()
@@ -193,13 +198,24 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._reloading = False
 
         if len(problems) > 0:
+            if old:
+                pit = self._find_problem_iter(old)
+                if pit:
+                    self._select_problem_iter(pit)
+                    return
+
             self._select_problem_iter(self.tv_problems.get_model().get_iter_first())
         else:
             self._set_problem(None)
 
     def _select_problem_iter(self, pit):
+         path = self.tv_problems.get_model().get_path(pit)
+         if not path:
+            logging.debug("Can't select problem because the passed iter can't be converted to a tree path");
+            return
+
          self.tvs_problems.select_iter(pit)
-         self.tv_problems.scroll_to_cell(self.tv_problems.get_model().get_path(pit))
+         self.tv_problems.scroll_to_cell(path)
 
     def _set_problem(self, problem):
         self.selected_problem = problem

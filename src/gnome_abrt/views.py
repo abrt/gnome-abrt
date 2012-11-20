@@ -10,6 +10,7 @@ import config
 import wrappers
 from tools import fancydate
 from l10n import _, GETTEXT_PROGNAME
+import errors
 
 def problems_filter(model, it, data):
     def match_pattern(pattern, problem):
@@ -48,6 +49,7 @@ class ProblemsFilter:
         it = self.view.get_model().get_iter_first()
         if it:
             self.window._select_problem_iter(it)
+
 
 # default on None :)
 def doN(text, default_text):
@@ -217,45 +219,49 @@ class OopsWindow(Gtk.ApplicationWindow):
          self.tv_problems.scroll_to_cell(path)
 
     def _set_problem(self, problem):
-        self.selected_problem = problem
+        try:
+            self.selected_problem = problem
 
-        sensitive_btn = not problem is None
-        self.btn_delete.set_sensitive(sensitive_btn)
-        self.btn_report.set_sensitive(sensitive_btn)
-        self.vbx_links.foreach(lambda w, u: w.destroy(), None)
+            sensitive_btn = not problem is None
+            self.btn_delete.set_sensitive(sensitive_btn)
+            self.btn_report.set_sensitive(sensitive_btn)
+            self.vbx_links.foreach(lambda w, u: w.destroy(), None)
 
-        if problem:
-            self.nb_problem_layout.set_current_page(0)
-            app = problem['application']
-            self.lbl_reason.set_text(doN(app.name, _("N/A")) + _(' crashed'));
-            self.lbl_summary.set_text(doN(problem['reason'], ""))
-            self.lbl_app_name_value.set_text(doN(app.name, _("N/A")))
-            self.lbl_app_version_value.set_text(doN(problem['package'], ""))
+            if problem:
+                self.nb_problem_layout.set_current_page(0)
+                app = problem['application']
+                self.lbl_reason.set_text(doN(app.name, _("N/A")) + _(' crashed'));
+                self.lbl_summary.set_text(doN(problem['reason'], ""))
+                self.lbl_app_name_value.set_text(doN(app.name, _("N/A")))
+                self.lbl_app_version_value.set_text(doN(problem['package'], ""))
 
-            if app.icon:
-                self.img_app_icon.set_from_pixbuf(app.icon)
+                if app.icon:
+                    self.img_app_icon.set_from_pixbuf(app.icon)
+                else:
+                    self.img_app_icon.clear()
+
+                if problem['is_reported']:
+                    self.lbl_reported_value.set_text(_('yes'))
+                    for s in problem['submission']:
+                        if problems.Problem.Submission.URL == s.rtype:
+                            lnk = Gtk.LinkButton(s.data, s.title)
+                            lnk.set_visible(True)
+                            lnk.set_halign(Gtk.Align.START)
+                            lnk.set_valign(Gtk.Align.START)
+
+                            self.vbx_links.pack_start(lnk, False, True, 0)
+
+                    space = Gtk.Alignment()
+                    space.set_visible(True)
+                    space.set_vexpand(True)
+                    self.vbx_links.pack_start(space, False, True, 0)
+                else:
+                    self.lbl_reported_value.set_text(_('no'))
             else:
-                self.img_app_icon.clear()
-
-            if problem['is_reported']:
-                self.lbl_reported_value.set_text(_('yes'))
-                for s in problem['submission']:
-                    if problems.Problem.Submission.URL == s.rtype:
-                        lnk = Gtk.LinkButton(s.data, s.title)
-                        lnk.set_visible(True)
-                        lnk.set_halign(Gtk.Align.START)
-                        lnk.set_valign(Gtk.Align.START)
-
-                        self.vbx_links.pack_start(lnk, False, True, 0)
-
-                space = Gtk.Alignment()
-                space.set_visible(True)
-                space.set_vexpand(True)
-                self.vbx_links.pack_start(space, False, True, 0)
-            else:
-                self.lbl_reported_value.set_text(_('no'))
-        else:
-            self.nb_problem_layout.set_current_page(1)
+                self.nb_problem_layout.set_current_page(1)
+        except errors.InvalidProblem as ex:
+            logging.debug(ex.message)
+            self._source.refresh()
 
     def _get_selected(self, selection, only_first=True):
         model, rows = selection.get_selected_rows()

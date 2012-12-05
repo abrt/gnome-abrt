@@ -28,7 +28,7 @@ PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args)
     if (PyArg_ParseTuple(args, "|O", &pygtkwnd))
     {
         GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
-        show_events_list_dialog(wnd);
+        show_config_list_dialog(wnd);
     }
 
     Py_RETURN_NONE;

@@ -180,13 +180,14 @@ class InitializedDirectoryProblemSource():
         if len(args) == 0:
             return {}
 
-        dd = report.dd_opendir(problem_id)
+        dd = report.dd_opendir(problem_id, report.DD_OPEN_READONLY)
         if not dd:
             raise errors.InvalidProblem(_("Can't open directory: '{0}'").format(problem_id))
 
         items = {}
         for field_name in args:
-            value = dd.load_text(field_name, 15)
+            value = dd.load_text(field_name, report.DD_FAIL_QUIETLY_ENOENT
+                                              | report.DD_LOAD_TEXT_RETURN_NULL_ON_FAILURE)
             if value:
                 items[field_name] = value
 

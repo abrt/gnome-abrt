@@ -85,6 +85,11 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Jan 08 2013 Jakub Filak <jfilak@redhat.com> - 0.2.6-1
+- Require libreport version 2.0.20 and greater
+- Use DD api correctly
+- Reflect changes in libreport
+
 * Wed Nov 28 2012 Jakub Filak <jfilak@redhat.com> - 0.2.5-1
 - Add licenses to all files
 - Refresh view's source if InvalidProblem exception is caught during GUI update

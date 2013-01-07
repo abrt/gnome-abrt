@@ -22,7 +22,7 @@ BuildRequires: desktop-file-utils
 BuildRequires: asciidoc
 BuildRequires: xmlto
 BuildRequires: pygobject3-devel
-BuildRequires: libreport-gtk-devel
+BuildRequires: libreport-gtk-devel > 2.0.19
 BuildRequires: gtk3-devel
 
 Requires:   python-inotify

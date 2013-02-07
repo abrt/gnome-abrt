@@ -2,7 +2,7 @@
 
 function build_depslist()
 {
-    DEPS_LIST=`grep "BuildRequires:" gnome-abrt.spec.in | cut -f2 -d " " | tr "\n" " "`
+    DEPS_LIST=`grep "Requires:" gnome-abrt.spec.in | tr -s " " | cut -f2 -d " " | tr "\n" " "`
 }
 
 case $1 in

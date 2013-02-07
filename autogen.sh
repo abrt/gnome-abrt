@@ -1,4 +1,20 @@
-#! /bin/sh
+#!/bin/sh
+
+function print_help()
+{
+cat << EOH
+Prepares the source tree for configuration
+
+Usage:
+  autogen.sh [sydeps [--install]]
+
+Options:
+
+  sysdeps          prints out all dependencies
+    --install      install all dependencies ('sudo yum install \$DEPS')
+
+EOH
+}
 
 function build_depslist()
 {
@@ -6,15 +22,21 @@ function build_depslist()
 }
 
 case $1 in
+    "--help"|"-h")
+            print_help
+            exit 0
+        ;;
     "sysdeps")
             build_depslist
 
             if [ "$2" == "--install" ]; then
-                echo "yum install $DEPS_LIST"
+                set -x verbose
                 sudo yum install $DEPS_LIST
+                set +x verbose
             else
                 echo $DEPS_LIST
             fi
+            exit 0
         ;;
         *)
             echo "Running gen-version"

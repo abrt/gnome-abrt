@@ -36,6 +36,10 @@ from l10n import _
 
 class INOTIFYGlibSource(GLib.Source):
 
+    def __new__(cls, wm, path, handler):
+        # ignore the rest of arguments
+        return super(INOTIFYGlibSource, cls).__new__(cls)
+
     def __init__(self, wm, path, handler):
         super(INOTIFYGlibSource, self).__init__()
 
@@ -202,9 +206,14 @@ class InitializedDirectoryProblemSource():
             problem_id = os.path.join(self.directory, dir_entry)
             if os.path.isdir(problem_id):
                 dd = report.dd_opendir(problem_id)
-                if dd:
+                if dd == None:
+                    logging.debug("Omitted dir: '{0}'".format(problem_id))
+                else:
+                    logging.debug("Found dump dir: '{0}'".format(problem_id))
                     dd.close()
                     yield problem_id
+            else:
+                logging.debug("Omitted path: '{0}'".format(problem_id))
 
     def create_new_problem(self, problem_id):
         p = problems.Problem(problem_id, self._parent)

@@ -26,3 +26,9 @@ srpm:
 run: all dist
 	cp src/gnome_abrt/wrappers/.libs/_wrappers.so src/gnome_abrt/wrappers/
 	PYTHONPATH="../src" ./src/gnome-abrt
+
+UPLOAD_LOGIN ?= $(USER)
+UPLOAD_URL ?= fedorahosted.org
+
+upload: dist
+	scp gnome-abrt-$(VERSION).tar.gz $(UPLOAD_LOGIN)@$(UPLOAD_URL):abrt

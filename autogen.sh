@@ -40,10 +40,12 @@ case $1 in
         ;;
         *)
             echo "Running gen-version"
-            ./gen-version | head -1 | tr -d "\n" > gnome-abrt-version
+            VN=$(./gen-version | head -1)
+            echo -n "$VN" > gnome-abrt-version
 
             echo "Running gen-release"
-            ./gen-version | tail -1 | tr -d "\n" > gnome-abrt-release
+            RN=$(./gen-version | tail -1)
+            echo -n "$RN" > gnome-abrt-release
 
             mkdir -p m4
             echo "Creating m4/aclocal.m4 ..."

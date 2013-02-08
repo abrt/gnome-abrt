@@ -85,6 +85,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Feb 08 2013 Jakub Filak <jfilak@redhat.com> - 0.2.7-1
+- Fix failure in processing of dump directories from user's home
+- Resolves: #908712
+
 * Mon Jan 08 2013 Jakub Filak <jfilak@redhat.com> - 0.2.6-1
 - Require libreport version 2.0.20 and greater
 - Use DD api correctly

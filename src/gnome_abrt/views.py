@@ -88,6 +88,7 @@ def problem_to_storage_values(problem):
 def time_sort_func(model, first, second, data):
     return time.mktime(model[first][2]['date'].timetuple()) - time.mktime(model[second][2]['date'].timetuple())
 
+
 class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, source, controller):
@@ -130,6 +131,25 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.tv_problems.grab_focus()
         self._reload_problems(self._source)
+
+        class OptionsObserver:
+            def __init__(self, wnd):
+                self.wnd = wnd
+
+            def option_updated(self, conf, option):
+                if option.name == 'problemid' and option.value:
+                    self.wnd._select_problem_by_id(option.value)
+
+        self._options_observer = OptionsObserver(self)
+        conf = config.get_configuration()
+        conf.set_watch('problemid', self._options_observer)
+        preselected = conf['problemid']
+        if preselected:
+            self._reloading = True
+            self.tvs_problems.unselect_all()
+            self._reloading = False
+            self._select_problem_by_id(preselected)
+
 
     def _load_widgets_from_builder(self, filename=None, content=None):
         builder = Gtk.Builder()
@@ -228,6 +248,13 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._select_problem_iter(self.tv_problems.get_model().get_iter_first())
         else:
             self._set_problem(None)
+
+    def _select_problem_by_id(self, problem_id):
+        pit = self._find_problem_iter(problem_id, self.tv_problems.get_model())
+        if pit:
+            self._select_problem_iter(pit)
+        else:
+            logging.debug("Can't select problem id '{0}' because the id was not found".format(problem_id))
 
     def _select_problem_iter(self, pit):
          path = self.tv_problems.get_model().get_path(pit)

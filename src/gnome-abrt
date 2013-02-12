@@ -34,6 +34,7 @@ from gi.repository import GObject
 import gnome_abrt
 from gnome_abrt.l10n import _
 from gnome_abrt.wrappers import show_events_list_dialog
+from gnome_abrt.config import get_configuration
 
 class OopsApplication(Gtk.Application):
 
@@ -135,11 +136,21 @@ if __name__ == "__main__":
 
     CMDARGS = ArgumentParser(description = _('View and report application crashes'))
     CMDARGS.add_argument('-v', '--verbose', action='count', help=_('Be verbose'))
+    CMDARGS.add_argument('-p', '--problem', help=_('Selected problem ID'))
 
     OPTIONS = CMDARGS.parse_args()
 
     if OPTIONS.verbose > 0:
         logging.getLogger().setLevel(logging.DEBUG)
+
+    VARS = vars(OPTIONS)
+
+    conf = get_configuration();
+    # TODO : mark this option as hidden or something like that
+    conf.add_option('problemid', default_value=None)
+
+    if 'problem' in VARS:
+        conf['problemid'] = VARS['problem']
 
     app = None
     try:

@@ -200,8 +200,6 @@ class InitializedDirectoryProblemSource():
         return items
 
     def get_problems(self):
-        all_problems = []
-
         for dir_entry in os.listdir(self.directory):
             problem_id = os.path.join(self.directory, dir_entry)
             if os.path.isdir(problem_id):

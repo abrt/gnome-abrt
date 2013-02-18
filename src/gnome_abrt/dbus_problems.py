@@ -136,7 +136,7 @@ class DBusProblemSource(problems.CachedSource):
     def impl_get_problems(self):
         conf = config.get_configuration()
 
-        prblms = None
+        prblms = []
 
         try:
             if conf['all_problems']:
@@ -145,7 +145,6 @@ class DBusProblemSource(problems.CachedSource):
                 prblms  = self._send_dbus_message(lambda iface, *args: self.interface.GetProblems(*args))
         except dbus.exceptions.DBusException as e:
             logging.warning(_("Can't get list of problems from DBus service: {0!s}").format(e.message))
-            return None
 
         return (str(pid) for pid in prblms)
 

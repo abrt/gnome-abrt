@@ -314,7 +314,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         model, rows = selection.get_selected_rows()
 
         if not rows:
-            return None
+            return []
 
         if only_first:
             return model[rows[0]][2]

@@ -37,12 +37,24 @@ class Controller(object):
         self.source.refresh()
 
     def report(self, problem):
+        if not problem:
+            logging.error("BUG: Controller: Can't report None problem")
+            return
+
         self.run_event_fn("report-gui", problem)
 
     def delete(self, problem):
+        if not problem:
+            logging.error("BUG: Controller: Can't delete None problem")
+            return
+
         problem.delete()
 
     def detail(self, problem):
+        if not problem:
+            logging.error("BUG: Controller: Can't open detail of None problem")
+            return
+
         self.run_event_fn("open-gui", problem)
 
     def _first_event_run(self, event, problem):

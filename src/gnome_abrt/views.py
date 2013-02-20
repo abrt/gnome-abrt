@@ -313,11 +313,14 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _get_selected(self, selection, only_first=True):
         model, rows = selection.get_selected_rows()
 
+        if only_first:
+            if not rows:
+                return None
+
+            return model[rows[0]][2]
+
         if not rows:
             return []
-
-        if only_first:
-            return model[rows[0]][2]
 
         return [model[p][2] for p in rows]
 
@@ -341,10 +344,14 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._controller.delete(p)
 
     def on_gac_detail_activate(self, action):
-        self._controller.detail(self._get_selected(self.tvs_problems))
+        selected = self._get_selected(self.tvs_problems)
+        if selected:
+            self._controller.detail(selected)
 
     def on_gac_report_activate(self, action):
-        self._controller.report(self._get_selected(self.tvs_problems))
+        selected = self._get_selected(self.tvs_problems)
+        if selected:
+            self._controller.report(selected)
 
     def on_te_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())

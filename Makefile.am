@@ -11,14 +11,13 @@ RPM_DIRS = --define "_sourcedir `pwd`" \
 
 rpm:
 	./gen-version | head -1 | tr -d "\n" > gnome-abrt-version
-	./gen-version | tail -1 | tr -d "\n" > gnome-abrt-release
 	autoconf --force
+	./configure --prefix="/usr"
 	$(MAKE) dist
 	rpmbuild $(RPM_DIRS) -ba gnome-abrt.spec
 
 srpm:
 	./gen-version | head -1 | tr -d "\n" > gnome-abrt-version
-	./gen-version | tail -1 | tr -d "\n" > gnome-abrt-release
 	autoconf --force
 	$(MAKE) dist
 	rpmbuild $(RPM_DIRS) -bs gnome-abrt.spec

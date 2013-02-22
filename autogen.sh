@@ -43,10 +43,6 @@ case $1 in
             VN=$(./gen-version | head -1)
             echo -n "$VN" > gnome-abrt-version
 
-            echo "Running gen-release"
-            RN=$(./gen-version | tail -1)
-            echo -n "$RN" > gnome-abrt-release
-
             mkdir -p m4
             echo "Creating m4/aclocal.m4 ..."
             test -r m4/aclocal.m4 || touch m4/aclocal.m4

@@ -6,7 +6,7 @@
 
 Name:       gnome-abrt
 Version:    @GNOME_ABRT_VERSION@
-Release:    @GNOME_ABRT_RELEASE@%{?dist}
+Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
@@ -40,7 +40,7 @@ provides them with convenient way for managing these problems.
 
 %build
 autoconf
-%configure
+%configure --prefix="/usr"
 make
 
 

@@ -1,30 +1,19 @@
 #!/bin/bash
 
-DEF_VN='0.2.2'
-DEF_RN='1'
+VN='0.2.7'
 LF='
 '
 
 if test -d .git -o -f .git &&
-    VN=$(git describe --tags --match "[0-9]*" --abbrev=0 HEAD 2>/dev/null) &&
+    VN=$(git describe --tags --match "[0-9]*" --abbrev=4 HEAD 2>/dev/null) &&
     case "$VN" in
 	*$LF*) (exit 1) ;;
 	[0-9]*)
 	    git update-index -q --refresh
-	    test -z "$(git diff-index --name-only HEAD --)" || VN="$VN.dirty"
+	    test -z "$(git diff-index --name-only HEAD --)" || VN="$VN-dirty"
     esac
 then
-    RN=$(echo "$VN" | awk -F- '{print $2}');
-    VN=$(echo "$VN" | awk -F- '{print $1}');
-else
-    VN=DEF_VN
-    RN=DEF_RN
-fi
-
-if test -d .git -o -f .git && LC=$(git log -1 --format=%H 2>/dev/null)
-then
-    RN="$RN.$LC"
+    VN=$(echo "$VN" | sed -e 's/-/./g')
 fi
 
 echo $VN
-echo $RN

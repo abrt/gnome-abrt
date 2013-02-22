@@ -25,7 +25,7 @@ srpm:
 
 run: all dist
 	cp src/gnome_abrt/wrappers/.libs/_wrappers.so src/gnome_abrt/wrappers/
-	PYTHONPATH="../src" ./src/gnome-abrt
+	PYTHONPATH="../src" ./src/gnome-abrt $(ARGS)
 
 UPLOAD_LOGIN ?= $(USER)
 UPLOAD_URL ?= fedorahosted.org

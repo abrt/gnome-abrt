@@ -85,6 +85,21 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Feb 25 2013 Jakub Filak <jfilak@redhat.com> 0.2.8-1
+- Add make release targets
+- Always generate controller.py & gnome-abrt-glade.py
+- Update the list of required files
+- Make gen-version less stupid
+- Use $ARGS variable for arguments in 'make run'
+- Try harder when looking for icon and don't cache weak results
+- Make controller more robust against invalid arguments
+- Check return value of the get selection function
+- Require correct version of libreport
+- Return an empty list instead of None from OopsWindow.get_selected()
+- Return an empty list instead of None from get_problems() in case of DBus error
+- Get rid of unnecessary variable from the directory source
+- Add a cmd line argument for selected problem id
+
 * Fri Feb 08 2013 Jakub Filak <jfilak@redhat.com> - 0.2.7-1
 - Fix failure in processing of dump directories from user's home
 - Resolves: #908712

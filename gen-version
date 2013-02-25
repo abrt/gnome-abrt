@@ -16,4 +16,4 @@ then
     VN=$(echo "$VN" | sed -e 's/-/./g')
 fi
 
-echo $VN
+echo -n $VN

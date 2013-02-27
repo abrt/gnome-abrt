@@ -41,33 +41,50 @@ class OopsApplication(Gtk.Application):
     def __init__(self):
         super(OopsApplication, self).__init__()
 
-        conf = gnome_abrt.get_configuration()
-        conf.add_option("all_problems", default_value=False)
+        self.set_application_id("org.freedesktop.GnomeAbrt")
+        self.connect("command-line", self._parse_command_line)
+        self.set_flags(Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
-        sources = []
-        try:
-            sources.append(gnome_abrt.DBusProblemSource())
-        except gnome_abrt.UnavailableSource as e:
-            logging.warning(e.message)
+    def _parse_command_line(self, sender, gcmdargs):
+        argv = gcmdargs.get_arguments()
+        if len(argv) > 0:
+            conf = gnome_abrt.get_configuration()
+            conf['problemid'] = argv[0]
 
-        # TODO : really ? move it somewhere else ...
-        self.gcontext = GLib.main_context_default()
-        try:
-            # TODO : pass the directory over command line
-            sources.append(gnome_abrt.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool"), context=self.gcontext))
-        except gnome_abrt.UnavailableSource as e:
-            logging.warning(e.message)
-
-        if len(sources) == 0:
-            raise gnome_abrt.UnavailableSource("No available problem source.")
-
-        self.source = gnome_abrt.MultipleSources(*sources)
+        self.activate()
+        return 0
 
     def do_activate(self):
         try:
-            self.window = gnome_abrt.OopsWindow(self, self.source, gnome_abrt.Controller(self.source))
-            self.window.connect("delete-event", self.on_window_delete_event)
-            self.window.show_all()
+            windows = self.get_windows()
+            if windows:
+                windows[0].present()
+            else:
+                conf = gnome_abrt.get_configuration()
+                conf.add_option("all_problems", default_value=False)
+
+                sources = []
+                try:
+                    sources.append(gnome_abrt.DBusProblemSource())
+                except gnome_abrt.UnavailableSource as e:
+                    logging.warning(e.message)
+
+                # TODO : really ? move it somewhere else ...
+                self.gcontext = GLib.main_context_default()
+                try:
+                    # TODO : pass the directory over command line
+                    sources.append(gnome_abrt.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool"), context=self.gcontext))
+                except gnome_abrt.UnavailableSource as e:
+                    logging.warning(e.message)
+
+                if len(sources) == 0:
+                    raise gnome_abrt.UnavailableSource("No available problem source.")
+
+                self.source = gnome_abrt.MultipleSources(*sources)
+
+                main_window = gnome_abrt.OopsWindow(self, self.source, gnome_abrt.Controller(self.source))
+                main_window.show_all()
+                self.add_window (main_window)
         except Exception as e:
             logging.exception(e.message)
             sys.exit(1)
@@ -125,9 +142,6 @@ class OopsApplication(Gtk.Application):
     def on_action_quit(self, action, parameter):
         self.quit()
 
-    def on_window_delete_event(self, widget, data):
-        self.quit()
-
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))
@@ -149,15 +163,15 @@ if __name__ == "__main__":
     # TODO : mark this option as hidden or something like that
     conf.add_option('problemid', default_value=None)
 
+    app_cmdline = []
     if 'problem' in VARS:
-        conf['problemid'] = VARS['problem']
+        app_cmdline.append(VARS['problem'])
 
-    app = None
+    exit_code = 1
+    app = OopsApplication()
     try:
-        app = OopsApplication()
+        exit_code = app.run(app_cmdline)
     except gnome_abrt.UnavailableSource as e:
         logging.error(e.message)
-        sys.exit(1)
 
-    exit_code = app.run(None)
     sys.exit(exit_code)

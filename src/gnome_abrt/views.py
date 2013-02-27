@@ -137,18 +137,13 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.wnd = wnd
 
             def option_updated(self, conf, option):
-                if option.name == 'problemid' and option.value:
-                    self.wnd._select_problem_by_id(option.value)
+                if option == 'problemid' and conf[option]:
+                    self.wnd._select_problem_by_id(conf[option])
 
         self._options_observer = OptionsObserver(self)
         conf = config.get_configuration()
         conf.set_watch('problemid', self._options_observer)
-        preselected = conf['problemid']
-        if preselected:
-            self._reloading = True
-            self.tvs_problems.unselect_all()
-            self._reloading = False
-            self._select_problem_by_id(preselected)
+        self._options_observer.option_updated(conf, 'problemid')
 
 
     def _load_widgets_from_builder(self, filename=None, content=None):
@@ -257,6 +252,9 @@ class OopsWindow(Gtk.ApplicationWindow):
             logging.debug("Can't select problem id '{0}' because the id was not found".format(problem_id))
 
     def _select_problem_iter(self, pit):
+         self._reloading = True
+         self.tvs_problems.unselect_all()
+         self._reloading = False
          path = self.tv_problems.get_model().get_path(pit)
          if not path:
             logging.debug("Can't select problem because the passed iter can't be converted to a tree path");

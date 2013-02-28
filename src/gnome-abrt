@@ -36,17 +36,83 @@ from gnome_abrt.l10n import _
 from gnome_abrt.wrappers import show_events_list_dialog
 from gnome_abrt.config import get_configuration
 
+# dbus
+import dbus
+import dbus.service
+from dbus.mainloop.glib import DBusGMainLoop
+
+GNOME_ABRT_APPLICATION_ID='org.freedesktop.GnomeAbrt'
+GNOME_ABRT_INTERFACE='org.freedesktop.GnomeAbrt'
+GNOME_ABRT_OBJECT_PATH='/org/freedesktop/GnomeAbrt'
+
+
+# because of https://bugzilla.gnome.org/show_bug.cgi?id=682331
+class GtkApplicationDBUSImpl(object):
+    class Service(dbus.service.Object):
+        def __init__(self, bus, bus_name, application):
+            bus_name = dbus.service.BusName(bus_name, bus)
+            dbus.service.Object.__init__(self, bus_name, GNOME_ABRT_OBJECT_PATH)
+            self._app = application
+
+        @dbus.service.method(dbus_interface=GNOME_ABRT_INTERFACE,
+                             in_signature='as', out_signature='')
+        def command_line(self, argv):
+            class Arguments(object):
+                def __init__(self, argv):
+                    self._argv = argv
+
+                def get_arguments(self):
+                    return self._argv
+
+            self._app._parse_command_line(self, Arguments([str(a) for a in argv]))
+
+
+    def __init__(self, bus_name, application):
+        self._app = application
+        self.mainloop = DBusGMainLoop()
+        bus = dbus.SessionBus(mainloop = self.mainloop)
+
+        self._primary_obj = None
+        self._primary_iface = None
+        self._service = None
+
+        if bus.name_has_owner(bus_name):
+            self._primary_obj = bus.get_object(bus_name, GNOME_ABRT_OBJECT_PATH)
+        else:
+            self._service = GtkApplicationDBUSImpl.Service(bus, bus_name, self._app)
+
+    def is_remote(self):
+        return not not self._primary_obj
+
+    def send_command_line(self, argv):
+        if not self.is_remote():
+            raise RuntimeError("Can't send command-line message because instance is not a remote application")
+
+        if not self._primary_iface:
+            self._primary_iface = dbus.Interface(self._primary_obj, GNOME_ABRT_INTERFACE)
+
+        if len(argv) == 0:
+            argv = dbus.Array([], signature='s')
+
+        self._primary_iface.command_line(argv)
+
+
 class OopsApplication(Gtk.Application):
 
     def __init__(self):
         super(OopsApplication, self).__init__()
 
-        self.set_application_id("org.freedesktop.GnomeAbrt")
+        self._dbus_srv = GtkApplicationDBUSImpl(GNOME_ABRT_APPLICATION_ID, self)
         self.connect("command-line", self._parse_command_line)
         self.set_flags(Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
     def _parse_command_line(self, sender, gcmdargs):
         argv = gcmdargs.get_arguments()
+
+        if self._dbus_srv.is_remote():
+            self._dbus_srv.send_command_line(argv)
+            return 0
+
         if len(argv) > 0:
             conf = gnome_abrt.get_configuration()
             conf['problemid'] = argv[0]
@@ -65,7 +131,7 @@ class OopsApplication(Gtk.Application):
 
                 sources = []
                 try:
-                    sources.append(gnome_abrt.DBusProblemSource())
+                    sources.append(gnome_abrt.DBusProblemSource(self._dbus_srv.mainloop))
                 except gnome_abrt.UnavailableSource as e:
                     logging.warning(e.message)
 

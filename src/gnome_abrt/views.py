@@ -298,7 +298,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             sensitive_btn = not problem is None
             self.btn_delete.set_sensitive(sensitive_btn)
-            self.btn_report.set_sensitive(sensitive_btn)
+            self.btn_report.set_sensitive(not problem is None and not problem['not-reportable'] )
             self.vbx_links.foreach(lambda w, u: w.destroy(), None)
             self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
 
@@ -373,7 +373,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def on_gac_report_activate(self, action):
         selected = self._get_selected(self.tvs_problems)
-        if selected:
+        if selected and not selected['not-reportable']:
             self._controller.report(selected)
 
     def on_te_search_changed(self, entry):

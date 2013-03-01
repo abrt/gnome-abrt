@@ -177,6 +177,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.te_search = builder.get_object('te_search')
         self.chb_all_problems = builder.get_object('chb_all_problems')
         self.vbx_links = builder.get_object('vbx_links')
+        self.vbx_problem_messages = builder.get_object('vbx_problem_messages')
         self.gac_report = builder.get_object('gac_report')
         self.gac_delete = builder.get_object('gac_delete')
 
@@ -281,6 +282,16 @@ class OopsWindow(Gtk.ApplicationWindow):
             space.set_vexpand(True)
             self.vbx_links.pack_start(space, False, True, 0)
 
+    def _show_problem_message(self, message):
+        msg = Gtk.Label()
+        msg.set_markup(message)
+        msg.set_visible(True)
+        msg.set_halign(Gtk.Align.START)
+        msg.set_valign(Gtk.Align.START)
+        msg.set_line_wrap(True)
+
+        self.vbx_problem_messages.pack_start(msg, False, True, 0)
+
     def _set_problem(self, problem):
         try:
             self.selected_problem = problem
@@ -289,6 +300,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.btn_delete.set_sensitive(sensitive_btn)
             self.btn_report.set_sensitive(sensitive_btn)
             self.vbx_links.foreach(lambda w, u: w.destroy(), None)
+            self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
 
             if problem:
                 self.nb_problem_layout.set_current_page(0)
@@ -308,6 +320,13 @@ class OopsWindow(Gtk.ApplicationWindow):
                     self._show_problem_links(problem['submission'])
                 else:
                     self.lbl_reported_value.set_text(_('no'))
+
+                if problem['not-reportable']:
+                    self._show_problem_message(problem['not-reportable'])
+                elif not problem['is_reported'] or not any((s.title == "Bugzilla" for s in problem['submission'])):
+                    self._show_problem_message(_("This problem hasn't been reported to <i>Bugzilla</i> yet,"\
+                                "our developers maybe need more information to sort out the problem.\n"\
+                                "Please consider <b>reporting it</b>, you may help them. Thank you."))
             else:
                 self.nb_problem_layout.set_current_page(1)
         except errors.InvalidProblem as ex:

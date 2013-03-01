@@ -263,6 +263,24 @@ class OopsWindow(Gtk.ApplicationWindow):
          self.tvs_problems.select_iter(pit)
          self.tv_problems.scroll_to_cell(path)
 
+    def _show_problem_links(self, submissions):
+        need_align = False
+        for s in submissions:
+            if problems.Problem.Submission.URL == s.rtype:
+                lnk = Gtk.LinkButton(s.data, s.title)
+                lnk.set_visible(True)
+                lnk.set_halign(Gtk.Align.START)
+                lnk.set_valign(Gtk.Align.START)
+
+                self.vbx_links.pack_start(lnk, False, True, 0)
+                need_align = True
+
+        if need_align:
+            space = Gtk.Alignment()
+            space.set_visible(True)
+            space.set_vexpand(True)
+            self.vbx_links.pack_start(space, False, True, 0)
+
     def _set_problem(self, problem):
         try:
             self.selected_problem = problem
@@ -287,19 +305,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
                 if problem['is_reported']:
                     self.lbl_reported_value.set_text(_('yes'))
-                    for s in problem['submission']:
-                        if problems.Problem.Submission.URL == s.rtype:
-                            lnk = Gtk.LinkButton(s.data, s.title)
-                            lnk.set_visible(True)
-                            lnk.set_halign(Gtk.Align.START)
-                            lnk.set_valign(Gtk.Align.START)
-
-                            self.vbx_links.pack_start(lnk, False, True, 0)
-
-                    space = Gtk.Alignment()
-                    space.set_visible(True)
-                    space.set_vexpand(True)
-                    self.vbx_links.pack_start(space, False, True, 0)
+                    self._show_problem_links(problem['submission'])
                 else:
                     self.lbl_reported_value.set_text(_('no'))
             else:

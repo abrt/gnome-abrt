@@ -1,27 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # beckerde <domingobecker@gmail.com>, 2011.
 # Claudio Rodrigo Pereyra Diaz <elsupergomez@gmail.com>, 2011.
 # Dennis Tobar <dennis.tobar@gmail.com>, 2011.
 #   <domingobecker@gmail.com>, 2011.
 #   <gguerrer@redhat.com>, 2011-2012.
+# Gladys Guerrero <gguerrer@redhat.com>, 2012.
 # Héctor Daniel Cabrera <logan@fedoraproject.org>, 2011.
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-18 17:58+0200\n"
-"PO-Revision-Date: 2012-09-20 08:41+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"POT-Creation-Date: 2012-10-18 17:05+0200\n"
+"PO-Revision-Date: 2012-10-25 06:18+0000\n"
+"Last-Translator: Gladys Guerrero <gguerrer@redhat.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
@@ -34,39 +35,39 @@ msgstr "Ver e informar sobre la caída de la aplicación"
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
+msgstr "No  se  puede añadir receptor de señal  '{0}' en ruta de sistema DBus  '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:73
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "No  se  puede conectar el bus del sistema DBus '{0}' ruta '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "No  se  puede obtener interfaz '{0}' en ruta '{1}' en bus '{2}': {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:124
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "No  se  pueden obtener  datos del problema del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:139
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "No  se  puede obtener lista de problemas del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:152
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "No  se  puede borrar problema del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/directory_problems.py:185
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "No se puede abrir directorio: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "Delete"
-msgstr ""
+msgstr "Borrar"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr ""
+msgstr "Borrar problemas  seleccionados"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
@@ -74,105 +75,105 @@ msgstr "_Reportar"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr ""
+msgstr "Enviar problemas seleccionados"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Detail"
-msgstr ""
+msgstr "Detalle"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "_All problems"
-msgstr ""
+msgstr "_Todos los problemas"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "Mostrar todos los problemas conocidos de todos los usuarios del sistema"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Reported"
-msgstr ""
+msgstr "Reportado "
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "No oopses!"
-msgstr ""
+msgstr "No hay 'oopses'"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "App"
-msgstr ""
+msgstr "Aplicación"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Date"
-msgstr ""
+msgstr "Fecha "
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
-msgstr ""
+msgstr "No se puede borrar problema '{0}': '{1}'"
 
 #: ../src/gnome_abrt/problems.py:286
 msgid "Problem '{0}' is already in the cache"
-msgstr ""
+msgstr "Problema '{0}' ya está en la cache"
 
 #: ../src/gnome_abrt/problems.py:300
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "No  se encontró en cache pero fue borrada: {0}"
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
-msgstr ""
+msgstr "No  se  puede procesar '{0}': {1}"
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
-msgstr ""
+msgstr "La fuente falló en el proceso de '{0}': {1}"
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr ""
+msgstr "Futuro"
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr ""
+msgstr "Semana"
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr ""
+msgstr "Mes"
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr ""
+msgstr "Año"
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr ""
+msgstr "Último {0!s}"
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr ""
+msgstr "Hace {0:d} {1!s}"
 
 #: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"
-msgstr ""
+msgstr "Se colgó "
 
 #: ../src/gnome_abrt/views.py:218
 msgid "yes"
-msgstr ""
+msgstr "Sí"
 
 #: ../src/gnome_abrt/views.py:232
 msgid "no"
-msgstr ""
+msgstr "No"

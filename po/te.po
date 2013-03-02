@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Krishnababu Krothapalli <kkrothap@redhat.com>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-18 17:58+0200\n"
-"PO-Revision-Date: 2012-09-20 08:41+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"POT-Creation-Date: 2012-10-18 17:05+0200\n"
+"PO-Revision-Date: 2012-11-02 10:38+0000\n"
+"Last-Translator: Krishnababu Krothapalli <krisnababu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
@@ -28,39 +28,39 @@ msgstr "అనువర్తనము క్రాషెస్‌ను దర�
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
+msgstr "సంకేతం '{0}' యొక్క స్వీకరిణిని DBus వ్యవస్థ పాత్ '{1}' పై జతచేయలేదు: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:73
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "DBus వ్యవస్థ '{0}' పాత్ '{1}' కు అనుసంధానం కాలేదు: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "ఇంటర్ఫేస్ '{0}' ను పాత్ '{1}' పై బస్ '{2}' నందు పొందలేదు: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:124
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "DBus సేవ నుండి సమస్య దత్తాంశమును పొందలేదు: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:139
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "DBus సేవ నుండి సమస్యల జాబితాను పొందలేదు: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:152
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "DBus సేవ నందు సమస్యను తొలగించలేదు: {0!s}"
 
 #: ../src/gnome_abrt/directory_problems.py:185
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "సంచయం తెరువలేదు: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "Delete"
-msgstr ""
+msgstr "తొలగించు"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr ""
+msgstr "ఎంపికచేసిన సమస్యలను తొలగించు"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
@@ -68,105 +68,105 @@ msgstr "నివేదించు (_R)"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr ""
+msgstr "ఎంపికచేసిన సమస్యను అప్పగించును"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Detail"
-msgstr ""
+msgstr "వివరము"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "_All problems"
-msgstr ""
+msgstr "అన్ని సమస్యలు (_A)"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "అన్ని వ్యవస్థ వాడుకరులనుండి అన్ని తెలిసిన సమస్యలను చూపుము"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Name"
-msgstr ""
+msgstr "పేరు"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "Version"
-msgstr ""
+msgstr "వర్షన్"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Reported"
-msgstr ""
+msgstr "నివేదించిన"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "No oopses!"
-msgstr ""
+msgstr "oopses లేవు!"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "App"
-msgstr ""
+msgstr "అనువర్తనం"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Date"
-msgstr ""
+msgstr "తేదీ"
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
-msgstr ""
+msgstr "సమస్య '{0}' ను తొలగించలేదు: '{1}'"
 
 #: ../src/gnome_abrt/problems.py:286
 msgid "Problem '{0}' is already in the cache"
-msgstr ""
+msgstr "సమస్య '{0}' యిప్పటికే క్యాచీనందు వుంది"
 
 #: ../src/gnome_abrt/problems.py:300
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "క్యాచీనందు కనుగొనలేదు అయితే తొలగించబడెను: {0}"
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
-msgstr ""
+msgstr "'{0}' ను ప్రోసెస్ చేయలేదు: {1}"
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
-msgstr ""
+msgstr "'{0}' యొక్క ప్రోసెసింగ్ నందు వనరు విఫలమైంది: {1}"
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr ""
+msgstr "భవిష్యత్తు"
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr ""
+msgstr "నిన్న"
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr ""
+msgstr "వారము"
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr ""
+msgstr "నెల"
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr ""
+msgstr "సంవత్సరం"
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr ""
+msgstr "ఆఖరి {0!s}"
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr ""
+msgstr "{0:d} {1!s}s క్రితం"
 
 #: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
-msgstr ""
+msgstr "వర్తించదు"
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"
-msgstr ""
+msgstr "క్రాషైన"
 
 #: ../src/gnome_abrt/views.py:218
 msgid "yes"
-msgstr ""
+msgstr "అవును"
 
 #: ../src/gnome_abrt/views.py:232
 msgid "no"
-msgstr ""
+msgstr "కాదు"

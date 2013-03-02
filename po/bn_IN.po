@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011.
 # Runa Bhattacharjee <runab@redhat.com>, 2009-2011.
@@ -10,19 +10,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-18 17:58+0200\n"
-"PO-Revision-Date: 2012-09-20 08:41+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"POT-Creation-Date: 2012-10-18 17:05+0200\n"
+"PO-Revision-Date: 2012-10-30 11:57+0000\n"
+"Last-Translator: runa <runabh@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: bn_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bn_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
 msgid "Automatic Bug Reporting Tool"
-msgstr "স্বয়ংক্রিয় বাগ রিপোর্টিং ব্যবস্থা"
+msgstr "স্বয়ংক্রিয় বাগ রিপোর্টিং ব্যবস্থা (ABRT)"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -30,27 +30,27 @@ msgstr "অ্যাপ্লিকেশনের বিপর্যয় সং�
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
+msgstr "'{0}' সংকেত প্রাপ্তকারীকে DBus সিস্টেম পাথ '{1}'-র মধ্যে যোগ করতে ব্যর্থ: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:73
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "'{0}' DBus সিস্টেম বাস-কে '{1}' পাথের মধ্যে যোগ করতে ব্যর্থ: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "'{0}' ইন্টারফেসটি '{1}' পাথে মধ্যে '{2}' বাসে প্রাপ্ত করতে ব্যর্থ: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:124
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "DBus পরিসেবা থেকে সমস্যাপূর্ণ তথ্য প্রাপ্ত করতে ব্যর্থ: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:139
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "DBus পরিসেবা থেকে সমস্যার তালিকা প্রাপ্ত করতে ব্যর্থ: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:152
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "DBus পরিসেবার মাধ্যমে সমস্যা মুছে ফেলা সম্ভব নয়: {0!s}"
 
 #: ../src/gnome_abrt/directory_problems.py:185
 msgid "Can't open directory: '{0}'"
@@ -58,7 +58,7 @@ msgstr "{0} খুলতে ব্যর্থ: {1}"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "Delete"
-msgstr ""
+msgstr "মুছে ফেলুন"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -66,15 +66,15 @@ msgstr "সমস্যাযুক্ত ডিরেক্টরিগুল�
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "রিপোর্ট (_R)"
+msgstr "রিপোর্ট দায়ের করুন (_R)"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr "দায়ের করা সমস্যাগুলিও তালিকাভুক্ত করা হবে"
+msgstr "নির্বাচিত সমস্যাগুলি দায়ের করা হবে"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Detail"
-msgstr ""
+msgstr "বিবরণ"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "_All problems"
@@ -82,43 +82,43 @@ msgstr "সমস্যা"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "সকল সিস্টেম ব্যবহারকারীদের থেকে প্রাপ্ত সকল সমস্যা প্রদর্শিত হবে"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Name"
-msgstr ""
+msgstr "নাম"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "Version"
-msgstr ""
+msgstr "সংস্করণ"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Reported"
-msgstr "রিপোর্ট"
+msgstr "রিপোর্ট করা হয়েছে"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "No oopses!"
-msgstr ""
+msgstr "কোনো ভুল নেই!"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "App"
-msgstr ""
+msgstr "অ্যাপ্লিকেশন"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Date"
-msgstr ""
+msgstr "তারিখ"
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
-msgstr "{0} খুলতে ব্যর্থ: {1}"
+msgstr "'{0}' সমস্যা মুছে ফেলতে ব্যর্থ: '{1}'"
 
 #: ../src/gnome_abrt/problems.py:286
 msgid "Problem '{0}' is already in the cache"
-msgstr ""
+msgstr "'{0}' সমস্যাটি পূর্বেই ক্যাশের মধ্যে উপস্থিত রয়েছে"
 
 #: ../src/gnome_abrt/problems.py:300
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "ক্যাশেতে পাওয়া যায়নি কিন্তু মুছে ফেলা হয়েছে: {0}"
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
@@ -126,52 +126,49 @@ msgstr "{0} খুলতে ব্যর্থ: {1}"
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
-msgstr ""
+msgstr "'{0}' প্রক্রিয়াকরণে উৎস বিপর্যস্ত হয়েছে: {1}"
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr ""
+msgstr "ভবিষ্যত"
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr ""
+msgstr "গতকাল"
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr ""
+msgstr "সপ্তাহ"
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr ""
+msgstr "মাস"
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr ""
+msgstr "বৎসর"
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr ""
+msgstr "সর্বশেষ {0!s}"
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr ""
+msgstr "{0:d} {1!s}s পূর্বে"
 
 #: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"
-msgstr ""
+msgstr "বিপর্যস্ত"
 
 #: ../src/gnome_abrt/views.py:218
 msgid "yes"
-msgstr ""
+msgstr "হ্যাঁ"
 
 #: ../src/gnome_abrt/views.py:232
 msgid "no"
-msgstr ""
-
-#~ msgid "No directory: {0}"
-#~ msgstr "সমস্যাযুক্ত ডিরেক্টরি"
+msgstr "না"

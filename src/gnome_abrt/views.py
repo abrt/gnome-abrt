@@ -305,7 +305,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             if problem:
                 self.nb_problem_layout.set_current_page(0)
                 app = problem['application']
-                self.lbl_reason.set_text(doN(app.name, _("N/A")) + _(' crashed'));
+                self.lbl_reason.set_text("{0} {1}".format(doN(app.name, _("N/A")), _(' crashed').strip()));
                 self.lbl_summary.set_text(doN(problem['reason'], ""))
                 self.lbl_app_name_value.set_text(doN(app.name, _("N/A")))
                 self.lbl_app_version_value.set_text(doN(problem['package'], ""))

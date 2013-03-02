@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jaswinder Singh Phulewala <j.phulewala@gmail.com>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-18 17:58+0200\n"
-"PO-Revision-Date: 2012-09-20 08:41+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"POT-Creation-Date: 2012-10-18 17:05+0200\n"
+"PO-Revision-Date: 2012-10-30 06:35+0000\n"
+"Last-Translator: Jaswinder Singh <j.phulewala@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
@@ -28,39 +28,39 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਕਰੈਸ਼ ਵੇਖੋ ਅਤੇ ਰਿਪ�
 
 #: ../src/gnome_abrt/dbus_problems.py:51
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
+msgstr "ਸਿਗਨਲ '{0}' ਦਾ ਰਿਸੀਵਰ DBus ਸਿਸਟਮ ਟਿਕਾਣੇ '{1}' ਉੱਪਰ ਜੋੜ ਨਹੀਂ ਸਕਦਾ: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:73
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "DBus ਸਿਸਟਮ bus '{0}' ਨੂੰ ਮਾਰਗ '{1}' ਨਾਲ ਨਹੀਂ ਜੋੜ ਸਕਦਾ: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "ਇੰਟਰਫੇਸ '{0}' ਨੂੰ ਮਾਰਗ '{1}' ਉੱਪਰ bus '{2}' ਵਿੱਚ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:124
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "DBus ਸਰਵਿਸ ਤੋਂ ਸਮੱਸਿਆ ਡਾਟਾ ਨਹੀਂ ਲੈ ਸਕਦਾ: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:139
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "DBus ਸਰਵਿਸ ਤੋਂ ਸਮੱਸਿਆਵਾਂ ਦੀ ਸੂਚੀ ਨਹੀਂ ਲੈ ਸਕਦਾ: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:152
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "DBus ਸਰਵਿਸ ਤੋਂ ਸਮੱਸਿਆ ਹਟਾ ਨਹੀਂ ਸਕਦਾ: {0!s}"
 
 #: ../src/gnome_abrt/directory_problems.py:185
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "ਡਾਇਰੈਕਟਰੀ ਨਹੀਂ ਖੋਲ ਸਕਦਾ: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "Delete"
-msgstr ""
+msgstr "ਹਟਾਓ"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr ""
+msgstr "ਚੁਣੀਆਂ ਸਮੱਸਿਆਵਾਂ ਹਟਾਓ"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
@@ -68,105 +68,105 @@ msgstr "ਰਿਪੋਰਟ(_R)"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr ""
+msgstr "ਚੁਣੀ ਸਮੱਸਿਆ ਭੇਜੋ"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Detail"
-msgstr ""
+msgstr "ਵੇਰਵਾ"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "_All problems"
-msgstr ""
+msgstr "ਸਭ ਸਮੱਸਿਆਵਾਂ(_A)"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "ਸਭ ਸਿਸਟਮ ਯਜ਼ਰਾਂ ਤੋਂ ਸਭ ਸਮੱਸਿਆਵਾਂ ਵੇਖਾਓ"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Name"
-msgstr ""
+msgstr "ਨਾਂ"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "Version"
-msgstr ""
+msgstr "ਵਰਜਨ"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Reported"
-msgstr ""
+msgstr "ਰਿਪੋਰਟ ਕੀਤਾ"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "No oopses!"
-msgstr ""
+msgstr "ਕੋਈ oopses ਨਹੀਂ!"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "App"
-msgstr ""
+msgstr "App"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Date"
-msgstr ""
+msgstr "ਮਿਤੀ"
 
 #: ../src/gnome_abrt/problems.py:151
 msgid "Can't delete problem '{0}': '{1}'"
-msgstr ""
+msgstr "ਸਮੱਸਿਆ '{0}': '{1}'"
 
 #: ../src/gnome_abrt/problems.py:286
 msgid "Problem '{0}' is already in the cache"
-msgstr ""
+msgstr "ਸਮੱਸਿਆ '{0}' ਪਹਿਲਾਂ ਹੀ ਕੈਸ਼ੇ ਵਿੱਚ ਹੈ"
 
 #: ../src/gnome_abrt/problems.py:300
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "ਕੈਸ਼ੇ ਵਿੱਚ ਨਹੀਂ ਲੱਭਿਆ ਪਰ ਹਟਾਇਆ ਗਿਆ ਹੈ: {0}"
 
 #: ../src/gnome_abrt/problems.py:314
 msgid "Can't process '{0}': {1}"
-msgstr ""
+msgstr "ਪਰੋਸੈੱਸ '{0}' ਨਹੀਂ ਕਰ ਸਕਿਆ: {1}"
 
 #: ../src/gnome_abrt/problems.py:316
 msgid "Source failed on processing of '{0}': {1}"
-msgstr ""
+msgstr "'{0}' ਦੀ ਪਰੋਸੈੱਸਿੰਗ ਦੌਰਾਨ ਸਰੋਤ ਫੇਲ ਹੋਇਆ: {1}"
 
 #: ../src/gnome_abrt/tools.py:18
 msgid "Future"
-msgstr ""
+msgstr "ਭਵਿੱਖ"
 
 #: ../src/gnome_abrt/tools.py:25
 msgid "Yesterday"
-msgstr ""
+msgstr "ਕੱਲ੍ਹ"
 
 #: ../src/gnome_abrt/tools.py:35
 msgid "week"
-msgstr ""
+msgstr "ਹਫ਼ਤਾ"
 
 #: ../src/gnome_abrt/tools.py:38
 msgid "month"
-msgstr ""
+msgstr "ਮਹੀਨਾ"
 
 #: ../src/gnome_abrt/tools.py:41
 msgid "year"
-msgstr ""
+msgstr "ਸਾਲ"
 
 #: ../src/gnome_abrt/tools.py:44
 msgid "Last {0!s}"
-msgstr ""
+msgstr "ਆਖਰੀ {0!s}"
 
 #: ../src/gnome_abrt/tools.py:46
 msgid "{0:d} {1!s}s ago"
-msgstr ""
+msgstr "{0:d} {1!s}s ਪਹਿਲਾਂ"
 
 #: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
 #: ../src/gnome_abrt/views.py:209
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: ../src/gnome_abrt/views.py:207
 msgid " crashed"
-msgstr ""
+msgstr " ਨਸ਼ਟ ਹੋਇਆ"
 
 #: ../src/gnome_abrt/views.py:218
 msgid "yes"
-msgstr ""
+msgstr "ਹਾਂ"
 
 #: ../src/gnome_abrt/views.py:232
 msgid "no"
-msgstr ""
+msgstr "ਨਹੀਂ"

@@ -178,7 +178,11 @@ class OopsApplication(Gtk.Application):
         self.set_app_menu(menu)
 
     def on_action_prefrences(self, action, parameter):
-        show_events_list_dialog(self.window)
+        windows = self.get_windows()
+        if windows:
+            show_events_list_dialog(windows[0])
+        else:
+            show_events_list_dialog()
 
     def on_action_about(self, action, parameter):
         dialog = Gtk.AboutDialog()

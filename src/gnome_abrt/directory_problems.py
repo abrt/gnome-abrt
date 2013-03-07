@@ -126,31 +126,52 @@ class INOTIFYWatcher:
         self._source = source
         self._directory = directory
         self._context = context
+        self._disabled = False
 
         if self._context:
             self._problems_watcher = {}
 
             self._wm = WatchManager()
-            self._gsource = INOTIFYGlibSource(self._wm, self._directory, INOTIFYSourceHandler(self._source))
+            try:
+                self._gsource = INOTIFYGlibSource(self._wm, self._directory, INOTIFYSourceHandler(self._source))
+            except OSError as ex:
+                self._disable_on_max_watches(ex, self._directory)
+                return
+
             self._gsource.attach(self._context)
 
     def watch_problem(self, problem):
+        if self._disabled:
+            return
+
         if problem.problem_id in self._problems_watcher:
             logging.debug("Updating watcher for '{0}'".format(problem.problem_id))
             self._problems_watcher[problem.problem_id].get_handler().set_problem(problem)
         else:
             logging.debug("Adding watcher for '{0}'".format(problem.problem_id))
-            pgs = INOTIFYGlibSource(WatchManager(), problem.problem_id, INOTIFYProblemHandler(problem))
-            # TODO : add detach after reload ...
+            pgs = None
+            try:
+                pgs = INOTIFYGlibSource(WatchManager(), problem.problem_id, INOTIFYProblemHandler(problem))
+            except OSError as ex:
+                self._disable_on_max_watches(ex, problem.problem_id)
+                return
+
             pgs.attach(self._context)
             self._problems_watcher[problem.problem_id] = pgs
 
     def unwatch_problem(self, problem_id):
+        if not self._disabled:
+            return
+
         if problem_id in self._problems_watcher:
             pgs = self._problems_watcher[problem_id]
             del self._problems_watcher[problem_id]
             pgs.destroy()
 
+    def _disable_on_max_watches(self, ex, directory):
+            self._disabled = True
+            logging.debug("Could not add inotify for directory '{0}': '{1}'".format(directory, ex.message))
+            logging.warning(_("You have probably reached inotify's limit on the number of watches in '{0}'. The limit can be increased by proper configuration of inotify. For more details see man inotify(7). This event causes that you will not be notified about changes in problem data happening outside of this application. This event do not affect any other functionality.").format(self._directory))
 
 class NotInitializedDirectorySource():
 

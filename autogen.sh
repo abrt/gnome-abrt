@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function print_help()
+print_help()
 {
 cat << EOH
 Prepares the source tree for configuration
@@ -16,12 +16,12 @@ Options:
 EOH
 }
 
-function build_depslist()
+build_depslist()
 {
     DEPS_LIST=`grep "Requires:" gnome-abrt.spec.in | tr -s " " | cut -f2 -d " " | tr "\n" " "`
 }
 
-case $1 in
+case "$1" in
     "--help"|"-h")
             print_help
             exit 0
@@ -38,7 +38,7 @@ case $1 in
             fi
             exit 0
         ;;
-        *)
+    *)
             echo "Running gen-version"
             VN=$(./gen-version | head -1)
             echo -n "$VN" > gnome-abrt-version

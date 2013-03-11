@@ -289,21 +289,29 @@ class CachedSource(ProblemSource):
         self._cache = None
         self.notify()
 
-    def _insert_to_cache(self, problem):
-        if self._cache:
-            if problem in self._cache:
-                raise errors.InvalidProblem(_("Problem '{0}' is already in the cache").format(problem.problem_id))
+    def _problem_is_in_cache(self, problem_id):
+        return not self._cache is None and problem_id in self._cache
 
+    def _insert_to_cache(self, problem):
+        if not self._problem_is_in_cache(problem):
             self._cache.append(problem)
+
+    def _remove_from_cache(self, problem_id):
+        if not self._problem_is_in_cache(problem_id):
+            return None
+
+        p = self._cache[self._cache.index(problem_id)]
+        self._cache.remove(problem_id)
+        return p
 
     def delete_problem(self, problem_id):
         if not self.impl_delete_problem(problem_id):
             return
 
         try:
-            p = self._cache[self._cache.index(problem_id)]
-            self._cache.remove(problem_id)
-            self.notify(ProblemSource.DELETED_PROBLEM, p)
+            p = self._remove_from_cache(problem_id)
+            if p:
+                self.notify(ProblemSource.DELETED_PROBLEM, p)
             return
         except ValueError as e:
             logging.warning(_('Not found in cache but deleted: {0}'), e.message)
@@ -316,10 +324,12 @@ class CachedSource(ProblemSource):
 
     def process_new_problem_id(self, problem_id):
         try:
-            p = self.create_new_problem(problem_id)
-            self._insert_to_cache(p)
-            self.notify(ProblemSource.NEW_PROBLEM, p)
-        except errors.InvalidProblem as e:
-            logging.warning(_("Can't process '{0}': {1}").format(problem_id, e.message))
+            if self._problem_is_in_cache(problem_id):
+                p = self._cache[self._cache.index(problem_id)]
+                p.refresh()
+            else:
+                p = self.create_new_problem(problem_id)
+                self._insert_to_cache(p)
+                self.notify(ProblemSource.NEW_PROBLEM, p)
         except errors.UnavailableSource as e:
             logging.warning(_("Source failed on processing of '{0}': {1}").format(problem_id, e.message))

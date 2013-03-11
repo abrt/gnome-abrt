@@ -34,7 +34,7 @@ class Application(object):
         if name:
             self.name = name
         else:
-            self.name = executable
+            self.name = os.path.basename(executable)
 
         self.icon = icon
 
@@ -126,4 +126,4 @@ def find_application(component, executable, cmdline):
                                                         icon=icon)
                 return __globa_app_cache__[n[0]]
 
-    return Application(executable if executable else "??", name=next(ifilter(lambda n: n, [component, executable, cmdline]), "??"))
+    return Application(executable if executable else "??")

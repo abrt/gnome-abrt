@@ -127,6 +127,7 @@ class DBusProblemSource(problems.CachedSource):
                 info = self._send_dbus_message(lambda iface, *params: iface.GetInfo(*params), problem_id, args)
             except dbus.exceptions.DBusException as e:
                 if e.get_dbus_name() in ["org.freedesktop.problems.AuthFailure", "org.freedesktop.problems.InvalidProblemDir"]:
+                    self._remove_from_cache(problem_id)
                     raise errors.InvalidProblem(e.message)
 
                 logging.warning(_("Can't get problem data from DBus service: {0!s}").format(e.message))
@@ -154,6 +155,7 @@ class DBusProblemSource(problems.CachedSource):
             return True
         except dbus.exceptions.DBusException as e:
             if e.get_dbus_name() in ["org.freedesktop.problems.AuthFailure", "org.freedesktop.problems.InvalidProblemDir"]:
+                self._remove_from_cache(problem_id)
                 raise errors.InvalidProblem(e.message)
 
             logging.warning(_("Can't delete problem over DBus service: {0!s}").format(e.message))

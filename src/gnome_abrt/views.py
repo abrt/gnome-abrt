@@ -206,7 +206,10 @@ class OopsWindow(Gtk.ApplicationWindow):
         return None
 
     def _add_problem_to_storage(self, problem):
-        self.ls_problems.append(problem_to_storage_values(problem))
+        try:
+            self.ls_problems.append(problem_to_storage_values(problem))
+        except InvalidProblem as ex:
+            logging.debug(ex.message)
 
     def _remove_problem_from_storage(self, problem):
         pit = self._find_problem_iter(problem, self.ls_problems)
@@ -216,9 +219,14 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _update_problem_in_storage(self, problem):
         pit = self._find_problem_iter(problem, self.ls_problems)
         if pit:
-            values = problem_to_storage_values(problem)
-            for i in xrange(0, len(values)-1):
-                self.ls_problems.set_value(pit, i, values[i])
+            try:
+                values = problem_to_storage_values(problem)
+                for i in xrange(0, len(values)-1):
+                    self.ls_problems.set_value(pit, i, values[i])
+            except InvalidProblem as ex:
+                self._remove_problem_from_storage(problem)
+                logging.debug(ex.message)
+                return
 
         if problem == self._get_selected(self.tvs_problems):
             self._set_problem(problem)

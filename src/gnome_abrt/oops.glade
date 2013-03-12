@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkAccelGroup" id="ag_accelerators"/>
   <object class="GtkActionGroup" id="gag_problem_actions">
     <property name="name">problems</property>
+    <property name="accel_group">ag_accelerators</property>
     <child>
       <object class="GtkAction" id="gac_delete">
         <property name="label" translatable="yes">Delete</property>
@@ -34,6 +36,24 @@
         <signal name="activate" handler="on_gac_opt_all_problems_activate" swapped="no"/>
       </object>
     </child>
+    <child>
+      <object class="GtkAction" id="gac_open_directory">
+        <property name="label" translatable="yes">_Open problem's data directory</property>
+        <property name="tooltip" translatable="yes">Opens the selected problem's data directory in the default file system browser</property>
+        <property name="stock_id">gtk-open</property>
+        <signal name="activate" handler="on_gac_open_directory_activate" swapped="no"/>
+      </object>
+      <accelerator key="o" modifiers="GDK_CONTROL_MASK"/>
+    </child>
+    <child>
+      <object class="GtkAction" id="gac_copy_id">
+        <property name="label" translatable="yes">_Copy problem's ID to Clipboard</property>
+        <property name="tooltip" translatable="yes">Stores the selected problem's ID in Clibpoard</property>
+        <property name="stock_id">gtk-copy</property>
+        <signal name="activate" handler="on_gac_copy_id_activate" swapped="no"/>
+      </object>
+      <accelerator key="c" modifiers="GDK_CONTROL_MASK"/>
+    </child>
   </object>
   <object class="GtkListStore" id="ls_problems">
     <columns>
@@ -45,11 +65,32 @@
       <column type="PyObject"/>
     </columns>
   </object>
+  <object class="GtkMenu" id="menu_problem_item">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkMenuItem" id="mi_open_directory">
+        <property name="related_action">gac_open_directory</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="mi_copy_id">
+        <property name="related_action">gac_copy_id</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="wnd_main">
     <property name="width_request">640</property>
     <property name="height_request">480</property>
     <property name="can_focus">False</property>
     <property name="icon_name">gnome-abrt</property>
+    <accel-groups>
+      <group name="ag_accelerators"/>
+    </accel-groups>
     <child>
       <object class="GtkGrid" id="gr_main_layout">
         <property name="visible">True</property>
@@ -369,12 +410,6 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
                   <object class="GtkScrolledWindow" id="gsw_problem_messages">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -405,6 +440,12 @@
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
                 </child>
               </object>
             </child>

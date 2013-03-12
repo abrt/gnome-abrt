@@ -21,6 +21,7 @@
 import os
 import time
 import logging
+import subprocess
 
 from gi.repository import Gtk
 from gi.repository import Gdk
@@ -180,6 +181,13 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.vbx_problem_messages = builder.get_object('vbx_problem_messages')
         self.gac_report = builder.get_object('gac_report')
         self.gac_delete = builder.get_object('gac_delete')
+        self.gac_open_directory = builder.get_object('gac_open_directory')
+        self.gac_copy_id = builder.get_object('gac_copy_id')
+        self.menu_problem_item = builder.get_object('menu_problem_item')
+
+        # move accelators group from the design window to this window
+        self.ag_accelerators = builder.get_object('ag_accelerators')
+        self.add_accel_group(self.ag_accelerators)
 
         gv_links = builder.get_object('gv_links')
         stl_ctx = gv_links.get_style_context()
@@ -188,11 +196,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                                "  background-color : @theme_bg_color;\n"
                                "}\n")
         stl_ctx.add_provider(css_prv, 6000)
-
-        self.ag_accelerators = Gtk.AccelGroup()
-        self.ag_accelerators.connect_by_path(self.gac_report.get_accel_path(), lambda *args: self.gac_report.activate())
-        self.ag_accelerators.connect_by_path(self.gac_delete.get_accel_path(), lambda *args: self.gac_delete.activate())
-        self.add_accel_group(self.ag_accelerators)
 
         builder.connect_signals(self)
 
@@ -394,10 +397,23 @@ class OopsWindow(Gtk.ApplicationWindow):
     def on_gac_control_preferences_activate(self, action):
         wrappers.show_events_list_dialog(self)
 
-    def on_wnd_main_button_press_event(self, button):
-        print "press"
-        self.gm_control.poppup()
+    def on_gac_open_directory_activate(self, action):
+        p = self._get_selected(self.tvs_problems)
+        if p:
+            subprocess.call(["xdg-open", p.problem_id])
+        self.menu_problem_item.popdown()
+
+    def on_gac_copy_id_activate(self, action):
+        p = self._get_selected(self.tvs_problems)
+        if p:
+            Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(p.problem_id, -1)
+        self.menu_problem_item.popdown()
 
     def on_tv_problems_button_press_event(self, sender, e):
-        if e.type == type.__getattribute__(Gdk.EventType, '2BUTTON_PRESS'):
+        # getattribute() used because number as first character in name is syntax error
+        if e.type == type.__getattribute__(Gdk.EventType, '2BUTTON_PRESS') and e.button == Gdk.BUTTON_PRIMARY:
             self.gac_report.activate()
+        elif e.type == Gdk.EventType.BUTTON_PRESS and e.button == Gdk.BUTTON_SECONDARY:
+            pos = self.tv_problems.get_path_at_pos(e.x, e.y)
+            if pos:
+                self.menu_problem_item.popup(None, None, None, None, e.button, e.time)

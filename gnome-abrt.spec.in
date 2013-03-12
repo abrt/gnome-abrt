@@ -28,6 +28,7 @@ BuildRequires: gtk3-devel
 Requires:   python-inotify
 Requires:   pygobject3
 Requires:   dbus-python
+Requires:   xdg-utils
 
 %description
 A GNOME application allows users to browse through detected problems and

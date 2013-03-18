@@ -86,6 +86,25 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Mar 18 2013 Jakub Filak <jfilak@redhat.com> 0.2.9-1
+- Truncate long texts with ellipsis instead of auto-adjusting of window width
+- Add a popopup menu for list of problems
+- Use executable's basename as an application name instead of the full path
+- Remove invalid problems from GUI tree view list
+- Remove invalid problems from the dbus cache
+- Robustize the processing of newly occurred problems
+- autogen.sh: stop using bashisms
+- Remove a left-over usage of the window member in OopsApplication
+- Handle reaching inotify max watches better
+- Update translation
+- Don't allow reporting if the problem is not reportable
+- Suggest reporting a bug if it wasn't reported yet
+- Simplify the glade file and add a widget for messages
+- Refactorize the function rendering a problem data
+- A workaround for the bug in remote GtkApplications
+- Allow only a single instance of gnome-abrt
+- Fix bugs in main window in handler of configuration updates
+
 * Mon Feb 25 2013 Jakub Filak <jfilak@redhat.com> 0.2.8-1
 - Add make release targets
 - Always generate controller.py & gnome-abrt-glade.py

@@ -94,8 +94,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     def __init__(self, application, source, controller):
         super(OopsWindow, self).__init__(title=_('Automatic Bug Reporting Tool'), application=application)
 
-        self.set_default_size(780, 480)
-
         if os.path.exists('oops.glade'):
             self._load_widgets_from_builder(filename='oops.glade')
         else:
@@ -159,6 +157,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.gr_main_layout = builder.get_object('gr_main_layout')
         wnd = builder.get_object('wnd_main')
+        self.set_default_size(*wnd.get_size())
         wnd.remove(self.gr_main_layout)
         self.add(self.gr_main_layout)
 

@@ -188,13 +188,12 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.ag_accelerators = builder.get_object('ag_accelerators')
         self.add_accel_group(self.ag_accelerators)
 
-        gv_links = builder.get_object('gv_links')
-        stl_ctx = gv_links.get_style_context()
         css_prv = Gtk.CssProvider()
         css_prv.load_from_data("GtkViewport {\n"
                                "  background-color : @theme_bg_color;\n"
                                "}\n")
-        stl_ctx.add_provider(css_prv, 6000)
+        stl_ctx = self.get_style_context()
+        stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
 
         builder.connect_signals(self)
 

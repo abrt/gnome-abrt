@@ -43,6 +43,9 @@ __globa_app_cache__ = {}
 
 
 def compare_executable(executable, de):
+    if not executable:
+        return False
+
     dexec = de.get_executable()
 
     realpath = None
@@ -63,7 +66,7 @@ def compare_cmdline(cmdline, de):
 
     # try to handle interpreters like python
     if not ret:
-        cmdargs = cmdline.split(" ");
+        cmdargs = filter(lambda x: x, cmdline.split(" "))
         if len(cmdargs) > 1:
             ret = compare_executable(cmdargs[1], de)
 

@@ -208,7 +208,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _add_problem_to_storage(self, problem):
         try:
             self.ls_problems.append(problem_to_storage_values(problem))
-        except InvalidProblem as ex:
+        except errors.InvalidProblem as ex:
             logging.debug(ex.message)
 
     def _remove_problem_from_storage(self, problem):
@@ -223,7 +223,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 values = problem_to_storage_values(problem)
                 for i in xrange(0, len(values)-1):
                     self.ls_problems.set_value(pit, i, values[i])
-            except InvalidProblem as ex:
+            except errors.InvalidProblem as ex:
                 self._remove_problem_from_storage(problem)
                 logging.debug(ex.message)
                 return

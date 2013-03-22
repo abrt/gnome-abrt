@@ -473,7 +473,7 @@
                   <object class="GtkLabel" id="lbl_no_oopses">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">No oopses!</property>
+                    <property name="label" translatable="yes">No problems detected!</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>

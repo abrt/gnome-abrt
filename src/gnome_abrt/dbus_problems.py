@@ -154,7 +154,7 @@ class DBusProblemSource(problems.CachedSource):
                                   "org.freedesktop.problems.AuthFailure",
                                   "org.freedesktop.problems.InvalidProblemDir"]:
                     self._remove_from_cache(problem_id)
-                    raise errors.InvalidProblem(ex.message)
+                    raise errors.InvalidProblem(problem_id, ex.message)
 
                 logging.warning(
                         _("Can't get problem data from DBus service: {0!s}")
@@ -193,7 +193,7 @@ class DBusProblemSource(problems.CachedSource):
             if ex.get_dbus_name() in ["org.freedesktop.problems.AuthFailure",
                                 "org.freedesktop.problems.InvalidProblemDir"]:
                 self._remove_from_cache(problem_id)
-                raise errors.InvalidProblem(ex.message)
+                raise errors.InvalidProblem(problem_id, ex.message)
 
             logging.warning(
                     _("Can't delete problem over DBus service: {0!s}")

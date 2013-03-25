@@ -248,8 +248,8 @@ class InitializedDirectoryProblemSource():
 
         dd = report.dd_opendir(problem_id, report.DD_OPEN_READONLY)
         if not dd:
-            raise errors.InvalidProblem(_("Can't open directory: '{0}'")
-                                            .format(problem_id))
+            raise errors.InvalidProblem(problem_id,
+                        _("Can't open directory: '{0}'").format(problem_id))
 
         items = {}
         for field_name in args:

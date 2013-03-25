@@ -216,8 +216,13 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _find_problem_iter(self, problem, model):
         pit = model.get_iter_first()
         while pit:
-            if model[pit][2] == problem:
-                return pit
+            try:
+                if model[pit][2] == problem:
+                    return pit
+            except errors.InvalidProblem as ex:
+                self._remove_problem_from_storage(ex.problem_id)
+                logging.debug(ex.message)
+
             pit = model.iter_next(pit)
 
         return None
@@ -226,9 +231,13 @@ class OopsWindow(Gtk.ApplicationWindow):
         try:
             self._builder.ls_problems.append(problem_to_storage_values(problem))
         except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
             logging.debug(ex.message)
 
     def _remove_problem_from_storage(self, problem):
+        if problem is None:
+            return
+
         pit = self._find_problem_iter(problem, self._builder.ls_problems)
         if pit:
             self._builder.ls_problems.remove(pit)
@@ -241,12 +250,19 @@ class OopsWindow(Gtk.ApplicationWindow):
                 for i in xrange(0, len(values)-1):
                     self._builder.ls_problems.set_value(pit, i, values[i])
             except errors.InvalidProblem as ex:
-                self._remove_problem_from_storage(problem)
+                self._remove_problem_from_storage(ex.problem_id)
                 logging.debug(ex.message)
-                return
 
-        if problem in self._get_selected(self._builder.tvs_problems):
-            self._set_problem(problem)
+            return
+
+        try:
+            if problem in self._get_selected(self._builder.tvs_problems):
+                self._set_problem(problem)
+        except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
+            logging.debug(ex.message)
+
+        return
 
     def _reload_problems(self, source):
         self._reloading = True
@@ -284,8 +300,11 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _select_problem_iter(self, pit):
         self._reloading = True
-        self._builder.tvs_problems.unselect_all()
-        self._reloading = False
+        try:
+            self._builder.tvs_problems.unselect_all()
+        finally:
+            self._reloading = False
+
         path = self._builder.tv_problems.get_model().get_path(pit)
         if not path:
             logging.debug("Can't select problem because the passed iter can't"
@@ -294,6 +313,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self._builder.tvs_problems.select_iter(pit)
         self._builder.tv_problems.scroll_to_cell(path)
+
 
     def _show_problem_links(self, submissions):
         need_align = False
@@ -369,8 +389,8 @@ class OopsWindow(Gtk.ApplicationWindow):
             else:
                 self._builder.nb_problem_layout.set_current_page(1)
         except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
             logging.debug(ex.message)
-            self._source.refresh()
 
     def _get_selected(self, selection):
         model, rows = selection.get_selected_rows()
@@ -396,21 +416,37 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._set_problem(None)
 
     def on_gac_delete_activate(self, action):
-        for prblm in self._get_selected(self._builder.tvs_problems):
-            self._controller.delete(prblm)
+        try:
+            for prblm in self._get_selected(self._builder.tvs_problems):
+                self._controller.delete(prblm)
+        except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
+            logging.debug(ex.message)
 
     def on_gac_detail_activate(self, action):
-        selected = self._get_selected(self._builder.tvs_problems)
-        if selected:
-            self._controller.detail(selected[0])
+        try:
+            selected = self._get_selected(self._builder.tvs_problems)
+            if selected:
+                self._controller.detail(selected[0])
+        except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
+            logging.debug(ex.message)
 
     def on_gac_report_activate(self, action):
-        selected = self._get_selected(self._builder.tvs_problems)
-        if selected and not selected[0]['not-reportable']:
-            self._controller.report(selected[0])
+        try:
+            selected = self._get_selected(self._builder.tvs_problems)
+            if selected and not selected[0]['not-reportable']:
+                self._controller.report(selected[0])
+        except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
+            logging.debug(ex.message)
 
     def on_te_search_changed(self, entry):
-        self._filter.set_pattern(entry.get_text())
+        try:
+            self._filter.set_pattern(entry.get_text())
+        except errors.InvalidProblem as ex:
+            self._remove_problem_from_storage(ex.problem_id)
+            logging.debug(ex.message)
 
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()

@@ -323,27 +323,24 @@ class CachedSource(ProblemSource):
 
     def _remove_from_cache(self, problem_id):
         if not self._problem_is_in_cache(problem_id):
-            return None
+            return
 
-        p = self._cache[self._cache.index(problem_id)]
+        prblm = self._cache[self._cache.index(problem_id)]
         self._cache.remove(problem_id)
-        return p
+        self.notify(ProblemSource.DELETED_PROBLEM, prblm)
 
     def delete_problem(self, problem_id):
         if not self._delete_problem(problem_id):
             return
 
         try:
-            prblm = self._remove_from_cache(problem_id)
-            if prblm:
-                self.notify(ProblemSource.DELETED_PROBLEM, prblm)
-            return
+            self._remove_from_cache(problem_id)
         except ValueError as ex:
             logging.warning(_('Not found in cache but deleted: {0}'),
                     ex.message)
             self._cache = None
+            self.notify()
 
-        self.notify()
 
     def _create_new_problem(self, problem_id):
         return Problem(problem_id, self)

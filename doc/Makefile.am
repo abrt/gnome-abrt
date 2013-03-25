@@ -5,10 +5,12 @@ MAN6_TXT = gnome-abrt.txt
 # Manual pages are generated from .txt via Docbook
 man6_MANS = ${MAN6_TXT:%.txt=%.6}
 
-%.6: %.xml
+SUFFIXES = .txt .xml .6
+
+.xml.6:
 	$(XMLTO_SILENT) xmlto man $< 2>&1 | sed '/Note/d'
 
-%.xml: %.txt ../asciidoc.conf
+.txt.xml:
 	$(ASCIIDOC_SILENT) asciidoc --backend=docbook --doctype=manpage \
 									  --conf-file ../asciidoc.conf \
 									  -aabrt_version=$(PACKAGE_VERSION) -o $@ $<

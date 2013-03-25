@@ -71,11 +71,9 @@ dnl ****** END ****************************************
 
 PYTHON_CFLAGS=`python-config --cflags 2> /dev/null`
 GNOME_ABRT_VERSION=`cat ./gnome-abrt-version`
-GNOME_ABRT_RELEASE=`cat ./gnome-abrt-release`
 
 AC_SUBST(PYTHON_CFLAGS)
 AC_SUBST(GNOME_ABRT_VERSION)
-AC_SUBST(GNOME_ABRT_RELEASE)
 
 PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([LIBREPORT_GTK], [libreport-gtk > 2.0.19-3])

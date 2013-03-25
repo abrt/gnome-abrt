@@ -18,24 +18,13 @@
 import logging
 import os
 import sys
-import signal
 
 class Controller(object):
 
-    def __init__(self, source):
+    def __init__(self, source, sigchld_assign=None):
         self.source = source
         self.run_event_fn = self._first_event_run
-
-    #pylint: disable=W0613
-    def _handle_signal(self, signum):
-        while True:
-            try:
-                os.wait3(os.WNOHANG)
-            except OSError as ex:
-                logging.debug(ex.message)
-                break
-
-        self.source.refresh()
+        self._sigchld_assign = sigchld_assign
 
     def report(self, problem):
         if not problem:
@@ -59,8 +48,8 @@ class Controller(object):
         self.run_event_fn("open-gui", problem)
 
     def _first_event_run(self, event, problem):
-        signal.signal(signal.SIGCHLD,
-                lambda signum, frame: self._handle_signal(signum))
+        if self._sigchld_assign is not None:
+            self._sigchld_assign(self.source.refresh)
 
         self.run_event_fn = self._run_event_on_problem
         self.run_event_fn(event, problem)

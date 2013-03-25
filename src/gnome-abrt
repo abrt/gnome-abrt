@@ -36,6 +36,7 @@ from gi.repository import Gio
 import gnome_abrt
 from gnome_abrt.views import OopsWindow
 from gnome_abrt.controller import Controller
+from gnome_abrt.signals import glib_sigchld_signal_handler
 from gnome_abrt.problems import MultipleSources
 from gnome_abrt.directory_problems import DirectoryProblemSource
 from gnome_abrt.dbus_problems import DBusProblemSource
@@ -189,7 +190,8 @@ class OopsApplication(Gtk.Application):
 
                 self.source = MultipleSources(sources)
 
-                controller = Controller(self.source)
+                controller = Controller(self.source,
+                                        glib_sigchld_signal_handler)
                 main_window = OopsWindow(self, self.source, controller)
                 main_window.show_all()
                 self.add_window (main_window)

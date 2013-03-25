@@ -11,6 +11,7 @@ gnome_abrtexec_PYTHON = \
 	directory_problems.py \
 	errors.py \
 	problems.py \
+	signals.py \
 	tools.py \
 	views.py \
 	l10n.py \

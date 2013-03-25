@@ -119,14 +119,20 @@ class GtkAppDBUSImpl(object):
             raise RuntimeError("Can't send command-line message because "
                                "instance is not a remote application")
 
-        if not self._primary_iface:
-            self._primary_iface = dbus.Interface(self._primary_obj,
-                    GNOME_ABRT_INTERFACE)
+        try:
+            if not self._primary_iface:
+                self._primary_iface = dbus.Interface(self._primary_obj,
+                        GNOME_ABRT_INTERFACE)
 
-        if len(argv) == 0:
-            argv = dbus.Array([], signature='s')
+            if len(argv) == 0:
+                argv = dbus.Array([], signature='s')
 
-        self._primary_iface.command_line(argv)
+            self._primary_iface.command_line(argv)
+            return True
+        except dbus.exceptions.DBusException as ex:
+            logging.debug("Can't send command line over DBus: {0}"
+                    .format(ex.message))
+            return False
 
 
 class OopsApplication(Gtk.Application):
@@ -145,8 +151,8 @@ class OopsApplication(Gtk.Application):
         argv = gcmdargs.get_arguments()
 
         if self._dbus_srv.is_remote():
-            self._dbus_srv.send_command_line(argv)
-            return 0
+            if self._dbus_srv.send_command_line(argv):
+                return 0
 
         if len(argv) > 0:
             conf = get_configuration()

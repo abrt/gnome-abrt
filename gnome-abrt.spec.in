@@ -25,6 +25,9 @@ BuildRequires: pygobject3-devel
 BuildRequires: libreport-gtk-devel > 2.0.20
 BuildRequires: gtk3-devel
 BuildRequires: pylint
+BuildRequires: python-inotify
+BuildRequires: pygobject3
+BuildRequires: dbus-python
 
 Requires:   python-inotify
 Requires:   pygobject3

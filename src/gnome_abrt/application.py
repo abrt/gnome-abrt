@@ -16,14 +16,15 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 import os
-import sys
 import logging
-from itertools import ifilter
 
 # PyGObject
 import gi
+#pylint: disable=E0611
 from gi.repository import Gtk
+#pylint: disable=E0611
 from gi.repository import Gio
+#pylint: disable=E0611
 from gi.repository import GdkPixbuf
 
 class Application(object):
@@ -42,38 +43,42 @@ class Application(object):
 __globa_app_cache__ = {}
 
 
-def compare_executable(executable, de):
+def compare_executable(executable, desktop_entry):
     if not executable:
         return False
 
-    dexec = de.get_executable()
+    dexec = desktop_entry.get_executable()
 
     realpath = None
     if executable[0] == '/' and os.path.islink(executable):
         realpath = os.readlink(executable)
 
         if realpath[0] != '/':
-            realpath = os.path.abspath(os.path.join(os.path.dirname(executable), realpath))
+            realpath = os.path.abspath(
+                    os.path.join(os.path.dirname(executable), realpath))
 
         if realpath == executable:
             realpath = None
 
-    return os.path.basename(executable) == os.path.basename(dexec) or executable == dexec or (realpath and compare_executable(realpath, de))
+    return (os.path.basename(executable) == os.path.basename(dexec)
+            or executable == dexec
+            or (realpath and compare_executable(realpath, desktop_entry)))
 
-def compare_cmdline(cmdline, de):
-    dcmdline = de.get_commandline()
-    ret = os.path.basename(cmdline) == os.path.basename(dcmdline) or cmdline == dcmdline
+def compare_cmdline(cmdline, desktop_entry):
+    dcmdline = desktop_entry.get_commandline()
+    ret = (os.path.basename(cmdline) == os.path.basename(dcmdline)
+            or cmdline == dcmdline)
 
     # try to handle interpreters like python
     if not ret:
         cmdargs = filter(lambda x: x, cmdline.split(" "))
         if len(cmdargs) > 1:
-            ret = compare_executable(cmdargs[1], de)
+            ret = compare_executable(cmdargs[1], desktop_entry)
 
     return ret
 
-def compare_component(component, de):
-    dicon = de.get_icon()
+def compare_component(component, desktop_entry):
+    dicon = desktop_entry.get_icon()
     if not dicon:
         return False
 
@@ -81,11 +86,11 @@ def compare_component(component, de):
         return component in dicon.get_names()
     elif isinstance(dicon, Gio.FileIcon):
         logging.debug("File icon: {0}".format(dicon.to_string()))
-        bf = os.path.basename(dicon.to_string())
-        if component == bf:
+        base_name = os.path.basename(dicon.to_string())
+        if component == base_name:
             return True
-        elif '.' in bf:
-            component == bf[:bf.rindex('.')]
+        elif '.' in base_name:
+            return component == base_name[:base_name.rindex('.')]
         else:
             return False
     else:
@@ -94,39 +99,41 @@ def compare_component(component, de):
     return False
 
 def find_application(component, executable, cmdline):
-    global __globa_app_cache__
+    lookupnames = [(cmdline, compare_cmdline),
+                   (executable, compare_executable),
+                   (component, compare_component)]
 
-    lookupnames = [(cmdline, compare_cmdline), (executable, compare_executable), (component, compare_component)]
-
-    for n in lookupnames:
-        if not n[0]:
+    for pred in lookupnames:
+        if not pred[0]:
             continue
 
-        if n[0] in __globa_app_cache__:
-            return __globa_app_cache__[n[0]]
+        if pred[0] in __globa_app_cache__:
+            return __globa_app_cache__[pred[0]]
 
         theme = Gtk.IconTheme.get_default()
         for dai in Gio.DesktopAppInfo.get_all():
-            if n[1](n[0], dai):
+            if pred[1](pred[0], dai):
                 icon = None
                 dai_icon = dai.get_icon()
                 if dai_icon:
                     if isinstance(dai_icon, Gio.ThemedIcon):
                         for name in dai_icon.get_names():
                             try:
-                                icon = theme.load_icon(name, 128, Gtk.IconLookupFlags.USE_BUILTIN)
+                                icon = theme.load_icon(name,
+                                        128, Gtk.IconLookupFlags.USE_BUILTIN)
                                 break
-                            except gi._glib.GError as e:
-                                logging.debug(e.message)
+                            except gi._glib.GError as ex:
+                                logging.debug(ex.message)
                     elif isinstance(dai_icon, Gio.FileIcon):
                         stream = dai_icon.load(128, None)
                         icon = GdkPixbuf.Pixbuf.new_from_stream(stream[0], None)
                     else:
-                        logging.debug("Unsupported type of icon class: {0}".format(dai_icon))
+                        logging.debug("Unsupported type of icon class: {0}"
+                                .format(dai_icon))
 
-                __globa_app_cache__[n[0]] = Application(executable,
+                __globa_app_cache__[pred[0]] = Application(executable,
                                                         name=dai.get_name(),
                                                         icon=icon)
-                return __globa_app_cache__[n[0]]
+                return __globa_app_cache__[pred[0]]
 
     return Application(executable if executable else "??")

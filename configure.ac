@@ -46,6 +46,16 @@ AC_PATH_PROG([XMLTO], [xmlto], [no])
     [exit 1]
 [fi]
 
+# make check
+AC_PATH_PROG([PYLINT], [pylint], [no])
+[if test "$PYLINT" = "no"]
+[then]
+    [echo "The pylint program was not found in the search path. Please ensure"]
+    [echo "that it is installed and its directory is included in the search path."]
+    [echo "Then run configure again before attempting to build faf."]
+    [exit 1]
+[fi]
+
 dnl ****** INTERNATIONALIZATION **********************
 
 GETTEXT_PACKAGE=gnome-abrt

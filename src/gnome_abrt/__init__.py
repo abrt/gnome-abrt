@@ -15,14 +15,6 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
-from config import get_configuration
-from views import OopsWindow
-from problems import (ProblemSource, Problem, MultipleSources)
-from dbus_problems import DBusProblemSource
-from directory_problems import DirectoryProblemSource
-from controller import Controller
-from errors import (UnavailableSource, InvalidProblem)
-import l10n
-
 def init():
-    l10n.init('gnome-abrt')
+    import gnome_abrt.l10n
+    gnome_abrt.l10n.init()

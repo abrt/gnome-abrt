@@ -39,7 +39,7 @@ class Configuration(object):
 
     def __getitem__(self, option):
         return self.options[option].value
-    
+
     def __setitem__(self, option, value):
         opt = self.options[option]
 
@@ -48,23 +48,33 @@ class Configuration(object):
             opt.value = value
             map(lambda o: o.option_updated(self, option), opt.observers)
 
+    def __delitem__(self, option):
+        pass
+
+    def __len__(self):
+        return len(self.options)
+
     def get_option_value(self, option, default):
         if option in self.options:
             return self.options[option].value
         return default
 
-    def add_option(self, short_key, long_key=None, description=None, default_value=None):
+    def add_option(self, short_key,
+            long_key=None, description=None, default_value=None):
+
         if short_key in self.options:
             raise KeyError("The option already exists")
 
-        option = collections.namedtuple('Option', 'long_key description value observers')
+        option = collections.namedtuple('Option',
+                'long_key description value observers')
+
         option.long_key = long_key
         option.description = description
         option.value = default_value
         option.observers = []
 
         self.options[short_key] = option
-        
+
 
 def get_configuration():
     return Configuration()

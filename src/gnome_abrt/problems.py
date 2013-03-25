@@ -19,10 +19,11 @@ import datetime
 import logging
 
 # gnome-abrt
-import application
-import errors
-import problems
-from l10n import _
+from gnome_abrt.application import find_application
+from gnome_abrt.errors import (InvalidProblem,
+                               UnavailableSource,
+                               GnomeAbrtError)
+from gnome_abrt.l10n import _
 
 class ProblemSource(object):
     NEW_PROBLEM = 0
@@ -51,8 +52,8 @@ class ProblemSource(object):
     def detach(self, observer):
         try:
             self._observers.remove(observer)
-        except ValueError as e:
-            logging.debug(e.message)
+        except ValueError as ex:
+            logging.debug(ex.message)
 
     def notify(self, change_type=None, problem=None):
         logging.debug("{0} : Notify".format(self.__class__.__name__))
@@ -94,16 +95,18 @@ class Problem:
         elif isinstance(other, Problem):
             return self.problem_id == other.problem_id
 
-        raise TypeError('Not allowed type in __eq__: ' + other.__class__.__name__)
+        raise TypeError('Not allowed type in __eq__: '
+                         + other.__class__.__name__)
 
     def __loaditems__(self, *args):
         if self._deleted:
-            logging.debug("Accessing deleted problem '{0}'".format(self.problem_id))
+            logging.debug("Accessing deleted problem '{0}'"
+                    .format(self.problem_id))
             return {}
 
         items = self.source.get_items(self.problem_id, *args)
-        for k, v in items.items():
-            self.data[k] = v
+        for key, value in items.items():
+            self.data[key] = value
 
         return items
 
@@ -129,6 +132,15 @@ class Problem:
 
         return None
 
+    def __setitem__(self):
+        raise RuntimeError("Problems are readonly")
+
+    def __delitem__(self, item):
+        raise RuntimeError("Problems are readonly")
+
+    def __len__(self):
+        return 1
+
     def _get_initial_data(self, source):
         return source.get_items(self.problem_id,
                                 'component',
@@ -138,7 +150,8 @@ class Problem:
 
     def refresh(self):
         if self._deleted:
-            logging.debug("Not refreshing deleted problem '{0}'".format(self.problem_id))
+            logging.debug("Not refreshing deleted problem '{0}'"
+                            .format(self.problem_id))
             return
 
         logging.debug("Refreshing problem '{0}'".format(self.problem_id))
@@ -147,13 +160,15 @@ class Problem:
         self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
 
     def delete(self):
+        # TODO : weird?? the assignemt can be moved
         self._deleted = True
         try:
             self.source.delete_problem(self.problem_id)
-        except errors.GnomeAbrtError as e:
-            logging.warning(_("Can't delete problem '{0}': '{1}'").format(self.problem_id, e.message))
+        except GnomeAbrtError as ex:
+            logging.warning(_("Can't delete problem '{0}': '{1}'")
+                                .format(self.problem_id, ex.message))
             self._deleted = False
-        except Exception as e:
+        except Exception as ex:
             self._deleted = False
             raise
 
@@ -161,13 +176,13 @@ class Problem:
         return not self['reported_to'] is None
 
     def assure_ownership(self):
-        return self.source.chown_problem(self.problem_id);
+        return self.source.chown_problem(self.problem_id)
 
     def get_application(self):
         if not self.app:
-            self.app = application.find_application(self['component'],
-                                                    self['executable'],
-                                                    self['cmdline'])
+            self.app = find_application(self['component'],
+                                        self['executable'],
+                                        self['cmdline'])
 
         return self.app
 
@@ -177,58 +192,59 @@ class Problem:
             if self['reported_to']:
                 # Most common type of line in reported_to file
                 # Bugzilla: URL=http://bugzilla.com/?=123456
-                for l in self['reported_to'].split('\n'):
-                    if len(l) == 0:
+                for line in self['reported_to'].split('\n'):
+                    if len(line) == 0:
                         continue
 
-                    p = []
-                    for i in xrange(0,len(l)):
-                        if l[i] == ':':
+                    pfx = []
+                    i = 0
+                    for i in xrange(0, len(line)):
+                        if line[i] == ':':
                             break
-                        p.append(l[i])
+                        pfx.append(line[i])
 
-                    p = ''.join(p)
+                    pfx = ''.join(pfx)
                     i += 1
 
-                    for i in xrange(i, len(l)):
-                        if not l[i] == ' ':
+                    for i in xrange(i, len(line)):
+                        if not line[i] == ' ':
                             break
 
-                    r = []
-                    for i in xrange(i, len(l)):
-                        if l[i] == '=':
+                    typ = []
+                    for i in xrange(i, len(line)):
+                        if line[i] == '=':
                             break
-                        r.append(l[i])
+                        typ.append(line[i])
 
-                    r = ''.join(r)
+                    typ = ''.join(typ)
                     i += 1
 
                     self.submission.append(
-                        Problem.Submission(p, r, l[i:]))
+                        Problem.Submission(pfx, typ, line[i:]))
 
         return self.submission
 
 
 class MultipleSources(ProblemSource):
 
-    def __init__(self, *args):
+    def __init__(self, sources):
         super(MultipleSources, self).__init__()
 
-        if len(args) == 0:
+        if len(sources) == 0:
             raise ValueError("At least one source must be passed")
 
-        self.sources = args
+        self.sources = sources
 
         class SourceObserver:
             def __init__(self, parent):
                 self.parent = parent
 
+            #pylint: disable=W0613
             def changed(self, source, change_type=None, problem=None):
                 self.parent.notify(change_type, problem)
 
-        observer = SourceObserver(self)
-        for s in self.sources:
-            s.attach(observer)
+        for src in self.sources:
+            src.attach(SourceObserver(self))
 
         self._disable_notify = False
 
@@ -237,8 +253,8 @@ class MultipleSources(ProblemSource):
 
     def get_problems(self):
         result = []
-        for s in self.sources:
-            result.extend(s.get_problems())
+        for src in self.sources:
+            result.extend(src.get_problems())
 
         return result
 
@@ -258,13 +274,14 @@ class MultipleSources(ProblemSource):
         self._disable_notify = True
 
         try:
-            for s in self.sources:
-                s.refresh()
+            for src in self.sources:
+                src.refresh()
         finally:
             self._disable_notify = False
 
         self.notify()
 
+#pylint: disable=R0921
 class CachedSource(ProblemSource):
 
     def __init__(self):
@@ -275,13 +292,13 @@ class CachedSource(ProblemSource):
     def get_problems(self):
         if not self._cache:
             self._cache = []
-            for prblmid in self.impl_get_problems():
+            for prblmid in self._get_problems():
                 try:
-                    self._cache.append(self.create_new_problem(prblmid))
-                except errors.InvalidProblem as e:
-                    logging.warning(e.message)
-                except errors.UnavailableSource as e:
-                    logging.warning(e.message)
+                    self._cache.append(self._create_new_problem(prblmid))
+                except InvalidProblem as ex:
+                    logging.warning(ex.message)
+                except UnavailableSource as ex:
+                    logging.warning(ex.message)
 
         return self._cache if self._cache else []
 
@@ -289,8 +306,16 @@ class CachedSource(ProblemSource):
         self._cache = None
         self.notify()
 
+    def _get_problems(self):
+        """Overwrite this function in ancestor"""
+        raise NotImplementedError("")
+
+    def _delete_problem(self, problem_id):
+        """Overwrite this function in ancestor"""
+        raise NotImplementedError("")
+
     def _problem_is_in_cache(self, problem_id):
-        return not self._cache is None and problem_id in self._cache
+        return self._cache is not None and problem_id in self._cache
 
     def _insert_to_cache(self, problem):
         if not self._problem_is_in_cache(problem):
@@ -305,31 +330,33 @@ class CachedSource(ProblemSource):
         return p
 
     def delete_problem(self, problem_id):
-        if not self.impl_delete_problem(problem_id):
+        if not self._delete_problem(problem_id):
             return
 
         try:
-            p = self._remove_from_cache(problem_id)
-            if p:
-                self.notify(ProblemSource.DELETED_PROBLEM, p)
+            prblm = self._remove_from_cache(problem_id)
+            if prblm:
+                self.notify(ProblemSource.DELETED_PROBLEM, prblm)
             return
-        except ValueError as e:
-            logging.warning(_('Not found in cache but deleted: {0}'), e.message)
+        except ValueError as ex:
+            logging.warning(_('Not found in cache but deleted: {0}'),
+                    ex.message)
             self._cache = None
 
         self.notify()
 
-    def create_new_problem(self, problem_id):
-        return problems.Problem(problem_id, self)
+    def _create_new_problem(self, problem_id):
+        return Problem(problem_id, self)
 
     def process_new_problem_id(self, problem_id):
         try:
             if self._problem_is_in_cache(problem_id):
-                p = self._cache[self._cache.index(problem_id)]
-                p.refresh()
+                prblm = self._cache[self._cache.index(problem_id)]
+                prblm.refresh()
             else:
-                p = self.create_new_problem(problem_id)
-                self._insert_to_cache(p)
-                self.notify(ProblemSource.NEW_PROBLEM, p)
-        except errors.UnavailableSource as e:
-            logging.warning(_("Source failed on processing of '{0}': {1}").format(problem_id, e.message))
+                prblm = self._create_new_problem(problem_id)
+                self._insert_to_cache(prblm)
+                self.notify(ProblemSource.NEW_PROBLEM, prblm)
+        except UnavailableSource as ex:
+            logging.warning(_("Source failed on processing of '{0}': {1}")
+                    .format(problem_id, ex.message))

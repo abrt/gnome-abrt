@@ -24,6 +24,7 @@ BuildRequires: xmlto
 BuildRequires: pygobject3-devel
 BuildRequires: libreport-gtk-devel > 2.0.20
 BuildRequires: gtk3-devel
+BuildRequires: pylint
 
 Requires:   python-inotify
 Requires:   pygobject3
@@ -56,6 +57,10 @@ desktop-file-install \
     --dir ${RPM_BUILD_ROOT}%{_datadir}/applications \
     --delete-original \
     ${RPM_BUILD_ROOT}%{_datadir}/applications/%{name}.desktop
+
+
+%check
+make check
 
 
 %post

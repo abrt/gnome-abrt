@@ -16,10 +16,10 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 import os
-import sys
 import logging
 
 # pygobject
+#pylint: disable=E0611
 from gi.repository import GLib
 
 # pyinotify
@@ -30,91 +30,112 @@ from pyinotify import WatchManager, Notifier, ProcessEvent
 import report
 
 # gnome-abrt
-import problems
-import errors
-from l10n import _
+import gnome_abrt.problems as problems
+import gnome_abrt.errors as errors
+from gnome_abrt.l10n import _
 
 class INOTIFYGlibSource(GLib.Source):
 
-    def __new__(cls, wm, path, handler):
+    #pylint: disable=W0613
+    def __new__(cls, watch_manager, path, handler):
         # ignore the rest of arguments
-        return super(INOTIFYGlibSource, cls).__new__(cls)
+        return GLib.Source.__new__(cls)
 
-    def __init__(self, wm, path, handler):
-        super(INOTIFYGlibSource, self).__init__()
+    def __init__(self, watch_manager, path, handler):
+        GLib.Source.__init__(self)
 
-        self.wm = wm
-        self.handler = handler
+        self._wm = watch_manager
+        self._handler = handler
         # set timeout to 0 -> don't wait
-        self.notifier = Notifier(self.wm, handler, timeout=0)
-        self.wdd = self.wm.add_watch(path, handler.MASK, rec=True)
+        self._notifier = Notifier(self._wm, handler, timeout=0)
+        self._wdd = self._wm.add_watch(path, handler.MASK, rec=True)
 
     def get_handler(self):
-        return self.handler
+        return self._handler
 
+    #pylint: disable=W0613
     def prepare(self, *args):
         # wait 10 milisecond before next prepare() call
-        return (self.notifier.check_events(), 10)
+        return (self._notifier.check_events(), 10)
 
+    #pylint: disable=W0613
     def check(self, *args):
         # just to be sure
-        return self.notifier.check_events()
+        return self._notifier.check_events()
 
+    #pylint: disable=W0613
     def dispatch(self, *args):
-        self.notifier.read_events()
-        self.notifier.process_events()
+        self._notifier.read_events()
+        self._notifier.process_events()
         return True
 
+    #pylint: disable=W0613
     def finalize(self, *args):
-        self.notifier.stop()
+        self._notifier.stop()
 
 
 class INOTIFYProblemHandler(ProcessEvent):
-    MASK = pyinotify.IN_MOVED_TO | pyinotify.IN_CLOSE_WRITE | pyinotify.IN_CREATE | pyinotify.IN_DELETE | pyinotify.IN_MOVED_FROM
+    #pylint: disable=E1101
+    MASK = (pyinotify.IN_MOVED_TO
+            #pylint: disable=E1101
+            | pyinotify.IN_CLOSE_WRITE
+            #pylint: disable=E1101
+            | pyinotify.IN_CREATE
+            #pylint: disable=E1101
+            | pyinotify.IN_DELETE
+            #pylint: disable=E1101
+            | pyinotify.IN_MOVED_FROM)
 
     def __init__(self, problem):
         super(INOTIFYProblemHandler, self).__init__()
-        self.set_problem(problem)
+        self._problem = problem
 
     def set_problem(self, problem):
-        self.problem = problem
+        self._problem = problem
 
     def _handle_event(self, event):
         if event.name != '.lock':
             try:
-                self.problem.refresh()
-            except errors.InvalidProblem as e:
-                logging.debug(e.message)
-                self.problem.delete()
+                self._problem.refresh()
+            except errors.InvalidProblem as ex:
+                logging.debug(ex.message)
+                self._problem.delete()
 
+    #pylint: disable=C0103
     def process_IN_MOVED_TO(self, event):
         logging.debug("IN_MOVED_TO '{0}/{1}'".format(event.path, event.name))
         self._handle_event(event)
 
+    #pylint: disable=C0103
     def process_IN_MOVED_FROM(self, event):
         logging.debug("IN_MOVED_FROM '{0}/{1}'".format(event.path, event.name))
         self._handle_event(event)
 
+    #pylint: disable=C0103
     def process_IN_CLOSE_WRITE(self, event):
         logging.debug("IN_CLOSE_WRITE '{0}/{1}'".format(event.path, event.name))
         self._handle_event(event)
 
+    #pylint: disable=C0103
     def process_IN_CREATE(self, event):
         logging.debug("IN_CREATE '{0}/{1}'".format(event.path, event.name))
         self._handle_event(event)
 
+    #pylint: disable=C0103
     def process_IN_DELETE(self, event):
         logging.debug("IN_DELETE '{0}/{1}'".format(event.path, event.name))
         self._handle_event(event)
 
 
 class INOTIFYSourceHandler(ProcessEvent):
+    #pylint: disable=E1101
     MASK = pyinotify.IN_MOVED_TO
 
     def __init__(self, source):
         super(INOTIFYSourceHandler, self).__init__()
         self.source = source
 
+    #pylint: disable=C0103
     def process_IN_MOVED_TO(self, event):
         self.source.process_new_problem_id(os.path.join(event.path, event.name))
 
@@ -122,7 +143,8 @@ class INOTIFYSourceHandler(ProcessEvent):
 class INOTIFYWatcher:
 
     def __init__(self, source, directory, context):
-        # context is the instance variable because the source is to be used in Problems
+        # context is the instance variable because
+        # the source is to be used in Problems
         self._source = source
         self._directory = directory
         self._context = context
@@ -133,11 +155,14 @@ class INOTIFYWatcher:
 
             self._wm = WatchManager()
             try:
-                self._gsource = INOTIFYGlibSource(self._wm, self._directory, INOTIFYSourceHandler(self._source))
+                ihndlr = INOTIFYSourceHandler(self._source)
+                self._gsource = INOTIFYGlibSource(self._wm,
+                        self._directory, ihndlr)
             except OSError as ex:
                 self._disable_on_max_watches(ex, self._directory)
                 return
 
+            #pylint: disable=E1101
             self._gsource.attach(self._context)
 
     def watch_problem(self, problem):
@@ -145,17 +170,22 @@ class INOTIFYWatcher:
             return
 
         if problem.problem_id in self._problems_watcher:
-            logging.debug("Updating watcher for '{0}'".format(problem.problem_id))
-            self._problems_watcher[problem.problem_id].get_handler().set_problem(problem)
+            logging.debug("Updating watcher for '{0}'"
+                            .format(problem.problem_id))
+            ihndlr = self._problems_watcher[problem.problem_id].get_handler()
+            ihndlr.set_problem(problem)
         else:
             logging.debug("Adding watcher for '{0}'".format(problem.problem_id))
             pgs = None
             try:
-                pgs = INOTIFYGlibSource(WatchManager(), problem.problem_id, INOTIFYProblemHandler(problem))
+                ihndlr = INOTIFYProblemHandler(problem)
+                watcher = WatchManager()
+                pgs = INOTIFYGlibSource(watcher, problem.problem_id, ihndlr)
             except OSError as ex:
                 self._disable_on_max_watches(ex, problem.problem_id)
                 return
 
+            #pylint: disable=E1101
             pgs.attach(self._context)
             self._problems_watcher[problem.problem_id] = pgs
 
@@ -169,28 +199,39 @@ class INOTIFYWatcher:
             pgs.destroy()
 
     def _disable_on_max_watches(self, ex, directory):
-            self._disabled = True
-            logging.debug("Could not add inotify for directory '{0}': '{1}'".format(directory, ex.message))
-            logging.warning(_("You have probably reached inotify's limit on the number of watches in '{0}'. The limit can be increased by proper configuration of inotify. For more details see man inotify(7). This event causes that you will not be notified about changes in problem data happening outside of this application. This event do not affect any other functionality.").format(self._directory))
+        self._disabled = True
+        logging.debug("Could not add inotify for directory '{0}': '{1}'"
+                            .format(directory, ex.message))
+        logging.warning(
+_("You have probably reached inotify's limit on the number of watches in '{0}'."
+" The limit can be increased by proper configuration of inotify. For more "
+"details see man inotify(7). This event causes that you will not be notified "
+"about changes in problem data happening outside of this application. This "
+"event do not affect any other functionality.").format(self._directory))
 
 class NotInitializedDirectorySource():
 
     def __init__(self, parent):
         self._parent = parent
 
+    #pylint: disable=W0613
     def get_items(self, problem_id, *args):
-        logging.debug("Getting items from unitialized directory source")
-        return
+        logging.debug(
+            "Getting items for problem {0} from unitialized directory source"
+                .format(problem_id))
+        return []
 
     def get_problems(self):
         return []
 
-    def create_new_problem(self, problem_id):
-        logging.debug("Creating a problem from unitialized directory source")
+    def _create_new_problem(self, problem_id):
+        logging.debug("Creating problem {0} from unitialized directory source"
+                .format(problem_id))
         return problems.Problem(problem_id, self._parent)
 
     def delete_problem(self, problem_id):
-        logging.debug("Deleting problem from unitialized directory source")
+        logging.debug("Deleting problem {0} from unitialized directory source"
+                .format(problem_id))
         return True
 
 
@@ -207,12 +248,13 @@ class InitializedDirectoryProblemSource():
 
         dd = report.dd_opendir(problem_id, report.DD_OPEN_READONLY)
         if not dd:
-            raise errors.InvalidProblem(_("Can't open directory: '{0}'").format(problem_id))
+            raise errors.InvalidProblem(_("Can't open directory: '{0}'")
+                                            .format(problem_id))
 
         items = {}
         for field_name in args:
-            value = dd.load_text(field_name, report.DD_FAIL_QUIETLY_ENOENT
-                                              | report.DD_LOAD_TEXT_RETURN_NULL_ON_FAILURE)
+            value = dd.load_text(field_name,
+    report.DD_FAIL_QUIETLY_ENOENT | report.DD_LOAD_TEXT_RETURN_NULL_ON_FAILURE)
             if value:
                 items[field_name] = value
 
@@ -234,7 +276,7 @@ class InitializedDirectoryProblemSource():
             else:
                 logging.debug("Omitted path: '{0}'".format(problem_id))
 
-    def create_new_problem(self, problem_id):
+    def _create_new_problem(self, problem_id):
         p = problems.Problem(problem_id, self._parent)
         self._watcher.watch_problem(p)
         return p
@@ -242,7 +284,8 @@ class InitializedDirectoryProblemSource():
     def delete_problem(self, problem_id):
         dd = report.dd_opendir(problem_id)
         if not dd:
-            # we can safely declare problem as deleted if directory doesn't exist
+            # we can safely declare problem as deleted
+            # if directory doesn't exist
             return not os.path.isdir(problem_id)
 
         # TODO : delete over abrtd
@@ -267,7 +310,8 @@ class DirectoryProblemSource(problems.CachedSource):
         if self._initialized or os.path.isdir(self._directory):
 
             if not self._initialized:
-                self._initialized = InitializedDirectoryProblemSource(self, self._directory, self._context)
+                self._initialized = InitializedDirectoryProblemSource(
+                                       self, self._directory, self._context)
 
             return self._initialized
 
@@ -279,11 +323,11 @@ class DirectoryProblemSource(problems.CachedSource):
     def get_items(self, problem_id, *args):
         return self._impl().get_items(problem_id, *args)
 
-    def create_new_problem(self, problem_id):
-        return self._impl().create_new_problem(problem_id)
+    def _create_new_problem(self, problem_id):
+        return self._impl()._create_new_problem(problem_id)
 
-    def impl_get_problems(self):
+    def _get_problems(self):
         return self._impl().get_problems()
 
-    def impl_delete_problem(self, problem_id):
+    def _delete_problem(self, problem_id):
         return self._impl().delete_problem(problem_id)

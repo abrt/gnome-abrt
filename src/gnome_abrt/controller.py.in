@@ -26,12 +26,13 @@ class Controller(object):
         self.source = source
         self.run_event_fn = self._first_event_run
 
+    #pylint: disable=W0613
     def _handle_signal(self, signum):
         while True:
             try:
                 os.wait3(os.WNOHANG)
-            except OSError as e:
-                logging.debug(e.message)
+            except OSError as ex:
+                logging.debug(ex.message)
                 break
 
         self.source.refresh()
@@ -58,7 +59,8 @@ class Controller(object):
         self.run_event_fn("open-gui", problem)
 
     def _first_event_run(self, event, problem):
-        signal.signal(signal.SIGCHLD, lambda signum, frame: self._handle_signal(signum))
+        signal.signal(signal.SIGCHLD,
+                lambda signum, frame: self._handle_signal(signum))
 
         self.run_event_fn = self._run_event_on_problem
         self.run_event_fn(event, problem)
@@ -66,9 +68,12 @@ class Controller(object):
     def _run_event_on_problem(self, event, problem):
         if problem.assure_ownership():
             if os.fork() == 0:
+                exctbl = "@libexecdir@/abrt-handle-event"
+                args = [exctbl, "-e", event, "--", problem.problem_id]
                 try:
-                    os.execvp("@libexecdir@/abrt-handle-event", ["@libexecdir@/abrt-handle-event", "-e", event, "--", problem.problem_id])
-                except Exception as e:
-                    logging.exception(e)
+                    os.execvp(exctbl, args)
+                #pylint: disable=W0703
+                except Exception as ex:
+                    logging.exception(ex)
                     sys.exit(1)
 

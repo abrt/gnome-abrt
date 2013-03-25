@@ -25,13 +25,21 @@ import signal
 from argparse import ArgumentParser
 
 # pygobject
+#pylint: disable=E0611
 from gi.repository import Gtk
+#pylint: disable=E0611
 from gi.repository import GLib
+#pylint: disable=E0611
 from gi.repository import Gio
-from gi.repository import GObject
 
 # gnome-abrt
 import gnome_abrt
+from gnome_abrt.views import OopsWindow
+from gnome_abrt.controller import Controller
+from gnome_abrt.problems import MultipleSources
+from gnome_abrt.directory_problems import DirectoryProblemSource
+from gnome_abrt.dbus_problems import DBusProblemSource
+from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _
 from gnome_abrt.wrappers import show_events_list_dialog
 from gnome_abrt.config import get_configuration
@@ -41,14 +49,20 @@ import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 
-GNOME_ABRT_APPLICATION_ID='org.freedesktop.GnomeAbrt'
-GNOME_ABRT_INTERFACE='org.freedesktop.GnomeAbrt'
-GNOME_ABRT_OBJECT_PATH='/org/freedesktop/GnomeAbrt'
+GNOME_ABRT_APPLICATION_ID = 'org.freedesktop.GnomeAbrt'
+GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'
+GNOME_ABRT_OBJECT_PATH = '/org/freedesktop/GnomeAbrt'
 
 
 # because of https://bugzilla.gnome.org/show_bug.cgi?id=682331
-class GtkApplicationDBUSImpl(object):
+class GtkAppDBUSImpl(object):
+    """A proxy for primary application
+    """
+
     class Service(dbus.service.Object):
+        """DBus service sitting on session bus
+        """
+
         def __init__(self, bus, bus_name, application):
             bus_name = dbus.service.BusName(bus_name, bus)
             dbus.service.Object.__init__(self, bus_name, GNOME_ABRT_OBJECT_PATH)
@@ -57,14 +71,21 @@ class GtkApplicationDBUSImpl(object):
         @dbus.service.method(dbus_interface=GNOME_ABRT_INTERFACE,
                              in_signature='as', out_signature='')
         def command_line(self, argv):
+            """DBus service method accepting a new command line arguments
+            """
+
             class Arguments(object):
+                """Adapter for Gtk class
+                """
+
                 def __init__(self, argv):
                     self._argv = argv
 
                 def get_arguments(self):
                     return self._argv
 
-            self._app._parse_command_line(self, Arguments([str(a) for a in argv]))
+            args = Arguments([str(a) for a in argv])
+            self._app._parse_command_line(self, args)
 
 
     def __init__(self, bus_name, application):
@@ -79,17 +100,28 @@ class GtkApplicationDBUSImpl(object):
         if bus.name_has_owner(bus_name):
             self._primary_obj = bus.get_object(bus_name, GNOME_ABRT_OBJECT_PATH)
         else:
-            self._service = GtkApplicationDBUSImpl.Service(bus, bus_name, self._app)
+            self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
+
 
     def is_remote(self):
-        return not not self._primary_obj
+        """Application is remote if connection to primary application succeeded
+        """
+
+        return self._primary_obj is not None
+
 
     def send_command_line(self, argv):
+        """Sends command line arguments to the primary application.
+           Raises RuntimeError if an instance is not remote.
+        """
+
         if not self.is_remote():
-            raise RuntimeError("Can't send command-line message because instance is not a remote application")
+            raise RuntimeError("Can't send command-line message because "
+                               "instance is not a remote application")
 
         if not self._primary_iface:
-            self._primary_iface = dbus.Interface(self._primary_obj, GNOME_ABRT_INTERFACE)
+            self._primary_iface = dbus.Interface(self._primary_obj,
+                    GNOME_ABRT_INTERFACE)
 
         if len(argv) == 0:
             argv = dbus.Array([], signature='s')
@@ -100,12 +132,15 @@ class GtkApplicationDBUSImpl(object):
 class OopsApplication(Gtk.Application):
 
     def __init__(self):
-        super(OopsApplication, self).__init__()
+        Gtk.Application.__init__(self)
 
-        self._dbus_srv = GtkApplicationDBUSImpl(GNOME_ABRT_APPLICATION_ID, self)
+        self._dbus_srv = GtkAppDBUSImpl(GNOME_ABRT_APPLICATION_ID, self)
         self.connect("command-line", self._parse_command_line)
         self.set_flags(Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
+        self.gcontext = None
+        self.source = None
 
+    #pylint: disable=W0613
     def _parse_command_line(self, sender, gcmdargs):
         argv = gcmdargs.get_arguments()
 
@@ -114,7 +149,7 @@ class OopsApplication(Gtk.Application):
             return 0
 
         if len(argv) > 0:
-            conf = gnome_abrt.get_configuration()
+            conf = get_configuration()
             conf['problemid'] = argv[0]
 
         self.activate()
@@ -126,33 +161,35 @@ class OopsApplication(Gtk.Application):
             if windows:
                 windows[0].present()
             else:
-                conf = gnome_abrt.get_configuration()
+                conf = get_configuration()
                 conf.add_option("all_problems", default_value=False)
 
                 sources = []
                 try:
-                    sources.append(gnome_abrt.DBusProblemSource(self._dbus_srv.mainloop))
-                except gnome_abrt.UnavailableSource as e:
-                    logging.warning(e.message)
+                    sources.append(DBusProblemSource(self._dbus_srv.mainloop))
+                except UnavailableSource as ex:
+                    logging.warning(ex.message)
 
-                # TODO : really ? move it somewhere else ...
                 self.gcontext = GLib.main_context_default()
                 try:
-                    # TODO : pass the directory over command line
-                    sources.append(gnome_abrt.DirectoryProblemSource(os.path.join(GLib.get_user_cache_dir(), "abrt/spool"), context=self.gcontext))
-                except gnome_abrt.UnavailableSource as e:
-                    logging.warning(e.message)
+                    path = os.path.join(GLib.get_user_cache_dir(), "abrt/spool")
+                    dps = DirectoryProblemSource(path, context=self.gcontext)
+                    sources.append(dps)
+                except UnavailableSource as ex:
+                    logging.warning(ex.message)
 
                 if len(sources) == 0:
-                    raise gnome_abrt.UnavailableSource("No available problem source.")
+                    raise UnavailableSource("No available problem source.")
 
-                self.source = gnome_abrt.MultipleSources(*sources)
+                self.source = MultipleSources(sources)
 
-                main_window = gnome_abrt.OopsWindow(self, self.source, gnome_abrt.Controller(self.source))
+                controller = Controller(self.source)
+                main_window = OopsWindow(self, self.source, controller)
                 main_window.show_all()
                 self.add_window (main_window)
-        except Exception as e:
-            logging.exception(e.message)
+        #pylint: disable=W0703
+        except Exception as ex:
+            logging.exception(ex.message)
             sys.exit(1)
 
     def do_startup(self):
@@ -164,19 +201,20 @@ class OopsApplication(Gtk.Application):
         menu.append(_("_Quit"), "app.quit")
 
         action = Gio.SimpleAction.new("preferences", None)
-        action.connect("activate", self.on_action_prefrences);
-        self.add_action(action);
+        action.connect("activate", self.on_action_prefrences)
+        self.add_action(action)
 
         action = Gio.SimpleAction.new("about", None)
-        action.connect("activate", self.on_action_about);
-        self.add_action(action);
+        action.connect("activate", self.on_action_about)
+        self.add_action(action)
 
         action = Gio.SimpleAction.new("quit", None)
-        action.connect("activate", self.on_action_quit);
-        self.add_action(action);
+        action.connect("activate", self.on_action_quit)
+        self.add_action(action)
 
         self.set_app_menu(menu)
 
+    #pylint: disable=W0613
     def on_action_prefrences(self, action, parameter):
         windows = self.get_windows()
         if windows:
@@ -184,31 +222,33 @@ class OopsApplication(Gtk.Application):
         else:
             show_events_list_dialog()
 
+    #pylint: disable=W0613
     def on_action_about(self, action, parameter):
         dialog = Gtk.AboutDialog()
-        dialog.set_icon_name("abrt");
-        #dialog.set_version(VERSION);
-        dialog.set_logo_icon_name("abrt");
-        dialog.set_program_name("ABRT");
-        dialog.set_copyright("Copyright © 2012 Red Hat, Inc");
+        dialog.set_icon_name("abrt")
+        #dialog.set_version(VERSION)
+        dialog.set_logo_icon_name("abrt")
+        dialog.set_program_name("ABRT")
+        dialog.set_copyright("Copyright © 2012 Red Hat, Inc")
         dialog.set_license(
-                "This program is free software; you can redistribut"
-                "e it and/or modify it under the terms of the GNU General Public License "
-                "as published by the Free Software Foundation; either version 2 of the Li"
-                "cense, or (at your option) any later version.\n\nThis program is distrib"
-                "uted in the hope that it will be useful, but WITHOUT ANY WARRANTY; witho"
-                "ut even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICU"
-                "LAR PURPOSE.  See the GNU General Public License for more details.\n\nYo"
-                "u should have received a copy of the GNU General Public License along wi"
-                "th this program.  If not, see <http://www.gnu.org/licenses/>.");
-        dialog.set_wrap_license(True);
-        dialog.set_website("https://fedorahosted.org/abrt/");
-        dialog.set_authors(["ABRT Team"]);
-        #dialog.set_artists(artists);
-        #dialog.set_translator_credits(_("translator-credits"));
+    "This program is free software; you can redistribut"
+    "e it and/or modify it under the terms of the GNU General Public License "
+    "as published by the Free Software Foundation; either version 2 of the Li"
+    "cense, or (at your option) any later version.\n\nThis program is distrib"
+    "uted in the hope that it will be useful, but WITHOUT ANY WARRANTY; witho"
+    "ut even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICU"
+    "LAR PURPOSE.  See the GNU General Public License for more details.\n\nYo"
+    "u should have received a copy of the GNU General Public License along wi"
+    "th this program.  If not, see <http://www.gnu.org/licenses/>.")
+        dialog.set_wrap_license(True)
+        dialog.set_website("https://fedorahosted.org/abrt/")
+        dialog.set_authors(["ABRT Team"])
+        #dialog.set_artists(artists)
+        #dialog.set_translator_credits(_("translator-credits"))
         dialog.run()
         dialog.destroy()
 
+    #pylint: disable=W0613
     def on_action_quit(self, action, parameter):
         self.quit()
 
@@ -218,9 +258,12 @@ if __name__ == "__main__":
 
     gnome_abrt.init()
 
-    CMDARGS = ArgumentParser(description = _('View and report application crashes'))
-    CMDARGS.add_argument('-v', '--verbose', action='count', help=_('Be verbose'))
-    CMDARGS.add_argument('-p', '--problem', help=_('Selected problem ID'))
+    CMDARGS = ArgumentParser(
+            description = _('View and report application crashes'))
+    CMDARGS.add_argument('-v', '--verbose', action='count',
+            help=_('Be verbose'))
+    CMDARGS.add_argument('-p', '--problem',
+            help=_('Selected problem ID'))
 
     OPTIONS = CMDARGS.parse_args()
 
@@ -229,19 +272,19 @@ if __name__ == "__main__":
 
     VARS = vars(OPTIONS)
 
-    conf = get_configuration();
+    CONF = get_configuration()
     # TODO : mark this option as hidden or something like that
-    conf.add_option('problemid', default_value=None)
+    CONF.add_option('problemid', default_value=None)
 
-    app_cmdline = []
+    APP_CMDLINE = []
     if 'problem' in VARS:
-        app_cmdline.append(VARS['problem'])
+        APP_CMDLINE.append(VARS['problem'])
 
-    exit_code = 1
-    app = OopsApplication()
+    EXIT_CODE = 1
+    APP = OopsApplication()
     try:
-        exit_code = app.run(app_cmdline)
-    except gnome_abrt.UnavailableSource as e:
-        logging.error(e.message)
+        EXIT_CODE = APP.run(APP_CMDLINE)
+    except UnavailableSource as ex:
+        logging.error(ex.message)
 
-    sys.exit(exit_code)
+    sys.exit(EXIT_CODE)

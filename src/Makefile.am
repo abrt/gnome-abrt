@@ -8,3 +8,6 @@ desktop_in_files = gnome-abrt.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 EXTRA_DIST = $(bin_SCRIPTS) $(desktop_in_files)
+
+check-local: $(bin_SCRIPTS)
+	$(PYLINT) --rcfile=$(top_builddir)/pylintrc $^ ./gnome_abrt

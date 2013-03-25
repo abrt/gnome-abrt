@@ -24,3 +24,11 @@ _wrappers_la_LDFLAGS = \
     -module \
     -avoid-version \
     -export-symbols-regex init_wrappers
+
+_wrappers.so: $(wrappersexec_LTLIBRARIES)
+	cp .libs/$@ ./
+
+all-local: _wrappers.so
+
+clean-local:
+	rm -rf _wrappers.so

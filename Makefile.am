@@ -1,7 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = src po doc icons
 
-EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf gnome-abrt-version
+EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf gnome-abrt-version pylintrc
 
 RPM_DIRS = --define "_sourcedir `pwd`" \
 	   --define "_rpmdir `pwd`" \
@@ -23,7 +23,6 @@ srpm:
 	rpmbuild $(RPM_DIRS) -bs gnome-abrt.spec
 
 run: all dist
-	cp src/gnome_abrt/wrappers/.libs/_wrappers.so src/gnome_abrt/wrappers/
 	PYTHONPATH="../src" ./src/gnome-abrt $(ARGS)
 
 UPLOAD_URL ?= fedorahosted.org:abrt

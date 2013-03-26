@@ -8,6 +8,7 @@ gnome_abrtexec_PYTHON = \
 	config.py \
 	controller.py \
 	dbus_problems.py \
+	dialogs.py \
 	directory_problems.py \
 	errors.py \
 	problems.py \

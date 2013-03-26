@@ -25,7 +25,7 @@ class InvalidProblem(GnomeAbrtError):
     def __init__(self, problem_id, message=None):
         super(InvalidProblem, self).__init__(message)
 
-        self.problem = problem_id
+        self.problem_id = problem_id
 
 class UnavailableSource(GnomeAbrtError):
 

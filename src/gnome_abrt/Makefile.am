@@ -20,6 +20,11 @@ gnome_abrtexec_PYTHON = \
 controller.py: controller.py.in
 	sed -e s,\@libexecdir\@,$(libexecdir),g $< > $@
 
+__init__.py: __init__.py.in
+	sed -e s,\@PACKAGE\@,$(PACKAGE),g \
+	-e s,\@VERSION\@,$(VERSION),g \
+	-e s,\@localedir\@,$(localedir),g $< > $@
+
 gnome_abrt_glade.py: oops.glade
 	{ \
 	  echo '# coding=utf-8'; \
@@ -30,8 +35,8 @@ gnome_abrt_glade.py: oops.glade
 
 gnome_abrtdir = $(pythondir)/gnome_abrt
 
-EXTRA_DIST = oops.glade controller.py.in
+EXTRA_DIST = __init__.py.in oops.glade controller.py.in
 
-DISTCLEANFILES = controller.py
+DISTCLEANFILES = __init__.py controller.py gnome_abrt_glade.py
 
-all-local: controller.py gnome_abrt_glade.py
+all-local: __init__.py controller.py gnome_abrt_glade.py

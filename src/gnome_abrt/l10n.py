@@ -18,11 +18,13 @@
 import gettext
 import locale
 
-GETTEXT_PROGNAME = "gnome-abrt"
+GETTEXT_PROGNAME = None
 
 _ = gettext.lgettext
 
-def init():
+def init(progname, localedir='/usr/share/locale'):
+    global GETTEXT_PROGNAME
+    GETTEXT_PROGNAME = progname
     try:
         locale.setlocale(locale.LC_ALL, "")
     except locale.Error:
@@ -30,8 +32,7 @@ def init():
         os.environ['LC_ALL'] = 'C'
         locale.setlocale(locale.LC_ALL, "")
 
-    gettext.bind_textdomain_codeset(GETTEXT_PROGNAME,
-                                        locale.nl_langinfo(locale.CODESET))
-    # TODO: configurable path to the binary
-    gettext.bindtextdomain(GETTEXT_PROGNAME, '/usr/share/locale')
-    gettext.textdomain(GETTEXT_PROGNAME)
+    gettext.bind_textdomain_codeset(progname,
+                                    locale.nl_langinfo(locale.CODESET))
+    gettext.bindtextdomain(progname, localedir)
+    gettext.textdomain(progname)

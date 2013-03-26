@@ -15,6 +15,9 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
+PACKAGE = "@PACKAGE@"
+VERSION = "@VERSION@"
+
 def init():
     import gnome_abrt.l10n
-    gnome_abrt.l10n.init()
+    gnome_abrt.l10n.init(PACKAGE, "@localedir@")

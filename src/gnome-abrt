@@ -44,6 +44,7 @@ from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _
 from gnome_abrt.wrappers import show_events_list_dialog
 from gnome_abrt.config import get_configuration
+from gnome_abrt.dialogs import show_report_problem_with_abrt
 
 # dbus
 import dbus
@@ -205,11 +206,17 @@ class OopsApplication(Gtk.Application):
 
         menu = Gio.Menu()
         menu.append(_("_Preferences"), "app.preferences")
+        menu.append(_("_Report problem with ABRT"),
+                    "app.report-problem-with-abrt")
         menu.append(_("_About"), "app.about")
         menu.append(_("_Quit"), "app.quit")
 
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)
+        self.add_action(action)
+
+        action = Gio.SimpleAction.new("report-problem-with-abrt", None)
+        action.connect("activate", self.on_action_report_problem_with_abrt)
         self.add_action(action)
 
         action = Gio.SimpleAction.new("about", None)
@@ -259,6 +266,10 @@ class OopsApplication(Gtk.Application):
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):
         self.quit()
+
+    #pylint: disable=W0613
+    def on_action_report_problem_with_abrt(self, action, parameter):
+        show_report_problem_with_abrt()
 
 
 if __name__ == "__main__":

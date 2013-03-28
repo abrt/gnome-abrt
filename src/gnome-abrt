@@ -61,6 +61,7 @@ class GtkAppDBUSImpl(object):
     """A proxy for primary application
     """
 
+    #pylint: disable=R0923
     class Service(dbus.service.Object):
         """DBus service sitting on session bus
         """

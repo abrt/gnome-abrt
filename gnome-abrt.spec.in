@@ -94,6 +94,27 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Mar 28 2013 Jakub Filak <jfilak@redhat.com> 0.2.10-1
+- Fix a wrong import of GLib.GError
+- Fix typos in configure.ac
+- Add the report dialog to the menu
+- Add 'Report problem with ABRT' dialog
+- Add VERSION and PACKAGE attributes to gnome_abrt module
+- Rename attribute in errors.InvalidProblem
+- Use IOChannel approach in order to make signal handling synchronous
+- Add all python Requires to BuildRequires because of pylint
+- Replace GNU style make pattern rules by implicit rules
+- Remove left-over RELEASE varible from configure.ac
+- Recover from DBus errors while sending command line
+- Catch more exceptions and handle them correctly
+- Add pylint check and fix problems uncoverend by pylint
+- Filter out empyt strings from splitted cmdline
+- Fix sytanx error
+- Change the label "No oopses" to "No problems detected"
+- Get rid of scrollbar around the text on the bottom of window in default size
+- Fix appearance of scrolled widgets to no longer have white background
+- Remove leftover shebang from non-executable script
+
 * Mon Mar 18 2013 Jakub Filak <jfilak@redhat.com> 0.2.9-1
 - Truncate long texts with ellipsis instead of auto-adjusting of window width
 - Add a popopup menu for list of problems

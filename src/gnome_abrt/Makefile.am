@@ -41,3 +41,6 @@ EXTRA_DIST = __init__.py.in oops.glade controller.py.in
 DISTCLEANFILES = __init__.py controller.py gnome_abrt_glade.py
 
 all-local: __init__.py controller.py gnome_abrt_glade.py
+
+check-local: $(gnome_abrtexec_PYTHON)
+	$(PYLINT) --rcfile=$(top_builddir)/pylintrc $(abs_builddir)

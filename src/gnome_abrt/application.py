@@ -19,7 +19,8 @@ import os
 import logging
 
 # PyGObject
-import gi
+#pylint: disable=E0611
+from gi.repository import GLib
 #pylint: disable=E0611
 from gi.repository import Gtk
 #pylint: disable=E0611
@@ -122,7 +123,7 @@ def find_application(component, executable, cmdline):
                                 icon = theme.load_icon(name,
                                         128, Gtk.IconLookupFlags.USE_BUILTIN)
                                 break
-                            except gi._glib.GError as ex:
+                            except GLib.GError as ex:
                                 logging.debug(ex.message)
                     elif isinstance(dai_icon, Gio.FileIcon):
                         stream = dai_icon.load(128, None)

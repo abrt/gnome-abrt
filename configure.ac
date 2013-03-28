@@ -32,7 +32,7 @@ AC_PATH_PROG([ASCIIDOC], [asciidoc], [no])
 [then]
     [echo "The asciidoc program was not found in the search path. Please ensure"]
     [echo "that it is installed and its directory is included in the search path."]
-    [echo "Then run configure again before attempting to build faf."]
+    [echo "Then run configure again before attempting to build gnome-abrt."]
     [exit 1]
 [fi]
 
@@ -42,7 +42,7 @@ AC_PATH_PROG([XMLTO], [xmlto], [no])
 [then]
     [echo "The xmlto program was not found in the search path. Please ensure"]
     [echo "that it is installed and its directory is included in the search path."]
-    [echo "Then run configure again before attempting to build faf."]
+    [echo "Then run configure again before attempting to build gnome-abrt."]
     [exit 1]
 [fi]
 
@@ -52,7 +52,7 @@ AC_PATH_PROG([PYLINT], [pylint], [no])
 [then]
     [echo "The pylint program was not found in the search path. Please ensure"]
     [echo "that it is installed and its directory is included in the search path."]
-    [echo "Then run configure again before attempting to build faf."]
+    [echo "Then run configure again before attempting to build gnome-abrt."]
     [exit 1]
 [fi]
 

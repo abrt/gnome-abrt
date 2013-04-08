@@ -1,4 +1,4 @@
-gnome-abrt(6)
+gnome-abrt(1)
 =============
 
 NAME

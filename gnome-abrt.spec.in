@@ -88,7 +88,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/*
-%{_mandir}/man6/%{name}.6*
+%{_mandir}/man1/%{name}.1*
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/icons/hicolor/*/status/*
 

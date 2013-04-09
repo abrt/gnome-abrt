@@ -43,4 +43,6 @@ DISTCLEANFILES = __init__.py controller.py gnome_abrt_glade.py
 all-local: __init__.py controller.py gnome_abrt_glade.py
 
 check-local: $(gnome_abrtexec_PYTHON)
+if USE_PYLINT
 	$(PYLINT) --rcfile=$(top_builddir)/pylintrc $(abs_builddir)
+endif

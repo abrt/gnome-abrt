@@ -47,14 +47,25 @@ AC_PATH_PROG([XMLTO], [xmlto], [no])
 [fi]
 
 # make check
-AC_PATH_PROG([PYLINT], [pylint], [no])
-[if test "$PYLINT" = "no"]
+AC_ARG_WITH(nopylint,
+        AS_HELP_STRING([--with-nopylint],[disable pylint check (default is NO)]),
+        [], [with_nopylint=no])
+
+[if test "$with_nopylint" = "no"]
 [then]
-    [echo "The pylint program was not found in the search path. Please ensure"]
-    [echo "that it is installed and its directory is included in the search path."]
-    [echo "Then run configure again before attempting to build gnome-abrt."]
-    [exit 1]
+    AC_PATH_PROG([PYLINT], [pylint], [no])
+    [if test "$PYLINT" = "no"]
+    [then]
+        [echo "The pylint program was not found in the search path. Please ensure"]
+        [echo "that it is installed and its directory is included in the search path."]
+        [echo "Then run configure again before attempting to build gnome-abrt."]
+        [exit 1]
+    [fi]
+    AM_CONDITIONAL(USE_PYLINT, true)
+[else]
+    AM_CONDITIONAL(USE_PYLINT, false)
 [fi]
+
 
 dnl ****** INTERNATIONALIZATION **********************
 

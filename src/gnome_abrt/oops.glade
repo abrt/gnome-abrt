@@ -310,45 +310,33 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkAlignment" id="alignment1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="valign">start</property>
-                        <property name="hexpand">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="left_attach">2</property>
-                        <property name="top_attach">0</property>
-                        <property name="width">1</property>
-                        <property name="height">4</property>
-                      </packing>
-                    </child>
-                    <child>
                       <object class="GtkScrolledWindow" id="gsw_links">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="margin_top">20</property>
+                        <property name="hexpand">True</property>
                         <child>
                           <object class="GtkViewport" id="gv_links">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="hexpand">True</property>
                             <property name="shadow_type">none</property>
                             <child>
                               <object class="GtkBox" id="vbx_links">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
                                 <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkLinkButton" id="linkbutton1">
-                                    <property name="label">button</property>
+                                    <property name="label">Very long button name
+</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="has_tooltip">True</property>
                                     <property name="halign">start</property>
+                                    <property name="hexpand">True</property>
                                     <property name="border_width">1</property>
                                     <property name="relief">none</property>
                                     <property name="focus_on_click">False</property>
@@ -399,8 +387,25 @@
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="top_attach">3</property>
-                        <property name="width">1</property>
+                        <property name="width">2</property>
                         <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkAlignment" id="alignment1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">start</property>
+                        <property name="hexpand">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">2</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">3</property>
                       </packing>
                     </child>
                     <child>

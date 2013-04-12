@@ -51,6 +51,8 @@ def compare_executable(executable, desktop_entry):
         return False
 
     dexec = desktop_entry.get_executable()
+    if not dexec:
+        return False
 
     realpath = None
     if executable[0] == '/' and os.path.islink(executable):
@@ -68,9 +70,14 @@ def compare_executable(executable, desktop_entry):
             or (realpath and compare_executable(realpath, desktop_entry)))
 
 def compare_cmdline(cmdline, desktop_entry):
+    if not cmdline:
+        return False
+
+    ret = False
     dcmdline = desktop_entry.get_commandline()
-    ret = (os.path.basename(cmdline) == os.path.basename(dcmdline)
-            or cmdline == dcmdline)
+    if dcmdline:
+        ret = (os.path.basename(cmdline) == os.path.basename(dcmdline)
+                or cmdline == dcmdline)
 
     # try to handle interpreters like python
     if not ret:
@@ -86,10 +93,18 @@ def compare_component(component, desktop_entry):
         return False
 
     if isinstance(dicon, Gio.ThemedIcon):
-        return component in dicon.get_names()
+        names = dicon.get_names()
+        if not names:
+            return False
+        return component in names
     elif isinstance(dicon, Gio.FileIcon):
-        logging.debug("File icon: {0}".format(dicon.to_string()))
-        base_name = os.path.basename(dicon.to_string())
+        str_dicon = dicon.to_string()
+        if not str_dicon:
+            logging.debug("File icon cannot be converted to string")
+            return False
+
+        logging.debug("File icon: {0}".format(str_dicon))
+        base_name = os.path.basename(str_dicon)
         if component == base_name:
             return True
         elif '.' in base_name:

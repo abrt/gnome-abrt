@@ -31,12 +31,14 @@ from gi.repository import GdkPixbuf
 class Application(object):
 
     def __init__(self, executable, name=None, icon=None):
-        self.executable = executable
+        self.executable = executable or "??"
 
         if name:
             self.name = name
-        else:
+        elif executable:
             self.name = os.path.basename(executable)
+        else:
+            self.name = "??"
 
         self.icon = icon
 
@@ -137,4 +139,4 @@ def find_application(component, executable, cmdline):
                                                         icon=icon)
                 return __globa_app_cache__[pred[0]]
 
-    return Application(executable if executable else "??")
+    return Application(executable, name=component)

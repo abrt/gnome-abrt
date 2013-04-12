@@ -113,6 +113,12 @@ class Problem:
     def __getitem__(self, item, cached=True):
         if item == 'date':
             return datetime.datetime.fromtimestamp(float(self['time']))
+        if item == 'date_last':
+            last_ocr = self['last_occurrence']
+            if last_ocr:
+                return datetime.datetime.fromtimestamp(float(last_ocr))
+            else:
+                return datetime.datetime.fromtimestamp(float(self['time']))
         elif item == 'application':
             return self.get_application()
         elif item == 'is_reported':

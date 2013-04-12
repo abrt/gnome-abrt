@@ -259,13 +259,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="lbl_reported">
+                      <object class="GtkLabel" id="lbl_detected">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">end</property>
                         <property name="xpad">10</property>
                         <property name="ypad">5</property>
-                        <property name="label" translatable="yes">Reported</property>
+                        <property name="label" translatable="yes">Detected</property>
                         <attributes>
                           <attribute name="foreground" value="#87877e7e8080"/>
                         </attributes>
@@ -310,12 +310,12 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="lbl_reported_value">
+                      <object class="GtkLabel" id="lbl_detected_value">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="xpad">5</property>
-                        <property name="label">no</property>
+                        <property name="label">2013-04-09 18:55</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -401,7 +401,7 @@
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="top_attach">3</property>
+                        <property name="top_attach">4</property>
                         <property name="width">2</property>
                         <property name="height">1</property>
                       </packing>
@@ -425,6 +425,40 @@
                     </child>
                     <child>
                       <placeholder/>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lbl_reported">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">end</property>
+                        <property name="xpad">10</property>
+                        <property name="ypad">5</property>
+                        <property name="label" translatable="yes">Reported</property>
+                        <attributes>
+                          <attribute name="foreground" value="#87877e7e8080"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lbl_reported_value">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="xpad">5</property>
+                        <property name="label">no</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>

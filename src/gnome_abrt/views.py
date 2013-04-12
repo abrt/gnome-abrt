@@ -21,6 +21,7 @@ import os
 import time
 import logging
 import subprocess
+import locale
 
 #pygobject
 #pylint: disable=E0611
@@ -81,14 +82,14 @@ def problem_to_storage_values(problem):
     app = problem.get_application()
     return ["{0!s}\n{1!s}".format(app.name or _("N/A"),
                                   problem['type'] or ""),
-            "{0!s}\n{1!s}".format(fancydate(problem['date']),
+            "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
                                   problem['count']),
             problem]
 
 #pylint: disable=W0613
 def time_sort_func(model, first, second, unused):
-    lhs = model[first][2]['date'].timetuple()
-    rhs = model[second][2]['date'].timetuple()
+    lhs = model[first][2]['date_last'].timetuple()
+    rhs = model[second][2]['date_last'].timetuple()
     return time.mktime(lhs) - time.mktime(rhs)
 
 
@@ -115,6 +116,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.lbl_app_name_value = builder.get_object('lbl_app_name_value')
             self.lbl_app_version_value = builder.get_object(
                     'lbl_app_version_value')
+            self.lbl_detected_value = builder.get_object('lbl_detected_value')
             self.lbl_reported_value = builder.get_object('lbl_reported_value')
             self.tv_problems = builder.get_object('tv_problems')
             self.tvs_problems = builder.get_object('tvs_problems')
@@ -365,6 +367,9 @@ class OopsWindow(Gtk.ApplicationWindow):
                             app.name or _("N/A"), _(' crashed').strip()))
                 self._builder.lbl_app_version_value.set_text(
                             problem['package'] or "")
+                self._builder.lbl_detected_value.set_text(
+                            problem['date'].strftime(
+                                locale.nl_langinfo(locale.D_FMT)))
 
                 if app.icon:
                     self._builder.img_app_icon.set_from_pixbuf(app.icon)

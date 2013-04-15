@@ -124,6 +124,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.nb_problem_layout = builder.get_object('nb_problem_layout')
             self.btn_delete = builder.get_object('btn_delete')
             self.btn_report = builder.get_object('btn_report')
+            self.btn_detail = builder.get_object('btn_detail')
             self.te_search = builder.get_object('te_search')
             self.chb_all_problems = builder.get_object('chb_all_problems')
             self.vbx_links = builder.get_object('vbx_links')
@@ -213,7 +214,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         conf = config.get_configuration()
         conf.set_watch('problemid', self._options_observer)
         self._options_observer.option_updated(conf, 'problemid')
-
+        self._builder.btn_detail.set_visible(conf['expert'])
+        self._builder.mi_detail.set_visible(conf['expert'])
 
     def _find_problem_iter(self, problem, model):
         pit = model.get_iter_first()
@@ -353,6 +355,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder.btn_delete.set_sensitive(sensitive_btn)
             self._builder.btn_report.set_sensitive(
                     sensitive_btn and not problem['not-reportable'] )
+            self._builder.btn_detail.set_sensitive(sensitive_btn)
             self._builder.vbx_links.foreach(
                     lambda w, u: w.destroy(), None)
             self._builder.vbx_problem_messages.foreach(

@@ -68,6 +68,21 @@
   <object class="GtkMenu" id="menu_problem_item">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="accel_group">ag_accelerators</property>
+    <child>
+      <object class="GtkMenuItem" id="mi_report">
+        <property name="related_action">gac_report</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="mi_delete">
+        <property name="related_action">gac_delete</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
     <child>
       <object class="GtkMenuItem" id="mi_open_directory">
         <property name="related_action">gac_open_directory</property>

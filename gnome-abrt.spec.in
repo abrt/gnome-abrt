@@ -24,10 +24,14 @@ BuildRequires: xmlto
 BuildRequires: pygobject3-devel
 BuildRequires: libreport-gtk-devel > 2.0.20
 BuildRequires: gtk3-devel
+%if 0%{?fedora}
 BuildRequires: pylint
 BuildRequires: python-inotify
 BuildRequires: pygobject3
 BuildRequires: dbus-python
+%else
+%define %checkoption --with-nopylint
+%endif
 
 Requires:   python-inotify
 Requires:   pygobject3
@@ -45,7 +49,7 @@ provides them with convenient way for managing these problems.
 
 %build
 autoconf
-%configure --prefix="/usr"
+%configure --prefix="/usr" %checkoption
 make
 
 

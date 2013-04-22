@@ -153,7 +153,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 - Fix failure in processing of dump directories from user's home
 - Resolves: #908712
 
-* Mon Jan 08 2013 Jakub Filak <jfilak@redhat.com> - 0.2.6-1
+* Tue Jan 08 2013 Jakub Filak <jfilak@redhat.com> - 0.2.6-1
 - Require libreport version 2.0.20 and greater
 - Use DD api correctly
 - Reflect changes in libreport
@@ -222,7 +222,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 - Remove noarch because of binary wrappers
 - Added support for adjusting libreport preferences
 
-* Mon Aug 28 2012 Jakub Filak <jfilak@redhat.com> - 0.2-8
+* Tue Aug 28 2012 Jakub Filak <jfilak@redhat.com> - 0.2-8
 - Take ownership of all installed directories
 - Correct paths to translated files
 

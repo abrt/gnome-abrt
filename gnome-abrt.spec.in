@@ -98,6 +98,23 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Apr 22 2013 Jakub Filak <jfilak@redhat.com> 0.2.11-1
+- Enable pylint check only on Fedora
+- Fix bogus dates in chagelog
+- Introduce expert mode and show 'Analyze' button in that mode
+- Use last occurrence item for problems sorting
+- Fix broken keyboard shortcuts
+- Fix missing space typo
+- Compare all DesktopEntry.*() return values to None
+- Display 'component' name instead of 'executable' if desktop file is missing
+- Do not show scrollbar for long links
+- Allow to disable pylint check in configure.ac
+- Merge pull request #19 from clockfort/manpage-fix
+- move manpage to volume 1
+- Move gnome_abrt module check to module's Makefile
+- Disable 'Interface not implemented' pylint warning
+- Configure pylint to produce parseable output
+
 * Thu Mar 28 2013 Jakub Filak <jfilak@redhat.com> 0.2.10-1
 - Fix a wrong import of GLib.GError
 - Fix typos in configure.ac

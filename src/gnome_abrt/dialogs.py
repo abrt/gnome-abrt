@@ -29,9 +29,9 @@ from gi.repository import Gtk
 
 
 def _show_error_dialog(parent, summary, description):
-    dialog = Gtk.MessageDialog(parent, Gtk.DIALOG_DESTROY_WITH_PARENT,
-                               Gtk.MESSAGE_ERROR,
-                               Gtk.BUTTONS_OK,
+    dialog = Gtk.MessageDialog(parent, Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                               Gtk.MessageType.ERROR,
+                               Gtk.ButtonsType.OK,
                                summary)
 
     dialog.format_secondary_text(description)

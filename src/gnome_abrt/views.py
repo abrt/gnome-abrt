@@ -391,9 +391,9 @@ class OopsWindow(Gtk.ApplicationWindow):
                         or not any((s.title == "Bugzilla"
                                 for s in problem['submission']))):
                     self._show_problem_message(
-    _("This problem hasn't been reported to <i>Bugzilla</i> yet, "
-        "our developers maybe need more information to sort out the problem.\n"
-        "Please consider <b>reporting it</b>, you may help them. Thank you."))
+    _("This problem hasn't been reported to <i>Bugzilla</i> yet. "
+        "Our developers may need more information to fix the problem.\n"
+        "Please consider <b>reporting it</b> - you may help them. Thank you."))
             else:
                 self._builder.nb_problem_layout.set_current_page(1)
         except errors.InvalidProblem as ex:

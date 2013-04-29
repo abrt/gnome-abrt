@@ -100,6 +100,7 @@ AC_CONFIG_FILES([
     src/Makefile
     src/gnome_abrt/Makefile
     src/gnome_abrt/wrappers/Makefile
+    src/gnome_abrt/url/Makefile
     po/Makefile.in
 ])
 

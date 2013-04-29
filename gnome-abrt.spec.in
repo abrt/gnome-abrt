@@ -89,6 +89,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %files -f %{name}.lang
 %doc COPYING
 %{python_sitearch}/gnome_abrt
+%{python_sitearch}/gnome_abrt/url
 %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/*

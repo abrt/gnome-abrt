@@ -19,6 +19,7 @@ import datetime
 import logging
 
 # gnome-abrt
+import gnome_abrt.url
 from gnome_abrt.application import find_application
 from gnome_abrt.errors import (InvalidProblem,
                                UnavailableSource,
@@ -70,10 +71,40 @@ class Problem:
         MSG = "MSG"
         BTHASH = "BTHASH"
 
-        def __init__(self, title, rtype, data):
-            self.title = title
-            self.rtype = rtype
-            self.data = data
+        def __init__(self, problem, name, rtype, data):
+            self._problem = problem
+            self._name = name
+            self._title = name
+            self._rtype = rtype
+            self._data = data
+            self._url_done = False
+
+        def _update_title_async_cb(self, result, unused_userdata):
+            if result[1]:
+                self._title = result[1]
+                self._problem.source.notify(ProblemSource.CHANGED_PROBLEM,
+                                            self._problem)
+
+        @property
+        def name(self):
+            return self._name
+
+        @property
+        def rtype(self):
+            return self._rtype
+
+        @property
+        def data(self):
+            return self._data
+
+        @property
+        def title(self):
+            if self._rtype == Problem.Submission.URL and not self._url_done:
+                self._url_done = True
+                gnome_abrt.url.get_url_title_async(self._data,
+                        self._update_title_async_cb, None)
+
+            return self._title
 
 
     def __init__(self, problem_id, source):
@@ -226,7 +257,7 @@ class Problem:
                     i += 1
 
                     self.submission.append(
-                        Problem.Submission(pfx, typ, line[i:]))
+                        Problem.Submission(self, pfx, typ, line[i:]))
 
         return self.submission
 

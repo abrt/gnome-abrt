@@ -34,6 +34,7 @@ from gi.repository import Gio
 
 # gnome-abrt
 import gnome_abrt
+import gnome_abrt.url
 from gnome_abrt.views import OopsWindow
 from gnome_abrt.controller import Controller
 from gnome_abrt.signals import glib_sigchld_signal_handler
@@ -45,6 +46,8 @@ from gnome_abrt.l10n import _
 from gnome_abrt.wrappers import show_events_list_dialog
 from gnome_abrt.config import get_configuration
 from gnome_abrt.dialogs import show_report_problem_with_abrt
+from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
+                                         GetURLTitleSourceCache)
 
 # dbus
 import dbus
@@ -54,6 +57,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 GNOME_ABRT_APPLICATION_ID = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_OBJECT_PATH = '/org/freedesktop/GnomeAbrt'
+GNOME_ABRT_URL_POOL_CAPACITY = 10
 
 
 # because of https://bugzilla.gnome.org/show_bug.cgi?id=682331
@@ -148,6 +152,9 @@ class OopsApplication(Gtk.Application):
         self.set_flags(Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
         self.gcontext = None
         self.source = None
+        self._url_pool = GetURLTitleSourcePool(GNOME_ABRT_URL_POOL_CAPACITY)
+        self._url_cache = GetURLTitleSourceCache(self._url_pool)
+        gnome_abrt.url.set_async_worker(self._url_cache.get_url_title_async)
 
     #pylint: disable=W0613
     def _parse_command_line(self, sender, gcmdargs):

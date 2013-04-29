@@ -256,8 +256,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             except errors.InvalidProblem as ex:
                 self._remove_problem_from_storage(ex.problem_id)
                 logging.debug(ex.message)
-
-            return
+                return
 
         try:
             if problem in self._get_selected(self._builder.tvs_problems):
@@ -265,8 +264,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
             logging.debug(ex.message)
-
-        return
 
     def _reload_problems(self, source):
         self._reloading = True
@@ -317,7 +314,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self._builder.tvs_problems.select_iter(pit)
         self._builder.tv_problems.scroll_to_cell(path)
-
 
     def _show_problem_links(self, submissions):
         need_align = False
@@ -388,7 +384,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 if problem['not-reportable']:
                     self._show_problem_message(problem['not-reportable'])
                 elif (not problem['is_reported']
-                        or not any((s.title == "Bugzilla"
+                        or not any((s.name == "Bugzilla"
                                 for s in problem['submission']))):
                     self._show_problem_message(
     _("This problem hasn't been reported to <i>Bugzilla</i> yet. "

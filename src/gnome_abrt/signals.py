@@ -55,6 +55,9 @@ def _gsource_handle_signal(source, condition, data):
     else:
         data[0]()
 
+    # True -> keep this source attached to the context
+    return True
+
 def _giochannel_notice_sigchld_signal(wfd):
     os.write(wfd, '1')
 

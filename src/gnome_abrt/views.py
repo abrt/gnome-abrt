@@ -87,11 +87,15 @@ def problem_to_storage_values(problem):
             problem]
 
 #pylint: disable=W0613
-def time_sort_func(model, first, second, unused):
-    lhs = model[first][2]['date_last'].timetuple()
-    rhs = model[second][2]['date_last'].timetuple()
-    return time.mktime(lhs) - time.mktime(rhs)
-
+def time_sort_func(model, first, second, view):
+    try:
+        lhs = model[first][2]['date_last'].timetuple()
+        rhs = model[second][2]['date_last'].timetuple()
+        return time.mktime(lhs) - time.mktime(rhs)
+    except errors.InvalidProblem as ex:
+        view._remove_problem_from_storage(ex.problem_id)
+        logging.debug(ex.message)
+        return 0
 
 #pylint: disable=R0902
 class OopsWindow(Gtk.ApplicationWindow):
@@ -178,7 +182,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._controller = controller
 
         self._builder.ls_problems.set_sort_column_id(0, Gtk.SortType.DESCENDING)
-        self._builder.ls_problems.set_sort_func(0, time_sort_func, None)
+        self._builder.ls_problems.set_sort_func(0, time_sort_func, self)
         self._filter = ProblemsFilter(self, self._builder.tv_problems)
 
         class SourceObserver:

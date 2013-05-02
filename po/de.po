@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Fabian Affolter <fab@fedoraproject.org>, 2011.
-#  <hpeters@redhat.com>, 2013.
-#   <hpeters@redhat.com>, 2011-2012.
-# Jiří Moskovčák <jmoskovc@redhat.com>, 2011.
-# Laurin  <lineak@fedoraproject.org>, 2011.
-# Mario Blättermann <mariobl@freenet.de>, 2011.
+# Fabian Affolter <fab@fedoraproject.org>, 2011
+# hpeters <hpeters@redhat.com>, 2013
+# hpeters <hpeters@redhat.com>, 2011-2012
+# Jiří Moskovčák <jmoskovc@redhat.com>, 2011
+# Laurin <lineak@fedoraproject.org>, 2011
+# Mario Blättermann <mariobl@freenet.de>, 2011
+# Rainer <rgromans@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-18 17:05+0200\n"
-"PO-Revision-Date: 2013-01-22 01:40+0000\n"
-"Last-Translator: hpeters <hpeters@redhat.com>\n"
+"POT-Creation-Date: 2013-05-02 09:30+0200\n"
+"PO-Revision-Date: 2013-05-02 07:30+0000\n"
+"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:155
 msgid "Automatic Bug Reporting Tool"
 msgstr "Automatisches Bug-Reporting-Tool"
 
@@ -31,31 +32,81 @@ msgstr "Automatisches Bug-Reporting-Tool"
 msgid "View and report application crashes"
 msgstr "Applikationsabstürze ansehen und melden"
 
-#: ../src/gnome_abrt/dbus_problems.py:51
+#: ../src/gnome_abrt/dbus_problems.py:55
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "Empfänger von Signal '{0}' auf DBus-Systempfad '{1}' kann nicht hinzugefügt werden: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:73
+#: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "Verbindung mit DBus-Systembus '{0}' auf Pfad '{1}' nicht möglich: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:78
+#: ../src/gnome_abrt/dbus_problems.py:85
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "Schnittstelle '{0}' auf Pfad '{1}' in Bus '{2}' kann nicht abgerufen werden: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:124
+#: ../src/gnome_abrt/dbus_problems.py:139
+msgid "Can't chown problem '{0}' over DBus service: {1!s}"
+msgstr "Kann nicht den Besitzer wechseln für Problem '{0}' über DBus Service: {1!s}"
+
+#: ../src/gnome_abrt/dbus_problems.py:160
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "Fehlerdaten können nicht von DBus-Dienst abgerufen werden: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:139
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "Fehlerliste kann nicht von DBus-Dienst abgerufen werden: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:152
+#: ../src/gnome_abrt/dbus_problems.py:199
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Fehler kann nicht über DBus-Dienst gelöscht werden: {0!s}"
 
-#: ../src/gnome_abrt/directory_problems.py:185
+#: ../src/gnome_abrt/dialogs.py:50
+msgid "The description of problem is too short"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:51
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"description shorter than 10 letters."
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:61
+msgid "The summary of problem is too short"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:62
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"summary shorter than 10 letters."
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:88
+msgid "Problem description"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:96
+msgid "Summary:"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:108
+msgid "_Send"
+msgstr ""
+
+#. Sets text but text is selected :)
+#: ../src/gnome_abrt/dialogs.py:122
+msgid "A problem with ABRT"
+msgstr ""
+
+#: ../src/gnome_abrt/directory_problems.py:206
+msgid ""
+"You have probably reached inotify's limit on the number of watches in '{0}'."
+" The limit can be increased by proper configuration of inotify. For more "
+"details see man inotify(7). This event causes that you will not be notified "
+"about changes in problem data happening outside of this application. This "
+"event do not affect any other functionality."
+msgstr ""
+
+#: ../src/gnome_abrt/directory_problems.py:252
 msgid "Can't open directory: '{0}'"
 msgstr "Verzeichnis kann  nicht geöffnet werden: '{0}'"
 
@@ -76,102 +127,126 @@ msgid "Submits selected problem"
 msgstr "Berichtet ausgewählten Fehler"
 
 #: ../src/gnome_abrt/oops.glade.h:5
-msgid "Detail"
-msgstr "Detail"
+msgid "Analy_ze"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:6
+msgid "Open selected problem for analysis"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "_Alle Fehler"
 
-#: ../src/gnome_abrt/oops.glade.h:7
+#: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "Alle bekannten Fehler für alle Systembenutzer anzeigen"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:9
+msgid "_Open problem's data directory"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:10
+msgid ""
+"Opens the selected problem's data directory in the default file system "
+"browser"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:11
+msgid "_Copy problem's ID to Clipboard"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:12
+msgid "Stores the selected problem's ID in Clibpoard"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:13
 msgid "Name"
 msgstr "Name"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Version"
 msgstr "Version"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Detected"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Reported"
 msgstr "Berichtet"
 
-#: ../src/gnome_abrt/oops.glade.h:11
-msgid "No oopses!"
-msgstr "Keine Kernel-Abstürze!"
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "No problems detected!"
+msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:12
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "App"
 msgstr "App"
 
-#: ../src/gnome_abrt/oops.glade.h:13
+#: ../src/gnome_abrt/oops.glade.h:19
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/gnome_abrt/problems.py:151
+#: ../src/gnome_abrt/problems.py:174
 msgid "Can't delete problem '{0}': '{1}'"
 msgstr "Fehler '{0}' kann nicht gelöscht werden: '{1}'"
 
-#: ../src/gnome_abrt/problems.py:286
-msgid "Problem '{0}' is already in the cache"
-msgstr "Fehler '{0}' ist bereits im Cache"
-
-#: ../src/gnome_abrt/problems.py:300
+#: ../src/gnome_abrt/problems.py:345
 msgid "Not found in cache but deleted: {0}"
 msgstr "Nicht im Cache gefunden sondern gelöscht: {0}"
 
-#: ../src/gnome_abrt/problems.py:314
-msgid "Can't process '{0}': {1}"
-msgstr "'{0}' kann nicht verarbeitet werden: {1}"
-
-#: ../src/gnome_abrt/problems.py:316
+#: ../src/gnome_abrt/problems.py:364
 msgid "Source failed on processing of '{0}': {1}"
 msgstr "Quelle bei Verarbeitung von '{0}' fehlgeschlagen: {1}"
 
-#: ../src/gnome_abrt/tools.py:18
+#: ../src/gnome_abrt/tools.py:33
 msgid "Future"
 msgstr "Zukunft"
 
-#: ../src/gnome_abrt/tools.py:25
+#: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
 msgstr "Gestern"
 
-#: ../src/gnome_abrt/tools.py:35
+#: ../src/gnome_abrt/tools.py:49
 msgid "week"
 msgstr "Woche"
 
-#: ../src/gnome_abrt/tools.py:38
+#: ../src/gnome_abrt/tools.py:52
 msgid "month"
 msgstr "Monat"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:55
 msgid "year"
 msgstr "Jahr"
 
-#: ../src/gnome_abrt/tools.py:44
+#: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
 msgstr "Letzte(s,n) {0!s}"
 
-#: ../src/gnome_abrt/tools.py:46
+#: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
 msgstr "vor {0:d} {1!s}s"
 
-#: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
-#: ../src/gnome_abrt/views.py:209
+#: ../src/gnome_abrt/views.py:83 ../src/gnome_abrt/views.py:368
+#: ../src/gnome_abrt/views.py:370
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:207
+#: ../src/gnome_abrt/views.py:370
 msgid " crashed"
 msgstr "abgestürzt"
 
-#: ../src/gnome_abrt/views.py:218
+#: ../src/gnome_abrt/views.py:383
 msgid "yes"
 msgstr "ja"
 
-#: ../src/gnome_abrt/views.py:232
+#: ../src/gnome_abrt/views.py:386
 msgid "no"
 msgstr "nein"
+
+#: ../src/gnome_abrt/views.py:394
+msgid ""
+"This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
+"Please consider <b>reporting it</b> - you may help them. Thank you."
+msgstr ""

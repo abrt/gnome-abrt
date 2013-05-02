@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jiří Moskovčák <jmoskovc@redhat.com>, 2011.
-# Runa Bhattacharjee <runab@redhat.com>, 2009-2011.
-#   <runabh@gmail.com>, 2011-2012.
+# Jiří Moskovčák <jmoskovc@redhat.com>, 2011
+# runab <runab@redhat.com>, 2009-2011
+# runa <runabh@gmail.com>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-18 17:05+0200\n"
-"PO-Revision-Date: 2012-10-30 11:57+0000\n"
-"Last-Translator: runa <runabh@gmail.com>\n"
+"POT-Creation-Date: 2013-05-02 09:30+0200\n"
+"PO-Revision-Date: 2013-05-02 07:30+0000\n"
+"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: bn_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:71
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:155
 msgid "Automatic Bug Reporting Tool"
 msgstr "স্বয়ংক্রিয় বাগ রিপোর্টিং ব্যবস্থা (ABRT)"
 
@@ -28,31 +28,81 @@ msgstr "স্বয়ংক্রিয় বাগ রিপোর্টিং ব
 msgid "View and report application crashes"
 msgstr "অ্যাপ্লিকেশনের বিপর্যয় সংক্রান্ত তথ্য নিরীক্ষণ ও দায়ের করুন"
 
-#: ../src/gnome_abrt/dbus_problems.py:51
+#: ../src/gnome_abrt/dbus_problems.py:55
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "'{0}' সংকেত প্রাপ্তকারীকে DBus সিস্টেম পাথ '{1}'-র মধ্যে যোগ করতে ব্যর্থ: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:73
+#: ../src/gnome_abrt/dbus_problems.py:78
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "'{0}' DBus সিস্টেম বাস-কে '{1}' পাথের মধ্যে যোগ করতে ব্যর্থ: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:78
+#: ../src/gnome_abrt/dbus_problems.py:85
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "'{0}' ইন্টারফেসটি '{1}' পাথে মধ্যে '{2}' বাসে প্রাপ্ত করতে ব্যর্থ: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:124
+#: ../src/gnome_abrt/dbus_problems.py:139
+msgid "Can't chown problem '{0}' over DBus service: {1!s}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:160
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus পরিসেবা থেকে সমস্যাপূর্ণ তথ্য প্রাপ্ত করতে ব্যর্থ: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:139
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus পরিসেবা থেকে সমস্যার তালিকা প্রাপ্ত করতে ব্যর্থ: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:152
+#: ../src/gnome_abrt/dbus_problems.py:199
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus পরিসেবার মাধ্যমে সমস্যা মুছে ফেলা সম্ভব নয়: {0!s}"
 
-#: ../src/gnome_abrt/directory_problems.py:185
+#: ../src/gnome_abrt/dialogs.py:50
+msgid "The description of problem is too short"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:51
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"description shorter than 10 letters."
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:61
+msgid "The summary of problem is too short"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:62
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"summary shorter than 10 letters."
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:88
+msgid "Problem description"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:96
+msgid "Summary:"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:108
+msgid "_Send"
+msgstr ""
+
+#. Sets text but text is selected :)
+#: ../src/gnome_abrt/dialogs.py:122
+msgid "A problem with ABRT"
+msgstr ""
+
+#: ../src/gnome_abrt/directory_problems.py:206
+msgid ""
+"You have probably reached inotify's limit on the number of watches in '{0}'."
+" The limit can be increased by proper configuration of inotify. For more "
+"details see man inotify(7). This event causes that you will not be notified "
+"about changes in problem data happening outside of this application. This "
+"event do not affect any other functionality."
+msgstr ""
+
+#: ../src/gnome_abrt/directory_problems.py:252
 msgid "Can't open directory: '{0}'"
 msgstr "{0} খুলতে ব্যর্থ: {1}"
 
@@ -73,102 +123,126 @@ msgid "Submits selected problem"
 msgstr "নির্বাচিত সমস্যাগুলি দায়ের করা হবে"
 
 #: ../src/gnome_abrt/oops.glade.h:5
-msgid "Detail"
-msgstr "বিবরণ"
+msgid "Analy_ze"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:6
+msgid "Open selected problem for analysis"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "সমস্যা"
 
-#: ../src/gnome_abrt/oops.glade.h:7
+#: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "সকল সিস্টেম ব্যবহারকারীদের থেকে প্রাপ্ত সকল সমস্যা প্রদর্শিত হবে"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:9
+msgid "_Open problem's data directory"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:10
+msgid ""
+"Opens the selected problem's data directory in the default file system "
+"browser"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:11
+msgid "_Copy problem's ID to Clipboard"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:12
+msgid "Stores the selected problem's ID in Clibpoard"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:13
 msgid "Name"
 msgstr "নাম"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Version"
 msgstr "সংস্করণ"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Detected"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Reported"
 msgstr "রিপোর্ট করা হয়েছে"
 
-#: ../src/gnome_abrt/oops.glade.h:11
-msgid "No oopses!"
-msgstr "কোনো ভুল নেই!"
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "No problems detected!"
+msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:12
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "App"
 msgstr "অ্যাপ্লিকেশন"
 
-#: ../src/gnome_abrt/oops.glade.h:13
+#: ../src/gnome_abrt/oops.glade.h:19
 msgid "Date"
 msgstr "তারিখ"
 
-#: ../src/gnome_abrt/problems.py:151
+#: ../src/gnome_abrt/problems.py:174
 msgid "Can't delete problem '{0}': '{1}'"
 msgstr "'{0}' সমস্যা মুছে ফেলতে ব্যর্থ: '{1}'"
 
-#: ../src/gnome_abrt/problems.py:286
-msgid "Problem '{0}' is already in the cache"
-msgstr "'{0}' সমস্যাটি পূর্বেই ক্যাশের মধ্যে উপস্থিত রয়েছে"
-
-#: ../src/gnome_abrt/problems.py:300
+#: ../src/gnome_abrt/problems.py:345
 msgid "Not found in cache but deleted: {0}"
 msgstr "ক্যাশেতে পাওয়া যায়নি কিন্তু মুছে ফেলা হয়েছে: {0}"
 
-#: ../src/gnome_abrt/problems.py:314
-msgid "Can't process '{0}': {1}"
-msgstr "{0} খুলতে ব্যর্থ: {1}"
-
-#: ../src/gnome_abrt/problems.py:316
+#: ../src/gnome_abrt/problems.py:364
 msgid "Source failed on processing of '{0}': {1}"
 msgstr "'{0}' প্রক্রিয়াকরণে উৎস বিপর্যস্ত হয়েছে: {1}"
 
-#: ../src/gnome_abrt/tools.py:18
+#: ../src/gnome_abrt/tools.py:33
 msgid "Future"
 msgstr "ভবিষ্যত"
 
-#: ../src/gnome_abrt/tools.py:25
+#: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
 msgstr "গতকাল"
 
-#: ../src/gnome_abrt/tools.py:35
+#: ../src/gnome_abrt/tools.py:49
 msgid "week"
 msgstr "সপ্তাহ"
 
-#: ../src/gnome_abrt/tools.py:38
+#: ../src/gnome_abrt/tools.py:52
 msgid "month"
 msgstr "মাস"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:55
 msgid "year"
 msgstr "বৎসর"
 
-#: ../src/gnome_abrt/tools.py:44
+#: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
 msgstr "সর্বশেষ {0!s}"
 
-#: ../src/gnome_abrt/tools.py:46
+#: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s পূর্বে"
 
-#: ../src/gnome_abrt/views.py:61 ../src/gnome_abrt/views.py:207
-#: ../src/gnome_abrt/views.py:209
+#: ../src/gnome_abrt/views.py:83 ../src/gnome_abrt/views.py:368
+#: ../src/gnome_abrt/views.py:370
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:207
+#: ../src/gnome_abrt/views.py:370
 msgid " crashed"
 msgstr "বিপর্যস্ত"
 
-#: ../src/gnome_abrt/views.py:218
+#: ../src/gnome_abrt/views.py:383
 msgid "yes"
 msgstr "হ্যাঁ"
 
-#: ../src/gnome_abrt/views.py:232
+#: ../src/gnome_abrt/views.py:386
 msgid "no"
 msgstr "না"
+
+#: ../src/gnome_abrt/views.py:394
+msgid ""
+"This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
+"Please consider <b>reporting it</b> - you may help them. Thank you."
+msgstr ""

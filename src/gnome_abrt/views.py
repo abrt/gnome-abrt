@@ -236,11 +236,18 @@ class OopsWindow(Gtk.ApplicationWindow):
         return None
 
     def _add_problem_to_storage(self, problem):
+        """Adds a problem to the storage
+
+        Returns True if the problem was successfully added to the storage;
+        otherwise returns False
+        """
         try:
             self._builder.ls_problems.append(problem_to_storage_values(problem))
+            return True
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
             logging.debug(ex.message)
+            return False
 
     def _remove_problem_from_storage(self, problem):
         if problem is None:
@@ -272,27 +279,31 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _reload_problems(self, source):
         self._reloading = True
         old_selection = self._get_selected(self._builder.tvs_problems)
-        prblms = None
+        canselect = False
         try:
             self._builder.ls_problems.clear()
             prblms = source.get_problems()
+            # Can select a problem only if at least one problem was added to
+            # the storage
             for p in prblms:
-                self._add_problem_to_storage(p)
+                canselect |= self._add_problem_to_storage(p)
         finally:
             self._reloading = False
 
-        if prblms:
-            if old_selection:
-                pit = self._find_problem_iter(old_selection[0],
-                        self._builder.tv_problems.get_model())
-                if pit:
-                    self._select_problem_iter(pit)
-                    return
-
+        if canselect:
             model = self._builder.tv_problems.get_model()
-            self._select_problem_iter(model.get_iter_first())
-        else:
-            self._set_problem(None)
+            pit = None
+            if old_selection:
+                pit = self._find_problem_iter(old_selection[0], model)
+
+            if pit is None:
+                pit = model.get_iter_first()
+
+            if pit is not None:
+                self._select_problem_iter(pit)
+                return
+
+        self._set_problem(None)
 
     def _select_problem_by_id(self, problem_id):
         pit = self._find_problem_iter(problem_id,

@@ -98,17 +98,23 @@ class GtkAppDBUSImpl(object):
     def __init__(self, bus_name, application):
         self._app = application
         self.mainloop = DBusGMainLoop()
-        bus = dbus.SessionBus(mainloop = self.mainloop)
 
         self._primary_obj = None
         self._primary_iface = None
         self._service = None
 
-        if bus.name_has_owner(bus_name):
-            self._primary_obj = bus.get_object(bus_name, GNOME_ABRT_OBJECT_PATH)
-        else:
-            self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
-
+        try:
+            bus = dbus.SessionBus(mainloop = self.mainloop)
+            if bus.name_has_owner(bus_name):
+                self._primary_obj = bus.get_object(bus_name,
+                                                   GNOME_ABRT_OBJECT_PATH)
+            else:
+                self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
+        except dbus.exceptions.DBusException as ex:
+            logging.warning("Can't initialize gome-abrt's DBus services: {0}"
+                    .format(ex.message))
+            self._primary_obj = None
+            self._service = None
 
     def is_remote(self):
         """Application is remote if connection to primary application succeeded

@@ -31,14 +31,14 @@ from gi.repository import GdkPixbuf
 class Application(object):
 
     def __init__(self, executable, name=None, icon=None):
-        self.executable = executable or "??"
+        self.executable = executable or "N/A"
 
         if name:
             self.name = name
         elif executable:
             self.name = os.path.basename(executable)
         else:
-            self.name = "??"
+            self.name = "N/A"
 
         self.icon = icon
 

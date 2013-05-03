@@ -99,6 +99,19 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri May 03 2013 Jakub Filak <jfilak@redhat.com> 0.2.12-1
+- Use 'N/A' instead of ??
+- Use package name is neither component nor executable items are available
+- Don't try to select a problem if the list is empty
+- Catch InvalidProblem exception in sort function
+- Handle DBus initialization errors gracefully
+- Show HTML titles of URLs from reported_to element
+- updated translation
+- Continue in handling of SIGCHLD after the first one is handled
+- Merge pull request #22 from Catanzaro/master
+- Fix two comma splices
+- Fix wrong dialog flag names
+
 * Mon Apr 22 2013 Jakub Filak <jfilak@redhat.com> 0.2.11-1
 - Enable pylint check only on Fedora
 - Fix bogus dates in chagelog

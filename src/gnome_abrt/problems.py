@@ -217,7 +217,19 @@ class Problem:
 
     def get_application(self):
         if not self.app:
-            self.app = find_application(self['component'],
+            component = self['component']
+            if not component:
+                package = self['package']
+                if package:
+                    parts = package.split("-")
+                    if len(parts) > 2:
+                        # some-foo-package-7.7.7-2
+                        component = "-".join(parts[:-2])
+                    elif len(parts) == 1:
+                        # kernel
+                        component = package
+
+            self.app = find_application(component,
                                         self['executable'],
                                         self['cmdline'])
 

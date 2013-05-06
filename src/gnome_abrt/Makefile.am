@@ -18,15 +18,15 @@ gnome_abrtexec_PYTHON = \
 	l10n.py \
 	gnome_abrt_glade.py
 
-controller.py: controller.py.in
+controller.py: controller.py.in Makefile
 	sed -e s,\@libexecdir\@,$(libexecdir),g $< > $@
 
-__init__.py: __init__.py.in
+__init__.py: __init__.py.in Makefile
 	sed -e s,\@PACKAGE\@,$(PACKAGE),g \
 	-e s,\@VERSION\@,$(VERSION),g \
 	-e s,\@localedir\@,$(localedir),g $< > $@
 
-gnome_abrt_glade.py: oops.glade
+gnome_abrt_glade.py: oops.glade Makefile
 	{ \
 	  echo '# coding=utf-8'; \
 	  echo 'GNOME_ABRT_GLADE_CONTENTS ="\'; \

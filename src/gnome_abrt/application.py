@@ -141,7 +141,7 @@ def find_application(component, executable, cmdline):
                                         128, Gtk.IconLookupFlags.USE_BUILTIN)
                                 break
                             except GLib.GError as ex:
-                                logging.debug(ex.message)
+                                logging.debug(ex)
                     elif isinstance(dai_icon, Gio.FileIcon):
                         stream = dai_icon.load(128, None)
                         icon = GdkPixbuf.Pixbuf.new_from_stream(stream[0], None)

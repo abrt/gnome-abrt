@@ -53,7 +53,7 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             logging.warning(
         _("Can't add receiver of signal '{0}'on DBus system path '{1}': {2}")
-                      .format(ABRTD_DBUS_SIGNAL, ABRTD_DBUS_PATH, ex.message))
+                      .format(ABRTD_DBUS_SIGNAL, ABRTD_DBUS_PATH, ex))
 
         class ConfigObserver():
             def __init__(self, source):
@@ -76,14 +76,14 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             raise errors.UnavailableSource(
                     _("Can't connect to DBus system bus '{0}' path '{1}': {2}")
-                        .format(BUS_NAME, BUS_PATH, ex.message))
+                        .format(BUS_NAME, BUS_PATH, ex))
 
         try:
             self._interface = dbus.Interface(self._proxy, BUS_IFACE)
         except dbus.exceptions.DBusException as ex:
             raise errors.UnavailableSource(
                 _("Can't get interface '{0}' on path '{1}' in bus '{2}': {3}")
-                    .format(BUS_IFACE, BUS_PATH, BUS_NAME, ex.message))
+                    .format(BUS_IFACE, BUS_PATH, BUS_NAME, ex))
 
     def _close_problems_bus(self):
         self._proxy = None
@@ -97,7 +97,7 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             name = ex.get_dbus_name()
             if name == "org.freedesktop.DBus.Error.ServiceUnknown":
-                logging.debug("Reconnecting to dbus: {0}".format(ex.message))
+                logging.debug("Reconnecting to dbus: {0}".format(ex))
                 self._close_problems_bus()
                 self._connect_to_problems_bus()
                 return method(self._interface, *args)
@@ -137,7 +137,7 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             logging.warning(
                     _("Can't chown problem '{0}' over DBus service: {1!s}")
-                    .format(problem_id, ex.message))
+                    .format(problem_id, ex))
             return False
 
     def get_items(self, problem_id, *args):
@@ -154,11 +154,11 @@ class DBusProblemSource(problems.CachedSource):
                                   "org.freedesktop.problems.AuthFailure",
                                   "org.freedesktop.problems.InvalidProblemDir"]:
                     self._remove_from_cache(problem_id)
-                    raise errors.InvalidProblem(problem_id, ex.message)
+                    raise errors.InvalidProblem(problem_id, ex)
 
                 logging.warning(
                         _("Can't get problem data from DBus service: {0!s}")
-                            .format(ex.message))
+                            .format(ex))
 
         return info
 
@@ -179,7 +179,7 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             logging.warning(
                     _("Can't get list of problems from DBus service: {0!s}")
-                        .format(ex.message))
+                        .format(ex))
 
         return (str(pid) for pid in prblms)
 
@@ -193,9 +193,9 @@ class DBusProblemSource(problems.CachedSource):
             if ex.get_dbus_name() in ["org.freedesktop.problems.AuthFailure",
                                 "org.freedesktop.problems.InvalidProblemDir"]:
                 self._remove_from_cache(problem_id)
-                raise errors.InvalidProblem(problem_id, ex.message)
+                raise errors.InvalidProblem(problem_id, ex)
 
             logging.warning(
                     _("Can't delete problem over DBus service: {0!s}")
-                        .format(ex.message))
+                        .format(ex))
             return False

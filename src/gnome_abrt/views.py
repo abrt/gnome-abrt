@@ -94,7 +94,7 @@ def time_sort_func(model, first, second, view):
         return time.mktime(lhs) - time.mktime(rhs)
     except errors.InvalidProblem as ex:
         view._remove_problem_from_storage(ex.problem_id)
-        logging.debug(ex.message)
+        logging.debug(ex)
         return 0
 
 #pylint: disable=R0902
@@ -229,7 +229,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                     return pit
             except errors.InvalidProblem as ex:
                 self._remove_problem_from_storage(ex.problem_id)
-                logging.debug(ex.message)
+                logging.debug(ex)
 
             pit = model.iter_next(pit)
 
@@ -246,7 +246,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             return True
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
             return False
 
     def _remove_problem_from_storage(self, problem):
@@ -266,7 +266,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                     self._builder.ls_problems.set_value(pit, i, values[i])
             except errors.InvalidProblem as ex:
                 self._remove_problem_from_storage(ex.problem_id)
-                logging.debug(ex.message)
+                logging.debug(ex)
                 return
 
         try:
@@ -274,7 +274,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._set_problem(problem)
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def _reload_problems(self, source):
         self._reloading = True
@@ -409,7 +409,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._builder.nb_problem_layout.set_current_page(1)
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def _get_selected(self, selection):
         model, rows = selection.get_selected_rows()
@@ -440,7 +440,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._controller.delete(prblm)
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def on_gac_detail_activate(self, action):
         try:
@@ -449,7 +449,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._controller.detail(selected[0])
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def on_gac_report_activate(self, action):
         try:
@@ -458,14 +458,14 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._controller.report(selected[0])
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def on_te_search_changed(self, entry):
         try:
             self._filter.set_pattern(entry.get_text())
         except errors.InvalidProblem as ex:
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()

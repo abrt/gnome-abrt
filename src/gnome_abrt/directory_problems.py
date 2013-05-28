@@ -98,7 +98,7 @@ class INOTIFYProblemHandler(ProcessEvent):
             try:
                 self._problem.refresh()
             except errors.InvalidProblem as ex:
-                logging.debug(ex.message)
+                logging.debug(ex)
                 self._problem.delete()
 
     #pylint: disable=C0103
@@ -142,7 +142,7 @@ class INOTIFYSourceHandler(ProcessEvent):
                             os.path.join(event.path, event.name))
         except errors.InvalidProblem as ex:
             logging.debug("Can't process a moved directory: {0}"
-                            .format(ex.message))
+                            .format(ex))
 
 
 class INOTIFYWatcher:
@@ -206,7 +206,7 @@ class INOTIFYWatcher:
     def _disable_on_max_watches(self, ex, directory):
         self._disabled = True
         logging.debug("Could not add inotify for directory '{0}': '{1}'"
-                            .format(directory, ex.message))
+                            .format(directory, ex))
         logging.warning(
 _("You have probably reached inotify's limit on the number of watches in '{0}'."
 " The limit can be increased by proper configuration of inotify. For more "

@@ -30,7 +30,7 @@ def _handle_signal_sigchld(callback, data):
             os.wait3(os.WNOHANG)
         except OSError as ex:
             # Breaks once no child is waiting
-            logging.debug(ex.message)
+            logging.debug(ex)
             break
 
     if data is not None:

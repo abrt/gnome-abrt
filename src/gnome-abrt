@@ -112,7 +112,7 @@ class GtkAppDBUSImpl(object):
                 self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
         except dbus.exceptions.DBusException as ex:
             logging.warning("Can't initialize gome-abrt's DBus services: {0}"
-                    .format(ex.message))
+                    .format(ex))
             self._primary_obj = None
             self._service = None
 
@@ -144,7 +144,7 @@ class GtkAppDBUSImpl(object):
             return True
         except dbus.exceptions.DBusException as ex:
             logging.debug("Can't send command line over DBus: {0}"
-                    .format(ex.message))
+                    .format(ex))
             return False
 
 
@@ -190,7 +190,7 @@ class OopsApplication(Gtk.Application):
                 try:
                     sources.append(DBusProblemSource(self._dbus_srv.mainloop))
                 except UnavailableSource as ex:
-                    logging.warning(ex.message)
+                    logging.warning(ex)
 
                 self.gcontext = GLib.main_context_default()
                 try:
@@ -198,7 +198,7 @@ class OopsApplication(Gtk.Application):
                     dps = DirectoryProblemSource(path, context=self.gcontext)
                     sources.append(dps)
                 except UnavailableSource as ex:
-                    logging.warning(ex.message)
+                    logging.warning(ex)
 
                 if len(sources) == 0:
                     raise UnavailableSource("No available problem source.")
@@ -212,7 +212,7 @@ class OopsApplication(Gtk.Application):
                 self.add_window (main_window)
         #pylint: disable=W0703
         except Exception as ex:
-            logging.exception(ex.message)
+            logging.exception(ex)
             sys.exit(1)
 
     def do_startup(self):
@@ -321,6 +321,6 @@ if __name__ == "__main__":
     try:
         EXIT_CODE = APP.run(APP_CMDLINE)
     except UnavailableSource as ex:
-        logging.error(ex.message)
+        logging.error(ex)
 
     sys.exit(EXIT_CODE)

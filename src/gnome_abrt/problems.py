@@ -54,7 +54,7 @@ class ProblemSource(object):
         try:
             self._observers.remove(observer)
         except ValueError as ex:
-            logging.debug(ex.message)
+            logging.debug(ex)
 
     def notify(self, change_type=None, problem=None):
         logging.debug("{0} : Notify".format(self.__class__.__name__))
@@ -203,7 +203,7 @@ class Problem:
             self.source.delete_problem(self.problem_id)
         except GnomeAbrtError as ex:
             logging.warning(_("Can't delete problem '{0}': '{1}'")
-                                .format(self.problem_id, ex.message))
+                                .format(self.problem_id, ex))
             self._deleted = False
         except Exception as ex:
             self._deleted = False
@@ -345,9 +345,9 @@ class CachedSource(ProblemSource):
                 try:
                     self._cache.append(self._create_new_problem(prblmid))
                 except InvalidProblem as ex:
-                    logging.warning(ex.message)
+                    logging.warning(ex)
                 except UnavailableSource as ex:
-                    logging.warning(ex.message)
+                    logging.warning(ex)
 
         return self._cache if self._cache else []
 
@@ -386,7 +386,7 @@ class CachedSource(ProblemSource):
             self._remove_from_cache(problem_id)
         except ValueError as ex:
             logging.warning(_('Not found in cache but deleted: {0}'),
-                    ex.message)
+                    ex)
             self._cache = None
             self.notify()
 
@@ -405,4 +405,4 @@ class CachedSource(ProblemSource):
                 self.notify(ProblemSource.NEW_PROBLEM, prblm)
         except UnavailableSource as ex:
             logging.warning(_("Source failed on processing of '{0}': {1}")
-                    .format(problem_id, ex.message))
+                    .format(problem_id, ex))

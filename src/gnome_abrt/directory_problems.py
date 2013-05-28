@@ -137,7 +137,12 @@ class INOTIFYSourceHandler(ProcessEvent):
 
     #pylint: disable=C0103
     def process_IN_MOVED_TO(self, event):
-        self.source.process_new_problem_id(os.path.join(event.path, event.name))
+        try:
+            self.source.process_new_problem_id(
+                            os.path.join(event.path, event.name))
+        except errors.InvalidProblem as ex:
+            logging.debug("Can't process a moved directory: {0}"
+                            .format(ex.message))
 
 
 class INOTIFYWatcher:

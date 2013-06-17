@@ -111,7 +111,7 @@ class GtkAppDBUSImpl(object):
             else:
                 self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
         except dbus.exceptions.DBusException as ex:
-            logging.warning("Can't initialize gome-abrt's DBus services: {0}"
+            logging.warning("Can't initialize gnome-abrt's DBus services: {0}"
                     .format(ex))
             self._primary_obj = None
             self._service = None

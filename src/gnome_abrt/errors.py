@@ -29,5 +29,7 @@ class InvalidProblem(GnomeAbrtError):
 
 class UnavailableSource(GnomeAbrtError):
 
-    def __init__(self, message=None):
+    def __init__(self, source, temporary, message=None):
         super(UnavailableSource, self).__init__(message)
+        self.source = source
+        self.temporary = temporary

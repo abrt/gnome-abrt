@@ -22,6 +22,7 @@ import time
 import logging
 import subprocess
 import locale
+import traceback
 
 #pygobject
 #pylint: disable=E0611
@@ -97,6 +98,27 @@ def time_sort_func(model, first, second, view):
         logging.debug(ex)
         return 0
 
+def format_button_source_name(name, source):
+    return "{0} ({1})".format(name, len(source.get_problems()))
+
+def handle_problem_and_source_errors(func):
+    """Wraps repetitive exception handling."""
+
+    def wrapper_for_instance_function(oops_wnd, *args):
+        try:
+            return func(oops_wnd, *args)
+        except errors.InvalidProblem as ex:
+            logging.debug(traceback.format_exc())
+            oops_wnd._remove_problem_from_storage(ex.problem_id)
+        except errors.UnavailableSource as ex:
+            logging.debug(traceback.format_exc())
+            oops_wnd._disable_source(ex.source, ex.temporary)
+
+        return None
+
+    return wrapper_for_instance_function
+
+
 #pylint: disable=R0902
 class OopsWindow(Gtk.ApplicationWindow):
     class OopsGtkBuilder(object):
@@ -154,10 +176,53 @@ class OopsWindow(Gtk.ApplicationWindow):
             return obj
 
 
-    def __init__(self, application, source, controller):
+    class SourceObserver:
+        def __init__(self, wnd):
+            self.wnd = wnd
+            self._enabled = True
+
+        def enable(self):
+            self._enabled = True
+
+        def disable(self):
+            self._enabled = False
+
+        def changed(self, source, change_type=None, problem=None):
+            if not self._enabled:
+                return
+
+            try:
+                if source == self.wnd._source:
+                    if not change_type:
+                        self.wnd._reload_problems(source)
+                    elif change_type == problems.ProblemSource.NEW_PROBLEM:
+                        self.wnd._add_problem_to_storage(problem)
+                    elif change_type == problems.ProblemSource.DELETED_PROBLEM:
+                        self.wnd._remove_problem_from_storage(problem)
+                    elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
+                        self.wnd._update_problem_in_storage(problem)
+
+                self.wnd._update_source_button(source)
+            except errors.UnavailableSource as ex:
+                self.wnd._disable_source(ex.source, ex.temporary)
+
+
+    class OptionsObserver:
+        def __init__(self, wnd):
+            self.wnd = wnd
+
+        def option_updated(self, conf, option):
+            if option == 'problemid' and conf[option]:
+                self.wnd._select_problem_by_id(conf[option])
+
+
+    def __init__(self, application, sources, controller):
         Gtk.ApplicationWindow.__init__(self,
                             title=_('Automatic Bug Reporting Tool'),
                             application=application)
+
+        if not sources:
+            raise ValueError("The source list cannot be empty!")
 
         self._builder = OopsWindow.OopsGtkBuilder()
         self.set_default_size(*self._builder.wnd_main.get_size())
@@ -176,60 +241,159 @@ class OopsWindow(Gtk.ApplicationWindow):
         stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
         self._builder.connect_signals(self)
 
-        self.selected_problem = None
-        self._source = source
+        self._source_observer = OopsWindow.SourceObserver(self)
+        self._source_observer.disable()
+
         self._reloading = False
         self._controller = controller
+
+        self.selected_problem = None
+        self._all_sources = []
+        self._source = None
+        self._handling_source_click = False
+        for name, src in sources:
+            self._all_sources.append(src)
+            src.attach(self._source_observer)
+
+            label = None
+            try:
+                label = format_button_source_name(name, src)
+            except errors.UnavailableSource:
+                logging.debug("Unavailable source: {0}".format(name))
+                continue
+
+            src_btn = Gtk.ToggleButton(label)
+            src_btn.set_visible(True)
+            # add an extra member source (I don't like it but it so easy)
+            src_btn.source = src
+            self._builder.hbox_source_btns.pack_start(src_btn,
+                    True, True, 0)
+
+            # add an extra member name (I don't like it but it so easy)
+            src.name = name
+            # add an extra member button (I don't like it but it so easy)
+            src.button = src_btn
+            src_btn.connect("clicked", self._on_source_btn_clicked, src)
+
+        self._source = self._all_sources[0]
+        self._set_button_toggled(self._source.button, True)
 
         self._builder.ls_problems.set_sort_column_id(0, Gtk.SortType.DESCENDING)
         self._builder.ls_problems.set_sort_func(0, time_sort_func, self)
         self._filter = ProblemsFilter(self, self._builder.tv_problems)
 
-        class SourceObserver:
-            def __init__(self, wnd):
-                self.wnd = wnd
-
-            def changed(self, source, change_type=None, problem=None):
-                if not change_type:
-                    self.wnd._reload_problems(source)
-                elif change_type == problems.ProblemSource.NEW_PROBLEM:
-                    self.wnd._add_problem_to_storage(problem)
-                elif change_type == problems.ProblemSource.DELETED_PROBLEM:
-                    self.wnd._remove_problem_from_storage(problem)
-                elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
-                    self.wnd._update_problem_in_storage(problem)
-
-
-        self._source_observer = SourceObserver(self)
-        self._source.attach(self._source_observer)
-
         self._builder.tv_problems.grab_focus()
-        self._reload_problems(self._source)
+        try:
+            self._reload_problems(self._source)
+        except errors.UnavailableSource as ex:
+            self._disable_source(ex.source, ex.temporary)
 
-        class OptionsObserver:
-            def __init__(self, wnd):
-                self.wnd = wnd
-
-            def option_updated(self, conf, option):
-                if option == 'problemid' and conf[option]:
-                    self.wnd._select_problem_by_id(conf[option])
-
-        self._options_observer = OptionsObserver(self)
+        self._options_observer = OopsWindow.OptionsObserver(self)
         conf = config.get_configuration()
         conf.set_watch('problemid', self._options_observer)
         self._options_observer.option_updated(conf, 'problemid')
         self._builder.btn_detail.set_visible(conf['expert'])
         self._builder.mi_detail.set_visible(conf['expert'])
 
+        # enable observer
+        self._source_observer.enable()
+
+    def _update_source_button(self, source):
+        name = format_button_source_name(source.name, source)
+        source.button.set_label(name)
+
+    def _set_button_toggled(self, button, state):
+        # set_active() triggers the clicked signal
+        # and if we set the active in program,
+        # we don't want do any action in the clicked handler
+        self._handling_source_click = True
+        try:
+            button.set_active(state)
+        finally:
+            self._handling_source_click = False
+
+    def _on_source_btn_clicked(self, btn, args):
+        # If True, then button's state was not changed by click
+        # and we don't want to switch source
+        if self._handling_source_click:
+            return
+
+        res, old_source = self._switch_source(btn.source)
+        if not res:
+            # switching sources failed and we have to untoggle clicked
+            # source's button
+            self._set_button_toggled(btn, False)
+        else:
+            if old_source is not None:
+                # sources were switched and we have to untoggle old source's
+                # button
+                self._set_button_toggled(old_source.button, False)
+            elif not btn.get_active():
+                # source wasn't changed and we have to set toggled back if
+                # someone clicked already selected button
+                self._set_button_toggled(btn, True)
+
+    def _switch_source(self, source):
+        """Sets the passed source as the selected source."""
+
+        result = True
+        old_source = None
+        if source != self._source:
+            try:
+                self._reload_problems(source)
+                old_source = self._source
+                self._source = source
+            except errors.UnavailableSource as ex:
+                self._disable_source(source, ex.temporary)
+                result = False
+
+        return (result, old_source)
+
+    def _disable_source(self, source, temporary):
+        if self._source is None or not self._all_sources:
+            return
+
+        # Some sources can be components of other sources.
+        # Problems are connected directly to the component sources, therefore
+        # exception's source is a component source, thus we have to find an
+        # instance of composite source which the unavailable component source
+        # belongs.
+        source_index = self._all_sources.index(source)
+
+        if source_index != -1:
+            real_source = self._all_sources[source_index]
+            self._set_button_toggled(real_source.button, False)
+            if not temporary:
+                logging.debug("Disabling source")
+                real_source.button.set_sensitive(False)
+                self._all_sources.pop(source_index)
+
+        if source != self._source:
+            return
+
+        # We just disabled the currently selected source. So, we should select
+        # some other source. The simplest way is to select the first source
+        # but only if it is not the disabled source.
+        # If the disabled source is completely unavailable (not temporary) we
+        # can always select the source at index 0 because the disabled
+        # source was removed from the _all_sources list.
+        if (not temporary or source_index != 0) and self._all_sources:
+            self._source = self._all_sources[0]
+            self._set_button_toggled(self._source.button, True)
+        else:
+            self._source = None
+
+        try:
+            self._reload_problems(self._source)
+        except errors.UnavailableSource as ex:
+            self._disable_source(ex.source, ex.temporary)
+
+    @handle_problem_and_source_errors
     def _find_problem_iter(self, problem, model):
         pit = model.get_iter_first()
         while pit:
-            try:
-                if model[pit][2] == problem:
-                    return pit
-            except errors.InvalidProblem as ex:
-                self._remove_problem_from_storage(ex.problem_id)
-                logging.debug(ex)
+            if model[pit][2] == problem:
+                return pit
 
             pit = model.iter_next(pit)
 
@@ -245,8 +409,8 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder.ls_problems.append(problem_to_storage_values(problem))
             return True
         except errors.InvalidProblem as ex:
+            logging.debug("Exception: {0}".format(traceback.format_exc()))
             self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
             return False
 
     def _remove_problem_from_storage(self, problem):
@@ -262,35 +426,46 @@ class OopsWindow(Gtk.ApplicationWindow):
         if pit:
             try:
                 values = problem_to_storage_values(problem)
-                for i in xrange(0, len(values)-1):
-                    self._builder.ls_problems.set_value(pit, i, values[i])
             except errors.InvalidProblem as ex:
+                logging.debug("Exception: {0}".format(traceback.format_exc()))
                 self._remove_problem_from_storage(ex.problem_id)
-                logging.debug(ex)
                 return
 
-        try:
-            if problem in self._get_selected(self._builder.tvs_problems):
-                self._set_problem(problem)
-        except errors.InvalidProblem as ex:
-            self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
+            for i in xrange(0, len(values)-1):
+                self._builder.ls_problems.set_value(pit, i, values[i])
+
+        if problem in self._get_selected(self._builder.tvs_problems):
+            self._set_problem(problem)
 
     def _reload_problems(self, source):
-        self._reloading = True
+        # Try to load and prepare the list of selected problems before we
+        # clear the view. So, we can gracefully handle UnavailableSource
+        # exception. If the reloaded source is unavailable the old list
+        # of problems remains untouched.
+        storage_problems = []
+        if source is not None:
+            prblms = source.get_problems()
+            for p in prblms:
+                try:
+                    storage_problems.append(problem_to_storage_values(p))
+                except errors.InvalidProblem:
+                    logging.debug("Exception: {0}"
+                            .format(traceback.format_exc()))
+
         old_selection = self._get_selected(self._builder.tvs_problems)
-        canselect = False
+
+        self._reloading = True
+        old_selection = None
         try:
             self._builder.ls_problems.clear()
-            prblms = source.get_problems()
-            # Can select a problem only if at least one problem was added to
-            # the storage
-            for p in prblms:
-                canselect |= self._add_problem_to_storage(p)
+
+            if storage_problems:
+                for p in storage_problems:
+                    self._builder.ls_problems.append(p)
         finally:
             self._reloading = False
 
-        if canselect:
+        if storage_problems:
             model = self._builder.tv_problems.get_model()
             pit = None
             if old_selection:
@@ -306,8 +481,22 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._set_problem(None)
 
     def _select_problem_by_id(self, problem_id):
+        # The problem could come from a different source than the currently
+        # loaded source. If so, try to switch to problem's origin source and
+        # select the problem after that.
+        if (self._source is not None and
+                not problem_id in self._source.get_problems()):
+            for source in self._all_sources:
+                if problem_id in source.get_problems():
+                    res, old_source = self._switch_source(source)
+                    if res:
+                        self._set_button_toggled(old_source.button, False)
+                        self._set_button_toggled(source.button, True)
+                    break
+
         pit = self._find_problem_iter(problem_id,
                 self._builder.tv_problems.get_model())
+
         if pit:
             self._select_problem_iter(pit)
         else:
@@ -358,58 +547,58 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self._builder.vbx_problem_messages.pack_start(msg, False, True, 0)
 
+    @handle_problem_and_source_errors
     def _set_problem(self, problem):
-        try:
-            self.selected_problem = problem
+        self.selected_problem = problem
 
-            sensitive_btn = problem is not None
-            self._builder.btn_delete.set_sensitive(sensitive_btn)
-            self._builder.btn_report.set_sensitive(
-                    sensitive_btn and not problem['not-reportable'] )
-            self._builder.btn_detail.set_sensitive(sensitive_btn)
-            self._builder.vbx_links.foreach(
-                    lambda w, u: w.destroy(), None)
-            self._builder.vbx_problem_messages.foreach(
-                    lambda w, u: w.destroy(), None)
+        sensitive_btn = problem is not None
+        self._builder.btn_delete.set_sensitive(sensitive_btn)
+        self._builder.btn_report.set_sensitive(
+                sensitive_btn and not problem['not-reportable'] )
+        self._builder.btn_detail.set_sensitive(sensitive_btn)
+        self._builder.vbx_links.foreach(
+                lambda w, u: w.destroy(), None)
+        self._builder.vbx_problem_messages.foreach(
+                lambda w, u: w.destroy(), None)
 
-            if problem:
-                self._builder.nb_problem_layout.set_current_page(0)
-                app = problem['application']
-                self._builder.lbl_summary.set_text(problem['reason'] or "")
-                self._builder.lbl_app_name_value.set_text(app.name or _("N/A"))
-                self._builder.lbl_reason.set_text("{0} {1}".format(
-                            app.name or _("N/A"), _(' crashed').strip()))
-                self._builder.lbl_app_version_value.set_text(
-                            problem['package'] or "")
-                self._builder.lbl_detected_value.set_text(
-                            problem['date'].strftime(
-                                locale.nl_langinfo(locale.D_FMT)))
+        if problem:
+            self._builder.nb_problem_layout.set_current_page(0)
+            app = problem['application']
+            self._builder.lbl_summary.set_text(problem['reason'] or "")
+            self._builder.lbl_app_name_value.set_text(app.name or _("N/A"))
+            self._builder.lbl_reason.set_text("{0} {1}".format(
+                        app.name or _("N/A"), _(' crashed').strip()))
+            self._builder.lbl_app_version_value.set_text(
+                        problem['package'] or "")
+            self._builder.lbl_detected_value.set_text(
+                        problem['date'].strftime(
+                            locale.nl_langinfo(locale.D_FMT)))
 
-                if app.icon:
-                    self._builder.img_app_icon.set_from_pixbuf(app.icon)
-                else:
-                    self._builder.img_app_icon.clear()
-
-                if problem['is_reported']:
-                    self._builder.lbl_reported_value.set_text(_('yes'))
-                    self._show_problem_links(problem['submission'])
-                else:
-                    self._builder.lbl_reported_value.set_text(_('no'))
-
-                if problem['not-reportable']:
-                    self._show_problem_message(problem['not-reportable'])
-                elif (not problem['is_reported']
-                        or not any((s.name == "Bugzilla"
-                                for s in problem['submission']))):
-                    self._show_problem_message(
-    _("This problem hasn't been reported to <i>Bugzilla</i> yet. "
-        "Our developers may need more information to fix the problem.\n"
-        "Please consider <b>reporting it</b> - you may help them. Thank you."))
+            if app.icon:
+                self._builder.img_app_icon.set_from_pixbuf(app.icon)
             else:
+                self._builder.img_app_icon.clear()
+
+            if problem['is_reported']:
+                self._builder.lbl_reported_value.set_text(_('yes'))
+                self._show_problem_links(problem['submission'])
+            else:
+                self._builder.lbl_reported_value.set_text(_('no'))
+
+            if problem['not-reportable']:
+                self._show_problem_message(problem['not-reportable'])
+            elif (not problem['is_reported']
+                    or not any((s.name == "Bugzilla"
+                            for s in problem['submission']))):
+                self._show_problem_message(
+_("This problem hasn't been reported to <i>Bugzilla</i> yet. "
+    "Our developers may need more information to fix the problem.\n"
+    "Please consider <b>reporting it</b> - you may help them. Thank you."))
+        else:
+            if self._source is not None:
                 self._builder.nb_problem_layout.set_current_page(1)
-        except errors.InvalidProblem as ex:
-            self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
+            else:
+                self._builder.nb_problem_layout.set_current_page(2)
 
     def _get_selected(self, selection):
         model, rows = selection.get_selected_rows()
@@ -434,38 +623,30 @@ class OopsWindow(Gtk.ApplicationWindow):
             # Clear window because of empty list of problems!
             self._set_problem(None)
 
+    @handle_problem_and_source_errors
     def on_gac_delete_activate(self, action):
-        try:
-            for prblm in self._get_selected(self._builder.tvs_problems):
+        for prblm in self._get_selected(self._builder.tvs_problems):
+            try:
                 self._controller.delete(prblm)
-        except errors.InvalidProblem as ex:
-            self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
+            except errors.InvalidProblem as ex:
+                logging.debug(traceback.format_exc())
+                self._remove_problem_from_storage(ex.problem_id)
 
+    @handle_problem_and_source_errors
     def on_gac_detail_activate(self, action):
-        try:
-            selected = self._get_selected(self._builder.tvs_problems)
-            if selected:
-                self._controller.detail(selected[0])
-        except errors.InvalidProblem as ex:
-            self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
+        selected = self._get_selected(self._builder.tvs_problems)
+        if selected:
+            self._controller.detail(selected[0])
 
+    @handle_problem_and_source_errors
     def on_gac_report_activate(self, action):
-        try:
-            selected = self._get_selected(self._builder.tvs_problems)
-            if selected and not selected[0]['not-reportable']:
-                self._controller.report(selected[0])
-        except errors.InvalidProblem as ex:
-            self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
+        selected = self._get_selected(self._builder.tvs_problems)
+        if selected and not selected[0]['not-reportable']:
+            self._controller.report(selected[0])
 
+    @handle_problem_and_source_errors
     def on_te_search_changed(self, entry):
-        try:
-            self._filter.set_pattern(entry.get_text())
-        except errors.InvalidProblem as ex:
-            self._remove_problem_from_storage(ex.problem_id)
-            logging.debug(ex)
+        self._filter.set_pattern(entry.get_text())
 
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()

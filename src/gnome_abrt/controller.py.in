@@ -18,11 +18,15 @@
 import logging
 import os
 import sys
+import traceback
+
+# gnome-abrt
+from gnome_abrt import errors
 
 class Controller(object):
 
-    def __init__(self, source, sigchld_assign=None):
-        self.source = source
+    def __init__(self, sources, sigchld_assign=None):
+        self.sources = sources
         self.run_event_fn = self._first_event_run
         self._sigchld_assign = sigchld_assign
 
@@ -47,9 +51,17 @@ class Controller(object):
 
         self.run_event_fn("open-gui", problem)
 
+    def _refresh_sources(self):
+        for name, src in self.sources:
+            try:
+                src.refresh()
+            except errors.UnavailableSource:
+                logging.debug("Cannot refresh problem source {0}: {1}"
+                        .format(name, traceback.format_exc()))
+
     def _first_event_run(self, event, problem):
         if self._sigchld_assign is not None:
-            self._sigchld_assign(self.source.refresh)
+            self._sigchld_assign(self._refresh_sources)
 
         self.run_event_fn = self._run_event_on_problem
         self.run_event_fn(event, problem)

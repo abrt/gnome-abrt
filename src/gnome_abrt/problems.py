@@ -22,8 +22,7 @@ import logging
 import gnome_abrt.url
 from gnome_abrt.application import find_application
 from gnome_abrt.errors import (InvalidProblem,
-                               UnavailableSource,
-                               GnomeAbrtError)
+                               UnavailableSource)
 from gnome_abrt.l10n import _
 
 class ProblemSource(object):
@@ -112,7 +111,7 @@ class Problem:
         self.source = source
         self.app = None
         self.submission = None
-        self.data = self._get_initial_data(self.source)
+        self.data = None
         self._deleted = False
 
     def __str__(self):
@@ -142,6 +141,9 @@ class Problem:
         return items
 
     def __getitem__(self, item, cached=True):
+        if self.data is None:
+            self.data = self._get_initial_data(self.source)
+
         if item == 'date':
             return datetime.datetime.fromtimestamp(float(self['time']))
         if item == 'date_last':
@@ -197,17 +199,8 @@ class Problem:
         self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
 
     def delete(self):
-        # TODO : weird?? the assignemt can be moved
+        self.source.delete_problem(self.problem_id)
         self._deleted = True
-        try:
-            self.source.delete_problem(self.problem_id)
-        except GnomeAbrtError as ex:
-            logging.warning(_("Can't delete problem '{0}': '{1}'")
-                                .format(self.problem_id, ex))
-            self._deleted = False
-        except Exception as ex:
-            self._deleted = False
-            raise
 
     def is_reported(self):
         return not self['reported_to'] is None
@@ -297,13 +290,47 @@ class MultipleSources(ProblemSource):
 
         self._disable_notify = False
 
+    def __eq__(self, other):
+        # override __eq__ to be able to find component source's master source
+        # in a list of sources
+        if isinstance(other, ProblemSource):
+            # check if the other is a component
+            if other in self.sources:
+                return True
+            elif not isinstance(other, MultipleSources):
+                # the other source is not a component and cannot be self because
+                # it is not an instance of MultipleSources
+                return False
+
+        # fall back to built-in behaviour (self == other)
+        return NotImplemented
+
+    def _pop_source(self, index):
+        self.sources.pop(index)
+        if not self.sources:
+            raise UnavailableSource()
+
     def get_items(self, problem_id, *args):
         pass
 
+    def _foreach_source(self, callback):
+        i = 0
+        while i != len(self.sources):
+            try:
+                callback(self.sources[i])
+                i += 1
+            except UnavailableSource as ex:
+                logging.debug("{0}".format(str(ex)))
+                if not ex.temporary:
+                    self._pop_source(i)
+                else:
+                    i += 1
+
     def get_problems(self):
         result = []
-        for src in self.sources:
-            result.extend(src.get_problems())
+
+        extend_result = lambda source: result.extend(source.get_problems())
+        self._foreach_source(extend_result)
 
         return result
 
@@ -321,10 +348,8 @@ class MultipleSources(ProblemSource):
 
     def refresh(self):
         self._disable_notify = True
-
         try:
-            for src in self.sources:
-                src.refresh()
+            self._foreach_source(lambda source: source.refresh())
         finally:
             self._disable_notify = False
 
@@ -345,9 +370,7 @@ class CachedSource(ProblemSource):
                 try:
                     self._cache.append(self._create_new_problem(prblmid))
                 except InvalidProblem as ex:
-                    logging.warning(ex)
-                except UnavailableSource as ex:
-                    logging.warning(ex)
+                    logging.warning(str(ex))
 
         return self._cache if self._cache else []
 
@@ -390,19 +413,14 @@ class CachedSource(ProblemSource):
             self._cache = None
             self.notify()
 
-
     def _create_new_problem(self, problem_id):
         return Problem(problem_id, self)
 
     def process_new_problem_id(self, problem_id):
-        try:
-            if self._problem_is_in_cache(problem_id):
-                prblm = self._cache[self._cache.index(problem_id)]
-                prblm.refresh()
-            else:
-                prblm = self._create_new_problem(problem_id)
-                self._insert_to_cache(prblm)
-                self.notify(ProblemSource.NEW_PROBLEM, prblm)
-        except UnavailableSource as ex:
-            logging.warning(_("Source failed on processing of '{0}': {1}")
-                    .format(problem_id, ex))
+        if self._problem_is_in_cache(problem_id):
+            prblm = self._cache[self._cache.index(problem_id)]
+            prblm.refresh()
+        else:
+            prblm = self._create_new_problem(problem_id)
+            self._insert_to_cache(prblm)
+            self.notify(ProblemSource.NEW_PROBLEM, prblm)

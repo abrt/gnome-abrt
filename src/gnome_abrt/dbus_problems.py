@@ -17,6 +17,7 @@
 
 import os
 import dbus
+import traceback
 from dbus.mainloop.glib import DBusGMainLoop
 
 import logging
@@ -33,9 +34,42 @@ BUS_IFACE = 'org.freedesktop.problems'
 ABRTD_DBUS_PATH = '/org/freedesktop/problems'
 ABRTD_DBUS_SIGNAL = 'Crash'
 
+def get_standard_problems_source(mainloop=None):
+    return DBusProblemSource(StandardProblems, mainloop)
+
+def get_foreign_problems_source(mainloop=None):
+    return DBusProblemSource(ForeignProblems, mainloop)
+
 class DBusProblemSource(problems.CachedSource):
 
-    def __init__(self, mainloop=None):
+    class Driver(object):
+        """Handles differences in behaviour while working with different sets
+        of problems obtained from D-Bus service.
+        """
+
+        def __init__(self, source):
+            self._source = source
+
+        @property
+        def get_problems_method(self):
+            """Gets an instance of a method used for obtaining problems from
+            D-Bus service.
+            """
+
+            raise NotImplementedError()
+
+        def on_new_problem(self, *args):
+            """Process a notification about detected problem."""
+
+            raise NotImplementedError()
+
+        def on_dbus_exception(self, problem_id, ex):
+            """Process D-Bus errors."""
+
+            raise NotImplementedError()
+
+
+    def __init__(self, driverclass, mainloop=None):
         super(DBusProblemSource, self).__init__()
 
         self._mainloop = mainloop
@@ -55,17 +89,7 @@ class DBusProblemSource(problems.CachedSource):
         _("Can't add receiver of signal '{0}'on DBus system path '{1}': {2}")
                       .format(ABRTD_DBUS_SIGNAL, ABRTD_DBUS_PATH, ex))
 
-        class ConfigObserver():
-            def __init__(self, source):
-                self.source = source
-
-            #pylint: disable=W0613
-            def option_updated(self, conf, option):
-                if option == "all_problems":
-                    self.source.refresh()
-
-        conf = config.get_configuration()
-        conf.set_watch("all_problems", ConfigObserver(self))
+        self._driver = driverclass(self)
 
     def _connect_to_problems_bus(self):
         # I can't find any description of raised exceptions
@@ -74,14 +98,14 @@ class DBusProblemSource(problems.CachedSource):
         try:
             self._proxy = self._bus.get_object(BUS_NAME, BUS_PATH)
         except dbus.exceptions.DBusException as ex:
-            raise errors.UnavailableSource(
+            raise errors.UnavailableSource(self, False,
                     _("Can't connect to DBus system bus '{0}' path '{1}': {2}")
                         .format(BUS_NAME, BUS_PATH, ex))
 
         try:
             self._interface = dbus.Interface(self._proxy, BUS_IFACE)
         except dbus.exceptions.DBusException as ex:
-            raise errors.UnavailableSource(
+            raise errors.UnavailableSource(self, False,
                 _("Can't get interface '{0}' on path '{1}' in bus '{2}': {3}")
                     .format(BUS_IFACE, BUS_PATH, BUS_NAME, ex))
 
@@ -111,21 +135,9 @@ class DBusProblemSource(problems.CachedSource):
                     .format(args))
             return
 
-        conf = config.get_configuration()
-        if (len(args) > 2
-                and int(args[2]) != os.getuid()
-                and not conf['all_problems']):
-            logging.debug("Received the new problem signal with different uid "
-                  "'{0}' ('{1}') and the all problems option is not configured"
-                     .format(args[2], os.getuid()))
-            return
-
-        if len(args) == 2 and not conf['all_problems']:
-            logging.debug("Received the new problem signal without the uid "
-                    "argument and the all problems option is not configured")
-            return
-
-        self.process_new_problem_id(str(args[1]))
+        prblm_id = self._driver.on_new_problem(*args)
+        if prblm_id is not None:
+            self.process_new_problem_id(prblm_id)
 
     def chown_problem(self, problem_id):
         try:
@@ -150,12 +162,7 @@ class DBusProblemSource(problems.CachedSource):
                         lambda iface, *params: iface.GetInfo(*params),
                         problem_id, args)
             except dbus.exceptions.DBusException as ex:
-                if ex.get_dbus_name() in [
-                                  "org.freedesktop.problems.AuthFailure",
-                                  "org.freedesktop.problems.InvalidProblemDir"]:
-                    self._remove_from_cache(problem_id)
-                    raise errors.InvalidProblem(problem_id, ex)
-
+                self._driver.on_dbus_exception(problem_id, ex)
                 logging.warning(
                         _("Can't get problem data from DBus service: {0!s}")
                             .format(ex))
@@ -163,19 +170,9 @@ class DBusProblemSource(problems.CachedSource):
         return info
 
     def _get_problems(self):
-        conf = config.get_configuration()
-
         prblms = []
-
         try:
-            if conf['all_problems']:
-                prblms = self._send_dbus_message(
-                        #pylint: disable=W0142
-                        lambda iface, *args: iface.GetAllProblems(*args))
-            else:
-                prblms  = self._send_dbus_message(
-                        #pylint: disable=W0142
-                        lambda iface, *args: self._interface.GetProblems(*args))
+            prblms = self._send_dbus_message(self._driver.get_problems_method)
         except dbus.exceptions.DBusException as ex:
             logging.warning(
                     _("Can't get list of problems from DBus service: {0!s}")
@@ -190,12 +187,120 @@ class DBusProblemSource(problems.CachedSource):
                 lambda iface, *args: iface.DeleteProblem(*args), [problem_id])
             return True
         except dbus.exceptions.DBusException as ex:
-            if ex.get_dbus_name() in ["org.freedesktop.problems.AuthFailure",
-                                "org.freedesktop.problems.InvalidProblemDir"]:
-                self._remove_from_cache(problem_id)
-                raise errors.InvalidProblem(problem_id, ex)
-
+            self._driver.on_dbus_exception(problem_id, ex)
             logging.warning(
                     _("Can't delete problem over DBus service: {0!s}")
                         .format(ex))
             return False
+
+
+class StandardProblems(DBusProblemSource.Driver):
+    """The old behaviour."""
+
+    def __init__(self, source):
+        super(StandardProblems, self).__init__(source)
+
+        class ConfigObserver():
+            def __init__(self, source):
+                self._source = source
+
+            #pylint: disable=W0613
+            def option_updated(self, conf, option):
+                if option == "all_problems":
+                    self._source.refresh()
+
+        conf = config.get_configuration()
+        conf.set_watch("all_problems", ConfigObserver(self._source))
+
+    @property
+    def get_problems_method(self):
+        conf = config.get_configuration()
+        if conf['all_problems']:
+            #pylint: disable=W0142
+            return lambda iface, *args: iface.GetAllProblems(*args)
+        else:
+            #pylint: disable=W0142
+            return lambda iface, *args: iface.GetProblems(*args)
+
+    def on_new_problem(self, *args):
+        """Accepts foreign problems only if the all_problems option is enabled
+        """
+
+        conf = config.get_configuration()
+        try:
+            if (len(args) > 2
+                    and int(args[2]) != os.getuid()
+                    and not conf['all_problems']):
+                logging.debug("Received the new problem signal with different "
+                              "uid '{0}' ('{1}') and the all problems option "
+                              "is not configured" .format(args[2], os.getuid()))
+                return None
+        except ValueError:
+            logging.debug(traceback.format_exc())
+            return None
+
+        if len(args) == 2 and not conf['all_problems']:
+            logging.debug("Received the new problem signal without the uid "
+                    "argument and the all problems option is not configured")
+            return None
+
+        return str(args[1])
+
+    def on_dbus_exception(self, problem_id, ex):
+        """Process AuthFailure error in same way as InvalidProblemDir because
+        this sort of problem source provides all kinds of problems. The user
+        problems which should be always accessible and the foreign problems
+        which may be inaccessible when a user cancels the authentication
+        dialogue. So, an AuthFailure error in this context means that a one
+        of many problems is unavailable (something like an invalid problem).
+        """
+
+        if ex.get_dbus_name() in ["org.freedesktop.problems.AuthFailure",
+                            "org.freedesktop.problems.InvalidProblemDir"]:
+            self._source._remove_from_cache(problem_id)
+            raise errors.InvalidProblem(problem_id, ex)
+
+
+class ForeignProblems(DBusProblemSource.Driver):
+
+    def __init__(self, source):
+        super(ForeignProblems, self).__init__(source)
+
+    @property
+    def get_problems_method(self):
+         #pylint: disable=W0142
+        return lambda iface, *args: iface.GetForeignProblems(*args)
+
+    def on_new_problem(self, *args):
+        """Accepts only foreign problems."""
+
+        args_len = len(args)
+        try:
+            if args_len == 2 or (args_len > 2 and int(args[2]) != os.getuid()):
+                return str(args[1])
+        except ValueError:
+            logging.debug(traceback.format_exc())
+            return None
+
+        logging.debug("Received the new problem signal with current user's uid "
+              "'{0}' ('{1}') in ForeignPorblems driver"
+                 .format(args[2], os.getuid()))
+
+        return None
+
+    def on_dbus_exception(self, problem_id, ex):
+        """If the authentication fails, a foreign problems source become
+        temporary unavailable because we expect that the failure was caused by
+        dismissing of the authentication dialog and all problems provided by
+        this kind of source require authentication (none of them is available
+        now). So, it means that a view can try to query the temporary
+        unavailable source later.
+        """
+
+        if ex.get_dbus_name() == "org.freedesktop.problems.AuthFailure":
+            logging.debug("User dismissed D-Bus authentication")
+            raise errors.UnavailableSource(self._source, True)
+
+        if ex.get_dbus_name() == "org.freedesktop.problems.InvalidProblemDir":
+            self._source._remove_from_cache(problem_id)
+            raise errors.InvalidProblem(problem_id, ex)

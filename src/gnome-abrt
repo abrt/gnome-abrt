@@ -22,6 +22,7 @@ import os
 import sys
 import logging
 import signal
+import traceback
 from argparse import ArgumentParser
 
 # pygobject
@@ -40,7 +41,8 @@ from gnome_abrt.controller import Controller
 from gnome_abrt.signals import glib_sigchld_signal_handler
 from gnome_abrt.problems import MultipleSources
 from gnome_abrt.directory_problems import DirectoryProblemSource
-from gnome_abrt.dbus_problems import DBusProblemSource
+from gnome_abrt.dbus_problems import (get_standard_problems_source,
+                                      get_foreign_problems_source)
 from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _
 from gnome_abrt.wrappers import show_events_list_dialog
@@ -157,7 +159,7 @@ class OopsApplication(Gtk.Application):
         self.connect("command-line", self._parse_command_line)
         self.set_flags(Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
         self.gcontext = None
-        self.source = None
+        self.all_sources = None
         self._url_pool = GetURLTitleSourcePool(GNOME_ABRT_URL_POOL_CAPACITY)
         self._url_cache = GetURLTitleSourceCache(self._url_pool)
         gnome_abrt.url.set_async_worker(self._url_cache.get_url_title_async)
@@ -188,26 +190,28 @@ class OopsApplication(Gtk.Application):
 
                 sources = []
                 try:
-                    sources.append(DBusProblemSource(self._dbus_srv.mainloop))
-                except UnavailableSource as ex:
-                    logging.warning(ex)
+                    sources.append(
+                          get_standard_problems_source(self._dbus_srv.mainloop))
+                except UnavailableSource:
+                    logging.warning(traceback.format_exc())
 
                 self.gcontext = GLib.main_context_default()
                 try:
                     path = os.path.join(GLib.get_user_cache_dir(), "abrt/spool")
                     dps = DirectoryProblemSource(path, context=self.gcontext)
                     sources.append(dps)
-                except UnavailableSource as ex:
-                    logging.warning(ex)
+                except UnavailableSource:
+                    logging.warning(traceback.format_exc())
 
                 if len(sources) == 0:
                     raise UnavailableSource("No available problem source.")
 
-                self.source = MultipleSources(sources)
+                self.all_sources = [(_("My"), MultipleSources(sources)),
+                                (_("System"), get_foreign_problems_source())]
 
-                controller = Controller(self.source,
+                controller = Controller(self.all_sources,
                                         glib_sigchld_signal_handler)
-                main_window = OopsWindow(self, self.source, controller)
+                main_window = OopsWindow(self, self.all_sources, controller)
                 main_window.show_all()
                 self.add_window (main_window)
         #pylint: disable=W0703

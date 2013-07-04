@@ -184,6 +184,10 @@ class Problem:
         return source.get_items(self.problem_id,
                                 'component',
                                 'executable',
+                                'cmdline',
+                                'count',
+                                'type',
+                                'last_occurrence',
                                 'time',
                                 'reason')
 

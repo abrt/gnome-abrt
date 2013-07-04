@@ -64,6 +64,8 @@ class ProblemSource(object):
         pass
 
 class Problem:
+    INITIAL_ELEMENTS = ['component', 'executable', 'cmdline', 'count', 'type',
+                        'last_occurrence', 'time', 'reason']
 
     class Submission:
         URL = "URL"
@@ -134,15 +136,19 @@ class Problem:
                     .format(self.problem_id))
             return {}
 
+        if self.data is None:
+            self.data = {}
+
         items = self.source.get_items(self.problem_id, *args)
-        for key, value in items.items():
-            self.data[key] = value
+        for item in args:
+            self.data[item] = items.get(item)
 
         return items
 
     def __getitem__(self, item, cached=True):
         if self.data is None:
-            self.data = self._get_initial_data(self.source)
+            # Load initial problem data into cache
+            self.__loaditems__(*Problem.INITIAL_ELEMENTS)
 
         if item == 'date':
             return datetime.datetime.fromtimestamp(float(self['time']))
@@ -180,17 +186,6 @@ class Problem:
     def __len__(self):
         return 1
 
-    def _get_initial_data(self, source):
-        return source.get_items(self.problem_id,
-                                'component',
-                                'executable',
-                                'cmdline',
-                                'count',
-                                'type',
-                                'last_occurrence',
-                                'time',
-                                'reason')
-
     def refresh(self):
         if self._deleted:
             logging.debug("Not refreshing deleted problem '{0}'"
@@ -198,7 +193,7 @@ class Problem:
             return
 
         logging.debug("Refreshing problem '{0}'".format(self.problem_id))
-        self.data = self._get_initial_data(self.source)
+        self.data = None
         self.submission = None
         self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
 

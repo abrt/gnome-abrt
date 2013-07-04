@@ -121,12 +121,18 @@ def find_application(component, executable, cmdline):
                    (executable, compare_executable),
                    (component, compare_component)]
 
+    # explore the cache in the first step
     for pred in lookupnames:
         if not pred[0]:
             continue
 
         if pred[0] in __globa_app_cache__:
             return __globa_app_cache__[pred[0]]
+
+    # no cache entry was found, try to find corresponding desktop entry
+    for pred in lookupnames:
+        if not pred[0]:
+            continue
 
         theme = Gtk.IconTheme.get_default()
         for dai in Gio.DesktopAppInfo.get_all():
@@ -154,4 +160,11 @@ def find_application(component, executable, cmdline):
                                                         icon=icon)
                 return __globa_app_cache__[pred[0]]
 
-    return Application(executable, name=component)
+    app = Application(executable, name=component)
+
+    # cache by cmdline because package and component can provide many
+    # applications but cmdline looks like pretty unique information
+    if cmdline:
+        __globa_app_cache__[cmdline] = app
+
+    return app

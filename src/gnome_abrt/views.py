@@ -88,13 +88,18 @@ def problem_to_storage_values(problem):
             problem]
 
 #pylint: disable=W0613
-def time_sort_func(model, first, second, view):
+def time_sort_func(model, first, second, trash):
+    # skip invalid problems which were marked invalid while sorting
+    if (model[first][2].problem_id in trash or
+        model[second][2].problem_id in trash):
+        return 0
+
     try:
         lhs = model[first][2]['date_last'].timetuple()
         rhs = model[second][2]['date_last'].timetuple()
         return time.mktime(lhs) - time.mktime(rhs)
     except errors.InvalidProblem as ex:
-        view._remove_problem_from_storage(ex.problem_id)
+        trash.add(ex.problem_id)
         logging.debug(ex)
         return 0
 
@@ -279,7 +284,10 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._set_button_toggled(self._source.button, True)
 
         self._builder.ls_problems.set_sort_column_id(0, Gtk.SortType.DESCENDING)
-        self._builder.ls_problems.set_sort_func(0, time_sort_func, self)
+        # a set where invalid problems found while sorting of the problem list
+        # are stored
+        self._trash = set()
+        self._builder.ls_problems.set_sort_func(0, time_sort_func, self._trash)
         self._filter = ProblemsFilter(self, self._builder.tv_problems)
 
         self._builder.tv_problems.grab_focus()
@@ -405,13 +413,27 @@ class OopsWindow(Gtk.ApplicationWindow):
         Returns True if the problem was successfully added to the storage;
         otherwise returns False
         """
+        problem_values = None
         try:
-            self._builder.ls_problems.append(problem_to_storage_values(problem))
-            return True
-        except errors.InvalidProblem as ex:
+            problem_values = problem_to_storage_values(problem)
+        except errors.InvalidProblem:
             logging.debug("Exception: {0}".format(traceback.format_exc()))
-            self._remove_problem_from_storage(ex.problem_id)
-            return False
+            return
+
+        self._append_problem_values_to_storage(problem_values)
+
+    def _append_problem_values_to_storage(self, problem_values):
+        self._builder.ls_problems.append(problem_values)
+        self._clear_invalid_problems_trash()
+
+    def _clear_invalid_problems_trash(self):
+        # GtkListStore.append()/set_value() methods trigger
+        # time_sort_func() where InvalidProblem exception can occur. In that
+        # case time_sort_func() pushes an invalid problem to the trash set
+        # because the invalid problem cannot be removed while executing the
+        # operation
+        while self._trash:
+            self._remove_problem_from_storage(self._trash.pop())
 
     def _remove_problem_from_storage(self, problem):
         if problem is None:
@@ -433,6 +455,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             for i in xrange(0, len(values)-1):
                 self._builder.ls_problems.set_value(pit, i, values[i])
+                self._clear_invalid_problems_trash()
 
         if problem in self._get_selected(self._builder.tvs_problems):
             self._set_problem(problem)
@@ -461,7 +484,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             if storage_problems:
                 for p in storage_problems:
-                    self._builder.ls_problems.append(p)
+                    self._append_problem_values_to_storage(p)
         finally:
             self._reloading = False
 

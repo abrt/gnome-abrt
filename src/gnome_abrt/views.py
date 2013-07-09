@@ -193,7 +193,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             try:
                 if source == self.wnd._source:
-                    if not change_type:
+                    if change_type is None:
                         self.wnd._reload_problems(source)
                     elif change_type == problems.ProblemSource.NEW_PROBLEM:
                         self.wnd._add_problem_to_storage(problem)

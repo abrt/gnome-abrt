@@ -30,7 +30,7 @@ BuildRequires: python-inotify
 BuildRequires: pygobject3
 BuildRequires: dbus-python
 %else
-%define %checkoption --with-nopylint
+%define checkoption --with-nopylint
 %endif
 
 Requires:   python-inotify

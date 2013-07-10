@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # coding=UTF-8
 
 ## Copyright (C) 2013 ABRT team <crash-catcher@lists.fedorahosted.org>

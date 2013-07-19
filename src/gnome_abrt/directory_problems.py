@@ -131,12 +131,17 @@ class INOTIFYSourceHandler(ProcessEvent):
     #pylint: disable=E1101
     MASK = pyinotify.IN_MOVED_TO
 
-    def __init__(self, source):
+    def __init__(self, source, directory):
         super(INOTIFYSourceHandler, self).__init__()
         self.source = source
+        self.directory = directory
 
     #pylint: disable=C0103
     def process_IN_MOVED_TO(self, event):
+        if self.directory != event.path:
+            logging.debug("Something has been moved to a child directory")
+            return
+
         try:
             self.source.process_new_problem_id(
                             os.path.join(event.path, event.name))
@@ -160,7 +165,7 @@ class INOTIFYWatcher:
 
             self._wm = WatchManager()
             try:
-                ihndlr = INOTIFYSourceHandler(self._source)
+                ihndlr = INOTIFYSourceHandler(self._source, self._directory)
                 self._gsource = INOTIFYGlibSource(self._wm,
                         self._directory, ihndlr)
             except OSError as ex:

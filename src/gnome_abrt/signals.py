@@ -70,5 +70,6 @@ def glib_sigchld_signal_handler(callback, data=None):
 
     channel = GLib.IOChannel(pipes[0])
     channel.set_flags(GLib.IOFlags.NONBLOCK)
-    channel.add_watch(GLib.IOCondition.IN,
-            _gsource_handle_signal, (callback, data))
+
+    GLib.io_add_watch(channel, GLib.PRIORITY_DEFAULT, GLib.IOCondition.IN,
+                      _gsource_handle_signal, (callback, data))

@@ -4,21 +4,22 @@
 # 
 # Translators:
 # sandeeps <sshedmak@redhat.com>, 2011-2012
+# sandeeps <sshedmak@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-02 09:30+0200\n"
-"PO-Revision-Date: 2013-05-02 07:30+0000\n"
+"POT-Creation-Date: 2013-07-24 13:27+0200\n"
+"PO-Revision-Date: 2013-07-24 11:40+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Marathi (http://www.transifex.com/projects/p/gnome-abrt/language/mr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:155
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
 msgid "Automatic Bug Reporting Tool"
 msgstr "ऑटोमॅटीक बग रिपोर्टिंग टूल"
 
@@ -26,81 +27,81 @@ msgstr "ऑटोमॅटीक बग रिपोर्टिंग टूल
 msgid "View and report application crashes"
 msgstr "ऍप्लिकेशन क्रॅश पहा व कळवा"
 
-#: ../src/gnome_abrt/dbus_problems.py:55
+#: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "DBus सिस्टम मार्ग '{1}': {2} वर सिग्नल '{0}'चे रिसिव्हर समाविष्ट करणे अशक्य"
 
-#: ../src/gnome_abrt/dbus_problems.py:78
+#: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "DBus सिस्टम बस '{0}' मार्ग '{1}': {2} सह जोडणी अशक्य"
 
-#: ../src/gnome_abrt/dbus_problems.py:85
+#: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "इंटरफेस '{0}' प्राप्त करणे अशक्य, मार्ग '{1}' वरील, बस '{2}': {3} मध्ये"
 
-#: ../src/gnome_abrt/dbus_problems.py:139
+#: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "अडचण '{0}' यास DBus सर्व्हिस: {1!s} करिता chown अशक्य"
 
-#: ../src/gnome_abrt/dbus_problems.py:160
+#: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus सर्व्हिस: {0!s} पासून अडचण डाटा प्राप्त करणे अशक्य"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus सर्व्हिस: {0!s} पासून अडचणींची सूची प्राप्त करणे अशक्य"
 
-#: ../src/gnome_abrt/dbus_problems.py:199
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus सर्व्हिस: {0!s} वरील अडचण नष्ट करणे अशक्य"
 
 #: ../src/gnome_abrt/dialogs.py:50
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "अडचणीचे वर्णन खूप छोटे आहे"
 
 #: ../src/gnome_abrt/dialogs.py:51
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "जास्त उपयोगी अहवाल प्राप्त करण्यासाठी 10 अक्षरांपेक्षा कमी अक्षरांचे वर्णन असणारे सारांश स्वीकारत नाही."
 
 #: ../src/gnome_abrt/dialogs.py:61
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "अडचणीचे सारांश खूप छोटे आहे"
 
 #: ../src/gnome_abrt/dialogs.py:62
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "जास्त उपयोगी अहवाल प्राप्त करण्यासाठी 10 अक्षरांपेक्षा कमी सारांश प्राप्त करत नाही."
 
 #: ../src/gnome_abrt/dialogs.py:88
 msgid "Problem description"
-msgstr ""
+msgstr "अडचणीचे वर्णन"
 
 #: ../src/gnome_abrt/dialogs.py:96
 msgid "Summary:"
-msgstr ""
+msgstr "सारांश:"
 
 #: ../src/gnome_abrt/dialogs.py:108
 msgid "_Send"
-msgstr ""
+msgstr "पाठवा (_S)"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:122
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "ABRT सह अडचण"
 
-#: ../src/gnome_abrt/directory_problems.py:206
+#: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
 "You have probably reached inotify's limit on the number of watches in '{0}'."
 " The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "तुम्ही '{0}' मधील वॉच संख्याची  inotify मर्यादापर्यंत पोहचलात. inotifyला योग्य प्रकारे संरचीत केल्याने मर्यादा वाढवणे शक्य आहे. अधिक माहितीकरिता man inotify(7) पहा. ह्या घटनामुळे ॲप्लिकेशनच्या बाहेरिल प्रॉबलेम डाटामधील बदल तुम्हाला कळवले जाणार नाही. ही घटना इतर कोणत्याही फंक्शनॅलिटिकरिता प्रभावीत करत नाही."
 
-#: ../src/gnome_abrt/directory_problems.py:252
+#: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "डिरेक्ट्री: '{0}' उघडण्यास अशक्य"
 
@@ -122,11 +123,11 @@ msgstr "नीवडलेल्या अडचणी सादर केले
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "विश्लेषीत करा (_z)"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "विश्लेषणकरिता निवडलेली अडचण उघडा"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -138,21 +139,21 @@ msgstr "सर्व प्रणाली वापरकर्त्यां�
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "अडचणीचे डाटा डिरेक्ट्री उघडा (_O)"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "पूर्वनिर्धारित फाइल प्रणाली ब्राऊजरमध्ये निवडलेली डाटा डिरेक्ट्री उघडतो"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "अडचण IDचे क्लिपबोर्डमध्ये प्रत बनवा (_C)"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "क्लिपबोर्डमध्ये निवडलेल्या अडचणीचे ID साठवतो"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Name"
@@ -164,7 +165,7 @@ msgstr "आवृत्ती"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Detected"
-msgstr ""
+msgstr "आढळले"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Reported"
@@ -172,27 +173,27 @@ msgstr "कळवलेले"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "No problems detected!"
-msgstr ""
+msgstr "अडचणी आढळले नाही!"
 
 #: ../src/gnome_abrt/oops.glade.h:18
+msgid "No source selected!"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No source"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "ॲप"
 
-#: ../src/gnome_abrt/oops.glade.h:19
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "Date"
 msgstr "दिनांक"
 
-#: ../src/gnome_abrt/problems.py:174
-msgid "Can't delete problem '{0}': '{1}'"
-msgstr "अडचण '{0}': '{1}' नष्ट करणे अशक्य"
-
-#: ../src/gnome_abrt/problems.py:345
+#: ../src/gnome_abrt/problems.py:410
 msgid "Not found in cache but deleted: {0}"
 msgstr "कॅशेमध्ये आढळले नाही परंतु नष्ट केले: {0}"
-
-#: ../src/gnome_abrt/problems.py:364
-msgid "Source failed on processing of '{0}': {1}"
-msgstr "'{0}': {1} चे विश्लेषण करतेवेळी सोअर्स् अपयशी"
 
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
@@ -222,25 +223,25 @@ msgstr "शेवटचे {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s} अगोदर"
 
-#: ../src/gnome_abrt/views.py:83 ../src/gnome_abrt/views.py:368
-#: ../src/gnome_abrt/views.py:370
+#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
+#: ../src/gnome_abrt/views.py:570
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:370
+#: ../src/gnome_abrt/views.py:570
 msgid " crashed"
 msgstr " क्रॅश झाले"
 
-#: ../src/gnome_abrt/views.py:383
+#: ../src/gnome_abrt/views.py:583
 msgid "yes"
 msgstr "होय"
 
-#: ../src/gnome_abrt/views.py:386
+#: ../src/gnome_abrt/views.py:586
 msgid "no"
 msgstr "नाही"
 
-#: ../src/gnome_abrt/views.py:394
+#: ../src/gnome_abrt/views.py:594
 msgid ""
 "This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
 "Please consider <b>reporting it</b> - you may help them. Thank you."
-msgstr ""
+msgstr "ह्या अडचणीला अजूनही <i>बगजिला</i> करिता कळवले नाही. अडचणीच्या निवारणकरिता डेव्हलपर्सला अधिक माहितीची आवश्यकता लागेल.\nकृपया <b>त्यास कळवा</b> - कदाचित मदत प्राप्त होईल. धन्यवाद."

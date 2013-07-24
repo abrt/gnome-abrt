@@ -5,21 +5,22 @@
 # Translators:
 # , 2011-2012
 # sweta <swkothar@redhat.com>, 2013
+# sweta <swkothar@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-02 09:30+0200\n"
-"PO-Revision-Date: 2013-05-02 07:30+0000\n"
+"POT-Creation-Date: 2013-07-24 13:27+0200\n"
+"PO-Revision-Date: 2013-07-24 11:40+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Gujarati (http://www.transifex.com/projects/p/gnome-abrt/language/gu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:155
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
 msgid "Automatic Bug Reporting Tool"
 msgstr "આપોઆપ ભૂલ અહેવાલીકરણ સાધન"
 
@@ -27,81 +28,81 @@ msgstr "આપોઆપ ભૂલ અહેવાલીકરણ સાધન"
 msgid "View and report application crashes"
 msgstr "કાર્યક્રમ તૂટવાનું દર્શાવો અને અહેવાલ કરો"
 
-#: ../src/gnome_abrt/dbus_problems.py:55
+#: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "DBus સિસ્ટમ પાથ '{1}' પર સંકેત '{0}' નાં પ્રાપ્તકર્તાને ઉમેરી શકાતુ નથી: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:78
+#: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "DBus સિસ્ટમ બસ '{0}' પાથ '{1}' માં જોડી શકાતુ નથી: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:85
+#: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "બસ '{2}' માં પાથ '{1}' પર ઇન્ટરફેસ '{0}' ને મેળવી શકાતુ નથી: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:139
+#: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "સમસ્યા '{0}' ને DBus સેવા પર chown કરી શકાતી નથી: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:160
+#: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus સેવામાંથી સમસ્યા માહિતીને મેળવી શકાતી નથી: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus સેવામાંથી સમસ્યાઓની યાદીને મેળવી શકાતી નથી: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:199
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus સેવા પર સમસ્યાને કાઢી શકાતી નથી: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:50
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "સમસ્યાનું વર્ણન ઘણુ નાનું છે"
 
 #: ../src/gnome_abrt/dialogs.py:51
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "વધારે ઉપયોગી અહેવાલોને મેળવવા ક્રમમાં અમારે 10 અક્ષરો કરતા ઓછા વર્ણનો સાથે અહેવાલોને સ્વીકારતા નથી."
 
 #: ../src/gnome_abrt/dialogs.py:61
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "સમસ્યાનો સારાંશ ઘણો ટૂંકો છે"
 
 #: ../src/gnome_abrt/dialogs.py:62
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "વધારે ઉપયોગી અહેવાલોને મેળવવા ક્રમમાં અમારે 10 અક્ષરો કરતા ઓછા સારાંશ સાથે અહેવાલોને સ્વીકારતા નથી."
 
 #: ../src/gnome_abrt/dialogs.py:88
 msgid "Problem description"
-msgstr ""
+msgstr "સમસ્યા વર્ણન"
 
 #: ../src/gnome_abrt/dialogs.py:96
 msgid "Summary:"
-msgstr ""
+msgstr "સારાંશ:"
 
 #: ../src/gnome_abrt/dialogs.py:108
 msgid "_Send"
-msgstr ""
+msgstr "મોકલો (_S)"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:122
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "ABRT સાથે સમસ્યા"
 
-#: ../src/gnome_abrt/directory_problems.py:206
+#: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
 "You have probably reached inotify's limit on the number of watches in '{0}'."
 " The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "'{0}' માં વૉચની સંખ્યા પર તમે inotify ની મર્યાદા સુધી પહોંચી ગયા. મર્યાદા inotify ની યોગ્ય રૂપરેખાંકન દ્દારા વધારી શકાય છે. વધારે વિગતોને જોવા માટે inotify(7) નાં મુખ્ય પાનાંને જુઓ. આ ઘટનાનું કારણ એ છે કે તમે આ કાર્યક્રમની બહાર સમસ્યાની માહિતીમાં ફેરફારો વિશે સૂચિત કરશો નહિં. આ ઘટના કોઇપણ બીજી કાર્યક્ષમતાને અસર કરતુ નથી."
 
-#: ../src/gnome_abrt/directory_problems.py:252
+#: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "ડિરેક્ટરીને ખોલી શકાતી નથી: '{0}'"
 
@@ -123,11 +124,11 @@ msgstr "પસંદ થયેલ સમસ્યાને સમાવે છ�
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "વિશ્ર્લેષણ કરો (_z)"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "વિશ્ર્લેષણ કરવા માટે પસંદ થયેલ સમસ્યાને ખોલો"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -139,21 +140,21 @@ msgstr "બધા સિસ્ટમ વપરાશકર્તાઓમાં�
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "સમસ્યાની માહિતી ડિરેક્ટરીને ખોલો (_O)"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "મૂળબૂત ફાઇલ સિસ્ટમ બ્રાઉઝરમાં પસંદ થયેલ સમસ્યાની માહિતીને ખોલે છે"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "ક્લિપબોર્ડમાં સમસ્યાની ID ની નકલ કરો (_C)"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "ક્લિપબોર્ડમાં પસંદ થયેલ સમસ્યાની ID નો સંગ્રહ થાય છે"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Name"
@@ -165,7 +166,7 @@ msgstr "આવૃત્તિ"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Detected"
-msgstr ""
+msgstr "શોધાયુ"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Reported"
@@ -173,27 +174,27 @@ msgstr "અહેવાલ થયેલ"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "No problems detected!"
-msgstr ""
+msgstr "સમસ્યા મળી નથી!"
 
 #: ../src/gnome_abrt/oops.glade.h:18
+msgid "No source selected!"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No source"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "કાર્યક્રમ"
 
-#: ../src/gnome_abrt/oops.glade.h:19
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "Date"
 msgstr "તારીખ"
 
-#: ../src/gnome_abrt/problems.py:174
-msgid "Can't delete problem '{0}': '{1}'"
-msgstr "સમસ્યા '{0}' ને કાઢી શકાતી નથી: '{1}'"
-
-#: ../src/gnome_abrt/problems.py:345
+#: ../src/gnome_abrt/problems.py:410
 msgid "Not found in cache but deleted: {0}"
 msgstr "કેશમાં મળ્યુ નથી પરંતુ કાઢી નાંખેલ છે: {0}"
-
-#: ../src/gnome_abrt/problems.py:364
-msgid "Source failed on processing of '{0}': {1}"
-msgstr "'{0}' ની પ્રક્રિયા કરવા પર સ્ત્રોત નિષ્ફ: {1}"
 
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
@@ -223,25 +224,25 @@ msgstr "છેલ્લુ {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s પહેલાંનુ"
 
-#: ../src/gnome_abrt/views.py:83 ../src/gnome_abrt/views.py:368
-#: ../src/gnome_abrt/views.py:370
+#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
+#: ../src/gnome_abrt/views.py:570
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:370
+#: ../src/gnome_abrt/views.py:570
 msgid " crashed"
 msgstr " ભાંગી પડેલ"
 
-#: ../src/gnome_abrt/views.py:383
+#: ../src/gnome_abrt/views.py:583
 msgid "yes"
 msgstr "હાં"
 
-#: ../src/gnome_abrt/views.py:386
+#: ../src/gnome_abrt/views.py:586
 msgid "no"
 msgstr "ના"
 
-#: ../src/gnome_abrt/views.py:394
+#: ../src/gnome_abrt/views.py:594
 msgid ""
 "This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
 "Please consider <b>reporting it</b> - you may help them. Thank you."
-msgstr ""
+msgstr "આ સમસ્યાનો હજુ <i>બગઝીલા</i> માં અહેવાલ થયો નથી. અમારાં ડેવલપરોને સમસ્યાને સુધારવા માટે વધારે જાણકારીની જરૂર પડી શકે છે.\nમહેરબાની કરીને <b>તેનો અહેવાલ કરવાનું</b> નક્કી કરો - તમે તેઓને મદદ કરી શકો છો. તમારો આભાર."

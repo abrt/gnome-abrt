@@ -11,17 +11,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-02 09:30+0200\n"
-"PO-Revision-Date: 2013-05-02 07:30+0000\n"
+"POT-Creation-Date: 2013-07-24 13:27+0200\n"
+"PO-Revision-Date: 2013-07-24 11:40+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/gnome-abrt/language/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:155
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
 msgid "Automatic Bug Reporting Tool"
 msgstr "தானியக்க பிழை அறிக்கையிடும் கருவி"
 
@@ -29,81 +29,81 @@ msgstr "தானியக்க பிழை அறிக்கையிடு�
 msgid "View and report application crashes"
 msgstr "பயன்பாட்டு கிரஷ்களை பார்த்து அறிக்கையிடவும் "
 
-#: ../src/gnome_abrt/dbus_problems.py:55
+#: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "DBus கணினி பாதை '{1}' இல் '{0}' சமிக்ஞையின் ரிசீவரைச் சேர்க்க முடியாது: {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:78
+#: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "DBus கணினி பஸ் '{0}' பாதை '{1}' உடன் இணைக்க முடியாது : {2}"
 
-#: ../src/gnome_abrt/dbus_problems.py:85
+#: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "பஸ் '{2}' இல் பாதை '{1}' இல் இடைமுகம் '{0}' ஐப் பெற முடியாது: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:139
+#: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "சிக்கல் '{0}' ஐ DBus சேவையின் மூலம் chown செய்ய முடியாது: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:160
+#: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus சேவையிலிருந்து சிக்கல் தொடர்பான தரவைப் பெற முடியவில்லை: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus சேவையிலிருந்து சிக்கல்களின் பட்டியலைப் பெற முடியவில்லை: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:199
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus சேவையின் மூலமாக சிக்கலை நீக்க முடியாது: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:50
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "சிக்கலின் விளக்கம் மிகச் சிறியதாக உள்ளது"
 
 #: ../src/gnome_abrt/dialogs.py:51
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "பெறப்படும் அறிக்கைகள் பயனுள்ளதாக இருக்க வேண்டும் என்ற காரணத்தினால், நாங்கள் 10 எழுத்துகளுக்கும் குறைவான விளக்கத்தைக் கொண்டுள்ள அறிக்கைகளை ஏற்பதில்லை."
 
 #: ../src/gnome_abrt/dialogs.py:61
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "சிக்கலின் சுருக்கம் மிகச் சிறியதாக உள்ளது"
 
 #: ../src/gnome_abrt/dialogs.py:62
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "பெறப்படும் அறிக்கைகள் பயனுள்ளதாக இருக்க வேண்டும் என்ற காரணத்தினால், நாங்கள் 10 எழுத்துகளுக்கும் குறைவான சுருக்கத்தைக் கொண்டுள்ள அறிக்கைகளை ஏற்பதில்லை."
 
 #: ../src/gnome_abrt/dialogs.py:88
 msgid "Problem description"
-msgstr ""
+msgstr "சிக்கலின் விளக்கம்"
 
 #: ../src/gnome_abrt/dialogs.py:96
 msgid "Summary:"
-msgstr ""
+msgstr "சுருக்கம்:"
 
 #: ../src/gnome_abrt/dialogs.py:108
 msgid "_Send"
-msgstr ""
+msgstr "அனுப்பு (_S)"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:122
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "ABRT இல் ஒரு சிக்கல்"
 
-#: ../src/gnome_abrt/directory_problems.py:206
+#: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
 "You have probably reached inotify's limit on the number of watches in '{0}'."
 " The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "'{0}' இல் உள்ள கவனிப்புகளுக்கான inotify இன் வரம்பை நீங்கள் அடைந்துவிட்டுள்ளதாகத் தெரிகிறது. inotify ஐ சரியாக அமைவாக்கம் செய்வதன் மூலம் நீங்கள் இந்த வரம்பை அதிகரிக்கலாம். மேலும் விவரங்களுக்குman inotify(7) ஐப் பார்க்கவும். இந்த நிகழ்வினால், இந்த பயன்பாட்டுக்கு வெளியே நிகழும் சிக்கல் தரவிலான மாற்றங்களைப் பற்றி உங்களுக்கு அறிவிக்கப்படாது. இந்த நிகழ்வினால் மற்ற செயல்பாடுகள் எதுவும் பாதிக்கப்படாது."
 
-#: ../src/gnome_abrt/directory_problems.py:252
+#: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "கோப்பகத்தைத் திறக்க இயலவில்லை: '{0}'"
 
@@ -125,11 +125,11 @@ msgstr "தேர்ந்தெடுத்த சிக்கலை சமர�
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "பகுப்பாய்வு (_z)"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "தேர்ந்தெடுத்த சிக்கல்களை பகுப்பாய்வுக்காகத் திற"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -141,21 +141,21 @@ msgstr "அனைத்து கணினி பயனர்களிடமி�
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "சிக்கலின் தரவு கோப்பகத்தைத் திற (_O)"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "தேர்ந்தெடுத்த சிக்கலின் தரவுக் கோப்பகத்தை முன்னிருப்பு கோப்பு முறைமை உலாவியில் திறக்கும்"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "சிக்கலின் ID ஐ கிளிப்போர்டுக்கு நகலெடு (_C)"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "தேர்ந்தெடுத்த சிக்கலின் ID ஐ கிளிப்போர்டுக்கு நகலெடுக்கும்"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Name"
@@ -167,7 +167,7 @@ msgstr "பதிப்பு"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Detected"
-msgstr ""
+msgstr "கண்டுபிடிக்கப்பட்டது"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Reported"
@@ -175,27 +175,27 @@ msgstr "புகாரளிக்கப்பட்டது"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "No problems detected!"
-msgstr ""
+msgstr "சிக்கல் எதுவும் கண்டுபிடிக்கப்படவில்லை!"
 
 #: ../src/gnome_abrt/oops.glade.h:18
+msgid "No source selected!"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No source"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "பயன்பாடு"
 
-#: ../src/gnome_abrt/oops.glade.h:19
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "Date"
 msgstr "தேதி"
 
-#: ../src/gnome_abrt/problems.py:174
-msgid "Can't delete problem '{0}': '{1}'"
-msgstr "சிக்கல் '{0}' ஐ நீக்க முடியாது: '{1}'"
-
-#: ../src/gnome_abrt/problems.py:345
+#: ../src/gnome_abrt/problems.py:410
 msgid "Not found in cache but deleted: {0}"
 msgstr "தேக்ககத்தில் இல்லை, ஆனால் நீக்கப்பட்டது: {0}"
-
-#: ../src/gnome_abrt/problems.py:364
-msgid "Source failed on processing of '{0}': {1}"
-msgstr "'{0}' இன் செயலாக்கத்தில் மூலம் தோல்வியுற்றது: {1}"
 
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
@@ -225,25 +225,25 @@ msgstr "கடைசி {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}களுக்கு முன்பு"
 
-#: ../src/gnome_abrt/views.py:83 ../src/gnome_abrt/views.py:368
-#: ../src/gnome_abrt/views.py:370
+#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
+#: ../src/gnome_abrt/views.py:570
 msgid "N/A"
 msgstr "பொருந்தாது "
 
-#: ../src/gnome_abrt/views.py:370
+#: ../src/gnome_abrt/views.py:570
 msgid " crashed"
 msgstr " செயலிழந்தது"
 
-#: ../src/gnome_abrt/views.py:383
+#: ../src/gnome_abrt/views.py:583
 msgid "yes"
 msgstr "ஆம்"
 
-#: ../src/gnome_abrt/views.py:386
+#: ../src/gnome_abrt/views.py:586
 msgid "no"
 msgstr "இல்லை"
 
-#: ../src/gnome_abrt/views.py:394
+#: ../src/gnome_abrt/views.py:594
 msgid ""
 "This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
 "Please consider <b>reporting it</b> - you may help them. Thank you."
-msgstr ""
+msgstr "இந்த சிக்கல் குறித்து இதுவரை <i>Bugzilla</i> வில் அறிக்கையிடப்படவில்லை. இந்தச் சிக்கலைத் தீர்க்க எங்கள் உருவாக்குநர்களுக்கு மேலும் விவரங்கள் தேவைப்படலாம்.\n<b>இதை அறிக்கையிடுவது</b>  குறித்து சிந்தியுங்கள் - அவர்களுக்கு நீங்கள் உதவக்கூடும். நன்றி."

@@ -25,6 +25,21 @@ import signal
 import traceback
 from argparse import ArgumentParser
 
+from ctypes import cdll, util
+
+XLIB_PATH = util.find_library('X11')
+if not XLIB_PATH:
+    sys.stderr.write("Could not load X11 library\n")
+    sys.exit(1)
+
+XLIB = cdll.LoadLibrary(XLIB_PATH)
+DISPLAY = XLIB.XOpenDisplay(None)
+if DISPLAY == 0:
+    sys.stderr.write("Cannot connect to X server\n")
+    sys.exit(2)
+
+XLIB.XCloseDisplay(DISPLAY)
+
 # pygobject
 #pylint: disable=E0611
 from gi.repository import Gtk

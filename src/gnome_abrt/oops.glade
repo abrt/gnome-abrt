@@ -7,9 +7,8 @@
     <property name="accel_group">ag_accelerators</property>
     <child>
       <object class="GtkAction" id="gac_delete">
-        <property name="label" translatable="yes">Delete</property>
+        <property name="label" translatable="yes">_Delete</property>
         <property name="tooltip" translatable="yes">Delete selected problems</property>
-        <property name="stock_id">gtk-delete</property>
         <signal name="activate" handler="on_gac_delete_activate" swapped="no"/>
       </object>
       <accelerator key="Delete"/>
@@ -26,7 +25,6 @@
       <object class="GtkAction" id="gac_detail">
         <property name="label" translatable="yes">Analy_ze</property>
         <property name="tooltip" translatable="yes">Open selected problem for analysis</property>
-        <property name="stock_id">gtk-zoom-in</property>
         <signal name="activate" handler="on_gac_detail_activate" swapped="no"/>
       </object>
       <accelerator key="Return" modifiers="GDK_CONTROL_MASK | GDK_MOD1_MASK"/>
@@ -42,7 +40,6 @@
       <object class="GtkAction" id="gac_open_directory">
         <property name="label" translatable="yes">_Open problem's data directory</property>
         <property name="tooltip" translatable="yes">Opens the selected problem's data directory in the default file system browser</property>
-        <property name="stock_id">gtk-open</property>
         <signal name="activate" handler="on_gac_open_directory_activate" swapped="no"/>
       </object>
       <accelerator key="o" modifiers="GDK_CONTROL_MASK"/>
@@ -51,7 +48,6 @@
       <object class="GtkAction" id="gac_copy_id">
         <property name="label" translatable="yes">_Copy problem's ID to Clipboard</property>
         <property name="tooltip" translatable="yes">Stores the selected problem's ID in Clibpoard</property>
-        <property name="stock_id">gtk-copy</property>
         <signal name="activate" handler="on_gac_copy_id_activate" swapped="no"/>
       </object>
       <accelerator key="c" modifiers="GDK_CONTROL_MASK"/>
@@ -131,7 +127,7 @@
             <property name="can_focus">True</property>
             <property name="invisible_char">●</property>
             <property name="caps_lock_warning">False</property>
-            <property name="secondary_icon_stock">gtk-find</property>
+            <property name="secondary_icon_name">edit-find</property>
             <property name="placeholder_text">Search</property>
             <signal name="changed" handler="on_te_search_changed" swapped="no"/>
           </object>
@@ -163,7 +159,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="valign">start</property>
-                    <property name="stock">gtk-missing-image</property>
+                    <property name="icon_name">image-missing</property>
                     <property name="icon-size">3</property>
                   </object>
                   <packing>
@@ -724,7 +720,6 @@
                 <property name="receives_default">True</property>
                 <property name="halign">end</property>
                 <property name="margin_right">5</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>

@@ -98,6 +98,26 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Jul 26 2013 Jakub Filak <jfilak@redhat.com> 0.3.0-1
+- Do not include url files twice
+- Get rid of Stock Items usage
+- Do not remove invalid problems while sorting the list
+- Check if X display can be opened
+- Fix a condition in the source changed notification handler
+- Update Translations
+- Skip inotify events for sub folders in dump location watcher
+- Use GLib.io_add_watch() instead of IOChanell.add_watch()
+- Fix a typo in macro name
+- remove shebang from non-executable scripts
+- Remember missing elements and load them only once
+- Download more problem elements in a single D-Bus call
+- Improve data caching
+- Display two sets of problems (My/System)
+- Fix typo in dbus error message
+- Replace 'exception.message' with just 'exception'
+- Don't crash if a new directory problem is invalid
+- Make all generated files dependent on configuration
+
 * Fri May 03 2013 Jakub Filak <jfilak@redhat.com> 0.2.12-1
 - Use 'N/A' instead of ??
 - Use package name is neither component nor executable items are available

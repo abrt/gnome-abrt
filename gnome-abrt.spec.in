@@ -23,6 +23,7 @@ BuildRequires: asciidoc
 BuildRequires: xmlto
 BuildRequires: pygobject3-devel
 BuildRequires: libreport-gtk-devel > 2.0.20
+BuildRequires: abrt-gui-devel > 2.1.6.1
 BuildRequires: gtk3-devel
 %if 0%{?fedora}
 BuildRequires: pylint

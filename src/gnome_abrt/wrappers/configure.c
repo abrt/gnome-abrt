@@ -18,6 +18,7 @@
 */
 #include <common.h>
 #include <libreport/internal_libreport_gtk.h>
+#include <abrt/system-config-abrt.h>
 #include <pygobject.h>
 
 PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args)
@@ -29,6 +30,20 @@ PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args)
     {
         GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
         show_config_list_dialog(wnd);
+    }
+
+    Py_RETURN_NONE;
+}
+
+PyObject *p_show_system_config_abrt_dialog(PyObject *module, PyObject *args)
+{
+    (void)module;
+
+    PyGObject *pygtkwnd = NULL;
+    if (PyArg_ParseTuple(args, "|O", &pygtkwnd))
+    {
+        GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
+        show_system_config_abrt_dialog(wnd);
     }
 
     Py_RETURN_NONE;

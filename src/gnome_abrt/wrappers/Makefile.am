@@ -15,10 +15,12 @@ _wrappers_la_CPPFLAGS = \
     $(PYTHON_CFLAGS) \
     $(PYGOBJECT3_CFLAGS) \
     $(GTK_CFLAGS) \
-    $(LIBREPORT_GTK_CFLAGS)
+    $(LIBREPORT_GTK_CFLAGS) \
+    $(ABRT_GUI_CFLAGS)
 
 _wrappers_la_LDFLAGS = \
     $(LIBREPORT_GTK_LIBS) \
+    $(ABRT_GUI_LIBS) \
     $(GTK_LIBS) \
     $(PYGOBJECT3_LIBS) \
     -module \

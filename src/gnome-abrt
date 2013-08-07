@@ -60,7 +60,8 @@ from gnome_abrt.dbus_problems import (get_standard_problems_source,
                                       get_foreign_problems_source)
 from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _
-from gnome_abrt.wrappers import show_events_list_dialog
+from gnome_abrt.wrappers import (show_events_list_dialog,
+                                 show_system_config_abrt_dialog)
 from gnome_abrt.config import get_configuration
 from gnome_abrt.dialogs import show_report_problem_with_abrt
 from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
@@ -241,6 +242,7 @@ class OopsApplication(Gtk.Application):
 
         menu = Gio.Menu()
         menu.append(_("_Preferences"), "app.preferences")
+        menu.append(_("_ABRT Configuration"), "app.abrt-configuration")
         menu.append(_("_Report problem with ABRT"),
                     "app.report-problem-with-abrt")
         menu.append(_("_About"), "app.about")
@@ -248,6 +250,10 @@ class OopsApplication(Gtk.Application):
 
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)
+        self.add_action(action)
+
+        action = Gio.SimpleAction.new("abrt-configuration", None)
+        action.connect("activate", self.on_action_abrt_configuration)
         self.add_action(action)
 
         action = Gio.SimpleAction.new("report-problem-with-abrt", None)
@@ -271,6 +277,13 @@ class OopsApplication(Gtk.Application):
             show_events_list_dialog(windows[0])
         else:
             show_events_list_dialog()
+
+    def on_action_abrt_configuration(self, action, parameter):
+        windows = self.get_windows()
+        if windows:
+            show_system_config_abrt_dialog(windows[0])
+        else:
+            show_system_config_abrt_dialog()
 
     #pylint: disable=W0613
     def on_action_about(self, action, parameter):

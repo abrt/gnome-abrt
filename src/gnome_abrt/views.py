@@ -552,10 +552,10 @@ class OopsWindow(Gtk.ApplicationWindow):
                 lnk.set_valign(Gtk.Align.START)
                 lnk_lbl = lnk.get_child()
                 # using hasattr() because this constructions abuses a knowledge
-                # of current Gtk.LinkButton implementation details
-                # works fine with gtk-3.8.2
-                # in a future version of gtk, the child will not necessarily
-                # be an instance of Gtk.Label
+                # of current Gtk.LinkButton implementation details, but there is
+                # no other way how to make a text of Gtk.LinkButton wrapped
+                # works fine with gtk-3.8.2 but in a future version of gtk, the
+                # child will not necessarily be an instance of Gtk.Label
                 if hasattr(lnk_lbl, "set_line_wrap"):
                     lnk_lbl.set_line_wrap(True)
 

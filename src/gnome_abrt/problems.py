@@ -146,18 +146,26 @@ class Problem:
         return items
 
     def __getitem__(self, item, cached=True):
+        def datetime_from_stamp(stamp):
+            try:
+                return datetime.datetime.fromtimestamp(float(stamp))
+            except TypeError:
+                raise InvalidProblem(self.problem_id, "Empty time stamp")
+            except ValueError:
+                raise InvalidProblem(self.problem_id, "Invalid value in time stamp")
+
         if self.data is None:
             # Load initial problem data into cache
             self.__loaditems__(*Problem.INITIAL_ELEMENTS)
 
         if item == 'date':
-            return datetime.datetime.fromtimestamp(float(self['time']))
+            return datetime_from_stamp(self['time'])
         if item == 'date_last':
             last_ocr = self['last_occurrence']
             if last_ocr:
-                return datetime.datetime.fromtimestamp(float(last_ocr))
+                return datetime_from_stamp(last_ocr)
             else:
-                return datetime.datetime.fromtimestamp(float(self['time']))
+                return datetime_from_stamp(self['time'])
         elif item == 'application':
             return self.get_application()
         elif item == 'is_reported':

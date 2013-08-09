@@ -177,7 +177,9 @@ class OopsApplication(Gtk.Application):
         self.all_sources = None
         self._url_pool = GetURLTitleSourcePool(GNOME_ABRT_URL_POOL_CAPACITY)
         self._url_cache = GetURLTitleSourceCache(self._url_pool)
-        gnome_abrt.url.set_async_worker(self._url_cache.get_url_title_async)
+        #gnome_abrt.url.set_async_worker(self._url_cache.get_url_title_async)
+        # Disable because of https://bugzilla.redhat.com/show_bug.cgi?id=959811
+        gnome_abrt.url.set_async_worker(lambda *args: None)
 
     #pylint: disable=W0613
     def _parse_command_line(self, sender, gcmdargs):

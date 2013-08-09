@@ -152,7 +152,8 @@ class Problem:
             except TypeError:
                 raise InvalidProblem(self.problem_id, "Empty time stamp")
             except ValueError:
-                raise InvalidProblem(self.problem_id, "Invalid value in time stamp")
+                raise InvalidProblem(self.problem_id,
+                                     "Invalid value in time stamp")
 
         if self.data is None:
             # Load initial problem data into cache

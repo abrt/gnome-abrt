@@ -22,6 +22,7 @@ import traceback
 
 # gnome-abrt
 from gnome_abrt import errors
+from gnome_abrt.l10n import _
 
 class Controller(object):
 
@@ -68,7 +69,17 @@ class Controller(object):
 
     def _run_event_on_problem(self, event, problem):
         if problem.assure_ownership():
-            if os.fork() == 0:
+            pid = -1
+            try:
+                pid = os.fork()
+            except OSError as ex:
+                logging.debug(traceback.format_exc())
+                logging.error(
+                        _("Failed to execute the requested action because of"
+                          " an error in new process creation"))
+                return
+
+            if pid == 0:
                 exctbl = "@libexecdir@/abrt-handle-event"
                 args = [exctbl, "-e", event, "--", problem.problem_id]
                 try:

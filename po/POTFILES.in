@@ -7,3 +7,4 @@ src/gnome_abrt/oops.glade
 src/gnome_abrt/problems.py
 src/gnome_abrt/tools.py
 src/gnome_abrt/views.py
+src/gnome_abrt/controller.py

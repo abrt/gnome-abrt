@@ -308,6 +308,11 @@ class OopsApplication(Gtk.Application):
         dialog.set_authors(["ABRT Team"])
         #dialog.set_artists(artists)
         #dialog.set_translator_credits(_("translator-credits"))
+
+        windows = self.get_windows()
+        if windows:
+            dialog.set_transient_for(windows[0])
+
         dialog.run()
         dialog.destroy()
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+<id type="desktop">gnome-abrt.desktop</id>
+<licence>CC0</licence>
+<description>
+  <_p>
+  Collection of software tools designed for collecting, analyzing and reporting of
+  software issues.
+  </_p>
+  <_p>
+  It's main purpose is to ease the process of reporting an issue and finding a solution.
+  </_p>
+</description>
+<url type="homepage">https://github.com/abrt/gnome-abrt</url>
+<screenshots>
+<screenshot type="default">http://jfilak.fedorapeople.org/media/gnome-abrt.png</screenshot>
+</screenshots>
+<updatecontact>crash-catcher@lists.fedorahosted.org</updatecontact>
+</application>

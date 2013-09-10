@@ -1,4 +1,5 @@
 src/gnome-abrt.desktop.in
+src/gnome-abrt.appdata.xml.in
 
 src/gnome_abrt/dbus_problems.py
 src/gnome_abrt/dialogs.py

@@ -38,7 +38,7 @@ class Application(object):
         elif executable:
             self.name = os.path.basename(executable)
         else:
-            self.name = "N/A"
+            self.name = None
 
         self.icon = icon
 

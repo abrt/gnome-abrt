@@ -175,7 +175,10 @@ class Problem:
             return self.get_submission()
 
         if cached and item in self.data:
-            return self.data[item]
+            retval = self.data[item]
+            if retval is None and item == "count":
+                return 1
+            return retval
 
         loaded = self.__loaditems__(item)
         if item in loaded:

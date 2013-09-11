@@ -81,8 +81,15 @@ class ProblemsFilter:
 def problem_to_storage_values(problem):
     # not localizable, it is a format for tree view column
     app = problem.get_application()
-    return ["{0!s}\n{1!s}".format(app.name or _("N/A"),
-                                  problem['type'] or ""),
+
+    if app.name:
+        name = app.name
+        typ = problem['type']
+    else:
+        name = problem['type']
+        typ = ""
+
+    return ["{0!s}\n{1!s}".format(name, typ),
             "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
                                   problem['count']),
             problem]
@@ -597,10 +604,26 @@ class OopsWindow(Gtk.ApplicationWindow):
             app = problem['application']
             self._builder.lbl_summary.set_text(problem['reason'] or "")
             self._builder.lbl_app_name_value.set_text(app.name or _("N/A"))
-            self._builder.lbl_reason.set_text("{0} {1}".format(
-                        app.name or _("N/A"), _(' crashed').strip()))
+
+            if app.name:
+                self._builder.lbl_reason.set_text("{0} {1}".format(
+                        app.name, _(' crashed').strip()))
+            else:
+                # If Application's name is unknown, display neutral
+                # header "'Type' problem has been detected":
+                #  Kerneloops problem has been detected
+                #  CCpp problem has been detected
+                #  Python problem has been detected
+                #  Ruby problem has been detected
+                #  VMCore problem has been detected
+                #  AVC problem has been detected
+                #  Java problem has been detected
+                self._builder.lbl_reason.set_text(
+                        _("{0} problem has been detected").format(
+                                problem['type']))
+
             self._builder.lbl_app_version_value.set_text(
-                        problem['package'] or "")
+                        problem['package'] or _("N/A"))
             self._builder.lbl_detected_value.set_text(
                         problem['date'].strftime(
                             locale.nl_langinfo(locale.D_FMT)))

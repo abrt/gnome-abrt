@@ -100,6 +100,21 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Sep 12 2013 Jakub Filak <jfilak@redhat.com> 0.3.1-1
+- Improve user experience
+- Make About dialog transient for the main window
+- Hook up AppData file in spec file
+- Add AppData file
+- Ship the 256x256 icon in the right place
+- Recover from fork errors
+- Add abrt_gui to build requires
+- Add ABRT configure application menu
+- Use absolute path in python shebang
+- Fix broken make check
+- Temporarily disable URL title retrieval
+- Recover from invalid time stamp values
+- Use wrapped text for the bug report link
+
 * Fri Jul 26 2013 Jakub Filak <jfilak@redhat.com> 0.3.0-1
 - Do not include url files twice
 - Get rid of Stock Items usage

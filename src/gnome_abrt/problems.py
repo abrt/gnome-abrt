@@ -63,11 +63,11 @@ class ProblemSource(object):
     def refresh(self):
         pass
 
-class Problem:
+class Problem(object):
     INITIAL_ELEMENTS = ['component', 'executable', 'cmdline', 'count', 'type',
                         'last_occurrence', 'time', 'reason']
 
-    class Submission:
+    class Submission(object):
         URL = "URL"
         MSG = "MSG"
         BTHASH = "BTHASH"
@@ -288,7 +288,7 @@ class MultipleSources(ProblemSource):
 
         self.sources = sources
 
-        class SourceObserver:
+        class SourceObserver(object):
             def __init__(self, parent):
                 self.parent = parent
 

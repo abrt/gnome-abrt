@@ -81,7 +81,7 @@ def compare_cmdline(cmdline, desktop_entry):
 
     # try to handle interpreters like python
     if not ret:
-        cmdargs = filter(lambda x: x, cmdline.split(" "))
+        cmdargs = [x for x in cmdline.split(" ") if x]
         if len(cmdargs) > 1:
             ret = compare_executable(cmdargs[1], desktop_entry)
 

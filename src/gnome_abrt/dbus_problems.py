@@ -200,7 +200,7 @@ class StandardProblems(DBusProblemSource.Driver):
     def __init__(self, source):
         super(StandardProblems, self).__init__(source)
 
-        class ConfigObserver():
+        class ConfigObserver(object):
             def __init__(self, source):
                 self._source = source
 
@@ -212,6 +212,7 @@ class StandardProblems(DBusProblemSource.Driver):
         conf = config.get_configuration()
         conf.set_watch("all_problems", ConfigObserver(self._source))
 
+    #pylint: disable=W0142
     @property
     def get_problems_method(self):
         conf = config.get_configuration()

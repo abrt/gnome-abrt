@@ -150,7 +150,7 @@ class INOTIFYSourceHandler(ProcessEvent):
                             .format(ex))
 
 
-class INOTIFYWatcher:
+class INOTIFYWatcher(object):
 
     def __init__(self, source, directory, context):
         # context is the instance variable because
@@ -219,7 +219,7 @@ _("You have probably reached inotify's limit on the number of watches in '{0}'."
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality.").format(self._directory))
 
-class NotInitializedDirectorySource():
+class NotInitializedDirectorySource(object):
 
     def __init__(self, parent):
         self._parent = parent
@@ -245,7 +245,7 @@ class NotInitializedDirectorySource():
         return True
 
 
-class InitializedDirectoryProblemSource():
+class InitializedDirectoryProblemSource(object):
 
     def __init__(self, parent, directory, context=None):
         self._parent = parent

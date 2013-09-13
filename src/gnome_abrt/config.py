@@ -46,7 +46,8 @@ class Configuration(object):
         oldvalue = opt.value
         if oldvalue != value:
             opt.value = value
-            map(lambda o: o.option_updated(self, option), opt.observers)
+            for observer in opt.observers:
+                observer.option_updated(self, option)
 
     def __delitem__(self, option):
         pass

@@ -59,7 +59,7 @@ def problems_filter(model, itrtr, data):
     return match_pattern(pattern, model[itrtr][2])
 
 
-class ProblemsFilter:
+class ProblemsFilter(object):
 
     def __init__(self, window, view):
         self.current_pattern = ""
@@ -188,7 +188,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             return obj
 
 
-    class SourceObserver:
+    class SourceObserver(object):
         def __init__(self, wnd):
             self.wnd = wnd
             self._enabled = True
@@ -219,7 +219,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.wnd._disable_source(ex.source, ex.temporary)
 
 
-    class OptionsObserver:
+    class OptionsObserver(object):
         def __init__(self, wnd):
             self.wnd = wnd
 

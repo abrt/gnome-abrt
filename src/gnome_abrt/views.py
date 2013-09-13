@@ -497,6 +497,15 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if storage_problems:
             model = self._builder.tv_problems.get_model()
+
+            # For some strange reason, get_model() sometimes returns None when
+            # this function is called from a signal handler but the signal
+            # handler is synchronously called from GMainLoop so there is no
+            # place for race conditions. If the described situation arises,
+            # base model will be used.
+            if model is None:
+                model = self._builder.ls_problems
+
             pit = None
             if old_selection:
                 pit = self._find_problem_iter(old_selection[0], model)

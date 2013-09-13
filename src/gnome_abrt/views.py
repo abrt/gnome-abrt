@@ -485,7 +485,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         old_selection = self._get_selected(self._builder.tvs_problems)
 
         self._reloading = True
-        old_selection = None
         try:
             self._builder.ls_problems.clear()
 

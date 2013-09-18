@@ -47,9 +47,14 @@ def problems_filter(model, itrtr, data):
                 if val and pattern in val:
                     return True
 
-        return (item_match(pattern, problem)
-                or pattern in problem['application'].name
-                or pattern in problem.problem_id)
+        if item_match(pattern, problem) or pattern in problem.problem_id:
+            return True
+
+        app = problem['application']
+        if app is None or app.name is None:
+            return False
+
+        return pattern in app.name
 
     pattern = data.current_pattern
 

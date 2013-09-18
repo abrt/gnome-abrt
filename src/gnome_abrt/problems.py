@@ -98,6 +98,10 @@ class Problem(object):
         def data(self):
             return self._data
 
+        @data.setter
+        def data(self, value):
+            self._data = value
+
         @property
         def title(self):
             if self._rtype == Problem.Submission.URL and not self._url_done:
@@ -272,8 +276,15 @@ class Problem(object):
                     typ = ''.join(typ)
                     i += 1
 
-                    self.submission.append(
-                        Problem.Submission(self, pfx, typ, line[i:]))
+                    data = line[i:]
+                    sbm = next((s for s in self.submission
+                                if s.rtype == typ and s.name == pfx), None)
+
+                    if sbm is not None:
+                        sbm.data = data
+                    else:
+                        self.submission.append(
+                            Problem.Submission(self, pfx, typ, data))
 
         return self.submission
 

@@ -563,7 +563,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._builder.tv_problems.scroll_to_cell(path)
 
     def _show_problem_links(self, submissions):
-        need_align = False
+        link_added = False
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
                 lnk = Gtk.LinkButton(sbm.data, sbm.title)
@@ -580,13 +580,15 @@ class OopsWindow(Gtk.ApplicationWindow):
                     lnk_lbl.set_line_wrap(True)
 
                 self._builder.vbx_links.pack_start(lnk, False, True, 0)
-                need_align = True
+                link_added = True
 
-        if need_align:
+        if link_added:
             space = Gtk.Alignment()
             space.set_visible(True)
             space.set_vexpand(True)
             self._builder.vbx_links.pack_start(space, False, True, 0)
+
+        return link_added
 
     def _show_problem_message(self, message):
         msg = Gtk.Label()
@@ -647,8 +649,10 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._builder.img_app_icon.clear()
 
             if problem['is_reported']:
-                self._builder.lbl_reported_value.set_text(_('yes'))
-                self._show_problem_links(problem['submission'])
+                if self._show_problem_links(problem['submission']):
+                    self._builder.lbl_reported_value.set_text('')
+                else:
+                    self._builder.lbl_reported_value.set_text(_('yes'))
             else:
                 self._builder.lbl_reported_value.set_text(_('no'))
 

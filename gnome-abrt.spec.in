@@ -100,6 +100,15 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Oct 04 2013 Jakub Filak <jfilak@redhat.com> 0.3.2-1
+- Fix a bug in SIGCHLD handler causing 100% CPU usage
+- Show "yes" in Reported field only if no URL is available
+- Load only the most recent reported to value
+- Check if Application has valid name in filter fn
+- Do not change old selection upon reloading
+- Fix issues found by new pylint
+- Do not crash on None in signal handler
+
 * Thu Sep 12 2013 Jakub Filak <jfilak@redhat.com> 0.3.1-1
 - Improve user experience
 - Make About dialog transient for the main window

@@ -160,7 +160,9 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.lbl_app_version_value = builder.get_object(
                     'lbl_app_version_value')
             self.lbl_detected_value = builder.get_object('lbl_detected_value')
+            self.lbl_reported = builder.get_object('lbl_reported')
             self.lbl_reported_value = builder.get_object('lbl_reported_value')
+            self.lbl_repots = builder.get_object('lbl_reports')
             self.tv_problems = builder.get_object('tv_problems')
             self.tvs_problems = builder.get_object('tvs_problems')
             self.img_app_icon = builder.get_object('img_app_icon')
@@ -563,6 +565,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._builder.tv_problems.scroll_to_cell(path)
 
     def _show_problem_links(self, submissions):
+        if not submissions:
+            return False
+
         link_added = False
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
@@ -648,24 +653,28 @@ class OopsWindow(Gtk.ApplicationWindow):
             else:
                 self._builder.img_app_icon.clear()
 
-            if problem['is_reported']:
-                if self._show_problem_links(problem['submission']):
-                    self._builder.lbl_reported_value.set_text('')
-                else:
-                    self._builder.lbl_reported_value.set_text(_('yes'))
-            else:
-                self._builder.lbl_reported_value.set_text(_('no'))
-
+            self._builder.lbl_reported.set_text(_("Reported"))
             if problem['not-reportable']:
+                self._builder.lbl_reported_value.set_text(
+                        _('cannot be reported'))
+                self._show_problem_links(problem['submission'])
                 self._show_problem_message(problem['not-reportable'])
-            elif (problem['is_reported']
-                    and not any((s.name == "Bugzilla"
-                            for s in problem['submission']))):
-                    self._show_problem_message(
+            elif problem['is_reported']:
+                if self._show_problem_links(problem['submission']):
+                    self._builder.lbl_reported.set_text(_("Reports"))
+                    self._builder.lbl_reported_value.set_text('')
+
+                    if (not any((s.name == "Bugzilla"
+                                for s in problem['submission']))):
+                        self._show_problem_message(
 _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 " been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in"
 " order to provide that. Thank you."))
+                else:
+                    self._builder.lbl_reported_value.set_text(_('yes'))
+            else:
+                self._builder.lbl_reported_value.set_text(_('no'))
         else:
             if self._source is not None:
                 self._builder.nb_problem_layout.set_current_page(1)

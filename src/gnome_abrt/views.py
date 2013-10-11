@@ -658,13 +658,14 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             if problem['not-reportable']:
                 self._show_problem_message(problem['not-reportable'])
-            elif (not problem['is_reported']
-                    or not any((s.name == "Bugzilla"
+            elif (problem['is_reported']
+                    and not any((s.name == "Bugzilla"
                             for s in problem['submission']))):
-                self._show_problem_message(
-_("This problem hasn't been reported to <i>Bugzilla</i> yet. "
-    "Our developers may need more information to fix the problem.\n"
-    "Please consider <b>reporting it</b> - you may help them. Thank you."))
+                    self._show_problem_message(
+_("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
+" been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in"
+" order to provide that. Thank you."))
         else:
             if self._source is not None:
                 self._builder.nb_problem_layout.set_current_page(1)

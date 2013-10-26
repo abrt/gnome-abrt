@@ -100,6 +100,11 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sat Oct 26 2013 Jakub Filak <jfilak@redhat.com> 0.3.3-1
+- Make problem list resizable
+- Make info about Reported state of problem more clear
+- Less confusing message about missing Bugzilla ticket
+
 * Fri Oct 04 2013 Jakub Filak <jfilak@redhat.com> 0.3.2-1
 - Fix a bug in SIGCHLD handler causing 100% CPU usage
 - Show "yes" in Reported field only if no URL is available

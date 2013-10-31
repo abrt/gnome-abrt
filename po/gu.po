@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-24 13:27+0200\n"
-"PO-Revision-Date: 2013-07-24 11:40+0000\n"
+"POT-Creation-Date: 2013-10-31 13:48+0100\n"
+"PO-Revision-Date: 2013-10-31 12:50+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Gujarati (http://www.transifex.com/projects/p/gnome-abrt/language/gu/)\n"
 "MIME-Version: 1.0\n"
@@ -20,13 +20,25 @@ msgstr ""
 "Language: gu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
 msgid "Automatic Bug Reporting Tool"
 msgstr "આપોઆપ ભૂલ અહેવાલીકરણ સાધન"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "કાર્યક્રમ તૂટવાનું દર્શાવો અને અહેવાલ કરો"
+
+#: ../src/gnome-abrt.appdata.xml.in.h:1
+msgid ""
+"Collection of software tools designed for collecting, analyzing and "
+"reporting of software issues."
+msgstr ""
+
+#: ../src/gnome-abrt.appdata.xml.in.h:2
+msgid ""
+"It's main purpose is to ease the process of reporting an issue and finding a"
+" solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -107,8 +119,8 @@ msgid "Can't open directory: '{0}'"
 msgstr "ડિરેક્ટરીને ખોલી શકાતી નથી: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
-msgid "Delete"
-msgstr "કાઢી નાંખો"
+msgid "_Delete"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -157,42 +169,42 @@ msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "ક્લિપબોર્ડમાં પસંદ થયેલ સમસ્યાની ID નો સંગ્રહ થાય છે"
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "Name"
-msgstr "નામ"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Version"
-msgstr "આવૃત્તિ"
-
-#: ../src/gnome_abrt/oops.glade.h:15
-msgid "Detected"
-msgstr "શોધાયુ"
-
-#: ../src/gnome_abrt/oops.glade.h:16
-msgid "Reported"
-msgstr "અહેવાલ થયેલ"
-
-#: ../src/gnome_abrt/oops.glade.h:17
-msgid "No problems detected!"
-msgstr "સમસ્યા મળી નથી!"
-
-#: ../src/gnome_abrt/oops.glade.h:18
-msgid "No source selected!"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "No source"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "કાર્યક્રમ"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "તારીખ"
 
-#: ../src/gnome_abrt/problems.py:410
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Name"
+msgstr "નામ"
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Version"
+msgstr "આવૃત્તિ"
+
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "Detected"
+msgstr "શોધાયુ"
+
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+msgid "Reported"
+msgstr "અહેવાલ થયેલ"
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No problems detected!"
+msgstr "સમસ્યા મળી નથી!"
+
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "No source selected!"
+msgstr "સ્ત્રોત પસંદ થયેલ નથી!"
+
+#: ../src/gnome_abrt/oops.glade.h:21
+msgid "No source"
+msgstr "સ્ત્રોત નથી"
+
+#: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "કેશમાં મળ્યુ નથી પરંતુ કાઢી નાંખેલ છે: {0}"
 
@@ -224,25 +236,42 @@ msgstr "છેલ્લુ {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s પહેલાંનુ"
 
-#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:630
 msgid " crashed"
 msgstr " ભાંગી પડેલ"
 
-#: ../src/gnome_abrt/views.py:583
+#: ../src/gnome_abrt/views.py:642
+msgid "{0} problem has been detected"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:659
+msgid "cannot be reported"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:664
+msgid "Reports"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:670
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:675
 msgid "yes"
 msgstr "હાં"
 
-#: ../src/gnome_abrt/views.py:586
+#: ../src/gnome_abrt/views.py:677
 msgid "no"
 msgstr "ના"
 
-#: ../src/gnome_abrt/views.py:594
+#: ../src/gnome_abrt/controller.py:78
 msgid ""
-"This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
-"Please consider <b>reporting it</b> - you may help them. Thank you."
-msgstr "આ સમસ્યાનો હજુ <i>બગઝીલા</i> માં અહેવાલ થયો નથી. અમારાં ડેવલપરોને સમસ્યાને સુધારવા માટે વધારે જાણકારીની જરૂર પડી શકે છે.\nમહેરબાની કરીને <b>તેનો અહેવાલ કરવાનું</b> નક્કી કરો - તમે તેઓને મદદ કરી શકો છો. તમારો આભાર."
+"Failed to execute the requested action because of an error in new process "
+"creation"
+msgstr ""

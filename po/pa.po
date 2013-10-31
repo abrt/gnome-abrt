@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jaswinder Singh <j.phulewala@gmail.com>, 2011-2012
+# asaini <asaini@redhat.com>, 2013
+# Jaswinder Singh <phulewala.j@gmail.com>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-24 13:27+0200\n"
-"PO-Revision-Date: 2013-07-24 11:40+0000\n"
+"POT-Creation-Date: 2013-10-31 13:48+0100\n"
+"PO-Revision-Date: 2013-10-31 12:50+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/gnome-abrt/language/pa/)\n"
 "MIME-Version: 1.0\n"
@@ -18,13 +19,25 @@ msgstr ""
 "Language: pa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
 msgid "Automatic Bug Reporting Tool"
 msgstr "ਆਟੋਮੈਟਿਕ ਬੱਗ ਰਿਪੋਰਟਿੰਗ ਟੂਲ"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "ਐਪਲੀਕੇਸ਼ਨ ਕਰੈਸ਼ ਵੇਖੋ ਅਤੇ ਰਿਪੋਰਟ ਕਰੋ"
+
+#: ../src/gnome-abrt.appdata.xml.in.h:1
+msgid ""
+"Collection of software tools designed for collecting, analyzing and "
+"reporting of software issues."
+msgstr ""
+
+#: ../src/gnome-abrt.appdata.xml.in.h:2
+msgid ""
+"It's main purpose is to ease the process of reporting an issue and finding a"
+" solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -40,7 +53,7 @@ msgstr "ਇੰਟਰਫੇਸ '{0}' ਨੂੰ ਮਾਰਗ '{1}' ਉੱਪਰ bu
 
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "'{0}' ਸਮੱਸਿਆ ਨੂੰ DBus ਸੇਵਾ ਤੇ chown ਨਹੀਂ ਕਰ ਸਕਦਾ ਹੈ: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
@@ -56,40 +69,40 @@ msgstr "DBus ਸਰਵਿਸ ਤੋਂ ਸਮੱਸਿਆ ਹਟਾ ਨਹੀਂ
 
 #: ../src/gnome_abrt/dialogs.py:50
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "ਸਮੱਸਿਆ ਦਾ ਵੇਰਵਾ ਬਹੁਤ ਥੋੜ੍ਹਾ ਹੈ"
 
 #: ../src/gnome_abrt/dialogs.py:51
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "ਉਪਯੋਗੀ ਸੂਚਨਾਵਾਂ ਲੈਣ ਦੇ ਲਈ ਅਸੀਂ 10 ਅੱਖਰਾਂ ਤੋਂ ਛੋਟੇ ਵੇਰਵੇ ਵਾਲੀ ਸੂਚਨਾ ਨੂੰ ਕਬੂਲਦੇ ਹੀ ਨਹੀਂ।"
 
 #: ../src/gnome_abrt/dialogs.py:61
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "ਸਮੱਸਿਆ ਦਾ ਸਾਰ ਬਹੁਤ ਛੋਟਾ ਹੈ"
 
 #: ../src/gnome_abrt/dialogs.py:62
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "ਉਪਯੋਗੀ ਸੂਚਨਾਵਾਂ ਲੈਣ ਦੇ ਲਈ ਅਸੀਂ 10 ਅੱਖਰਾਂ ਤੋਂ ਛੋਟੇ ਸਾਰ ਵਾਲੀ ਸੂਚਨਾ ਨੂੰ ਕਬੂਲਦੇ ਹੀ ਨਹੀਂ।"
 
 #: ../src/gnome_abrt/dialogs.py:88
 msgid "Problem description"
-msgstr ""
+msgstr "ਸਮੱਸਿਆ ਵੇਰਵਾ"
 
 #: ../src/gnome_abrt/dialogs.py:96
 msgid "Summary:"
-msgstr ""
+msgstr "ਸਾਰ:"
 
 #: ../src/gnome_abrt/dialogs.py:108
 msgid "_Send"
-msgstr ""
+msgstr "ਭੇਜੋ (_S)"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:122
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "ABRT ਨਾਲ ਇੱਕ ਸਮੱਸਿਆ"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
@@ -98,15 +111,15 @@ msgid ""
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "ਤੁਸੀਂ ਸ਼ਾਇਦ inotify ਦੀ '{0}' ਵਿੱਚ ਨਜ਼ਰਾਂ ਰੱਖਣ ਦੀ ਹੱਦ ਤੇ ਪਹੁੰਚ ਚੁੱਕੇ ਹੋ। notify ਦੀ ਸਹੀ ਸੰਰਚਨਾ ਕਰ ਕੇ ਹੱਦ ਵਧਾਈ ਜਾ ਸਕਦੀ ਹੈ। ਜਿਆਦਾ ਜਾਣਕਾਰੀ ਲਈ inotify(7) ਮੈਨੂਅਲ ਵੇਖੋ। ਇਹ ਈਵੈਂਟ ਕਾਰਣ ਹੈ ਕਿ ਇਸ ਐਪਲੀਕੇਸ਼ਨ ਤੋਂ ਬਾਹਰ ਵਾਪਰ ਰਹੇ ਸਮੱਸਿਆ ਡਾਟਾ ਬਾਰੇ ਤੁਹਾਨੂੰ ਸੂਚਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾਵੇਗਾ। ਇਹ ਈਵੋਂਟ ਕੋਈ ਹੋਰ ਕਾਰਜਯੋਗਤਾ ਪ੍ਰਭਾਵਿਤ ਨਹੀਂ ਕਰੇਗੀ।"
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "ਡਾਇਰੈਕਟਰੀ ਨਹੀਂ ਖੋਲ ਸਕਦਾ: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
-msgid "Delete"
-msgstr "ਹਟਾਓ"
+msgid "_Delete"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -122,11 +135,11 @@ msgstr "ਚੁਣੀ ਸਮੱਸਿਆ ਭੇਜੋ"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "ਵਿਸ਼ਲੇਸ਼ਣ (_z)"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "ਚੁਣੀ ਹੋਈ ਸਮੱਸਿਆ ਵਿਸ਼ਲੇਸ਼ਣ ਲਈ ਖੋਲ੍ਹੋ"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -138,59 +151,59 @@ msgstr "ਸਭ ਸਿਸਟਮ ਯਜ਼ਰਾਂ ਤੋਂ ਸਭ ਸਮੱਸਿ�
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "ਡਾਟਾ ਡਾਇਰੈਕਟਰੀ ਵਾਲੀ ਸਮੱਸਿਆ ਖੋਲ੍ਹੋ (_O)"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "ਮੂਲ ਫ਼ਾਈਲ ਸਿਸਟਮ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਚੁਣੀ ਹੋਈ ਸਮੱਸਿਆ ਦੀ ਡਾਟਾ ਡਾਇਰੈਕਟਰੀ ਖੋਲ੍ਹਦਾ ਹੈ"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "ਸਮੱਸਿਆ ਦੀ ID ਕਲਿੱਪਬੋਰਡ ਤੇ ਨਕਲ ਕਰੋ (_C)"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "ਚੁਣੀ ਹੋਈ ਸਮੱਸਿਆ ਦੀ ID ਕਲਿੱਪਬੋਰਡ ਤੇ ਸਾਂਭਦਾ ਹੈ"
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "Name"
-msgstr "ਨਾਂ"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Version"
-msgstr "ਵਰਜਨ"
-
-#: ../src/gnome_abrt/oops.glade.h:15
-msgid "Detected"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:16
-msgid "Reported"
-msgstr "ਰਿਪੋਰਟ ਕੀਤਾ"
-
-#: ../src/gnome_abrt/oops.glade.h:17
-msgid "No problems detected!"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:18
-msgid "No source selected!"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "No source"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "App"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "ਮਿਤੀ"
 
-#: ../src/gnome_abrt/problems.py:410
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Name"
+msgstr "ਨਾਂ"
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Version"
+msgstr "ਵਰਜਨ"
+
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "Detected"
+msgstr "ਖੋਜਿਆ"
+
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+msgid "Reported"
+msgstr "ਰਿਪੋਰਟ ਕੀਤਾ"
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No problems detected!"
+msgstr "ਕੋਈ ਸਮੱਸਿਆਵਾਂ ਨਹੀਂ ਲੱਭੀਆਂ!"
+
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "No source selected!"
+msgstr "ਕੋਈ ਸਰੋਤ ਨਹੀਂ ਚੁਣਿਆ ਗਿਆ!"
+
+#: ../src/gnome_abrt/oops.glade.h:21
+msgid "No source"
+msgstr "ਕੋਈ ਸਰੋਤ ਨਹੀਂ"
+
+#: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "ਕੈਸ਼ੇ ਵਿੱਚ ਨਹੀਂ ਲੱਭਿਆ ਪਰ ਹਟਾਇਆ ਗਿਆ ਹੈ: {0}"
 
@@ -222,25 +235,42 @@ msgstr "ਆਖਰੀ {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s ਪਹਿਲਾਂ"
 
-#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:630
 msgid " crashed"
 msgstr " ਨਸ਼ਟ ਹੋਇਆ"
 
-#: ../src/gnome_abrt/views.py:583
+#: ../src/gnome_abrt/views.py:642
+msgid "{0} problem has been detected"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:659
+msgid "cannot be reported"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:664
+msgid "Reports"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:670
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:675
 msgid "yes"
 msgstr "ਹਾਂ"
 
-#: ../src/gnome_abrt/views.py:586
+#: ../src/gnome_abrt/views.py:677
 msgid "no"
 msgstr "ਨਹੀਂ"
 
-#: ../src/gnome_abrt/views.py:594
+#: ../src/gnome_abrt/controller.py:78
 msgid ""
-"This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
-"Please consider <b>reporting it</b> - you may help them. Thank you."
+"Failed to execute the requested action because of an error in new process "
+"creation"
 msgstr ""

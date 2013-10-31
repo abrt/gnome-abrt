@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-24 13:27+0200\n"
-"PO-Revision-Date: 2013-07-24 11:40+0000\n"
+"POT-Creation-Date: 2013-10-31 13:48+0100\n"
+"PO-Revision-Date: 2013-10-31 12:50+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/gnome-abrt/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -21,13 +21,25 @@ msgstr ""
 "Language: kn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
 msgid "Automatic Bug Reporting Tool"
 msgstr "ಸ್ವಯಂಚಾಲಿತ ದೋಷ ವರದಿ ಮಾಡುವ ಉಪಕರಣ"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "ಅನ್ವಯದ ಕುಸಿತವನ್ನು ನೋಡಿ ಹಾಗು ವರದಿ ಮಾಡಿ"
+
+#: ../src/gnome-abrt.appdata.xml.in.h:1
+msgid ""
+"Collection of software tools designed for collecting, analyzing and "
+"reporting of software issues."
+msgstr ""
+
+#: ../src/gnome-abrt.appdata.xml.in.h:2
+msgid ""
+"It's main purpose is to ease the process of reporting an issue and finding a"
+" solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -108,8 +120,8 @@ msgid "Can't open directory: '{0}'"
 msgstr "ಕೋಶವನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
-msgid "Delete"
-msgstr "ಅಳಿಸು"
+msgid "_Delete"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -158,42 +170,42 @@ msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ತೊಂದರೆಯ ID ಯನ್ನು ನಕಲುಫಲಕದಲ್ಲಿ ಶೇಖರಿಸಿ ಇಡುತ್ತದೆ"
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "Name"
-msgstr "ಹೆಸರು"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Version"
-msgstr "ಆವೃತ್ತಿ"
-
-#: ../src/gnome_abrt/oops.glade.h:15
-msgid "Detected"
-msgstr "ಕಂಡುಬಂದಿದೆ"
-
-#: ../src/gnome_abrt/oops.glade.h:16
-msgid "Reported"
-msgstr "ವರದಿ ಮಾಡಲಾದ"
-
-#: ../src/gnome_abrt/oops.glade.h:17
-msgid "No problems detected!"
-msgstr "ಯಾವುದೆ ತೊಂದರೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ!"
-
-#: ../src/gnome_abrt/oops.glade.h:18
-msgid "No source selected!"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "No source"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "ಅನ್ವಯ"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "ದಿನಾಂಕ"
 
-#: ../src/gnome_abrt/problems.py:410
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Name"
+msgstr "ಹೆಸರು"
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Version"
+msgstr "ಆವೃತ್ತಿ"
+
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "Detected"
+msgstr "ಕಂಡುಬಂದಿದೆ"
+
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+msgid "Reported"
+msgstr "ವರದಿ ಮಾಡಲಾದ"
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No problems detected!"
+msgstr "ಯಾವುದೆ ತೊಂದರೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ!"
+
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "No source selected!"
+msgstr "ಯಾವುದೆ ಆಕರವನ್ನು ಆರಿಸಲಾಗಿಲ್ಲ!"
+
+#: ../src/gnome_abrt/oops.glade.h:21
+msgid "No source"
+msgstr "ಯಾವುದೆ ಆಕರವಿಲ್ಲ"
+
+#: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "ಕ್ಯಾಶೆಯಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ ಆದರೆ ಅಳಿಸಲಾಗಿದೆ: {0}"
 
@@ -225,25 +237,42 @@ msgstr "ಕೊನೆಯ {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s} ಹಿಂದೆ"
 
-#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
 msgid "N/A"
 msgstr "ಲಭ್ಯವಿಲ್ಲ"
 
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:630
 msgid " crashed"
 msgstr " ಕುಸಿತಗೊಂಡಿದೆ"
 
-#: ../src/gnome_abrt/views.py:583
+#: ../src/gnome_abrt/views.py:642
+msgid "{0} problem has been detected"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:659
+msgid "cannot be reported"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:664
+msgid "Reports"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:670
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:675
 msgid "yes"
 msgstr "ಹೌದು"
 
-#: ../src/gnome_abrt/views.py:586
+#: ../src/gnome_abrt/views.py:677
 msgid "no"
 msgstr "ಇಲ್ಲ"
 
-#: ../src/gnome_abrt/views.py:594
+#: ../src/gnome_abrt/controller.py:78
 msgid ""
-"This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
-"Please consider <b>reporting it</b> - you may help them. Thank you."
-msgstr "ಈ ತೊಂದರೆಯನ್ನು ಇನ್ನೂ <i>ಬಗ್‌ಝಿಲ್ಲಾ</i>ಗೆ ವರದಿ ಮಾಡಿಲ್ಲ. ಈ ತೊಂದರೆಯನ್ನು ಸರಿಪಡಿಸಲು ನಮ್ಮ ವಿಕಸನೆಗಾರರಿಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಯ ಅಗತ್ಯವಿರುತ್ತದೆ..\nದಯವಿಟ್ಟು ಅದನ್ನು <b>ವರದಿ ಮಾಡುವ</b> ಕುರಿತು ಯೋಚಿಸಿ- ನೀವವರಿಗೆ ನೆರವಾಗಬಹುದು. ಧನ್ಯವಾದಗಳು."
+"Failed to execute the requested action because of an error in new process "
+"creation"
+msgstr ""

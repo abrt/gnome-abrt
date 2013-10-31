@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-24 13:27+0200\n"
-"PO-Revision-Date: 2013-07-24 11:40+0000\n"
+"POT-Creation-Date: 2013-10-31 13:48+0100\n"
+"PO-Revision-Date: 2013-10-31 12:50+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/gnome-abrt/language/te/)\n"
 "MIME-Version: 1.0\n"
@@ -19,13 +19,25 @@ msgstr ""
 "Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:221
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
 msgid "Automatic Bug Reporting Tool"
 msgstr "స్వయంచాలక బగ్ నివేదీకరణ సాధనము"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "అనువర్తనము క్రాషెస్‌ను దర్శించుము మరియు నివేదించుము"
+
+#: ../src/gnome-abrt.appdata.xml.in.h:1
+msgid ""
+"Collection of software tools designed for collecting, analyzing and "
+"reporting of software issues."
+msgstr ""
+
+#: ../src/gnome-abrt.appdata.xml.in.h:2
+msgid ""
+"It's main purpose is to ease the process of reporting an issue and finding a"
+" solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -106,8 +118,8 @@ msgid "Can't open directory: '{0}'"
 msgstr "సంచయం తెరువలేదు: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
-msgid "Delete"
-msgstr "తొలగించు"
+msgid "_Delete"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -156,42 +168,42 @@ msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "ఎంపికచేసిన సమస్య ఐడిను క్లిప్‌బోర్డునందు నిల్వవుంచును"
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "Name"
-msgstr "పేరు"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Version"
-msgstr "వర్షన్"
-
-#: ../src/gnome_abrt/oops.glade.h:15
-msgid "Detected"
-msgstr "గుర్తించిన"
-
-#: ../src/gnome_abrt/oops.glade.h:16
-msgid "Reported"
-msgstr "నివేదించిన"
-
-#: ../src/gnome_abrt/oops.glade.h:17
-msgid "No problems detected!"
-msgstr "ఏ సమస్యలు గుర్తించబడెలేదు!"
-
-#: ../src/gnome_abrt/oops.glade.h:18
-msgid "No source selected!"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "No source"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:20
 msgid "App"
 msgstr "అనువర్తనం"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "తేదీ"
 
-#: ../src/gnome_abrt/problems.py:410
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Name"
+msgstr "పేరు"
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Version"
+msgstr "వర్షన్"
+
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "Detected"
+msgstr "గుర్తించిన"
+
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+msgid "Reported"
+msgstr "నివేదించిన"
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No problems detected!"
+msgstr "ఏ సమస్యలు గుర్తించబడెలేదు!"
+
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "No source selected!"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:21
+msgid "No source"
+msgstr ""
+
+#: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "క్యాచీనందు కనుగొనలేదు అయితే తొలగించబడెను: {0}"
 
@@ -223,25 +235,42 @@ msgstr "ఆఖరి {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s క్రితం"
 
-#: ../src/gnome_abrt/views.py:84 ../src/gnome_abrt/views.py:568
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
 msgid "N/A"
 msgstr "వర్తించదు"
 
-#: ../src/gnome_abrt/views.py:570
+#: ../src/gnome_abrt/views.py:630
 msgid " crashed"
 msgstr "క్రాషైన"
 
-#: ../src/gnome_abrt/views.py:583
+#: ../src/gnome_abrt/views.py:642
+msgid "{0} problem has been detected"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:659
+msgid "cannot be reported"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:664
+msgid "Reports"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:670
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:675
 msgid "yes"
 msgstr "అవును"
 
-#: ../src/gnome_abrt/views.py:586
+#: ../src/gnome_abrt/views.py:677
 msgid "no"
 msgstr "కాదు"
 
-#: ../src/gnome_abrt/views.py:594
+#: ../src/gnome_abrt/controller.py:78
 msgid ""
-"This problem hasn't been reported to <i>Bugzilla</i> yet. Our developers may need more information to fix the problem.\n"
-"Please consider <b>reporting it</b> - you may help them. Thank you."
-msgstr "ఈ సమస్య <i>బగ్‌జిల్లా</i> కు యింకా నివేదించలేదు, సమస్యను పరిష్కరించుటకు మా అభివృద్దికారులకు యింకా కొంత సమాచారం అవసరం కావచ్చు.\nదయచేసి <b>దీనిని నివేదించుటకు</b> యత్నించండి - అలా మీరు వారికి సహాయపడగలరు. ధన్యవాదములు."
+"Failed to execute the requested action because of an error in new process "
+"creation"
+msgstr ""

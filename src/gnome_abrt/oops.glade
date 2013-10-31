@@ -142,6 +142,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_top">10</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox" id="hbox_source_btns">
@@ -167,12 +169,16 @@
                   <object class="GtkScrolledWindow" id="sw_problems">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
                     <property name="shadow_type">in</property>
                     <property name="min_content_width">300</property>
                     <child>
                       <object class="GtkTreeView" id="tv_problems">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="hexpand">True</property>
+                        <property name="vexpand">True</property>
                         <property name="model">ls_problems</property>
                         <property name="headers_visible">False</property>
                         <property name="headers_clickable">False</property>

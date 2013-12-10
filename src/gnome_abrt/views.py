@@ -739,7 +739,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_open_directory_activate(self, action):
         selection = self._get_selected(self._builder.tvs_problems)
         if selection:
-            subprocess.call(["xdg-open", selection[0].problem_id])
+            subprocess.Popen(["xdg-open", selection[0].problem_id])
         self._builder.menu_problem_item.popdown()
 
     def on_gac_copy_id_activate(self, action):

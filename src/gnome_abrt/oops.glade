@@ -371,6 +371,7 @@
                             <property name="ypad">11</property>
                             <property name="label">Application killed by signal</property>
                             <property name="wrap">True</property>
+                            <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
                             <attributes>
                               <attribute name="font-desc" value="Sans Bold 11"/>
@@ -391,6 +392,7 @@
                             <property name="yalign">0</property>
                             <property name="label">Application can't continue becuase of received signal</property>
                             <property name="wrap">True</property>
+                            <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
                           </object>
                           <packing>
@@ -475,6 +477,7 @@
                             <property name="halign">start</property>
                             <property name="xpad">5</property>
                             <property name="label">app</property>
+                            <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
                           </object>
                           <packing>
@@ -491,6 +494,7 @@
                             <property name="halign">start</property>
                             <property name="xpad">5</property>
                             <property name="label">2.0.13-2</property>
+                            <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
                           </object>
                           <packing>
@@ -507,6 +511,7 @@
                             <property name="halign">start</property>
                             <property name="xpad">5</property>
                             <property name="label">2013-04-09 18:55</property>
+                            <property name="selectable">True</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -640,6 +645,7 @@
                             <property name="halign">start</property>
                             <property name="xpad">5</property>
                             <property name="label">no</property>
+                            <property name="selectable">True</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -722,6 +728,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">No problems detected!</property>
+                        <property name="selectable">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -755,6 +762,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">No source selected!</property>
+                        <property name="selectable">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>

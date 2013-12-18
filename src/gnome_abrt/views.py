@@ -29,11 +29,14 @@ import traceback
 from gi.repository import Gtk
 #pylint: disable=E0611
 from gi.repository import Gdk
+#pylint: disable=E0611
+from gi.repository import GObject
 
 import gnome_abrt.problems as problems
 import gnome_abrt.config as config
 import gnome_abrt.wrappers as wrappers
 import gnome_abrt.errors as errors
+from gnome_abrt import GNOME_ABRT_UI_DIR
 from gnome_abrt.tools import fancydate
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
@@ -140,16 +143,30 @@ def handle_problem_and_source_errors(func):
 class OopsWindow(Gtk.ApplicationWindow):
     class OopsGtkBuilder(object):
         def __init__(self):
-            builder = Gtk.Builder()
-            self._builder = builder
-            builder.set_translation_domain(GETTEXT_PROGNAME)
+            builder = None
+            # try to load the glade from git at first step
+            ui_files = ['./src/gnome_abrt/oops.glade',
+                        GNOME_ABRT_UI_DIR + '/oops.glade']
+            for glade_file in ui_files:
+                if os.path.exists(glade_file):
+                    builder = Gtk.Builder()
+                    builder.set_translation_domain(GETTEXT_PROGNAME)
+                    try:
+                        builder.add_from_file(filename=glade_file)
+                    except GObject.GError as ex:
+                        builder = None
+                        logging.debug("Failed to load UI file: '{0}': {1}"
+                                .format(glade_file, str(ex)))
+                    else:
+                        break
+                else:
+                    logging.debug("UI file does not exist: '{0}'"
+                            .format(glade_file))
 
-            if os.path.exists('oops.glade'):
-                builder.add_from_file(filename='oops.glade')
-            else:
-                from gnome_abrt import gnome_abrt_glade
-                builder.add_from_string(
-                            gnome_abrt_glade.GNOME_ABRT_GLADE_CONTENTS)
+            if builder is None:
+                raise RuntimeError(_("Failed to load UI definition"))
+
+            self._builder = builder
 
             self.wnd_main = builder.get_object('wnd_main')
             self.gr_main_layout = builder.get_object('gr_main_layout')

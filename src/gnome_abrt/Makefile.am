@@ -15,8 +15,7 @@ gnome_abrtexec_PYTHON = \
 	signals.py \
 	tools.py \
 	views.py \
-	l10n.py \
-	gnome_abrt_glade.py
+	l10n.py
 
 controller.py: controller.py.in Makefile
 	sed -e s,\@libexecdir\@,$(libexecdir),g $< > $@
@@ -24,23 +23,19 @@ controller.py: controller.py.in Makefile
 __init__.py: __init__.py.in Makefile
 	sed -e s,\@PACKAGE\@,$(PACKAGE),g \
 	-e s,\@VERSION\@,$(VERSION),g \
+	-e s,\@GNOME_ABRT_UI_DIR\@,$(uidir),g \
 	-e s,\@localedir\@,$(localedir),g $< > $@
 
-gnome_abrt_glade.py: oops.glade Makefile
-	{ \
-	  echo '# coding=utf-8'; \
-	  echo 'GNOME_ABRT_GLADE_CONTENTS ="\'; \
-	  cat oops.glade | sed -e 's/\"/\\\"/g' -e 's/$$/\\/'; \
-	  echo '"'; \
-	} >gnome_abrt_glade.py
+dist_ui_DATA = oops.glade
+uidir = $(pkgdatadir)/ui
 
 gnome_abrtdir = $(pythondir)/gnome_abrt
 
 EXTRA_DIST = __init__.py.in oops.glade controller.py.in
 
-DISTCLEANFILES = __init__.py controller.py gnome_abrt_glade.py
+DISTCLEANFILES = __init__.py controller.py
 
-all-local: __init__.py controller.py gnome_abrt_glade.py
+all-local: __init__.py controller.py
 
 check-local: $(gnome_abrtexec_PYTHON)
 if USE_PYLINT

@@ -29,10 +29,14 @@ from gi.repository import Gtk
 
 
 def _show_error_dialog(parent, summary, description):
-    dialog = Gtk.MessageDialog(parent, Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                               Gtk.MessageType.ERROR,
-                               Gtk.ButtonsType.OK,
-                               summary)
+    # Cannot use Gtk.MessageDialog.new() because of:
+    # TypeError:
+    #   Dialog constructor cannot be used to create instances of a subclass
+    dialog = Gtk.MessageDialog(transient_for=parent,
+                               destroy_with_parent=True,
+                               message_type=Gtk.MessageType.ERROR,
+                               buttons=Gtk.ButtonsType.OK,
+                               text=summary)
 
     dialog.format_secondary_text(description)
 
@@ -84,28 +88,28 @@ def _on_button_send_cb(button, dialog):
 
 
 def show_report_problem_with_abrt():
-    wnd_report = Gtk.Window(Gtk.WindowType.TOPLEVEL)
+    wnd_report = Gtk.Window.new(Gtk.WindowType.TOPLEVEL)
     wnd_report.set_title(_("Problem description"))
     wnd_report.set_default_size(400, 400)
 
-    wnd_report.vbox = Gtk.VBox(0)
+    wnd_report.vbox = Gtk.VBox.new(False, 0)
     wnd_report.vbox.set_margin_top(5)
     wnd_report.vbox.set_margin_left(5)
     wnd_report.vbox.set_margin_right(5)
 
-    wnd_report.lbl_summary = Gtk.Label(_("Summary:"))
+    wnd_report.lbl_summary = Gtk.Label.new(_("Summary:"))
     wnd_report.lbl_summary.set_halign(Gtk.Align.START)
     wnd_report.lbl_summary.set_margin_left(3)
     wnd_report.lbl_summary.set_margin_right(3)
 
-    wnd_report.txe_reason = Gtk.Entry()
+    wnd_report.txe_reason = Gtk.Entry.new()
 
-    wnd_report.tev = Gtk.TextView()
+    wnd_report.tev = Gtk.TextView.new()
     wnd_report.tev.set_margin_left(3)
     wnd_report.tev.set_margin_right(3)
     wnd_report.tev.set_can_focus(True)
 
-    wnd_report.btn_send = Gtk.Button(_("_Send"))
+    wnd_report.btn_send = Gtk.Button.new_with_label(_("_Send"))
     wnd_report.btn_send.set_use_underline(True)
     wnd_report.btn_send.connect("clicked", _on_button_send_cb, wnd_report)
 

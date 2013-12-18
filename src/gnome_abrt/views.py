@@ -140,7 +140,7 @@ def handle_problem_and_source_errors(func):
 class OopsWindow(Gtk.ApplicationWindow):
     class OopsGtkBuilder(object):
         def __init__(self):
-            builder = Gtk.Builder()
+            builder = Gtk.Builder.new()
             self._builder = builder
             builder.set_translation_domain(GETTEXT_PROGNAME)
 
@@ -252,7 +252,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         # move accelators group from the design window to this window
         self.add_accel_group(self._builder.ag_accelerators)
 
-        css_prv = Gtk.CssProvider()
+        css_prv = Gtk.CssProvider.new()
         css_prv.load_from_data("GtkViewport {\n"
                                "  background-color : @theme_bg_color;\n"
                                "}\n")
@@ -281,7 +281,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 logging.debug("Unavailable source: {0}".format(name))
                 continue
 
-            src_btn = Gtk.ToggleButton(label)
+            src_btn = Gtk.ToggleButton.new_with_label(label)
             src_btn.set_visible(True)
             # add an extra member source (I don't like it but it so easy)
             src_btn.source = src
@@ -571,7 +571,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         link_added = False
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
-                lnk = Gtk.LinkButton(sbm.data, sbm.title)
+                lnk = Gtk.LinkButton.new_with_label(sbm.data, sbm.title)
                 lnk.set_visible(True)
                 lnk.set_halign(Gtk.Align.START)
                 lnk.set_valign(Gtk.Align.START)
@@ -588,7 +588,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 link_added = True
 
         if link_added:
-            space = Gtk.Alignment()
+            space = Gtk.Alignment.new(0, 0, 0, 0)
             space.set_visible(True)
             space.set_vexpand(True)
             self._builder.vbx_links.pack_start(space, False, True, 0)
@@ -596,7 +596,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         return link_added
 
     def _show_problem_message(self, message):
-        msg = Gtk.Label()
+        msg = Gtk.Label.new(message)
         msg.set_markup(message)
         msg.set_visible(True)
         msg.set_halign(Gtk.Align.START)

@@ -287,7 +287,7 @@ class OopsApplication(Gtk.Application):
 
     #pylint: disable=W0613
     def on_action_about(self, action, parameter):
-        dialog = Gtk.AboutDialog()
+        dialog = Gtk.AboutDialog.new()
         dialog.set_icon_name("abrt")
         dialog.set_version(gnome_abrt.VERSION)
         dialog.set_logo_icon_name("abrt")

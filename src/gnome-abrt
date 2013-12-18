@@ -210,8 +210,8 @@ class OopsApplication(Gtk.Application):
                 try:
                     sources.append(
                           get_standard_problems_source(self._dbus_srv.mainloop))
-                except UnavailableSource:
-                    logging.warning(traceback.format_exc())
+                except UnavailableSource as ex:
+                    logging.warning(str(ex))
 
                 self.gcontext = GLib.main_context_default()
                 try:
@@ -219,13 +219,17 @@ class OopsApplication(Gtk.Application):
                     dps = DirectoryProblemSource(path, context=self.gcontext)
                     sources.append(dps)
                 except UnavailableSource:
-                    logging.warning(traceback.format_exc())
+                    logging.warning(str(ex))
 
                 if len(sources) == 0:
                     raise UnavailableSource("No available problem source.")
 
-                self.all_sources = [(_("My"), MultipleSources(sources)),
-                                (_("System"), get_foreign_problems_source())]
+                self.all_sources = [(_("My"), MultipleSources(sources))]
+
+                try:
+                    self.all_sources.append((_("System"), get_foreign_problems_source()))
+                except UnavailableSource as ex:
+                    logging.warning(str(ex))
 
                 controller = Controller(self.all_sources,
                                         glib_sigchld_signal_handler)

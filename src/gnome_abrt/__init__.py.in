@@ -17,6 +17,7 @@
 
 PACKAGE = "@PACKAGE@"
 VERSION = "@VERSION@"
+GNOME_ABRT_UI_DIR = "@GNOME_ABRT_UI_DIR@"
 
 def init():
     import gnome_abrt.l10n

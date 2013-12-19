@@ -1,3 +1,4 @@
+src/gnome-abrt
 src/gnome-abrt.desktop.in
 src/gnome-abrt.appdata.xml.in
 

@@ -101,6 +101,17 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Dec 19 2013 Jakub Filak <jfilak@redhat.com> 0.3.4-1
+- Do not use deprecated GObject API
+- Make gnome-abrt compatible with Python GObject < 3.7.2
+- Do not fail if there is no Problem D-Bus service
+- Make all labels selectable
+- spec: Install UI files
+- Fix locales handling
+- Run xdg-open for problem directory nonblocking
+- Expand list of problems
+- Update translations
+
 * Sat Oct 26 2013 Jakub Filak <jfilak@redhat.com> 0.3.3-1
 - Make problem list resizable
 - Make info about Reported state of problem more clear

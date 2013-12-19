@@ -619,6 +619,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         msg.set_halign(Gtk.Align.START)
         msg.set_valign(Gtk.Align.START)
         msg.set_line_wrap(True)
+        msg.set_selectable(True)
 
         self._builder.vbx_problem_messages.pack_start(msg, False, True, 0)
 

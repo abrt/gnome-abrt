@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 13:48+0100\n"
-"PO-Revision-Date: 2013-10-31 12:50+0000\n"
+"POT-Creation-Date: 2013-12-20 10:09+0100\n"
+"PO-Revision-Date: 2013-12-18 12:33+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/gnome-abrt/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,35 @@ msgstr ""
 "Language: ast\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
+#: ../src/gnome-abrt:226
+msgid "My"
+msgstr ""
+
+#: ../src/gnome-abrt:229
+msgid "System"
+msgstr ""
+
+#: ../src/gnome-abrt:248
+msgid "_Preferences"
+msgstr ""
+
+#: ../src/gnome-abrt:249
+msgid "_ABRT Configuration"
+msgstr ""
+
+#: ../src/gnome-abrt:250
+msgid "_Report problem with ABRT"
+msgstr ""
+
+#: ../src/gnome-abrt:252
+msgid "_About"
+msgstr ""
+
+#: ../src/gnome-abrt:253
+msgid "_Quit"
+msgstr ""
+
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "Ferramienta d'Informe de Fallos Automática"
 
@@ -65,40 +93,40 @@ msgstr ""
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:50
+#: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:51
+#: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:61
+#: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:62
+#: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:88
+#: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:96
+#: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:108
+#: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
 msgstr ""
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:122
+#: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
 msgstr ""
 
@@ -185,7 +213,7 @@ msgstr ""
 msgid "Detected"
 msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "Informe"
 
@@ -233,37 +261,41 @@ msgstr ""
 msgid "{0:d} {1!s}s ago"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
+#: ../src/gnome_abrt/views.py:167
+msgid "Failed to load UI definition"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:630
+#: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:642
+#: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:659
+#: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:664
+#: ../src/gnome_abrt/views.py:682
 msgid "Reports"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:670
+#: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:675
+#: ../src/gnome_abrt/views.py:693
 msgid "yes"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:677
+#: ../src/gnome_abrt/views.py:695
 msgid "no"
 msgstr ""
 

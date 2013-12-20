@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 13:48+0100\n"
-"PO-Revision-Date: 2013-10-31 12:50+0000\n"
+"POT-Creation-Date: 2013-12-20 10:09+0100\n"
+"PO-Revision-Date: 2013-12-18 12:33+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/gnome-abrt/language/te/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,35 @@ msgstr ""
 "Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
+#: ../src/gnome-abrt:226
+msgid "My"
+msgstr ""
+
+#: ../src/gnome-abrt:229
+msgid "System"
+msgstr ""
+
+#: ../src/gnome-abrt:248
+msgid "_Preferences"
+msgstr ""
+
+#: ../src/gnome-abrt:249
+msgid "_ABRT Configuration"
+msgstr ""
+
+#: ../src/gnome-abrt:250
+msgid "_Report problem with ABRT"
+msgstr ""
+
+#: ../src/gnome-abrt:252
+msgid "_About"
+msgstr ""
+
+#: ../src/gnome-abrt:253
+msgid "_Quit"
+msgstr ""
+
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "స్వయంచాలక బగ్ నివేదీకరణ సాధనము"
 
@@ -31,13 +59,13 @@ msgstr "అనువర్తనము క్రాషెస్‌ను దర�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "సాఫ్టువేర్ సమస్యలను సేకరించుటకు, విశ్లేషించుటకు మరియు నివేదించుటకు సాఫ్టువేర్ సాధనాలు రూపొందించబడెను."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
 "It's main purpose is to ease the process of reporting an issue and finding a"
 " solution."
-msgstr ""
+msgstr "సమస్యను గుర్తించి దాని పరిష్కారం కనుగొనే క్రమాన్ని సులభతరం చేయడమే దీని ముఖ్యోద్దేశం."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -67,40 +95,40 @@ msgstr "DBus సేవ నుండి సమస్యల జాబితాన�
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus సేవ నందు సమస్యను తొలగించలేదు: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:50
+#: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
 msgstr "సమస్య యొక్క వివరణ మరీ చిన్నది"
 
-#: ../src/gnome_abrt/dialogs.py:51
+#: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr "మరింత వుపయోగవంతమైన నివేదికలను పొందడం కొరకు మేము 10 అక్షరాలకన్నా తక్కువ వివరణ కలిగిన నివేదికలను ఆమోదించము."
 
-#: ../src/gnome_abrt/dialogs.py:61
+#: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
 msgstr "సమస్య యొక్క సంగ్రహం మరీ చిన్నగా వుంది"
 
-#: ../src/gnome_abrt/dialogs.py:62
+#: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr "మరింత వుపయోగవంతమైన నివేదికలను పొందడం కొరకు మేము 10 అక్షరాలకన్నా తక్కువ సంగ్రహం కలిగిన నివేదికలను ఆమోదించము."
 
-#: ../src/gnome_abrt/dialogs.py:88
+#: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
 msgstr "సమస్య వివరణ"
 
-#: ../src/gnome_abrt/dialogs.py:96
+#: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
 msgstr "సంగ్రహం:"
 
-#: ../src/gnome_abrt/dialogs.py:108
+#: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
 msgstr "పంపు (_S)"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:122
+#: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
 msgstr "ABRT తో సమస్య"
 
@@ -119,7 +147,7 @@ msgstr "సంచయం తెరువలేదు: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "తొలగించు(_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -187,7 +215,7 @@ msgstr "వర్షన్"
 msgid "Detected"
 msgstr "గుర్తించిన"
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "నివేదించిన"
 
@@ -197,11 +225,11 @@ msgstr "ఏ సమస్యలు గుర్తించబడెలేదు!
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "ఏ మూలం ఎంపికచేయలేదు!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "ఏ మూలంలేదు"
 
 #: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
@@ -235,37 +263,41 @@ msgstr "ఆఖరి {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s క్రితం"
 
-#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
+#: ../src/gnome_abrt/views.py:167
+msgid "Failed to load UI definition"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr "వర్తించదు"
 
-#: ../src/gnome_abrt/views.py:630
+#: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr "క్రాషైన"
 
-#: ../src/gnome_abrt/views.py:642
+#: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} సమస్య గుర్తించబడెను"
 
-#: ../src/gnome_abrt/views.py:659
+#: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:664
+#: ../src/gnome_abrt/views.py:682
 msgid "Reports"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:670
+#: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:675
+#: ../src/gnome_abrt/views.py:693
 msgid "yes"
 msgstr "అవును"
 
-#: ../src/gnome_abrt/views.py:677
+#: ../src/gnome_abrt/views.py:695
 msgid "no"
 msgstr "కాదు"
 
@@ -273,4 +305,4 @@ msgstr "కాదు"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "కొత్త విధానం సృష్టించుటలో దోషం కారణంగా అభ్యర్ధించిన చర్య నిర్వర్తించుటకు విఫలమైంది"

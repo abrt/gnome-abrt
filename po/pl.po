@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 13:48+0100\n"
-"PO-Revision-Date: 2013-10-31 12:50+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"POT-Creation-Date: 2013-12-20 10:09+0100\n"
+"PO-Revision-Date: 2013-12-18 14:40+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,35 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:240
+#: ../src/gnome-abrt:226
+msgid "My"
+msgstr "Mój"
+
+#: ../src/gnome-abrt:229
+msgid "System"
+msgstr "System"
+
+#: ../src/gnome-abrt:248
+msgid "_Preferences"
+msgstr "_Preferencje"
+
+#: ../src/gnome-abrt:249
+msgid "_ABRT Configuration"
+msgstr "_Konfiguracja programu ABRT"
+
+#: ../src/gnome-abrt:250
+msgid "_Report problem with ABRT"
+msgstr "_Zgłoś problem w programie ABRT"
+
+#: ../src/gnome-abrt:252
+msgid "_About"
+msgstr "_O programie"
+
+#: ../src/gnome-abrt:253
+msgid "_Quit"
+msgstr "Za_kończ"
+
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "Narzędzie do automatycznego zgłaszania błędów"
 
@@ -31,13 +59,13 @@ msgstr "Wyświetlanie i zgłaszanie awarii aplikacji"
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "Zestaw narzędzi zaprojektowanych do zbierania, analizowania i zgłaszania problemów z oprogramowaniem."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
 "It's main purpose is to ease the process of reporting an issue and finding a"
 " solution."
-msgstr ""
+msgstr "Jego głównym celem jest ułatwienie procesu zgłaszania problemów i znajdowania rozwiązania."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -67,40 +95,40 @@ msgstr "Nie można pobrać listy problemów z usługi D-Bus: {0!s}"
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Nie można usunąć problemu przez usługę D-Bus: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:50
+#: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
 msgstr "Opis problemu jest za krótki"
 
-#: ../src/gnome_abrt/dialogs.py:51
+#: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr "Aby uzyskać bardziej przydatne zgłoszenia, opisy krótsze niż 10 znaków nie są przyjmowane."
 
-#: ../src/gnome_abrt/dialogs.py:61
+#: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
 msgstr "Podsumowanie problemu jest za krótkie"
 
-#: ../src/gnome_abrt/dialogs.py:62
+#: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr "Aby uzyskać bardziej przydatne zgłoszenia, podsumowania krótsze niż 10 znaków nie są przyjmowane."
 
-#: ../src/gnome_abrt/dialogs.py:88
+#: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
 msgstr "Opis problemu"
 
-#: ../src/gnome_abrt/dialogs.py:96
+#: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
 msgstr "Podsumowanie:"
 
-#: ../src/gnome_abrt/dialogs.py:108
+#: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
 msgstr "_Wyślij"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:122
+#: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
 msgstr "Problem z programem ABRT"
 
@@ -119,7 +147,7 @@ msgstr "Nie można otworzyć katalogu: \"{0}\""
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_Usuń"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -187,7 +215,7 @@ msgstr "Wersja"
 msgid "Detected"
 msgstr "Wykryto"
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:656
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "Zgłoszono"
 
@@ -235,37 +263,41 @@ msgstr "Ostatni {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s temu"
 
-#: ../src/gnome_abrt/views.py:626 ../src/gnome_abrt/views.py:646
+#: ../src/gnome_abrt/views.py:167
+msgid "Failed to load UI definition"
+msgstr "Wczytanie definicji interfejsu użytkownika się nie powiodło"
+
+#: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr "Nie dotyczy"
 
-#: ../src/gnome_abrt/views.py:630
+#: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr "uległo awarii"
 
-#: ../src/gnome_abrt/views.py:642
+#: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} problem został wykryty"
 
-#: ../src/gnome_abrt/views.py:659
+#: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "nie można zgłosić"
 
-#: ../src/gnome_abrt/views.py:664
+#: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "Zgłoszenia"
 
-#: ../src/gnome_abrt/views.py:670
+#: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "Ten problem został zgłoszony, ale zgłoszenie w systemie <i>Bugzilla</i> nie zostało otwarte. Nasi programiści mogą potrzebować więcej informacji, aby go naprawić.\nProsimy rozważyć <b>zgłoszenie go</b> - może to im pomóc. Dziękujemy."
 
-#: ../src/gnome_abrt/views.py:675
+#: ../src/gnome_abrt/views.py:693
 msgid "yes"
 msgstr "tak"
 
-#: ../src/gnome_abrt/views.py:677
+#: ../src/gnome_abrt/views.py:695
 msgid "no"
 msgstr "nie"
 
@@ -273,4 +305,4 @@ msgstr "nie"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "Wykonanie żądanego działania się nie powiodło z powodu błędu w czasie tworzenia nowego procesu"

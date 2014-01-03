@@ -188,6 +188,7 @@
                         <signal name="button-press-event" handler="on_tv_problems_button_press_event" swapped="no"/>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="tvs_problems">
+                            <property name="mode">multiple</property>
                             <signal name="changed" handler="on_tvs_problems_changed" swapped="no"/>
                           </object>
                         </child>

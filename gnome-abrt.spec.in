@@ -101,6 +101,12 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Jan 13 2014 Jakub Filak <jfilak@redhat.com> 0.3.5-1
+- Do not crash when a FileIcon cant be loaded
+- Enable multiple problems selection
+- Fix a type in appdata
+- Update translations
+
 * Thu Dec 19 2013 Jakub Filak <jfilak@redhat.com> 0.3.4-1
 - Do not use deprecated GObject API
 - Make gnome-abrt compatible with Python GObject < 3.7.2

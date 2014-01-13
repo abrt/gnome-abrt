@@ -149,8 +149,12 @@ def find_application(component, executable, cmdline):
                             except GLib.GError as ex:
                                 logging.debug(ex)
                     elif isinstance(dai_icon, Gio.FileIcon):
-                        stream = dai_icon.load(128, None)
-                        icon = GdkPixbuf.Pixbuf.new_from_stream(stream[0], None)
+                        try:
+                            stream = dai_icon.load(128, None)
+                            icon = GdkPixbuf.Pixbuf.new_from_stream(stream[0],
+                                                                    None)
+                        except GLib.GError as ex:
+                            logging.debug(ex)
                     else:
                         logging.debug("Unsupported type of icon class: {0}"
                                 .format(dai_icon))

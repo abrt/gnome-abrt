@@ -49,6 +49,8 @@ from gi.repository import Gio
 
 # gnome-abrt
 import gnome_abrt
+gnome_abrt.init()
+
 import gnome_abrt.url
 from gnome_abrt.views import OopsWindow
 from gnome_abrt.controller import Controller
@@ -331,8 +333,6 @@ class OopsApplication(Gtk.Application):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))
-
-    gnome_abrt.init()
 
     CMDARGS = ArgumentParser(
             description = _('View and report application crashes'))

@@ -1,310 +1,371 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Rajesh Ranjan <rranjan@redhat.com>, 2011-2013
-# Rajesh Ranjan <rranjan@redhat.com>, 2013
-# Rajesh <rranjan>, 2011
-# zz <zz>, 2012
+# s <s>, 2014.
+# rranjan <rranjan@redhat.com>, 2013. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Hindi (http://www.transifex.com/projects/p/gnome-abrt/language/hi/)\n"
+"POT-Creation-Date: 2013-12-23 11:44+0530\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-01-02 12:37-0500\n"
+"Last-Translator: s <s>\n"
+"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
 "Language: hi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/gnome-abrt:226
 msgid "My"
-msgstr ""
+msgstr "मेरा"
 
+# translation auto-copied from project gnome-user-docs, version 3.8.2, document gnome-user-docs
 #: ../src/gnome-abrt:229
 msgid "System"
-msgstr ""
+msgstr "तंत्र"
 
+# translation auto-copied from project subscription-manager, version 1.10.7, document keys
 #: ../src/gnome-abrt:248
 msgid "_Preferences"
-msgstr ""
+msgstr "वरीयताएँ (_P)"
 
 #: ../src/gnome-abrt:249
 msgid "_ABRT Configuration"
-msgstr ""
+msgstr "ABRT विन्यास (_A)"
 
 #: ../src/gnome-abrt:250
 msgid "_Report problem with ABRT"
-msgstr ""
+msgstr "ABRT के साथ समस्या की रिपोर्ट करें (_R)"
 
+# translation auto-copied from project abrt, version 2.1.7, document abrt, author rranjan
 #: ../src/gnome-abrt:252
 msgid "_About"
-msgstr ""
+msgstr "परिचय (_A)"
 
+# translation auto-copied from project anaconda, version 19.31.34, document anaconda
 #: ../src/gnome-abrt:253
 msgid "_Quit"
-msgstr ""
+msgstr "बाहर (_Q)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "स्वचालित बग रिपोर्टिंग औजार"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "अनुप्रयोग क्रैश को देखें और रिपोर्ट करें"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"सॉफ़्टवेयर मुद्दे के संग्रहण, विश्लेषण और रिपोर्टिंग के लिए सॉफ़्टवेयर औज़ार "
+"का संग्रह."
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"It's main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
+"इसका मुख्य उद्देश्य है किसी मु्द्दे की रिपोर्टिंग और उसके समाधान ढूँढ़ने को "
+"आसान बनाना."
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "सिग्नल '{0}' के रिसीवर को DBus तंत्र पथ '{1}' में जोड़ नहीं सका: {2}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "DBus तंत्र बस '{0}' को पथ '{1}' में कनेक्ट नहीं कर सका: {2}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "अंतरफलक '{0}' को '{1}' पथ पर '{2}' में पा नहीं सका: {3}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "chown समस्या '{0}' को DBus सेवा पर नहीं कर सकता है: {1!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus सर्विस से समस्या आँकड़ा नहीं मिल सका: {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus सेवा से समस्या की सूची नहीं मिल सकी: {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus सेवा पर समस्या को मिटा नहीं सकता है: {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
 msgstr "समस्या का विवरण बहुत छोटा है"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr "आदेश में और अधिक उपयोगी रिपोर्ट प्राप्त करने के लिए हम रिपोर्ट विवरण के साथ 10 अक्षर से कम स्वीकार नहीं करते हैं."
+msgstr ""
+"आदेश में और अधिक उपयोगी रिपोर्ट प्राप्त करने के लिए हम रिपोर्ट विवरण के साथ "
+"10 अक्षर से कम स्वीकार नहीं करते हैं."
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
 msgstr "समस्या का सारांश बहुत छोटा है"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr "आदेश में और अधिक उपयोगी रिपोर्ट प्राप्त करने के लिए हम रिपोर्ट सारांश के साथ 10 अक्षर से कम स्वीकार नहीं करते हैं.  "
+msgstr ""
+"आदेश में और अधिक उपयोगी रिपोर्ट प्राप्त करने के लिए हम रिपोर्ट सारांश के साथ "
+"10 अक्षर से कम स्वीकार नहीं करते हैं.  "
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
 msgstr "समस्या विवरण"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
 msgstr "सारांश:"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
 msgstr "भेजें (_S)"
 
-#. Sets text but text is selected :)
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
 msgstr "ABRT के साथ समस्या"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr "आप संभवतः inotify की सीमा तक '{0}' में देखने की संख्या पर पहुँच चुके हैं. यह सीमा inotify की विधिवत विन्यास के द्वारा बढ़ायी जा सकती है. अधिक विवरण के लिए man inotify(7) देखें. इसके कारम आपको समस्या डाटा के बारे में परिवर्तन को अधिसूचित किया जाएगा. यह समस्या किसी अन्य प्रकार्यात्मकाता को नहीं बढ़ाता है."
+msgstr ""
+"आप संभवतः inotify की सीमा तक '{0}' में देखने की संख्या पर पहुँच चुके हैं. यह "
+"सीमा inotify की विधिवत विन्यास के द्वारा बढ़ायी जा सकती है. अधिक विवरण के "
+"लिए man inotify(7) देखें. इसके कारम आपको समस्या डाटा के बारे में परिवर्तन को "
+"अधिसूचित किया जाएगा. यह समस्या किसी अन्य प्रकार्यात्मकाता को नहीं बढ़ाता है."
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "निर्देशिका खोल नहीं सकता है: '{0}'"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "मिटाएँ (_D)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
 msgstr "चुनी समस्याओं को मिटाएँ"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
 msgstr "रिपोर्ट करें (_R)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
 msgstr "चुनी समस्या सौपें"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
 msgstr "विश्लेषित करें (_z)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
 msgstr "विश्लेषण के लिए चुने गए समस्या खोलें"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "सभी समस्या (_A)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "सभी तंत्र उपयोक्ता के लिए सभी ज्ञात समस्या को दिखाएँ"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
 msgstr "समस्या की डाटा निर्देशिका खोलें (_O)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr "चुने गए समस्या की डाटा निर्देशिका को तयशुदा फ़ाइल तंत्र में खोलता है"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
 msgstr "क्लिपबोर्ड में समस्या की नक़ल लेता है (_C)"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "चुने समस्या ID को क्लिपबोर्ड में जमा करता है"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
 msgstr "एप्प"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "तिथि"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "नाम"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "संस्करण"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
 msgstr "पता चला"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "रिपोर्ट किया गया"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
 msgstr "कोई समस्या नहीं मिली!"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "कोई स्रोत नहीं चुना गया!"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "कोई स्रोत नहीं"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "कैश में नहीं मिला लेकिन मिटा दिया गया {0}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
 msgstr "भविष्य"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
 msgstr "कल"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
 msgstr "सप्ताह"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
 msgstr "महीना"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
 msgstr "साल"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
 msgstr "अंतिम {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s पहले"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "यूआइ परिभाषा लोड करने में असफल"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr "लागू नहीं"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr "क्रैश"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} समस्या आयी"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "रिपोर्ट नहीं किया जा सकता है"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "रिपोर्ट"
 
-#: ../src/gnome_abrt/views.py:688
-msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
-
-#: ../src/gnome_abrt/views.py:693
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
+#: ../src/gnome_abrt/views.py:685
 msgid "yes"
 msgstr "हाँ"
 
-#: ../src/gnome_abrt/views.py:695
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
+#: ../src/gnome_abrt/views.py:687
 msgid "no"
 msgstr "नहीं"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author rranjan
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
 msgstr ""
+"नयी प्रक्रिया निर्माण में किसी त्रुटि के कारण निवेदित क्रिया के निष्पादन में "
+"विफल"

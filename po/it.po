@@ -1,308 +1,384 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# fvalen <fvalen@redhat.com>, 2013
-# fvalen <fvalen@redhat.com>, 2011-2012
+# fvalen <fvalen@redhat.com>, 2011. #zanata
+# fvalen <fvalen@redhat.com>, 2013. #zanata
+# fvalen <fvalen@redhat.com>, 2014. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/gnome-abrt/language/it/)\n"
+"POT-Creation-Date: 2013-12-23 11:44+0530\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-01-02 06:28-0500\n"
+"Last-Translator: fvalen <fvalen@redhat.com>\n"
+"Language-Team: Italian\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/gnome-abrt:226
 msgid "My"
-msgstr ""
+msgstr "Mio"
 
+# translation auto-copied from project NetworkManager, version 0.9.9.0, document NetworkManager
 #: ../src/gnome-abrt:229
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
+# translation auto-copied from project subscription-manager, version 1.10.7, document keys
 #: ../src/gnome-abrt:248
 msgid "_Preferences"
-msgstr ""
+msgstr "_Preferenze"
 
 #: ../src/gnome-abrt:249
 msgid "_ABRT Configuration"
-msgstr ""
+msgstr "Configurazione _ABRT"
 
 #: ../src/gnome-abrt:250
 msgid "_Report problem with ABRT"
-msgstr ""
+msgstr "_Riporta un problema con ABRT"
 
+# translation auto-copied from project abrt, version 2.1.7, document abrt, author fvalen
 #: ../src/gnome-abrt:252
 msgid "_About"
-msgstr ""
+msgstr "I_nformazioni"
 
+# translation auto-copied from project anaconda, version 19.31.34, document anaconda
 #: ../src/gnome-abrt:253
 msgid "_Quit"
-msgstr ""
+msgstr "_Abbandona"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "Automatic Bug Reporting Tool"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "Visualizza e notifica i crash dell'applicazione"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"Insieme di strumenti software per la raccolta, analisi e riporto di "
+"problematiche software."
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"It's main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
+"Il suo scopo principale è quello di facilitare il processo di notifica di un "
+"problema e di identificazione di una soluzione."
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr "Impossibile aggiungere il ricevitore del segnale '{0}'al percorso del sistema DBus '{1}': {2}"
+msgstr ""
+"Impossibile aggiungere il ricevitore del segnale '{0}'al percorso del "
+"sistema DBus '{1}': {2}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr "Impossibile collegarsi al percorso '{1}' del bus del sistema DBus '{0}': {2}"
+msgstr ""
+"Impossibile collegarsi al percorso '{1}' del bus del sistema DBus '{0}': {2}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr "Impossibile ottenere l'interfaccia '{0}' sul percorso '{1}' nel bus '{2}': {3}"
+msgstr ""
+"Impossibile ottenere l'interfaccia '{0}' sul percorso '{1}' nel bus '{2}': "
+"{3}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr "Impossibile modificare il proprietario del problema '{0}' sul servizio DBus: {1!s}"
+msgstr ""
+"Impossibile modificare il proprietario del problema '{0}' sul servizio DBus: "
+"{1!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "Impossibile ottenere i dati problematici dal servizio DBus: {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "Impossibile ottenere un elenco di problemi dal servizio DBus: {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Impossibile rimuovere il problema sul servizio DBus: {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "La descrizione del problema è troppo corta"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr ""
+"Per avere informazioni più utili non sono accettati riporti con una "
+"descrizione con un numero minore a 10 lettere. "
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "Il sommario del problema è troppo corto"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr ""
+"Per avere informazioni più utili non sono accettati riporti con un sommario "
+"composto da un numero minore a 10 lettere. "
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "Descrizione problema"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "Sommario:"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "In_via"
 
-#. Sets text but text is selected :)
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "Un problema con ABRT"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
+"Probabilmente hai raggiunto il limite di inotify sul numero di consultazioni "
+"in '{0}'. È possibile aumentare il limite tramite una configurazione "
+"corretta di inotify. Per maggiori informazioni consultare man inotify(7). "
+"Con questo evento non sarà possibile avere notifiche sulle modifiche "
+"relative ai dati che si verificano esternamente a questa applicazione. "
+"Questo evento non riguarda altre funzionalità. "
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "Impossibile aprire la directory: '{0}'"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "(_D) Cancella"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
 msgstr "Cancella i problemi selezionati"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
 msgstr "_Riporta"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
 msgstr "Invia il problema selezionato"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "Anali_zza"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Apri il problema selezionato per una analisi"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "_Tutti i problemi"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "Mostra tutti i problemi conosciuto di tutti gli utenti del sistema"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Apri la directory dei dati del problema"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr ""
+"Apre la directory dei dati del problema selezionata nel browser del file "
+"system predefinito"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "_Copia ID del problema negli appunti"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "Archivi l'ID del problema selezionato negli appunti"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
 msgstr "App"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "Data"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "Nome"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "Versione"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "Rilevato"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "Riportato"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "Nessun problema rilevato!"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "Nessun sorgente selezionato!"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "Nessun sorgente"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "Non presente nella cache ma cancellato: {0}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
 msgstr "Futuri"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
 msgstr "Ieri"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
 msgstr "settimana"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
 msgstr "mese"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
 msgstr "anno"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
 msgstr "Ultimo {0!s}"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s fa"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "Caricamento definizione UI fallito"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr "N/A"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr "crash"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "È stato rilevato {0} problema"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "impossibile da riportare"
 
+# translation auto-copied from project Red Hat Subscription Asset Manager, version 1.0, document Administration, author fvalen
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "Riporti"
 
-#: ../src/gnome_abrt/views.py:688
-msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
-
-#: ../src/gnome_abrt/views.py:693
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
+#: ../src/gnome_abrt/views.py:685
 msgid "yes"
 msgstr "si"
 
-#: ../src/gnome_abrt/views.py:695
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
+#: ../src/gnome_abrt/views.py:687
 msgid "no"
 msgstr "no"
 
+# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author fvalen
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
 msgstr ""
+"Impossibile eseguire l'azione richiesta a causa della presenza di un errore "
+"nella creazione di un nuovo processo"

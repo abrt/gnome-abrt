@@ -92,13 +92,10 @@ def problem_to_storage_values(problem):
 
     if app.name:
         name = app.name
-        typ = problem['type']
+        typ = problem['human_type']
     else:
-        name = problem['type']
+        name = problem['human_type']
         typ = ""
-
-    if typ == "CCpp":
-        typ = "C/C++"
 
     return ["{0!s}\n{1!s}".format(smart_truncate(name, length=40), typ),
             "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
@@ -653,7 +650,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 # If Application's name is unknown, display neutral
                 # header "'Type' problem has been detected":
                 #  Kerneloops problem has been detected
-                #  CCpp problem has been detected
+                #  C/C++ problem has been detected
                 #  Python problem has been detected
                 #  Ruby problem has been detected
                 #  VMCore problem has been detected
@@ -661,7 +658,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 #  Java problem has been detected
                 self._builder.lbl_reason.set_text(
                         _("{0} problem has been detected").format(
-                                problem['type']))
+                                problem['human_type']))
 
             self._builder.lbl_app_version_value.set_text(
                         problem['package'] or _("N/A"))

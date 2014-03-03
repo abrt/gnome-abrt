@@ -177,6 +177,8 @@ class Problem(object):
             return self.is_reported()
         elif item == 'submission':
             return self.get_submission()
+        elif item == 'human_type':
+            return self.get_human_type()
 
         if cached and item in self.data:
             retval = self.data[item]
@@ -219,6 +221,13 @@ class Problem(object):
 
     def is_reported(self):
         return not self['reported_to'] is None
+
+    def get_human_type(self):
+        typ = self['type']
+        if typ == "CCpp":
+            return "C/C++"
+
+        return typ
 
     def assure_ownership(self):
         return self.source.chown_problem(self.problem_id)

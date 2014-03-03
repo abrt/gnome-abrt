@@ -58,3 +58,10 @@ def fancydate(value, base_date=None):
         return _("Last {0!s}").format(name)
 
     return _("{0:d} {1!s}s ago").format(offset, name)
+
+
+def smart_truncate(content, length=100, suffix='...'):
+    if len(content) <= length:
+        return content
+    else:
+        return content[:length].rsplit(' ', 1)[0] + suffix

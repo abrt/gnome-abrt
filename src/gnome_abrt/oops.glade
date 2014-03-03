@@ -209,8 +209,11 @@
                         <child>
                           <object class="GtkTreeViewColumn" id="tvc_date">
                             <property name="title" translatable="yes">Date</property>
+                            <property name="alignment">1</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext3">
+                                <property name="xpad">10</property>
+                                <property name="xalign">1</property>
                                 <property name="alignment">right</property>
                               </object>
                               <attributes>

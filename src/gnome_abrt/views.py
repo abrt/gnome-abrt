@@ -37,7 +37,7 @@ import gnome_abrt.config as config
 import gnome_abrt.wrappers as wrappers
 import gnome_abrt.errors as errors
 from gnome_abrt import GNOME_ABRT_UI_DIR
-from gnome_abrt.tools import fancydate
+from gnome_abrt.tools import fancydate, smart_truncate
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
 
@@ -97,7 +97,10 @@ def problem_to_storage_values(problem):
         name = problem['type']
         typ = ""
 
-    return ["{0!s}\n{1!s}".format(name, typ),
+    if typ == "CCpp":
+        typ = "C/C++"
+
+    return ["{0!s}\n{1!s}".format(smart_truncate(name, length=40), typ),
             "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
                                   problem['count']),
             problem]

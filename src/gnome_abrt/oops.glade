@@ -171,6 +171,7 @@
                     <property name="can_focus">True</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
+                    <property name="hscrollbar_policy">never</property>
                     <property name="shadow_type">in</property>
                     <property name="min_content_width">300</property>
                     <child>
@@ -209,8 +210,11 @@
                         <child>
                           <object class="GtkTreeViewColumn" id="tvc_date">
                             <property name="title" translatable="yes">Date</property>
+                            <property name="alignment">1</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext3">
+                                <property name="xpad">10</property>
+                                <property name="xalign">1</property>
                                 <property name="alignment">right</property>
                               </object>
                               <attributes>
@@ -238,7 +242,7 @@
           </object>
           <packing>
             <property name="resize">False</property>
-            <property name="shrink">True</property>
+            <property name="shrink">False</property>
           </packing>
         </child>
         <child>

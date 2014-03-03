@@ -97,6 +97,9 @@ def problem_to_storage_values(problem):
         name = problem['type']
         typ = ""
 
+    if typ == "CCpp":
+        typ = "C/C++"
+
     return ["{0!s}\n{1!s}".format(smart_truncate(name, length=40), typ),
             "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
                                   problem['count']),

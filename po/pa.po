@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# asaini <asaini@redhat.com>, 2013
+# asaini <asaini@redhat.com>, 2013-2014
 # Jaswinder Singh <phulewala.j@gmail.com>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/gnome-abrt/language/pa/)\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 "Language: pa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "ਮੇਰਾ"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "ਸਿਸਟਮ"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "ਤਰਜੀਹਾਂ (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT ਸੰਰਚਨਾ (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ਮੁਸ਼ਕਿਲ ਦੀ ਸੂਚਨਾ ABRT ਨਾਲ ਦਿਉ (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "ਸੰਬੰਧਿਤ (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "ਬੰਦ ਕਰੋ (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -59,12 +59,12 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਕਰੈਸ਼ ਵੇਖੋ ਅਤੇ ਰਿਪ�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "ਸਾਫਟਵੇਅਰ ਮਾਮਲਿਆਂ ਦੇ ਸੰਗ੍ਰਿਹ, ਵਿਸ਼ਲੇਸ਼ਣ, ਅਤੇ ਸੂਚਨਾ ਲਈ ਬਣਾਏ ਗਏ ਸਾਫਟਵੇਅਰ ਸੰਦਾਂ ਦਾ ਸੰਗ੍ਰਿਹ।"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -147,7 +147,7 @@ msgstr "ਡਾਇਰੈਕਟਰੀ ਨਹੀਂ ਖੋਲ ਸਕਦਾ: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "ਮਿਟਾਉ (_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -231,7 +231,7 @@ msgstr "ਕੋਈ ਸਰੋਤ ਨਹੀਂ ਚੁਣਿਆ ਗਿਆ!"
 msgid "No source"
 msgstr "ਕੋਈ ਸਰੋਤ ਨਹੀਂ"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "ਕੈਸ਼ੇ ਵਿੱਚ ਨਹੀਂ ਲੱਭਿਆ ਪਰ ਹਟਾਇਆ ਗਿਆ ਹੈ: {0}"
 
@@ -265,7 +265,7 @@ msgstr "{0:d} {1!s}s ਪਹਿਲਾਂ"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI ਪਰਿਭਾਸ਼ਾ ਨੂੰ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -277,21 +277,21 @@ msgstr " ਨਸ਼ਟ ਹੋਇਆ"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} ਮੁਸ਼ਕਿਲ ਖੋਜ ਲਈ ਗਈ ਹੈ"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "ਸੂਚਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "ਸੂਚਨਾਵਾਂ"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "ਇਹ ਸਮੱਸਿਆ ਸੂਚਿਤ ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ, ਪਰ ਇੱਕ <i>ਬੱਗਜ਼ਿਲਾ</i> ਟਿਕਟ ਬਣਾਈ ਨਹੀਂ ਗਈ ਹੈ। ਇਸ ਸਮੱਸਿਆ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਸਾਡੇ ਵਿਕਾਸਕਾਰਾਂ ਨੂੰ ਹੋਰ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਪੈ ਸਕਦੀ ਹੈ।\nਉਹ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਈ ਬੱਗਜ਼ਿਲਾ ਤੇ ਵੀ <b>ਇਸ ਨੂੰ ਸੂਚਿਤ ਕਰਨਾ</b> ਵਿਚਾਰੋ। ਧੰਨਵਾਦ।"
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -305,4 +305,4 @@ msgstr "ਨਹੀਂ"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "ਨਵੀਂ ਕਾਰਵਾਈ ਬਣਾਉਣ ਵਿੱਚ ਗਲਤੀ ਦੇ ਕਰ ਕੇ ਬੇਨਤੀ ਕੀਤੀ ਗਈ ਕਾਰਵਾਈ ਨੂੰ ਅਮਲ ਵਿੱਚ ਲਿਆਉਣ ਵਿੱਚ ਅਸਫਲ"

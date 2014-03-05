@@ -4,14 +4,14 @@
 # 
 # Translators:
 # sandeeps <sshedmak@redhat.com>, 2011-2012
-# sandeeps <sshedmak@redhat.com>, 2013
+# sandeeps <sshedmak@redhat.com>, 2013-2014
 # sandeeps <sshedmak@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/gnome-abrt/language/mr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,33 +20,33 @@ msgstr ""
 "Language: mr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "माझे"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "प्रणाली"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "पसंती (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT संरचना (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT सह अडचण कळवा (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "विषयी (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "बाहेर पडा (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -64,9 +64,9 @@ msgstr "सॉफ्टवेअर अडचणींना गोळा कर
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
-msgstr "त्याचे मुख्य उद्देश अडचण सादर करण्याची प्रक्रिया आणि पर्याय शोधणे सोपी करणे आहे."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -232,7 +232,7 @@ msgstr "कोणतेही स्रोत निवडले नाही!"
 msgid "No source"
 msgstr "स्रोत नाही"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "कॅशेमध्ये आढळले नाही परंतु नष्ट केले: {0}"
 
@@ -266,7 +266,7 @@ msgstr "{0:d} {1!s} अगोदर"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI वर्णन लोड करण्यास अपयशी"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -292,7 +292,7 @@ msgstr "अहवाल"
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "ह्या अडचणीची नोंद झाली आहे, परंतु <i>बगजिला</i> तिकीट उघडले गेले नाही. अडचणीच्या निवारणकरिता आमच्या डेव्हलपर्सना अधिक माहितीची आवश्यकता असू शकते.\nमाहिती पुरवण्याकरिता कृपया त्याला बगजिलामध्ये <b>नोंदविण्याची</b> खात्री करा. धन्यवाद."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"

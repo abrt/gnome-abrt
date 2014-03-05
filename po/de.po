@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Fabian Affolter <fab@fedoraproject.org>, 2011
-# hpeters <hpeters@redhat.com>, 2013
+# hpeters <hpeters@redhat.com>, 2013-2014
 # hpeters <hpeters@redhat.com>, 2011-2012
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Laurin <lineak@fedoraproject.org>, 2011
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/gnome-abrt/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -24,33 +24,33 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "Mein"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "System"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "_Präferenzen"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "_ABRT Konfiguration"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "Ein P_roblem mit ABRT melden"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "_Info"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "_Beenden"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -64,12 +64,12 @@ msgstr "Applikationsabstürze ansehen und melden"
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "Sammlung von Software-Tools konzipiert zur Erfassung, Analyse und Berichterstattung von Software-Problemen."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -102,40 +102,40 @@ msgstr "Fehler kann nicht über DBus-Dienst gelöscht werden: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "Die Beschreibung des Problemes ist zu kurz"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "Um aussagekräftigere Berichte zu erhalten akzeptieren wir keine Berichte in denen die Beschreibung kürzer als 10 Buchstaben ist."
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "Die Zusammenfassung des Problemes ist zu kurz"
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "Um aussagekräftigere Berichte zu erhalten akzeptieren wir keine Berichte in denen die Zusammenfassung kürzer als 10 Buchstaben ist."
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "Problem-Beschreibung"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "Zusammenfassung:"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "_Senden"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "Ein Problem mit ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
@@ -144,7 +144,7 @@ msgid ""
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "Sie haben wahrscheinlich inotify's Begrenzung der Anzahl der Überwachungen in '{0}' erreicht. Der Grenzwert kann durch die richtige Konfiguration von inotify erhöht werden. Für weitere Informationen siehe die man-Seite inotify(7). Dieses Ereignis bewirkt, dass Sie nicht über Änderungen in Problemdaten  unterrichtet werden, die außerhalb von dieser Anwendung geschehen. Dieses Ereignis hat keinerlei Einfluss auf andere Funktionen."
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
@@ -152,7 +152,7 @@ msgstr "Verzeichnis kann  nicht geöffnet werden: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_Löschen"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -168,11 +168,11 @@ msgstr "Berichtet ausgewählten Fehler"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "Analy_sieren"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Ausgewähltes Problem für Analyse öffnen"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -184,21 +184,21 @@ msgstr "Alle bekannten Fehler für alle Systembenutzer anzeigen"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Öffnen Daten-Verzeichnis des Problems"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "Öffnet das Daten-Verzeichnis des ausgewählten Problems im Standard Datei-System Browser"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "ID des Problems in Zwischenablage _kopieren"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "Speichert die ID des ausgewählten Problems in der Zwischenablage"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
@@ -218,7 +218,7 @@ msgstr "Version"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "Festgestellt"
 
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
@@ -226,17 +226,17 @@ msgstr "Berichtet"
 
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "Keine Probleme festgestellt!"
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "Kein Quelle festgelegt!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "Keine Quelle"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "Nicht im Cache gefunden sondern gelöscht: {0}"
 
@@ -270,7 +270,7 @@ msgstr "vor {0:d} {1!s}s"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "Fehler beim Laden der UI Definition"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -282,21 +282,21 @@ msgstr "abgestürzt"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} Problem wurde festgestellt"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "kann nicht berichtet werden"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "Berichte"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "Das Problem wurde gemeldet, aber es wurde kein <i>Bugzilla</i> Ticket geöffnet. Unsere Entwickler brauchen vielleicht mehr Informationen, um das Problem zu beheben.\nBitte ziehen Sie eine <b>Berichterstattung</b> in Bugzilla in Betracht, um ihnen zu helfen. Danke."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -310,4 +310,4 @@ msgstr "nein"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "Konnte die angeforderte Aktion nicht auszuführen, da ein Fehler in der Erstellung neuer Prozesse aufgetreten ist"

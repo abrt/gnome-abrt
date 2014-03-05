@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Oriya (http://www.transifex.com/projects/p/gnome-abrt/language/or/)\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 "Language: or\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "ମୋର"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "ତନ୍ତ୍ର"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "ପସନ୍ଦ (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT  ବିନ୍ଯାସ (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT ସହିତ ସମସ୍ୟାକୁ ଖବର କରନ୍ତୁ (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "ବିବରଣୀ (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "ବିଦାୟ ନିଅନ୍ତୁ (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -59,12 +59,12 @@ msgstr "ପ୍ରୟୋଗ ନଷ୍ଟଗୁଡ଼ିକୁ ଦେଖନ୍ତ�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "ସଫ୍ଟୱେର ସମସ୍ୟାଗୁଡ଼ିକର ସଂଗ୍ରହା, ବିଶ୍ଳେଷଣ ଏବଂ ଖବର କରିବା ପାଇଁ ସଫ୍ଟୱେର ସାଧନଗୁଡ଼ିକର ସଂଗ୍ରହକୁ ରଚାଯାଇଥାଏ।"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -147,7 +147,7 @@ msgstr "ବିବରଣୀପଞ୍ଜିକା ଖୋଲାହୋଇପାର�
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "ଅପସାରଣ କରନ୍ତୁ (_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -231,7 +231,7 @@ msgstr "କୌଣସି ଉତ୍ସ ବଛା ହୋଇନାହିଁ!"
 msgid "No source"
 msgstr "କୌଣସି ଉତ୍ସ ନାହିଁ"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "କ୍ୟାଶେ ମଧ୍ଯରେ ମିଳିଲା ନାହିଁ କିନ୍ତୁ ଅପସାରିତ ହୋଇଛି: {0}"
 
@@ -265,7 +265,7 @@ msgstr "{0:d} {1!s} ପୂର୍ବେ"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI  ସଂଜ୍ଞା ଧାରଣ କରିବାରେ ଅସଫଳ"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -277,21 +277,21 @@ msgstr "ଅଚଳ ହୋଇଗଲା"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} ସମସ୍ଯା ଦେଖା ଦେଇଛି"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "ଖବର କରାଯାଇ ପାରିବ ନାହିଁ"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "ବିବରଣୀଗୁଡ଼ିକ"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "ଏହି ସମସ୍ୟା ଏପର୍ଯ୍ୟନ୍ତ <i>Bugzilla</i> ରେ ଖବର କରାଯାଇ ନାହିଁ। ସମସ୍ୟାର ସମାଧାନ ପାଇଁ ଆମର ବିକାଶକାରୀ ହୁଏତଃ ଅଧିକ ସୂଚନା ଆବଶ୍ୟକ କରିପାରନ୍ତି।\nସେହି ତଥ୍ୟ ପ୍ରଦାନ କରିବା ପାଇଁ ଦୟାକରି ଏହାକୁ Bugzilla ରେ ମଧ୍ଯ <b>ଖବର କରନ୍ତୁ</b>। ଆପଣଙ୍କୁ ଧନ୍ୟବାଦ।"
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -305,4 +305,4 @@ msgstr "ନାଁ"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "ନୂତନ ଏକ ପ୍ରକ୍ରିୟା ନିର୍ମାଣରେ ତୃଟି ହେତୁ ଅନୁରୋଧ କରାଯାଇଥିବା କାର୍ଯ୍ୟକୁ ନିଷ୍ପାଦନ କରିବାରେ ବିଫଳ ହୋଇଛି"

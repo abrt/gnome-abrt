@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Yulia <ypoyarko@redhat.com>, 2011-2012
-# Yulia <yulia.poyarkova@redhat.com>, 2013
+# Yulia <yulia.poyarkova@redhat.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/gnome-abrt/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "Мои"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "Система"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "_Параметры"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "_Конфигурация ABRT"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "Сообщить об  _ошибке ABRT"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "_О программе"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "В_ыход"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -59,12 +59,12 @@ msgstr "Просмотреть сбои и создать отчет"
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "Коллекция программ для сбора информации, анализа и создания отчетов об ошибках."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -97,40 +97,40 @@ msgstr "Не удалось удалить проблему службы DBus: {
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "Слишком короткое описание проблемы"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "Отчеты, в которых описание проблемы составляет меньше 10 знаков, не принимаются."
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "Слишком короткая сводка"
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "Отчеты, в которых сводка  составляет меньше 10 знаков, не принимаются."
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "Описание"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "Сводка:"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "_Отправить"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "Ошибка ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
@@ -139,7 +139,7 @@ msgid ""
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "Возможно, достигнуто ограничение inotify на число отслеживаемых объектов в «{0}». Это ограничение можно увеличить в настройках inotify (см. справочную страницу inotify(7)). В противном случае вы не сможете узнавать об изменениях данных проблем, происходящих за пределами приложения. Другая функциональность не будет затронута."
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
@@ -147,7 +147,7 @@ msgstr "Не удалось открыть каталог: «{0}»"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_Удалить"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -163,11 +163,11 @@ msgstr "Отправляет отчет о выбранной проблеме"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "_Анализ"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Открыть проблему для анализа"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -179,21 +179,21 @@ msgstr "Показать проблемы для всех пользовател
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Открыть каталог проблемы"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "Открывает каталог данных выбранной проблемы в менеджере файлов"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "_Скопировать ID ошибки в буфер"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "Копирует идентификатор выбранной проблемы в буфер обмена"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
@@ -213,7 +213,7 @@ msgstr "Версия"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "Обнаружено"
 
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
@@ -221,17 +221,17 @@ msgstr "Отправлено"
 
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "Ошибки не обнаружены."
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "Источник не выбран."
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "Нет источника"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "Не найдено в кэше, но удалено: {0}"
 
@@ -265,7 +265,7 @@ msgstr "{0:d} {1!s} назад"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "Не удалось загрузить определение интерфейса пользователя."
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -277,21 +277,21 @@ msgstr "сбой"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "Обнаружена {0} проблема."
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "не может быть добавлен в отчет"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "Отчеты"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "Для этой ошибки нет отчета в <i>Bugzilla</i>. Чтобы помочь разработчикам, создайте отчет. Спасибо!"
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -305,4 +305,4 @@ msgstr "нет"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "Не удалось выполнить действие: ошибка при создании нового процесса."

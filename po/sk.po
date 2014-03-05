@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/gnome-abrt/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
 msgstr ""
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
 msgstr ""
 
-#: ../src/gnome-abrt:248
+#: ../src/gnome-abrt:250
 msgid "_Preferences"
 msgstr ""
 
-#: ../src/gnome-abrt:249
+#: ../src/gnome-abrt:251
 msgid "_ABRT Configuration"
 msgstr ""
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:252
 msgid "_Report problem with ABRT"
 msgstr ""
 
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:254
 msgid "_About"
 msgstr ""
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:255
 msgid "_Quit"
 msgstr ""
 
@@ -61,8 +61,8 @@ msgstr ""
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -229,7 +229,7 @@ msgstr ""
 msgid "No source"
 msgstr ""
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr ""
 

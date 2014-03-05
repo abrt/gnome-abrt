@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Malayalam (http://www.transifex.com/projects/p/gnome-abrt/language/ml/)\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 "Language: ml\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "എന്റെ"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "സിസ്റ്റം"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "മുന്‍_ഗണനകള്‍"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "_എബിആര്‍റ്റി ക്രമീകരണം"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "എബിആര്‍റ്റിയില്‍ പ്രശ്നം രേ_ഖപ്പെടുത്തുക"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "സം_ബന്ധിച്ചു് "
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "പു_റത്തു് കടക്കുക"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -59,12 +59,12 @@ msgstr "പ്രയോഗത്തിന്റെ തകരാറുകള്�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "സോഫ്റ്റ്‌വെയര്‍ പ്രശ്നങ്ങള്‍ ശേഖരിയ്ക്കുന്നതിനും നിരീക്ഷിയ്ക്കുന്നതിനും രേഖപ്പെടുത്തുന്നതിനുമുള്ള സോഫ്റ്റ്‌വെയര്‍ പ്രയോഗങ്ങളുടെ ശേഖരം."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -147,7 +147,7 @@ msgstr "ഡയറക്ടറി തുറക്കുവാന്‍ സാധ�
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_വെട്ടി മാറ്റുക"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -231,7 +231,7 @@ msgstr "ഒരു ശ്രോതസ്സും തെരഞ്ഞെടുത�
 msgid "No source"
 msgstr "ശ്രോതസ്സ് ലഭ്യമല്ല"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "കാഷില്‍ ലഭ്യമല്ല, പക്ഷേ വെട്ടി നീക്കിയിരിയ്ക്കുന്നു: {0}"
 
@@ -265,7 +265,7 @@ msgstr "{0:d} {1!s}s മുമ്പു്"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "യുഐ വിവരണം ലഭ്യമാക്കുന്നതില്‍ പരാജയം"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -277,21 +277,21 @@ msgstr "തകരാറും സംഭവിച്ചു"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} പ്രശ്നം കണ്ടുപിടിച്ചിരിയ്ക്കുന്നു"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "രേഖപ്പെടുത്തുവാന്‍ സാധ്യമല്ല"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "രേഖകള്‍"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "ഈ പ്രശ്നം  രേഖപ്പെടുത്തിയിരിയ്ക്കുന്നു, എന്നാല്‍ <i>ബഗ്സിലയില്‍</i> ടിക്കറ്റ് ഇതുവരെ തുറന്നിട്ടില്ല. ഇതു് പരിഹരിയ്ക്കുന്നതിനായി ഡവലപ്പര്‍മാര്‍ക്കു് കൂടുതല്‍ വിവരങ്ങള്‍ ആവശ്യമാവാം.\nദയവായി <b>ഇതു് രേഖപ്പെടുത്തുവാന്‍</b> ബഗ്സില ഉപയോഗിയ്ക്കുക. നന്ദി!"
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -305,4 +305,4 @@ msgstr "ഇല്ല"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "പുതിയ പ്രക്രിയ തയ്യാറാക്കുന്നതിലുള്ള ഒരു പിശക് കാരണം ആവശ്യപ്പെട്ട പ്രവര്‍ത്തി നടപ്പിലാക്കുന്നതില്‍ പരാജയം."

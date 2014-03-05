@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014
 # Domingo Becker <domingobecker@gmail.com>, 2011
 # Claudio Rodrigo Pereyra Diaz <elsupergomez@gmail.com>, 2011
 # Dennis Tobar <dennis.tobar@gmail.com>, 2011
@@ -15,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/gnome-abrt/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -25,118 +26,118 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "Mi"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "Sistema"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "Configuración de _ABRT"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "_Informar del problema con ABRT"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "_Acerca de"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "_Salir"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
-msgstr "Informe de Errores Automático"
+msgstr "Informe de errores automático"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
-msgstr "Ver e informar sobre la caída de la aplicación"
+msgstr "Vea e informe de cuelgues de aplicaciones"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "Colección de herramientas de software diseñadas para recopilar, analizar e informar de problemas de software."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr "No  se  puede añadir receptor de señal  '{0}' en ruta de sistema DBus  '{1}': {2}"
+msgstr "No se puede añadir el receptor de señal «{0}» en la ruta de sistema de DBus {1}»: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr "No  se  puede conectar el bus del sistema DBus '{0}' ruta '{1}': {2}"
+msgstr "No se puede conectar la ruta «{1}» del bus de sistema de DBus «{0}»: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr "No  se  puede obtener interfaz '{0}' en ruta '{1}' en bus '{2}': {3}"
+msgstr "No se puede obtener la interfaz «{0}» en la ruta «{1}» del bus «{2}»: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "No se puede cambiar de propietario del problema '{0}' sobre el servicio DBus: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr "No  se  pueden obtener  datos del problema del servicio DBus: {0!s}"
+msgstr "No se pueden obtener datos del problema del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr "No  se  puede obtener lista de problemas del servicio DBus: {0!s}"
+msgstr "No se puede obtener lista de problemas del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr "No  se  puede borrar problema del servicio DBus: {0!s}"
+msgstr "No se puede eliminar el problema por el servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "La descripción del problema es demasiado corta."
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "Para obtener informes más útiles no se aceptan reportes con una descripción de menos de 10 letras."
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "El resumen del problema es demasiado corto."
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "Para obtener informes más útiles no se aceptan reportes con un resumen de menos de 10 letras."
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "Descripción del problema"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "Resumen:"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "_Enviar"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "Un problema con ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
@@ -145,35 +146,35 @@ msgid ""
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "Probablemente alcanzó el límite de inotify en el número de veces en '{0}'. El límite puede aumentar mediante la correcta configuración de inotify. Para obtener mayor información vaya a man inotify(7). Este evento hará que usted no sea notificado sobre los cambios en los datos del problema que se sucedan fuera de esta aplicación. Este evento no afecta ninguna otra funcionalidad."
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
-msgstr "No se puede abrir directorio: '{0}'"
+msgstr "No se puede abrir directorio: «{0}»"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_Eliminar"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr "Borrar problemas  seleccionados"
+msgstr "Eliminar problemas seleccionados"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "_Reportar"
+msgstr "_Informar"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr "Enviar problemas seleccionados"
+msgstr "Envía el problema seleccionado"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "Anali_zar"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Abrir el problema seleccionado para análisis"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -185,21 +186,21 @@ msgstr "Mostrar todos los problemas conocidos de todos los usuarios del sistema"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Abrir el directorio de datos del problema"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "Abre el directorio de datos del problema en el navegador del sistema de archivos predeterminado"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "_Copiar id. del problema en el portapapeles"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "Copia el id. del problema seleccionado en el portapapeles"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
@@ -219,25 +220,25 @@ msgstr "Versión"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "Detectado"
 
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
-msgstr "Reportado "
+msgstr "Informado"
 
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "No se detectaron problemas!"
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "¡No seleccionó ninguna fuente!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "Sin fuente"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "No  se encontró en cache pero fue borrada: {0}"
 
@@ -251,15 +252,15 @@ msgstr "Ayer"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
-msgstr "Semana"
+msgstr "semana"
 
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
-msgstr "Mes"
+msgstr "mes"
 
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
-msgstr "Año"
+msgstr "año"
 
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
@@ -267,11 +268,11 @@ msgstr "Último {0!s}"
 
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
-msgstr "Hace {0:d} {1!s}"
+msgstr "Hace {0:d} {1!s}s"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "Falló al cargar definición de IU"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -283,25 +284,25 @@ msgstr "Se colgó "
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "Se ha detectado {0} problema"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "no se puede informar"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "Informes"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "Se ha informado de este problema, pero no se ha abierto una incidencia en <i>Bugzilla</i>. Puede que nuestros desarrolladores necesiten más información para corregir el problema.\nConsidere proporcionar estos datos <b>creando un informe</b> en Bugzilla. Gracias."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
-msgstr "Sí"
+msgstr "sí"
 
 #: ../src/gnome_abrt/views.py:695
 msgid "no"
@@ -311,4 +312,4 @@ msgstr "No"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "Falló al ejecutar la acción solicitada debido a un error en el nuevo proceso de creación"

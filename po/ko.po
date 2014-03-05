@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/gnome-abrt/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -22,33 +22,33 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "내"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "시스템 "
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "환경 설정 (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT 설정 (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT 관련 문제 보고 (_R) "
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "종료(_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -62,12 +62,12 @@ msgstr "애플리케이션 크래시를 확인 및 보고함"
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "소프트웨어 문제 수집, 분석, 보고를 위해 고안된 소프트웨어 도구 모음입니다."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -84,7 +84,7 @@ msgstr "버스 '{2}'의 경로 '{1}'에서 인터페이스 '{0}'를 얻을 수 �
 
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "DBus 서비스에서 문제 '{0}'에 chown 할 수 없습니다: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
@@ -100,40 +100,40 @@ msgstr "DBus 서비스를 통해 문제를 삭제할 수 없습니다: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "문제에 대한 설명이 너무 짧습니다"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "보다 자세한 리포트를 위해 문제에 대한 설명은 최소한 10글자 이상 작성해주시기 바랍니다."
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "문제 요약 정보가 너무 짧습니다"
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "보다 자세한 리포트를 위해 문제에 대한 요약 설명은 최소한 10 글자 이상 작성해주시기 바랍니다."
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "문제 설명"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "요약:"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "보내기(_S)"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "ABRT 관련 문제"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
@@ -142,7 +142,7 @@ msgid ""
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "inotify가 '{0}'에서 사용 가능한 감시(watch) 횟수를 넘었습니다. inotify의 설정에서 제한수를 늘리기 가능합니다. 보다 자세한 정보를 원하시면 man inotify(7)를 참조하시기 바랍니다. 이 이벤트의 문제는 이 응용 프로그램 외부에서 일어나는 문제 데이터의 변경 사항은 통보하지 않는다는 점입니다. 이 이벤트는 다른 기능에는 영향을 주지 않습니다."
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
@@ -150,7 +150,7 @@ msgstr "디렉토리를 열 수 없습니다: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "삭제(_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -166,11 +166,11 @@ msgstr "선택한 문제 제출 "
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "분석하기(_Z)"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "분석을 위해 선택된 문제를 엽니다"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -182,21 +182,21 @@ msgstr "모든 시스템 사용자의 알려진 문제 모두 보기 "
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "문제의 데이터 디렉토리 열기(_O)"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "선택한 문제의 데이터 디렉토리를 기본 파일 시스템 브라우저로 엽니다"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "문제 ID를 클립보드로 복사(_C)"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "선택된 문제 ID를 클립보드에 저장"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
@@ -216,7 +216,7 @@ msgstr "버전 "
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "발견됨"
 
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
@@ -224,17 +224,17 @@ msgstr "보고됨 "
 
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "아무런 문제도 발견되지 않았습니다!"
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "선택된 소스가 없습니다!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "소스 없음"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "캐시에서 찾을 수 없으나 제거되었습니다: {0}"
 
@@ -268,7 +268,7 @@ msgstr "{0:d} {1!s} 전 "
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI 정의를 불러오는데 실패했습니다 "
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -280,21 +280,21 @@ msgstr "충돌 "
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} 문제가 감지되었습니다 "
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "보고할 수 없습니다 "
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "보고서"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "이 문제가 보고되었습니다만 <i>Bugzilla</i> 티켓이 오픈되지 않았습니다. 문제를 해결하기 위해 개발자에게 더 많은 정보가 필요할 수 있습니다.\n더 많은 정보를 제공하기 위해 Bugzilla에 <b>보고</b>하는 것을 고려하시기 바랍니다. 감사합니다."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -308,4 +308,4 @@ msgstr "아니요 "
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "새로운 프로세스를 생성하는 동안 오류가 발생하여 요청한 동작을 실행할 수 없습니다"

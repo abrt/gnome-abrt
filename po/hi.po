@@ -6,13 +6,14 @@
 # Rajesh Ranjan <rranjan@redhat.com>, 2011-2013
 # Rajesh Ranjan <rranjan@redhat.com>, 2013
 # Rajesh <rranjan>, 2011
+# s <s>, 2014
 # zz <zz>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/gnome-abrt/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -21,33 +22,33 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "मेरा"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "तंत्र"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "वरीयताएँ (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT विन्यास (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT के साथ समस्या की रिपोर्ट करें (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "परिचय (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "बाहर (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -61,12 +62,12 @@ msgstr "अनुप्रयोग क्रैश को देखें औ�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "सॉफ़्टवेयर मुद्दे के संग्रहण, विश्लेषण और रिपोर्टिंग के लिए सॉफ़्टवेयर औज़ार का संग्रह."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -149,7 +150,7 @@ msgstr "निर्देशिका खोल नहीं सकता ह�
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "मिटाएँ (_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -227,13 +228,13 @@ msgstr "कोई समस्या नहीं मिली!"
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "कोई स्रोत नहीं चुना गया!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "कोई स्रोत नहीं"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "कैश में नहीं मिला लेकिन मिटा दिया गया {0}"
 
@@ -267,7 +268,7 @@ msgstr "{0:d} {1!s}s पहले"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "यूआइ परिभाषा लोड करने में असफल"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -279,21 +280,21 @@ msgstr "क्रैश"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} समस्या आयी"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "रिपोर्ट नहीं किया जा सकता है"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "रिपोर्ट"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "यह समस्या रिपोर्ट किया गया है लेकिन <i>बगज़िला</i> टिकट खोला नहीं गया है. समस्या को ठीक करने के लिए हमारे डेवलेपर को अधिक सूचना चाहिए.\nकृपया <b>इसे रिपोर्ट करने</b> की सोचें - आप उनकी मदद कर सकते हैं. आपका शुक्रिया."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -307,4 +308,4 @@ msgstr "नहीं"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "नयी प्रक्रिया निर्माण में किसी त्रुटि के कारण निवेदित क्रिया के निष्पादन में विफल"

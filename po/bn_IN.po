@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/projects/p/gnome-abrt/language/bn_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -20,33 +20,33 @@ msgstr ""
 "Language: bn_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "অামার"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "সিস্টেম"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "পছন্দ (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "_ABRT কনফিগারেশন"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT এর সমস্যার বিষয়ে জানান (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "সম্বন্ধে (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "প্রস্থান করুন (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -60,12 +60,12 @@ msgstr "অ্যাপ্লিকেশনের বিপর্যয় সং�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "সফ্টওয়্যার জনিত সমস্যা সংগ্রহ, বিশ্লেষণ এবং প্রতিবেদন করার জন্য পরিকল্পিত সফ্টওয়্যার সরঞ্জামের সংগ্রহ।"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -82,7 +82,7 @@ msgstr "'{0}' ইন্টারফেসটি '{1}' পাথে মধ্য�
 
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "Can't chown problem '{0}' over DBus service: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
@@ -98,40 +98,40 @@ msgstr "DBus পরিসেবার মাধ্যমে সমস্যা �
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "সমস্যার বিস্তারিত অত্যন্ত অপর্যাপ্ত"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
+msgstr "অারো উপযোগী রিপোর্ট পেতে অামরা ১০ অক্ষরের থেকে সংক্ষিপ্ত বর্ণনা বিশিষ্ট রিপোর্ট গ্রহণ করি না।"
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "সমস্যার সারাংশ অত্যন্ত অপর্যাপ্ত"
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
+msgstr "অারো উপযোগী রিপোর্ট পেতে অামরা ১০ অক্ষরের থেকে সারাংশ বিশিষ্ট রিপোর্ট গ্রহণ করি না।"
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "সমস্যার বর্ণনা"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "সারাংশ:"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "পাঠান (_S)"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "ABRT এ কোনো সমস্যা হয়েছে"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
@@ -140,7 +140,7 @@ msgid ""
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
+msgstr "অাপনি সম্ভবতঃ '{0}' এ দেখার সংখ্যার ক্ষেত্রে inotify এর সর্বোচ্চ সীমায় পৌঁছে গেছেন। সর্বোচ্চ সীমা inotify এর যথাযথ কনফিগারেশনের মাধ্যমে বাড়ানো যেতে পারে। বিস্তারিত জানতে man inotify(7) দেখুন। এই ইভেন্টের কারণে অাপনি এই অ্যাপ্লিকেশনের বাইরে ঘটা সমস্যা ডেটার পরিবর্তনের বিযয়ে অাপনাকে জানানো হবে না। এই ইভেন্ট অন্য কোনো বৈশিষ্ট্যকে প্রভাবিত করে না।"
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
@@ -148,7 +148,7 @@ msgstr "{0} খুলতে ব্যর্থ: {1}"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "মুছুন (_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -164,11 +164,11 @@ msgstr "নির্বাচিত সমস্যাগুলি দায়ে�
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "বিশ্লেষণ করুন (_z)"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "বিশ্লেষণের জন্য নির্বাচিত সমস্যাগুলি খুলুন"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
@@ -180,21 +180,21 @@ msgstr "সকল সিস্টেম ব্যবহারকারীদে�
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "সমস্যার ডেটা ডিরেক্টরি খুলুন (_O)"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "নির্বাচিত সমস্যার ডেটা ডিরেক্টরি ডিফল্ট ফাইল সিস্টেম ব্রাউজারে খোলে"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "সমস্যার অাইডি ক্লিপবোর্ডে অনুলিপি করুন (_C)"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "নির্বাচিত সমস্যার অাইডি ক্লিপবোর্ডে সঞ্চয় করা হয়"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
@@ -214,7 +214,7 @@ msgstr "সংস্করণ"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "সনাক্ত করা হয়েছে"
 
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
@@ -222,17 +222,17 @@ msgstr "রিপোর্ট করা হয়েছে"
 
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "কোনো সমস্যা সনাক্ত করা হয়নি!"
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "কোনো সোর্স নির্বাচন করা হয়নি!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "কোনো সোর্স নেই"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "ক্যাশেতে পাওয়া যায়নি কিন্তু মুছে ফেলা হয়েছে: {0}"
 
@@ -266,7 +266,7 @@ msgstr "{0:d} {1!s}s পূর্বে"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI সংজ্ঞা লোড করতে ব্যর্থ"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -278,21 +278,21 @@ msgstr "বিপর্যস্ত"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} সমস্যা সনাক্ত করা হয়েছে"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "রিপোর্ট করা যাবে না"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "রিপোর্টগুলি"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "এই সমস্যার বিষয়টি জানানো হয়েছে, কিন্তু কোনো <i>Bugzilla</i> টিকিট খোলা হয়নি। সমস্যার সমাধান করতে অামাদের ডেভেলপারদের অারো তথ্যের প্রয়োজন হতে পারে।\nদয়া করে অারো তথ্য প্রদান করতে তা Bugzilla তেও <b>জানানোর কথা</b> বিবেচনা করুন। ধন্যবাদ।"
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -306,4 +306,4 @@ msgstr "না"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "নতুন প্রক্রিয়া তৈরিতে একটি ত্রুটির কারণে অনুরোধ জানানো কাজ করা যায়নি"

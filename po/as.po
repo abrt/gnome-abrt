@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Amitakhya Phukan <aphukan@fedoraproject.org>, 2012
-# ngoswami <ngoswami@redhat.com>, 2011-2013
+# ngoswami <ngoswami@redhat.com>, 2011-2014
 # ngoswami <ngoswami@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Assamese (http://www.transifex.com/projects/p/gnome-abrt/language/as/)\n"
 "MIME-Version: 1.0\n"
@@ -20,33 +20,33 @@ msgstr ""
 "Language: as\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "মোৰ"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "চিস্টেম"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "পছন্দসমূহ (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT সংৰূপ (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT ৰ সৈতে সমস্যাৰ সংবাদন কৰক (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "বিষয়ে (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "প্ৰস্থান কৰক (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -60,12 +60,12 @@ msgstr "এপ্লিকেচন স্খলনসমূহ চাওক আ
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "চফ্টৱেৰৰ সমস্যাবোৰ সংগ্ৰহ, বিশ্লেষণ আৰু সংবাদন কৰিবলৈ চফ্টৱেৰ সঁজুলিসমূহৰ সংগ্ৰহ।"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -148,7 +148,7 @@ msgstr "{0} খোলিব নোৱাৰি: {1}"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "মচি পেলাওক (_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -232,7 +232,7 @@ msgstr "কোনো উৎস নিৰ্বাচন কৰা হোৱা �
 msgid "No source"
 msgstr "কোনো উৎস নাই"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "ক্যাশত পোৱা নগল কিন্তু মচি পেলোৱা হল: {0}"
 
@@ -266,7 +266,7 @@ msgstr "{0:d} {1!s}s আগত"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI ৰ বিৱৰণ ল'ড কৰিবলৈ ব্যৰ্থ"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -278,21 +278,21 @@ msgstr "স্খলন হল"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} সমস্যা চিনাক্ত কৰা হৈছে"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "সংবাদন কৰিব নোৱাৰি"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "সংবাদসমূহ"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "এই সমস্যাক সংবাদন কৰা হৈছে, কিন্তু এটা <i>Bugzilla</i> টিকেট খোলা  হোৱা নাই। আমাৰ উন্নয়নকাৰীসকলক সমস্যাৰ সমাধান কৰিবলে অধিক তথ্যৰ প্ৰয়োজন হব পাৰে।\nঅধিক তথ্য প্ৰদান কৰিবলৈ অনুগ্ৰহ কৰি ইয়াক Bugzilla ত <b>সংবাদন</b> কৰাৰ কথা ভাবি চাওক। ধন্যবাদ।"
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -306,4 +306,4 @@ msgstr "নহয়"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "নতুন প্ৰক্ৰিয়া সৃষ্টিত এটা ত্ৰুটিৰ বাবে অনুৰোধ কৰা কাৰ্য্য এক্সিকিউট কৰিবলৈ ব্যৰ্থ"

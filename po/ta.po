@@ -8,13 +8,13 @@
 # I Felix <ifelix@redhat.com>, 2011
 # shkumar <shkumar@redhat.com>, 2012-2013
 # shkumar <shkumar@redhat.com>, 2013
-# shkumar <shkumar@redhat.com>, 2013
+# shkumar <shkumar@redhat.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Tamil (http://www.transifex.com/projects/p/gnome-abrt/language/ta/)\n"
 "MIME-Version: 1.0\n"
@@ -23,33 +23,33 @@ msgstr ""
 "Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "எனது"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "கணினி"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "முன்னுரிமைகள் (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "ABRT அமைவாக்கம் (_A)"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT இல் சிக்கல் குறித்து அறிக்கையிடவும் (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "பற்றி (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "வெளியேறு (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -67,9 +67,9 @@ msgstr "மென்பொருளில் ஏற்படும் சிக�
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
-msgstr "ஒரு சிக்கலைப் பற்றி அறிக்கையிட்டு அதற்கான தீர்வைப் பெறும் செயல்முறையை எளிதாக்குவதே இதன் முக்கிய நோக்கம்."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -235,7 +235,7 @@ msgstr "மூலம் தேர்ந்தெடுக்கப்படவ�
 msgid "No source"
 msgstr "மூலம் இல்லை"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "தேக்ககத்தில் இல்லை, ஆனால் நீக்கப்பட்டது: {0}"
 
@@ -269,7 +269,7 @@ msgstr "{0:d} {1!s}களுக்கு முன்பு"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI வரையறையை ஏற்றுவதில் தோல்வியடைந்தது"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"

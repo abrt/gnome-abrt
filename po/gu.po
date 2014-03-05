@@ -4,14 +4,15 @@
 # 
 # Translators:
 # , 2011-2012
+# Ankit Patel <ankit644@yahoo.com>, 2014
 # sweta <swkothar@redhat.com>, 2013
 # sweta <swkothar@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Gujarati (http://www.transifex.com/projects/p/gnome-abrt/language/gu/)\n"
 "MIME-Version: 1.0\n"
@@ -20,33 +21,33 @@ msgstr ""
 "Language: gu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "મારું"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "સિસ્ટમ"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "પસંદગીઓ (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "_ABRT રૂપરેખાંકન"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT ની મદદથી સમસ્યાનો અહેવાલ આપો (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "વિશે (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "બહાર નીકળો (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -60,12 +61,12 @@ msgstr "કાર્યક્રમ તૂટવાનું દર્શાવ�
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "સંગ્રહ કરવા માટે રચાયેલ સોફ્ટવેર સાધનો સગ્રહ. સોફ્ટવેર સમસ્યાઓનુ અહેવાલીકરણ અને પૃથ્થકરણ કરી રહ્યા છે."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
@@ -148,7 +149,7 @@ msgstr "ડિરેક્ટરીને ખોલી શકાતી નથી
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "કાઢી નાંખો (_D)"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -232,7 +233,7 @@ msgstr "સ્ત્રોત પસંદ થયેલ નથી!"
 msgid "No source"
 msgstr "સ્ત્રોત નથી"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "કેશમાં મળ્યુ નથી પરંતુ કાઢી નાંખેલ છે: {0}"
 
@@ -266,7 +267,7 @@ msgstr "{0:d} {1!s}s પહેલાંનુ"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI વ્યાખ્યા લાવવામાં નિષ્ફળ"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -278,21 +279,21 @@ msgstr " ભાંગી પડેલ"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} સમસ્યાને શોધી દેવામાં આવી છે"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "અહેવાલ આપી શકાય નહિ"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "અહેવાલો"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "આ સમસ્યાનો અહેવાલ આપવામાં આવ્યો છે, પરંતુ <i>Bugzilla</i> ટિકીટ હજુ ખોલવામાં આવી નથી. અમારાં ડેવલપરોને સમસ્યાને સુધારવા માટે વધારે જાણકારીની જરૂર પડી શકે છે.\nતે પૂરું પાડવા માટે મહેરબાની કરીને <b>તેનો અહેવાલ</b> Bugzilla માં આપવાનું ધ્યાનમાં રાખો. તમારો આભાર."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -306,4 +307,4 @@ msgstr "ના"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "સૂચિત ક્રિયાને ચાલુ કરવામાં નિષ્ફળતા નવી પ્રક્રિયા નિર્માણમાં ભૂલનાં કારણે"

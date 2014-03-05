@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:09+0100\n"
-"PO-Revision-Date: 2013-12-18 12:33+0000\n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2014-03-05 09:30+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/gnome-abrt/language/te/)\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 "Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "నా"
 
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
-
-#: ../src/gnome-abrt:248
-msgid "_Preferences"
-msgstr ""
-
-#: ../src/gnome-abrt:249
-msgid "_ABRT Configuration"
-msgstr ""
+msgstr "వ్యవస్థ"
 
 #: ../src/gnome-abrt:250
-msgid "_Report problem with ABRT"
-msgstr ""
+msgid "_Preferences"
+msgstr "అభీష్టాలు (_P)"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr "_ABRT ఆకృతీకరణ"
 
 #: ../src/gnome-abrt:252
-msgid "_About"
-msgstr ""
+msgid "_Report problem with ABRT"
+msgstr "ABRT తో సమస్యను నివేదించు (_R)"
 
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "గురించి (_A)"
+
+#: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "నిష్క్రమించు (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -63,9 +63,9 @@ msgstr "సాఫ్టువేర్ సమస్యలను సేకరి�
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
-msgstr "సమస్యను గుర్తించి దాని పరిష్కారం కనుగొనే క్రమాన్ని సులభతరం చేయడమే దీని ముఖ్యోద్దేశం."
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
+msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
@@ -231,7 +231,7 @@ msgstr "ఏ మూలం ఎంపికచేయలేదు!"
 msgid "No source"
 msgstr "ఏ మూలంలేదు"
 
-#: ../src/gnome_abrt/problems.py:433
+#: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
 msgstr "క్యాచీనందు కనుగొనలేదు అయితే తొలగించబడెను: {0}"
 
@@ -265,7 +265,7 @@ msgstr "{0:d} {1!s}s క్రితం"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "UI నిర్వచనం లోడు చేయుటకు విఫలమైంది"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
@@ -281,17 +281,17 @@ msgstr "{0} సమస్య గుర్తించబడెను"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "నివేదించలేదు"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "నివేదికలు"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr ""
+msgstr "ఈ సమస్య నివేదించబడెను, అయితే <i>బగ్‌జిల్లా</i> టికెట్ తెరువబడలేదు. సమస్యను పరిష్కరించుటకు మా అభివృద్దికారులకు మరింత సమయం పట్టవచ్చు.\nదానిని బగ్‌జిల్లా నందు <b>నివేదించునట్లు</b> చూడండి. ధన్యవాదములు."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"

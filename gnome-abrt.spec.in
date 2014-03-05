@@ -101,6 +101,15 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Mar 05 2014 Jakub Filak <jfilak@redhat.com> 0.3.6-1
+- Translation updates
+- Use human readable type string everywhere
+- Display C/C++ instead of CCpp
+- Truncate possibly long component name to 40 chars
+- Disable horizontal scrollbar on problem list
+- Right-alignment of date entries
+- Initialize gnome_abrt module before importing its submodules
+
 * Mon Jan 13 2014 Jakub Filak <jfilak@redhat.com> 0.3.5-1
 - Do not crash when a FileIcon cant be loaded
 - Enable multiple problems selection

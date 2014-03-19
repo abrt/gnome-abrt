@@ -226,7 +226,8 @@ class Problem(object):
         typ = self['type']
 
         if not typ:
-            raise InvalidProblem(self.problem_id, "Missing or corrupted 'type' file")
+            raise InvalidProblem(self.problem_id,
+                    "Missing or corrupted 'type' file")
 
         if typ == "CCpp":
             return "C/C++"

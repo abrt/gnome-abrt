@@ -224,6 +224,10 @@ class Problem(object):
 
     def get_human_type(self):
         typ = self['type']
+
+        if not typ:
+            raise InvalidProblem(self.problem_id, "Missing or corrupted 'type' file")
+
         if typ == "CCpp":
             return "C/C++"
 

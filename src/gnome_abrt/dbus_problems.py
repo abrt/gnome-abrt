@@ -116,6 +116,9 @@ class DBusProblemSource(problems.CachedSource):
         self._bus = None
 
     def _send_dbus_message(self, method, *args):
+        if self._interface is None:
+            self._connect_to_problems_bus()
+
         try:
             return method(self._interface, *args)
         except dbus.exceptions.DBusException as ex:

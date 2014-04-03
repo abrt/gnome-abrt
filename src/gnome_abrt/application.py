@@ -146,6 +146,7 @@ def find_application(component, executable, cmdline):
                                 icon = theme.load_icon(name,
                                         128, Gtk.IconLookupFlags.USE_BUILTIN)
                                 break
+                            #pylint: disable=E0712
                             except GLib.GError as ex:
                                 logging.debug(ex)
                     elif isinstance(dai_icon, Gio.FileIcon):
@@ -153,6 +154,7 @@ def find_application(component, executable, cmdline):
                             stream = dai_icon.load(128, None)
                             icon = GdkPixbuf.Pixbuf.new_from_stream(stream[0],
                                                                     None)
+                        #pylint: disable=E0712
                         except GLib.GError as ex:
                             logging.debug(ex)
                     else:

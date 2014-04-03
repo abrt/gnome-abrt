@@ -153,6 +153,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                     builder.set_translation_domain(GETTEXT_PROGNAME)
                     try:
                         builder.add_from_file(filename=glade_file)
+                    #pylint: disable=E0712
                     except GObject.GError as ex:
                         builder = None
                         logging.debug("Failed to load UI file: '{0}': {1}"
@@ -269,6 +270,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         # move accelators group from the design window to this window
         self.add_accel_group(self._builder.ag_accelerators)
 
+        #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_data("GtkViewport {\n"
                                "  background-color : @theme_bg_color;\n"
@@ -630,7 +632,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         sensitive_btn = problem is not None
         self._builder.btn_delete.set_sensitive(sensitive_btn)
         self._builder.btn_report.set_sensitive(
-                sensitive_btn and not problem['not-reportable'] )
+                sensitive_btn and not problem['not-reportable'])
         self._builder.btn_detail.set_sensitive(sensitive_btn)
         self._builder.vbx_links.foreach(
                 lambda w, u: w.destroy(), None)
@@ -763,6 +765,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_copy_id_activate(self, action):
         selection = self._get_selected(self._builder.tvs_problems)
         if selection:
+            #pylint: disable=E1101
             (Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
                 .set_text(selection[0].problem_id, -1))
         self._builder.menu_problem_item.popdown()

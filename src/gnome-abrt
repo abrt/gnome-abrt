@@ -123,7 +123,7 @@ class GtkAppDBUSImpl(object):
         self._service = None
 
         try:
-            bus = dbus.SessionBus(mainloop = self.mainloop)
+            bus = dbus.SessionBus(mainloop=self.mainloop)
             if bus.name_has_owner(bus_name):
                 self._primary_obj = bus.get_object(bus_name,
                                                    GNOME_ABRT_OBJECT_PATH)
@@ -198,6 +198,7 @@ class OopsApplication(Gtk.Application):
         self.activate()
         return 0
 
+    #pylint: disable=W0221
     def do_activate(self):
         try:
             windows = self.get_windows()
@@ -237,12 +238,13 @@ class OopsApplication(Gtk.Application):
                                         glib_sigchld_signal_handler)
                 main_window = OopsWindow(self, self.all_sources, controller)
                 main_window.show_all()
-                self.add_window (main_window)
+                self.add_window(main_window)
         #pylint: disable=W0703
         except Exception as ex:
             logging.exception(ex)
             sys.exit(1)
 
+    #pylint: disable=W0221
     def do_startup(self):
         Gtk.Application.do_startup(self)
 
@@ -293,6 +295,7 @@ class OopsApplication(Gtk.Application):
 
     #pylint: disable=W0613
     def on_action_about(self, action, parameter):
+        #pylint: disable=E1120
         dialog = Gtk.AboutDialog.new()
         dialog.set_icon_name("abrt")
         dialog.set_version(gnome_abrt.VERSION)
@@ -335,7 +338,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))
 
     CMDARGS = ArgumentParser(
-            description = _('View and report application crashes'))
+            description=_('View and report application crashes'))
     CMDARGS.add_argument('-v', '--verbose', action='count',
             help=_('Be verbose'))
     CMDARGS.add_argument('-p', '--problem',

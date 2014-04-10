@@ -61,7 +61,7 @@ def problems_filter(model, itrtr, data):
 
     pattern = data.current_pattern
 
-    if len(pattern) == 0:
+    if not pattern:
         return True
 
     return match_pattern(pattern, model[itrtr][2])
@@ -747,7 +747,10 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 
     @handle_problem_and_source_errors
     def on_te_search_changed(self, entry):
-        self._filter.set_pattern(entry.get_text())
+        pattern = entry.get_text()
+        if pattern:
+            pattern = pattern.decode('utf-8')
+        self._filter.set_pattern(pattern)
 
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()

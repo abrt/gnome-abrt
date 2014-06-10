@@ -39,5 +39,5 @@ all-local: __init__.py controller.py
 
 check-local: $(gnome_abrtexec_PYTHON)
 if USE_PYLINT
-	$(PYLINT) --rcfile=$(top_builddir)/pylintrc $(abs_builddir)
+	PYLINT=$(PYLINT) PYLINTRC=$(top_builddir)/pylintrc $(top_builddir)/runpylint.sh $(abs_builddir)
 endif

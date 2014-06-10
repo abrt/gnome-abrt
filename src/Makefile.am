@@ -18,5 +18,5 @@ EXTRA_DIST = $(bin_SCRIPTS) $(desktop_in_files) $(app_data_in_files)
 
 check-local: $(bin_SCRIPTS)
 if USE_PYLINT
-	$(PYLINT) --rcfile=$(top_builddir)/pylintrc $^
+	PYLINT=$(PYLINT) PYLINTRC=$(top_builddir)/pylintrc $(top_builddir)/runpylint.sh $^
 endif

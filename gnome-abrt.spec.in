@@ -101,6 +101,15 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Jun 11 2014 Jakub Filak <jfilak@redhat.com> 0.3.7-1
+- Fix XDG_RUNTIME_DIR not set messages by creating one
+- Handle UTF-8 problem filter input
+- Disable "no-member" check in pylintrc
+- Fix issues uncovered by a newer version of pylint
+- Do not crash in case of a DBus timeout
+- Fix too long line
+- Ignore problems without 'type' element
+
 * Wed Mar 05 2014 Jakub Filak <jfilak@redhat.com> 0.3.6-1
 - Translation updates
 - Use human readable type string everywhere

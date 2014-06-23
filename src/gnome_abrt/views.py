@@ -46,7 +46,8 @@ def problems_filter(model, itrtr, data):
         def item_match(pattern, problem):
             for i in ['component', 'reason',
                         'executable', 'package']:
-                val = problem[i]
+                # pattern is 'ascii' and problem[i] is 'dbus.String'
+                val = problem[i].encode('utf-8')
                 if val and pattern in val:
                     return True
 
@@ -747,10 +748,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 
     @handle_problem_and_source_errors
     def on_te_search_changed(self, entry):
-        pattern = entry.get_text()
-        if pattern:
-            pattern = pattern.decode('utf-8')
-        self._filter.set_pattern(pattern)
+        self._filter.set_pattern(entry.get_text())
 
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()

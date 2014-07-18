@@ -253,8 +253,11 @@ class OopsApplication(Gtk.Application):
         menu.append(_("_ABRT Configuration"), "app.abrt-configuration")
         menu.append(_("_Report problem with ABRT"),
                     "app.report-problem-with-abrt")
-        menu.append(_("_About"), "app.about")
-        menu.append(_("_Quit"), "app.quit")
+
+        sub_menu = Gio.Menu()
+        sub_menu.append(_("_About"), "app.about")
+        sub_menu.append(_("_Quit"), "app.quit")
+        menu.append_section(None, sub_menu)
 
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)

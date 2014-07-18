@@ -110,6 +110,11 @@ def show_report_problem_with_abrt():
     wnd_report.tev.set_margin_left(3)
     wnd_report.tev.set_margin_right(3)
     wnd_report.tev.set_can_focus(True)
+    wnd_report.tev.set_wrap_mode(Gtk.WrapMode.WORD)
+
+    #pylint: disable=E1120
+    scrl_wnd = Gtk.ScrolledWindow.new(None, None)
+    scrl_wnd.add(wnd_report.tev)
 
     wnd_report.btn_send = Gtk.Button.new_with_label(_("_Send"))
     wnd_report.btn_send.set_use_underline(True)
@@ -117,7 +122,7 @@ def show_report_problem_with_abrt():
 
     wnd_report.vbox.pack_start(wnd_report.lbl_summary, False, True, 3)
     wnd_report.vbox.pack_start(wnd_report.txe_reason, False, True, 3)
-    wnd_report.vbox.pack_start(wnd_report.tev, True, True, 5)
+    wnd_report.vbox.pack_start(scrl_wnd, True, True, 5)
     wnd_report.vbox.pack_start(wnd_report.btn_send, False, True, 3)
 
     wnd_report.add(wnd_report.vbox)

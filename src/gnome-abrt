@@ -331,7 +331,7 @@ class OopsApplication(Gtk.Application):
 
     #pylint: disable=W0613
     def on_action_report_problem_with_abrt(self, action, parameter):
-        show_report_problem_with_abrt()
+        self.add_window(show_report_problem_with_abrt())
 
 
 if __name__ == "__main__":

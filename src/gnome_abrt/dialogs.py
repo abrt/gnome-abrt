@@ -136,3 +136,5 @@ def show_report_problem_with_abrt():
 
     # Move focus to text view with description of problem
     wnd_report.tev.grab_focus()
+
+    return wnd_report

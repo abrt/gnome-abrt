@@ -17,6 +17,7 @@
 
 import os
 import logging
+from urlparse import urlparse
 
 # PyGObject
 #pylint: disable=E0611
@@ -65,27 +66,116 @@ def compare_executable(executable, desktop_entry):
         if realpath == executable:
             realpath = None
 
-    return (os.path.basename(executable) == os.path.basename(dexec)
+    ret = (os.path.basename(executable) == os.path.basename(dexec)
             or executable == dexec
             or (realpath and compare_executable(realpath, desktop_entry)))
 
+    if ret:
+        logging.debug("executable matches Executable key: {0} == {1}"
+                .format(executable, dexec))
+
+    return ret
+
+def _is_it_url(text):
+    # URL must have scheme
+    try:
+        url = urlparse(text)
+        return bool(url.scheme)
+    #pylint: disable=W0703
+    except Exception as ex:
+        logging.debug(str(ex))
+        return False
+
+def _is_it_file_arg(text):
+    # every string without '-' prefix could be
+    # a path to file (at least relative)
+    return not text.startswith('-')
+
 def compare_cmdline(cmdline, desktop_entry):
+    def _compare(cmdargs, dcmdargs):
+    # http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.html
+        if not dcmdargs or not cmdargs or len(dcmdargs) > len(cmdargs):
+            return False
+
+        if os.path.basename(dcmdargs[0]) != os.path.basename(cmdargs[0]):
+            return False
+
+        cargi = 1
+        dargi = 1
+        while dargi < len(dcmdargs):
+            if dcmdargs[dargi] == "%f":
+                if cargi >= len(cmdargs) or _is_it_file_arg(cmdargs[cargi]):
+                    return False
+                else:
+                    dargi += 1
+                    cargi += 1
+            elif dcmdargs[dargi] == "%F":
+                if cargi >= len(cmdargs) or _is_it_file_arg(cmdargs[cargi]):
+                    dargi += 1
+                else:
+                    cargi += 1
+            elif dcmdargs[dargi] == "%u":
+                if cargi >= len(cmdargs) or (not _is_it_url(cmdargs[cargi])
+                        and not _is_it_file_arg(cmdargs[cargi])):
+                    return False
+                else:
+                    cargi += 1
+                    dargi += 1
+            elif dcmdargs[dargi] == "%U":
+                if cargi >= len(cmdargs) or (not _is_it_url(cmdargs[cargi])
+                        and not _is_it_file_arg(cmdargs[cargi])):
+                    dargi += 1
+                else:
+                    cargi += 1
+            elif dcmdargs[dargi] == "%i":
+                logging.debug("Unsupported Exec key %i")
+                dargi += 1
+                cargi += 2
+            elif dcmdargs[dargi] == "%c":
+                logging.debug("Unsupported Exec key %c")
+                dargi += 1
+                cargi += 1
+            elif dcmdargs[dargi] == "%k":
+                logging.debug("Unsupported Exec key %k")
+                dargi += 1
+                cargi += 1
+            else:
+                if cargi >= len(cmdargs) or dcmdargs[dargi] != cmdargs[cargi]:
+                    return False
+                dargi += 1
+                cargi += 1
+
+        ret = cargi == len(cmdargs) and dargi == len(dcmdargs)
+
+        if ret:
+            logging.debug("cmdline matches Exec: {0} == {1}"
+                    .format(" ".join(cmdargs), " ".join(dcmdargs)))
+
+        return ret
+
+
     if not cmdline:
         return False
 
-    ret = False
     dcmdline = desktop_entry.get_commandline()
-    if dcmdline:
-        ret = (os.path.basename(cmdline) == os.path.basename(dcmdline)
-                or cmdline == dcmdline)
+    if not dcmdline:
+        return False
+
+    if cmdline == dcmdline:
+        return True
+
+    # - cmdline consists of DBusString instances
+    # - normalize by removing '"' (--foo="blah" == --foo=blah)
+    # - the if condition is necessary because a pair of spaces ('  ')
+    #   generates None
+    cmdargs = [str(x).replace('"', '') for x in cmdline.split(" ") if x]
+    dcmdargs = [str(x).replace('"', '') for x in dcmdline.split(" ") if x]
+
+    if _compare(cmdargs, dcmdargs):
+        return True
 
     # try to handle interpreters like python
-    if not ret:
-        cmdargs = [x for x in cmdline.split(" ") if x]
-        if len(cmdargs) > 1:
-            ret = compare_executable(cmdargs[1], desktop_entry)
-
-    return ret
+    return len(cmdargs) > 1 and _compare(cmdargs[1:], dcmdargs)
 
 def compare_component(component, desktop_entry):
     dicon = desktop_entry.get_icon()
@@ -129,6 +219,7 @@ def find_application(component, executable, cmdline):
         if pred[0] in __globa_app_cache__:
             return __globa_app_cache__[pred[0]]
 
+    app = None
     # no cache entry was found, try to find corresponding desktop entry
     for pred in lookupnames:
         if not pred[0]:
@@ -137,6 +228,9 @@ def find_application(component, executable, cmdline):
         theme = Gtk.IconTheme.get_default()
         for dai in Gio.DesktopAppInfo.get_all():
             if pred[1](pred[0], dai):
+                logging.debug("Found Desktop: {1} == {0}"
+                        .format(cmdline, dai.get_name()))
+
                 icon = None
                 dai_icon = dai.get_icon()
                 if dai_icon:
@@ -161,15 +255,19 @@ def find_application(component, executable, cmdline):
                         logging.debug("Unsupported type of icon class: {0}"
                                 .format(dai_icon))
 
-                __globa_app_cache__[pred[0]] = Application(executable,
-                                                        name=dai.get_name(),
-                                                        icon=icon)
-                return __globa_app_cache__[pred[0]]
+                app = Application(executable, name=dai.get_name(), icon=icon)
+                break
 
-    app = Application(executable, name=component)
+        if app is not None:
+            break
+
+    if app is None:
+        app = Application(executable, name=component)
 
     # cache by cmdline because package and component can provide many
     # applications but cmdline looks like pretty unique information
+    # must not cache byt executable because of pluginable applications like
+    # gnome-control-center, epiphany, ...
     if cmdline:
         __globa_app_cache__[cmdline] = app
 

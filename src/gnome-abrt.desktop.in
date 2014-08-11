@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=Automatic Bug Reporting Tool
+_Name=Problem Reporting
 _Comment=View and report application crashes
 Icon=gnome-abrt
 Exec=gnome-abrt

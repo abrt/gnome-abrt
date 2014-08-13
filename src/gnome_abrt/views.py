@@ -96,6 +96,9 @@ def problem_to_storage_values(problem):
     else:
         name = problem['human_type']
 
+    if name == "kernel":
+        name = _("System")
+
     return ["{0!s}\n".format(smart_truncate(name, length=40)),
             "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
                                   problem['count']),
@@ -642,25 +645,38 @@ class OopsWindow(Gtk.ApplicationWindow):
         if problem:
             self._builder.nb_problem_layout.set_current_page(0)
             app = problem['application']
-            self._builder.lbl_summary.set_text(problem['reason'] or "")
-            self._builder.lbl_app_name_value.set_text(app.name or _("N/A"))
-
-            if app.name:
-                self._builder.lbl_reason.set_text("{0} {1}".format(
-                        app.name, _(' crashed').strip()))
-            else:
-                # If Application's name is unknown, display neutral
-                # header "'Type' problem has been detected":
-                #  Kerneloops problem has been detected
-                #  C/C++ problem has been detected
-                #  Python problem has been detected
-                #  Ruby problem has been detected
-                #  VMCore problem has been detected
-                #  AVC problem has been detected
-                #  Java problem has been detected
+            if problem['type'] == 'Kerneloops':
                 self._builder.lbl_reason.set_text(
-                        _("{0} problem has been detected").format(
-                                problem['human_type']))
+                    _("Unexpected system error"))
+                self._builder.lbl_summary.set_text(
+                    _("System encountered a problem and recovered."))
+            elif problem['type'] == 'vmcore':
+                self._builder.lbl_reason.set_text(
+                    _("Fatal system failure"))
+                self._builder.lbl_summary.set_text(
+                    _("System encountered a problem and could not continue."))
+            else:
+                if not app.name:
+                    # If Application's name is unknown, display neutral
+                    # header "'Type' problem has been detected":
+                    #  Kerneloops problem has been detected
+                    #  C/C++ problem has been detected
+                    #  Python problem has been detected
+                    #  Ruby problem has been detected
+                    #  VMCore problem has been detected
+                    #  AVC problem has been detected
+                    #  Java problem has been detected
+                    self._builder.lbl_reason.set_text(
+                            _("{0} problem has been detected").format(
+                                    problem['human_type']))
+                else:
+                    self._builder.lbl_reason.set_text(
+                            _("{0} quit unexpectedly".format(app.name)))
+
+                self._builder.lbl_summary.set_text(
+            _("The application encountered a problem and could not continue."))
+
+            self._builder.lbl_app_name_value.set_text(app.name or _("N/A"))
 
             self._builder.lbl_app_version_value.set_text(
                         problem['package'] or _("N/A"))

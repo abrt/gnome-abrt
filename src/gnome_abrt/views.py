@@ -259,7 +259,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, sources, controller):
         Gtk.ApplicationWindow.__init__(self,
-                            title=_('Automatic Bug Reporting Tool'),
+                            title=_('Problem Reporting'),
                             application=application)
 
         if not sources:

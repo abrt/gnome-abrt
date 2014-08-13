@@ -65,7 +65,8 @@ class ProblemSource(object):
 
 class Problem(object):
     INITIAL_ELEMENTS = ['component', 'executable', 'cmdline', 'count', 'type',
-                        'last_occurrence', 'time', 'reason']
+                        'last_occurrence', 'time', 'reason', 'pkg_arch',
+                        'pkg_epoch', 'pkg_name', 'pkg_release', 'pkg_version']
 
     class Submission(object):
         URL = "URL"
@@ -149,6 +150,7 @@ class Problem(object):
 
         return items
 
+    #pylint: disable=R0911
     def __getitem__(self, item, cached=True):
         def datetime_from_stamp(stamp):
             try:
@@ -179,6 +181,10 @@ class Problem(object):
             return self.get_submission()
         elif item == 'human_type':
             return self.get_human_type()
+        elif item == 'package_name':
+            return self.get_package_name()
+        elif item == 'package_version':
+            return self.get_package_version()
 
         if cached and item in self.data:
             retval = self.data[item]
@@ -233,6 +239,30 @@ class Problem(object):
             return "C/C++"
 
         return typ
+
+    def get_package_name(self):
+        name = self['pkg_name']
+
+        if not name:
+            name = self['component']
+
+        return name
+
+    def get_package_version(self):
+        epoch = self['pkg_epoch']
+        if not epoch or epoch == "0":
+            epoch = ""
+        else:
+            epoch = "{0}:".format(epoch)
+
+        version = self['pkg_version']
+        release = self['pkg_release']
+        arch = self['pkg_arch']
+
+        if version and release and arch:
+            return "{0}{1}.{2}.{3}".format(epoch, version, release, arch)
+
+        return self['package']
 
     def assure_ownership(self):
         return self.source.chown_problem(self.problem_id)

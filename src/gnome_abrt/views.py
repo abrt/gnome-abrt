@@ -677,10 +677,10 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._builder.lbl_summary.set_text(
             _("The application encountered a problem and could not continue."))
 
-            self._builder.lbl_app_name_value.set_text(app.name or _("N/A"))
-
+            self._builder.lbl_app_name_value.set_text(
+                        problem['package_name'] or _("N/A"))
             self._builder.lbl_app_version_value.set_text(
-                        problem['package'] or _("N/A"))
+                        problem['package_version'] or _("N/A"))
             self._builder.lbl_detected_value.set_text(
                         problem['date'].strftime(
                             locale.nl_langinfo(locale.D_FMT)))

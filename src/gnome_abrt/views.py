@@ -200,7 +200,8 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.gac_open_directory = builder.get_object('gac_open_directory')
             self.gac_copy_id = builder.get_object('gac_copy_id')
             self.menu_problem_item = builder.get_object('menu_problem_item')
-            self.menu_multiple_problems = builder.get_object('menu_multiple_problems')
+            self.menu_multiple_problems = builder.get_object(
+                    'menu_multiple_problems')
             self.ag_accelerators = builder.get_object('ag_accelerators')
 
         def connect_signals(self, implementor):
@@ -797,11 +798,11 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         elif (data.type == Gdk.EventType.BUTTON_PRESS
                 and data.button == Gdk.BUTTON_SECONDARY):
             if len(self._builder.tvs_problems.get_selected_rows()[1]) > 1:
-                self._builder.menu_multiple_problems.popup(None, None, None, None,
-                            data.button, data.time)
+                self._builder.menu_multiple_problems.popup(None, None,
+                        None, None, data.button, data.time)
                 return True
             else:
                 pos = self._builder.tv_problems.get_path_at_pos(data.x, data.y)
                 if pos:
-                    self._builder.menu_problem_item.popup(None, None, None, None,
-                            data.button, data.time)
+                    self._builder.menu_problem_item.popup(None, None,
+                            None, None, data.button, data.time)

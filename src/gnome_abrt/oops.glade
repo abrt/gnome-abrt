@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
+  <requires lib="gtk+" version="3.12"/>
   <object class="GtkAccelGroup" id="ag_accelerators"/>
   <object class="GtkActionGroup" id="gag_problem_actions">
     <property name="name">problems</property>
@@ -134,14 +134,13 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkEntry" id="te_search">
-                <property name="visible">True</property>
+              <object class="GtkSearchEntry" id="se_problems">
                 <property name="can_focus">True</property>
-                <property name="invisible_char">●</property>
-                <property name="caps_lock_warning">False</property>
-                <property name="secondary_icon_name">edit-find</property>
-                <property name="placeholder_text">Search</property>
-                <signal name="changed" handler="on_te_search_changed" swapped="no"/>
+                <property name="no_show_all">True</property>
+                <property name="primary_icon_name">edit-find-symbolic</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="primary_icon_sensitive">False</property>
+                <signal name="search-changed" handler="on_se_problems_search_changed" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

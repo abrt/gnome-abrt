@@ -190,7 +190,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.btn_delete = builder.get_object('btn_delete')
             self.btn_report = builder.get_object('btn_report')
             self.btn_detail = builder.get_object('btn_detail')
-            self.te_search = builder.get_object('te_search')
+            self.se_problems = builder.get_object('se_problems')
             self.chb_all_problems = builder.get_object('chb_all_problems')
             self.vbx_links = builder.get_object('vbx_links')
             self.vbx_problem_messages = builder.get_object(
@@ -763,7 +763,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             self._controller.report(selected[0])
 
     @handle_problem_and_source_errors
-    def on_te_search_changed(self, entry):
+    def on_se_problems_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())
 
     def on_gac_opt_all_problems_activate(self, action):

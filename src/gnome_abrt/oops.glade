@@ -289,9 +289,9 @@
                   <placeholder/>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_delete">
-                    <property name="label" translatable="yes">_Delete</property>
-                    <property name="related_action">gac_delete</property>
+                  <object class="GtkButton" id="btn_report">
+                    <property name="label" translatable="yes">_Report</property>
+                    <property name="related_action">gac_report</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -302,6 +302,9 @@
                     <property name="margin_top">5</property>
                     <property name="margin_bottom">5</property>
                     <property name="use_underline">True</property>
+                    <style>
+                      <class name="suggested-action"/>
+                    </style>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -311,9 +314,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_report">
-                    <property name="label" translatable="yes">_Report</property>
-                    <property name="related_action">gac_report</property>
+                  <object class="GtkButton" id="btn_delete">
+                    <property name="label" translatable="yes">_Delete</property>
+                    <property name="related_action">gac_delete</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>

@@ -433,7 +433,6 @@
                             <property name="label">Application can't continue becuase of received signal</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
-                            <property name="ellipsize">end</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>

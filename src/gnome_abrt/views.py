@@ -614,11 +614,11 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._builder.vbx_links.pack_start(lnk, False, True, 0)
                 link_added = True
 
-        if link_added:
-            space = Gtk.Alignment.new(0, 0, 0, 0)
-            space.set_visible(True)
-            space.set_vexpand(True)
-            self._builder.vbx_links.pack_start(space, False, True, 0)
+        #if link_added:
+            #space = Gtk.Alignment.new(0, 0, 0, 0)
+            #space.set_visible(True)
+            #space.set_vexpand(True)
+            #self._builder.vbx_links.pack_start(space, False, True, 0)
 
         return link_added
 
@@ -635,6 +635,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     @handle_problem_and_source_errors
     def _set_problem(self, problem):
+        def destroy_links(widget, _):
+            if widget != self._builder.lbl_reported_value:
+                widget.destroy()
+
         self.selected_problem = problem
 
         sensitive_btn = problem is not None
@@ -643,7 +647,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 sensitive_btn and not problem['not-reportable'])
         self._builder.btn_detail.set_sensitive(sensitive_btn)
         self._builder.vbx_links.foreach(
-                lambda w, u: w.destroy(), None)
+                destroy_links, None)
         self._builder.vbx_problem_messages.foreach(
                 lambda w, u: w.destroy(), None)
 
@@ -694,6 +698,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             else:
                 self._builder.img_app_icon.clear()
 
+            self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))
             if problem['not-reportable']:
                 self._builder.lbl_reported_value.set_text(
@@ -703,7 +708,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             elif problem['is_reported']:
                 if self._show_problem_links(problem['submission']):
                     self._builder.lbl_reported.set_text(_("Reports"))
-                    self._builder.lbl_reported_value.set_text('')
+                    self._builder.lbl_reported_value.hide()
 
                     if (not any((s.name == "Bugzilla"
                                 for s in problem['submission']))):

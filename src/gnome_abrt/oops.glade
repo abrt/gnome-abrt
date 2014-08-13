@@ -53,6 +53,14 @@
       </object>
       <accelerator key="c" modifiers="GDK_CONTROL_MASK"/>
     </child>
+    <child>
+      <object class="GtkAction" id="gac_search">
+        <property name="label" translatable="yes">_Filter</property>
+        <property name="tooltip" translatable="yes">Show filter box</property>
+        <signal name="activate" handler="on_gac_search_activate" swapped="no"/>
+      </object>
+      <accelerator key="f" modifiers="GDK_CONTROL_MASK"/>
+    </child>
   </object>
   <object class="GtkMenu" id="menu_multiple_problems">
     <property name="visible">True</property>
@@ -105,6 +113,12 @@
         <property name="can_focus">False</property>
       </object>
     </child>
+    <child>
+      <object class="GtkMenuItem" id="mi_search">
+        <property name="related_action">gac_search</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
   </object>
   <object class="GtkListStore" id="ls_problems">
     <columns>
@@ -136,10 +150,17 @@
             <child>
               <object class="GtkSearchEntry" id="se_problems">
                 <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
                 <property name="no_show_all">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
                 <property name="primary_icon_name">edit-find-symbolic</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="primary_icon_sensitive">False</property>
+                <signal name="key-press-event" handler="on_se_problems_key_press_event" swapped="no"/>
                 <signal name="search-changed" handler="on_se_problems_search_changed" swapped="no"/>
               </object>
               <packing>
@@ -152,7 +173,6 @@
               <object class="GtkBox" id="vbox_problems">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_top">10</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
@@ -191,10 +211,10 @@
                         <property name="can_focus">True</property>
                         <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
+                        <property name="vscroll_policy">natural</property>
                         <property name="model">ls_problems</property>
                         <property name="headers_visible">False</property>
                         <property name="headers_clickable">False</property>
-                        <property name="enable_search">False</property>
                         <property name="search_column">0</property>
                         <property name="enable_grid_lines">horizontal</property>
                         <signal name="button-press-event" handler="on_tv_problems_button_press_event" swapped="no"/>
@@ -266,19 +286,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkAlignment" id="alignment5">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <child>
-                      <placeholder/>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
+                  <placeholder/>
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_delete">
@@ -288,12 +296,17 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">end</property>
+                    <property name="margin_left">5</property>
                     <property name="margin_right">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
                     <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
+                    <property name="pack_type">end</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -305,13 +318,17 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">end</property>
                     <property name="margin_left">5</property>
                     <property name="margin_right">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
                     <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
+                    <property name="pack_type">end</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
@@ -324,12 +341,17 @@
                     <property name="receives_default">True</property>
                     <property name="no_show_all">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">end</property>
                     <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
                     <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
+                    <property name="pack_type">end</property>
                     <property name="position">3</property>
                   </packing>
                 </child>

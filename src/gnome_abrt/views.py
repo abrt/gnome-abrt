@@ -199,6 +199,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.gac_delete = builder.get_object('gac_delete')
             self.gac_open_directory = builder.get_object('gac_open_directory')
             self.gac_copy_id = builder.get_object('gac_copy_id')
+            self.gac_search = builder.get_object('gac_search')
             self.menu_problem_item = builder.get_object('menu_problem_item')
             self.menu_multiple_problems = builder.get_object(
                     'menu_multiple_problems')
@@ -342,6 +343,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         # enable observer
         self._source_observer.enable()
+
+        self._builder.tv_problems.set_search_entry(self._builder.se_problems)
+        self.connect("key-press-event", self._on_key_press_event, None)
 
     def _update_source_button(self, source):
         name = format_button_source_name(source.name, source)
@@ -765,6 +769,37 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())
+
+    def _on_key_press_event(self, sender, event, data):
+        if (not self._builder.se_problems.is_focus()
+                and event.string and event.string.strip()
+                and event.keyval != Gdk.KEY_BackSpace
+                and (event.state == 0
+                    or event.state == Gdk.ModifierType.SHIFT_MASK
+                    or event.state == Gdk.ModifierType.LOCK_MASK)):
+            self._show_problem_filter()
+
+        return False
+
+    def _hide_problem_filter(self):
+        self._builder.se_problems.set_text("")
+        self._builder.se_problems.hide()
+
+    def _show_problem_filter(self):
+        self._builder.se_problems.show()
+        self._builder.se_problems.grab_focus()
+
+    def on_se_problems_key_press_event(self, sender, data):
+        if data.keyval == Gdk.KEY_Escape:
+            self._hide_problem_filter()
+
+        return False
+
+    def on_gac_search_activate(self, action):
+        if self._builder.se_problems.get_visible():
+            self._hide_problem_filter()
+        else:
+            self._show_problem_filter()
 
     def on_gac_opt_all_problems_activate(self, action):
         conf = config.get_configuration()

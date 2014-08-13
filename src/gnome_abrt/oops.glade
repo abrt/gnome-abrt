@@ -247,6 +247,7 @@
                                 <property name="xpad">10</property>
                                 <property name="xalign">1</property>
                                 <property name="alignment">right</property>
+                                <property name="foreground_rgba">rgb(186,189,182)</property>
                               </object>
                               <attributes>
                                 <attribute name="text">1</attribute>

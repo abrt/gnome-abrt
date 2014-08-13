@@ -779,6 +779,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         if (not self._builder.se_problems.is_focus()
                 and event.string and event.string.strip()
                 and event.keyval != Gdk.KEY_BackSpace
+                and event.keyval != Gdk.KEY_Delete
                 and (event.state == 0
                     or event.state == Gdk.ModifierType.SHIFT_MASK
                     or event.state == Gdk.ModifierType.LOCK_MASK)):

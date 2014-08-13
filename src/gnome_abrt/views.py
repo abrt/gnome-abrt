@@ -93,12 +93,10 @@ def problem_to_storage_values(problem):
 
     if app.name:
         name = app.name
-        typ = problem['human_type']
     else:
         name = problem['human_type']
-        typ = ""
 
-    return ["{0!s}\n{1!s}".format(smart_truncate(name, length=40), typ),
+    return ["{0!s}\n".format(smart_truncate(name, length=40)),
             "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
                                   problem['count']),
             problem]

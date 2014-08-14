@@ -202,7 +202,6 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="hscrollbar_policy">never</property>
-                    <property name="shadow_type">none</property>
                     <property name="min_content_width">300</property>
                     <child>
                       <object class="GtkTreeView" id="tv_problems">
@@ -754,9 +753,9 @@
                         <property name="vexpand">True</property>
                         <property name="label" translatable="yes">No problems detected!</property>
                         <property name="selectable">True</property>
-                        <attributes>
-                          <attribute name="foreground" value="#bababdbdb6b6"/>
-                        </attributes>
+                        <style>
+                          <class name="dim-label"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -793,9 +792,9 @@
                         <property name="vexpand">True</property>
                         <property name="label" translatable="yes">No source selected!</property>
                         <property name="selectable">True</property>
-                        <attributes>
-                          <attribute name="foreground" value="#bababdbdb6b6"/>
-                        </attributes>
+                        <style>
+                          <class name="dim-label"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>

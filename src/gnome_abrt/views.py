@@ -32,6 +32,8 @@ from gi.repository import Gtk
 from gi.repository import Gdk
 #pylint: disable=E0611
 from gi.repository import GObject
+#pylint: disable=E0611
+from gi.repository import Gio
 
 import gnome_abrt.problems as problems
 import gnome_abrt.config as config
@@ -985,7 +987,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_open_directory_activate(self, action):
         selection = self._get_selected(self.lss_problems)
         if selection:
-            subprocess.Popen(["xdg-open", selection[0].problem_id])
+            Gio.app_info_launch_default_for_uri(selection[0].problem_id, None)
         self._builder.menu_problem_item.popdown()
         self._builder.menu_multiple_problems.popdown()
 

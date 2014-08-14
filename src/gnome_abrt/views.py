@@ -648,14 +648,14 @@ class OopsWindow(Gtk.ApplicationWindow):
             app = problem['application']
             if problem['type'] == 'Kerneloops':
                 self._builder.lbl_reason.set_text(
-                    _("Unexpected system error"))
+            _("Unexpected system error"))
                 self._builder.lbl_summary.set_text(
-                    _("The system has encountered a problem and recovered."))
+            _("The system has encountered a problem and recovered."))
             elif problem['type'] == 'vmcore':
                 self._builder.lbl_reason.set_text(
-                    _("Fatal system failure"))
+            _("Fatal system failure"))
                 self._builder.lbl_summary.set_text(
-                    _("The system has encountered a problem and could not continue."))
+            _("The system has encountered a problem and could not continue."))
             else:
                 if not app.name:
                     # If Application's name is unknown, display neutral

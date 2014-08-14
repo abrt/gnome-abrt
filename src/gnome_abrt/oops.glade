@@ -160,7 +160,6 @@
                 <property name="primary_icon_name">edit-find-symbolic</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="primary_icon_sensitive">False</property>
-                <signal name="key-press-event" handler="on_se_problems_key_press_event" swapped="no"/>
                 <signal name="search-changed" handler="on_se_problems_search_changed" swapped="no"/>
               </object>
               <packing>

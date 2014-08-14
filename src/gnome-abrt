@@ -189,6 +189,8 @@ class OopsApplication(Gtk.Application):
             clck_fmt = None
             try:
                 clck_fmt = gsettings.get_value('clock-format').get_string()
+            # What exception types is less general?
+            #pylint: disable=W0703
             except Exception as ex:
                 logging.exception(ex)
                 return

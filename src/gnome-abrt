@@ -22,6 +22,7 @@ import os
 import sys
 import logging
 import signal
+import locale
 from argparse import ArgumentParser
 
 from ctypes import cdll, util
@@ -166,7 +167,6 @@ class GtkAppDBUSImpl(object):
                     .format(ex))
             return False
 
-
 class OopsApplication(Gtk.Application):
 
     def __init__(self):
@@ -182,6 +182,34 @@ class OopsApplication(Gtk.Application):
         #gnome_abrt.url.set_async_worker(self._url_cache.get_url_title_async)
         # Disable because of https://bugzilla.redhat.com/show_bug.cgi?id=959811
         gnome_abrt.url.set_async_worker(lambda *args: None)
+        self.gnome_settings = None
+
+    def _bind_to_gsettings(self, conf):
+        def set_time_format(conf, gsettings):
+            clck_fmt = None
+            try:
+                clck_fmt = gsettings.get_value('clock-format').get_string()
+            except Exception as ex:
+                logging.exception(ex)
+                return
+
+            if clck_fmt == '24h':
+                conf['T_FMT'] = '%k:%M'
+            else:
+                conf['T_FMT'] = '%l:%M %p'
+
+        def settings_changed(settings, key, conf):
+            if key == 'clock-format':
+                set_time_format(conf, settings)
+
+        if self.gnome_settings is None:
+            self.gnome_settings = Gio.Settings(
+                    schema='org.gnome.desktop.interface')
+            self.gnome_settings.connect(
+                    'changed', settings_changed, conf)
+
+        conf.add_option('T_FMT', default_value=locale.nl_langinfo(locale.T_FMT))
+        set_time_format(conf, self.gnome_settings)
 
     #pylint: disable=W0613
     def _parse_command_line(self, sender, gcmdargs):
@@ -207,6 +235,7 @@ class OopsApplication(Gtk.Application):
             else:
                 conf = get_configuration()
                 conf.add_option("all_problems", default_value=False)
+                self._bind_to_gsettings(conf)
 
                 sources = []
                 try:

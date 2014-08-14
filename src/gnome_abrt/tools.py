@@ -17,9 +17,9 @@
 
 import datetime
 import calendar
-import locale
 
 from gnome_abrt.l10n import _
+from gnome_abrt.config import get_configuration
 
 def fancydate(value, base_date=None):
     """
@@ -35,7 +35,7 @@ def fancydate(value, base_date=None):
     tmdt = base_date.date() - old_date.date()
 
     if tmdt.days == 0:
-        return old_date.time().strftime(locale.nl_langinfo(locale.T_FMT))
+        return old_date.time().strftime(get_configuration()['T_FMT'])
     elif tmdt.days == 1:
         return _('Yesterday')
 

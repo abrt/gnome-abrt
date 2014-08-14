@@ -66,3 +66,5 @@ case "$1" in
             automake --add-missing --force --copy || exit 1
         ;;
 esac
+
+./configure "$@"

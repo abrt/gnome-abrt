@@ -17,6 +17,8 @@
 
 import gettext
 import locale
+import humanize
+import logging
 
 GETTEXT_PROGNAME = None
 
@@ -25,12 +27,18 @@ _ = gettext.lgettext
 def init(progname, localedir='/usr/share/locale'):
     global GETTEXT_PROGNAME
     GETTEXT_PROGNAME = progname
+    lcl = 'C'
     try:
-        locale.setlocale(locale.LC_ALL, "")
+        lcl = locale.setlocale(locale.LC_ALL, "")
     except locale.Error:
         import os
         os.environ['LC_ALL'] = 'C'
-        locale.setlocale(locale.LC_ALL, "")
+        lcl = locale.setlocale(locale.LC_ALL, "")
+
+    try:
+        humanize.i18n.activate(lcl)
+    except IOError as ex:
+        logging.debug("Unsupported locale '{0}': {1}".format(lcl, ex.message))
 
     gettext.bind_textdomain_codeset(progname,
                                     locale.nl_langinfo(locale.CODESET))

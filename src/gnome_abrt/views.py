@@ -21,8 +21,9 @@ import os
 import time
 import logging
 import subprocess
-import locale
 import traceback
+import humanize
+import datetime
 
 #pygobject
 #pylint: disable=E0611
@@ -258,6 +259,8 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.wnd._select_problem_by_id(conf[option])
             if option == 'T_FMT' and conf[option]:
                 self.wnd._reload_problems(self.wnd._source)
+            if option == 'D_T_FMT' and conf[option]:
+                self.wnd._set_problem(self.wnd.selected_problem)
 
 
     def __init__(self, application, sources, controller):
@@ -340,6 +343,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         conf = config.get_configuration()
         conf.set_watch('problemid', self._options_observer)
         conf.set_watch('T_FMT', self._options_observer)
+        conf.set_watch('D_T_FMT', self._options_observer)
         self._options_observer.option_updated(conf, 'problemid')
         self._builder.btn_detail.set_visible(conf['expert'])
         self._builder.mi_detail.set_visible(conf['expert'])
@@ -685,8 +689,9 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder.lbl_app_version_value.set_text(
                         problem['package_version'] or _("N/A"))
             self._builder.lbl_detected_value.set_text(
-                        problem['date'].strftime(
-                            locale.nl_langinfo(locale.D_FMT)))
+                humanize.naturaltime(datetime.datetime.now()-problem['date']))
+            self._builder.lbl_detected_value.set_tooltip_text(
+                problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
             if app.icon:
                 self._builder.img_app_icon.set_from_pixbuf(app.icon)

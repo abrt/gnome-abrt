@@ -197,8 +197,10 @@ class OopsApplication(Gtk.Application):
 
             if clck_fmt == '24h':
                 conf['T_FMT'] = '%k:%M'
+                conf['D_T_FMT'] = '%Y-%m-%d %k:%M'
             else:
                 conf['T_FMT'] = '%l:%M %p'
+                conf['D_T_FMT'] = '%Y-%m-%d %l:%M %p'
 
         def settings_changed(settings, key, conf):
             if key == 'clock-format':
@@ -210,7 +212,10 @@ class OopsApplication(Gtk.Application):
             self.gnome_settings.connect(
                     'changed', settings_changed, conf)
 
-        conf.add_option('T_FMT', default_value=locale.nl_langinfo(locale.T_FMT))
+        conf.add_option('T_FMT',
+                default_value=locale.nl_langinfo(locale.T_FMT))
+        conf.add_option('D_T_FMT',
+                default_value=locale.nl_langinfo(locale.D_T_FMT))
         set_time_format(conf, self.gnome_settings)
 
     #pylint: disable=W0613

@@ -30,6 +30,7 @@ BuildRequires: pylint
 BuildRequires: python-inotify
 BuildRequires: pygobject3
 BuildRequires: dbus-python
+BuildRequires: python-humanize
 %else
 %define checkoption --with-nopylint
 %endif
@@ -38,6 +39,7 @@ Requires:   python-inotify
 Requires:   pygobject3
 Requires:   dbus-python
 Requires:   xdg-utils
+Requires:   python-humanize
 
 %description
 A GNOME application allows users to browse through detected problems and

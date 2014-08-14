@@ -48,7 +48,8 @@ def problems_filter(model, itrtr, data):
             for i in ['component', 'reason',
                         'executable', 'package']:
                 # pattern is 'ascii' and problem[i] is 'dbus.String'
-                val = problem[i].encode('utf-8')
+                if problem[i]:
+                    val = problem[i].encode('utf-8')
                 if val and pattern in val:
                     return True
 

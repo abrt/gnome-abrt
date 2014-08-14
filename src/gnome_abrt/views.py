@@ -598,27 +598,19 @@ class OopsWindow(Gtk.ApplicationWindow):
         link_added = False
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
-                lnk = Gtk.LinkButton.new_with_label(sbm.data, sbm.title)
-                lnk.set_visible(True)
+                lnk = Gtk.Label.new(sbm.title)
+                lnk.set_use_markup(True)
+                lnk.set_markup(
+                    "<a href=\"{0}\">{1}</a>".format(sbm.data, sbm.title))
                 lnk.set_halign(Gtk.Align.START)
-                lnk.set_valign(Gtk.Align.START)
-                lnk_lbl = lnk.get_child()
-                # using hasattr() because this constructions abuses a knowledge
-                # of current Gtk.LinkButton implementation details, but there is
-                # no other way how to make a text of Gtk.LinkButton wrapped
-                # works fine with gtk-3.8.2 but in a future version of gtk, the
-                # child will not necessarily be an instance of Gtk.Label
-                if hasattr(lnk_lbl, "set_line_wrap"):
-                    lnk_lbl.set_line_wrap(True)
+                lnk.set_valign(Gtk.Align.FILL)
+                lnk.set_margin_top(5)
+                lnk.set_margin_bottom(8)
+                lnk.set_line_wrap(True)
+                lnk.set_visible(True)
 
                 self._builder.vbx_links.pack_start(lnk, False, True, 0)
                 link_added = True
-
-        #if link_added:
-            #space = Gtk.Alignment.new(0, 0, 0, 0)
-            #space.set_visible(True)
-            #space.set_vexpand(True)
-            #self._builder.vbx_links.pack_start(space, False, True, 0)
 
         return link_added
 

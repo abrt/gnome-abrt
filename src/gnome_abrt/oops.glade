@@ -453,6 +453,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">end</property>
+                            <property name="margin_right">12</property>
                             <property name="margin_top">8</property>
                             <property name="margin_bottom">8</property>
                             <property name="label" translatable="yes">Name</property>
@@ -471,6 +472,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">end</property>
+                            <property name="margin_right">12</property>
                             <property name="margin_top">8</property>
                             <property name="margin_bottom">8</property>
                             <property name="label" translatable="yes">Version</property>
@@ -488,6 +490,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">end</property>
+                            <property name="margin_right">12</property>
                             <property name="margin_top">8</property>
                             <property name="margin_bottom">8</property>
                             <property name="label" translatable="yes">Detected</property>
@@ -505,8 +508,6 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">start</property>
-                            <property name="margin_left">11</property>
-                            <property name="xpad">5</property>
                             <property name="label">app</property>
                             <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
@@ -521,8 +522,6 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">start</property>
-                            <property name="margin_left">11</property>
-                            <property name="xpad">5</property>
                             <property name="label">2.0.13-2</property>
                             <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
@@ -537,8 +536,6 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">start</property>
-                            <property name="margin_left">11</property>
-                            <property name="xpad">5</property>
                             <property name="label">2013-04-09 18:55</property>
                             <property name="selectable">True</property>
                           </object>
@@ -572,9 +569,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">start</property>
-                                        <property name="margin_left">11</property>
                                         <property name="margin_top">5</property>
-                                        <property name="xpad">5</property>
                                         <property name="label">no</property>
                                         <property name="selectable">True</property>
                                       </object>
@@ -585,36 +580,32 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkLinkButton" id="linkbutton1">
-                                        <property name="label">Very long button name
-</property>
+                                      <object class="GtkLabel" id="label1">
                                         <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="has_tooltip">True</property>
+                                        <property name="can_focus">False</property>
                                         <property name="halign">start</property>
-                                        <property name="valign">start</property>
-                                        <property name="relief">none</property>
-                                        <property name="focus_on_click">False</property>
-                                        <property name="uri">http://glade.gnome.org</property>
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                        <property name="label" translatable="yes">&lt;a href="https://glade.gnome.org/"&gt;Very long placeholder URL tile&lt;/a&gt;</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="ellipsize">middle</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
-                                        <property name="fill">False</property>
+                                        <property name="fill">True</property>
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkLinkButton" id="linkbutton2">
-                                        <property name="label">button</property>
+                                      <object class="GtkLabel" id="label2">
                                         <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="has_tooltip">True</property>
+                                        <property name="can_focus">False</property>
                                         <property name="halign">start</property>
-                                        <property name="valign">start</property>
-                                        <property name="relief">none</property>
-                                        <property name="uri">http://glade.gnome.org</property>
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                        <property name="label" translatable="yes">&lt;a href="https://github.com/abrt/gnome-abrt"&gt;Placeholder URL&lt;/a&gt;</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="lines">1</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -623,18 +614,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkAlignment" id="alignment3">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">3</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                 </child>
@@ -649,27 +629,12 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkAlignment" id="alignment1">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="valign">start</property>
-                            <property name="hexpand">True</property>
-                            <child>
-                              <placeholder/>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="left_attach">2</property>
-                            <property name="top_attach">0</property>
-                            <property name="height">3</property>
-                          </packing>
-                        </child>
-                        <child>
                           <object class="GtkLabel" id="lbl_reported">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">end</property>
                             <property name="valign">start</property>
+                            <property name="margin_right">12</property>
                             <property name="margin_top">8</property>
                             <property name="margin_bottom">8</property>
                             <property name="label" translatable="yes">Reported</property>
@@ -682,6 +647,9 @@
                             <property name="left_attach">0</property>
                             <property name="top_attach">3</property>
                           </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
                         </child>
                         <child>
                           <placeholder/>

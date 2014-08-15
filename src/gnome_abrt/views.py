@@ -42,54 +42,71 @@ from gnome_abrt.tools import fancydate, smart_truncate
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
 
-def problems_filter(model, itrtr, data):
-    def match_pattern(pattern, problem):
-        def item_match(pattern, problem):
-            for i in ['component', 'reason',
-                        'executable', 'package']:
-                # pattern is 'ascii' and problem[i] is 'dbus.String'
-                val = problem[i].encode('utf-8')
-                if val and pattern in val:
-                    return True
+def list_box_row_to_problem(list_box_row):
+    return list_box_row.get_children()[0].get_problem()
 
-        if item_match(pattern, problem) or pattern in problem.problem_id:
+
+def list_box_row_set_values(list_box_row, values):
+    return list_box_row.get_children()[0].set_values(values)
+
+
+class ProblemsFilter(object):
+
+    def __init__(self, list_box):
+        self._pattern = ""
+        self._list_box = list_box
+        self._list_box.set_filter_func(lambda row, _: self.match(row), None)
+
+    def set_pattern(self, pattern):
+        self._pattern = pattern
+        self._list_box.invalidate_filter()
+
+        i = 0
+        problem_row = self._list_box.get_row_at_index(i)
+        while problem_row is not None:
+            if self.match(problem_row):
+                self._list_box.select_row(problem_row)
+                break
+
+            i += 1
+            problem_row = self._list_box.get_row_at_index(i)
+
+    def match(self, list_box_row):
+        # None nevere matches the patter
+        if list_box_row is None:
+            return False
+
+        # Empty string mathces everything
+        if not self._pattern:
+            return True
+
+        problem = list_box_row_to_problem(list_box_row)
+
+        for i in ['component', 'reason', 'executable', 'package']:
+            if problem[i] is None:
+                logging.debug("Problem '{0}' doesn't have '{1}"
+                                .format(problem.problem_id, i))
+                continue
+
+            # _pattern is 'ascii' and problem[i] is 'dbus.String'
+            val = problem[i].encode('utf-8')
+            if val and self._pattern in val:
+                return True
+
+        # This might be confusing as users can't see problem ID in UI but it
+        # will come in handy when you want to see particular problem discovered
+        # in the system logs.
+        if self._pattern in problem.problem_id:
             return True
 
         app = problem['application']
         if app is None or app.name is None:
             return False
 
-        return pattern in app.name
-
-    pattern = data.current_pattern
-
-    if not pattern:
-        return True
-
-    return match_pattern(pattern, model[itrtr][2])
-
-
-class ProblemsFilter(object):
-
-    def __init__(self, window, view):
-        self.current_pattern = ""
-        self.window = window
-        self.view = view
-        self.tm_filter = view.get_model().filter_new()
-        self.tm_filter.set_visible_func(problems_filter, self)
-        self.view.set_model(self.tm_filter)
-
-    def set_pattern(self, pattern):
-        self.current_pattern = pattern
-        self.tm_filter.refilter()
-
-        itrtr = self.view.get_model().get_iter_first()
-        if itrtr:
-            self.window._select_problem_iter(itrtr)
+        return self._pattern in app.name
 
 
 def problem_to_storage_values(problem):
-    # not localizable, it is a format for tree view column
     app = problem.get_application()
 
     if app.name:
@@ -100,22 +117,25 @@ def problem_to_storage_values(problem):
     if name == "kernel":
         name = _("System")
 
-    return ["{0!s}\n".format(smart_truncate(name, length=40)),
-            "{0!s}\n{1!s}".format(fancydate(problem['date_last']),
-                                  problem['count']),
-            problem]
+    return (smart_truncate(name, length=40),
+            fancydate(problem['date_last']),
+            problem['count'],
+            problem)
+
 
 #pylint: disable=W0613
-def time_sort_func(model, first, second, trash):
+def time_sort_func(first_row, second_row, trash):
+    fst_problem = list_box_row_to_problem(first_row)
+    scn_problem = list_box_row_to_problem(second_row)
     # skip invalid problems which were marked invalid while sorting
-    if (model[first][2].problem_id in trash or
-        model[second][2].problem_id in trash):
+    if (fst_problem.problem_id in trash or
+        scn_problem.problem_id in trash):
         return 0
 
     try:
-        lhs = model[first][2]['date_last'].timetuple()
-        rhs = model[second][2]['date_last'].timetuple()
-        return time.mktime(lhs) - time.mktime(rhs)
+        lhs = fst_problem['date_last'].timetuple()
+        rhs = scn_problem['date_last'].timetuple()
+        return time.mktime(rhs) - time.mktime(lhs)
     except errors.InvalidProblem as ex:
         trash.add(ex.problem_id)
         logging.debug(ex)
@@ -123,6 +143,7 @@ def time_sort_func(model, first, second, trash):
 
 def format_button_source_name(name, source):
     return "{0} ({1})".format(name, len(source.get_problems()))
+
 
 def handle_problem_and_source_errors(func):
     """Wraps repetitive exception handling."""
@@ -140,6 +161,73 @@ def handle_problem_and_source_errors(func):
         return None
 
     return wrapper_for_instance_function
+
+
+class ListBoxSelection(object):
+
+    def __init__(self, list_box, selection_changed):
+        self._lb = list_box
+
+        self._lb.connect('row-selected', self._on_row_selected)
+
+        self._selection = []
+        self._selection_changed = selection_changed
+
+    def _on_row_selected(self, _, row):
+        if row is not None:
+            self._selection = [list_box_row_to_problem(row)]
+
+        self._selection_changed(self)
+
+    def unselect_all(self):
+        self._selection = []
+        self._selection_changed(self)
+
+    def get_selected_rows(self):
+        return self._selection
+
+
+class ProblemListBoxCell(Gtk.Box):
+
+    def __init__(self, problem_values):
+        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL,
+                spacing=0, homogeneous=False)
+
+        self.get_style_context().add_class('problem-cell')
+
+        self._problem = problem_values[3]
+
+        self._hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+
+        self._lbl_app = Gtk.Label.new(problem_values[0])
+        self._lbl_app.set_use_markup(True)
+        self._lbl_app.set_markup("<b>{0}</b>".format(problem_values[0]))
+
+        self._lbl_app.set_halign(Gtk.Align.START)
+
+        self._lbl_date = Gtk.Label.new(problem_values[1])
+        self._lbl_date.set_halign(Gtk.Align.END)
+        self._lbl_date.get_style_context().add_class('dim-label')
+
+        self._lbl_count = Gtk.Label.new(problem_values[2])
+        self._lbl_count.set_halign(Gtk.Align.END)
+        self._lbl_count.get_style_context().add_class('dim-label')
+
+        self._hbox.pack_start(self._lbl_app, False, True, 0)
+        self._hbox.pack_end(self._lbl_date, False, True, 0)
+
+        self.pack_start(self._hbox, True, True, 0)
+        self.pack_start(self._lbl_count, True, True, 0)
+        self.show_all()
+
+    def set_values(self, problem_values):
+        self._lbl_app.set_text(problem_values[0])
+        self._lbl_date.set_text(problem_values[1])
+        self._lbl_count.set_text(problem_values[2])
+        self._problem = problem_values[3]
+
+    def get_problem(self):
+        return self._problem
 
 
 #pylint: disable=R0902
@@ -174,7 +262,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             self.wnd_main = builder.get_object('wnd_main')
             self.gr_main_layout = builder.get_object('gr_main_layout')
-            self.ls_problems = builder.get_object('ls_problems')
             self.lbl_reason = builder.get_object('lbl_reason')
             self.lbl_summary = builder.get_object('lbl_summary')
             self.lbl_app_name_value = builder.get_object('lbl_app_name_value')
@@ -184,8 +271,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.lbl_reported = builder.get_object('lbl_reported')
             self.lbl_reported_value = builder.get_object('lbl_reported_value')
             self.lbl_repots = builder.get_object('lbl_reports')
-            self.tv_problems = builder.get_object('tv_problems')
-            self.tvs_problems = builder.get_object('tvs_problems')
+            self.lb_problems = builder.get_object('lb_problems')
             self.img_app_icon = builder.get_object('img_app_icon')
             self.nb_problem_layout = builder.get_object('nb_problem_layout')
             self.btn_delete = builder.get_object('btn_delete')
@@ -287,7 +373,25 @@ class OopsWindow(Gtk.ApplicationWindow):
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_data("GtkViewport {\n"
                                "  background-color : @theme_bg_color;\n"
-                               "}\n")
+                               "}\n"
+                               "GtkListBox {\n"
+                               "  background-color : #e7e7e7;\n"
+                               "}\n"
+                               "GtkListBoxRow {\n"
+                               "  padding          : 12px;\n"
+                               "  background-color : #e7e7e7;\n"
+                               "  border-width     : 0px 0px 2px 0px;\n"
+                               "  border-color     : #efefef;\n"
+                               "  border-style     : outset;\n"
+                               "}\n"
+                               "GtkListBoxRow:selected {\n"
+                               "  background-color : #4a90d9;\n"
+                               "}\n"
+                               ".oops-reason {\n"
+                               "  font-size        : 120%;\n"
+                               "  font-weight      : bold;\n"
+                               "}\n"
+                               )
         stl_ctx = self.get_style_context()
         stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
         self._builder.connect_signals(self)
@@ -329,14 +433,15 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._source = self._all_sources[0]
         self._set_button_toggled(self._source.button, True)
 
-        self._builder.ls_problems.set_sort_column_id(0, Gtk.SortType.DESCENDING)
         # a set where invalid problems found while sorting of the problem list
         # are stored
         self._trash = set()
-        self._builder.ls_problems.set_sort_func(0, time_sort_func, self._trash)
-        self._filter = ProblemsFilter(self, self._builder.tv_problems)
+        self._builder.lb_problems.set_sort_func(time_sort_func, self._trash)
+        self._filter = ProblemsFilter(self._builder.lb_problems)
+        self.lss_problems = ListBoxSelection(self._builder.lb_problems,
+                self.on_tvs_problems_changed)
 
-        self._builder.tv_problems.grab_focus()
+        self._builder.lb_problems.grab_focus()
         try:
             self._reload_problems(self._source)
         except errors.UnavailableSource as ex:
@@ -354,8 +459,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         # enable observer
         self._source_observer.enable()
 
-        self._builder.tv_problems.set_search_entry(self._builder.se_problems)
-        self.connect("key-press-event", self._on_key_press_event, None)
+        self.connect("key-press-event", self._on_key_press_event)
 
     def _update_source_button(self, source):
         name = format_button_source_name(source.name, source)
@@ -448,41 +552,41 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._disable_source(ex.source, ex.temporary)
 
     @handle_problem_and_source_errors
-    def _find_problem_iter(self, problem, model):
-        pit = model.get_iter_first()
-        while pit:
-            if model[pit][2] == problem:
-                return pit
+    def _find_problem_row_full(self, problem):
+        i = 0
+        lb_row = self._builder.lb_problems.get_row_at_index(i)
+        while lb_row is not None:
+            if problem == list_box_row_to_problem(lb_row):
+                break
 
-            pit = model.iter_next(pit)
+            i += 1
+            lb_row = self._builder.lb_problems.get_row_at_index(i)
 
-        return None
+        return (i, lb_row)
+
+    @handle_problem_and_source_errors
+    def _find_problem_row(self, problem):
+        return self._find_problem_row_full(problem)[1]
 
     def _add_problem_to_storage(self, problem):
-        """Adds a problem to the storage
-
-        Returns True if the problem was successfully added to the storage;
-        otherwise returns False
-        """
-        problem_values = None
         try:
-            problem_values = problem_to_storage_values(problem)
+            values = problem_to_storage_values(problem)
         except errors.InvalidProblem:
             logging.debug("Exception: {0}".format(traceback.format_exc()))
             return
 
-        self._append_problem_values_to_storage(problem_values)
+        self._append_problem_values_to_storage(values)
 
     def _append_problem_values_to_storage(self, problem_values):
-        self._builder.ls_problems.append(problem_values)
+        problem_cell = ProblemListBoxCell(problem_values)
+        self._builder.lb_problems.insert(problem_cell, -1)
         self._clear_invalid_problems_trash()
 
     def _clear_invalid_problems_trash(self):
-        # GtkListStore.append()/set_value() methods trigger
-        # time_sort_func() where InvalidProblem exception can occur. In that
-        # case time_sort_func() pushes an invalid problem to the trash set
-        # because the invalid problem cannot be removed while executing the
-        # operation
+        # append methods trigger time_sort_func() where InvalidProblem
+        # exception can occur. In that case time_sort_func() pushes an invalid
+        # problem to the trash set because the invalid problem cannot be
+        # removed while executing the operation
         while self._trash:
             self._remove_problem_from_storage(self._trash.pop())
 
@@ -490,13 +594,28 @@ class OopsWindow(Gtk.ApplicationWindow):
         if problem is None:
             return
 
-        pit = self._find_problem_iter(problem, self._builder.ls_problems)
-        if pit:
-            self._builder.ls_problems.remove(pit)
+        index, problem_row = self._find_problem_row_full(problem)
+        if problem_row is None:
+            return
+
+        selected = problem in self._get_selected(self.lss_problems)
+
+        problem_row.destroy()
+
+        if selected:
+            for i in xrange(index, -1, -1):
+                problem_row = self._builder.lb_problems.get_row_at_index(i)
+                if self._filter.match(problem_row):
+                    break
+
+            if problem_row is not None:
+                self._builder.lb_problems.select_row(problem_row)
+            else:
+                self._set_problem(None)
 
     def _update_problem_in_storage(self, problem):
-        pit = self._find_problem_iter(problem, self._builder.ls_problems)
-        if pit:
+        problem_row = self._find_problem_row(problem)
+        if problem_row is not None:
             try:
                 values = problem_to_storage_values(problem)
             except errors.InvalidProblem as ex:
@@ -504,11 +623,11 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._remove_problem_from_storage(ex.problem_id)
                 return
 
-            for i in xrange(0, len(values)-1):
-                self._builder.ls_problems.set_value(pit, i, values[i])
-                self._clear_invalid_problems_trash()
+            list_box_row_set_values(problem_row, values)
+            self._builder.lb_problems.invalidate_sort()
+            self._clear_invalid_problems_trash()
 
-        if problem in self._get_selected(self._builder.tvs_problems):
+        if problem in self._get_selected(self.lss_problems):
             self._set_problem(problem)
 
     def _reload_problems(self, source):
@@ -526,11 +645,12 @@ class OopsWindow(Gtk.ApplicationWindow):
                     logging.debug("Exception: {0}"
                             .format(traceback.format_exc()))
 
-        old_selection = self._get_selected(self._builder.tvs_problems)
+        old_selection = self._get_selected(self.lss_problems)
 
         self._reloading = True
         try:
-            self._builder.ls_problems.clear()
+            self._builder.lb_problems.foreach(
+                lambda w, u: w.destroy(), None)
 
             if storage_problems:
                 for p in storage_problems:
@@ -539,25 +659,15 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._reloading = False
 
         if storage_problems:
-            model = self._builder.tv_problems.get_model()
-
-            # For some strange reason, get_model() sometimes returns None when
-            # this function is called from a signal handler but the signal
-            # handler is synchronously called from GMainLoop so there is no
-            # place for race conditions. If the described situation arises,
-            # base model will be used.
-            if model is None:
-                model = self._builder.ls_problems
-
-            pit = None
+            problem_row = None
             if old_selection:
-                pit = self._find_problem_iter(old_selection[0], model)
+                problem_row = self._find_problem_row(old_selection[0])
 
-            if pit is None:
-                pit = model.get_iter_first()
+            if problem_row is None:
+                problem_row = self._builder.lb_problems.get_row_at_index(0)
 
-            if pit is not None:
-                self._select_problem_iter(pit)
+            if problem_row is not None:
+                self._builder.lb_problems.select_row(problem_row)
                 return
 
         self._set_problem(None)
@@ -576,30 +686,13 @@ class OopsWindow(Gtk.ApplicationWindow):
                         self._set_button_toggled(source.button, True)
                     break
 
-        pit = self._find_problem_iter(problem_id,
-                self._builder.tv_problems.get_model())
+        problem_row = self._find_problem_row(problem_id)
 
-        if pit:
-            self._select_problem_iter(pit)
+        if problem_row is not None:
+            self._builder.lb_problems.select_row(problem_row)
         else:
             logging.debug("Can't select problem id '{0}' because the id was "
                     "not found".format(problem_id))
-
-    def _select_problem_iter(self, pit):
-        self._reloading = True
-        try:
-            self._builder.tvs_problems.unselect_all()
-        finally:
-            self._reloading = False
-
-        path = self._builder.tv_problems.get_model().get_path(pit)
-        if not path:
-            logging.debug("Can't select problem because the passed iter can't"
-                    " be converted to a tree path")
-            return
-
-        self._builder.tvs_problems.select_iter(pit)
-        self._builder.tv_problems.scroll_to_cell(path)
 
     def _show_problem_links(self, submissions):
         if not submissions:
@@ -731,12 +824,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                 self._builder.nb_problem_layout.set_current_page(2)
 
     def _get_selected(self, selection):
-        model, rows = selection.get_selected_rows()
-
-        if not rows:
-            return []
-
-        return [model[p][2] for p in rows]
+        return selection.get_selected_rows()
 
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
@@ -745,9 +833,9 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                 self._set_problem(selection[0])
                 return
 
-            pit = self._builder.tv_problems.get_model().get_iter_first()
-            if pit:
-                self._select_problem_iter(pit)
+            problem_row = self._builder.lb_problems.get_row(0)
+            if problem_row is not None:
+                self._set_problem(list_box_row_to_problem(problem_row))
                 return
 
             # Clear window because of empty list of problems!
@@ -755,7 +843,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 
     @handle_problem_and_source_errors
     def on_gac_delete_activate(self, action):
-        for prblm in self._get_selected(self._builder.tvs_problems):
+        for prblm in self._get_selected(self.lss_problems):
             try:
                 self._controller.delete(prblm)
             except errors.InvalidProblem as ex:
@@ -764,13 +852,13 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 
     @handle_problem_and_source_errors
     def on_gac_detail_activate(self, action):
-        selected = self._get_selected(self._builder.tvs_problems)
+        selected = self._get_selected(self.lss_problems)
         if selected:
             self._controller.detail(selected[0])
 
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action):
-        selected = self._get_selected(self._builder.tvs_problems)
+        selected = self._get_selected(self.lss_problems)
         if selected and not selected[0]['not-reportable']:
             self._controller.report(selected[0])
 
@@ -778,7 +866,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_se_problems_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())
 
-    def _on_key_press_event(self, sender, event, data):
+    def _on_key_press_event(self, sender, event):
         return self._builder.search_bar.handle_event(event)
 
     def _hide_problem_filter(self):
@@ -809,14 +897,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         wrappers.show_events_list_dialog(self)
 
     def on_gac_open_directory_activate(self, action):
-        selection = self._get_selected(self._builder.tvs_problems)
+        selection = self._get_selected(self.lss_problems)
         if selection:
             subprocess.Popen(["xdg-open", selection[0].problem_id])
         self._builder.menu_problem_item.popdown()
         self._builder.menu_multiple_problems.popdown()
 
     def on_gac_copy_id_activate(self, action):
-        selection = self._get_selected(self._builder.tvs_problems)
+        selection = self._get_selected(self.lss_problems)
         if selection:
             #pylint: disable=E1101
             (Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
@@ -824,7 +912,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         self._builder.menu_problem_item.popdown()
         self._builder.menu_multiple_problems.popdown()
 
-    def on_tv_problems_button_press_event(self, sender, data):
+    def problems_button_press_event(self, sender, data):
         # getattribute() used because number as first character in name
         # is syntax error
         if (data.type == type.__getattribute__(Gdk.EventType, '2BUTTON_PRESS')
@@ -832,12 +920,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             self._builder.gac_report.activate()
         elif (data.type == Gdk.EventType.BUTTON_PRESS
                 and data.button == Gdk.BUTTON_SECONDARY):
-            if len(self._builder.tvs_problems.get_selected_rows()[1]) > 1:
-                self._builder.menu_multiple_problems.popup(None, None,
+            # TODO: multi-selection issue
+            #if len(self.lss_problems.get_selected_rows()) > 1:
+            #    self._builder.menu_multiple_problems.popup(None, None,
+            #            None, None, data.button, data.time)
+            #    return True
+            #else:
+            problem_row = self._builder.lb_problems.get_row_at_y(data.y)
+            if problem_row:
+                self._builder.lb_problems.select_row(problem_row)
+                self._builder.menu_problem_item.popup(None, None,
                         None, None, data.button, data.time)
-                return True
-            else:
-                pos = self._builder.tv_problems.get_path_at_pos(data.x, data.y)
-                if pos:
-                    self._builder.menu_problem_item.popup(None, None,
-                            None, None, data.button, data.time)

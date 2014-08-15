@@ -120,19 +120,9 @@
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="ls_problems">
-    <columns>
-      <!-- column-name application-type -->
-      <column type="gchararray"/>
-      <!-- column-name date-count -->
-      <column type="gchararray"/>
-      <!-- column-name problem -->
-      <column type="PyObject"/>
-    </columns>
-  </object>
   <object class="GtkWindow" id="wnd_main">
-    <property name="width_request">800</property>
-    <property name="height_request">600</property>
+    <property name="width_request">1024</property>
+    <property name="height_request">768</property>
     <property name="can_focus">False</property>
     <property name="icon_name">gnome-abrt</property>
     <accel-groups>
@@ -142,6 +132,7 @@
       <object class="GtkPaned" id="gr_main_layout">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
+        <property name="position">256</property>
         <child>
           <object class="GtkBox" id="box1">
             <property name="visible">True</property>
@@ -205,61 +196,19 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkScrolledWindow" id="sw_problems">
+                  <object class="GtkScrolledWindow" id="scrolledwindow1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="hscrollbar_policy">never</property>
-                    <property name="min_content_width">300</property>
+                    <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkTreeView" id="tv_problems">
+                      <object class="GtkViewport" id="viewport1">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="hexpand">True</property>
-                        <property name="vexpand">True</property>
-                        <property name="vscroll_policy">natural</property>
-                        <property name="model">ls_problems</property>
-                        <property name="headers_visible">False</property>
-                        <property name="headers_clickable">False</property>
-                        <property name="search_column">0</property>
-                        <property name="enable_grid_lines">horizontal</property>
-                        <signal name="button-press-event" handler="on_tv_problems_button_press_event" swapped="no"/>
-                        <child internal-child="selection">
-                          <object class="GtkTreeSelection" id="tvs_problems">
-                            <property name="mode">multiple</property>
-                            <signal name="changed" handler="on_tvs_problems_changed" swapped="no"/>
-                          </object>
-                        </child>
+                        <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkTreeViewColumn" id="tvc_application">
-                            <property name="min_width">0</property>
-                            <property name="title" translatable="yes">App</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="cellrenderertext1">
-                                <property name="markup">python</property>
-                              </object>
-                              <attributes>
-                                <attribute name="text">0</attribute>
-                              </attributes>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkTreeViewColumn" id="tvc_date">
-                            <property name="title" translatable="yes">Date</property>
-                            <property name="alignment">1</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="cellrenderertext3">
-                                <property name="xpad">10</property>
-                                <property name="xalign">1</property>
-                                <property name="alignment">right</property>
-                                <property name="foreground_rgba">rgb(186,189,182)</property>
-                              </object>
-                              <attributes>
-                                <attribute name="text">1</attribute>
-                              </attributes>
-                            </child>
+                          <object class="GtkListBox" id="lb_problems">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <signal name="button-press-event" handler="problems_button_press_event" swapped="no"/>
                           </object>
                         </child>
                       </object>
@@ -377,6 +326,8 @@
               <object class="GtkNotebook" id="nb_problem_layout">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">24</property>
+                <property name="margin_top">32</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <property name="show_tabs">False</property>
@@ -420,9 +371,9 @@
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
                             <property name="ellipsize">end</property>
-                            <attributes>
-                              <attribute name="font-desc" value="Sans Bold 11"/>
-                            </attributes>
+                            <style>
+                              <class name="oops-reason"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -656,6 +607,12 @@
                             <property name="left_attach">0</property>
                             <property name="top_attach">3</property>
                           </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
                         </child>
                         <child>
                           <placeholder/>

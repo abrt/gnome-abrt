@@ -192,6 +192,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.btn_report = builder.get_object('btn_report')
             self.btn_detail = builder.get_object('btn_detail')
             self.se_problems = builder.get_object('se_problems')
+            self.search_bar = builder.get_object('search_bar')
             self.chb_all_problems = builder.get_object('chb_all_problems')
             self.vbx_links = builder.get_object('vbx_links')
             self.vbx_problem_messages = builder.get_object(
@@ -208,6 +209,8 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         def connect_signals(self, implementor):
             self._builder.connect_signals(implementor)
+
+            self.search_bar.connect_entry(self.se_problems)
 
         def __getattr__(self, name):
             obj = self._builder.get_object(name)
@@ -776,23 +779,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         self._filter.set_pattern(entry.get_text())
 
     def _on_key_press_event(self, sender, event, data):
-        if (not self._builder.se_problems.is_focus()
-                and event.string and event.string.strip()
-                and event.keyval != Gdk.KEY_BackSpace
-                and event.keyval != Gdk.KEY_Delete
-                and (event.state == 0
-                    or event.state == Gdk.ModifierType.SHIFT_MASK
-                    or event.state == Gdk.ModifierType.LOCK_MASK)):
-            self._show_problem_filter()
-
-        return False
+        return self._builder.search_bar.handle_event(event)
 
     def _hide_problem_filter(self):
         self._builder.se_problems.set_text("")
-        self._builder.se_problems.hide()
+        self._builder.search_bar.set_search_mode(False)
 
     def _show_problem_filter(self):
-        self._builder.se_problems.show()
+        self._builder.search_bar.set_search_mode(True)
         self._builder.se_problems.grab_focus()
 
     def on_se_problems_key_press_event(self, sender, data):
@@ -802,7 +796,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         return False
 
     def on_gac_search_activate(self, action):
-        if self._builder.se_problems.get_visible():
+        if self._builder.search_bar.get_search_mode():
             self._hide_problem_filter()
         else:
             self._show_problem_filter()

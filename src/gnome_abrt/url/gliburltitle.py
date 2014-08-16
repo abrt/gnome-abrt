@@ -28,7 +28,7 @@ from gnome_abrt.url.urltitle import GetURLTitleThread
 
 
 def get_url_title_async(url, readycallback, userdata, context=None):
-    """Gets url's title assynchronously
+    """Gets url's title asynchronously
     """
 
     if context is None:

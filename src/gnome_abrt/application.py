@@ -220,6 +220,7 @@ def find_application(component, executable, cmdline):
             return __globa_app_cache__[pred[0]]
 
     app = None
+    app_last_chance = None
     # no cache entry was found, try to find corresponding desktop entry
     for pred in lookupnames:
         if not pred[0]:
@@ -255,14 +256,24 @@ def find_application(component, executable, cmdline):
                         logging.debug("Unsupported type of icon class: {0}"
                                 .format(dai_icon))
 
-                app = Application(executable, name=dai.get_name(), icon=icon)
-                break
+                if dai.get_nodisplay():
+                    # remember the first hit which is the most accurate one
+                    if app_last_chance is None:
+                        app_last_chance = Application(executable,
+                            name=dai.get_name(), icon=icon)
+                else:
+                    app = Application(executable,
+                            name=dai.get_name(), icon=icon)
+                    break
 
         if app is not None:
             break
 
     if app is None:
-        app = Application(executable, name=component)
+        if app_last_chance is not None:
+            app = app_last_chance
+        else:
+            app = Application(executable, name=component)
 
     # cache by cmdline because package and component can provide many
     # applications but cmdline looks like pretty unique information

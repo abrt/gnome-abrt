@@ -189,7 +189,7 @@ class Problem(object):
         if cached and item in self.data:
             retval = self.data[item]
             if retval is None and item == "count":
-                return 1
+                return "1"
             return retval
 
         loaded = self.__loaditems__(item)
@@ -197,7 +197,7 @@ class Problem(object):
             return loaded[item]
 
         if item == 'count':
-            return 1
+            return "1"
 
         return None
 

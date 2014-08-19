@@ -132,7 +132,7 @@
       <object class="GtkPaned" id="gr_main_layout">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
-        <property name="position">256</property>
+        <property name="position">310</property>
         <child>
           <object class="GtkBox" id="box1">
             <property name="visible">True</property>

@@ -15,7 +15,8 @@ gnome_abrtexec_PYTHON = \
 	signals.py \
 	tools.py \
 	views.py \
-	l10n.py
+	l10n.py \
+	desktop.py
 
 controller.py: controller.py.in Makefile
 	sed -e s,\@libexecdir\@,$(libexecdir),g $< > $@

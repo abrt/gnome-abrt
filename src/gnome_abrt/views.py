@@ -37,6 +37,7 @@ import gnome_abrt.problems as problems
 import gnome_abrt.config as config
 import gnome_abrt.wrappers as wrappers
 import gnome_abrt.errors as errors
+import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
 from gnome_abrt.tools import fancydate, smart_truncate
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
@@ -232,6 +233,9 @@ class ProblemListBoxCell(Gtk.Box):
 
 #pylint: disable=R0902
 class OopsWindow(Gtk.ApplicationWindow):
+
+    _TITLE = _("Problem Reporting")
+
     class OopsGtkBuilder(object):
         def __init__(self):
             builder = None
@@ -261,7 +265,9 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder = builder
 
             self.wnd_main = builder.get_object('wnd_main')
-            self.gr_main_layout = builder.get_object('gr_main_layout')
+            self.box_window = builder.get_object('box_window')
+            self.box_sources_switcher = builder.get_object(
+                    'box_sources_switcher')
             self.lbl_reason = builder.get_object('lbl_reason')
             self.lbl_summary = builder.get_object('lbl_summary')
             self.lbl_app_name_value = builder.get_object('lbl_app_name_value')
@@ -292,11 +298,36 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.menu_multiple_problems = builder.get_object(
                     'menu_multiple_problems')
             self.ag_accelerators = builder.get_object('ag_accelerators')
+            self.header_bar = None
 
         def connect_signals(self, implementor):
             self._builder.connect_signals(implementor)
 
             self.search_bar.connect_entry(self.se_problems)
+
+        def reset_window(self, window, title):
+            window.set_default_size(*self.wnd_main.get_size())
+            self.wnd_main.remove(self.box_window)
+            #pylint: disable=E1101
+            window.add(self.box_window)
+
+            if desktop.replace_window_header():
+                self.box_header.foreach(lambda w, c: c.remove(w),
+                        self.box_header)
+
+                self.header_bar = Gtk.HeaderBar.new()
+                self.header_bar.pack_start(self.box_sources_switcher)
+                self.header_bar.pack_end(self.btn_detail)
+                self.header_bar.pack_end(self.btn_report)
+                self.header_bar.pack_end(self.btn_delete)
+
+                window.set_titlebar(self.header_bar)
+                self.header_bar.set_show_close_button(True)
+                # window.get_title() returns None
+                self.header_bar.set_title(title)
+
+            # move accelators group from the design window to this window
+            window.add_accel_group(self.ag_accelerators)
 
         def __getattr__(self, name):
             obj = self._builder.get_object(name)
@@ -354,20 +385,14 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, application, sources, controller):
         Gtk.ApplicationWindow.__init__(self,
-                            title=_('Problem Reporting'),
+                            title=OopsWindow._TITLE,
                             application=application)
 
         if not sources:
             raise ValueError("The source list cannot be empty!")
 
         self._builder = OopsWindow.OopsGtkBuilder()
-        self.set_default_size(*self._builder.wnd_main.get_size())
-        self._builder.wnd_main.remove(self._builder.gr_main_layout)
-        #pylint: disable=E1101
-        self.add(self._builder.gr_main_layout)
-
-        # move accelators group from the design window to this window
-        self.add_accel_group(self._builder.ag_accelerators)
+        self._builder.reset_window(self, OopsWindow._TITLE)
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
@@ -421,8 +446,10 @@ class OopsWindow(Gtk.ApplicationWindow):
             src_btn.set_visible(True)
             # add an extra member source (I don't like it but it so easy)
             src_btn.source = src
-            self._builder.hbox_source_btns.pack_start(src_btn,
-                    True, True, 0)
+            src_btn.set_margin_top(5)
+            src_btn.set_margin_bottom(5)
+            self._builder.box_sources_switcher.pack_start(
+                    src_btn, False, True, 0)
 
             # add an extra member name (I don't like it but it so easy)
             src.name = name

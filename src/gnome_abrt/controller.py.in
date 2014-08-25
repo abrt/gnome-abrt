@@ -45,7 +45,7 @@ class Controller(object):
 
         problem.delete()
 
-    def detail(self, problem):
+    def analyze(self, problem):
         if not problem:
             logging.error("BUG: Controller: Can't open detail of None problem")
             return

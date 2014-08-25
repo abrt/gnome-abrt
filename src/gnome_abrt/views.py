@@ -881,7 +881,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_detail_activate(self, action):
         selected = self._get_selected(self.lss_problems)
         if selected:
-            self._controller.detail(selected[0])
+            wrappers.show_problem_details_for_dir(
+                    selected[0].problem_id, self)
+
+    @handle_problem_and_source_errors
+    def on_gac_analyze_activate(self, action):
+        selected = self._get_selected(self.lss_problems)
+        if selected:
+            self._controller.analyze(selected[0])
 
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action):

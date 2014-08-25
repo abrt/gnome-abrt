@@ -53,7 +53,7 @@ class Controller(object):
         self.run_event_fn("open-gui", problem)
 
     def _refresh_sources(self):
-        for name, src in self.sources:
+        for name, src, _ in self.sources:
             try:
                 src.refresh()
             except errors.UnavailableSource:

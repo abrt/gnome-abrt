@@ -262,11 +262,11 @@ class OopsApplication(Gtk.Application):
                 if len(sources) == 0:
                     raise UnavailableSource("No available problem source.")
 
-                self.all_sources = [(_("My"), MultipleSources(sources))]
+                self.all_sources = [(_("My"), MultipleSources(sources), True)]
 
                 try:
                     self.all_sources.append((_("System"),
-                                get_foreign_problems_source()))
+                                get_foreign_problems_source(), False))
                 except UnavailableSource as ex:
                     logging.warning(str(ex))
 

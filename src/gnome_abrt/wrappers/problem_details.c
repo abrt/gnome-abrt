@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2012  Abrt team.
-    Copyright (C) 2012  RedHat inc.
+    Copyright (C) 2014  Abrt team.
+    Copyright (C) 2014  RedHat inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,11 +16,24 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 */
-#include <Python.h>
+#include <common.h>
+#include <libreport/internal_libreport_gtk.h>
+#include <pygobject.h>
 
-/* module-level functions */
-PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args);
-PyObject *p_show_system_config_abrt_dialog(PyObject *module, PyObject *args);
+PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args)
+{
+    (void)module;
 
-/* Problem Details */
-PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args);
+    const char *dir_str = NULL;
+    PyGObject *pygtkwnd = NULL;
+    if (PyArg_ParseTuple(args, "s|O", &dir_str, &pygtkwnd))
+    {
+        GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
+        GtkWidget *dialog = problem_details_dialog_new_for_dir(dir_str, wnd);
+
+        if (dialog != NULL)
+            gtk_dialog_run(GTK_DIALOG(dialog));
+    }
+
+    Py_RETURN_NONE;
+}

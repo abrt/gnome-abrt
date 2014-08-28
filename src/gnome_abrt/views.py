@@ -431,33 +431,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._all_sources = []
         self._source = None
         self._handling_source_click = False
-        for name, src in sources:
-            self._all_sources.append(src)
-            src.attach(self._source_observer)
-
-            label = None
-            try:
-                label = format_button_source_name(name, src)
-            except errors.UnavailableSource:
-                logging.debug("Unavailable source: {0}".format(name))
-                continue
-
-            src_btn = Gtk.ToggleButton.new_with_label(label)
-            src_btn.set_visible(True)
-            # add an extra member source (I don't like it but it so easy)
-            src_btn.source = src
-            src_btn.set_margin_top(5)
-            src_btn.set_margin_bottom(5)
-            self._builder.box_sources_switcher.pack_start(
-                    src_btn, False, True, 0)
-
-            # add an extra member name (I don't like it but it so easy)
-            src.name = name
-            # add an extra member button (I don't like it but it so easy)
-            src.button = src_btn
-            src_btn.connect("clicked", self._on_source_btn_clicked, src)
-
-        self._source = self._all_sources[0]
+        self._configure_sources(sources)
         self._set_button_toggled(self._source.button, True)
 
         # a set where invalid problems found while sorting of the problem list
@@ -488,6 +462,40 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.connect("key-press-event", self._on_key_press_event)
 
+    def _update_detail_buttons_visibility(self):
+        self._builder.btn_detail.set_visible(self._source.allow_details)
+
+    def _configure_sources(self, sources):
+        for name, src, allow_details in sources:
+            self._all_sources.append(src)
+            src.attach(self._source_observer)
+
+            label = None
+            try:
+                label = format_button_source_name(name, src)
+            except errors.UnavailableSource:
+                logging.debug("Unavailable source: {0}".format(name))
+                continue
+
+            src_btn = Gtk.ToggleButton.new_with_label(label)
+            src_btn.set_visible(True)
+            # add an extra member source (I don't like it but it so easy)
+            src_btn.source = src
+            src_btn.set_margin_top(5)
+            src_btn.set_margin_bottom(5)
+            self._builder.box_sources_switcher.pack_start(
+                    src_btn, False, True, 0)
+
+            # add an extra member name (I don't like it but it so easy)
+            src.name = name
+            # add an extra member button (I don't like it but it so easy)
+            src.button = src_btn
+            # add an extra member allow_details (I don't like it but it so easy)
+            src.allow_details = allow_details
+            src_btn.connect("clicked", self._on_source_btn_clicked, src)
+
+        self._source = self._all_sources[0]
+
     def _update_source_button(self, source):
         name = format_button_source_name(source.name, source)
         source.button.set_label(name)
@@ -514,6 +522,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             # source's button
             self._set_button_toggled(btn, False)
         else:
+            self._update_detail_buttons_visibility()
             if old_source is not None:
                 # sources were switched and we have to untoggle old source's
                 # button
@@ -570,6 +579,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         if (not temporary or source_index != 0) and self._all_sources:
             self._source = self._all_sources[0]
             self._set_button_toggled(self._source.button, True)
+            self._update_detail_buttons_visibility()
         else:
             self._source = None
 
@@ -711,6 +721,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                     if res:
                         self._set_button_toggled(old_source.button, False)
                         self._set_button_toggled(source.button, True)
+                        self._update_detail_buttons_visibility()
                     break
 
         problem_row = self._find_problem_row(problem_id)
@@ -881,7 +892,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_detail_activate(self, action):
         selected = self._get_selected(self.lss_problems)
         if selected:
-            self._controller.detail(selected[0])
+            wrappers.show_problem_details_for_dir(
+                    selected[0].problem_id, self)
+
+    @handle_problem_and_source_errors
+    def on_gac_analyze_activate(self, action):
+        selected = self._get_selected(self.lss_problems)
+        if selected:
+            self._controller.analyze(selected[0])
 
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action):

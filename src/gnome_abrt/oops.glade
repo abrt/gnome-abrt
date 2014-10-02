@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.18.1 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
   <object class="GtkAccelGroup" id="ag_accelerators"/>
@@ -128,6 +128,11 @@
       </object>
     </child>
   </object>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">object-select-symbolic</property>
+  </object>
   <object class="GtkWindow" id="wnd_main">
     <property name="width_request">1024</property>
     <property name="height_request">768</property>
@@ -158,6 +163,25 @@
               </packing>
             </child>
             <child>
+              <object class="GtkToggleButton" id="tbtn_multi_select">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_start">70</property>
+                <property name="margin_end">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+                <property name="image">image1</property>
+                <property name="use_underline">True</property>
+                <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkButton" id="btn_report">
                 <property name="label" translatable="yes">_Report</property>
                 <property name="related_action">gac_report</property>
@@ -179,7 +203,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="pack_type">end</property>
-                <property name="position">2</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <child>
@@ -202,7 +226,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="pack_type">end</property>
-                <property name="position">3</property>
+                <property name="position">4</property>
               </packing>
             </child>
             <child>
@@ -224,7 +248,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="pack_type">end</property>
-                <property name="position">3</property>
+                <property name="position">5</property>
               </packing>
             </child>
           </object>
@@ -314,6 +338,7 @@
                               <object class="GtkListBox" id="lb_problems">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="selection_mode">browse</property>
                                 <signal name="button-press-event" handler="problems_button_press_event" swapped="no"/>
                               </object>
                             </child>

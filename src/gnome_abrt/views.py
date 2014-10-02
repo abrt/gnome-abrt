@@ -169,23 +169,20 @@ class ListBoxSelection(object):
     def __init__(self, list_box, selection_changed):
         self._lb = list_box
 
-        self._lb.connect('row-selected', self._on_row_selected)
+        self._lb.connect('selected-rows-changed', self._on_row_selected)
 
         self._selection = []
         self._selection_changed = selection_changed
 
-    def _on_row_selected(self, _, row):
-        if row is not None:
-            self._selection = [list_box_row_to_problem(row)]
-
+    def _on_row_selected(self, _):
         self._selection_changed(self)
 
     def unselect_all(self):
-        self._selection = []
-        self._selection_changed(self)
+        self._lb.unselect_all()
 
     def get_selected_rows(self):
-        return self._selection
+        return [list_box_row_to_problem(lbr)
+                for lbr in self._lb.get_selected_rows()]
 
 
 class ProblemListBoxCell(Gtk.Box):
@@ -317,6 +314,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
                 self.header_bar = Gtk.HeaderBar.new()
                 self.header_bar.pack_start(self.box_sources_switcher)
+                self.header_bar.pack_start(self.tbtn_multi_select)
                 self.header_bar.pack_end(self.btn_detail)
                 self.header_bar.pack_end(self.btn_report)
                 self.header_bar.pack_end(self.btn_delete)
@@ -864,6 +862,21 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def _get_selected(self, selection):
         return selection.get_selected_rows()
 
+    def on_tbtn_multi_select_toggled(self, tbtn):
+        if tbtn.get_active():
+            self._builder.lb_problems.set_selection_mode(
+                    Gtk.SelectionMode.MULTIPLE)
+        else:
+            row = self._builder.lb_problems.get_selected_row()
+            if row is None:
+                row = self._builder.lb_problems.get_row_at_index(0)
+
+            self._builder.lb_problems.set_selection_mode(
+                    Gtk.SelectionMode.BROWSE)
+
+            if row is not None:
+                self._builder.lb_problems.select_row(row)
+
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
             selection = self._get_selected(selection)
@@ -871,7 +884,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                 self._set_problem(selection[0])
                 return
 
-            problem_row = self._builder.lb_problems.get_row(0)
+            problem_row = self._builder.lb_problems.get_row_at_index(0)
             if problem_row is not None:
                 self._set_problem(list_box_row_to_problem(problem_row))
                 return
@@ -965,14 +978,13 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             self._builder.gac_report.activate()
         elif (data.type == Gdk.EventType.BUTTON_PRESS
                 and data.button == Gdk.BUTTON_SECONDARY):
-            # TODO: multi-selection issue
-            #if len(self.lss_problems.get_selected_rows()) > 1:
-            #    self._builder.menu_multiple_problems.popup(None, None,
-            #            None, None, data.button, data.time)
-            #    return True
-            #else:
-            problem_row = self._builder.lb_problems.get_row_at_y(data.y)
-            if problem_row:
-                self._builder.lb_problems.select_row(problem_row)
-                self._builder.menu_problem_item.popup(None, None,
+            if len(self.lss_problems.get_selected_rows()) > 1:
+                self._builder.menu_multiple_problems.popup(None, None,
                         None, None, data.button, data.time)
+                return True
+            else:
+                problem_row = self._builder.lb_problems.get_row_at_y(data.y)
+                if problem_row:
+                    self._builder.lb_problems.select_row(problem_row)
+                    self._builder.menu_problem_item.popup(None, None,
+                            None, None, data.button, data.time)

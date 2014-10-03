@@ -53,10 +53,11 @@ def list_box_row_set_values(list_box_row, values):
 
 class ProblemsFilter(object):
 
-    def __init__(self, list_box):
+    def __init__(self, list_box, list_box_selection):
         self._pattern = ""
         self._list_box = list_box
         self._list_box.set_filter_func(lambda row, _: self.match(row), None)
+        self._list_box_selection = list_box_selection
 
     def set_pattern(self, pattern):
         self._pattern = pattern
@@ -71,6 +72,9 @@ class ProblemsFilter(object):
 
             i += 1
             problem_row = self._list_box.get_row_at_index(i)
+
+        if problem_row is None:
+            self._list_box_selection.unselect_all()
 
     def match(self, list_box_row):
         # None nevere matches the patter
@@ -178,6 +182,13 @@ class ListBoxSelection(object):
         self._selection_changed(self)
 
     def unselect_all(self):
+        if self._lb.get_selection_mode() == Gtk.SelectionMode.MULTIPLE:
+            self._lb.unselect_all()
+        else:
+            selected_row = self._lb.get_selected_row()
+            if selected_row is not None:
+                self._lb.unselect_row(selected_row)
+
         self._lb.unselect_all()
 
     def get_selected_rows(self):
@@ -436,9 +447,10 @@ class OopsWindow(Gtk.ApplicationWindow):
         # are stored
         self._trash = set()
         self._builder.lb_problems.set_sort_func(time_sort_func, self._trash)
-        self._filter = ProblemsFilter(self._builder.lb_problems)
         self.lss_problems = ListBoxSelection(self._builder.lb_problems,
                 self.on_tvs_problems_changed)
+        self._filter = ProblemsFilter(self._builder.lb_problems,
+                self.lss_problems)
 
         self._builder.lb_problems.grab_focus()
         try:
@@ -698,8 +710,15 @@ class OopsWindow(Gtk.ApplicationWindow):
             if old_selection:
                 problem_row = self._find_problem_row(old_selection[0])
 
+            i = 0
             if problem_row is None:
-                problem_row = self._builder.lb_problems.get_row_at_index(0)
+                problem_row = self._builder.lb_problems.get_row_at_index(i)
+                i = 1
+
+            while (problem_row is not None
+                    and not self._filter.match(problem_row)):
+                problem_row = self._builder.lb_problems.get_row_at_index(i)
+                i += 1
 
             if problem_row is not None:
                 self._builder.lb_problems.select_row(problem_row)
@@ -874,23 +893,17 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             self._builder.lb_problems.set_selection_mode(
                     Gtk.SelectionMode.BROWSE)
 
-            if row is not None:
+            if row is not None and self._filter.match(row):
                 self._builder.lb_problems.select_row(row)
 
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
-            selection = self._get_selected(selection)
-            if selection:
-                self._set_problem(selection[0])
-                return
-
-            problem_row = self._builder.lb_problems.get_row_at_index(0)
-            if problem_row is not None:
-                self._set_problem(list_box_row_to_problem(problem_row))
-                return
-
-            # Clear window because of empty list of problems!
-            self._set_problem(None)
+            rows = self._get_selected(selection)
+            if rows:
+                self._set_problem(rows[0])
+            else:
+                # Clear window because of empty list of problems!
+                self._set_problem(None)
 
     @handle_problem_and_source_errors
     def on_gac_delete_activate(self, action):

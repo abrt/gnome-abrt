@@ -103,6 +103,63 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Oct 03 2014 Jakub Filak <jfilak@redhat.com> 1.0.0-1
+- Disable pylint rule for too many lines in module
+- Fix problems with selection when all problems are filtered out
+- Enable multiple selection
+- Update INSTALL
+- Use symbolic icons
+- Merge pull request #93 from abrt/gh64_detail_dialog
+- Hide the 'Details' button for system problems
+- Show technical details for user problems locally
+- Make the main window's look more GNOMish
+- Make the sidebar wider
+- Give the designed look to the sidebar
+- Consistently return 'count' as a string
+- Try to avoid usage of NoDisplay=True .desktop files
+- Merge pull request #89 from hadess/build-fixes
+- Merge pull request #88 from hadess/search-bar
+- build: Make autogen.sh run configure by default
+- Replace GtkSearchEntry with GtkSearchBar
+- Update the spec file
+- Use human readable dates in main view
+- Disable pylint warning for too general Exception
+- Improve sidebar dates
+- Hide "no" repoted label by default
+- Revert "Remove leftover key-press-event on the search entry"
+- Fix too long lines
+- Use GtkLabel instead of GtkLinkButton
+- Use dim-label class instead of RGB
+- Merge pull request #81 from elad661/use-search-changed
+- Remove leftover key-press-event on the search entry
+- Merge pull request #82 from elad661/fix-grammar
+- Fix grammar in kernel oopses/crashes summary
+- Don't start search on 'Delete' key
+- Make "No problems detected" label centered vertically
+- Merge pull request #79 from elad661/dont_elipsize_summary
+- Merge pull request #80 from elad661/thinner_border
+- Make the border between the panes thinner
+- Don't elipsize summary, it's more readable if it's wrapped.
+- Align "Reports" with the actual label
+- Make sidebar date dimmed
+- Use "suggested-action" style for "Report" button
+- Only show search when activated
+- Use GtkSearchEntry for the search text box
+- Merge pull request #75 from elad661/patch-1
+- Match window title to the desktop launcher name
+- Display accurate package name and version
+- Fix pylint warnings for long lines
+- Don't show technical details in 'Reason' and 'Summary'
+- Don't show "hook" type in sidebar
+- Keep selection on Right click
+- Merge pull request #54 from elad661/patch-1
+- Rename desktop launcher to "Problem Reporting"
+- Teach the GUI to understand the Exec key format
+- Put "About" and "Quit" into a section
+- Do not close the report dialog with the main window
+- Wrap words in "Report problem with ABRT" dialogue
+- Properly handle UTF-8 problem filter input
+
 * Wed Jun 11 2014 Jakub Filak <jfilak@redhat.com> 0.3.7-1
 - Fix XDG_RUNTIME_DIR not set messages by creating one
 - Handle UTF-8 problem filter input

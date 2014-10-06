@@ -6,14 +6,14 @@
 # , 2011-2012
 # Ankit Patel <ankit644@yahoo.com>, 2014
 # sweta <swkothar@redhat.com>, 2013
-# sweta <swkothar@redhat.com>, 2013
+# sweta <swkothar@redhat.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 10:31+0100\n"
-"PO-Revision-Date: 2014-03-05 09:30+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"PO-Revision-Date: 2014-09-29 09:16+0000\n"
+"Last-Translator: sweta <swkothar@redhat.com>\n"
 "Language-Team: Gujarati (http://www.transifex.com/projects/p/gnome-abrt/language/gu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +67,7 @@ msgstr "સંગ્રહ કરવા માટે રચાયેલ સો�
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "ઉકેલને શોધવાનો અને મુદ્દાનો અહેવાલ કરવાની પ્રક્રિયાને સરળ બનાવવાનો તેનો મુખ્ય હેતુ છે."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"

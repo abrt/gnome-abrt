@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# asaini <asaini@redhat.com>, 2013-2014
+# Amandeep Singh Saini <asaini@redhat.com>, 2013-2014
 # Jaswinder Singh <phulewala.j@gmail.com>, 2011-2012
 msgid ""
 msgstr ""

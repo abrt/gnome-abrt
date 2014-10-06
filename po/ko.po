@@ -6,7 +6,7 @@
 # bardisch <kwb0128@gmail.com>, 2011
 # eukim <eukim@redhat.com>, 2011-2012
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
-# Frances Lovelock <raypotassium@gmail.com>, 2011-2012
+# fedoracat <raypotassium@gmail.com>, 2011-2012
 #   <raypoatssium@gmail.com>, 2011-2012, 2013
 msgid ""
 msgstr ""

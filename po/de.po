@@ -9,7 +9,7 @@
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Laurin <lineak@fedoraproject.org>, 2011
 # Mario Blättermann <mariobl@freenet.de>, 2011
-# Rainer <rgromans@redhat.com>, 2013
+# Rainer Gromansperg <rgromans@redhat.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"

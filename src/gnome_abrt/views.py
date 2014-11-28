@@ -98,6 +98,17 @@ class ProblemsFilter(object):
             if val and self._pattern in val:
                 return True
 
+        # Check Bug tracker ID
+        if problem['is_reported']:
+            for sbm in problem['submission']:
+                if problems.Problem.Submission.URL != sbm.rtype:
+                    continue
+
+                rid = sbm.data.encode('utf-8')
+                rid = rid.rstrip('/').split('/')[-1].split('=')[-1]
+                if self._pattern in rid:
+                    return True
+
         # This might be confusing as users can't see problem ID in UI but it
         # will come in handy when you want to see particular problem discovered
         # in the system logs.

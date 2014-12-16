@@ -502,8 +502,6 @@ class OopsWindow(Gtk.ApplicationWindow):
             src_btn.set_visible(True)
             # add an extra member source (I don't like it but it so easy)
             src_btn.source = src
-            src_btn.set_margin_top(5)
-            src_btn.set_margin_bottom(5)
             self._builder.box_sources_switcher.pack_start(
                     src_btn, False, True, 0)
 
@@ -772,7 +770,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                 lnk.set_markup(
                     "<a href=\"{0}\">{1}</a>".format(sbm.data, sbm.title))
                 lnk.set_halign(Gtk.Align.START)
-                lnk.set_valign(Gtk.Align.FILL)
                 lnk.set_margin_top(5)
                 lnk.set_margin_bottom(8)
                 lnk.set_line_wrap(True)

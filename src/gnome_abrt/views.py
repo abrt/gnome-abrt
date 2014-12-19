@@ -858,7 +858,8 @@ class OopsWindow(Gtk.ApplicationWindow):
             if app.icon:
                 self._builder.img_app_icon.set_from_pixbuf(app.icon)
             else:
-                self._builder.img_app_icon.clear()
+                self._builder.img_app_icon.set_from_icon_name(
+                        "system-run-symbolic", Gtk.IconSize.DIALOG)
 
             self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))

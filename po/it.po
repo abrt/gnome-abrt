@@ -10,14 +10,16 @@ msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 10:31+0100\n"
-"PO-Revision-Date: 2014-03-05 09:30+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/gnome-abrt/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-03-05 04:30-0500\n"
+"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/it/)\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.5.1\n"
 
 #: ../src/gnome-abrt:228
 msgid "My"
@@ -59,7 +61,9 @@ msgstr "Visualizza e notifica i crash dell'applicazione"
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr "Insieme di strumenti software per la raccolta, analisi e riporto di problematiche software."
+msgstr ""
+"Insieme di strumenti software per la raccolta, analisi e riporto di "
+"problematiche software."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
@@ -69,19 +73,26 @@ msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr "Impossibile aggiungere il ricevitore del segnale '{0}'al percorso del sistema DBus '{1}': {2}"
+msgstr ""
+"Impossibile aggiungere il ricevitore del segnale '{0}'al percorso del "
+"sistema DBus '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr "Impossibile collegarsi al percorso '{1}' del bus del sistema DBus '{0}': {2}"
+msgstr ""
+"Impossibile collegarsi al percorso '{1}' del bus del sistema DBus '{0}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr "Impossibile ottenere l'interfaccia '{0}' sul percorso '{1}' nel bus '{2}': {3}"
+msgstr ""
+"Impossibile ottenere l'interfaccia '{0}' sul percorso '{1}' nel bus '{2}': "
+"{3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr "Impossibile modificare il proprietario del problema '{0}' sul servizio DBus: {1!s}"
+msgstr ""
+"Impossibile modificare il proprietario del problema '{0}' sul servizio DBus: "
+"{1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
@@ -103,7 +114,9 @@ msgstr "La descrizione del problema è troppo corta"
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr "Per avere informazioni più utili non sono accettati riporti con una descrizione con un numero minore a 10 lettere. "
+msgstr ""
+"Per avere informazioni più utili non sono accettati riporti con una "
+"descrizione con un numero minore a 10 lettere. "
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
@@ -113,7 +126,9 @@ msgstr "Il sommario del problema è troppo corto"
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr "Per avere informazioni più utili non sono accettati riporti con un sommario composto da un numero minore a 10 lettere. "
+msgstr ""
+"Per avere informazioni più utili non sono accettati riporti con un sommario "
+"composto da un numero minore a 10 lettere. "
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
@@ -134,12 +149,18 @@ msgstr "Un problema con ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr "Probabilmente hai raggiunto il limite di inotify sul numero di consultazioni in '{0}'. È possibile aumentare il limite tramite una configurazione corretta di inotify. Per maggiori informazioni consultare man inotify(7). Con questo evento non sarà possibile avere notifiche sulle modifiche relative ai dati che si verificano esternamente a questa applicazione. Questo evento non riguarda altre funzionalità. "
+msgstr ""
+"Probabilmente hai raggiunto il limite di inotify sul numero di consultazioni "
+"in '{0}'. È possibile aumentare il limite tramite una configurazione "
+"corretta di inotify. Per maggiori informazioni consultare man inotify(7). "
+"Con questo evento non sarà possibile avere notifiche sulle modifiche "
+"relative ai dati che si verificano esternamente a questa applicazione. "
+"Questo evento non riguarda altre funzionalità. "
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
@@ -185,7 +206,9 @@ msgstr "_Apri la directory dei dati del problema"
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr "Apre la directory dei dati del problema selezionata nel browser del file system predefinito"
+msgstr ""
+"Apre la directory dei dati del problema selezionata nel browser del file "
+"system predefinito"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
@@ -289,9 +312,15 @@ msgstr "Riporti"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr "Questo problema è stato riportato senza aprire un ticket con <i>Bugzilla</i>. I nostri sviluppatori hanno bisogno di maggiori informazioni per poterlo risolvere. Per una sua risoluzione <b>riporta il problema</b> su Bugzilla. Grazie."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
+msgstr ""
+"Questo problema è stato riportato senza aprire un ticket con <i>Bugzilla</i>."
+" I nostri sviluppatori hanno bisogno di maggiori informazioni per poterlo "
+"risolvere. Per una sua risoluzione <b>riporta il problema</b> su Bugzilla. "
+"Grazie."
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
@@ -305,4 +334,6 @@ msgstr "no"
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr "Impossibile eseguire l'azione richiesta a causa della presenza di un errore nella creazione di un nuovo processo"
+msgstr ""
+"Impossibile eseguire l'azione richiesta a causa della presenza di un errore "
+"nella creazione di un nuovo processo"

@@ -3,47 +3,50 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Robert Antoni Buj Gelonch <robert.buj@gmail.com>, 2014. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 10:31+0100\n"
-"PO-Revision-Date: 2014-03-05 09:30+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Catalan (http://www.transifex.com/projects/p/gnome-abrt/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-12-24 06:25-0500\n"
+"Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
+"Language-Team: Catalan (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/ca/)\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.5.1\n"
 
 #: ../src/gnome-abrt:228
 msgid "My"
-msgstr ""
+msgstr "Jo"
 
 #: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: ../src/gnome-abrt:250
 msgid "_Preferences"
-msgstr ""
+msgstr "_Preferències"
 
 #: ../src/gnome-abrt:251
 msgid "_ABRT Configuration"
-msgstr ""
+msgstr "Configuració de l'ABRT"
 
 #: ../src/gnome-abrt:252
 msgid "_Report problem with ABRT"
-msgstr ""
+msgstr "Info_rma del problema amb l'ABRT"
 
 #: ../src/gnome-abrt:254
 msgid "_About"
-msgstr ""
+msgstr "Quant _a"
 
 #: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "_Surt"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -58,98 +61,117 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"Una col·lecció d'eines de programari dissenyades per a recollir, analitzar i "
+"informar incidències de programari."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"El seu principal propòsit és facilitar el procés d'informar d'una incidència "
+"i trobar una solució."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
+"No es pot afegir un receptor de la senyal '{0}'en el camí del sistema DBus "
+"'{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "No es pot connectar amb el bus del sistema DBus '{0}' camí '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
+"No es pot obtenir la interfície '{0}' en el camí '{1}' en el bus '{2}': {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr ""
+"No es pot canviar el propietari del problema '{0}' a través del servei DBus: "
+"{1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "No es poden obtenir les dades des del servei DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "No es pot obtenir el llistat de problemes des del servei DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "No es pot eliminar el problema a través del servei DBus: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "La descripció del problema és massa curta"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr ""
+"Per a què els informes siguin més útils no acceptem informes amb una "
+"descripció més curta de 10 lletres."
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "El resum del problema és massa curt"
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr ""
+"Per a què els informes siguin més útils no acceptem informes amb un resum "
+"més curt de 10 lletres."
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "Descripció del problema"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "Resum"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "_Envia"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "Un problema amb l'ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
+"Probablement haureu assolit el límit de l'inotify en el nombre "
+"d'observacions en '{0}'. El límit es pot augmentar amb una configuració "
+"adequada de l'inotify. Per a més detalls vegeu man inotify(7). Aquest "
+"esdeveniment provoca que no se us notificaran els canvis en les dades del "
+"problema que succeeixin fora d'aquesta aplicació. Aquest esdeveniment no "
+"afecta cap altra funcionalitat."
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "No es pot obrir el directori: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "E_limina"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr ""
+msgstr "Elimina els problemes seleccionats"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
@@ -157,61 +179,63 @@ msgstr "Informa"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr ""
+msgstr "Envia el problema seleccionat"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "Analit_za"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Obre els problemes seleccionats per a analitzar-los"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
-msgstr ""
+msgstr "_Tots els problemes"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "Mostra tots els problemes coneguts per a tots els usuaris del sistema"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Obre el directori de dades del problema"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr ""
+"Obre el directori de dades del problema seleccionat en el navegador de "
+"fitxers predeterminat del sistema"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "_copia l'ID del problema al porta-retalls"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "Emmagatzema l'ID del problema seleccionat al porta-retalls"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
-msgstr ""
+msgstr "Aplicació"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
-msgstr ""
+msgstr "Versió"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
-msgstr ""
+msgstr "Detectat"
 
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
@@ -219,88 +243,97 @@ msgstr "Informa"
 
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
-msgstr ""
+msgstr "No s'ha detectat cap problema!"
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "No s'ha seleccionat cap origen!"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
-msgstr ""
+msgstr "Sense origen"
 
 #: ../src/gnome_abrt/problems.py:442
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "No s''ha trobat en la memòria cau però s''ha eliminat: {0}"
 
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
-msgstr ""
+msgstr "Futur"
 
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
-msgstr ""
+msgstr "Ahir"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
-msgstr ""
+msgstr "setmana"
 
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
-msgstr ""
+msgstr "mes"
 
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
-msgstr ""
+msgstr "any"
 
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
-msgstr ""
+msgstr "L''últim {0!s}"
 
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
-msgstr ""
+msgstr "fa {0:d} {1!s}s"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "Error en obrir la definició de l'UI"
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
-msgstr ""
+msgstr "fallida"
 
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} problema ha estat detectat"
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr ""
+msgstr "no pot ser informat"
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr ""
+msgstr "Informes"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
+"Aquest problema ha estat informat, però no s'ha obert un tiquet de "
+"<i>Bugzilla</i>. Els nostres desenvolupadors poden necessitar més informació "
+"per corregir el problema.\n"
+"Considereu també d'<b>informar-ho</b> a Bugzilla a fi de proveir-ho. Gràcies."
+""
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
-msgstr ""
+msgstr "si"
 
 #: ../src/gnome_abrt/views.py:695
 msgid "no"
-msgstr ""
+msgstr "no"
 
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
 msgstr ""
+"Error en executar l'acció registrada a causa d'un error en la creació d'un "
+"nou procés"

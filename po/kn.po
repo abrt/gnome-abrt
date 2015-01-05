@@ -1,331 +1,262 @@
-# Shankar <svenkate@redhat.com>, 2013. #zanata
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-23 11:44+0530\n"
+"POT-Creation-Date: 2014-02-06 10:22+0100\n"
+"PO-Revision-Date: 2014-02-06 09:32+0000\n"
+"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"Language-Team: Kannada (http://www.transifex.com/projects/p/gnome-abrt/language/kn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-12-26 03:42-0500\n"
-"Last-Translator: Shankar <svenkate@redhat.com>\n"
-"Language-Team: Kannada\n"
 "Language: kn\n"
-"X-Generator: Zanata 3.2.1\n"
-"Plural-Forms: nplurals=2; plural=(n!=1)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
 msgstr "ನನ್ನ"
 
-# translation auto-copied from project gnome-user-docs, version 3.8.2, document gnome-user-docs
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
 msgstr "ವ್ಯವಸ್ಥೆ"
 
-# translation auto-copied from project subscription-manager, version 1.10.7, document keys
-#: ../src/gnome-abrt:248
+#: ../src/gnome-abrt:250
 msgid "_Preferences"
 msgstr "ಆದ್ಯತೆಗಳು (_P)"
 
-#: ../src/gnome-abrt:249
+#: ../src/gnome-abrt:251
 msgid "_ABRT Configuration"
 msgstr "_ABRT ಸಂರಚನೆ"
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:252
 msgid "_Report problem with ABRT"
 msgstr "AB_RT ಯೊಂದಿಗಿನ ತೊಂದರೆಯನ್ನು ವರದಿ ಮಾಡಿ"
 
-# translation auto-copied from project abrt, version 2.1.7, document abrt
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:254
 msgid "_About"
 msgstr "ಇದರ ಬಗ್ಗೆ (_A)"
 
-# translation auto-copied from project anaconda, version 19.31.34, document anaconda
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:255
 msgid "_Quit"
 msgstr "ನಿರ್ಗಮಿಸು (_Q)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "ಸ್ವಯಂಚಾಲಿತ ದೋಷ ವರದಿ ಮಾಡುವ ಉಪಕರಣ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "ಅನ್ವಯದ ಕುಸಿತವನ್ನು ನೋಡಿ ಹಾಗು ವರದಿ ಮಾಡಿ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
-"ತಂತ್ರಾಂಶದ ಸಮಸ್ಯೆಗಳನ್ನು ಸಂಗ್ರಹಿಸಲು, ವಿಶ್ಲೇಷಿಸಲು ಮತ್ತು ವರದಿ ಮಾಡಲು "
-"ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ತಂತ್ರಾಂಶದ ಸಲಕರಣೆಗಳ ಸಂಗ್ರಹ."
+msgstr "ತಂತ್ರಾಂಶದ ಸಮಸ್ಯೆಗಳನ್ನು ಸಂಗ್ರಹಿಸಲು, ವಿಶ್ಲೇಷಿಸಲು ಮತ್ತು ವರದಿ ಮಾಡಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ತಂತ್ರಾಂಶದ ಸಲಕರಣೆಗಳ ಸಂಗ್ರಹ."
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a "
-"solution."
-msgstr ""
-"ಇದರ ಮುಖ್ಯ ಉದ್ಧೇಶವು ಒಂದು ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡುವುದು ಮತ್ತು ಒಂದು ಪರಿಹಾರವನ್ನು "
-"ಹುಡುಕುವುದಾಗಿರುತ್ತದೆ."
+"It's main purpose is to ease the process of reporting an issue and finding a"
+" solution."
+msgstr "ಇದರ ಮುಖ್ಯ ಉದ್ಧೇಶವು ಒಂದು ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡುವುದು ಮತ್ತು ಒಂದು ಪರಿಹಾರವನ್ನು ಹುಡುಕುವುದಾಗಿರುತ್ತದೆ."
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
-"DBus ವ್ಯವಸ್ಥೆ ಮಾರ್ಗ '{1}' ದಲ್ಲಿನ '{0}' ಸಂಕೇತವನ್ನು ಸ್ವೀಕರಿಸುವವರನ್ನು ಸೇರಿಸಲು "
-"ಸಾಧ್ಯವಾಗಿಲ್ಲ: {2}"
+msgstr "DBus ವ್ಯವಸ್ಥೆ ಮಾರ್ಗ '{1}' ದಲ್ಲಿನ '{0}' ಸಂಕೇತವನ್ನು ಸ್ವೀಕರಿಸುವವರನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {2}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "ವ್ಯವಸ್ಥೆಯ DBus '{0}' ಮಾರ್ಗ '{1}' ಗೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {2}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
-"'{1}' ಮಾರ್ಗದಲ್ಲಿನ '{2}' ಬಸ್‌ನಲ್ಲಿ ಸಂಪರ್ಕಸಾಧನ '{0}' ಅನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ:"
-" {3}"
+msgstr "'{1}' ಮಾರ್ಗದಲ್ಲಿನ '{2}' ಬಸ್‌ನಲ್ಲಿ ಸಂಪರ್ಕಸಾಧನ '{0}' ಅನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {3}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "DBus ಸೇವೆಯಿಂದ '{0}' ತೊಂದರೆಯನ್ನು chown ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {1!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus ಸೇವೆಯಿಂದ ತೊಂದರೆಯ ದತ್ತಾಂಶವನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus ಸೇವೆಯಿಂದ ತೊಂದರೆಗಳ ಪಟ್ಟಿಯನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus ಸೇವೆಯಿಂದ ತೊಂದರೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: {0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
 msgstr "ತೊಂದರೆಯ ವಿವರಣೆಯು ಬಹಳ ಚಿಕ್ಕದಾಗಿದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr ""
-"ಉಪಯುಕ್ತವಾದ ವರದಿಗಳನ್ನು ಪಡೆಯಲು ನಾವು 10 ಅಕ್ಷರಗಳಿಗಿಂತ ಚಿಕ್ಕದಾದ ವಿವರಣೆಯನ್ನು "
-"ಹೊಂದಿರುವ ವರದಿಗಳನ್ನು ಅಂಗೀಕರಿಸುವುದಿಲ್ಲ."
+msgstr "ಉಪಯುಕ್ತವಾದ ವರದಿಗಳನ್ನು ಪಡೆಯಲು ನಾವು 10 ಅಕ್ಷರಗಳಿಗಿಂತ ಚಿಕ್ಕದಾದ ವಿವರಣೆಯನ್ನು ಹೊಂದಿರುವ ವರದಿಗಳನ್ನು ಅಂಗೀಕರಿಸುವುದಿಲ್ಲ."
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
 msgstr "ತೊಂದರೆಯ ಸಾರಾಂಶವು ಬಹಳ ಚಿಕ್ಕದಾಗಿದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
-msgstr ""
-"ಉಪಯುಕ್ತವಾದ ವರದಿಗಳನ್ನು ಪಡೆಯಲು ನಾವು 10 ಅಕ್ಷರಗಳಿಗಿಂತ ಚಿಕ್ಕದಾದ ಸಾರಾಂಶವನ್ನು "
-"ಹೊಂದಿರುವ ವರದಿಗಳನ್ನು ಅಂಗೀಕರಿಸುವುದಿಲ್ಲ."
+msgstr "ಉಪಯುಕ್ತವಾದ ವರದಿಗಳನ್ನು ಪಡೆಯಲು ನಾವು 10 ಅಕ್ಷರಗಳಿಗಿಂತ ಚಿಕ್ಕದಾದ ಸಾರಾಂಶವನ್ನು ಹೊಂದಿರುವ ವರದಿಗಳನ್ನು ಅಂಗೀಕರಿಸುವುದಿಲ್ಲ."
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
 msgstr "ತೊಂದರೆಯ ವಿವರಣೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
 msgstr "ಸಾರಾಂಶ:"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
 msgstr "ಕಳುಹಿಸು (_S)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
+#. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
 msgstr "ABRT ಯೊಂದಿಗಿನ ತೊಂದರೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'. "
-"The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'."
+" The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
-"'{0}' ನಲ್ಲಿ ಗಮನಿಸುವ ಸಂಖ್ಯೆಗಾಗಿ ನೀವು ಬಹುಷಃ inotify ಯ ಮಿತಿಯನ್ನು ತಲುಪಿದ್ದೀರಿ. "
-"inotify ಅನ್ನು ಸರಿಯಾಗಿ ಸಂರಚಿಸುವುದರಿಂದ ಈ ಮಿತಿಯನ್ನು ಹೆಚ್ಚಿಸಲು ಸಾಧ್ಯವಿರುತ್ತದೆ. "
-"ಹೆಚ್ಚಿನ ವಿವರಗಳಿಗಾಗಿ man inotify(7) ಅನ್ನು ನೋಡಿ. ಈ ಘಟನೆಯು ಈ ಅನ್ವಯಗದ ಹೊರಗೆ "
-"ನಡೆಯುವ ತೊಂದರೆಯ ದತ್ತಾಂಶದ ಕುರಿತು ನಿಮಗೆ ಸೂಚನೆ ನೀಡದೆ ಇರುವುದಕ್ಕೆ ಕಾರಣವಾಗುತ್ತದೆ. ಈ "
-"ಘಟನೆಯು ಬೇರೆ ಯಾವುದೆ ಕ್ರಿಯಾಶೀಲತೆಯ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ."
+msgstr "'{0}' ನಲ್ಲಿ ಗಮನಿಸುವ ಸಂಖ್ಯೆಗಾಗಿ ನೀವು ಬಹುಷಃ inotify ಯ ಮಿತಿಯನ್ನು ತಲುಪಿದ್ದೀರಿ. inotify ಅನ್ನು ಸರಿಯಾಗಿ ಸಂರಚಿಸುವುದರಿಂದ ಈ ಮಿತಿಯನ್ನು ಹೆಚ್ಚಿಸಲು ಸಾಧ್ಯವಿರುತ್ತದೆ. ಹೆಚ್ಚಿನ ವಿವರಗಳಿಗಾಗಿ man inotify(7) ಅನ್ನು ನೋಡಿ. ಈ ಘಟನೆಯು ಈ ಅನ್ವಯಗದ ಹೊರಗೆ ನಡೆಯುವ ತೊಂದರೆಯ ದತ್ತಾಂಶದ ಕುರಿತು ನಿಮಗೆ ಸೂಚನೆ ನೀಡದೆ ಇರುವುದಕ್ಕೆ ಕಾರಣವಾಗುತ್ತದೆ. ಈ ಘಟನೆಯು ಬೇರೆ ಯಾವುದೆ ಕ್ರಿಯಾಶೀಲತೆಯ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ."
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "ಕೋಶವನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ: '{0}'"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
 msgstr "ಅಳಿಸು (_D)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
 msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ತೊಂದರೆಗಳನ್ನು ಅಳಿಸು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
 msgstr "ವರದಿ (_R)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
 msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ತೊಂದರೆಯನ್ನು ಸಲ್ಲಿಸು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
 msgstr "ವಿಶ್ಲೇಷಿಸು (_z)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
 msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ತೊಂದರೆಯನ್ನು ವಿಶ್ಲೇಷಣೆಗಾಗಿ ತೆರೆಯಿರಿ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "ಎಲ್ಲಾ ತೊಂದರೆಗಳು (_A)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "ಎಲ್ಲಾ ವ್ಯವಸ್ಥೆ ಬಳಕೆದಾರರಿಂದ ಗೊತ್ತಿರುವ ತೊಂದರೆಗಳನ್ನು ಸೇರಿಸು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
 msgstr "ತೊಂದರೆ ದತ್ತಾಂಶ ಕೋಶವನ್ನು ತೆರೆ (_O)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
-"ಪೂರ್ವನಿಯೋಜಿತ ಕಡತ ವ್ಯವಸ್ಥೆ ವೀಕ್ಷಕದಲ್ಲಿ ಆಯ್ಕೆ ಮಾಡಿದ ತೊಂದರೆಯ ದತ್ತಾಂಶ ಕೋಶವನ್ನು "
-"ತೆರೆಯುತ್ತದೆ"
+msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಕಡತ ವ್ಯವಸ್ಥೆ ವೀಕ್ಷಕದಲ್ಲಿ ಆಯ್ಕೆ ಮಾಡಿದ ತೊಂದರೆಯ ದತ್ತಾಂಶ ಕೋಶವನ್ನು ತೆರೆಯುತ್ತದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
 msgstr "ತೊಂದರೆಯ ID  ಯನ್ನು ನಕಲುಫಲಕಕ್ಕೆ ಅಂಟಿಸು (_C)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ತೊಂದರೆಯ ID ಯನ್ನು ನಕಲುಫಲಕದಲ್ಲಿ ಶೇಖರಿಸಿ ಇಡುತ್ತದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
 msgstr "ಅನ್ವಯ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "ದಿನಾಂಕ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "ಹೆಸರು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "ಆವೃತ್ತಿ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
 msgstr "ಕಂಡುಬಂದಿದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "ವರದಿ ಮಾಡಲಾದ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
 msgstr "ಯಾವುದೆ ತೊಂದರೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ!"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
 msgstr "ಯಾವುದೆ ಆಕರವನ್ನು ಆರಿಸಲಾಗಿಲ್ಲ!"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
 msgstr "ಯಾವುದೆ ಆಕರವಿಲ್ಲ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "ಕ್ಯಾಶೆಯಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ ಆದರೆ ಅಳಿಸಲಾಗಿದೆ: {0}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
 msgstr "ಭವಿಷ್ಯದಲ್ಲಿನ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
 msgstr "ನಿನ್ನೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
 msgstr "ವಾರ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
 msgstr "ತಿಂಗಳು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
 msgstr "ವರ್ಷ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
 msgstr "ಕೊನೆಯ {0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s} ಹಿಂದೆ"
@@ -334,17 +265,14 @@ msgstr "{0:d} {1!s} ಹಿಂದೆ"
 msgid "Failed to load UI definition"
 msgstr "UI ವಿವರಣೆಯನ್ನು ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr "ಲಭ್ಯವಿಲ್ಲ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr " ಕುಸಿತಗೊಂಡಿದೆ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
 msgstr "{0} ತೊಂದರೆಯನ್ನು ಪತ್ತೆ ಮಾಡಲಾಗಿದೆ"
@@ -357,21 +285,22 @@ msgstr "ವರದಿ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ"
 msgid "Reports"
 msgstr "ವರದಿಗಳು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
-#: ../src/gnome_abrt/views.py:685
+#: ../src/gnome_abrt/views.py:688
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+msgstr "ಈ ತೊಂದರೆಯನ್ನು ವರದಿ ಮಾಡಲಾಗಿದೆ, ಆದರ ಇನ್ನೂ <i>ಬಗ್‌ಝಿಲ್ಲಾ</i> ಟಿಕೆಟ್ ಅನ್ನು ತೆರೆಯಲಾಗಿಲ್ಲ. ಈ ತೊಂದರೆಯನ್ನು ಸರಿಪಡಿಸಲು ನಮ್ಮ ವಿಕಸನಗಾರರಿಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಯ ಅಗತ್ಯವಿರುತ್ತದೆ..\nದಯವಿಟ್ಟು ಅದನ್ನು ಒದಗಿಸಲು ಬಗ್‌ಝಿಲ್ಲಾಗೆ <b>ವರದಿ ಮಾಡುವ</b> ಕುರಿತೂ ಸಹ ಆಲೋಚಿಸಿ. ಧನ್ಯವಾದಗಳು."
+
+#: ../src/gnome_abrt/views.py:693
 msgid "yes"
 msgstr "ಹೌದು"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
-#: ../src/gnome_abrt/views.py:687
+#: ../src/gnome_abrt/views.py:695
 msgid "no"
 msgstr "ಇಲ್ಲ"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author Shankar
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
-"ಹೊಸ ಪ್ರಕ್ರಿಯೆಯನ್ನು ರಚಿಸುವಲ್ಲಿ ಉಂಟಾದ ಒಂದು ದೋಷದ ಕಾರಣ ಮನವಿ ಮಾಡಲಾದ ಕ್ರಿಯೆಯನ್ನು "
-"ಚಲಾಯಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
+msgstr "ಹೊಸ ಪ್ರಕ್ರಿಯೆಯನ್ನು ರಚಿಸುವಲ್ಲಿ ಉಂಟಾದ ಒಂದು ದೋಷದ ಕಾರಣ ಮನವಿ ಮಾಡಲಾದ ಕ್ರಿಯೆಯನ್ನು ಚಲಾಯಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"

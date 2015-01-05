@@ -1,316 +1,262 @@
-# ccheng <ccheng@redhat.com>, 2013. #zanata
-# tchuang <tchuang@redhat.com>, 2013. #zanata
-# tchuang <tchuang@redhat.com>, 2014. #zanata
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-23 11:44+0530\n"
+"POT-Creation-Date: 2014-02-06 10:22+0100\n"
+"PO-Revision-Date: 2014-02-06 09:26+0000\n"
+"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-abrt/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-01-06 05:44-0500\n"
-"Last-Translator: tchuang <tchuang@redhat.com>\n"
-"Language-Team: Chinese (Taiwan)\n"
-"Language: zh-TW\n"
-"X-Generator: Zanata 3.2.1\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/gnome-abrt:226
+#: ../src/gnome-abrt:228
 msgid "My"
 msgstr "我的"
 
-# translation auto-copied from project NetworkManager, version 0.9.9.0, document NetworkManager
-#: ../src/gnome-abrt:229
+#: ../src/gnome-abrt:231
 msgid "System"
 msgstr "系統"
 
-# translation auto-copied from project subscription-manager, version 1.10.7, document keys
-#: ../src/gnome-abrt:248
+#: ../src/gnome-abrt:250
 msgid "_Preferences"
 msgstr "偏好設定(_P)"
 
-#: ../src/gnome-abrt:249
+#: ../src/gnome-abrt:251
 msgid "_ABRT Configuration"
 msgstr "ABRT 配置(_A)"
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:252
 msgid "_Report problem with ABRT"
 msgstr "透過 ABRT 回報問題(_R)"
 
-# translation auto-copied from project gnote, version 3.8.1, document gnote
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:254
 msgid "_About"
 msgstr "關於(_A)"
 
-# translation auto-copied from project gnote, version 3.8.1, document gnote
-#: ../src/gnome-abrt:253
+#: ../src/gnome-abrt:255
 msgid "_Quit"
 msgstr "離開(_Q)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
 msgstr "自動錯誤回報工具"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "檢視與回報應用程式錯誤"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author ccheng
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr "用於蒐集、分析與回報軟體問題的軟體工具之集合。"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author ccheng
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a "
-"solution."
+"It's main purpose is to ease the process of reporting an issue and finding a"
+" solution."
 msgstr "主要用途為減緩回報問題與找尋答案的過程。"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:89
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "無法在 DBus 系統路徑 '{1}' 上新增訊號為 '{0}' 的接收程式：{2}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:102
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "無法連上 DBus 系統 bus '{0}' 路徑 '{1}'：{2}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:109
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "無法取得介面 '{0}' 於路徑 '{1}'，位於匯流排 '{2}'：{3}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:151
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "無法透過 DBus 服務 chown 問題「{0}」：{1!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:167
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "無法從 DBus 服務取得問題資料: {0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:178
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "無法從 DBus 服務去得問題清單：{0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "無法在 DBus 服務上刪除問題：{0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
 msgstr "問題的描述太短"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr "為了得到更有幫助的回報，我們不接受描述少於 10 個字母的錯誤報告。"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
 msgstr "問題的概要太短"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr "為了得到更有幫助的回報，我們不接受概要少於 10 個字母的錯誤報告。"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
 msgstr "問題描述"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
 msgstr "概要："
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
 msgstr "傳送(_S)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
+#. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
 msgstr "ABRT 的問題"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'. "
-"The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'."
+" The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr ""
-"您可能已達 inotify 在 '{0}' 中的監控計數限制。這項限制可藉由正確配置 inotify 來增加。欲取得更多資訊，請參閱 man "
-"inotify(7)。這項事件會使您不被通知有關於此應用程式範圍外的問題資料上的變更。這項事件不會影響任何其它功能。"
+msgstr "您可能已達 inotify 在 '{0}' 中的監控計數限制。這項限制可藉由正確配置 inotify 來增加。欲取得更多資訊，請參閱 man inotify(7)。這項事件會使您不被通知有關於此應用程式範圍外的問題資料上的變更。這項事件不會影響任何其它功能。"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
 msgstr "無法開啟目錄: '{0}'"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
 msgstr "刪除(_D)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
 msgstr "刪除所選擇的問題"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
 msgstr "回報(_R)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
 msgstr "提交所選取的問題"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
 msgstr "分析(_z)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
 msgstr "開啓選擇的問題以進行分析"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "所有問題（_A）"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "從所有系統使用者顯示所有已知問題"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
 msgstr "開啓問題的資料目錄(_O)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr "在預設的檔案系統瀏覽器中開啓已選擇的問題的資料目錄"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
 msgstr "將問題的 ID 複製至剪貼簿(_C)"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "將選擇的問題之 ID 儲存在剪貼簿中"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
 msgstr "應用程式"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
 msgstr "日期"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "名稱"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "版本"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
 msgstr "已偵測到"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "已回報"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:19
 msgid "No problems detected!"
 msgstr "沒有偵測到問題！"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
 msgstr "未選擇來源！"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author tchuang
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
 msgstr "沒有來源"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/problems.py:433
 msgid "Not found in cache but deleted: {0}"
 msgstr "在快取中找不到，已刪除：{0}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
 msgstr "未來"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
 msgstr "昨天"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
 msgstr "週"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
 msgstr "月"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
 msgstr "年"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
 msgstr "上次 {0!s}"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s} 之前"
@@ -319,17 +265,14 @@ msgstr "{0:d} {1!s} 之前"
 msgid "Failed to load UI definition"
 msgstr "載入 UI 定義失敗"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
 msgstr "N/A"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
 msgstr "損毀"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author ccheng
 #: ../src/gnome_abrt/views.py:660
 msgid "{0} problem has been detected"
 msgstr "找到 {0} 個問題"
@@ -342,17 +285,20 @@ msgstr "無法回報"
 msgid "Reports"
 msgstr "報告"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
-#: ../src/gnome_abrt/views.py:685
+#: ../src/gnome_abrt/views.py:688
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:693
 msgid "yes"
 msgstr "是"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt
-#: ../src/gnome_abrt/views.py:687
+#: ../src/gnome_abrt/views.py:695
 msgid "no"
 msgstr "無"
 
-# translation auto-copied from project gnome-abrt, version 0.3.1, document gnome-abrt, author ccheng
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "

@@ -10,14 +10,16 @@ msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 10:31+0100\n"
-"PO-Revision-Date: 2014-03-05 09:30+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-abrt/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2014-03-05 04:30-0500\n"
+"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-"
+"abrt/language/zh_TW/)\n"
+"Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.5.1\n"
 
 #: ../src/gnome-abrt:228
 msgid "My"
@@ -134,12 +136,14 @@ msgstr "ABRT 的問題"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr "您可能已達 inotify 在 '{0}' 中的監控計數限制。這項限制可藉由正確配置 inotify 來增加。欲取得更多資訊，請參閱 man inotify(7)。這項事件會使您不被通知有關於此應用程式範圍外的問題資料上的變更。這項事件不會影響任何其它功能。"
+msgstr ""
+"您可能已達 inotify 在 '{0}' 中的監控計數限制。這項限制可藉由正確配置 inotify 來增加。欲取得更多資訊，請參閱 man "
+"inotify(7)。這項事件會使您不被通知有關於此應用程式範圍外的問題資料上的變更。這項事件不會影響任何其它功能。"
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
@@ -289,8 +293,10 @@ msgstr "報告"
 
 #: ../src/gnome_abrt/views.py:688
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
 
 #: ../src/gnome_abrt/views.py:693

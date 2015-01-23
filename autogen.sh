@@ -64,7 +64,8 @@ case "$1" in
 
             echo "Running automake..."
             automake --add-missing --force --copy || exit 1
+
+            echo "Running configure ..."
+            ./configure "$@"
         ;;
 esac
-
-./configure "$@"

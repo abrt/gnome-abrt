@@ -17,7 +17,7 @@ Source0:    https://github.com/downloads/jfilak/abrt-gnome-oops/%{name}-%{versio
 BuildRequires: intltool
 BuildRequires: gettext
 BuildRequires: libtool
-BuildRequires: python2-devel
+BuildRequires: python3-devel
 BuildRequires: desktop-file-utils
 BuildRequires: asciidoc
 BuildRequires: xmlto
@@ -26,20 +26,20 @@ BuildRequires: libreport-gtk-devel > 2.0.20
 BuildRequires: abrt-gui-devel > 2.1.6.1
 BuildRequires: gtk3-devel
 %if 0%{?fedora}
-BuildRequires: pylint
-BuildRequires: python-inotify
-BuildRequires: pygobject3
-BuildRequires: dbus-python
-BuildRequires: python-humanize
+BuildRequires: python3-pylint
+BuildRequires: python3-inotify
+BuildRequires: python3-gobject
+BuildRequires: python3-dbus
+BuildRequires: python3-humanize
 %else
 %define checkoption --with-nopylint
 %endif
 
-Requires:   python-inotify
-Requires:   pygobject3
-Requires:   dbus-python
+Requires:   python3-inotify
+Requires:   python3-gobject
+Requires:   python3-dbus
 Requires:   xdg-utils
-Requires:   python-humanize
+Requires:   python3-humanize
 
 %description
 A GNOME application allows users to browse through detected problems and
@@ -91,7 +91,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -f %{name}.lang
 %doc COPYING
-%{python_sitearch}/gnome_abrt
+%{python3_sitearch}/gnome_abrt
 %{_datadir}/%{name}
 %{_datadir}/%{name}/ui
 %{_bindir}/%{name}

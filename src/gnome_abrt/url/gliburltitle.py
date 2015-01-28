@@ -18,7 +18,7 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 import sys
-from Queue import Queue
+from queue import Queue
 
 # pygobject
 #pylint: disable=E0611
@@ -156,7 +156,7 @@ class GetURLTitleSourceCache(object):
 
 if __name__ == "__main__":
     def ready(result, userdata):
-        print result[1] or result[0]
+        print(result[1] or result[0])
 
         userdata["count"] = userdata["count"] - 1
         if userdata["count"] == 0:

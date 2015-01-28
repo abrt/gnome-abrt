@@ -20,7 +20,7 @@ AC_PROG_LN_S
 
 CFLAGS="$CFLAGS -std=c99 -pedantic -Wall -Wwrite-strings -Wextra"
 
-AM_PATH_PYTHON([2.7])
+AM_PATH_PYTHON([3.4])
 #AX_PYTHON_MODULE([rpm], [1])
 #AX_PYTHON_MODULE([rpmUtils.miscutils], [1])
 
@@ -53,7 +53,7 @@ AC_ARG_WITH(nopylint,
 
 [if test "$with_nopylint" = "no"]
 [then]
-    AC_PATH_PROG([PYLINT], [pylint], [no])
+    AC_PATH_PROG([PYLINT], [python3-pylint], [no])
     [if test "$PYLINT" = "no"]
     [then]
         [echo "The pylint program was not found in the search path. Please ensure"]
@@ -80,7 +80,8 @@ IT_PROG_INTLTOOL([0.35.0])
 
 dnl ****** END ****************************************
 
-PYTHON_CFLAGS=`python-config --cflags 2> /dev/null`
+PYTHON_CFLAGS=`python3-config --cflags 2> /dev/null`
+PYTHON_LIBS=`python3-config --libs 2> /dev/null`
 GNOME_ABRT_VERSION=`cat ./gnome-abrt-version`
 
 AC_SUBST(PYTHON_CFLAGS)
@@ -90,7 +91,7 @@ PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([LIBREPORT_GTK], [libreport-gtk > 2.0.19-3])
 PKG_CHECK_MODULES([ABRT_GUI], [abrt_gui > 2.1.6])
 PKG_CHECK_MODULES([PYGOBJECT3], [pygobject-3.0])
-PKG_CHECK_MODULES([PYTHON], [python2])
+PKG_CHECK_MODULES([PYTHON], [python3])
 dnl PKG_CHECK_MODULES([PYXDG], [pyxdg >= 0.19])
 
 AC_CONFIG_FILES([

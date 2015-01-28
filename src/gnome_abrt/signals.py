@@ -72,7 +72,7 @@ def _gsource_handle_signal(source, condition, data):
     return True
 
 def _giochannel_notice_sigchld_signal(wfd):
-    os.write(wfd, '1')
+    os.write(wfd, '1'.encode())
 
 def glib_sigchld_signal_handler(callback, data=None):
     pipes = os.pipe()

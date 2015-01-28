@@ -20,8 +20,8 @@
 import sys
 import threading
 import logging
-from urllib import urlopen
-from HTMLParser import HTMLParser, HTMLParseError
+from urllib.request import urlopen
+from html.parser import HTMLParser, HTMLParseError
 
 
 def get_url_title(url):
@@ -119,7 +119,7 @@ if __name__ == "__main__":
         URLS = sys.argv[i:]
 
     if THREADS:
-        from Queue import Queue
+        from queue import Queue
         QUEUE = Queue()
         THREADS = []
         for u in URLS:
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 
         while not QUEUE.empty():
             ORIG_URL, GOT_TITLE = QUEUE.get()
-            print GOT_TITLE or ORIG_URL
+            print(GOT_TITLE or ORIG_URL)
     else:
         for u in URLS:
-            print get_url_title(u) or u
+            print(get_url_title(u) or u)

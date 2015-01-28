@@ -20,13 +20,16 @@ _wrappers_la_CPPFLAGS = \
     $(ABRT_GUI_CFLAGS)
 
 _wrappers_la_LDFLAGS = \
+    -module \
+    -avoid-version \
+    -export-symbols-regex PyInit__wrappers
+
+_wrappers_la_LIBADD = \
+    $(PYTHON_LIBS) \
     $(LIBREPORT_GTK_LIBS) \
     $(ABRT_GUI_LIBS) \
     $(GTK_LIBS) \
-    $(PYGOBJECT3_LIBS) \
-    -module \
-    -avoid-version \
-    -export-symbols-regex init_wrappers
+    $(PYGOBJECT3_LIBS)
 
 _wrappers.so: $(wrappersexec_LTLIBRARIES)
 	cp .libs/$@ ./

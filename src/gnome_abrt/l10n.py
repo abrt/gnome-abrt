@@ -38,7 +38,7 @@ def init(progname, localedir='/usr/share/locale'):
     try:
         humanize.i18n.activate(lcl)
     except IOError as ex:
-        logging.debug("Unsupported locale '{0}': {1}".format(lcl, ex.message))
+        logging.debug("Unsupported locale '{0}': {1}".format(lcl, str(ex)))
 
     gettext.bind_textdomain_codeset(progname,
                                     locale.nl_langinfo(locale.CODESET))

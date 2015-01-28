@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # coding=UTF-8
 
 ## Copyright (C) 2012 ABRT team <abrt-devel-list@redhat.com>
@@ -386,8 +386,9 @@ if __name__ == "__main__":
             help=_('Expert mode'))
 
     OPTIONS = CMDARGS.parse_args()
+    print(OPTIONS)
 
-    if OPTIONS.verbose > 0:
+    if OPTIONS.verbose is not None:
         logging.getLogger().setLevel(logging.DEBUG)
 
     VARS = vars(OPTIONS)

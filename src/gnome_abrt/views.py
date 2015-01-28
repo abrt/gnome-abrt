@@ -435,7 +435,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                                ".oops-reason {\n"
                                "  font-size        : 120%;\n"
                                "  font-weight      : bold;\n"
-                               "}\n"
+                               "}\n".encode()
                                )
         stl_ctx = self.get_style_context()
         stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
@@ -659,7 +659,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         problem_row.destroy()
 
         if selected:
-            for i in xrange(index, -1, -1):
+            for i in range(index, -1, -1):
                 problem_row = self._builder.lb_problems.get_row_at_index(i)
                 if self._filter.match(problem_row):
                     break

@@ -18,6 +18,8 @@
 */
 #include "common.h"
 
+static char module_doc[] = "gnome-abrt's libreport & abrt wrappers";
+
 static PyMethodDef module_methods[] = {
     /* method_name, func, flags, doc_string */
     { "show_events_list_dialog", p_show_events_list_dialog, METH_VARARGS, "Open a dialog with event configurations" },
@@ -26,13 +28,23 @@ static PyMethodDef module_methods[] = {
     { NULL }
 };
 
-#ifndef PyMODINIT_FUNC /* declarations for DLL import/export */
-#warning "PyMODINIT_FUNC ndef"
-#define PyMODINIT_FUNC void
-#endif
-PyMODINIT_FUNC
-init_wrappers(void)
+PyMODINIT_FUNC PyInit__wrappers(void)
 {
-    if (!Py_InitModule("_wrappers", module_methods))
-        printf("Py_InitModule() == NULL\n");
+    PyObject *m;
+    static struct PyModuleDef moduledef = {
+            .m_base = PyModuleDef_HEAD_INIT,
+            .m_name = "_wrappers",
+            .m_doc = module_doc,
+            .m_size = -1,
+            .m_methods = module_methods,
+            .m_reload = NULL,
+            .m_traverse = NULL,
+            .m_clear = NULL,
+            .m_free = NULL,
+    };
+    m = PyModule_Create(&moduledef);
+
+    if (m == NULL)
+        return NULL;
+    return m;
 }

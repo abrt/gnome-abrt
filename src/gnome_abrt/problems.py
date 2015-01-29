@@ -299,7 +299,7 @@ class Problem(object):
 
                     pfx = []
                     i = 0
-                    for i in xrange(0, len(line)):
+                    for i in range(0, len(line)):
                         if line[i] == ':':
                             break
                         pfx.append(line[i])
@@ -307,12 +307,12 @@ class Problem(object):
                     pfx = ''.join(pfx)
                     i += 1
 
-                    for i in xrange(i, len(line)):
+                    for i in range(i, len(line)):
                         if not line[i] == ' ':
                             break
 
                     typ = []
-                    for i in xrange(i, len(line)):
+                    for i in range(i, len(line)):
                         if line[i] == '=':
                             break
                         typ.append(line[i])

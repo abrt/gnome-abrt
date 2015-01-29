@@ -17,7 +17,7 @@
 
 import os
 import logging
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 # PyGObject
 #pylint: disable=E0611

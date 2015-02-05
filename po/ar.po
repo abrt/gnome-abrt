@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Arnes  <arnes99@gmail.com>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 10:31+0100\n"
-"PO-Revision-Date: 2015-02-05 20:59+0300\n"
+"PO-Revision-Date: 2015-02-05 21:18+0300\n"
 "Last-Translator: سـند <0sanad0@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Project-Style: gnome\n"
 
 #: ../src/gnome-abrt:228
@@ -29,11 +29,11 @@ msgstr ""
 
 #: ../src/gnome-abrt:231
 msgid "System"
-msgstr ""
+msgstr "النّظام"
 
 #: ../src/gnome-abrt:250
 msgid "_Preferences"
-msgstr ""
+msgstr "الت_فضيلات"
 
 #: ../src/gnome-abrt:251
 msgid "_ABRT Configuration"
@@ -45,15 +45,15 @@ msgstr ""
 
 #: ../src/gnome-abrt:254
 msgid "_About"
-msgstr ""
+msgstr "_عنْ"
 
 #: ../src/gnome-abrt:255
 msgid "_Quit"
-msgstr ""
+msgstr "أ_نهِ"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
-msgstr ""
+msgstr "أداة تبليغ العلّل الآليّة"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -125,11 +125,11 @@ msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "الملخص:"
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr ""
+msgstr "أ_رسل"
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
@@ -147,11 +147,11 @@ msgstr ""
 
 #: ../src/gnome_abrt/directory_problems.py:262
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "لا يمكن فتح الدّليل"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "إح_ذف"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -159,7 +159,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "Izvještaj"
+msgstr "_بلّغ"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
@@ -175,7 +175,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
-msgstr "Problem"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
@@ -201,19 +201,19 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "App"
-msgstr ""
+msgstr "تطق"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
-msgstr ""
+msgstr "الإصدارة"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Detected"
@@ -229,7 +229,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "No source selected!"
-msgstr ""
+msgstr "لم يتم إختيار المصدر"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source"
@@ -245,27 +245,27 @@ msgstr ""
 
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
-msgstr ""
+msgstr "بالأمس"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
-msgstr ""
+msgstr "الأسبوع"
 
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
-msgstr ""
+msgstr "الشهر"
 
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
-msgstr ""
+msgstr "السنة"
 
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
-msgstr ""
+msgstr "آ_خر"
 
 #: ../src/gnome_abrt/tools.py:60
 msgid "{0:d} {1!s}s ago"
-msgstr ""
+msgstr "منذ {0:d} {1!s}s"
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
-msgstr ""
+msgstr "غير متوفر"
 
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
@@ -301,11 +301,11 @@ msgstr ""
 
 #: ../src/gnome_abrt/views.py:693
 msgid "yes"
-msgstr ""
+msgstr "نعم"
 
 #: ../src/gnome_abrt/views.py:695
 msgid "no"
-msgstr ""
+msgstr "لا"
 
 #: ../src/gnome_abrt/controller.py:78
 msgid ""

@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Arnes  <arnes99@gmail.com>, 2011
+# Jiří Moskovčák <jmoskovc@redhat.com>, 2011
+# سـند <0sanad0@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-abrt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"PO-Revision-Date: 2015-02-05 21:18+0300\n"
+"Last-Translator: سـند <0sanad0@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Project-Style: gnome\n"
+
+#: ../src/gnome-abrt:228
+msgid "My"
+msgstr ""
+
+#: ../src/gnome-abrt:231
+msgid "System"
+msgstr "النّظام"
+
+#: ../src/gnome-abrt:250
+msgid "_Preferences"
+msgstr "الت_فضيلات"
+
+#: ../src/gnome-abrt:251
+msgid "_ABRT Configuration"
+msgstr ""
+
+#: ../src/gnome-abrt:252
+msgid "_Report problem with ABRT"
+msgstr ""
+
+#: ../src/gnome-abrt:254
+msgid "_About"
+msgstr "_عنْ"
+
+#: ../src/gnome-abrt:255
+msgid "_Quit"
+msgstr "أ_نهِ"
+
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
+msgid "Automatic Bug Reporting Tool"
+msgstr "أداة تبليغ العلّل الآليّة"
+
+#: ../src/gnome-abrt.desktop.in.h:2
+msgid "View and report application crashes"
+msgstr ""
+
+#: ../src/gnome-abrt.appdata.xml.in.h:1
+msgid ""
+"Collection of software tools designed for collecting, analyzing and "
+"reporting of software issues."
+msgstr ""
+
+#: ../src/gnome-abrt.appdata.xml.in.h:2
+msgid ""
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:89
+msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:102
+msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:109
+msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:151
+msgid "Can't chown problem '{0}' over DBus service: {1!s}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:167
+msgid "Can't get problem data from DBus service: {0!s}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:178
+msgid "Can't get list of problems from DBus service: {0!s}"
+msgstr ""
+
+#: ../src/gnome_abrt/dbus_problems.py:192
+msgid "Can't delete problem over DBus service: {0!s}"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:54
+msgid "The description of problem is too short"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:55
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"description shorter than 10 letters."
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:65
+msgid "The summary of problem is too short"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:66
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"summary shorter than 10 letters."
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:92
+msgid "Problem description"
+msgstr ""
+
+#: ../src/gnome_abrt/dialogs.py:100
+msgid "Summary:"
+msgstr "الملخص:"
+
+#: ../src/gnome_abrt/dialogs.py:112
+msgid "_Send"
+msgstr "أ_رسل"
+
+#. Sets text but text is selected :)
+#: ../src/gnome_abrt/dialogs.py:126
+msgid "A problem with ABRT"
+msgstr ""
+
+#: ../src/gnome_abrt/directory_problems.py:216
+msgid ""
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
+"details see man inotify(7). This event causes that you will not be notified "
+"about changes in problem data happening outside of this application. This "
+"event do not affect any other functionality."
+msgstr ""
+
+#: ../src/gnome_abrt/directory_problems.py:262
+msgid "Can't open directory: '{0}'"
+msgstr "لا يمكن فتح الدّليل"
+
+#: ../src/gnome_abrt/oops.glade.h:1
+msgid "_Delete"
+msgstr "إح_ذف"
+
+#: ../src/gnome_abrt/oops.glade.h:2
+msgid "Delete selected problems"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:3
+msgid "_Report"
+msgstr "_بلّغ"
+
+#: ../src/gnome_abrt/oops.glade.h:4
+msgid "Submits selected problem"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:5
+msgid "Analy_ze"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:6
+msgid "Open selected problem for analysis"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:7
+msgid "_All problems"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:8
+msgid "Show all known problems from all system users"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:9
+msgid "_Open problem's data directory"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:10
+msgid ""
+"Opens the selected problem's data directory in the default file system "
+"browser"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:11
+msgid "_Copy problem's ID to Clipboard"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:12
+msgid "Stores the selected problem's ID in Clibpoard"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:13
+msgid "App"
+msgstr "تطق"
+
+#: ../src/gnome_abrt/oops.glade.h:14
+msgid "Date"
+msgstr "تاريخ"
+
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "Name"
+msgstr "اسم"
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Version"
+msgstr "الإصدارة"
+
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "Detected"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
+msgid "Reported"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:19
+msgid "No problems detected!"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "No source selected!"
+msgstr "لم يتم إختيار المصدر"
+
+#: ../src/gnome_abrt/oops.glade.h:21
+msgid "No source"
+msgstr ""
+
+#: ../src/gnome_abrt/problems.py:442
+msgid "Not found in cache but deleted: {0}"
+msgstr ""
+
+#: ../src/gnome_abrt/tools.py:33
+msgid "Future"
+msgstr ""
+
+#: ../src/gnome_abrt/tools.py:40
+msgid "Yesterday"
+msgstr "بالأمس"
+
+#: ../src/gnome_abrt/tools.py:49
+msgid "week"
+msgstr "الأسبوع"
+
+#: ../src/gnome_abrt/tools.py:52
+msgid "month"
+msgstr "الشهر"
+
+#: ../src/gnome_abrt/tools.py:55
+msgid "year"
+msgstr "السنة"
+
+#: ../src/gnome_abrt/tools.py:58
+msgid "Last {0!s}"
+msgstr "آ_خر"
+
+#: ../src/gnome_abrt/tools.py:60
+msgid "{0:d} {1!s}s ago"
+msgstr "منذ {0:d} {1!s}s"
+
+#: ../src/gnome_abrt/views.py:167
+msgid "Failed to load UI definition"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
+msgid "N/A"
+msgstr "غير متوفر"
+
+#: ../src/gnome_abrt/views.py:648
+msgid " crashed"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:660
+msgid "{0} problem has been detected"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:677
+msgid "cannot be reported"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:682
+msgid "Reports"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:688
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:693
+msgid "yes"
+msgstr "نعم"
+
+#: ../src/gnome_abrt/views.py:695
+msgid "no"
+msgstr "لا"
+
+#: ../src/gnome_abrt/controller.py:78
+msgid ""
+"Failed to execute the requested action because of an error in new process "
+"creation"
+msgstr ""

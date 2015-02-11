@@ -8,6 +8,7 @@ _wrappers_la_SOURCES = \
     module.c \
     configure.c \
     problem_details.c \
+    problem_app.c \
     common.h
 
 _wrappers_la_CPPFLAGS = \

@@ -281,9 +281,7 @@ class Problem(object):
                         # kernel
                         component = package
 
-            self.app = find_application(component,
-                                        self['executable'],
-                                        self['cmdline'])
+            self.app = find_application(self['cmdline'])
 
         return self.app
 

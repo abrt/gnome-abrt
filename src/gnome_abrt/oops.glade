@@ -264,8 +264,8 @@
                         <property name="can_default">True</property>
                         <property name="has_default">True</property>
                         <property name="no_show_all">True</property>
-                        <property name="margin_left">0</property>
-                        <property name="margin_right">0</property>
+                        <property name="margin_start">0</property>
+                        <property name="margin_end">0</property>
                         <property name="margin_top">0</property>
                         <property name="margin_bottom">0</property>
                         <property name="primary_icon_name">edit-find-symbolic</property>
@@ -356,7 +356,7 @@
                   <object class="GtkNotebook" id="nb_problem_layout">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">24</property>
+                    <property name="margin_start">24</property>
                     <property name="margin_top">32</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
@@ -443,7 +443,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="halign">end</property>
-                                <property name="margin_right">12</property>
+                                <property name="margin_end">12</property>
                                 <property name="margin_top">8</property>
                                 <property name="margin_bottom">8</property>
                                 <property name="label" translatable="yes">Name</property>
@@ -462,7 +462,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="halign">end</property>
-                                <property name="margin_right">12</property>
+                                <property name="margin_end">12</property>
                                 <property name="margin_top">8</property>
                                 <property name="margin_bottom">8</property>
                                 <property name="label" translatable="yes">Version</property>
@@ -480,7 +480,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="halign">end</property>
-                                <property name="margin_right">12</property>
+                                <property name="margin_end">12</property>
                                 <property name="margin_top">8</property>
                                 <property name="margin_bottom">8</property>
                                 <property name="label" translatable="yes">Detected</property>
@@ -624,7 +624,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="halign">end</property>
                                 <property name="valign">start</property>
-                                <property name="margin_right">12</property>
+                                <property name="margin_end">12</property>
                                 <property name="margin_top">8</property>
                                 <property name="margin_bottom">8</property>
                                 <property name="label" translatable="yes">Reported</property>
@@ -695,8 +695,8 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="halign">end</property>
-                            <property name="margin_left">12</property>
-                            <property name="margin_right">12</property>
+                            <property name="margin_start">12</property>
+                            <property name="margin_end">12</property>
                             <property name="margin_top">12</property>
                             <property name="margin_bottom">12</property>
                           </object>

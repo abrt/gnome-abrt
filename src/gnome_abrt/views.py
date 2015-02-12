@@ -855,7 +855,13 @@ class OopsWindow(Gtk.ApplicationWindow):
                 problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
             if app.icon:
-                self._builder.img_app_icon.set_from_pixbuf(app.icon)
+                self._builder.img_app_icon.set_from_pixbuf(
+                        Gtk.IconTheme
+                            .get_default()
+                            .lookup_by_gicon(app.icon,
+                                             128,
+                                             Gtk.IconLookupFlags.FORCE_SIZE)
+                            .load_icon())
             else:
                 self._builder.img_app_icon.set_from_pixbuf(
                         Gtk.IconTheme

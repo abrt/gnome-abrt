@@ -17,6 +17,7 @@
     51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 */
 #include "common.h"
+#include <pygobject.h>
 
 static PyMethodDef module_methods[] = {
     /* method_name, func, flags, doc_string */
@@ -36,4 +37,6 @@ init_wrappers(void)
 {
     if (!Py_InitModule("_wrappers", module_methods))
         printf("Py_InitModule() == NULL\n");
+    Py_Initialize();
+    pygobject_init(-1, -1, -1);
 }

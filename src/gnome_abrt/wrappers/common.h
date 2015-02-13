@@ -20,7 +20,6 @@
 
 /* module-level functions */
 PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args);
-PyObject *p_show_system_config_abrt_dialog(PyObject *module, PyObject *args);
 
 /* Problem Details */
 PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args);

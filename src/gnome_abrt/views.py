@@ -347,16 +347,29 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.gac_copy_id = builder.get_object('gac_copy_id')
             self.gac_search = builder.get_object('gac_search')
             self.tbtn_search = builder.get_object('tbtn_search')
+            self.tbtn_multi_select = builder.get_object('tbtn_multi_select')
 
             GObject.Binding.bind_property(self.tbtn_search, "active",
                                           self.search_bar, "search-mode-enabled",
                                           GObject.BindingFlags.BIDIRECTIONAL)
+
+            label = Gtk.Label.new('')
+            label.show()
+            self.lb_problems.set_placeholder(label)
+            label.connect('map', self.placeholder_mapped, self)
+            label.connect('unmap', self.placeholder_unmapped, self)
 
             self.menu_problem_item = builder.get_object('menu_problem_item')
             self.menu_multiple_problems = builder.get_object(
                     'menu_multiple_problems')
             self.ag_accelerators = builder.get_object('ag_accelerators')
             self.header_bar = None
+
+        def placeholder_mapped(self, label, data):
+            self.tbtn_multi_select.set_sensitive(False)
+
+        def placeholder_unmapped(self, label, data):
+            self.tbtn_multi_select.set_sensitive(True)
 
         def connect_signals(self, implementor):
             self._builder.connect_signals(implementor)

@@ -893,6 +893,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             if icon_buf is None:
                 icon_buf = load_icon(name="system-run-symbolic", scale=scale)
+                self._builder.img_app_icon.get_style_context().add_class('dim-label')
+            else:
+                self._builder.img_app_icon.get_style_context().remove_class('dim-label')
 
             # icon_buf can be None and if it is None, no icon will be displayed
             set_icon_from_pixbuf_with_scale(self._builder.img_app_icon,

@@ -35,16 +35,3 @@ PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args)
     Py_RETURN_NONE;
 }
 
-PyObject *p_show_system_config_abrt_dialog(PyObject *module, PyObject *args)
-{
-    (void)module;
-
-    PyGObject *pygtkwnd = NULL;
-    if (PyArg_ParseTuple(args, "|O", &pygtkwnd))
-    {
-        GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
-        show_system_config_abrt_dialog(wnd);
-    }
-
-    Py_RETURN_NONE;
-}

@@ -20,7 +20,6 @@
 import os
 import time
 import logging
-import subprocess
 import traceback
 import humanize
 import datetime

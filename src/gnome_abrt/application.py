@@ -16,12 +16,7 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 import os
-import logging
 import gnome_abrt.wrappers as wrappers
-
-# PyGObject
-#pylint: disable=E0611
-from gi.repository import Gio
 
 class Application(object):
 

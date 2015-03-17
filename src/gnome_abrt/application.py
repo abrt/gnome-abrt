@@ -33,8 +33,11 @@ class Application(object):
         self.icon = icon
 
 
-def find_application(cmdline):
-    app = wrappers.get_app_for_cmdline(cmdline)
+def find_application(cmdline, envp, pid):
+    if envp:
+        app = wrappers.get_app_for_env(envp.split('\n'), int(pid))
+    if not app:
+        app = wrappers.get_app_for_cmdline(cmdline)
     if not app:
         return Application(cmdline.split(" ")[0])
 

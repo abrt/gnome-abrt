@@ -66,7 +66,8 @@ class ProblemSource(object):
 class Problem(object):
     INITIAL_ELEMENTS = ['component', 'executable', 'cmdline', 'count', 'type',
                         'last_occurrence', 'time', 'reason', 'pkg_arch',
-                        'pkg_epoch', 'pkg_name', 'pkg_release', 'pkg_version']
+                        'pkg_epoch', 'pkg_name', 'pkg_release', 'pkg_version',
+                        'environ', 'pid']
 
     class Submission(object):
         URL = "URL"
@@ -269,7 +270,7 @@ class Problem(object):
 
     def get_application(self):
         if not self.app:
-            self.app = find_application(self['cmdline'])
+            self.app = find_application(self['cmdline'], self['environ'], self['pid'])
 
         return self.app
 

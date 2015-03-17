@@ -27,3 +27,6 @@ PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args);
 
 /* App for a command-line */
 PyObject *p_get_app_for_cmdline(PyObject *module, PyObject *args);
+
+/* App for an env */
+PyObject *p_get_app_for_env(PyObject *module, PyObject *args);

@@ -34,3 +34,35 @@ PyObject *p_get_app_for_cmdline(PyObject *module, PyObject *args)
 
     Py_RETURN_NONE;
 }
+
+PyObject *p_get_app_for_env(PyObject *module, PyObject *args)
+{
+    (void)module;
+
+    PyObject *envp_seq;
+    pid_t pid = -1;
+    if (PyArg_ParseTuple(args, "Oi", &envp_seq, &pid) &&
+        (envp_seq = PySequence_Fast(envp_seq, "expected a sequence")))
+    {
+        GPtrArray *envp_array;
+        int size, i;
+
+        size = PySequence_Size(envp_seq);
+        envp_array = g_ptr_array_new_full(size + 1, g_free);
+
+        for (i = 0; i < size; i++) {
+            PyObject *seqItem = PySequence_Fast_GET_ITEM(envp_seq, i);
+
+            PyObject *asciiItem = PyUnicode_AsASCIIString(seqItem);
+            g_ptr_array_insert (envp_array, -1, g_strdup(PyBytes_AsString(asciiItem)));
+        }
+        g_ptr_array_insert (envp_array, -1, NULL);
+
+        GAppInfo *app = problem_create_app_from_env((const char **) envp_array->pdata, pid);
+        g_ptr_array_free(envp_array, TRUE);
+        if (app)
+            return pygobject_new((GObject *)app);
+    }
+
+    Py_RETURN_NONE;
+}

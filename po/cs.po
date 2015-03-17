@@ -4,53 +4,53 @@
 # 
 # Translators:
 # Jakub Filak <jfilak@redhat.com>, 2012
+# Jiri Eischmann <jiri@eischmann.cz>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"POT-Creation-Date: 2015-03-17 12:19+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-05 04:30-0500\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/cs/)\n"
+"PO-Revision-Date: 2015-03-01 12:57-0500\n"
+"Last-Translator: Jiri Eischmann <jiri@eischmann.cz>\n"
+"Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Zanata 3.5.1\n"
 
-#: ../src/gnome-abrt:228
+#: ../src/gnome-abrt:265
 msgid "My"
-msgstr ""
+msgstr "Moje"
 
-#: ../src/gnome-abrt:231
+#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
 msgid "System"
-msgstr ""
+msgstr "Systémové"
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:288
 msgid "_Preferences"
-msgstr ""
+msgstr "_Předvolby"
 
-#: ../src/gnome-abrt:251
+#: ../src/gnome-abrt:289
 msgid "_ABRT Configuration"
-msgstr ""
+msgstr "Nastavení _ABRT"
 
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:290
 msgid "_Report problem with ABRT"
-msgstr ""
+msgstr "_Nahlásit problém s ABRT"
 
-#: ../src/gnome-abrt:254
+#: ../src/gnome-abrt:294
 msgid "_About"
-msgstr ""
+msgstr "_O aplikaci"
 
-#: ../src/gnome-abrt:255
+#: ../src/gnome-abrt:295
 msgid "_Quit"
-msgstr ""
+msgstr "_Ukončit"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
-msgid "Automatic Bug Reporting Tool"
-msgstr "Nástroj pro automatické reportování chyb"
+msgid "Problem Reporting"
+msgstr ""
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -61,82 +61,93 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"Skupina softwarových nástrojů pro sbírání, analyzování a hlášení problémů se "
+"softwarem."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"Hlavním úkolem je zjednodušit proces hlášení problémů a hledání řešení."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
+#, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
 "Nelze přidat příjemce signálu '{0}' na systémové DBus cestě '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
+#, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr ""
 "Není možno navázat spojení se sytémovou DBus sběrnicí '{0}' na cestě  '{1}': "
 "{2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
+#, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "Nelze získat rozhraní '{0}' na cestě '{1}' sběrnice '{2}': {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:151
+#: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "Nelze změnit vlastníka  problému '{0}' přes službu DBus: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:167
+#: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "Nelze získat data problému pomocí služby DBus: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:178
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "Nelze získat seznam všech problémů pomocí služby DBus: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:192
+#: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Nelze smazat problémů pomocí služby DBus: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr ""
+msgstr "Popis problému je příliš krátký"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr ""
+"Abychom získali užitečnější hlášení, nepřijímáme hlášení s popisem kratším "
+"než 10 znaků."
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr ""
+msgstr "Shrnutí problému je příliš krátké"
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr ""
+"Abychom získali užitečnější hlášení, nepřijímáme hlášení se shrnutím kratším "
+"než 10 znaků."
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr ""
+msgstr "Popis problému"
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr ""
+msgstr "Shrnutí:"
 
-#: ../src/gnome_abrt/dialogs.py:112
+#: ../src/gnome_abrt/dialogs.py:119
 msgid "_Send"
-msgstr ""
+msgstr "_Odeslat"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:126
+#: ../src/gnome_abrt/dialogs.py:133
 msgid "A problem with ABRT"
-msgstr ""
+msgstr "Problém s ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
+#, python-brace-format
 msgid ""
 "You have probably reached inotify's limit on the number of watches in '{0}'. "
 "The limit can be increased by proper configuration of inotify. For more "
@@ -144,14 +155,20 @@ msgid ""
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
+"Pravděpodobně jste dosáhli limitu inotify v počtu watches za '{0}'. Limit "
+"může být zvýšený správným nastavení inotify. Chcete-li znát více informací, "
+"podívejte se na man inotify(7). Tato událost způsobuje, že nebudete "
+"upozorněni na změny v datech problému, který se stává mimo tuto aplikaci. "
+"Tato událost nemá vliv na žádnou další funkcionalitu."
 
 #: ../src/gnome_abrt/directory_problems.py:262
+#, python-brace-format
 msgid "Can't open directory: '{0}'"
 msgstr "Nelze otevřít adresář: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_Smazat"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
@@ -159,7 +176,7 @@ msgstr "Smazat vybrané problámy"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "_Reportovat"
+msgstr "_Nahlásit"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
@@ -167,75 +184,97 @@ msgstr "Odešle vybraný problém"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "A_nalyzovat"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Otevřít vybraný problém k analýze"
 
 #: ../src/gnome_abrt/oops.glade.h:7
+msgid "D_etails"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:8
+msgid "Show technical details"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
 msgstr "_Všechny problémy"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"
 msgstr "Zobrazí všechny známé problémy všech uživatelů systému"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Otevřít adresář s daty problému"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:12
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:11
-msgid "_Copy problem's ID to Clipboard"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:12
-msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+"Otevírá adresář s daty vybraného problému ve výchozím prohlížeči souborů"
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "App"
-msgstr "Aplikace"
+msgid "_Copy problem's ID to Clipboard"
+msgstr "_Zkopírovat ID problému do schránky"
 
 #: ../src/gnome_abrt/oops.glade.h:14
-msgid "Date"
-msgstr "Datum"
+msgid "Stores the selected problem's ID in Clibpoard"
+msgstr "Ukládá ID vybraného projektu do schránky"
 
 #: ../src/gnome_abrt/oops.glade.h:15
+msgid "_Filter"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Show filter box"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
 msgstr "Název"
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "Version"
 msgstr "Verze"
 
-#: ../src/gnome_abrt/oops.glade.h:17
-msgid "Detected"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
-msgid "Reported"
-msgstr "Reportováno"
-
 #: ../src/gnome_abrt/oops.glade.h:19
-msgid "No problems detected!"
-msgstr ""
+msgid "Detected"
+msgstr "Detekován"
 
 #: ../src/gnome_abrt/oops.glade.h:20
-msgid "No source selected!"
+msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
 msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:21
-msgid "No source"
+msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
 msgstr ""
 
-#: ../src/gnome_abrt/problems.py:442
+#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
+msgid "Reported"
+msgstr "Reportováno"
+
+#: ../src/gnome_abrt/oops.glade.h:23
+msgid "button"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:24
+msgid "No problems detected!"
+msgstr "Žádné problémy nedetekovány!"
+
+#: ../src/gnome_abrt/oops.glade.h:25
+msgid "No source selected!"
+msgstr "Nevybrán žádný zdroj!"
+
+#: ../src/gnome_abrt/oops.glade.h:26
+msgid "No source"
+msgstr "Žádný zdroj"
+
+#: ../src/gnome_abrt/problems.py:475
+#, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "Nenalzeno ve vyrovnávací paměti ale smazáno: {0}"
 
@@ -267,43 +306,69 @@ msgstr "Minulý  {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "Před {0:d} {1!s}"
 
-#: ../src/gnome_abrt/views.py:167
+#: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"
+msgstr "Selhalo načtení definice UI"
+
+#: ../src/gnome_abrt/views.py:818
+msgid "Unexpected system error"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
+#: ../src/gnome_abrt/views.py:820
+msgid "The system has encountered a problem and recovered."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:823
+msgid "Fatal system failure"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:825
+msgid "The system has encountered a problem and could not continue."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:838
+#, python-brace-format
+msgid "{0} problem has been detected"
+msgstr "Problém {0} byl detekován"
+
+#: ../src/gnome_abrt/views.py:842
+#, python-brace-format
+msgid "{0} quit unexpectedly"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:845
+msgid "The application encountered a problem and could not continue."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
 msgid "N/A"
 msgstr "Nedostupné"
 
-#: ../src/gnome_abrt/views.py:648
-msgid " crashed"
-msgstr " selhal"
-
-#: ../src/gnome_abrt/views.py:660
-msgid "{0} problem has been detected"
-msgstr ""
-
-#: ../src/gnome_abrt/views.py:677
+#: ../src/gnome_abrt/views.py:878
 msgid "cannot be reported"
-msgstr ""
+msgstr "nemůže být nahlášen"
 
-#: ../src/gnome_abrt/views.py:682
+#: ../src/gnome_abrt/views.py:883
 msgid "Reports"
-msgstr ""
+msgstr "Hlášení"
 
-#: ../src/gnome_abrt/views.py:688
+#: ../src/gnome_abrt/views.py:889
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"Tento problém byl již nahlášen, ale dosud nebylo vytvořeno hlášení v "
+"<i>Bugzille</i>. Naši vývojáři můžou potřebovat více informací, aby mohli "
+"vyřešit tento problém. Zvažte prosím také nahlášení do Bugzilly, kde můžete "
+"více informací poskytnout. Děkujeme."
 
-#: ../src/gnome_abrt/views.py:693
+#: ../src/gnome_abrt/views.py:894
 msgid "yes"
 msgstr "ano"
 
-#: ../src/gnome_abrt/views.py:695
+#: ../src/gnome_abrt/views.py:896
 msgid "no"
 msgstr "ne"
 
@@ -312,3 +377,4 @@ msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
 msgstr ""
+"Selhalo provedení požadované akce kvůli chybě ve vytváření nového procesu"

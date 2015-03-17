@@ -9,9 +9,9 @@
 # sweta <swkothar@redhat.com>, 2013-2014
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 10:31+0100\n"
+"POT-Creation-Date: 2015-03-17 12:19+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,37 +23,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.5.1\n"
 
-#: ../src/gnome-abrt:228
+#: ../src/gnome-abrt:265
 msgid "My"
 msgstr "મારું"
 
-#: ../src/gnome-abrt:231
+#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
 msgid "System"
 msgstr "સિસ્ટમ"
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:288
 msgid "_Preferences"
 msgstr "પસંદગીઓ (_P)"
 
-#: ../src/gnome-abrt:251
+#: ../src/gnome-abrt:289
 msgid "_ABRT Configuration"
 msgstr "_ABRT રૂપરેખાંકન"
 
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:290
 msgid "_Report problem with ABRT"
 msgstr "ABRT ની મદદથી સમસ્યાનો અહેવાલ આપો (_R)"
 
-#: ../src/gnome-abrt:254
+#: ../src/gnome-abrt:294
 msgid "_About"
 msgstr "વિશે (_A)"
 
-#: ../src/gnome-abrt:255
+#: ../src/gnome-abrt:295
 msgid "_Quit"
 msgstr "બહાર નીકળો (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
-msgid "Automatic Bug Reporting Tool"
-msgstr "આપોઆપ ભૂલ અહેવાલીકરણ સાધન"
+msgid "Problem Reporting"
+msgstr ""
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -76,31 +76,34 @@ msgstr ""
 "મુખ્ય હેતુ છે."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
+#, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
 "DBus સિસ્ટમ પાથ '{1}' પર સંકેત '{0}' નાં પ્રાપ્તકર્તાને ઉમેરી શકાતુ નથી: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
+#, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "DBus સિસ્ટમ બસ '{0}' પાથ '{1}' માં જોડી શકાતુ નથી: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
+#, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "બસ '{2}' માં પાથ '{1}' પર ઇન્ટરફેસ '{0}' ને મેળવી શકાતુ નથી: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:151
+#: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "સમસ્યા '{0}' ને DBus સેવા પર chown કરી શકાતી નથી: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:167
+#: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus સેવામાંથી સમસ્યા માહિતીને મેળવી શકાતી નથી: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:178
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus સેવામાંથી સમસ્યાઓની યાદીને મેળવી શકાતી નથી: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:192
+#: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus સેવા પર સમસ્યાને કાઢી શકાતી નથી: {0!s}"
 
@@ -136,16 +139,17 @@ msgstr "સમસ્યા વર્ણન"
 msgid "Summary:"
 msgstr "સારાંશ:"
 
-#: ../src/gnome_abrt/dialogs.py:112
+#: ../src/gnome_abrt/dialogs.py:119
 msgid "_Send"
 msgstr "મોકલો (_S)"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:126
+#: ../src/gnome_abrt/dialogs.py:133
 msgid "A problem with ABRT"
 msgstr "ABRT સાથે સમસ્યા"
 
 #: ../src/gnome_abrt/directory_problems.py:216
+#, python-brace-format
 msgid ""
 "You have probably reached inotify's limit on the number of watches in '{0}'. "
 "The limit can be increased by proper configuration of inotify. For more "
@@ -160,6 +164,7 @@ msgstr ""
 "કાર્યક્ષમતાને અસર કરતુ નથી."
 
 #: ../src/gnome_abrt/directory_problems.py:262
+#, python-brace-format
 msgid "Can't open directory: '{0}'"
 msgstr "ડિરેક્ટરીને ખોલી શકાતી નથી: '{0}'"
 
@@ -188,68 +193,89 @@ msgid "Open selected problem for analysis"
 msgstr "વિશ્ર્લેષણ કરવા માટે પસંદ થયેલ સમસ્યાને ખોલો"
 
 #: ../src/gnome_abrt/oops.glade.h:7
+msgid "D_etails"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:8
+msgid "Show technical details"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
 msgstr "બધી સમસ્યાઓ (_A)"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"
 msgstr "બધા સિસ્ટમ વપરાશકર્તાઓમાંથી બધી જાણીતી સમસ્યાઓને બતાવો"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Open problem's data directory"
 msgstr "સમસ્યાની માહિતી ડિરેક્ટરીને ખોલો (_O)"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:12
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr "મૂળબૂત ફાઇલ સિસ્ટમ બ્રાઉઝરમાં પસંદ થયેલ સમસ્યાની માહિતીને ખોલે છે"
 
-#: ../src/gnome_abrt/oops.glade.h:11
+#: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Copy problem's ID to Clipboard"
 msgstr "ક્લિપબોર્ડમાં સમસ્યાની ID ની નકલ કરો (_C)"
 
-#: ../src/gnome_abrt/oops.glade.h:12
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "ક્લિપબોર્ડમાં પસંદ થયેલ સમસ્યાની ID નો સંગ્રહ થાય છે"
 
-#: ../src/gnome_abrt/oops.glade.h:13
-msgid "App"
-msgstr "કાર્યક્રમ"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Date"
-msgstr "તારીખ"
-
 #: ../src/gnome_abrt/oops.glade.h:15
+msgid "_Filter"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Show filter box"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
 msgstr "નામ"
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "Version"
 msgstr "આવૃત્તિ"
 
-#: ../src/gnome_abrt/oops.glade.h:17
+#: ../src/gnome_abrt/oops.glade.h:19
 msgid "Detected"
 msgstr "શોધાયુ"
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:21
+msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
 msgid "Reported"
 msgstr "અહેવાલ થયેલ"
 
-#: ../src/gnome_abrt/oops.glade.h:19
+#: ../src/gnome_abrt/oops.glade.h:23
+msgid "button"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:24
 msgid "No problems detected!"
 msgstr "સમસ્યા મળી નથી!"
 
-#: ../src/gnome_abrt/oops.glade.h:20
+#: ../src/gnome_abrt/oops.glade.h:25
 msgid "No source selected!"
 msgstr "સ્ત્રોત પસંદ થયેલ નથી!"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:26
 msgid "No source"
 msgstr "સ્ત્રોત નથી"
 
-#: ../src/gnome_abrt/problems.py:442
+#: ../src/gnome_abrt/problems.py:475
+#, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "કેશમાં મળ્યુ નથી પરંતુ કાઢી નાંખેલ છે: {0}"
 
@@ -281,31 +307,53 @@ msgstr "છેલ્લુ {0!s}"
 msgid "{0:d} {1!s}s ago"
 msgstr "{0:d} {1!s}s પહેલાંનુ"
 
-#: ../src/gnome_abrt/views.py:167
+#: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"
 msgstr "UI વ્યાખ્યા લાવવામાં નિષ્ફળ"
 
-#: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
-msgid "N/A"
-msgstr "N/A"
+#: ../src/gnome_abrt/views.py:818
+msgid "Unexpected system error"
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:648
-msgid " crashed"
-msgstr " ભાંગી પડેલ"
+#: ../src/gnome_abrt/views.py:820
+msgid "The system has encountered a problem and recovered."
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:660
+#: ../src/gnome_abrt/views.py:823
+msgid "Fatal system failure"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:825
+msgid "The system has encountered a problem and could not continue."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:838
+#, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} સમસ્યાને શોધી દેવામાં આવી છે"
 
-#: ../src/gnome_abrt/views.py:677
+#: ../src/gnome_abrt/views.py:842
+#, python-brace-format
+msgid "{0} quit unexpectedly"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:845
+msgid "The application encountered a problem and could not continue."
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
+msgid "N/A"
+msgstr "N/A"
+
+#: ../src/gnome_abrt/views.py:878
 msgid "cannot be reported"
 msgstr "અહેવાલ આપી શકાય નહિ"
 
-#: ../src/gnome_abrt/views.py:682
+#: ../src/gnome_abrt/views.py:883
 msgid "Reports"
 msgstr "અહેવાલો"
 
-#: ../src/gnome_abrt/views.py:688
+#: ../src/gnome_abrt/views.py:889
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -318,11 +366,11 @@ msgstr ""
 "તે પૂરું પાડવા માટે મહેરબાની કરીને <b>તેનો અહેવાલ</b> Bugzilla માં આપવાનું "
 "ધ્યાનમાં રાખો. તમારો આભાર."
 
-#: ../src/gnome_abrt/views.py:693
+#: ../src/gnome_abrt/views.py:894
 msgid "yes"
 msgstr "હાં"
 
-#: ../src/gnome_abrt/views.py:695
+#: ../src/gnome_abrt/views.py:896
 msgid "no"
 msgstr "ના"
 

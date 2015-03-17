@@ -103,6 +103,40 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Mar 17 2015 Jakub Filak <jfilak@redhat.com> 1.1.0-1
+- Translation updates
+- Get rid of pylint warnings
+- Updates to the spec file due to Python3
+- Port to Python3
+- Fix setting application icons
+- Fix crasher in the wrappers
+- Add ar to LINGUAS
+- Use libreport's helper to find the app and icons
+- Wrap libreport's problem_create_app_from_cmdline()
+- Stop using deprecated widget properties
+- po: Remove en-ar from LINGUAS
+- Fix typo in comment
+- Remove xdg-open usage
+- Merge pull request #111 from aboobed/master
+- Update ar.po
+- Rename ar to ar.po
+- Create ar
+- Update LINGUAS
+- autogen: move configure to the default case
+- Add gettext mappings to the zanata config
+- Translation updates
+- Move from transifex to zanata
+- Merge pull request #104 from abrt/gh97_always_show_icon
+- Use scalable system-run-symbolic icon
+- Move the heading text down
+- sidebar - remove double border
+- header bar alignment fixes
+- Always show an icon for problems
+- Merge pull request #95 from abrt/search_by_bug_id
+- Search by Bug Tracker ID
+- Disable pylint warning for wrong continued indentation
+- Translation updates
+
 * Fri Oct 03 2014 Jakub Filak <jfilak@redhat.com> 1.0.0-1
 - Disable pylint rule for too many lines in module
 - Fix problems with selection when all problems are filtered out

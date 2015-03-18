@@ -22,8 +22,8 @@ BuildRequires: desktop-file-utils
 BuildRequires: asciidoc
 BuildRequires: xmlto
 BuildRequires: pygobject3-devel
-BuildRequires: libreport-gtk-devel > 2.0.20
-BuildRequires: abrt-gui-devel > 2.1.6.1
+BuildRequires: libreport-gtk-devel > 2.4.0
+BuildRequires: abrt-gui-devel > 2.4.0
 BuildRequires: gtk3-devel
 %if 0%{?fedora}
 BuildRequires: python3-pylint

@@ -21,6 +21,7 @@ import gnome_abrt
 from gnome_abrt.l10n import _
 
 # libreport
+#pylint: disable=E0611
 from report import problem_data, report_problem_in_memory, LIBREPORT_NOWAIT
 
 # pygogject

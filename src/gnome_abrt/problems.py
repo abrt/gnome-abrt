@@ -270,7 +270,9 @@ class Problem(object):
 
     def get_application(self):
         if not self.app:
-            self.app = find_application(self['cmdline'], self['environ'], self['pid'])
+            self.app = find_application(self['cmdline'],
+                                        self['environ'],
+                                        self['pid'])
 
         return self.app
 

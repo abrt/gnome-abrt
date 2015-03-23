@@ -22,7 +22,7 @@ import logging
 
 GETTEXT_PROGNAME = None
 
-_ = gettext.lgettext
+_ = gettext.gettext
 
 def init(progname, localedir='/usr/share/locale'):
     global GETTEXT_PROGNAME

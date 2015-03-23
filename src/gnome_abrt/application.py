@@ -34,6 +34,7 @@ class Application(object):
 
 
 def find_application(cmdline, envp, pid):
+    app = None
     if envp:
         app = wrappers.get_app_for_env(envp.split('\n'), int(pid))
     if not app:

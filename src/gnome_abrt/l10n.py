@@ -23,6 +23,7 @@ import logging
 GETTEXT_PROGNAME = None
 
 _ = gettext.gettext
+ngettext = gettext.ngettext
 
 def init(progname, localedir='/usr/share/locale'):
     global GETTEXT_PROGNAME

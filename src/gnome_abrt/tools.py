@@ -19,6 +19,7 @@ import datetime
 import calendar
 
 from gnome_abrt.l10n import _
+from gnome_abrt.l10n import ngettext
 from gnome_abrt.config import get_configuration
 
 def fancydate(value, base_date=None):
@@ -46,18 +47,13 @@ def fancydate(value, base_date=None):
     if old_date.month == base_date.month and old_date.year == base_date.year:
         # computes a number of calendar weeks (not only 7 days)
         offset = int(round((tmdt.days - base_date.isoweekday())/7, 0)) + 1
-        name = _('week')
+        return ngettext('Last week', '{0:d} weeks ago', offset).format(offset)
     elif old_date.year == base_date.year:
         offset = base_date.month - old_date.month
-        name = _('month')
+        return ngettext('Last month', '{0:d} months ago', offset).format(offset)
     else:
         offset = base_date.year - old_date.year
-        name = _('year')
-
-    if offset == 1:
-        return _("Last {0!s}").format(name)
-
-    return _("{0:d} {1!s}s ago").format(offset, name)
+        return ngettext('Last year', '{0:d} years ago', offset).format(offset)
 
 
 def smart_truncate(content, length=100, suffix='...'):

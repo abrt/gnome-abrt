@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,11 +110,11 @@ msgstr ""
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "ഡിബസ് സര്‍വീസിലുള്ള പ്രശ്നം വെട്ടി നീക്കുവാന്‍ സാധ്യമല്ല: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "പ്രശ്നത്തിന്റെ വിവരണം വളരെ ചെറുതു്"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
@@ -122,11 +122,11 @@ msgstr ""
 "കൂടുതല്‍ പ്രയോജനകരമായ റിപ്പോര്‍ട്ടുകള്‍ ലഭ്യമാക്കുന്നതിനായി, 10 "
 "അക്ഷരങ്ങളില്‍ കുറഞ്ഞ വിവരണമുള്ള റിപ്പോര്‍ട്ടുകള്‍ സ്വീകരിയ്ക്കുന്നതല്ല."
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "പ്രശ്നത്തിന്റെ ചുരുക്കം വളരെ ചെറുതു്"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
@@ -134,20 +134,20 @@ msgstr ""
 "കൂടുതല്‍ പ്രയോജനകരമായ റിപ്പോര്‍ട്ടുകള്‍ ലഭ്യമാക്കുന്നതിനായി, 10 "
 "അക്ഷരങ്ങളില്‍ കുറഞ്ഞ ചുരുക്കമുള്ള റിപ്പോര്‍ട്ടുകള്‍ സ്വീകരിയ്ക്കുന്നതല്ല."
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "പ്രശ്ന വിവരണം"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "ചുരുക്കം:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "_അയയ്ക്കുക"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "എബിആര്‍റ്റിയില്‍ ഒരു പ്രശ്നം"
 
@@ -280,38 +280,39 @@ msgstr "ഒരു ശ്രോതസ്സും തെരഞ്ഞെടുത�
 msgid "No source"
 msgstr "ശ്രോതസ്സ് ലഭ്യമല്ല"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "കാഷില്‍ ലഭ്യമല്ല, പക്ഷേ വെട്ടി നീക്കിയിരിയ്ക്കുന്നു: {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "ഭാവി"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "ഇന്നലെ"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "ആഴ്ച"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "മാസം"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "വര്‍ഷം"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "അവസാന {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s മുമ്പു്"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

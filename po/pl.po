@@ -5,15 +5,16 @@
 # Translators:
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Piotr Drąg <piotrdrag@gmail.com>, 2011-2014
+# Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-05 09:39-0500\n"
+"PO-Revision-Date: 2015-03-17 03:36-0400\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/pl/)\n"
@@ -52,7 +53,7 @@ msgstr "Za_kończ"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Zgłaszanie problemów"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -112,11 +113,11 @@ msgstr "Nie można pobrać listy problemów z usługi D-Bus: {0!s}"
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Nie można usunąć problemu przez usługę D-Bus: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "Opis problemu jest za krótki"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
@@ -124,11 +125,11 @@ msgstr ""
 "Aby uzyskać bardziej przydatne zgłoszenia, opisy krótsze niż 10 znaków nie "
 "są przyjmowane."
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "Podsumowanie problemu jest za krótkie"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
@@ -136,20 +137,20 @@ msgstr ""
 "Aby uzyskać bardziej przydatne zgłoszenia, podsumowania krótsze niż 10 "
 "znaków nie są przyjmowane."
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "Opis problemu"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "Podsumowanie:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "_Wyślij"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "Problem z programem ABRT"
 
@@ -200,11 +201,11 @@ msgstr "Otwiera zaznaczone problemy do analizy"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "_Szczegóły"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "Wyświetla informacje techniczne"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -237,11 +238,11 @@ msgstr "Umieszcza identyfikator zaznaczonego problemu w schowku"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "_Filtrowanie"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "Wyświetlanie okna filtrowania"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -258,10 +259,12 @@ msgstr "Wykryto"
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
 msgstr ""
+"<a href=\"https://glade.gnome.org/\">Bardzo długi tymczasowy kafelek adresu "
+"URL</a>"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr ""
+msgstr "<a href=\"https://github.com/abrt/gnome-abrt\">Tymczasowy adres URL</a>"
 
 #: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
 msgid "Reported"
@@ -269,7 +272,7 @@ msgstr "Zgłoszono"
 
 #: ../src/gnome_abrt/oops.glade.h:23
 msgid "button"
-msgstr ""
+msgstr "przycisk"
 
 #: ../src/gnome_abrt/oops.glade.h:24
 msgid "No problems detected!"
@@ -283,38 +286,42 @@ msgstr "Nie wybrano źródła."
 msgid "No source"
 msgstr "Brak źródła"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "Nie odnaleziono w pamięci podręcznej, ale usunięto: {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "Przyszłość"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "tydzień"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "miesiąc"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "rok"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "Ostatni {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s temu"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"
@@ -322,19 +329,19 @@ msgstr "Wczytanie definicji interfejsu użytkownika się nie powiodło"
 
 #: ../src/gnome_abrt/views.py:818
 msgid "Unexpected system error"
-msgstr ""
+msgstr "Nieoczekiwany błąd systemu"
 
 #: ../src/gnome_abrt/views.py:820
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "W systemie wystąpił problem, ale system został przywrócony."
 
 #: ../src/gnome_abrt/views.py:823
 msgid "Fatal system failure"
-msgstr ""
+msgstr "Krytyczne niepowodzenie systemu"
 
 #: ../src/gnome_abrt/views.py:825
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "W systemie wystąpił problem i nie można kontynuować."
 
 #: ../src/gnome_abrt/views.py:838
 #, python-brace-format
@@ -344,11 +351,11 @@ msgstr "{0} problem został wykryty"
 #: ../src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "Program {0} nieoczekiwanie zakończył działanie"
 
 #: ../src/gnome_abrt/views.py:845
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "W aplikacji wystąpił problem i nie można kontynuować."
 
 #: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
 msgid "N/A"

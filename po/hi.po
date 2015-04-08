@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -105,11 +105,11 @@ msgstr "DBus सेवा से समस्या की सूची नह�
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus सेवा पर समस्या को मिटा नहीं सकता है: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "समस्या का विवरण बहुत छोटा है"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
@@ -117,11 +117,11 @@ msgstr ""
 "आदेश में और अधिक उपयोगी रिपोर्ट प्राप्त करने के लिए हम रिपोर्ट विवरण के साथ "
 "10 अक्षर से कम स्वीकार नहीं करते हैं."
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "समस्या का सारांश बहुत छोटा है"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
@@ -129,20 +129,20 @@ msgstr ""
 "आदेश में और अधिक उपयोगी रिपोर्ट प्राप्त करने के लिए हम रिपोर्ट सारांश के साथ "
 "10 अक्षर से कम स्वीकार नहीं करते हैं.  "
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "समस्या विवरण"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "सारांश:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "भेजें (_S)"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "ABRT के साथ समस्या"
 
@@ -271,38 +271,39 @@ msgstr "कोई स्रोत नहीं चुना गया!"
 msgid "No source"
 msgstr "कोई स्रोत नहीं"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "कैश में नहीं मिला लेकिन मिटा दिया गया {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "भविष्य"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "कल"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "सप्ताह"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "महीना"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "साल"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "अंतिम {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s पहले"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

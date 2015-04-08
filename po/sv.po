@@ -7,16 +7,17 @@
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2014
 # Magnus Larsson <fedoratrans@gmail.com>, 2009
+# Göran Uddeborg <goeran@uddeborg.se>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-08-29 11:31-0400\n"
-"Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>\n"
+"PO-Revision-Date: 2015-04-02 03:37-0400\n"
+"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/sv/)\n"
 "Language: sv\n"
@@ -53,7 +54,7 @@ msgstr "_Avsluta"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Problemrapportering"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -64,6 +65,8 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"En samling av programvaruverktyg gjorda för att samla ihop, analysera och "
+"rapportera programvaruärenden."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
@@ -77,38 +80,41 @@ msgstr ""
 #, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
+"Kan inte lägga till en mottagare för signalen ”{0}” på DBus-systemsökvägen "
+"”{1}”: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 #, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "Kan inte ansluta till Dbus-systembussens ”{0}” sökväg ”{1}”: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
+"Kan inte få tag i gränssnittet ”{0}” på sökvägen ”{1}” i bussen ”{2}”: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "Kan inte ändra ägare på problemet ”{0}” över DBus-tjänsten: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "Kan inte hämta problemdata från DBus-tjänsten: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "Kan inte hämta en lista över problem från DBus-tjänsten: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "Kan inte radera problemet över DBus-tjänsten: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "Beskrivningen av problemet är för kort."
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
@@ -116,30 +122,30 @@ msgstr ""
 "För att kunna få fler användbara rapporter så accepterar vi inte rapporter "
 "vars beskrivning är kortare än 10 bokstäver."
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "Sammanfattningen för problemet är för kort"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr ""
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "Beskrivning av problemet"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "Sammanfattning:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "_Skicka"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "Ett problem med ABRT"
 
@@ -264,38 +270,39 @@ msgstr "Ingen källa är vald!"
 msgid "No source"
 msgstr "Ingen källa"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr ""
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "Framtid"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "Igår"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "vecka"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "månad"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "år"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr ""
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr ""
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

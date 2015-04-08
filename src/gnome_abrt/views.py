@@ -95,7 +95,7 @@ class ProblemsFilter(object):
                 continue
 
             # _pattern is 'ascii' and problem[i] is 'dbus.String'
-            val = problem[i].encode('utf-8')
+            val = str(problem[i])
             if val and self._pattern in val:
                 return True
 

@@ -417,21 +417,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
-        css_prv.load_from_data("GtkViewport {\n"
-                               "  background-color : @theme_bg_color;\n"
-                               "}\n"
-                               "GtkListBox {\n"
-                               "  background-color : #e7e7e7;\n"
-                               "}\n"
-                               "GtkListBoxRow {\n"
+        css_prv.load_from_data("GtkListBoxRow {\n"
                                "  padding          : 12px;\n"
-                               "  background-color : #e7e7e7;\n"
                                "  border-width     : 0px 0px 2px 0px;\n"
-                               "  border-color     : #efefef;\n"
                                "  border-style     : outset;\n"
-                               "}\n"
-                               "GtkListBoxRow:selected {\n"
-                               "  background-color : #4a90d9;\n"
                                "}\n"
                                ".oops-reason {\n"
                                "  font-size        : 120%;\n"

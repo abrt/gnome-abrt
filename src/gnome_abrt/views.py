@@ -419,8 +419,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_data("GtkListBoxRow {\n"
                                "  padding          : 12px;\n"
-                               "  border-width     : 0px 0px 2px 0px;\n"
-                               "  border-style     : outset;\n"
                                "}\n"
                                ".oops-reason {\n"
                                "  font-size        : 120%;\n"

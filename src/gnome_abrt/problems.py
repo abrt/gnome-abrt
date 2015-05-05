@@ -411,7 +411,6 @@ class MultipleSources(ProblemSource):
 
         self.notify()
 
-#pylint: disable=R0921
 class CachedSource(ProblemSource):
 
     def __init__(self):

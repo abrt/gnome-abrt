@@ -979,7 +979,8 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_open_directory_activate(self, action):
         selection = self._get_selected(self.lss_problems)
         if selection:
-            Gio.app_info_launch_default_for_uri(selection[0].problem_id, None)
+            Gio.app_info_launch_default_for_uri(
+                                'file://' + selection[0].problem_id, None)
         self._builder.menu_problem_item.popdown()
         self._builder.menu_multiple_problems.popdown()
 

@@ -19,7 +19,7 @@ msgstr ""
 "language/fr/)\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.6.2\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"

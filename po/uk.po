@@ -21,7 +21,7 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.6.2\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -300,25 +300,25 @@ msgstr "Вчора"
 #, python-brace-format
 msgid "Last week"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0:d} тиждень тому"
+msgstr[1] "{0:d} тижні тому"
+msgstr[2] "{0:d} тижнів тому"
 
 #: ../src/gnome_abrt/tools.py:53
 #, python-brace-format
 msgid "Last month"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0:d} місяць тому"
+msgstr[1] "{0:d} місяці тому"
+msgstr[2] "{0:d} місяців тому"
 
 #: ../src/gnome_abrt/tools.py:56
 #, python-brace-format
 msgid "Last year"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0:d} рік тому"
+msgstr[1] "{0:d} роки тому"
+msgstr[2] "{0:d} років тому"
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

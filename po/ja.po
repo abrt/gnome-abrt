@@ -27,7 +27,7 @@ msgstr ""
 "language/ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.6.2\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"

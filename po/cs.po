@@ -19,7 +19,7 @@ msgstr ""
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.6.2\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"

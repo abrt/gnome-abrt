@@ -314,6 +314,7 @@ class OopsApplication(Gtk.Application):
         action = Gio.SimpleAction.new("quit", None)
         action.connect("activate", self.on_action_quit)
         self.add_action(action)
+        self.add_accelerator("<Control>q", "app.quit")
 
         self.set_app_menu(menu)
 

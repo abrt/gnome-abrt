@@ -387,7 +387,6 @@ if __name__ == "__main__":
             help=_('Expert mode'))
 
     OPTIONS = CMDARGS.parse_args()
-    print(OPTIONS)
 
     if OPTIONS.verbose is not None:
         logging.getLogger().setLevel(logging.DEBUG)

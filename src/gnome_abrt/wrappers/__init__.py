@@ -16,4 +16,5 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 from gnome_abrt.wrappers._wrappers import (show_events_list_dialog,
-                                           show_system_config_abrt_dialog)
+                                           show_system_config_abrt_dialog,
+                                           can_connect_to_xserver)

@@ -7,6 +7,7 @@ wrappersexec_LTLIBRARIES = _wrappers.la
 _wrappers_la_SOURCES = \
     module.c \
     configure.c \
+    xserver_check.c \
     common.h
 
 _wrappers_la_CPPFLAGS = \

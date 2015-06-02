@@ -23,21 +23,13 @@ import sys
 import logging
 import signal
 from argparse import ArgumentParser
+from gnome_abrt.wrappers import (show_events_list_dialog,
+                                 show_system_config_abrt_dialog,
+                                 can_connect_to_xserver)
 
-from ctypes import cdll, util
-
-XLIB_PATH = util.find_library('X11')
-if not XLIB_PATH:
-    sys.stderr.write("Could not load X11 library\n")
-    sys.exit(1)
-
-XLIB = cdll.LoadLibrary(XLIB_PATH)
-DISPLAY = XLIB.XOpenDisplay(None)
-if DISPLAY == 0:
+if not can_connect_to_xserver():
     sys.stderr.write("Cannot connect to X server\n")
-    sys.exit(2)
-
-XLIB.XCloseDisplay(DISPLAY)
+    sys.exit(1)
 
 # pygobject
 #pylint: disable=E0611
@@ -61,8 +53,6 @@ from gnome_abrt.dbus_problems import (get_standard_problems_source,
                                       get_foreign_problems_source)
 from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _
-from gnome_abrt.wrappers import (show_events_list_dialog,
-                                 show_system_config_abrt_dialog)
 from gnome_abrt.config import get_configuration
 from gnome_abrt.dialogs import show_report_problem_with_abrt
 from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,

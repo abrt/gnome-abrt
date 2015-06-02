@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2012  Abrt team.
-    Copyright (C) 2012  RedHat inc.
+    Copyright (C) 2015  Abrt team.
+    Copyright (C) 2015  RedHat inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,11 +16,20 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 */
-#include <Python.h>
+#include <common.h>
+#include <X11/Xlib.h>
 
-/* module-level functions */
-PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args);
-PyObject *p_show_system_config_abrt_dialog(PyObject *module, PyObject *args);
+PyObject *p_can_connect_to_xserver(PyObject *module, PyObject *args)
+{
+    (void)module;
+    (void)args;
 
-/* Testing whether it is possible to connect to the X server */
-PyObject *p_can_connect_to_xserver(PyObject *module, PyObject *args);
+    Display *d = XOpenDisplay(NULL);
+    if (d == NULL)
+        Py_RETURN_FALSE;
+
+    XCloseDisplay(d);
+
+    Py_RETURN_TRUE;
+}
+

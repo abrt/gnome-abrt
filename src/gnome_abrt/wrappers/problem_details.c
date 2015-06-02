@@ -19,6 +19,7 @@
 #include <common.h>
 #include <libreport/internal_libreport_gtk.h>
 #include <pygobject.h>
+#include "libabrt.h"
 
 PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args)
 {
@@ -29,7 +30,8 @@ PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args)
     if (PyArg_ParseTuple(args, "s|O", &dir_str, &pygtkwnd))
     {
         GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
-        GtkWidget *dialog = problem_details_dialog_new_for_dir(dir_str, wnd);
+        problem_data_t *problem_data = get_full_problem_data_over_dbus(dir_str);
+        GtkWidget *dialog = problem_details_dialog_new(problem_data, wnd);
 
         if (dialog != NULL)
             gtk_dialog_run(GTK_DIALOG(dialog));

@@ -9,6 +9,7 @@ _wrappers_la_SOURCES = \
     configure.c \
     problem_details.c \
     problem_app.c \
+    xserver_check.c \
     common.h
 
 _wrappers_la_CPPFLAGS = \

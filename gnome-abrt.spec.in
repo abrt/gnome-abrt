@@ -26,6 +26,7 @@ BuildRequires: libreport-gtk-devel > 2.4.0
 BuildRequires: libreport-python3
 BuildRequires: abrt-gui-devel > 2.4.0
 BuildRequires: gtk3-devel
+BuildRequires: libX11-devel
 %if 0%{?fedora}
 BuildRequires: python3-pylint
 BuildRequires: python3-six

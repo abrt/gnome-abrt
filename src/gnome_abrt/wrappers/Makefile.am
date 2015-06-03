@@ -19,7 +19,8 @@ _wrappers_la_CPPFLAGS = \
     $(PYGOBJECT3_CFLAGS) \
     $(GTK_CFLAGS) \
     $(LIBREPORT_GTK_CFLAGS) \
-    $(ABRT_GUI_CFLAGS)
+    $(ABRT_GUI_CFLAGS) \
+    $(X11_CFLAGS)
 
 _wrappers_la_LDFLAGS = \
     -module \
@@ -31,7 +32,8 @@ _wrappers_la_LIBADD = \
     $(LIBREPORT_GTK_LIBS) \
     $(ABRT_GUI_LIBS) \
     $(GTK_LIBS) \
-    $(PYGOBJECT3_LIBS)
+    $(PYGOBJECT3_LIBS) \
+    $(X11_LIBS)
 
 _wrappers.so: $(wrappersexec_LTLIBRARIES)
 	cp .libs/$@ ./

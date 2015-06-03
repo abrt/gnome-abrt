@@ -471,11 +471,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.connect("key-press-event", self._on_key_press_event)
 
-    def _update_detail_buttons_visibility(self):
-        self._builder.btn_detail.set_visible(self._source.allow_details)
 
     def _configure_sources(self, sources):
-        for name, src, allow_details in sources:
+        for name, src in sources:
             self._all_sources.append(src)
             src.attach(self._source_observer)
 
@@ -497,8 +495,6 @@ class OopsWindow(Gtk.ApplicationWindow):
             src.name = name
             # add an extra member button (I don't like it but it so easy)
             src.button = src_btn
-            # add an extra member allow_details (I don't like it but it so easy)
-            src.allow_details = allow_details
             src_btn.connect("clicked", self._on_source_btn_clicked, src)
 
         self._source = self._all_sources[0]
@@ -529,7 +525,6 @@ class OopsWindow(Gtk.ApplicationWindow):
             # source's button
             self._set_button_toggled(btn, False)
         else:
-            self._update_detail_buttons_visibility()
             if old_source is not None:
                 # sources were switched and we have to untoggle old source's
                 # button
@@ -586,7 +581,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         if (not temporary or source_index != 0) and self._all_sources:
             self._source = self._all_sources[0]
             self._set_button_toggled(self._source.button, True)
-            self._update_detail_buttons_visibility()
         else:
             self._source = None
 
@@ -735,7 +729,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                     if res:
                         self._set_button_toggled(old_source.button, False)
                         self._set_button_toggled(source.button, True)
-                        self._update_detail_buttons_visibility()
                     break
 
         problem_row = self._find_problem_row(problem_id)

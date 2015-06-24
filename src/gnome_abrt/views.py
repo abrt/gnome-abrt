@@ -40,7 +40,7 @@ import gnome_abrt.wrappers as wrappers
 import gnome_abrt.errors as errors
 import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
-from gnome_abrt.tools import fancydate, smart_truncate
+from gnome_abrt.tools import fancydate, smart_truncate, load_icon
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
 
@@ -833,23 +833,15 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder.lbl_detected_value.set_tooltip_text(
                 problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
+            icon_buf = None
             if app.icon:
-                self._builder.img_app_icon.set_from_pixbuf(
-                        Gtk.IconTheme
-                            .get_default()
-                            .lookup_by_gicon(app.icon,
-                                             128,
-                                             Gtk.IconLookupFlags.FORCE_SIZE)
-                            .load_icon())
-            else:
-                self._builder.img_app_icon.set_from_pixbuf(
-                        Gtk.IconTheme
-                            .get_default()
-                            .lookup_icon("system-run-symbolic",
-                                         128,
-                                         Gtk.IconLookupFlags.FORCE_SIZE |
-                                         Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-                            .load_icon())
+                icon_buf = load_icon(gicon=app.icon)
+
+            if icon_buf is None:
+                icon_buf = load_icon(name="system-run-symbolic")
+
+            # icon_buf can be None and if it is None, no icon will be displayed
+            self._builder.img_app_icon.set_from_pixbuf(icon_buf)
 
             self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))

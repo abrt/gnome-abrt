@@ -833,23 +833,26 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder.lbl_detected_value.set_tooltip_text(
                 problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
+            application_icon = None
             if app.icon:
-                self._builder.img_app_icon.set_from_pixbuf(
-                        Gtk.IconTheme
+                application_icon = (Gtk.IconTheme
                             .get_default()
                             .lookup_by_gicon(app.icon,
                                              128,
-                                             Gtk.IconLookupFlags.FORCE_SIZE)
-                            .load_icon())
-            else:
-                self._builder.img_app_icon.set_from_pixbuf(
-                        Gtk.IconTheme
+                                             Gtk.IconLookupFlags.FORCE_SIZE))
+
+            if (app.icon is None or
+                application_icon is None or
+                not os.path.exists(application_icon.get_filename())):
+                application_icon = (Gtk.IconTheme
                             .get_default()
                             .lookup_icon("system-run-symbolic",
                                          128,
                                          Gtk.IconLookupFlags.FORCE_SIZE |
-                                         Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-                            .load_icon())
+                                         Gtk.IconLookupFlags.FORCE_SYMBOLIC))
+
+            self._builder.img_app_icon.set_from_pixbuf(application_icon
+                                                                .load_icon())
 
             self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))

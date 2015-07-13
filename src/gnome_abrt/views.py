@@ -105,7 +105,9 @@ class ProblemsFilter(object):
                 if problems.Problem.Submission.URL != sbm.rtype:
                     continue
 
-                rid = sbm.data.encode('utf-8')
+                # _pattern is 'str' and sbm.data is 'dbus.String', so we need
+                # to convert sbm.data to a regular 'str'
+                rid = str(sbm.data)
                 rid = rid.rstrip('/').split('/')[-1].split('=')[-1]
                 if self._pattern in rid:
                     return True

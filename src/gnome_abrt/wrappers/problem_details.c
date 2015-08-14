@@ -29,8 +29,13 @@ PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args)
     PyGObject *pygtkwnd = NULL;
     if (PyArg_ParseTuple(args, "s|O", &dir_str, &pygtkwnd))
     {
-        GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
         problem_data_t *problem_data = get_full_problem_data_over_dbus(dir_str);
+
+        /* get_full_problem_data_over_dbus() printed an error message */
+        if (problem_data == ERR_PTR || problem_data == NULL)
+            Py_RETURN_NONE;
+
+        GtkWindow *wnd = pygtkwnd ? GTK_WINDOW(pygtkwnd->obj) : NULL;
         GtkWidget *dialog = problem_details_dialog_new(problem_data, wnd);
 
         if (dialog != NULL)

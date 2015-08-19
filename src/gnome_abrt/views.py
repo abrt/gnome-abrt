@@ -821,7 +821,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                                     problem['human_type']))
                 else:
                     self._builder.lbl_reason.set_text(
-                            _("{0} quit unexpectedly".format(app.name)))
+                            _("{0} quit unexpectedly").format(app.name))
 
                 self._builder.lbl_summary.set_text(
             _("The application encountered a problem and could not continue."))

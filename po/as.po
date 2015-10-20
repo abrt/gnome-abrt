@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 "language/as/)\n"
 "Language: as\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -105,11 +105,11 @@ msgstr "DBus সেৱাৰ পৰা সমস্যাসমূহৰ তা�
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus সেৱাৰ পৰা সমস্যা মচি পেলাব নোৱাৰি: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "সমস্যাৰ বিৱৰণ অতি সৰু"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
@@ -117,11 +117,11 @@ msgstr ""
 "অধিক উপযোগী সংবাদসমূহ প্ৰাপ্ত কৰিবলে আমি 10 আখৰৰ কম বিৱৰণ থকা সংবাদসমূহ "
 "গ্ৰহণ নকৰো।"
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "সমস্যাৰ সাৰাংশ অতি সৰু"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
@@ -129,20 +129,20 @@ msgstr ""
 "অধিক উপযোগী সংবাদসমূহ প্ৰাপ্ত কৰিবলে আমি 10 আখৰৰ কম বিৱৰণ থকা সংবাদসমূহ "
 "গ্ৰহণ নকৰো।"
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "সমস্যাৰ বিৱৰণ"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "সাৰাংশ:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "পঠাওক (_S)"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "ABRT ৰ সৈতে এটা সমস্যা"
 
@@ -272,38 +272,39 @@ msgstr "কোনো উৎস নিৰ্বাচন কৰা হোৱা �
 msgid "No source"
 msgstr "কোনো উৎস নাই"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "ক্যাশত পোৱা নগল কিন্তু মচি পেলোৱা হল: {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "ভৱিষ্যত"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "যোৱাকালী"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "সপ্তাহ"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "মাহ"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "বছৰ"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "সৰ্বশেষ {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}s আগত"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

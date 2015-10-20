@@ -145,7 +145,6 @@ class DBusProblemSource(problems.CachedSource):
     def chown_problem(self, problem_id):
         try:
             self._send_dbus_message(
-                    #pylint: disable=W0142
                     lambda iface, *params: iface.ChownProblemDir(*params),
                     problem_id)
             return True
@@ -161,7 +160,6 @@ class DBusProblemSource(problems.CachedSource):
         if len(args) != 0:
             try:
                 info = self._send_dbus_message(
-                        #pylint: disable=W0142
                         lambda iface, *params: iface.GetInfo(*params),
                         problem_id, args)
             except dbus.exceptions.DBusException as ex:
@@ -186,7 +184,6 @@ class DBusProblemSource(problems.CachedSource):
     def _delete_problem(self, problem_id):
         try:
             self._send_dbus_message(
-                #pylint: disable=W0142
                 lambda iface, *args: iface.DeleteProblem(*args), [problem_id])
             return True
         except dbus.exceptions.DBusException as ex:
@@ -215,15 +212,12 @@ class StandardProblems(DBusProblemSource.Driver):
         conf = config.get_configuration()
         conf.set_watch("all_problems", ConfigObserver(self._source))
 
-    #pylint: disable=W0142
     @property
     def get_problems_method(self):
         conf = config.get_configuration()
         if conf['all_problems']:
-            #pylint: disable=W0142
             return lambda iface, *args: iface.GetAllProblems(*args)
         else:
-            #pylint: disable=W0142
             return lambda iface, *args: iface.GetProblems(*args)
 
     def on_new_problem(self, *args):
@@ -272,7 +266,6 @@ class ForeignProblems(DBusProblemSource.Driver):
 
     @property
     def get_problems_method(self):
-         #pylint: disable=W0142
         return lambda iface, *args: iface.GetForeignProblems(*args)
 
     def on_new_problem(self, *args):

@@ -6,21 +6,22 @@
 # Huan Chen <chenhuan126@126.com>, 2011
 # Leah Liu <lliu@redhat.com>, 2011-2012
 # Wei Liu <LLIU@REDHAT.COM>, 2013
+# zhouxiaobo <zhouxiaobo.500@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-05 04:30-0500\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"PO-Revision-Date: 2015-05-02 11:04-0400\n"
+"Last-Translator: zhouxiaobo <zhouxiaobo.500@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
 "abrt/language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -101,40 +102,40 @@ msgstr "无法从 DBus 服务中获取问题列表：{0!s}"
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "无法通过 DBus 服务删除问题：{0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "问题描述过短"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr "为获取更有用的报告，我们不接受描述少于 10 个字符的报告。"
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "问题概述过短"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr "为获取更有用的报告，我们不接受描述少于 10 个字母的概述。"
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "问题描述"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "概述："
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "发送（_S）"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "ABRT 问题"
 
@@ -181,11 +182,11 @@ msgstr "打开所选问题进行分析"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "详情（_e）"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "显示技术细节"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -215,11 +216,11 @@ msgstr "在剪切版中保存所选问题的 ID"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "过滤（_F）"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "显示过滤器"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -261,38 +262,36 @@ msgstr "未选择资源！"
 msgid "No source"
 msgstr "无资源"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "没有在缓存中找到，但已删除： {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "将来"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "周"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "月"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "年"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "上 {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s} 以前"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

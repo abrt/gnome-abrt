@@ -40,7 +40,7 @@ import gnome_abrt.wrappers as wrappers
 import gnome_abrt.errors as errors
 import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
-from gnome_abrt.tools import fancydate, smart_truncate
+from gnome_abrt.tools import fancydate, smart_truncate, load_icon
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
 
@@ -95,7 +95,7 @@ class ProblemsFilter(object):
                 continue
 
             # _pattern is 'ascii' and problem[i] is 'dbus.String'
-            val = problem[i].encode('utf-8')
+            val = str(problem[i])
             if val and self._pattern in val:
                 return True
 
@@ -105,7 +105,9 @@ class ProblemsFilter(object):
                 if problems.Problem.Submission.URL != sbm.rtype:
                     continue
 
-                rid = sbm.data.encode('utf-8')
+                # _pattern is 'str' and sbm.data is 'dbus.String', so we need
+                # to convert sbm.data to a regular 'str'
+                rid = str(sbm.data)
                 rid = rid.rstrip('/').split('/')[-1].split('=')[-1]
                 if self._pattern in rid:
                     return True
@@ -417,21 +419,8 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
-        css_prv.load_from_data("GtkViewport {\n"
-                               "  background-color : @theme_bg_color;\n"
-                               "}\n"
-                               "GtkListBox {\n"
-                               "  background-color : #e7e7e7;\n"
-                               "}\n"
-                               "GtkListBoxRow {\n"
+        css_prv.load_from_data("GtkListBoxRow {\n"
                                "  padding          : 12px;\n"
-                               "  background-color : #e7e7e7;\n"
-                               "  border-width     : 0px 0px 2px 0px;\n"
-                               "  border-color     : #efefef;\n"
-                               "  border-style     : outset;\n"
-                               "}\n"
-                               "GtkListBoxRow:selected {\n"
-                               "  background-color : #4a90d9;\n"
                                "}\n"
                                ".oops-reason {\n"
                                "  font-size        : 120%;\n"
@@ -484,11 +473,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.connect("key-press-event", self._on_key_press_event)
 
-    def _update_detail_buttons_visibility(self):
-        self._builder.btn_detail.set_visible(self._source.allow_details)
 
     def _configure_sources(self, sources):
-        for name, src, allow_details in sources:
+        for name, src in sources:
             self._all_sources.append(src)
             src.attach(self._source_observer)
 
@@ -510,8 +497,6 @@ class OopsWindow(Gtk.ApplicationWindow):
             src.name = name
             # add an extra member button (I don't like it but it so easy)
             src.button = src_btn
-            # add an extra member allow_details (I don't like it but it so easy)
-            src.allow_details = allow_details
             src_btn.connect("clicked", self._on_source_btn_clicked, src)
 
         self._source = self._all_sources[0]
@@ -542,7 +527,6 @@ class OopsWindow(Gtk.ApplicationWindow):
             # source's button
             self._set_button_toggled(btn, False)
         else:
-            self._update_detail_buttons_visibility()
             if old_source is not None:
                 # sources were switched and we have to untoggle old source's
                 # button
@@ -599,7 +583,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         if (not temporary or source_index != 0) and self._all_sources:
             self._source = self._all_sources[0]
             self._set_button_toggled(self._source.button, True)
-            self._update_detail_buttons_visibility()
         else:
             self._source = None
 
@@ -748,7 +731,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                     if res:
                         self._set_button_toggled(old_source.button, False)
                         self._set_button_toggled(source.button, True)
-                        self._update_detail_buttons_visibility()
                     break
 
         problem_row = self._find_problem_row(problem_id)
@@ -839,7 +821,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                                     problem['human_type']))
                 else:
                     self._builder.lbl_reason.set_text(
-                            _("{0} quit unexpectedly".format(app.name)))
+                            _("{0} quit unexpectedly").format(app.name))
 
                 self._builder.lbl_summary.set_text(
             _("The application encountered a problem and could not continue."))
@@ -853,23 +835,15 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._builder.lbl_detected_value.set_tooltip_text(
                 problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
+            icon_buf = None
             if app.icon:
-                self._builder.img_app_icon.set_from_pixbuf(
-                        Gtk.IconTheme
-                            .get_default()
-                            .lookup_by_gicon(app.icon,
-                                             128,
-                                             Gtk.IconLookupFlags.FORCE_SIZE)
-                            .load_icon())
-            else:
-                self._builder.img_app_icon.set_from_pixbuf(
-                        Gtk.IconTheme
-                            .get_default()
-                            .lookup_icon("system-run-symbolic",
-                                         128,
-                                         Gtk.IconLookupFlags.FORCE_SIZE |
-                                         Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-                            .load_icon())
+                icon_buf = load_icon(gicon=app.icon)
+
+            if icon_buf is None:
+                icon_buf = load_icon(name="system-run-symbolic")
+
+            # icon_buf can be None and if it is None, no icon will be displayed
+            self._builder.img_app_icon.set_from_pixbuf(icon_buf)
 
             self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))
@@ -992,7 +966,8 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_open_directory_activate(self, action):
         selection = self._get_selected(self.lss_problems)
         if selection:
-            Gio.app_info_launch_default_for_uri(selection[0].problem_id, None)
+            Gio.app_info_launch_default_for_uri(
+                                'file://' + selection[0].problem_id, None)
         self._builder.menu_problem_item.popdown()
         self._builder.menu_multiple_problems.popdown()
 

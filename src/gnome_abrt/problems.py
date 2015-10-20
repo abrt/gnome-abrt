@@ -272,7 +272,8 @@ class Problem(object):
         if not self.app:
             self.app = find_application(self['cmdline'],
                                         self['environ'],
-                                        self['pid'])
+                                        self['pid'],
+                                        self['component'])
 
         return self.app
 
@@ -410,7 +411,6 @@ class MultipleSources(ProblemSource):
 
         self.notify()
 
-#pylint: disable=R0921
 class CachedSource(ProblemSource):
 
     def __init__(self):

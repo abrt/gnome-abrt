@@ -17,6 +17,12 @@
 
 import datetime
 import calendar
+import logging
+
+#pylint: disable=E0611
+from gi.repository import GLib
+#pylint: disable=E0611
+from gi.repository import Gtk
 
 from gnome_abrt.l10n import _
 from gnome_abrt.l10n import ngettext
@@ -61,3 +67,34 @@ def smart_truncate(content, length=100, suffix='...'):
         return content
     else:
         return content[:length].rsplit(' ', 1)[0] + suffix
+
+
+def load_icon(name=None, gicon=None):
+    theme = Gtk.IconTheme.get_default()
+
+    icon = None
+    if not gicon is None and name is None:
+        name = gicon.to_string()
+        icon = theme.lookup_by_gicon(gicon, 128,
+                                        Gtk.IconLookupFlags.FORCE_SIZE)
+    elif not name is None and gicon is None:
+        icon = theme.lookup_icon(name, 128,
+                                        Gtk.IconLookupFlags.FORCE_SIZE
+                                        | Gtk.IconLookupFlags.FORCE_SYMBOLIC)
+    else:
+        logging.error("BUG: invalid arguments in load_icon():" \
+                      "name={0}, gicon={1}".format(str(name), str(gicon)))
+        return None
+
+    if icon is None:
+        logging.warning(_("Failed to find icon '{0}'").format(name))
+        return None
+
+    try:
+        return icon.load_icon()
+    #pylint: disable=E0712
+    except GLib.Error as ex:
+        logging.warning(_("Failed to load icon '{0}': {1}")
+                            .format(name, str(ex)))
+
+    return None

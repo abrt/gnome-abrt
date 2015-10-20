@@ -53,8 +53,21 @@ PyObject *p_get_app_for_env(PyObject *module, PyObject *args)
         for (i = 0; i < size; i++) {
             PyObject *seqItem = PySequence_Fast_GET_ITEM(envp_seq, i);
 
-            PyObject *asciiItem = PyUnicode_AsASCIIString(seqItem);
-            g_ptr_array_insert (envp_array, -1, g_strdup(PyBytes_AsString(asciiItem)));
+            const char *strItem = PyUnicode_AsUTF8(seqItem);
+            if (strItem == NULL)
+            {
+                PyObject *unicodeObj = PyObject_Str(seqItem);
+                const char *str = PyUnicode_AsUTF8(unicodeObj);
+
+                fprintf(stderr, "BUG:%s:%d: failed to get a UTF-8 string from: %s\n", __FILE__, __LINE__, str);
+                /* Catch all exceptions, print them out and continue in
+                 * processing (try, catch, log, continue). */
+                PyErr_Print();
+                PyErr_Clear();
+                continue;
+            }
+
+            g_ptr_array_insert (envp_array, -1, g_strdup(strItem));
         }
         g_ptr_array_insert (envp_array, -1, NULL);
 

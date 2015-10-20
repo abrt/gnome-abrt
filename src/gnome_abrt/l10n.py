@@ -23,6 +23,7 @@ import logging
 GETTEXT_PROGNAME = None
 
 _ = gettext.gettext
+#pylint: disable=C0103
 ngettext = gettext.ngettext
 
 def init(progname, localedir='/usr/share/locale'):

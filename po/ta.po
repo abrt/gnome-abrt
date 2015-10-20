@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "language/ta/)\n"
 "Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -108,11 +108,11 @@ msgstr "DBus சேவையிலிருந்து சிக்கல்க
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus சேவையின் மூலமாக சிக்கலை நீக்க முடியாது: {0!s}"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "சிக்கலின் விளக்கம் மிகச் சிறியதாக உள்ளது"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
@@ -120,11 +120,11 @@ msgstr ""
 "பெறப்படும் அறிக்கைகள் பயனுள்ளதாக இருக்க வேண்டும் என்ற காரணத்தினால், நாங்கள் "
 "10 எழுத்துகளுக்கும் குறைவான விளக்கத்தைக் கொண்டுள்ள அறிக்கைகளை ஏற்பதில்லை."
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "சிக்கலின் சுருக்கம் மிகச் சிறியதாக உள்ளது"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
@@ -132,20 +132,20 @@ msgstr ""
 "பெறப்படும் அறிக்கைகள் பயனுள்ளதாக இருக்க வேண்டும் என்ற காரணத்தினால், நாங்கள் "
 "10 எழுத்துகளுக்கும் குறைவான சுருக்கத்தைக் கொண்டுள்ள அறிக்கைகளை ஏற்பதில்லை."
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "சிக்கலின் விளக்கம்"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "சுருக்கம்:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "அனுப்பு (_S)"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "ABRT இல் ஒரு சிக்கல்"
 
@@ -279,38 +279,39 @@ msgstr "மூலம் தேர்ந்தெடுக்கப்படவ�
 msgid "No source"
 msgstr "மூலம் இல்லை"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "தேக்ககத்தில் இல்லை, ஆனால் நீக்கப்பட்டது: {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "எதிர்காலம்"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "நேற்று"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "வாரம்"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "மாதம்"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "ஆண்டு"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "கடைசி {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s}களுக்கு முன்பு"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

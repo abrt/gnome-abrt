@@ -20,4 +20,5 @@
 import os
 
 def replace_window_header():
-    return os.environ.get('XDG_CURRENT_DESKTOP') in ['GNOME']
+    return os.environ.get('XDG_CURRENT_DESKTOP') in \
+                        ['GNOME', 'GNOME-Classic:GNOME', 'GNOME-Classic']

@@ -13,21 +13,22 @@
 # noriko <noriko@fedoraproject.org>, 2013-2014
 # noriko <noriko@fedoraproject.org>, 2012
 # noriko <noriko@fedoraproject.org>, 2010
+# ooyama yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 12:19+0100\n"
+"POT-Creation-Date: 2015-04-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-08-01 12:38-0400\n"
-"Last-Translator: noriko <noriko@fedoraproject.org>\n"
+"PO-Revision-Date: 2015-08-15 03:24-0400\n"
+"Last-Translator: ooyama yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.5.1\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -59,7 +60,7 @@ msgstr "終了 (_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Problem Reporting"
-msgstr ""
+msgstr "問題の報告"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -108,40 +109,40 @@ msgstr "DBus サービス: {0!s} から問題の一覧を取得できません"
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus サービス: {0!s} で問題を削除できません"
 
-#: ../src/gnome_abrt/dialogs.py:54
+#: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
 msgstr "問題の詳細説明が短すぎます。"
 
-#: ../src/gnome_abrt/dialogs.py:55
+#: ../src/gnome_abrt/dialogs.py:56
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
 msgstr "役に立つを報告頂くため、内容が 10 文字未満の報告はお受けしていません。"
 
-#: ../src/gnome_abrt/dialogs.py:65
+#: ../src/gnome_abrt/dialogs.py:66
 msgid "The summary of problem is too short"
 msgstr "問題の概要が短すぎます"
 
-#: ../src/gnome_abrt/dialogs.py:66
+#: ../src/gnome_abrt/dialogs.py:67
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "summary shorter than 10 letters."
 msgstr "役に立つを報告頂くため、概要が 10 文字未満の報告はお受けしていません。"
 
-#: ../src/gnome_abrt/dialogs.py:92
+#: ../src/gnome_abrt/dialogs.py:93
 msgid "Problem description"
 msgstr "問題の詳細"
 
-#: ../src/gnome_abrt/dialogs.py:100
+#: ../src/gnome_abrt/dialogs.py:101
 msgid "Summary:"
 msgstr "概要:"
 
-#: ../src/gnome_abrt/dialogs.py:119
+#: ../src/gnome_abrt/dialogs.py:120
 msgid "_Send"
 msgstr "送信 (_S)"
 
 #. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:133
+#: ../src/gnome_abrt/dialogs.py:134
 msgid "A problem with ABRT"
 msgstr "ABRT に関する問題です"
 
@@ -189,11 +190,11 @@ msgstr "選択した問題を分析するため開きます"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "詳細(_E)"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "技術的な詳細の表示"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -223,11 +224,11 @@ msgstr "選択した問題の ID をクリップボードに保存します"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "フィルター(_F)"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "フィルターボックスの表示"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -269,38 +270,36 @@ msgstr "ソースが選択されていません!"
 msgid "No source"
 msgstr "ソースがありません"
 
-#: ../src/gnome_abrt/problems.py:475
+#: ../src/gnome_abrt/problems.py:467
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "キャッシュ内では見つかりませんが削除されました: {0}"
 
-#: ../src/gnome_abrt/tools.py:33
+#: ../src/gnome_abrt/tools.py:34
 msgid "Future"
 msgstr "今後"
 
-#: ../src/gnome_abrt/tools.py:40
+#: ../src/gnome_abrt/tools.py:41
 msgid "Yesterday"
 msgstr "昨日"
 
-#: ../src/gnome_abrt/tools.py:49
-msgid "week"
-msgstr "週"
+#: ../src/gnome_abrt/tools.py:50
+#, python-brace-format
+msgid "Last week"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:52
-msgid "month"
-msgstr "月"
+#: ../src/gnome_abrt/tools.py:53
+#, python-brace-format
+msgid "Last month"
+msgid_plural "{0:d} months ago"
+msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:55
-msgid "year"
-msgstr "年"
-
-#: ../src/gnome_abrt/tools.py:58
-msgid "Last {0!s}"
-msgstr "最終 {0!s}"
-
-#: ../src/gnome_abrt/tools.py:60
-msgid "{0:d} {1!s}s ago"
-msgstr "{0:d} {1!s} 前"
+#: ../src/gnome_abrt/tools.py:56
+#, python-brace-format
+msgid "Last year"
+msgid_plural "{0:d} years ago"
+msgstr[0] ""
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"

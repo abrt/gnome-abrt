@@ -26,6 +26,7 @@ BuildRequires: libreport-gtk-devel > 2.4.0
 BuildRequires: libreport-python3
 BuildRequires: abrt-gui-devel > 2.4.0
 BuildRequires: gtk3-devel
+BuildRequires: libX11-devel
 %if 0%{?fedora}
 BuildRequires: python3-pylint
 BuildRequires: python3-six
@@ -106,6 +107,37 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Jun 09 2015 Jakub Filak <jfilak@redhat.com> 1.2.0-1
+- build: Make the changelog builder more robust
+- Fix an error introduced with the details on System page
+- Enabled the Details also for the System problems
+- Link the module wrappers with libX11
+- Add libX11 to BRs
+- Use DBus to get problem data for detail dialog
+- Test availability of XServer in C wrappers
+- Remove a debug print introduced with port to Python3
+- Quit Application on Ctrl+Q
+- Use valid dir URI in 'Open problem's data directory'
+- Translation updates
+- Remove deprecated pylint's disabling of warning
+
+* Thu Apr 09 2015 Jakub Filak <jfilak@redhat.com> 1.1.1-1
+- Translation updates
+- Do not encode the filtered dbus.String to 'UTF-8'
+- Do not die if the problem data misses 'cmdline'
+- Disable pylint warning for ngettext
+- Use correct plurals for n weeks/months/years ago
+- Turn of missing member pylint warning for report module
+- Use a gettext function returning strings instead of bytes
+- Fix a crash when selected problem doesn't have environ
+- Fix build dependencies caused by Python3
+- Bump the required versions in the spec file
+- Fix too long line
+- Try to use environment to find the the application
+- Add wrapper for problem_create_app_from_env()
+- Remove unused code from get_application()
+- build: Filter out unimportant commit messages in the changelog builder
+
 * Tue Mar 17 2015 Jakub Filak <jfilak@redhat.com> 1.1.0-1
 - Translation updates
 - Get rid of pylint warnings

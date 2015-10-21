@@ -41,6 +41,7 @@ import gnome_abrt.errors as errors
 import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
 from gnome_abrt.tools import fancydate, smart_truncate, load_icon
+from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
 
@@ -836,14 +837,16 @@ class OopsWindow(Gtk.ApplicationWindow):
                 problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
             icon_buf = None
+            scale = self._builder.img_app_icon.get_scale_factor()
             if app.icon:
-                icon_buf = load_icon(gicon=app.icon)
+                icon_buf = load_icon(gicon=app.icon, scale=scale)
 
             if icon_buf is None:
-                icon_buf = load_icon(name="system-run-symbolic")
+                icon_buf = load_icon(name="system-run-symbolic", scale=scale)
 
             # icon_buf can be None and if it is None, no icon will be displayed
-            self._builder.img_app_icon.set_from_pixbuf(icon_buf)
+            set_icon_from_pixbuf_with_scale(self._builder.img_app_icon,
+                                            icon_buf, scale)
 
             self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))

@@ -33,6 +33,8 @@ from gi.repository import Gdk
 from gi.repository import GObject
 #pylint: disable=E0611
 from gi.repository import Gio
+#pylint: disable=E0611
+from gi.repository import Pango
 
 import gnome_abrt.problems as problems
 import gnome_abrt.config as config
@@ -221,13 +223,14 @@ class ProblemListBoxCell(Gtk.Box):
 
         self._problem = problem_values[3]
 
-        self._hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        self._hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
 
         self._lbl_app = Gtk.Label.new(problem_values[0])
-        self._lbl_app.set_use_markup(True)
-        self._lbl_app.set_markup("<b>{0}</b>".format(problem_values[0]))
-
         self._lbl_app.set_halign(Gtk.Align.START)
+        self._lbl_app.set_alignment(0.0, 0.5)
+        self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
+        self._lbl_app.set_width_chars(15)
+        self._lbl_app.get_style_context().add_class('app-name-label')
 
         self._lbl_date = Gtk.Label.new(problem_values[1])
         self._lbl_date.set_halign(Gtk.Align.END)
@@ -422,6 +425,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_data("GtkListBoxRow {\n"
                                "  padding          : 12px;\n"
+                               "}\n"
+                               ".app-name-label {\n"
+                               "  font-weight      : bold;\n"
                                "}\n"
                                ".oops-reason {\n"
                                "  font-size        : 120%;\n"

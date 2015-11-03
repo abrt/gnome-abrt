@@ -54,14 +54,33 @@ def fancydate(value, base_date=None):
 
     if old_date.month == base_date.month and old_date.year == base_date.year:
         # computes a number of calendar weeks (not only 7 days)
+        # Note: the offset will never be negative nor zero because
+        # negative means the future and 0 means today, these cases
+        # have been handled few lines above. The same rule is true
+        # for the code below.
         offset = int(round((tmdt.days - base_date.isoweekday())/7, 0)) + 1
-        return ngettext('Last week', '{0:d} weeks ago', offset).format(offset)
+        if offset == 1:
+            return _('Last week')
+        # Translators: This message will never be used for less than
+        # 2 weeks ago nor for more than one month ago. However, the singular
+        # form is necessary for some languages which do not have plural.
+        return ngettext('{0:d} week ago', '{0:d} weeks ago', offset).format(offset)
     elif old_date.year == base_date.year:
         offset = base_date.month - old_date.month
-        return ngettext('Last month', '{0:d} months ago', offset).format(offset)
+        if offset == 1:
+            return _('Last month')
+        # Translators: This message will never be used for less than
+        # 2 months ago nor for more than one year ago. See the comment above.
+        return ngettext('{0:d} month ago', '{0:d} months ago', offset).format(offset)
     else:
         offset = base_date.year - old_date.year
-        return ngettext('Last year', '{0:d} years ago', offset).format(offset)
+        if offset == 1:
+            return _('Last year')
+        # Translators: This message will never be used for less than
+        # 2 years ago. However, the singular form is necessary for some
+        # languages which do not have plural (Chinese, Japanese, Korean)
+        # or reuse the singular form for some plural cases (21 in Russian).
+        return ngettext('{0:d} year ago', '{0:d} years ago', offset).format(offset)
 
 
 def smart_truncate(content, length=100, suffix='...'):

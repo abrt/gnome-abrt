@@ -344,7 +344,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.header_bar = Gtk.HeaderBar.new()
                 self.header_bar.pack_start(self.box_sources_switcher)
                 self.header_bar.pack_start(self.tbtn_multi_select)
-                self.header_bar.pack_end(self.btn_detail)
                 self.header_bar.pack_end(self.btn_report)
                 self.header_bar.pack_end(self.btn_delete)
 
@@ -472,7 +471,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         conf.set_watch('T_FMT', self._options_observer)
         conf.set_watch('D_T_FMT', self._options_observer)
         self._options_observer.option_updated(conf, 'problemid')
-        self._builder.btn_detail.set_visible(conf['expert'])
         self._builder.mi_detail.set_visible(conf['expert'])
 
         # enable observer
@@ -793,7 +791,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._builder.btn_delete.set_sensitive(sensitive_btn)
         self._builder.btn_report.set_sensitive(
                 sensitive_btn and not problem['not-reportable'])
-        self._builder.btn_detail.set_sensitive(sensitive_btn)
         self._builder.vbx_links.foreach(
                 destroy_links, None)
         self._builder.vbx_problem_messages.foreach(

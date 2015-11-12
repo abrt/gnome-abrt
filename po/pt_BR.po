@@ -7,6 +7,7 @@
 # Glaucia Freitas <gcintra@redhat.com>, 2013
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2012
 # Ricardo Gyorfy <rgyorfy@redhat.com>, 2011
+# Marco Aurélio Krause <ouesten@me.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,13 +16,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-05 04:30-0500\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"PO-Revision-Date: 2015-09-06 10:19-0400\n"
+"Last-Translator: Marco Aurélio Krause <ouesten@me.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "gnome-abrt/language/pt_BR/)\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -53,7 +54,7 @@ msgstr "_Sair"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Relato de Problemas"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -72,6 +73,8 @@ msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"Seu maior propósito é facilitar o processo de reportar um problema e "
+"encontrar uma solução."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 #, python-brace-format
@@ -199,11 +202,11 @@ msgstr "Abrir problemas selecionados para análise"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "D_etalhes"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "Mostrar detalhes técnicos"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -236,11 +239,11 @@ msgstr "Armazena o ID de problemas selecionados no Clipboard"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "_Filtrar"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "Mostrar caixa de filtro"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -268,7 +271,7 @@ msgstr "Reportado"
 
 #: ../src/gnome_abrt/oops.glade.h:23
 msgid "button"
-msgstr ""
+msgstr "botão"
 
 #: ../src/gnome_abrt/oops.glade.h:24
 msgid "No problems detected!"
@@ -299,22 +302,22 @@ msgstr "Ontem"
 #, python-brace-format
 msgid "Last week"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Semana passada"
+msgstr[1] "{0:d} semanas atrás"
 
 #: ../src/gnome_abrt/tools.py:53
 #, python-brace-format
 msgid "Last month"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mês passado"
+msgstr[1] "{0:d} meses atrás"
 
 #: ../src/gnome_abrt/tools.py:56
 #, python-brace-format
 msgid "Last year"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ano passado"
+msgstr[1] "{0:d} anos atrás"
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"
@@ -322,19 +325,19 @@ msgstr "Falha ao carregar a definição da UI"
 
 #: ../src/gnome_abrt/views.py:818
 msgid "Unexpected system error"
-msgstr ""
+msgstr "Erro inesperado do sistema"
 
 #: ../src/gnome_abrt/views.py:820
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "O sistema encontrou um problema e se recuperou."
 
 #: ../src/gnome_abrt/views.py:823
 msgid "Fatal system failure"
-msgstr ""
+msgstr "Falha fatal do sistema"
 
 #: ../src/gnome_abrt/views.py:825
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "O sistema encontrou um problema e não pôde continuar."
 
 #: ../src/gnome_abrt/views.py:838
 #, python-brace-format
@@ -344,11 +347,11 @@ msgstr "{0} problema foi detectado"
 #: ../src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} saiu inesperadamente"
 
 #: ../src/gnome_abrt/views.py:845
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "O aplicativo encontrou um problema e não pôde continuar."
 
 #: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
 msgid "N/A"

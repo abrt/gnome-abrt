@@ -41,10 +41,10 @@ PyMODINIT_FUNC PyInit__wrappers(void)
             .m_doc = module_doc,
             .m_size = -1,
             .m_methods = module_methods,
-            .m_reload = NULL,
-            .m_traverse = NULL,
-            .m_clear = NULL,
-            .m_free = NULL,
+            /*.m_slots = NULL,*/
+            /*.m_traverse = NULL,*/
+            /*.m_clear = NULL,*/
+            /*.m_free = NULL,*/
     };
     m = PyModule_Create(&moduledef);
 

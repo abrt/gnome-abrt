@@ -6,6 +6,7 @@
 # Huan Chen <chenhuan126@126.com>, 2011
 # Leah Liu <lliu@redhat.com>, 2011-2012
 # Wei Liu <LLIU@REDHAT.COM>, 2013
+# Alick Zhao <alick9188@gmail.com>, 2015. #zanata
 # zhouxiaobo <zhouxiaobo.500@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
@@ -15,13 +16,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-05-02 11:04-0400\n"
-"Last-Translator: zhouxiaobo <zhouxiaobo.500@gmail.com>\n"
+"PO-Revision-Date: 2015-11-01 01:16-0500\n"
+"Last-Translator: Alick Zhao <alick9188@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
 "abrt/language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -33,19 +34,19 @@ msgstr "系统"
 
 #: ../src/gnome-abrt:288
 msgid "_Preferences"
-msgstr "首选项（_P）"
+msgstr "首选项(_P)"
 
 #: ../src/gnome-abrt:289
 msgid "_ABRT Configuration"
-msgstr "ABRT 配置（_A）"
+msgstr "ABRT 配置(_A)"
 
 #: ../src/gnome-abrt:290
 msgid "_Report problem with ABRT"
-msgstr "使用 ABRT 报告问题（_R）"
+msgstr "使用 ABRT 报告问题(_R)"
 
 #: ../src/gnome-abrt:294
 msgid "_About"
-msgstr "关于（_A）"
+msgstr "关于(_A)"
 
 #: ../src/gnome-abrt:295
 msgid "_Quit"
@@ -53,7 +54,7 @@ msgstr "退出(_Q)"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Problem Reporting"
-msgstr ""
+msgstr "问题报告"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -69,7 +70,7 @@ msgstr "用来和搜集、分析和报告软件问题的软件工具集合。"
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "其主要目的是使报告问题并找到解决方案的过程更为容易。 "
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 #, python-brace-format
@@ -248,7 +249,7 @@ msgstr "已报告"
 
 #: ../src/gnome_abrt/oops.glade.h:23
 msgid "button"
-msgstr ""
+msgstr "按钮"
 
 #: ../src/gnome_abrt/oops.glade.h:24
 msgid "No problems detected!"
@@ -276,22 +277,22 @@ msgid "Yesterday"
 msgstr "昨天"
 
 #: ../src/gnome_abrt/tools.py:50
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Last week"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 周前"
 
 #: ../src/gnome_abrt/tools.py:53
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Last month"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 个月前"
 
 #: ../src/gnome_abrt/tools.py:56
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Last year"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 年前"
 
 #: ../src/gnome_abrt/views.py:283
 msgid "Failed to load UI definition"
@@ -299,19 +300,19 @@ msgstr "载入 UI 定义失败"
 
 #: ../src/gnome_abrt/views.py:818
 msgid "Unexpected system error"
-msgstr ""
+msgstr "意外的系统错误"
 
 #: ../src/gnome_abrt/views.py:820
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "系统遇到了一个问题，但已经恢复。"
 
 #: ../src/gnome_abrt/views.py:823
 msgid "Fatal system failure"
-msgstr ""
+msgstr "致命系统故障"
 
 #: ../src/gnome_abrt/views.py:825
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "系统遇到了一个问题，无法继续运行。"
 
 #: ../src/gnome_abrt/views.py:838
 #, python-brace-format
@@ -321,11 +322,11 @@ msgstr "检测到问题 {0}"
 #: ../src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} 意外退出"
 
 #: ../src/gnome_abrt/views.py:845
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "应用程序遇到了一个问题，无法继续运行。"
 
 #: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
 msgid "N/A"

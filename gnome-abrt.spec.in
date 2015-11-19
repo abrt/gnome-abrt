@@ -107,6 +107,26 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Nov 19 2015 Jakub Filak <jfilak@redhat.com> 1.2.1-1
+- Translation updates
+- Update zanata client configuration
+- Fix Python-3.5 module initialization
+- HTMLParseError replaced with generic Exception
+- Get rid of the Gtk3 module loading warning
+- Remove any remaining references to the old btn_details (header bar)
+- trivial: set spacing=6 in box_header for non-GNOME desktops
+- fancydate: Handle the singular cases separately
+- Don't scroll the sidebar horizontally
+- Show HiDPI icons on HiDPI screens
+- autogen: use dnf instead of yum to install dependencies
+- Translation update
+- Translation fix in view.py
+- Correct testing of return values from ABRT D-Bus API wrrapper
+- Fix an exception when searching for a bug ID
+- Fix loading applicaton icons
+- Use UTF-8 encoding when working with user files
+- Remove the Details button from the top bar in non-GNOME desktops
+
 * Tue Jun 09 2015 Jakub Filak <jfilak@redhat.com> 1.2.0-1
 - build: Make the changelog builder more robust
 - Fix an error introduced with the details on System page

@@ -85,6 +85,7 @@ class HTMLTitleGetter(HTMLParser):
         tgt = HTMLTitleGetter()
         try:
             tgt.feed(data)
+        #pylint: disable=W0703
         except Exception as ex:
             logging.debug("{1} ('{0}')".format(data, str(ex)))
             # Hopefully title is parsed correctly

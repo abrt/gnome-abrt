@@ -3,6 +3,8 @@ SUBDIRS = src po doc icons
 
 EXTRA_DIST = gnome-abrt.spec.in asciidoc.conf gnome-abrt-version pylintrc runpylint.sh
 
+dist_doc_DATA = README.md
+
 RPM_DIRS = --define "_sourcedir `pwd`" \
 	   --define "_rpmdir `pwd`" \
 	   --define "_specdir `pwd`" \

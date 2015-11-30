@@ -3,7 +3,7 @@ AC_INIT([gnome-abrt],
         [crash-catcher@fedorahosted.org])
 
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([-Wall])
+AM_INIT_AUTOMAKE([-Wall foreign])
 AM_MAINTAINER_MODE
 # Support silent build rules. Disable by either passing --disable-silent-rules
 # to ./configure or passing V=1 to make

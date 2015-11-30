@@ -139,8 +139,21 @@ def problem_to_storage_values(problem):
     if name == "kernel":
         name = _("System")
 
+    problem_type = problem['type']
+    if problem_type == "CCpp":
+        # Translators: These are the problem types displayed in the problem
+        # list under the application name
+        problem_type = _("Application Crash")
+    elif problem_type == "vmcore":
+        problem_type = _("System Crash")
+    elif problem_type == "Kerneloops":
+        problem_type = _("System Failure")
+    else:
+        problem_type = _("Misbehavior")
+
     return (smart_truncate(name, length=40),
             fancydate(problem['date_last']),
+            problem_type,
             problem['count'],
             problem)
 
@@ -221,9 +234,10 @@ class ProblemListBoxCell(Gtk.Box):
 
         self.get_style_context().add_class('problem-cell')
 
-        self._problem = problem_values[3]
+        self._problem = problem_values[4]
 
-        self._hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
+        self._hbox1 = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
+        self._hbox2 = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
 
         self._lbl_app = Gtk.Label.new(problem_values[0])
         self._lbl_app.set_halign(Gtk.Align.START)
@@ -236,22 +250,31 @@ class ProblemListBoxCell(Gtk.Box):
         self._lbl_date.set_halign(Gtk.Align.END)
         self._lbl_date.get_style_context().add_class('dim-label')
 
-        self._lbl_count = Gtk.Label.new(problem_values[2])
+        self._lbl_type = Gtk.Label.new(problem_values[2])
+        self._lbl_type.set_halign(Gtk.Align.START)
+        self._lbl_type.set_alignment(0.0, 0.5)
+        self._lbl_type.get_style_context().add_class('dim-label')
+
+        self._lbl_count = Gtk.Label.new(problem_values[3])
         self._lbl_count.set_halign(Gtk.Align.END)
         self._lbl_count.get_style_context().add_class('dim-label')
 
-        self._hbox.pack_start(self._lbl_app, False, True, 0)
-        self._hbox.pack_end(self._lbl_date, False, True, 0)
+        self._hbox1.pack_start(self._lbl_app, False, True, 0)
+        self._hbox1.pack_end(self._lbl_date, False, True, 0)
 
-        self.pack_start(self._hbox, True, True, 0)
-        self.pack_start(self._lbl_count, True, True, 0)
+        self._hbox2.pack_start(self._lbl_type, False, True, 0)
+        self._hbox2.pack_end(self._lbl_count, False, True, 0)
+
+        self.pack_start(self._hbox1, True, True, 0)
+        self.pack_start(self._hbox2, True, True, 0)
         self.show_all()
 
     def set_values(self, problem_values):
         self._lbl_app.set_text(problem_values[0])
         self._lbl_date.set_text(problem_values[1])
-        self._lbl_count.set_text(problem_values[2])
-        self._problem = problem_values[3]
+        self._lbl_type.set_text(problem_values[2])
+        self._lbl_count.set_text(problem_values[3])
+        self._problem = problem_values[4]
 
     def get_problem(self):
         return self._problem

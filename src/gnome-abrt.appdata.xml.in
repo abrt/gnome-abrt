@@ -16,4 +16,9 @@
 <screenshot type="default">http://jfilak.fedorapeople.org/media/gnome-abrt.png</screenshot>
 </screenshots>
 <updatecontact>crash-catcher@lists.fedorahosted.org</updatecontact>
+<kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>HighContrast</kudo>
+    <kudo>ModernToolkit</kudo>
+</kudos>
 </application>

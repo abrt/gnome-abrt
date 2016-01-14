@@ -97,11 +97,11 @@ def load_icon(name=None, gicon=None, scale=1):
     theme = Gtk.IconTheme.get_default()
 
     icon = None
-    if not gicon is None and name is None:
+    if gicon is not None and name is None:
         name = gicon.to_string()
         icon = theme.lookup_by_gicon_for_scale(gicon, 128, scale,
                                         Gtk.IconLookupFlags.FORCE_SIZE)
-    elif not name is None and gicon is None:
+    elif name is not None and gicon is None:
         icon = theme.lookup_icon_for_scale(name, 128, scale,
                                         Gtk.IconLookupFlags.FORCE_SIZE
                                         | Gtk.IconLookupFlags.FORCE_SYMBOLIC)

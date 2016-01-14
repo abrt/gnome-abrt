@@ -17,8 +17,8 @@
 
 import gettext
 import locale
-import humanize
 import logging
+import humanize
 
 GETTEXT_PROGNAME = None
 

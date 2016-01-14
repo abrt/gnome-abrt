@@ -33,37 +33,54 @@ if not can_connect_to_xserver():
     sys.exit(1)
 
 # pygobject
+#pylint: disable=C0411, C0413
 import gi
 gi.require_version('Gtk', '3.0')
-#pylint: disable=E0611
+#pylint: disable=E0611, C0411, C0413
 from gi.repository import Gtk
-#pylint: disable=E0611
+#pylint: disable=E0611, C0411, C0413
 from gi.repository import GLib
-#pylint: disable=E0611
+#pylint: disable=E0611, C0411, C0413
 from gi.repository import Gio
 
 # gnome-abrt
+#pylint: disable=C0413
 import gnome_abrt
 gnome_abrt.init()
 
+#pylint: disable=C0413
 import gnome_abrt.url
+#pylint: disable=C0413
 from gnome_abrt.views import OopsWindow
+#pylint: disable=C0413
 from gnome_abrt.controller import Controller
+#pylint: disable=C0413
 from gnome_abrt.signals import glib_sigchld_signal_handler
+#pylint: disable=C0413
 from gnome_abrt.problems import MultipleSources
+#pylint: disable=C0413
 from gnome_abrt.directory_problems import DirectoryProblemSource
+#pylint: disable=C0413
 from gnome_abrt.dbus_problems import (get_standard_problems_source,
                                       get_foreign_problems_source)
+#pylint: disable=C0413
 from gnome_abrt.errors import UnavailableSource
+#pylint: disable=C0413
 from gnome_abrt.l10n import _
+#pylint: disable=C0413
 from gnome_abrt.config import get_configuration
+#pylint: disable=C0413
 from gnome_abrt.dialogs import show_report_problem_with_abrt
+#pylint: disable=C0413
 from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
                                          GetURLTitleSourceCache)
 
 # dbus
+#pylint: disable=C0413
 import dbus
+#pylint: disable=C0413
 import dbus.service
+#pylint: disable=C0413
 from dbus.mainloop.glib import DBusGMainLoop
 
 GNOME_ABRT_APPLICATION_ID = 'org.freedesktop.GnomeAbrt'
@@ -252,7 +269,8 @@ class OopsApplication(Gtk.Application):
                     logging.warning(str(ex))
 
                 if len(sources) == 0:
-                    raise UnavailableSource("No available problem source.")
+                    raise UnavailableSource(None, None,
+                            message="No available problem source.")
 
                 self.all_sources = [(_("My"), MultipleSources(sources))]
 

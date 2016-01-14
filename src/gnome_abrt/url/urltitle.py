@@ -20,6 +20,7 @@
 import sys
 import threading
 import logging
+from queue import Queue
 from urllib.request import urlopen
 from html.parser import HTMLParser
 
@@ -80,6 +81,9 @@ class HTMLTitleGetter(HTMLParser):
             else:
                 self._title += data
 
+    def error(self, message):
+        raise ValueError(message)
+
     @staticmethod
     def parse(data):
         tgt = HTMLTitleGetter()
@@ -111,16 +115,15 @@ class GetURLTitleThread(threading.Thread):
 if __name__ == "__main__":
     URLS = ["http://docs.python.org/2/library/htmlparser.html"]
 
-    THREADS = False
+    USE_THREADS = False
     if len(sys.argv) > 1:
         i = 1
-        if "--threads" == sys.argv[i]:
-            THREADS = True
+        if sys.argv[i] == "--threads":
+            USE_THREADS = True
             i += 1
         URLS = sys.argv[i:]
 
-    if THREADS:
-        from queue import Queue
+    if USE_THREADS:
         QUEUE = Queue()
         THREADS = []
         for u in URLS:

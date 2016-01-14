@@ -17,9 +17,6 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
-import gnome_abrt
-from gnome_abrt.l10n import _
-
 # libreport
 #pylint: disable=E0611
 from report import problem_data, report_problem_in_memory, LIBREPORT_NOWAIT
@@ -27,6 +24,9 @@ from report import problem_data, report_problem_in_memory, LIBREPORT_NOWAIT
 # pygogject
 #pylint: disable=E0611
 from gi.repository import Gtk
+
+import gnome_abrt
+from gnome_abrt.l10n import _
 
 
 def _show_error_dialog(parent, summary, description):

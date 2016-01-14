@@ -46,7 +46,7 @@ class ProblemSource(object):
         pass
 
     def attach(self, observer):
-        if not observer in self._observers:
+        if observer not in self._observers:
             self._observers.add(observer)
 
     def detach(self, observer):
@@ -202,10 +202,10 @@ class Problem(object):
 
         return None
 
-    def __setitem__(self):
+    def __setitem__(self, _, unused):
         raise RuntimeError("Problems are readonly")
 
-    def __delitem__(self, item):
+    def __delitem__(self, _):
         raise RuntimeError("Problems are readonly")
 
     def __len__(self):
@@ -227,7 +227,7 @@ class Problem(object):
         self._deleted = True
 
     def is_reported(self):
-        return not self['reported_to'] is None
+        return self['reported_to'] is not None
 
     def get_human_type(self):
         typ = self['type']
@@ -250,10 +250,10 @@ class Problem(object):
         return name
 
     def get_package_version(self):
-        epoch = self['pkg_epoch']
-        if not epoch or epoch == "0":
-            epoch = ""
-        else:
+        epoch_value = self['pkg_epoch']
+
+        epoch = ""
+        if epoch_value and epoch_value != "0":
             epoch = "{0}:".format(epoch)
 
         version = self['pkg_version']
@@ -287,27 +287,27 @@ class Problem(object):
                     if len(line) == 0:
                         continue
 
-                    pfx = []
+                    pfx_lst = []
                     i = 0
                     for i in range(0, len(line)):
                         if line[i] == ':':
                             break
-                        pfx.append(line[i])
+                        pfx_lst.append(line[i])
 
-                    pfx = ''.join(pfx)
+                    pfx = ''.join(pfx_lst)
                     i += 1
 
                     for i in range(i, len(line)):
-                        if not line[i] == ' ':
+                        if line[i] != ' ':
                             break
 
-                    typ = []
+                    typ_lst = []
                     for i in range(i, len(line)):
                         if line[i] == '=':
                             break
-                        typ.append(line[i])
+                        typ_lst.append(line[i])
 
-                    typ = ''.join(typ)
+                    typ = ''.join(typ_lst)
                     i += 1
 
                     data = line[i:]
@@ -364,7 +364,7 @@ class MultipleSources(ProblemSource):
     def _pop_source(self, index):
         self.sources.pop(index)
         if not self.sources:
-            raise UnavailableSource()
+            raise UnavailableSource(self, None)
 
     def get_items(self, problem_id, *args):
         pass

@@ -18,6 +18,9 @@
 import os
 import logging
 
+# libreport-python
+import report
+
 # pygobject
 #pylint: disable=E0611
 from gi.repository import GLib
@@ -25,9 +28,6 @@ from gi.repository import GLib
 # pyinotify
 import pyinotify
 from pyinotify import WatchManager, Notifier, ProcessEvent
-
-# libreport-python
-import report
 
 # gnome-abrt
 import gnome_abrt.problems as problems
@@ -277,7 +277,7 @@ class InitializedDirectoryProblemSource(object):
             problem_id = os.path.join(self.directory, dir_entry)
             if os.path.isdir(problem_id):
                 dd = report.dd_opendir(problem_id)
-                if dd == None:
+                if dd is None:
                     logging.debug("Omitted dir: '{0}'".format(problem_id))
                 else:
                     logging.debug("Found dump dir: '{0}'".format(problem_id))
@@ -327,7 +327,7 @@ class DirectoryProblemSource(problems.CachedSource):
 
         return self._notinitialized
 
-    def chown_problem(self, problem_id):
+    def chown_problem(self, _):
         return True
 
     def get_items(self, problem_id, *args):

@@ -21,10 +21,11 @@ import os
 import time
 import logging
 import traceback
-import humanize
 import datetime
 
 #pygobject
+import gi
+gi.require_version('Gtk', '3.0')
 #pylint: disable=E0611
 from gi.repository import Gtk
 #pylint: disable=E0611
@@ -35,6 +36,8 @@ from gi.repository import GObject
 from gi.repository import Gio
 #pylint: disable=E0611
 from gi.repository import Pango
+
+import humanize
 
 import gnome_abrt.problems as problems
 import gnome_abrt.config as config
@@ -752,7 +755,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         # loaded source. If so, try to switch to problem's origin source and
         # select the problem after that.
         if (self._source is not None and
-                not problem_id in self._source.get_problems()):
+                problem_id not in self._source.get_problems()):
             for source in self._all_sources:
                 if problem_id in source.get_problems():
                     res, old_source = self._switch_source(source)

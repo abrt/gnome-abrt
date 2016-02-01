@@ -289,33 +289,60 @@ msgstr "Aucune source"
 msgid "Not found in cache but deleted: {0}"
 msgstr "Introuvable dans le cache mais supprimé : {0}"
 
-#: ../src/gnome_abrt/tools.py:34
+#: ../src/gnome_abrt/tools.py:42
 msgid "Future"
 msgstr "Futur"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "Hier"
 
-#: ../src/gnome_abrt/tools.py:50
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:63
+#, fuzzy
 msgid "Last week"
+msgstr "La semaine dernière"
+
+#. Translators: This message will never be used for less than
+#. 2 weeks ago nor for more than one month ago. However, the singular
+#. form is necessary for some languages which do not have plural.
+#: ../src/gnome_abrt/tools.py:67
+#, python-brace-format
+#, fuzzy
+msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] "La semaine dernière"
+msgstr[0] "Il y a {0:d} semaine"
 msgstr[1] "Il y a {0:d} semaines"
 
-#: ../src/gnome_abrt/tools.py:53
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:72
+#, fuzzy
 msgid "Last month"
+msgstr "Le mois dernier"
+
+#. Translators: This message will never be used for less than
+#. 2 months ago nor for more than one year ago. See the comment above.
+#: ../src/gnome_abrt/tools.py:75
+#, python-brace-format
+#, fuzzy
+msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] "Le mois dernier"
+msgstr[0] "Il y a {0:d} mois"
 msgstr[1] "Il y a {0:d} mois"
 
-#: ../src/gnome_abrt/tools.py:56
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:80
+#, fuzzy
 msgid "Last year"
+msgstr "L'année dernière"
+
+#. Translators: This message will never be used for less than
+#. 2 years ago. However, the singular form is necessary for some
+#. languages which do not have plural (Chinese, Japanese, Korean)
+#. or reuse the singular form for some plural cases (21 in Russian).
+#: ../src/gnome_abrt/tools.py:85
+#, python-brace-format
+#, fuzzy
+msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] "L'année dernière"
+msgstr[0] "Il y a {0:d} an"
 msgstr[1] "Il y a {0:d} ans"
 
 #: ../src/gnome_abrt/views.py:283

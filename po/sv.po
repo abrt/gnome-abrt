@@ -286,31 +286,58 @@ msgstr "Ingen källa"
 msgid "Not found in cache but deleted: {0}"
 msgstr "Ej funnen i cachen men raderad: {0}"
 
-#: ../src/gnome_abrt/tools.py:34
+#: ../src/gnome_abrt/tools.py:42
 msgid "Future"
 msgstr "Framtid"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "Igår"
 
-#: ../src/gnome_abrt/tools.py:50
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:63
+#, fuzzy
 msgid "Last week"
+msgstr "Senaste veckan"
+
+#. Translators: This message will never be used for less than
+#. 2 weeks ago nor for more than one month ago. However, the singular
+#. form is necessary for some languages which do not have plural.
+#: ../src/gnome_abrt/tools.py:67
+#, python-brace-format
+#, fuzzy
+msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] "Senaste veckan"
 msgstr[1] "Sedan {0:d} veckor"
 
-#: ../src/gnome_abrt/tools.py:53
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:72
+#, fuzzy
 msgid "Last month"
+msgstr "Senaste månaden"
+
+#. Translators: This message will never be used for less than
+#. 2 months ago nor for more than one year ago. See the comment above.
+#: ../src/gnome_abrt/tools.py:75
+#, python-brace-format
+#, fuzzy
+msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] "Senaste månaden"
 msgstr[1] "Sedan {0:d} månader"
 
-#: ../src/gnome_abrt/tools.py:56
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:80
+#, fuzzy
 msgid "Last year"
+msgstr "Senaste året"
+
+#. Translators: This message will never be used for less than
+#. 2 years ago. However, the singular form is necessary for some
+#. languages which do not have plural (Chinese, Japanese, Korean)
+#. or reuse the singular form for some plural cases (21 in Russian).
+#: ../src/gnome_abrt/tools.py:85
+#, python-brace-format
+#, fuzzy
+msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] "Senaste året"
 msgstr[1] "Sedan {0:d} år"

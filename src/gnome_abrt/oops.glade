@@ -562,7 +562,7 @@
                                             <property name="halign">start</property>
                                             <property name="margin_top">8</property>
                                             <property name="margin_bottom">8</property>
-                                            <property name="label" translatable="yes">&lt;a href="https://glade.gnome.org/"&gt;Very long placeholder URL tile&lt;/a&gt;</property>
+                                            <property name="label">&lt;a href="https://glade.gnome.org/"&gt;Very long placeholder URL tile&lt;/a&gt;</property>
                                             <property name="use_markup">True</property>
                                             <property name="ellipsize">middle</property>
                                           </object>
@@ -579,7 +579,7 @@
                                             <property name="halign">start</property>
                                             <property name="margin_top">8</property>
                                             <property name="margin_bottom">8</property>
-                                            <property name="label" translatable="yes">&lt;a href="https://github.com/abrt/gnome-abrt"&gt;Placeholder URL&lt;/a&gt;</property>
+                                            <property name="label">&lt;a href="https://github.com/abrt/gnome-abrt"&gt;Placeholder URL&lt;/a&gt;</property>
                                             <property name="use_markup">True</property>
                                             <property name="lines">1</property>
                                           </object>
@@ -652,7 +652,7 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_detail">
-                            <property name="label" translatable="yes">button</property>
+                            <property name="label">button</property>
                             <property name="use_action_appearance">True</property>
                             <property name="related_action">gac_detail</property>
                             <property name="visible">True</property>

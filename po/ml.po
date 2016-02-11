@@ -5,11 +5,12 @@
 # Translators:
 # Ani Peter <apeter@redhat.com>, 2012-2013
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
+# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 15:09+0200\n"
+"POT-Creation-Date: 2016-02-11 11:46+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,37 +20,37 @@ msgstr ""
 "language/ml/)\n"
 "Language: ml\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:265
+#: ../src/gnome-abrt:275
 msgid "My"
 msgstr "എന്റെ"
 
-#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
+#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
 msgid "System"
 msgstr "സിസ്റ്റം"
 
-#: ../src/gnome-abrt:288
+#: ../src/gnome-abrt:298
 msgid "_Preferences"
 msgstr "മുന്‍_ഗണനകള്‍"
 
-#: ../src/gnome-abrt:289
+#: ../src/gnome-abrt:299
 msgid "_ABRT Configuration"
 msgstr "_എബിആര്‍റ്റി ക്രമീകരണം"
 
-#: ../src/gnome-abrt:290
+#: ../src/gnome-abrt:300
 msgid "_Report problem with ABRT"
 msgstr "എബിആര്‍റ്റിയില്‍ പ്രശ്നം രേ_ഖപ്പെടുത്തുക"
 
-#: ../src/gnome-abrt:294
+#: ../src/gnome-abrt:304
 msgid "_About"
 msgstr "സം_ബന്ധിച്ചു് "
 
-#: ../src/gnome-abrt:295
+#: ../src/gnome-abrt:305
 msgid "_Quit"
 msgstr "പു_റത്തു് കടക്കുക"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
 msgid "Problem Reporting"
 msgstr ""
 
@@ -90,23 +91,23 @@ msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
 "'{0}' ഇന്റര്‍ഫെയിസ്, '{1}' എന്ന പാഥിലുള്ള '{2}' ബസില്‍ ലഭ്യമായില്ല: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:154
+#: ../src/gnome_abrt/dbus_problems.py:153
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "ഡിബസ് സര്‍വീസില്‍ '{0}' പ്രശ്നം ചൌണ്‍ ചെയ്യുവാന്‍ സാധ്യമല്ല.: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:170
+#: ../src/gnome_abrt/dbus_problems.py:168
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr ""
 "ഡിബസ് സര്‍വീസില്‍ നിന്നുള്ള തകരാറുള്ള ഡേറ്റാ ലഭ്യമാക്കുവാന്‍ സാധ്യമല്ല: "
 "{0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:179
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr ""
 "ഡീബസ് സര്‍വീസില്‍ നിന്നുള്ള പ്രശ്നങ്ങളുടെ പട്ടിക ലഭ്യമാക്കുവാന്‍ സാധ്യമല്ല: "
 "{0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:195
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "ഡിബസ് സര്‍വീസിലുള്ള പ്രശ്നം വെട്ടി നീക്കുവാന്‍ സാധ്യമല്ല: {0!s}"
 
@@ -252,115 +253,154 @@ msgstr "പതിപ്പു്"
 msgid "Detected"
 msgstr "കണ്ടുപിടിച്ചു"
 
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
+#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
 msgid "Reported"
 msgstr "സമര്‍പ്പിച്ചു"
 
-#: ../src/gnome_abrt/oops.glade.h:23
-msgid "button"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No problems detected!"
 msgstr "ഒരു പ്രശ്നങ്ങളും ലഭ്യമായില്ല!"
 
-#: ../src/gnome_abrt/oops.glade.h:25
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source selected!"
 msgstr "ഒരു ശ്രോതസ്സും തെരഞ്ഞെടുത്തിട്ടില്ല!"
 
-#: ../src/gnome_abrt/oops.glade.h:26
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source"
 msgstr "ശ്രോതസ്സ് ലഭ്യമല്ല"
 
-#: ../src/gnome_abrt/problems.py:467
+#: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "കാഷില്‍ ലഭ്യമല്ല, പക്ഷേ വെട്ടി നീക്കിയിരിയ്ക്കുന്നു: {0}"
 
-#: ../src/gnome_abrt/tools.py:34
+#: ../src/gnome_abrt/tools.py:42
 msgid "Future"
 msgstr "ഭാവി"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "ഇന്നലെ"
 
-#: ../src/gnome_abrt/tools.py:50
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 weeks ago nor for more than one month ago. However, the singular
+#. form is necessary for some languages which do not have plural.
+#: ../src/gnome_abrt/tools.py:67
+#, python-brace-format
+msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:53
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 months ago nor for more than one year ago. See the comment above.
+#: ../src/gnome_abrt/tools.py:75
+#, python-brace-format
+msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/gnome_abrt/tools.py:56
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 years ago. However, the singular form is necessary for some
+#. languages which do not have plural (Chinese, Japanese, Korean)
+#. or reuse the singular form for some plural cases (21 in Russian).
+#: ../src/gnome_abrt/tools.py:85
+#, python-brace-format
+msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/gnome_abrt/views.py:283
+#: ../src/gnome_abrt/tools.py:115
+#, fuzzy, python-brace-format
+msgid "Failed to find icon '{0}'"
+msgstr "യുഐ വിവരണം ലഭ്യമാക്കുന്നതില്‍ പരാജയം"
+
+#: ../src/gnome_abrt/tools.py:122
+#, fuzzy, python-brace-format
+msgid "Failed to load icon '{0}': {1}"
+msgstr "യുഐ വിവരണം ലഭ്യമാക്കുന്നതില്‍ പരാജയം"
+
+#. Translators: These are the problem types displayed in the problem
+#. list under the application name
+#: ../src/gnome_abrt/views.py:149
+msgid "Application Crash"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:151
+#, fuzzy
+msgid "System Crash"
+msgstr "സിസ്റ്റം"
+
+#: ../src/gnome_abrt/views.py:153
+#, fuzzy
+msgid "System Failure"
+msgstr "സിസ്റ്റം"
+
+#: ../src/gnome_abrt/views.py:155
+msgid "Misbehavior"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:315
 msgid "Failed to load UI definition"
 msgstr "യുഐ വിവരണം ലഭ്യമാക്കുന്നതില്‍ പരാജയം"
 
-#: ../src/gnome_abrt/views.py:818
+#: ../src/gnome_abrt/views.py:831
 msgid "Unexpected system error"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:820
+#: ../src/gnome_abrt/views.py:833
 msgid "The system has encountered a problem and recovered."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:823
+#: ../src/gnome_abrt/views.py:836
 msgid "Fatal system failure"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:825
+#: ../src/gnome_abrt/views.py:838
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:851
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} പ്രശ്നം കണ്ടുപിടിച്ചിരിയ്ക്കുന്നു"
 
-#: ../src/gnome_abrt/views.py:842
+#: ../src/gnome_abrt/views.py:855
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:845
+#: ../src/gnome_abrt/views.py:858
 msgid "The application encountered a problem and could not continue."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
+#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
 msgid "N/A"
 msgstr "ലഭ്യമല്ല"
 
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:885
 msgid "cannot be reported"
 msgstr "രേഖപ്പെടുത്തുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/gnome_abrt/views.py:883
+#: ../src/gnome_abrt/views.py:890
 msgid "Reports"
 msgstr "രേഖകള്‍"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:896
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -372,11 +412,11 @@ msgstr ""
 "ഡവലപ്പര്‍മാര്‍ക്കു് കൂടുതല്‍ വിവരങ്ങള്‍ ആവശ്യമാവാം.\n"
 "ദയവായി <b>ഇതു് രേഖപ്പെടുത്തുവാന്‍</b> ബഗ്സില ഉപയോഗിയ്ക്കുക. നന്ദി!"
 
-#: ../src/gnome_abrt/views.py:894
+#: ../src/gnome_abrt/views.py:901
 msgid "yes"
 msgstr "ഉവ്വു്"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:903
 msgid "no"
 msgstr "ഇല്ല"
 

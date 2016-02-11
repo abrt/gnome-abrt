@@ -4,11 +4,13 @@
 # 
 # Translators:
 # Momcilo Medic <medicmomcilo@gmail.com>, 2015. #zanata
+# Jakub Filak <jfilak@redhat.com>, 2016. #zanata
+# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 15:09+0200\n"
+"POT-Creation-Date: 2016-02-11 11:46+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,37 +21,37 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:265
+#: ../src/gnome-abrt:275
 msgid "My"
 msgstr "Мој"
 
-#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
+#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
 msgid "System"
 msgstr "Систем"
 
-#: ../src/gnome-abrt:288
+#: ../src/gnome-abrt:298
 msgid "_Preferences"
 msgstr "_Поставке"
 
-#: ../src/gnome-abrt:289
+#: ../src/gnome-abrt:299
 msgid "_ABRT Configuration"
 msgstr "_ABRT Подешавање"
 
-#: ../src/gnome-abrt:290
+#: ../src/gnome-abrt:300
 msgid "_Report problem with ABRT"
 msgstr "_Пријави проблем са ABRT-ом"
 
-#: ../src/gnome-abrt:294
+#: ../src/gnome-abrt:304
 msgid "_About"
 msgstr "_О програму"
 
-#: ../src/gnome-abrt:295
+#: ../src/gnome-abrt:305
 msgid "_Quit"
 msgstr "_Излаз"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
 msgid "Problem Reporting"
 msgstr "Пријављивање проблема"
 
@@ -90,19 +92,19 @@ msgstr ""
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "Не могу добити окружење '{0}' на путањи '{1}' у магистрали '{2}': {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:154
+#: ../src/gnome_abrt/dbus_problems.py:153
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "Не могу да chown-ујем проблем '{0}' преко DBus сервиса: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:170
+#: ../src/gnome_abrt/dbus_problems.py:168
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "Не могу да примим податке о проблему од DBUS сервиса: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:179
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "Не могу да примим списак проблема од DBus сервиса: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:195
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Не могу да обришем проблем преко DBus сервиса: {0!s}"
 
@@ -247,36 +249,23 @@ msgstr "Верзија"
 msgid "Detected"
 msgstr "Откривено"
 
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
-msgstr ""
-"<a href=\"https://glade.gnome.org/\">Чување места за веома дугачак URL</a>"
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr "<a href=\"https://github.com/abrt/gnome-abrt\">Чување места за URL</a>"
-
-#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
+#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
 msgid "Reported"
 msgstr "Пријављено"
 
-#: ../src/gnome_abrt/oops.glade.h:23
-msgid "button"
-msgstr "дугме"
-
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No problems detected!"
 msgstr "Нема откривених проблема!"
 
-#: ../src/gnome_abrt/oops.glade.h:25
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source selected!"
 msgstr "Нема означених извора!"
 
-#: ../src/gnome_abrt/oops.glade.h:26
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source"
 msgstr "Нема извора"
 
-#: ../src/gnome_abrt/problems.py:467
+#: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "Није пронађено у кешу него у обрисаном: {0}"
@@ -298,8 +287,7 @@ msgstr "Прошле недеље"
 #. 2 weeks ago nor for more than one month ago. However, the singular
 #. form is necessary for some languages which do not have plural.
 #: ../src/gnome_abrt/tools.py:67
-#, python-brace-format
-#, fuzzy
+#, fuzzy, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] "Прошле недеље"
@@ -314,8 +302,7 @@ msgstr "Прошли месец"
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
 #: ../src/gnome_abrt/tools.py:75
-#, python-brace-format
-#, fuzzy
+#, fuzzy, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] "Прошли месец"
@@ -332,61 +319,90 @@ msgstr "Прошле године"
 #. languages which do not have plural (Chinese, Japanese, Korean)
 #. or reuse the singular form for some plural cases (21 in Russian).
 #: ../src/gnome_abrt/tools.py:85
-#, python-brace-format
-#, fuzzy
+#, fuzzy, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] "Прошле године"
 msgstr[1] "{0:d} година раније"
 msgstr[2] "{0:d} година раније"
 
-#: ../src/gnome_abrt/views.py:283
+#: ../src/gnome_abrt/tools.py:115
+#, fuzzy, python-brace-format
+msgid "Failed to find icon '{0}'"
+msgstr "Неуспешно учитавање дефиниције корисничког окружења"
+
+#: ../src/gnome_abrt/tools.py:122
+#, fuzzy, python-brace-format
+msgid "Failed to load icon '{0}': {1}"
+msgstr "Неуспешно учитавање дефиниције корисничког окружења"
+
+#. Translators: These are the problem types displayed in the problem
+#. list under the application name
+#: ../src/gnome_abrt/views.py:149
+msgid "Application Crash"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:151
+#, fuzzy
+msgid "System Crash"
+msgstr "Систем"
+
+#: ../src/gnome_abrt/views.py:153
+#, fuzzy
+msgid "System Failure"
+msgstr "Фатална системска грешка"
+
+#: ../src/gnome_abrt/views.py:155
+msgid "Misbehavior"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:315
 msgid "Failed to load UI definition"
 msgstr "Неуспешно учитавање дефиниције корисничког окружења"
 
-#: ../src/gnome_abrt/views.py:818
+#: ../src/gnome_abrt/views.py:831
 msgid "Unexpected system error"
 msgstr "Неочекивана системска грешка"
 
-#: ../src/gnome_abrt/views.py:820
+#: ../src/gnome_abrt/views.py:833
 msgid "The system has encountered a problem and recovered."
 msgstr "Систем је наишао на проблем и опоравио се."
 
-#: ../src/gnome_abrt/views.py:823
+#: ../src/gnome_abrt/views.py:836
 msgid "Fatal system failure"
 msgstr "Фатална системска грешка"
 
-#: ../src/gnome_abrt/views.py:825
+#: ../src/gnome_abrt/views.py:838
 msgid "The system has encountered a problem and could not continue."
 msgstr "Систем је наишао на проблем и не може наставити."
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:851
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} проблема је откривено"
 
-#: ../src/gnome_abrt/views.py:842
+#: ../src/gnome_abrt/views.py:855
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} неочекиваних прекида"
 
-#: ../src/gnome_abrt/views.py:845
+#: ../src/gnome_abrt/views.py:858
 msgid "The application encountered a problem and could not continue."
 msgstr "Програм је наишао на проблем и не може наставити."
 
-#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
+#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:885
 msgid "cannot be reported"
 msgstr "не може бити пријављено"
 
-#: ../src/gnome_abrt/views.py:883
+#: ../src/gnome_abrt/views.py:890
 msgid "Reports"
 msgstr "Извештаји"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:896
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -398,11 +414,11 @@ msgstr ""
 "Молим да размотрите <b>пријављивање</b> на Bugzilla-у да бисте им пружили то."
 " Хвала."
 
-#: ../src/gnome_abrt/views.py:894
+#: ../src/gnome_abrt/views.py:901
 msgid "yes"
 msgstr "да"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:903
 msgid "no"
 msgstr "не"
 

@@ -14,11 +14,12 @@
 # noriko <noriko@fedoraproject.org>, 2012
 # noriko <noriko@fedoraproject.org>, 2010
 # Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2015. #zanata
+# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 15:09+0200\n"
+"POT-Creation-Date: 2016-02-11 11:46+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,37 +29,37 @@ msgstr ""
 "language/ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:265
+#: ../src/gnome-abrt:275
 msgid "My"
 msgstr "ユーザー"
 
-#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
+#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
 msgid "System"
 msgstr "システム"
 
-#: ../src/gnome-abrt:288
+#: ../src/gnome-abrt:298
 msgid "_Preferences"
 msgstr "設定 (_P)"
 
-#: ../src/gnome-abrt:289
+#: ../src/gnome-abrt:299
 msgid "_ABRT Configuration"
 msgstr "ABRT 設定 (_A)"
 
-#: ../src/gnome-abrt:290
+#: ../src/gnome-abrt:300
 msgid "_Report problem with ABRT"
 msgstr "ABRT で問題を報告する (_R)"
 
-#: ../src/gnome-abrt:294
+#: ../src/gnome-abrt:304
 msgid "_About"
 msgstr "gnome-abrt について (_A)"
 
-#: ../src/gnome-abrt:295
+#: ../src/gnome-abrt:305
 msgid "_Quit"
 msgstr "終了 (_Q)"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
 msgid "Problem Reporting"
 msgstr "問題の報告"
 
@@ -93,19 +94,19 @@ msgstr "DBus システムバス '{0}' のパス '{1}' に接続できません: 
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "バス '{2}' 内のパス '{1}' のインターフェース '{0}' を取得できません: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:154
+#: ../src/gnome_abrt/dbus_problems.py:153
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "DBus サービス: {1!s} で問題 '{0}' を chown できません"
 
-#: ../src/gnome_abrt/dbus_problems.py:170
+#: ../src/gnome_abrt/dbus_problems.py:168
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus サービス: {0!s} から問題のデータを取得できません"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:179
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus サービス: {0!s} から問題の一覧を取得できません"
 
-#: ../src/gnome_abrt/dbus_problems.py:195
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus サービス: {0!s} で問題を削除できません"
 
@@ -242,112 +243,151 @@ msgstr "バージョン"
 msgid "Detected"
 msgstr "検出されました"
 
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
+#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
 msgid "Reported"
 msgstr "報告済み"
 
-#: ../src/gnome_abrt/oops.glade.h:23
-msgid "button"
-msgstr ""
-
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No problems detected!"
 msgstr "問題は検出されませんでした!"
 
-#: ../src/gnome_abrt/oops.glade.h:25
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source selected!"
 msgstr "ソースが選択されていません!"
 
-#: ../src/gnome_abrt/oops.glade.h:26
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source"
 msgstr "ソースがありません"
 
-#: ../src/gnome_abrt/problems.py:467
+#: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "キャッシュ内では見つかりませんが削除されました: {0}"
 
-#: ../src/gnome_abrt/tools.py:34
+#: ../src/gnome_abrt/tools.py:42
 msgid "Future"
 msgstr "今後"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "昨日"
 
-#: ../src/gnome_abrt/tools.py:50
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 weeks ago nor for more than one month ago. However, the singular
+#. form is necessary for some languages which do not have plural.
+#: ../src/gnome_abrt/tools.py:67
+#, python-brace-format
+msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:53
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 months ago nor for more than one year ago. See the comment above.
+#: ../src/gnome_abrt/tools.py:75
+#, python-brace-format
+msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:56
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 years ago. However, the singular form is necessary for some
+#. languages which do not have plural (Chinese, Japanese, Korean)
+#. or reuse the singular form for some plural cases (21 in Russian).
+#: ../src/gnome_abrt/tools.py:85
+#, python-brace-format
+msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
 
-#: ../src/gnome_abrt/views.py:283
+#: ../src/gnome_abrt/tools.py:115
+#, fuzzy, python-brace-format
+msgid "Failed to find icon '{0}'"
+msgstr "UI 定義の読み込みに失敗しました"
+
+#: ../src/gnome_abrt/tools.py:122
+#, fuzzy, python-brace-format
+msgid "Failed to load icon '{0}': {1}"
+msgstr "UI 定義の読み込みに失敗しました"
+
+#. Translators: These are the problem types displayed in the problem
+#. list under the application name
+#: ../src/gnome_abrt/views.py:149
+msgid "Application Crash"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:151
+#, fuzzy
+msgid "System Crash"
+msgstr "システム"
+
+#: ../src/gnome_abrt/views.py:153
+#, fuzzy
+msgid "System Failure"
+msgstr "致命的なシステム障害"
+
+#: ../src/gnome_abrt/views.py:155
+msgid "Misbehavior"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:315
 msgid "Failed to load UI definition"
 msgstr "UI 定義の読み込みに失敗しました"
 
-#: ../src/gnome_abrt/views.py:818
+#: ../src/gnome_abrt/views.py:831
 msgid "Unexpected system error"
 msgstr "予期しないシステムエラー"
 
-#: ../src/gnome_abrt/views.py:820
+#: ../src/gnome_abrt/views.py:833
 msgid "The system has encountered a problem and recovered."
 msgstr "システムが問題に遭遇したので回復しました。"
 
-#: ../src/gnome_abrt/views.py:823
+#: ../src/gnome_abrt/views.py:836
 msgid "Fatal system failure"
 msgstr "致命的なシステム障害"
 
-#: ../src/gnome_abrt/views.py:825
+#: ../src/gnome_abrt/views.py:838
 msgid "The system has encountered a problem and could not continue."
 msgstr "システムが問題に遭遇したので続行できません。"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:851
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} 件の問題が検出されました"
 
-#: ../src/gnome_abrt/views.py:842
+#: ../src/gnome_abrt/views.py:855
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:845
+#: ../src/gnome_abrt/views.py:858
 msgid "The application encountered a problem and could not continue."
 msgstr "アプリケーションが問題に遭遇したので続行できません。"
 
-#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
+#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
 msgid "N/A"
 msgstr "該当なし"
 
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:885
 msgid "cannot be reported"
 msgstr "報告できません"
 
-#: ../src/gnome_abrt/views.py:883
+#: ../src/gnome_abrt/views.py:890
 msgid "Reports"
 msgstr "報告"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:896
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -358,11 +398,11 @@ msgstr ""
 "チケットがオープンされていません。開発者側で問題の修正にさらに詳細な情報を必要としている可能性があります。\n"
 "開発者側で対応できるよう Bugzilla への<b>報告</b>もご検討ください。ご協力ありがとうございます。"
 
-#: ../src/gnome_abrt/views.py:894
+#: ../src/gnome_abrt/views.py:901
 msgid "yes"
 msgstr "はい"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:903
 msgid "no"
 msgstr "いいえ"
 

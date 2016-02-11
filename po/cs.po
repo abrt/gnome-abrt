@@ -6,11 +6,13 @@
 # Jakub Filak <jfilak@redhat.com>, 2012
 # Jakub Filak <jfilak@redhat.com>, 2015. #zanata
 # Jiri Eischmann <jiri@eischmann.cz>, 2015. #zanata
+# Jakub Filak <jfilak@redhat.com>, 2016. #zanata
+# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 15:09+0200\n"
+"POT-Creation-Date: 2016-02-11 11:46+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,37 +21,37 @@ msgstr ""
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:265
+#: ../src/gnome-abrt:275
 msgid "My"
 msgstr "Moje"
 
-#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
+#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
 msgid "System"
 msgstr "Systémové"
 
-#: ../src/gnome-abrt:288
+#: ../src/gnome-abrt:298
 msgid "_Preferences"
 msgstr "_Předvolby"
 
-#: ../src/gnome-abrt:289
+#: ../src/gnome-abrt:299
 msgid "_ABRT Configuration"
 msgstr "Nastavení _ABRT"
 
-#: ../src/gnome-abrt:290
+#: ../src/gnome-abrt:300
 msgid "_Report problem with ABRT"
 msgstr "_Nahlásit problém s ABRT"
 
-#: ../src/gnome-abrt:294
+#: ../src/gnome-abrt:304
 msgid "_About"
 msgstr "_O aplikaci"
 
-#: ../src/gnome-abrt:295
+#: ../src/gnome-abrt:305
 msgid "_Quit"
 msgstr "_Ukončit"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
 msgid "Problem Reporting"
 msgstr "Hlášení problemů"
 
@@ -90,19 +92,19 @@ msgstr ""
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "Nelze získat rozhraní '{0}' na cestě '{1}' sběrnice '{2}': {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:154
+#: ../src/gnome_abrt/dbus_problems.py:153
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "Nelze změnit vlastníka  problému '{0}' přes službu DBus: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:170
+#: ../src/gnome_abrt/dbus_problems.py:168
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "Nelze získat data problému pomocí služby DBus: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:179
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "Nelze získat seznam všech problémů pomocí služby DBus: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:195
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Nelze smazat problémů pomocí služby DBus: {0!s}"
 
@@ -246,35 +248,23 @@ msgstr "Verze"
 msgid "Detected"
 msgstr "Detekován"
 
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
-msgstr "<a href=\"https://glade.gnome.org/\">Příliš dlouhé zástupné URL</a>"
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr "Zástupné URL"
-
-#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
+#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
 msgid "Reported"
 msgstr "Reportováno"
 
-#: ../src/gnome_abrt/oops.glade.h:23
-msgid "button"
-msgstr "tlačítko"
-
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No problems detected!"
 msgstr "Žádné problémy nedetekovány!"
 
-#: ../src/gnome_abrt/oops.glade.h:25
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source selected!"
 msgstr "Nevybrán žádný zdroj!"
 
-#: ../src/gnome_abrt/oops.glade.h:26
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source"
 msgstr "Žádný zdroj"
 
-#: ../src/gnome_abrt/problems.py:467
+#: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "Nenalzeno ve vyrovnávací paměti ale smazáno: {0}"
@@ -332,53 +322,83 @@ msgstr[0] "Minulý rok"
 msgstr[1] "Před {0:d} lety"
 msgstr[2] "Před {0:d} lety"
 
-#: ../src/gnome_abrt/views.py:283
+#: ../src/gnome_abrt/tools.py:115
+#, fuzzy, python-brace-format
+msgid "Failed to find icon '{0}'"
+msgstr "Selhalo načtení definice UI"
+
+#: ../src/gnome_abrt/tools.py:122
+#, fuzzy, python-brace-format
+msgid "Failed to load icon '{0}': {1}"
+msgstr "Selhalo načtení definice UI"
+
+#. Translators: These are the problem types displayed in the problem
+#. list under the application name
+#: ../src/gnome_abrt/views.py:149
+msgid "Application Crash"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:151
+#, fuzzy
+msgid "System Crash"
+msgstr "Systémové"
+
+#: ../src/gnome_abrt/views.py:153
+#, fuzzy
+msgid "System Failure"
+msgstr "Fatální selhání systému"
+
+#: ../src/gnome_abrt/views.py:155
+msgid "Misbehavior"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:315
 msgid "Failed to load UI definition"
 msgstr "Selhalo načtení definice UI"
 
-#: ../src/gnome_abrt/views.py:818
+#: ../src/gnome_abrt/views.py:831
 msgid "Unexpected system error"
 msgstr "Neočekávaná systémová chyba"
 
-#: ../src/gnome_abrt/views.py:820
+#: ../src/gnome_abrt/views.py:833
 msgid "The system has encountered a problem and recovered."
 msgstr "Systém zaznamenal chuby a zotavil se z ní."
 
-#: ../src/gnome_abrt/views.py:823
+#: ../src/gnome_abrt/views.py:836
 msgid "Fatal system failure"
 msgstr "Fatální selhání systému"
 
-#: ../src/gnome_abrt/views.py:825
+#: ../src/gnome_abrt/views.py:838
 msgid "The system has encountered a problem and could not continue."
 msgstr "Systém zaznamenal chybu a přestal pracovat"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:851
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "Problém {0} byl detekován"
 
-#: ../src/gnome_abrt/views.py:842
+#: ../src/gnome_abrt/views.py:855
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} neočekávaně skončil"
 
-#: ../src/gnome_abrt/views.py:845
+#: ../src/gnome_abrt/views.py:858
 msgid "The application encountered a problem and could not continue."
 msgstr "Applikace zaznamenala chybu a přestala pracovat"
 
-#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
+#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
 msgid "N/A"
 msgstr "Nedostupné"
 
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:885
 msgid "cannot be reported"
 msgstr "nemůže být nahlášen"
 
-#: ../src/gnome_abrt/views.py:883
+#: ../src/gnome_abrt/views.py:890
 msgid "Reports"
 msgstr "Hlášení"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:896
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -390,11 +410,11 @@ msgstr ""
 "vyřešit tento problém. Zvažte prosím také nahlášení do Bugzilly, kde můžete "
 "více informací poskytnout. Děkujeme."
 
-#: ../src/gnome_abrt/views.py:894
+#: ../src/gnome_abrt/views.py:901
 msgid "yes"
 msgstr "ano"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:903
 msgid "no"
 msgstr "ne"
 

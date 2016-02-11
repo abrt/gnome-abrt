@@ -1,9 +1,10 @@
 # Kuylim Tith <kuylim.tith@gmail.com>, 2015. #zanata
+# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 15:09+0200\n"
+"POT-Creation-Date: 2016-02-11 11:46+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,38 +12,38 @@ msgstr ""
 "Last-Translator: Kuylim Tith <kuylim.tith@gmail.com>\n"
 "Language-Team: Khmer\n"
 "Language: km\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.2\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: ../src/gnome-abrt:265
+#: ../src/gnome-abrt:275
 msgid "My"
 msgstr "របស់ខ្ញុំ"
 
-#: ../src/gnome-abrt:268 ../src/gnome_abrt/views.py:135
+#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
 msgid "System"
 msgstr "ប្រព័ន្ធ"
 
-#: ../src/gnome-abrt:288
+#: ../src/gnome-abrt:298
 msgid "_Preferences"
 msgstr "_ចំណង់ចំនូលចិត្ដ"
 
-#: ../src/gnome-abrt:289
+#: ../src/gnome-abrt:299
 msgid "_ABRT Configuration"
 msgstr "_ការកំណត់ ABRT"
 
-#: ../src/gnome-abrt:290
+#: ../src/gnome-abrt:300
 msgid "_Report problem with ABRT"
 msgstr "_រាយការណ៍បញ្ហារបស់ ABRT"
 
-#: ../src/gnome-abrt:294
+#: ../src/gnome-abrt:304
 msgid "_About"
 msgstr "_អំពី"
 
-#: ../src/gnome-abrt:295
+#: ../src/gnome-abrt:305
 msgid "_Quit"
 msgstr "_ចាកចេញ"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
+#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
 msgid "Problem Reporting"
 msgstr "_ការរាយការណ៍បញ្ហា"
 
@@ -80,19 +81,19 @@ msgstr "មិនអាចភ្ជាប់ទៅកាន់ ប្រព័�
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "មិនអាចទទួលចំណុចប្រទាក់ '{0}' លើផ្លូវ '{1}' ក្នុង ខ្សែរ '{2}':{3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:154
+#: ../src/gnome_abrt/dbus_problems.py:153
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "មិនអាចបញ្ហាញបញ្ហា '{0}' លើសេវា DBus {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:170
+#: ../src/gnome_abrt/dbus_problems.py:168
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "មិនអាចទទួលបញ្ហារបស់ទិន្នន័យ ពីសេវា DBus: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:181
+#: ../src/gnome_abrt/dbus_problems.py:179
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "មិនអាចទទួល បញ្ជីបញ្ហាពីសេវា DBus: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:195
+#: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "មិនអាចលុបបញ្ហាលើសេវា DBus : {0!s}"
 
@@ -236,112 +237,151 @@ msgstr "កំណែ"
 msgid "Detected"
 msgstr "បានរកឃើញ"
 
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
-msgstr "<a href=\"https://glade.gnome.org/\">កន្លែងដាក់វែងពេកក្នុង URL tile</a>"
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr "<a href=\"https://github.com/abrt/gnome-abrt\">កន្លែងដាក់ URL</a>"
-
-#: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
+#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
 msgid "Reported"
 msgstr "បានរាយការណ៍"
 
-#: ../src/gnome_abrt/oops.glade.h:23
-msgid "button"
-msgstr "ប៊ូតុង"
-
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No problems detected!"
 msgstr "គ្មានបញ្ហាណាមួយត្រូវបានរកឃើញ!"
 
-#: ../src/gnome_abrt/oops.glade.h:25
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source selected!"
 msgstr "គ្មានប្រភពណាមួយត្រូវបានជ្រើសរើស!"
 
-#: ../src/gnome_abrt/oops.glade.h:26
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source"
 msgstr "គ្មានប្រភព"
 
-#: ../src/gnome_abrt/problems.py:467
+#: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "មិនបានរកឃើញក្នុងឃ្លាំងសម្ងាត់ ប៉ុន្ដែត្រូវបានរកឃើញក្នុង៖ {0}"
 
-#: ../src/gnome_abrt/tools.py:34
+#: ../src/gnome_abrt/tools.py:42
 msgid "Future"
 msgstr "អនាគត"
 
-#: ../src/gnome_abrt/tools.py:41
+#: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "ម្សិលមិញ"
 
-#: ../src/gnome_abrt/tools.py:50
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 weeks ago nor for more than one month ago. However, the singular
+#. form is necessary for some languages which do not have plural.
+#: ../src/gnome_abrt/tools.py:67
+#, python-brace-format
+msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:53
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 months ago nor for more than one year ago. See the comment above.
+#: ../src/gnome_abrt/tools.py:75
+#, python-brace-format
+msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
 
-#: ../src/gnome_abrt/tools.py:56
-#, python-brace-format
+#: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
+msgstr ""
+
+#. Translators: This message will never be used for less than
+#. 2 years ago. However, the singular form is necessary for some
+#. languages which do not have plural (Chinese, Japanese, Korean)
+#. or reuse the singular form for some plural cases (21 in Russian).
+#: ../src/gnome_abrt/tools.py:85
+#, python-brace-format
+msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
 
-#: ../src/gnome_abrt/views.py:283
+#: ../src/gnome_abrt/tools.py:115
+#, fuzzy, python-brace-format
+msgid "Failed to find icon '{0}'"
+msgstr "បរាជ័យក្នុងការផ្ទុក និយមន័យ UI"
+
+#: ../src/gnome_abrt/tools.py:122
+#, fuzzy, python-brace-format
+msgid "Failed to load icon '{0}': {1}"
+msgstr "បរាជ័យក្នុងការផ្ទុក និយមន័យ UI"
+
+#. Translators: These are the problem types displayed in the problem
+#. list under the application name
+#: ../src/gnome_abrt/views.py:149
+msgid "Application Crash"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:151
+#, fuzzy
+msgid "System Crash"
+msgstr "ប្រព័ន្ធ"
+
+#: ../src/gnome_abrt/views.py:153
+#, fuzzy
+msgid "System Failure"
+msgstr "ប្រព័ន្ធត្រូវបានបរាជ័យយ៉ាងធ្ងន់ធ្ងរ"
+
+#: ../src/gnome_abrt/views.py:155
+msgid "Misbehavior"
+msgstr ""
+
+#: ../src/gnome_abrt/views.py:315
 msgid "Failed to load UI definition"
 msgstr "បរាជ័យក្នុងការផ្ទុក និយមន័យ UI"
 
-#: ../src/gnome_abrt/views.py:818
+#: ../src/gnome_abrt/views.py:831
 msgid "Unexpected system error"
 msgstr "កំហុសប្រព័ន្ធដែលមិនបានរំពឹងទុក"
 
-#: ../src/gnome_abrt/views.py:820
+#: ../src/gnome_abrt/views.py:833
 msgid "The system has encountered a problem and recovered."
 msgstr "ប្រព័ន្ធបានជួបប្រទះបញ្ហា និង បានយកមកវិញ ។"
 
-#: ../src/gnome_abrt/views.py:823
+#: ../src/gnome_abrt/views.py:836
 msgid "Fatal system failure"
 msgstr "ប្រព័ន្ធត្រូវបានបរាជ័យយ៉ាងធ្ងន់ធ្ងរ"
 
-#: ../src/gnome_abrt/views.py:825
+#: ../src/gnome_abrt/views.py:838
 msgid "The system has encountered a problem and could not continue."
 msgstr "ប្រព័ន្ធបានជួបនឹងបញ្ហានិងមិនអាចបន្ដទៅមុខ ។"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:851
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} បញ្ហាត្រូវបានរកឃើញ"
 
-#: ../src/gnome_abrt/views.py:842
+#: ../src/gnome_abrt/views.py:855
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} ចាកចេញដោយមិនបានរំពឹងទុក"
 
-#: ../src/gnome_abrt/views.py:845
+#: ../src/gnome_abrt/views.py:858
 msgid "The application encountered a problem and could not continue."
 msgstr "កម្មវិធីជួបប្រទះនិឹងបញ្ហា ហើយមិនអាចបន្ដទៅមុខបាន ។"
 
-#: ../src/gnome_abrt/views.py:848 ../src/gnome_abrt/views.py:850
+#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
 msgid "N/A"
 msgstr "មិនអាចរកបាន"
 
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:885
 msgid "cannot be reported"
 msgstr "មិនអាចរាយការណ៍បាន"
 
-#: ../src/gnome_abrt/views.py:883
+#: ../src/gnome_abrt/views.py:890
 msgid "Reports"
 msgstr "ការរាយការណ៍"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:896
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -353,11 +393,11 @@ msgstr ""
 "សូមពិចារណាផងដែរលើ <b> កំពុងរាយការណ៍អំពីវា</b> ទៅកាន់ Bugzilla "
 "ក្នុងគោលបំណងផ្ដល់ព័ត៌មាន ។ សូមអរគុណ ។"
 
-#: ../src/gnome_abrt/views.py:894
+#: ../src/gnome_abrt/views.py:901
 msgid "yes"
 msgstr "បាទ​/ចាស"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:903
 msgid "no"
 msgstr "ទេ"
 

@@ -107,6 +107,25 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Feb 18 2016 Jakub Filak <jfilak@redhat.com> 1.2.2-1
+- Translation updates
+- Translation updates
+- Remove cs_CZ translation
+- Do not translate the temporary developer's strings
+- Fix the plural/singular translations for fancydate
+- Details pane: new design
+- add new translation to LINGUAS
+- Update translations
+- Make the code compatible with Pylint-1.5.2
+- Do not pass None to function expecting str object
+- Add kudos to the AppData file
+- Hook README.md in the spec file
+- Tell Automake to not require README
+- Update README and CONTRIBUTING
+- Problem type included in the problem list
+- Scroll whole details panel instead of its single widgets
+- Fix broken build caused by pylint warning
+
 * Thu Nov 19 2015 Jakub Filak <jfilak@redhat.com> 1.2.1-1
 - Translation updates
 - Update zanata client configuration

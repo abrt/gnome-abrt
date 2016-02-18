@@ -5,7 +5,7 @@
 # Translators:
 # Yulia <ypoyarko@redhat.com>, 2011-2012
 # Yulia <yulia.poyarkova@redhat.com>, 2013-2014
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# yuliya <ypoyarko@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-05 04:30-0500\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"PO-Revision-Date: 2016-02-12 02:31-0500\n"
+"Last-Translator: yuliya <ypoyarko@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/ru/)\n"
 "Language: ru\n"
@@ -53,7 +53,7 @@ msgstr "В_ыход"
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Создание отчетов об ошибках"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -72,11 +72,13 @@ msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"Ее главная цель заключается в облегчении процесса формирования отчетности и "
+"поиска решений."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 #, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr "Не удалось добавить получателя сигнала  «{0}» по пути DBus «{1}»: {2}"
+msgstr "Не удалось добавить получателя сигнала «{0}» на DBus «{1}»: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 #, python-brace-format
@@ -190,11 +192,11 @@ msgstr "Открыть проблему для анализа"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "П_одробности"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "Показать подробную информацию"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -202,21 +204,21 @@ msgstr "_Все проблемы"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"
-msgstr "Показать проблемы для всех пользователей"
+msgstr "Показать проблемы всех пользователей"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Open problem's data directory"
-msgstr "_Открыть каталог проблемы"
+msgstr "_Открыть каталог"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr "Открывает каталог данных выбранной проблемы в менеджере файлов"
+msgstr "Открывает каталог с данными выбранной проблемы в менеджере файлов"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Copy problem's ID to Clipboard"
-msgstr "_Скопировать ID ошибки в буфер"
+msgstr "_Копировать ID ошибки в буфер"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Stores the selected problem's ID in Clibpoard"
@@ -224,11 +226,11 @@ msgstr "Копирует идентификатор выбранной проб�
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "_Фильтр"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "Показать панель фильтра"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -244,11 +246,11 @@ msgstr "Обнаружено"
 
 #: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
 msgid "Reported"
-msgstr "Отправлено"
+msgstr "Сообщено"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "No problems detected!"
-msgstr "Ошибки не обнаружены."
+msgstr "Ошибок не обнаружено"
 
 #: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source selected!"
@@ -261,7 +263,7 @@ msgstr "Нет источника"
 #: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
-msgstr "Не найдено в кэше, но удалено: {0}"
+msgstr "В кэше не найдено, но удалено: {0}"
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -273,7 +275,7 @@ msgstr "Вчера"
 
 #: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "За последнюю неделю"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -282,13 +284,13 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0:d} неделю назад"
+msgstr[1] "{0:d} недели назад"
+msgstr[2] "{0:d} недель назад"
 
 #: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "За последний месяц"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -296,13 +298,13 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0:d} месяц назад"
+msgstr[1] "{0:d} месяца назад"
+msgstr[2] "{0:d} месяцев назад"
 
 #: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "За последний год"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -312,73 +314,76 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0:d} год назад"
+msgstr[1] "{0:d} года назад"
+msgstr[2] "{0:d} лет назад"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "Не удалось загрузить определение интерфейса пользователя."
+msgstr "Значок «%s» не найден."
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "Не удалось загрузить определение интерфейса пользователя."
+msgstr "Не удалось загрузить значок «{0}»: {1}C"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: ../src/gnome_abrt/views.py:149
 msgid "Application Crash"
-msgstr ""
+msgstr "Сбой приложения"
 
 #: ../src/gnome_abrt/views.py:151
-#, fuzzy
 msgid "System Crash"
-msgstr "Система"
+msgstr "Сбой системы"
 
 #: ../src/gnome_abrt/views.py:153
-#, fuzzy
 msgid "System Failure"
-msgstr "Система"
+msgstr "Отказ системы"
 
 #: ../src/gnome_abrt/views.py:155
 msgid "Misbehavior"
-msgstr ""
+msgstr "Отклонения в работе"
 
 #: ../src/gnome_abrt/views.py:315
 msgid "Failed to load UI definition"
-msgstr "Не удалось загрузить определение интерфейса пользователя."
+msgstr ""
+"Не удалось загрузить определение графического интерфейса пользователя."
 
 #: ../src/gnome_abrt/views.py:831
 msgid "Unexpected system error"
-msgstr ""
+msgstr "Непредвиденная ошибка системы"
 
 #: ../src/gnome_abrt/views.py:833
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "В системе произошла ошибка, которая была успешно исправлена."
 
 #: ../src/gnome_abrt/views.py:836
 msgid "Fatal system failure"
-msgstr ""
+msgstr "Критическая  ошибка системы"
 
 #: ../src/gnome_abrt/views.py:838
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
+"В системе произошла критическая ошибка, поэтому продолжение работы "
+"невозможно."
 
 #: ../src/gnome_abrt/views.py:851
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "Обнаружена {0} проблема."
+msgstr "Обнаружена ошибка {0}."
 
 #: ../src/gnome_abrt/views.py:855
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "Работа {0} была неожиданно завершена"
 
 #: ../src/gnome_abrt/views.py:858
 msgid "The application encountered a problem and could not continue."
 msgstr ""
+"При выполнении приложения произошла критическая ошибка, поэтому оно не может "
+"продолжить работу."
 
 #: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
 msgid "N/A"
@@ -386,7 +391,7 @@ msgstr "нет"
 
 #: ../src/gnome_abrt/views.py:885
 msgid "cannot be reported"
-msgstr "не может быть добавлен в отчет"
+msgstr "не может быть включено в отчетность"
 
 #: ../src/gnome_abrt/views.py:890
 msgid "Reports"

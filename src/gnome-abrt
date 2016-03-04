@@ -69,8 +69,6 @@ from gnome_abrt.l10n import _
 #pylint: disable=C0413
 from gnome_abrt.config import get_configuration
 #pylint: disable=C0413
-from gnome_abrt.dialogs import show_report_problem_with_abrt
-#pylint: disable=C0413
 from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
                                          GetURLTitleSourceCache)
 
@@ -295,8 +293,6 @@ class OopsApplication(Gtk.Application):
 
         menu = Gio.Menu()
         menu.append(_("_Preferences"), "app.preferences")
-        menu.append(_("_Report problem with ABRT"),
-                    "app.report-problem-with-abrt")
 
         sub_menu = Gio.Menu()
         sub_menu.append(_("_About"), "app.about")
@@ -305,10 +301,6 @@ class OopsApplication(Gtk.Application):
 
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)
-        self.add_action(action)
-
-        action = Gio.SimpleAction.new("report-problem-with-abrt", None)
-        action.connect("activate", self.on_action_report_problem_with_abrt)
         self.add_action(action)
 
         action = Gio.SimpleAction.new("about", None)
@@ -365,11 +357,6 @@ class OopsApplication(Gtk.Application):
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):
         self.quit()
-
-    #pylint: disable=W0613
-    def on_action_report_problem_with_abrt(self, action, parameter):
-        self.add_window(show_report_problem_with_abrt())
-
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))

@@ -46,3 +46,12 @@ def init(progname, localedir='/usr/share/locale'):
                                     locale.nl_langinfo(locale.CODESET))
     gettext.bindtextdomain(progname, localedir)
     gettext.textdomain(progname)
+
+def pgettext(context, message):
+    result = gettext.gettext(context + "\004" + message)
+    if "\004" in result:
+        return message
+    else:
+        return result
+
+C_ = pgettext

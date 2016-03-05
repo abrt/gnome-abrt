@@ -47,7 +47,7 @@ import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
 from gnome_abrt.tools import fancydate, smart_truncate, load_icon
 from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
-from gnome_abrt.l10n import _, GETTEXT_PROGNAME
+from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
 
 def list_box_row_to_problem(list_box_row):
@@ -140,7 +140,10 @@ def problem_to_storage_values(problem):
         name = problem['human_type']
 
     if name == "kernel":
-        name = _("System")
+        # Translators: if the kernel crashed we display the word "System"
+        # instead of "kernel". In this context "System" is like a proper
+        # package name, probably a nominative noun.
+        name = C_("package name", "System")
 
     problem_type = problem['type']
     if problem_type == "CCpp":

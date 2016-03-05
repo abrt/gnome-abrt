@@ -65,7 +65,7 @@ from gnome_abrt.dbus_problems import (get_standard_problems_source,
 #pylint: disable=C0413
 from gnome_abrt.errors import UnavailableSource
 #pylint: disable=C0413
-from gnome_abrt.l10n import _
+from gnome_abrt.l10n import _, C_
 #pylint: disable=C0413
 from gnome_abrt.config import get_configuration
 #pylint: disable=C0413
@@ -269,10 +269,28 @@ class OopsApplication(Gtk.Application):
                     raise UnavailableSource(None, None,
                             message="No available problem source.")
 
+                # pylint: disable=W0105
+                '''
+                This is a trick to make xgettext think we are C language
+                and emit the translators comment correctly.  It's a bug
+                in xgettext that it recognizes Python files only after
+                their .py extension, there is no way to force the format.
+                See: bugs.launchpad.net/intltool/+bug/377872
+                // Translators: a list header, "My" is a shortcut for "My bugs"
+                _("My")
+                '''
                 self.all_sources = [(_("My"), MultipleSources(sources))]
 
                 try:
-                    self.all_sources.append((_("System"),
+                    # pylint: disable=W0105
+                    '''
+                    The same trick as above:
+                    // Translators: a list header, a shortcut for "System
+                    // bugs". In this context "System" may be an adjective
+                    // or a genitive noun, as required by your language.
+                    C_("bugs", "System")
+                    '''
+                    self.all_sources.append((C_("bugs", "System"),
                                 get_foreign_problems_source()))
                 except UnavailableSource as ex:
                     logging.warning(str(ex))

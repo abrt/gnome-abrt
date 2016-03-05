@@ -329,7 +329,7 @@ class OopsApplication(Gtk.Application):
         dialog.set_icon_name("abrt")
         dialog.set_version(gnome_abrt.VERSION)
         dialog.set_logo_icon_name("abrt")
-        dialog.set_program_name("ABRT")
+        dialog.set_program_name(_("Problem Reporting"))
         dialog.set_copyright("Copyright © 2012 Red Hat, Inc")
         dialog.set_license(
     "This program is free software; you can redistribut"

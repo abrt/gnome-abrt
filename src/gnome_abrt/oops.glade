@@ -498,7 +498,7 @@
                                         <property name="margin_end">12</property>
                                         <property name="margin_top">8</property>
                                         <property name="margin_bottom">8</property>
-                                        <property name="label" translatable="yes">Detected</property>
+                                        <property name="label" translatable="yes" comments="Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.">First Detected</property>
                                         <style>
                                           <class name="dim-label"/>
                                         </style>

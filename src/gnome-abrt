@@ -25,7 +25,6 @@ import signal
 import locale
 from argparse import ArgumentParser
 from gnome_abrt.wrappers import (show_events_list_dialog,
-                                 show_system_config_abrt_dialog,
                                  can_connect_to_xserver)
 
 if not can_connect_to_xserver():
@@ -66,11 +65,9 @@ from gnome_abrt.dbus_problems import (get_standard_problems_source,
 #pylint: disable=C0413
 from gnome_abrt.errors import UnavailableSource
 #pylint: disable=C0413
-from gnome_abrt.l10n import _
+from gnome_abrt.l10n import _, C_
 #pylint: disable=C0413
 from gnome_abrt.config import get_configuration
-#pylint: disable=C0413
-from gnome_abrt.dialogs import show_report_problem_with_abrt
 #pylint: disable=C0413
 from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
                                          GetURLTitleSourceCache)
@@ -272,10 +269,26 @@ class OopsApplication(Gtk.Application):
                     raise UnavailableSource(None, None,
                             message="No available problem source.")
 
+                '''
+                This is a trick to make xgettext think we are C language
+                and emit the translators comment correctly.  It's a bug
+                in xgettext that it recognizes Python files only after
+                their .py extension, there is no way to force the format.
+                See: bugs.launchpad.net/intltool/+bug/377872
+                // Translators: a list header, "My" is a shortcut for "My bugs"
+                _("My")
+                '''
                 self.all_sources = [(_("My"), MultipleSources(sources))]
 
                 try:
-                    self.all_sources.append((_("System"),
+                    '''
+                    The same trick as above:
+                    // Translators: a list header, a shortcut for "System
+                    // bugs". In this context "System" may be an adjective
+                    // or a genitive noun, as required by your language.
+                    C_("bugs", "System")
+                    '''
+                    self.all_sources.append((C_("bugs", "System"),
                                 get_foreign_problems_source()))
                 except UnavailableSource as ex:
                     logging.warning(str(ex))
@@ -296,9 +309,6 @@ class OopsApplication(Gtk.Application):
 
         menu = Gio.Menu()
         menu.append(_("_Preferences"), "app.preferences")
-        menu.append(_("_ABRT Configuration"), "app.abrt-configuration")
-        menu.append(_("_Report problem with ABRT"),
-                    "app.report-problem-with-abrt")
 
         sub_menu = Gio.Menu()
         sub_menu.append(_("_About"), "app.about")
@@ -307,14 +317,6 @@ class OopsApplication(Gtk.Application):
 
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)
-        self.add_action(action)
-
-        action = Gio.SimpleAction.new("abrt-configuration", None)
-        action.connect("activate", self.on_action_abrt_configuration)
-        self.add_action(action)
-
-        action = Gio.SimpleAction.new("report-problem-with-abrt", None)
-        action.connect("activate", self.on_action_report_problem_with_abrt)
         self.add_action(action)
 
         action = Gio.SimpleAction.new("about", None)
@@ -336,13 +338,6 @@ class OopsApplication(Gtk.Application):
         else:
             show_events_list_dialog()
 
-    def on_action_abrt_configuration(self, action, parameter):
-        windows = self.get_windows()
-        if windows:
-            show_system_config_abrt_dialog(windows[0])
-        else:
-            show_system_config_abrt_dialog()
-
     #pylint: disable=W0613
     def on_action_about(self, action, parameter):
         #pylint: disable=E1120
@@ -350,7 +345,7 @@ class OopsApplication(Gtk.Application):
         dialog.set_icon_name("abrt")
         dialog.set_version(gnome_abrt.VERSION)
         dialog.set_logo_icon_name("abrt")
-        dialog.set_program_name("ABRT")
+        dialog.set_program_name(_("Problem Reporting"))
         dialog.set_copyright("Copyright © 2012 Red Hat, Inc")
         dialog.set_license(
     "This program is free software; you can redistribut"
@@ -378,11 +373,6 @@ class OopsApplication(Gtk.Application):
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):
         self.quit()
-
-    #pylint: disable=W0613
-    def on_action_report_problem_with_abrt(self, action, parameter):
-        self.add_window(show_report_problem_with_abrt())
-
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))

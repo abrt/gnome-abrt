@@ -24,7 +24,6 @@ static char module_doc[] = "gnome-abrt's libreport & abrt wrappers";
 static PyMethodDef module_methods[] = {
     /* method_name, func, flags, doc_string */
     { "show_events_list_dialog", p_show_events_list_dialog, METH_VARARGS, "Open a dialog with event configurations" },
-    { "show_system_config_abrt_dialog", p_show_system_config_abrt_dialog, METH_VARARGS, "Open a dialog with ABRT configuration" },
     { "show_problem_details_for_dir", p_show_problem_details_for_dir, METH_VARARGS, "Open a dialog with technical details" },
     { "get_app_for_cmdline", p_get_app_for_cmdline, METH_VARARGS, "Get the application for a specific command-line" },
     { "get_app_for_env", p_get_app_for_env, METH_VARARGS, "Get the application for a specific environment" },

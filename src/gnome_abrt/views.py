@@ -47,7 +47,7 @@ import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
 from gnome_abrt.tools import fancydate, smart_truncate, load_icon
 from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
-from gnome_abrt.l10n import _, GETTEXT_PROGNAME
+from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
 
 def list_box_row_to_problem(list_box_row):
@@ -140,7 +140,10 @@ def problem_to_storage_values(problem):
         name = problem['human_type']
 
     if name == "kernel":
-        name = _("System")
+        # Translators: if the kernel crashed we display the word "System"
+        # instead of "kernel". In this context "System" is like a proper
+        # package name, probably a nominative noun.
+        name = C_("package name", "System")
 
     problem_type = problem['type']
     if problem_type == "CCpp":
@@ -346,11 +349,30 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.gac_open_directory = builder.get_object('gac_open_directory')
             self.gac_copy_id = builder.get_object('gac_copy_id')
             self.gac_search = builder.get_object('gac_search')
+            self.tbtn_search = builder.get_object('tbtn_search')
+            self.tbtn_multi_select = builder.get_object('tbtn_multi_select')
+
+            GObject.Binding.bind_property(self.tbtn_search, "active",
+                                          self.search_bar, "search-mode-enabled",
+                                          GObject.BindingFlags.BIDIRECTIONAL)
+
+            label = Gtk.Label.new('')
+            label.show()
+            self.lb_problems.set_placeholder(label)
+            label.connect('map', self.placeholder_mapped, self)
+            label.connect('unmap', self.placeholder_unmapped, self)
+
             self.menu_problem_item = builder.get_object('menu_problem_item')
             self.menu_multiple_problems = builder.get_object(
                     'menu_multiple_problems')
             self.ag_accelerators = builder.get_object('ag_accelerators')
             self.header_bar = None
+
+        def placeholder_mapped(self, label, data):
+            self.tbtn_multi_select.set_sensitive(False)
+
+        def placeholder_unmapped(self, label, data):
+            self.tbtn_multi_select.set_sensitive(True)
 
         def connect_signals(self, implementor):
             self._builder.connect_signals(implementor)
@@ -369,6 +391,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
                 self.header_bar = Gtk.HeaderBar.new()
                 self.header_bar.pack_start(self.box_sources_switcher)
+                self.header_bar.pack_start(self.tbtn_search)
                 self.header_bar.pack_start(self.tbtn_multi_select)
                 self.header_bar.pack_end(self.btn_report)
                 self.header_bar.pack_end(self.btn_delete)
@@ -873,6 +896,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             if icon_buf is None:
                 icon_buf = load_icon(name="system-run-symbolic", scale=scale)
+                self._builder.img_app_icon.get_style_context().add_class('dim-label')
+            else:
+                self._builder.img_app_icon.get_style_context().remove_class('dim-label')
 
             # icon_buf can be None and if it is None, no icon will be displayed
             set_icon_from_pixbuf_with_scale(self._builder.img_app_icon,
@@ -914,6 +940,8 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         if tbtn.get_active():
             self._builder.lb_problems.set_selection_mode(
                     Gtk.SelectionMode.MULTIPLE)
+            if self._builder.header_bar is not None:
+                self._builder.header_bar.get_style_context().add_class('selection-mode')
         else:
             row = self._builder.lb_problems.get_selected_row()
             if row is None:
@@ -924,6 +952,9 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 
             if row is not None and self._filter.match(row):
                 self._builder.lb_problems.select_row(row)
+
+            if self._builder.header_bar is not None:
+                self._builder.header_bar.get_style_context().remove_class('selection-mode')
 
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:

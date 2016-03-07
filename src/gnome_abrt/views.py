@@ -139,7 +139,7 @@ def problem_to_storage_values(problem):
     else:
         name = problem['human_type']
 
-    if name == "kernel":
+    if name == "kernel" or name.startswith("kernel-"):
         # Translators: if the kernel crashed we display the word "System"
         # instead of "kernel". In this context "System" is like a proper
         # package name, probably a nominative noun.

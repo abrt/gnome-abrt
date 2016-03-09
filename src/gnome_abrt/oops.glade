@@ -402,8 +402,10 @@
                                             <property name="margin_top">19</property>
                                             <property name="label">Application killed by signal</property>
                                             <property name="wrap">True</property>
+                                            <property name="wrap-mode">word-char</property>
+                                            <property name="width-chars">20</property>
                                             <property name="selectable">True</property>
-                                            <property name="ellipsize">end</property>
+                                            <property name="ellipsize">none</property>
                                             <style>
                                               <class name="oops-reason"/>
                                             </style>

@@ -21,7 +21,7 @@ import sys
 import threading
 import logging
 from urllib.request import urlopen
-from html.parser import HTMLParser, HTMLParseError
+from html.parser import HTMLParser
 
 
 def get_url_title(url):
@@ -85,7 +85,8 @@ class HTMLTitleGetter(HTMLParser):
         tgt = HTMLTitleGetter()
         try:
             tgt.feed(data)
-        except HTMLParseError as ex:
+        #pylint: disable=W0703
+        except Exception as ex:
             logging.debug("{1} ('{0}')".format(data, str(ex)))
             # Hopefully title is parsed correctly
 

@@ -33,6 +33,8 @@ if not can_connect_to_xserver():
     sys.exit(1)
 
 # pygobject
+import gi
+gi.require_version('Gtk', '3.0')
 #pylint: disable=E0611
 from gi.repository import Gtk
 #pylint: disable=E0611

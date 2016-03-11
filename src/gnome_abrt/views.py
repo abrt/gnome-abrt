@@ -33,6 +33,8 @@ from gi.repository import Gdk
 from gi.repository import GObject
 #pylint: disable=E0611
 from gi.repository import Gio
+#pylint: disable=E0611
+from gi.repository import Pango
 
 import gnome_abrt.problems as problems
 import gnome_abrt.config as config
@@ -41,6 +43,7 @@ import gnome_abrt.errors as errors
 import gnome_abrt.desktop as desktop
 from gnome_abrt import GNOME_ABRT_UI_DIR
 from gnome_abrt.tools import fancydate, smart_truncate, load_icon
+from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
 from gnome_abrt.l10n import _, GETTEXT_PROGNAME
 
 
@@ -220,13 +223,14 @@ class ProblemListBoxCell(Gtk.Box):
 
         self._problem = problem_values[3]
 
-        self._hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
+        self._hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
 
         self._lbl_app = Gtk.Label.new(problem_values[0])
-        self._lbl_app.set_use_markup(True)
-        self._lbl_app.set_markup("<b>{0}</b>".format(problem_values[0]))
-
         self._lbl_app.set_halign(Gtk.Align.START)
+        self._lbl_app.set_alignment(0.0, 0.5)
+        self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
+        self._lbl_app.set_width_chars(15)
+        self._lbl_app.get_style_context().add_class('app-name-label')
 
         self._lbl_date = Gtk.Label.new(problem_values[1])
         self._lbl_date.set_halign(Gtk.Align.END)
@@ -316,11 +320,25 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.gac_open_directory = builder.get_object('gac_open_directory')
             self.gac_copy_id = builder.get_object('gac_copy_id')
             self.gac_search = builder.get_object('gac_search')
+            self.tbtn_multi_select = builder.get_object('tbtn_multi_select')
+
+            label = Gtk.Label.new('')
+            label.show()
+            self.lb_problems.set_placeholder(label)
+            label.connect('map', self.placeholder_mapped, self)
+            label.connect('unmap', self.placeholder_unmapped, self)
+
             self.menu_problem_item = builder.get_object('menu_problem_item')
             self.menu_multiple_problems = builder.get_object(
                     'menu_multiple_problems')
             self.ag_accelerators = builder.get_object('ag_accelerators')
             self.header_bar = None
+
+        def placeholder_mapped(self, label, data):
+            self.tbtn_multi_select.set_sensitive(False)
+
+        def placeholder_unmapped(self, label, data):
+            self.tbtn_multi_select.set_sensitive(True)
 
         def connect_signals(self, implementor):
             self._builder.connect_signals(implementor)
@@ -340,7 +358,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.header_bar = Gtk.HeaderBar.new()
                 self.header_bar.pack_start(self.box_sources_switcher)
                 self.header_bar.pack_start(self.tbtn_multi_select)
-                self.header_bar.pack_end(self.btn_detail)
                 self.header_bar.pack_end(self.btn_report)
                 self.header_bar.pack_end(self.btn_delete)
 
@@ -422,6 +439,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         css_prv.load_from_data("GtkListBoxRow {\n"
                                "  padding          : 12px;\n"
                                "}\n"
+                               ".app-name-label {\n"
+                               "  font-weight      : bold;\n"
+                               "}\n"
                                ".oops-reason {\n"
                                "  font-size        : 120%;\n"
                                "  font-weight      : bold;\n"
@@ -465,7 +485,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         conf.set_watch('T_FMT', self._options_observer)
         conf.set_watch('D_T_FMT', self._options_observer)
         self._options_observer.option_updated(conf, 'problemid')
-        self._builder.btn_detail.set_visible(conf['expert'])
         self._builder.mi_detail.set_visible(conf['expert'])
 
         # enable observer
@@ -771,6 +790,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         msg.set_valign(Gtk.Align.START)
         msg.set_line_wrap(True)
         msg.set_selectable(True)
+        msg.set_xalign(0)
 
         self._builder.vbx_problem_messages.pack_start(msg, False, True, 0)
 
@@ -786,7 +806,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._builder.btn_delete.set_sensitive(sensitive_btn)
         self._builder.btn_report.set_sensitive(
                 sensitive_btn and not problem['not-reportable'])
-        self._builder.btn_detail.set_sensitive(sensitive_btn)
         self._builder.vbx_links.foreach(
                 destroy_links, None)
         self._builder.vbx_problem_messages.foreach(
@@ -821,7 +840,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                                     problem['human_type']))
                 else:
                     self._builder.lbl_reason.set_text(
-                            _("{0} quit unexpectedly".format(app.name)))
+                            _("{0} quit unexpectedly").format(app.name))
 
                 self._builder.lbl_summary.set_text(
             _("The application encountered a problem and could not continue."))
@@ -836,14 +855,21 @@ class OopsWindow(Gtk.ApplicationWindow):
                 problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
             icon_buf = None
+            scale = self._builder.img_app_icon.get_scale_factor()
             if app.icon:
-                icon_buf = load_icon(gicon=app.icon)
+                icon_buf = load_icon(gicon=app.icon, scale=scale)
 
             if icon_buf is None:
-                icon_buf = load_icon(name="system-run-symbolic")
+                icon_buf = load_icon(name="system-run-symbolic", scale=scale)
+                self._builder.img_app_icon.get_style_context().add_class(
+                                                                    'dim-label')
+            else:
+                self._builder.img_app_icon.get_style_context().remove_class(
+                                                                    'dim-label')
 
             # icon_buf can be None and if it is None, no icon will be displayed
-            self._builder.img_app_icon.set_from_pixbuf(icon_buf)
+            set_icon_from_pixbuf_with_scale(self._builder.img_app_icon,
+                                            icon_buf, scale)
 
             self._builder.lbl_reported_value.show()
             self._builder.lbl_reported.set_text(_("Reported"))

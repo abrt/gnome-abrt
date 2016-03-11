@@ -37,7 +37,7 @@ def find_application(cmdline, envp, pid, component):
     app = None
     if envp:
         app = wrappers.get_app_for_env(envp.split('\n'), int(pid))
-    if not app:
+    if not app and cmdline:
         app = wrappers.get_app_for_cmdline(cmdline)
     if not app:
         return Application(cmdline.split(" ")[0] if cmdline else None,

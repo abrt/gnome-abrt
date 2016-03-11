@@ -23,6 +23,8 @@ import logging
 from gi.repository import GLib
 #pylint: disable=E0611
 from gi.repository import Gtk
+#pylint: disable=E0611
+from gi.repository import Gdk
 
 from gnome_abrt.l10n import _
 from gnome_abrt.l10n import ngettext
@@ -69,21 +71,22 @@ def smart_truncate(content, length=100, suffix='...'):
         return content[:length].rsplit(' ', 1)[0] + suffix
 
 
-def load_icon(name=None, gicon=None):
+def load_icon(name=None, gicon=None, scale=1):
     theme = Gtk.IconTheme.get_default()
 
     icon = None
     if not gicon is None and name is None:
         name = gicon.to_string()
-        icon = theme.lookup_by_gicon(gicon, 128,
+        icon = theme.lookup_by_gicon_for_scale(gicon, 128, scale,
                                         Gtk.IconLookupFlags.FORCE_SIZE)
     elif not name is None and gicon is None:
-        icon = theme.lookup_icon(name, 128,
+        icon = theme.lookup_icon_for_scale(name, 128, scale,
                                         Gtk.IconLookupFlags.FORCE_SIZE
                                         | Gtk.IconLookupFlags.FORCE_SYMBOLIC)
     else:
         logging.error("BUG: invalid arguments in load_icon():" \
-                      "name={0}, gicon={1}".format(str(name), str(gicon)))
+                      "name={0}, gicon={1}, scale={2}"
+                      .format(str(name), str(gicon), str(scale)))
         return None
 
     if icon is None:
@@ -97,4 +100,14 @@ def load_icon(name=None, gicon=None):
         logging.warning(_("Failed to load icon '{0}': {1}")
                             .format(name, str(ex)))
 
+    return None
+
+
+def set_icon_from_pixbuf_with_scale(icon, pixbuf, scale=1):
+    if scale == 1 or scale is None or pixbuf is None:
+        icon.set_from_pixbuf(pixbuf)
+        return None
+
+    surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, None)
+    icon.set_from_surface(surface)
     return None

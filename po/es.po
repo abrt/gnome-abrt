@@ -13,6 +13,7 @@
 # Daniel Cabrera <logan@fedoraproject.org>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Alex Puchades <alex94puchades@gmail.com>, 2015. #zanata
+# Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -21,13 +22,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-04-26 10:54-0400\n"
-"Last-Translator: Alex Puchades <alex94puchades@gmail.com>\n"
+"PO-Revision-Date: 2015-09-06 11:22-0400\n"
+"Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/es/)\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -92,7 +93,7 @@ msgstr ""
 #, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr ""
-"No se puede conectar la ruta '{1}' del bus de sistema de DBus '{0}': {2}"
+"No se puede conectar con la ruta '{1}' del bus de sistema de DBus '{0}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 #, python-brace-format
@@ -103,8 +104,8 @@ msgstr ""
 #: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr ""
-"No se puede cambiar de propietario del problema '{0}' sobre el servicio DBus:"
-" {1!s}"
+"No se puede cambiar de propietario el problema '{0}' sobre el servicio DBus: "
+"{1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
@@ -112,7 +113,7 @@ msgstr "No se pueden obtener datos del problema del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr "No se puede obtener lista de problemas del servicio DBus: {0!s}"
+msgstr "No se puede obtener la lista de problemas del servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
@@ -120,7 +121,7 @@ msgstr "No se puede eliminar el problema por el servicio DBus: {0!s}"
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid "The description of problem is too short"
-msgstr "La descripción del problema es demasiado corta."
+msgstr "La descripción del problema es demasiado corta"
 
 #: ../src/gnome_abrt/dialogs.py:56
 msgid ""
@@ -246,7 +247,7 @@ msgstr "_Filtrar"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "Mostrar filtros"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -263,10 +264,12 @@ msgstr "Detectado"
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "<a href=\"https://glade.gnome.org/\">Very long placeholder URL tile</a>"
 msgstr ""
+"<a href=\"https://glade.gnome.org/\">Marcador para reserva de espacio de "
+"URL</a>"
 
 #: ../src/gnome_abrt/oops.glade.h:21
 msgid "<a href=\"https://github.com/abrt/gnome-abrt\">Placeholder URL</a>"
-msgstr ""
+msgstr "<a href=\"https://github.com/abrt/gnome-abrt\">Espacio para URL</a>"
 
 #: ../src/gnome_abrt/oops.glade.h:22 ../src/gnome_abrt/views.py:875
 msgid "Reported"

@@ -21,7 +21,7 @@ msgstr ""
 "language/kn/)\n"
 "Language: kn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"

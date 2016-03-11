@@ -14,14 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-04-08 11:59-0400\n"
+"PO-Revision-Date: 2015-08-28 03:07-0400\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/pl/)\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../src/gnome-abrt:265
 msgid "My"
@@ -79,27 +79,25 @@ msgstr ""
 #, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
-"Nie można dodać obiektu odbierającego sygnał \"{0}\" na ścieżce systemowej D-"
-"Bus \"{1}\": {2}"
+"Nie można dodać obiektu odbierającego sygnał „{0}” na ścieżce systemowej D-"
+"Bus „{1}”: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 #, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr ""
-"Nie można połączyć z magistralą systemową D-Bus \"{0}\" na ścieżce \"{1}\": "
-"{2}"
+"Nie można połączyć z magistralą systemową D-Bus „{0}” na ścieżce „{1}”: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
-"Nie można uzyskać interfejsu \"{0}\" na ścieżce \"{1}\" na magistrali "
-"\"{2}\": {3}"
+"Nie można uzyskać interfejsu „{0}” na ścieżce „{1}” na magistrali „{2}”: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr ""
-"Nie można zmienić właściciela problemu \"{0}\" przez usługę D-Bus: {1!s}"
+"Nie można zmienić właściciela problemu „{0}” przez usługę D-Bus: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
@@ -164,7 +162,7 @@ msgid ""
 "event do not affect any other functionality."
 msgstr ""
 "Prawdopodobnie osiągnięto ograniczenie inotify dotyczące liczby obserwacji w "
-"\"{0}\". Ograniczenie może zostać zwiększone przez poprawną konfigurację "
+"„{0}”. Ograniczenie może zostać zwiększone przez poprawną konfigurację "
 "inotify. Więcej informacji można znaleźć w man inotify(7). To zdarzenie "
 "powoduje, że użytkownik nie będzie powiadamiany o zmianach w danych problemu "
 "zdarzających się poza tą aplikacją. To zdarzenie nie wpływa na żadną inną "
@@ -173,7 +171,7 @@ msgstr ""
 #: ../src/gnome_abrt/directory_problems.py:262
 #, python-brace-format
 msgid "Can't open directory: '{0}'"
-msgstr "Nie można otworzyć katalogu: \"{0}\""
+msgstr "Nie można otworzyć katalogu: „{0}”"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
@@ -181,7 +179,7 @@ msgstr "_Usuń"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr "Usuń zaznaczone problemy"
+msgstr "Usuwa zaznaczone problemy"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
@@ -189,7 +187,7 @@ msgstr "_Zgłoś"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr "Wyślij zaznaczony problem"
+msgstr "Wysyła zaznaczony problem"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
@@ -213,8 +211,7 @@ msgstr "_Wszystkie problemy"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"
-msgstr ""
-"Wyświetlanie wszystkich znanych problemów od wszystkich użytkowników systemu"
+msgstr "Wyświetla wszystkie znane problemy od wszystkich użytkowników systemu"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Open problem's data directory"
@@ -242,7 +239,7 @@ msgstr "_Filtrowanie"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr "Wyświetlanie okna filtrowania"
+msgstr "Wyświetla okno filtrowania"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -346,7 +343,7 @@ msgstr "W systemie wystąpił problem i nie można kontynuować."
 #: ../src/gnome_abrt/views.py:838
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "{0} problem został wykryty"
+msgstr "Wykryto problem z programem {0}"
 
 #: ../src/gnome_abrt/views.py:842
 #, python-brace-format
@@ -379,7 +376,7 @@ msgstr ""
 "Ten problem został zgłoszony, ale zgłoszenie w systemie <i>Bugzilla</i> nie "
 "zostało otwarte. Nasi programiści mogą potrzebować więcej informacji, aby go "
 "naprawić.\n"
-"Prosimy rozważyć <b>zgłoszenie go</b> - może to im pomóc. Dziękujemy."
+"Prosimy rozważyć <b>zgłoszenie go</b> — może to im pomóc. Dziękujemy."
 
 #: ../src/gnome_abrt/views.py:894
 msgid "yes"

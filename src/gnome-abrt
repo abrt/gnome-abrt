@@ -361,7 +361,23 @@ class OopsApplication(Gtk.Application):
     "th this program.  If not, see <http://www.gnu.org/licenses/>.")
         dialog.set_wrap_license(True)
         dialog.set_website("https://fedorahosted.org/abrt/")
-        dialog.set_authors(["ABRT Team"])
+        dialog.set_authors(["aboobed <0otibi0@gmail.com>",
+                            "Allan Day <allanpday@gmail.com>",
+                            "Bastien Nocera <hadess@hadess.net>",
+                            "Chris Lockfort <clockfort@csh.rit.edu>",
+                            "Daniel Aleksandersen <code@daniel.priv.no>",
+                            "Denys Vlasenko <dvlasenk@redhat.com>",
+                            "Elad Alfassa <elad@fedoraproject.org>",
+                            "Francesco Frassinelli <fraph24@gmail.com>",
+                            "Jakub Filák <filak.jakub@gmail.com>",
+                            "Jiri Moskovčák <moskovcak@gmail.com>",
+                            "Martin Milata <mmilata@redhat.com>",
+                            "Matěj Habrnál <mhabrnal@redhat.com>",
+                            "Marek Bryša <marek.brysa@gmail.com>",
+                            "Michael Catanzaro <mcatanzaro@gnome.org>",
+                            "Michal Toman <michal.toman@gmail.com>",
+                            "Rafal Luzynski <digitalfreak@lingonborough.com>",
+                            "Richard Marko <rmarko@fedoraproject.org>"])
         #dialog.set_artists(artists)
         #dialog.set_translator_credits(_("translator-credits"))
 

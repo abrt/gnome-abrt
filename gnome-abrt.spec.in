@@ -107,6 +107,23 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Mar 23 2016 Jakub Filak <jfilak@redhat.com> 1.2.3-1
+- Translation updates
+- Let main title of the crash wrap
+- Label all kernel oops problems with "System"
+- Disambiguate the word "System"
+- Use context gettext
+- Reword "Detected" to "First Detected"
+- Use "Problem Reporting" as the program name in the About box
+- Remove "Report problem with ABRT"
+- Fix dim-label being applied to proper app icons
+- Make "Select" button unsensitive when list is empty
+- Make titlebar blue in selection mode
+- Use dim-label style, not hard-coded colours for labels
+- Remove "ABRT Configuration" dialogue
+- Add search button
+- Add more keywords to .desktop
+
 * Thu Feb 18 2016 Jakub Filak <jfilak@redhat.com> 1.2.2-1
 - Translation updates
 - Translation updates

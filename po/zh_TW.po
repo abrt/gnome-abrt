@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-11 11:46+0100\n"
+"POT-Creation-Date: 2016-03-23 12:55+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,41 +22,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:275
+#. Translators: a list header, "My" is a shortcut for "My bugs"
+#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
 msgstr "我的"
 
-#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
+#. Translators: a list header, a shortcut for "System
+#. bugs". In this context "System" may be an adjective
+#. or a genitive noun, as required by your language.
+#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+msgctxt "bugs"
 msgid "System"
-msgstr "系統"
+msgstr ""
 
-#: ../src/gnome-abrt:298
+#: ../src/gnome-abrt:313
 msgid "_Preferences"
 msgstr "偏好設定(_P)"
 
-#: ../src/gnome-abrt:299
-msgid "_ABRT Configuration"
-msgstr "ABRT 配置(_A)"
-
-#: ../src/gnome-abrt:300
-msgid "_Report problem with ABRT"
-msgstr "透過 ABRT 回報問題(_R)"
-
-#: ../src/gnome-abrt:304
+#: ../src/gnome-abrt:316
 msgid "_About"
 msgstr "關於(_A)"
 
-#: ../src/gnome-abrt:305
+#: ../src/gnome-abrt:317
 msgid "_Quit"
 msgstr "離開(_Q)"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
+#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
+#: ../src/gnome_abrt/views.py:292
 msgid "Problem Reporting"
 msgstr "問題回報"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "檢視與回報應用程式錯誤"
+
+#: ../src/gnome-abrt.desktop.in.h:3
+msgid "abrt;bug reporting;crash logger;"
+msgstr ""
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -100,43 +102,6 @@ msgstr "無法從 DBus 服務去得問題清單：{0!s}"
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "無法在 DBus 服務上刪除問題：{0!s}"
-
-#: ../src/gnome_abrt/dialogs.py:55
-msgid "The description of problem is too short"
-msgstr "問題的描述太短"
-
-#: ../src/gnome_abrt/dialogs.py:56
-msgid ""
-"In order to get more useful reports we do not accept reports with the "
-"description shorter than 10 letters."
-msgstr "為了得到更有幫助的回報，我們不接受描述少於 10 個字母的錯誤報告。"
-
-#: ../src/gnome_abrt/dialogs.py:66
-msgid "The summary of problem is too short"
-msgstr "問題的概要太短"
-
-#: ../src/gnome_abrt/dialogs.py:67
-msgid ""
-"In order to get more useful reports we do not accept reports with the "
-"summary shorter than 10 letters."
-msgstr "為了得到更有幫助的回報，我們不接受概要少於 10 個字母的錯誤報告。"
-
-#: ../src/gnome_abrt/dialogs.py:93
-msgid "Problem description"
-msgstr "問題描述"
-
-#: ../src/gnome_abrt/dialogs.py:101
-msgid "Summary:"
-msgstr "摘要："
-
-#: ../src/gnome_abrt/dialogs.py:120
-msgid "_Send"
-msgstr "傳送(_S)"
-
-#. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:134
-msgid "A problem with ABRT"
-msgstr "ABRT 的問題"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 #, python-brace-format
@@ -229,23 +194,24 @@ msgstr "名稱"
 msgid "Version"
 msgstr "版本"
 
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "Detected"
-msgstr "已偵測到"
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "First Detected"
+msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
 msgstr "已回報"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
 msgstr "沒有偵測到問題！"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
 msgstr "未選擇來源！"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
 msgstr "沒有來源"
 
@@ -311,73 +277,81 @@ msgstr "載入 UI 定義失敗"
 msgid "Failed to load icon '{0}': {1}"
 msgstr "載入 UI 定義失敗"
 
+#. Translators: if the kernel crashed we display the word "System"
+#. instead of "kernel". In this context "System" is like a proper
+#. package name, probably a nominative noun.
+#: ../src/gnome_abrt/views.py:146
+msgctxt "package name"
+msgid "System"
+msgstr ""
+
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:149
+#: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:151
+#: ../src/gnome_abrt/views.py:154
 #, fuzzy
 msgid "System Crash"
 msgstr "系統"
 
-#: ../src/gnome_abrt/views.py:153
+#: ../src/gnome_abrt/views.py:156
 #, fuzzy
 msgid "System Failure"
 msgstr "嚴重系統錯誤"
 
-#: ../src/gnome_abrt/views.py:155
+#: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:315
+#: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
 msgstr "載入 UI 定義失敗"
 
-#: ../src/gnome_abrt/views.py:831
+#: ../src/gnome_abrt/views.py:855
 msgid "Unexpected system error"
 msgstr "未預期的系統錯誤"
 
-#: ../src/gnome_abrt/views.py:833
+#: ../src/gnome_abrt/views.py:857
 msgid "The system has encountered a problem and recovered."
 msgstr "系統遭遇到問題，並從中恢復過來。"
 
-#: ../src/gnome_abrt/views.py:836
+#: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
 msgstr "嚴重系統錯誤"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
 msgstr "系統遭遇到問題，並且無法繼續。"
 
-#: ../src/gnome_abrt/views.py:851
+#: ../src/gnome_abrt/views.py:875
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "找到 {0} 個問題"
 
-#: ../src/gnome_abrt/views.py:855
+#: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} 未預期退出"
 
-#: ../src/gnome_abrt/views.py:858
+#: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
 msgstr "應用程式遭遇到問題，並且無法繼續。"
 
-#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
 msgstr "無法回報"
 
-#: ../src/gnome_abrt/views.py:890
+#: ../src/gnome_abrt/views.py:919
 msgid "Reports"
 msgstr "報告"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:925
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -387,11 +361,11 @@ msgstr ""
 "此問題已經回報過，但卻沒有打開 <i>Bugzilla</i> 請票。我們的開發人員也許需要更多資訊才能修正這個問題。\n"
 "請您考慮將之<b>回報</b>到 Bugzilla 以提供相關資訊。感謝您。"
 
-#: ../src/gnome_abrt/views.py:901
+#: ../src/gnome_abrt/views.py:930
 msgid "yes"
 msgstr "是"
 
-#: ../src/gnome_abrt/views.py:903
+#: ../src/gnome_abrt/views.py:932
 msgid "no"
 msgstr "無"
 

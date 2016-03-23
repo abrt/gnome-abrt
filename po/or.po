@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-11 11:46+0100\n"
+"POT-Creation-Date: 2016-03-23 12:55+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,41 +22,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:275
+#. Translators: a list header, "My" is a shortcut for "My bugs"
+#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
 msgstr "ମୋର"
 
-#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
+#. Translators: a list header, a shortcut for "System
+#. bugs". In this context "System" may be an adjective
+#. or a genitive noun, as required by your language.
+#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+msgctxt "bugs"
 msgid "System"
-msgstr "ତନ୍ତ୍ର"
+msgstr ""
 
-#: ../src/gnome-abrt:298
+#: ../src/gnome-abrt:313
 msgid "_Preferences"
 msgstr "ପସନ୍ଦ (_P)"
 
-#: ../src/gnome-abrt:299
-msgid "_ABRT Configuration"
-msgstr "ABRT  ବିନ୍ଯାସ (_A)"
-
-#: ../src/gnome-abrt:300
-msgid "_Report problem with ABRT"
-msgstr "ABRT ସହିତ ସମସ୍ୟାକୁ ଖବର କରନ୍ତୁ (_R)"
-
-#: ../src/gnome-abrt:304
+#: ../src/gnome-abrt:316
 msgid "_About"
 msgstr "ବିବରଣୀ (_A)"
 
-#: ../src/gnome-abrt:305
+#: ../src/gnome-abrt:317
 msgid "_Quit"
 msgstr "ବିଦାୟ ନିଅନ୍ତୁ (_Q)"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
+#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
+#: ../src/gnome_abrt/views.py:292
 msgid "Problem Reporting"
 msgstr ""
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "ପ୍ରୟୋଗ ନଷ୍ଟଗୁଡ଼ିକୁ ଦେଖନ୍ତୁ ଏବଂ ଖବର କରନ୍ତୁ"
+
+#: ../src/gnome-abrt.desktop.in.h:3
+msgid "abrt;bug reporting;crash logger;"
+msgstr ""
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -103,46 +105,6 @@ msgstr "DBus ସର୍ଭିସରୁ ସମସ୍ୟାଗୁଡ଼ିକର �
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus ସର୍ଭିସ ଉପରେ ସମସ୍ୟାକୁ ଅପସାରଣ କରିପାରିବେ ନାହିଁ: {0!s}"
-
-#: ../src/gnome_abrt/dialogs.py:55
-msgid "The description of problem is too short"
-msgstr "ସମସ୍ୟାର ବର୍ଣ୍ଣନା ଅତି ଛୋଟ ଅଟେ"
-
-#: ../src/gnome_abrt/dialogs.py:56
-msgid ""
-"In order to get more useful reports we do not accept reports with the "
-"description shorter than 10 letters."
-msgstr ""
-"ଅଧିକ ଉପଯୋଗୀ ବିବରଣୀ ପାଇବା ପାଇଁ ଆମେ 10 ଅକ୍ଷରରୁ କମ ବର୍ଣ୍ଣନାକୁ ଗ୍ରହଣ କରୁନାହିଁ।"
-
-#: ../src/gnome_abrt/dialogs.py:66
-msgid "The summary of problem is too short"
-msgstr "ସମସ୍ୟାର ସାରାଂଶ ଅତି ଛୋଟ"
-
-#: ../src/gnome_abrt/dialogs.py:67
-msgid ""
-"In order to get more useful reports we do not accept reports with the "
-"summary shorter than 10 letters."
-msgstr ""
-"ଅଧିକ ଉପଯୋଗୀ ବିବରଣୀ ପାଇବା ପାଇଁ ଆମେ 10 ଅକ୍ଷରରୁ କମ ବିବରଣୀ ସାରାଂଶକୁ ଗ୍ରହଣ "
-"କରୁନାହିଁ।"
-
-#: ../src/gnome_abrt/dialogs.py:93
-msgid "Problem description"
-msgstr "ସମସ୍ଯା ବର୍ଣ୍ଣନା"
-
-#: ../src/gnome_abrt/dialogs.py:101
-msgid "Summary:"
-msgstr "ସାରାଂଶ:"
-
-#: ../src/gnome_abrt/dialogs.py:120
-msgid "_Send"
-msgstr "ପଠାନ୍ତୁ (_S)"
-
-#. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:134
-msgid "A problem with ABRT"
-msgstr "ABRT ସହିତ ଏକ ସମସ୍ୟା"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 #, python-brace-format
@@ -239,23 +201,24 @@ msgstr "ନାମ"
 msgid "Version"
 msgstr "ସଂସ୍କରଣ"
 
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "Detected"
-msgstr "ଚିହ୍ନଟ ହୋଇଛି"
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "First Detected"
+msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
 msgstr "ଖବର କରାହୋଇଥିବା"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
 msgstr "କୌଣସି ସମସ୍ୟା ଚିହ୍ନଟ ହୋଇ ନାହିଁ!"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
 msgstr "କୌଣସି ଉତ୍ସ ବଛା ହୋଇନାହିଁ!"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
 msgstr "କୌଣସି ଉତ୍ସ ନାହିଁ"
 
@@ -324,73 +287,81 @@ msgstr "UI  ସଂଜ୍ଞା ଧାରଣ କରିବାରେ ଅସଫଳ"
 msgid "Failed to load icon '{0}': {1}"
 msgstr "UI  ସଂଜ୍ଞା ଧାରଣ କରିବାରେ ଅସଫଳ"
 
+#. Translators: if the kernel crashed we display the word "System"
+#. instead of "kernel". In this context "System" is like a proper
+#. package name, probably a nominative noun.
+#: ../src/gnome_abrt/views.py:146
+msgctxt "package name"
+msgid "System"
+msgstr ""
+
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:149
+#: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:151
+#: ../src/gnome_abrt/views.py:154
 #, fuzzy
 msgid "System Crash"
 msgstr "ତନ୍ତ୍ର"
 
-#: ../src/gnome_abrt/views.py:153
+#: ../src/gnome_abrt/views.py:156
 #, fuzzy
 msgid "System Failure"
 msgstr "ତନ୍ତ୍ର"
 
-#: ../src/gnome_abrt/views.py:155
+#: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:315
+#: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
 msgstr "UI  ସଂଜ୍ଞା ଧାରଣ କରିବାରେ ଅସଫଳ"
 
-#: ../src/gnome_abrt/views.py:831
+#: ../src/gnome_abrt/views.py:855
 msgid "Unexpected system error"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:833
+#: ../src/gnome_abrt/views.py:857
 msgid "The system has encountered a problem and recovered."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:836
+#: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:851
+#: ../src/gnome_abrt/views.py:875
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} ସମସ୍ଯା ଦେଖା ଦେଇଛି"
 
-#: ../src/gnome_abrt/views.py:855
+#: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:858
+#: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
 msgstr "ଖବର କରାଯାଇ ପାରିବ ନାହିଁ"
 
-#: ../src/gnome_abrt/views.py:890
+#: ../src/gnome_abrt/views.py:919
 msgid "Reports"
 msgstr "ବିବରଣୀଗୁଡ଼ିକ"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:925
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -402,11 +373,11 @@ msgstr ""
 "ସେହି ତଥ୍ୟ ପ୍ରଦାନ କରିବା ପାଇଁ ଦୟାକରି ଏହାକୁ Bugzilla ରେ ମଧ୍ଯ <b>ଖବର କରନ୍ତୁ</b>। "
 "ଆପଣଙ୍କୁ ଧନ୍ୟବାଦ।"
 
-#: ../src/gnome_abrt/views.py:901
+#: ../src/gnome_abrt/views.py:930
 msgid "yes"
 msgstr "ହଁ"
 
-#: ../src/gnome_abrt/views.py:903
+#: ../src/gnome_abrt/views.py:932
 msgid "no"
 msgstr "ନାଁ"
 

@@ -8,59 +8,60 @@
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2012
 # Ricardo Gyorfy <rgyorfy@redhat.com>, 2011
 # Marco Aurélio Krause <ouesten@me.com>, 2015. #zanata
-# Jakub Filak <jfilak@redhat.com>, 2016. #zanata
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Andrea <adallape@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-11 11:46+0100\n"
+"POT-Creation-Date: 2016-03-23 12:55+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-06 10:19-0400\n"
-"Last-Translator: Marco Aurélio Krause <ouesten@me.com>\n"
+"PO-Revision-Date: 2016-03-18 02:32-0400\n"
+"Last-Translator: Andrea <adallape@redhat.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "gnome-abrt/language/pt_BR/)\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:275
+#. Translators: a list header, "My" is a shortcut for "My bugs"
+#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
 msgstr "Meu"
 
-#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
+#. Translators: a list header, a shortcut for "System
+#. bugs". In this context "System" may be an adjective
+#. or a genitive noun, as required by your language.
+#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+msgctxt "bugs"
 msgid "System"
 msgstr "Sistema"
 
-#: ../src/gnome-abrt:298
+#: ../src/gnome-abrt:313
 msgid "_Preferences"
 msgstr "_Preferências"
 
-#: ../src/gnome-abrt:299
-msgid "_ABRT Configuration"
-msgstr "_Configuração ABRT"
-
-#: ../src/gnome-abrt:300
-msgid "_Report problem with ABRT"
-msgstr "_Reportar problemas com o ABRT"
-
-#: ../src/gnome-abrt:304
+#: ../src/gnome-abrt:316
 msgid "_About"
 msgstr "_Sobre"
 
-#: ../src/gnome-abrt:305
+#: ../src/gnome-abrt:317
 msgid "_Quit"
 msgstr "_Sair"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
+#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
+#: ../src/gnome_abrt/views.py:292
 msgid "Problem Reporting"
 msgstr "Relato de Problemas"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "Visualizar e reportar travamentos de aplicativos"
+
+#: ../src/gnome-abrt.desktop.in.h:3
+msgid "abrt;bug reporting;crash logger;"
+msgstr "abrt;bug reporting;crash logger;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -116,47 +117,6 @@ msgstr "Não foi possível obter uma lista de problemas do serviço DBus: {0!s}"
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "Não foi possível excluir um problema do serviço DBus: {0!s}"
-
-#: ../src/gnome_abrt/dialogs.py:55
-msgid "The description of problem is too short"
-msgstr "A descrição do problema é muito curta."
-
-#: ../src/gnome_abrt/dialogs.py:56
-msgid ""
-"In order to get more useful reports we do not accept reports with the "
-"description shorter than 10 letters."
-msgstr ""
-"Para obter reportagens mais úteis, não aceitamos reportagens com descrições "
-"mais curtas do que 10 letras."
-
-#: ../src/gnome_abrt/dialogs.py:66
-msgid "The summary of problem is too short"
-msgstr "O sumário do problema é muito curto."
-
-#: ../src/gnome_abrt/dialogs.py:67
-msgid ""
-"In order to get more useful reports we do not accept reports with the "
-"summary shorter than 10 letters."
-msgstr ""
-"Para obter reportagens mais úteis, nós não aceitamos reportagens com o "
-"sumário com menos de 10 letras."
-
-#: ../src/gnome_abrt/dialogs.py:93
-msgid "Problem description"
-msgstr "Descrição do Problema"
-
-#: ../src/gnome_abrt/dialogs.py:101
-msgid "Summary:"
-msgstr "Sumário:"
-
-#: ../src/gnome_abrt/dialogs.py:120
-msgid "_Send"
-msgstr "_Enviar"
-
-#. Sets text but text is selected :)
-#: ../src/gnome_abrt/dialogs.py:134
-msgid "A problem with ABRT"
-msgstr "Um problema com o ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 #, python-brace-format
@@ -255,23 +215,24 @@ msgstr "Nome"
 msgid "Version"
 msgstr "Versão"
 
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "Detected"
-msgstr "Detectado"
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "First Detected"
+msgstr "Primeiro Detectado"
 
-#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
 msgstr "Reportado"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
 msgstr "Nenhum problema detectado!"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
 msgstr "Nenhuma fonte selecionada!"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
 msgstr "Nenhuma fonte"
 
@@ -289,7 +250,6 @@ msgid "Yesterday"
 msgstr "Ontem"
 
 #: ../src/gnome_abrt/tools.py:63
-#, fuzzy
 msgid "Last week"
 msgstr "Semana passada"
 
@@ -297,28 +257,26 @@ msgstr "Semana passada"
 #. 2 weeks ago nor for more than one month ago. However, the singular
 #. form is necessary for some languages which do not have plural.
 #: ../src/gnome_abrt/tools.py:67
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] "Semana passada"
+msgstr[0] "{0:d} semana atrás"
 msgstr[1] "{0:d} semanas atrás"
 
 #: ../src/gnome_abrt/tools.py:72
-#, fuzzy
 msgid "Last month"
 msgstr "Mês passado"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
 #: ../src/gnome_abrt/tools.py:75
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] "Mês passado"
+msgstr[0] "{0:d} mês passado"
 msgstr[1] "{0:d} meses atrás"
 
 #: ../src/gnome_abrt/tools.py:80
-#, fuzzy
 msgid "Last year"
 msgstr "Ano passado"
 
@@ -327,89 +285,95 @@ msgstr "Ano passado"
 #. languages which do not have plural (Chinese, Japanese, Korean)
 #. or reuse the singular form for some plural cases (21 in Russian).
 #: ../src/gnome_abrt/tools.py:85
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] "Ano passado"
+msgstr[0] "{0:d} Ano passado"
 msgstr[1] "{0:d} anos atrás"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "Falha ao carregar a definição da UI"
+msgstr "Falha ao procurar icone '{0}'"
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "Falha ao carregar a definição da UI"
+msgstr "Falha ao carregar ícone '{0}': {1}"
+
+#. Translators: if the kernel crashed we display the word "System"
+#. instead of "kernel". In this context "System" is like a proper
+#. package name, probably a nominative noun.
+#: ../src/gnome_abrt/views.py:146
+msgctxt "package name"
+msgid "System"
+msgstr "Sistema"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:149
+#: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
-msgstr ""
+msgstr "Travamento do Aplicativo "
 
-#: ../src/gnome_abrt/views.py:151
-#, fuzzy
+#: ../src/gnome_abrt/views.py:154
 msgid "System Crash"
-msgstr "Sistema"
+msgstr "Travamento de Sistema"
 
-#: ../src/gnome_abrt/views.py:153
-#, fuzzy
+#: ../src/gnome_abrt/views.py:156
 msgid "System Failure"
-msgstr "Falha fatal do sistema"
+msgstr "Falha do Sistema"
 
-#: ../src/gnome_abrt/views.py:155
+#: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
-msgstr ""
+msgstr "Comportamento estranho"
 
-#: ../src/gnome_abrt/views.py:315
+#: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
 msgstr "Falha ao carregar a definição da UI"
 
-#: ../src/gnome_abrt/views.py:831
+#: ../src/gnome_abrt/views.py:855
 msgid "Unexpected system error"
 msgstr "Erro inesperado do sistema"
 
-#: ../src/gnome_abrt/views.py:833
+#: ../src/gnome_abrt/views.py:857
 msgid "The system has encountered a problem and recovered."
 msgstr "O sistema encontrou um problema e se recuperou."
 
-#: ../src/gnome_abrt/views.py:836
+#: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
 msgstr "Falha fatal do sistema"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
 msgstr "O sistema encontrou um problema e não pôde continuar."
 
-#: ../src/gnome_abrt/views.py:851
+#: ../src/gnome_abrt/views.py:875
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} problema foi detectado"
 
-#: ../src/gnome_abrt/views.py:855
+#: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} saiu inesperadamente"
 
-#: ../src/gnome_abrt/views.py:858
+#: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
 msgstr "O aplicativo encontrou um problema e não pôde continuar."
 
-#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
 msgstr "N/D"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
 msgstr "não pode ser reportado"
 
-#: ../src/gnome_abrt/views.py:890
+#: ../src/gnome_abrt/views.py:919
 msgid "Reports"
 msgstr "Formulários"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:925
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -421,11 +385,11 @@ msgstr ""
 "este problema. \n"
 "Considere também <b>reportá-lo</b> no Bugzilla para ajudá-los. Obrigado."
 
-#: ../src/gnome_abrt/views.py:901
+#: ../src/gnome_abrt/views.py:930
 msgid "yes"
 msgstr "sim"
 
-#: ../src/gnome_abrt/views.py:903
+#: ../src/gnome_abrt/views.py:932
 msgid "no"
 msgstr "não"
 

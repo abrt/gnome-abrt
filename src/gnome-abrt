@@ -376,7 +376,7 @@ class OopsApplication(Gtk.Application):
                             "Marek Bryša <marek.brysa@gmail.com>",
                             "Michael Catanzaro <mcatanzaro@gnome.org>",
                             "Michal Toman <michal.toman@gmail.com>",
-                            "Rafal Luzynski <digitalfreak@lingonborough.com>",
+                            "Rafał Lużyński <digitalfreak@lingonborough.com>",
                             "Richard Marko <rmarko@fedoraproject.org>"])
         #dialog.set_artists(artists)
         #dialog.set_translator_credits(_("translator-credits"))

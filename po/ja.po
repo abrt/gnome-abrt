@@ -14,7 +14,6 @@
 # noriko <noriko@fedoraproject.org>, 2012
 # noriko <noriko@fedoraproject.org>, 2010
 # Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2015. #zanata
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 # Noriko Mizumoto <noriko@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
@@ -24,7 +23,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-11 11:05-0500\n"
+"PO-Revision-Date: 2016-04-03 10:20-0400\n"
 "Last-Translator: Noriko Mizumoto <noriko@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/ja/)\n"
@@ -43,7 +42,7 @@ msgstr "ユーザー"
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "システム"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
@@ -68,7 +67,7 @@ msgstr "アプリケーションクラッシュの表示とレポート"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;バグ報告;クラッシュログ機能;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -208,7 +207,7 @@ msgstr "バージョン"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "最初に検出された日付け"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
@@ -250,11 +249,11 @@ msgstr "先週"
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 週間前"
 
 #: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "先月"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -262,11 +261,11 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
+msgstr[0] "{0:d} ヶ月前"
 
 #: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "昨年"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -276,17 +275,17 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 年前"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "UI 定義の読み込みに失敗しました"
+msgstr "アイコン '{0}' の検出に失敗しました"
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "UI 定義の読み込みに失敗しました"
+msgstr "アイコン '{0}' の読み込みに失敗しました: {1}"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -294,27 +293,25 @@ msgstr "UI 定義の読み込みに失敗しました"
 #: ../src/gnome_abrt/views.py:146
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "システム"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
-msgstr ""
+msgstr "アプリケーションのクラッシュ"
 
 #: ../src/gnome_abrt/views.py:154
-#, fuzzy
 msgid "System Crash"
-msgstr "システム"
+msgstr "システムのクラッシュ"
 
 #: ../src/gnome_abrt/views.py:156
-#, fuzzy
 msgid "System Failure"
-msgstr "致命的なシステム障害"
+msgstr "システム障害"
 
 #: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
-msgstr ""
+msgstr "不正な動作"
 
 #: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
@@ -344,7 +341,7 @@ msgstr "{0} 件の問題が検出されました"
 #: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} が予期せず終了しました"
 
 #: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."

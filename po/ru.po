@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-12 02:31-0500\n"
+"PO-Revision-Date: 2016-04-01 08:40-0400\n"
 "Last-Translator: yuliya <ypoyarko@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/ru/)\n"
@@ -34,7 +34,7 @@ msgstr "Мои"
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "Системные"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
@@ -59,14 +59,14 @@ msgstr "Просмотреть сбои и создать отчет"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;абрт;ошибки;оповещение;сбой;журнал;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"Коллекция программ для сбора информации, анализа и создания отчетов об "
+"Коллекция программ для сбора и анализа информации и создания отчетов об "
 "ошибках."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
@@ -154,7 +154,7 @@ msgstr "Открыть проблему для анализа"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr "П_одробности"
+msgstr "П_одробнее"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
@@ -205,11 +205,11 @@ msgstr "Версия"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "Впервые обнаружено"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
-msgstr "Сообщено"
+msgstr "Отправлено"
 
 #: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
@@ -226,7 +226,7 @@ msgstr "Нет источника"
 #: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
-msgstr "В кэше не найдено, но удалено: {0}"
+msgstr "Не найдено в кэше, но удалено: {0}"
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -289,7 +289,7 @@ msgstr "Значок «%s» не найден."
 #: ../src/gnome_abrt/tools.py:122
 #, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "Не удалось загрузить значок «{0}»: {1}C"
+msgstr "Не удалось загрузить значок «{0}»: {1}"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -297,7 +297,7 @@ msgstr "Не удалось загрузить значок «{0}»: {1}C"
 #: ../src/gnome_abrt/views.py:146
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
@@ -332,13 +332,12 @@ msgstr "В системе произошла ошибка, которая был
 
 #: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
-msgstr "Критическая  ошибка системы"
+msgstr "Критическая ошибка системы"
 
 #: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
-"В системе произошла критическая ошибка, поэтому продолжение работы "
-"невозможно."
+"В системе произошла критическая ошибка: продолжение работы невозможно."
 
 #: ../src/gnome_abrt/views.py:875
 #, python-brace-format
@@ -348,13 +347,11 @@ msgstr "Обнаружена ошибка {0}."
 #: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr "Работа {0} была неожиданно завершена"
+msgstr "Работа {0} была внезапно завершена"
 
 #: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
-msgstr ""
-"При выполнении приложения произошла критическая ошибка, поэтому оно не может "
-"продолжить работу."
+msgstr "Ошибка приложения: продолжение работы невозможно."
 
 #: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
@@ -362,7 +359,7 @@ msgstr "нет"
 
 #: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
-msgstr "не может быть включено в отчетность"
+msgstr "невозможно создать отчет"
 
 #: ../src/gnome_abrt/views.py:919
 msgid "Reports"

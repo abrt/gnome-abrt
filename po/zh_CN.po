@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-03 06:24-0500\n"
+"PO-Revision-Date: 2016-03-31 12:27-0400\n"
 "Last-Translator: Leah Liu <lliu@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
 "abrt/language/zh_CN/)\n"
@@ -36,19 +36,19 @@ msgstr "我的"
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "系统"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
-msgstr "首选项(_P)"
+msgstr "首选项（_P）"
 
 #: ../src/gnome-abrt:316
 msgid "_About"
-msgstr "关于(_A)"
+msgstr "关于（_A）"
 
 #: ../src/gnome-abrt:317
 msgid "_Quit"
-msgstr "退出(_Q)"
+msgstr "退出（_Q）"
 
 #: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
 #: ../src/gnome_abrt/views.py:292
@@ -61,13 +61,13 @@ msgstr "查看并报告应用程序崩溃"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr "用来和搜集、分析和报告软件问题的软件工具集合。"
+msgstr "用来收集、分析和报告软件问题的软件工具集合。"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
@@ -115,7 +115,7 @@ msgid ""
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
-"您可能已达到了 '{0}' 中观察数 inotify 的上限。正确配置 inotify 可以增加该上限。有关详情请查看 man "
+"可能已达到了 '{0}' 中观察数 inotify 的上限。正确配置 inotify 可以增加该上限。有关详情请查看 man "
 "inotify(7)。这个事件导致您无法在该程序之外出现问题数据更改时得到通知。这个事件不会影响其他功能。"
 
 #: ../src/gnome_abrt/directory_problems.py:262
@@ -133,7 +133,7 @@ msgstr "删除所选问题"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "报告(_R)"
+msgstr "报告（_R）"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
@@ -153,7 +153,7 @@ msgstr "详情（_e）"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr "显示技术细节"
+msgstr "显示技术详情"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -200,7 +200,7 @@ msgstr "版本"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "检测到的第一个问题"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
@@ -286,7 +286,7 @@ msgstr "载入图标 '{0}': {1} 失败"
 #: ../src/gnome_abrt/views.py:146
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "系统"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name

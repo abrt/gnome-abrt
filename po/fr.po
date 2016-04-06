@@ -6,6 +6,7 @@
 # Jakub Filak <jfilak@redhat.com>, 2012
 # Sam Friedmann <sam.friedmann@redhat.com>, 2011-2012,2014
 # Jakub Filak <jfilak@redhat.com>, 2016. #zanata
+# Jibec <jean-baptiste@holcroft.fr>, 2016. #zanata
 # Julie Carbone <jcarbone@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
@@ -15,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-24 07:39-0500\n"
-"Last-Translator: Julie Carbone <jcarbone@redhat.com>\n"
+"PO-Revision-Date: 2016-03-29 06:59-0400\n"
+"Last-Translator: Jibec <jean-baptiste@holcroft.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/fr/)\n"
 "Language: fr\n"
@@ -34,7 +35,7 @@ msgstr "Mes"
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "Système"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
@@ -59,7 +60,7 @@ msgstr "Visualiser et signaler les incidents de l'application"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;signalement de bugs;enregistreur d'incidents;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -218,7 +219,7 @@ msgstr "Version"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "Première détection"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
@@ -307,7 +308,7 @@ msgstr "impossible de charger l'icône '{0}': {1}"
 #: ../src/gnome_abrt/views.py:146
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "Système"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name

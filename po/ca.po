@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-11 11:46+0100\n"
+"POT-Creation-Date: 2016-03-23 12:55+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-11 06:09-0500\n"
+"PO-Revision-Date: 2016-03-09 03:13-0500\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/ca/)\n"
@@ -22,41 +22,51 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:275
+#. Translators: a list header, "My" is a shortcut for "My bugs"
+#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
 msgstr "Jo"
 
-#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
+#. Translators: a list header, a shortcut for "System
+#. bugs". In this context "System" may be an adjective
+#. or a genitive noun, as required by your language.
+#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+msgctxt "bugs"
 msgid "System"
 msgstr "Sistema"
 
-#: ../src/gnome-abrt:298
+#: ../src/gnome-abrt:313
 msgid "_Preferences"
 msgstr "_Preferències"
 
-#: ../src/gnome-abrt:299
+#: ../src/gnome-abrt:317
 msgid "_ABRT Configuration"
 msgstr "Configuració de l'_ABRT"
 
-#: ../src/gnome-abrt:300
+#: ../src/gnome-abrt:318
 msgid "_Report problem with ABRT"
 msgstr "Info_rma del problema amb l'ABRT"
 
-#: ../src/gnome-abrt:304
+#: ../src/gnome-abrt:316
 msgid "_About"
 msgstr "Quant _a"
 
-#: ../src/gnome-abrt:305
+#: ../src/gnome-abrt:317
 msgid "_Quit"
 msgstr "_Surt"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
+#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
+#: ../src/gnome_abrt/views.py:292
 msgid "Problem Reporting"
 msgstr "Presentació d'informes del problema"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
 msgstr "Visualitzeu i informeu les panes de les aplicacions"
+
+#: ../src/gnome-abrt.desktop.in.h:3
+msgid "abrt;bug reporting;crash logger;"
+msgstr ""
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -248,23 +258,24 @@ msgstr "Nom"
 msgid "Version"
 msgstr "Versió"
 
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "Detected"
-msgstr "Es va detectar"
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "First Detected"
+msgstr "Primer cop detectat"
 
-#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
 msgstr "Es va informar"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
 msgstr "No s'ha detectat cap problema!"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
 msgstr "No s'ha seleccionat cap origen!"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
 msgstr "Sense origen"
 
@@ -333,71 +344,79 @@ msgstr "No s'ha pogut trobar la icona '%s'"
 msgid "Failed to load icon '{0}': {1}"
 msgstr "No s'ha pogut carregar la icona '{0}': {1}"
 
+#. Translators: if the kernel crashed we display the word "System"
+#. instead of "kernel". In this context "System" is like a proper
+#. package name, probably a nominative noun.
+#: ../src/gnome_abrt/views.py:146
+msgctxt "package name"
+msgid "System"
+msgstr "Sistema"
+
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:149
+#: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
 msgstr "Pana de l'aplicació"
 
-#: ../src/gnome_abrt/views.py:151
+#: ../src/gnome_abrt/views.py:154
 msgid "System Crash"
 msgstr "Pana del sistema"
 
-#: ../src/gnome_abrt/views.py:153
+#: ../src/gnome_abrt/views.py:156
 msgid "System Failure"
 msgstr "Fallada del sistema"
 
-#: ../src/gnome_abrt/views.py:155
+#: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
 msgstr "Mal comportament"
 
-#: ../src/gnome_abrt/views.py:315
+#: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
 msgstr "Error en obrir la definició de la interfície gràfica"
 
-#: ../src/gnome_abrt/views.py:831
+#: ../src/gnome_abrt/views.py:855
 msgid "Unexpected system error"
 msgstr "S'ha produït un error no esperat de sistema"
 
-#: ../src/gnome_abrt/views.py:833
+#: ../src/gnome_abrt/views.py:857
 msgid "The system has encountered a problem and recovered."
 msgstr "El sistema s'ha trobat amb un problema i es va recuperar."
 
-#: ../src/gnome_abrt/views.py:836
+#: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
 msgstr "Fallada greu del sistema"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
 msgstr "El sistema s'ha trobat amb un problema i no pot continuar."
 
-#: ../src/gnome_abrt/views.py:851
+#: ../src/gnome_abrt/views.py:875
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} problema ha estat detectat"
 
-#: ../src/gnome_abrt/views.py:855
+#: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} va sortir inesperadament"
 
-#: ../src/gnome_abrt/views.py:858
+#: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
 msgstr "L'aplicació s'ha trobat amb un problema i no pot continuar."
 
-#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
 msgstr "N/D"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
 msgstr "no es pot informar"
 
-#: ../src/gnome_abrt/views.py:890
+#: ../src/gnome_abrt/views.py:919
 msgid "Reports"
 msgstr "Informes"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:925
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -409,11 +428,11 @@ msgstr ""
 "per corregir el problema.\n"
 "Considereu també <b>informar-ne</b> a Bugzilla a fi de proveir-ho. Gràcies."
 
-#: ../src/gnome_abrt/views.py:901
+#: ../src/gnome_abrt/views.py:930
 msgid "yes"
 msgstr "si"
 
-#: ../src/gnome_abrt/views.py:903
+#: ../src/gnome_abrt/views.py:932
 msgid "no"
 msgstr "no"
 

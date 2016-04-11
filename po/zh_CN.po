@@ -8,52 +8,58 @@
 # Wei Liu <LLIU@REDHAT.COM>, 2013
 # Alick Zhao <alick9188@gmail.com>, 2015. #zanata
 # zhouxiaobo <zhouxiaobo.500@gmail.com>, 2015. #zanata
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Leah Liu <lliu@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-11 11:46+0100\n"
+"POT-Creation-Date: 2016-03-23 12:55+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-01 01:16-0500\n"
-"Last-Translator: Alick Zhao <alick9188@gmail.com>\n"
+"PO-Revision-Date: 2016-03-31 12:27-0400\n"
+"Last-Translator: Leah Liu <lliu@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
 "abrt/language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.8.2\n"
 
-#: ../src/gnome-abrt:275
+#. Translators: a list header, "My" is a shortcut for "My bugs"
+#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
 msgstr "我的"
 
-#: ../src/gnome-abrt:278 ../src/gnome_abrt/views.py:143
+#. Translators: a list header, a shortcut for "System
+#. bugs". In this context "System" may be an adjective
+#. or a genitive noun, as required by your language.
+#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+msgctxt "bugs"
 msgid "System"
 msgstr "系统"
 
-#: ../src/gnome-abrt:298
+#: ../src/gnome-abrt:313
 msgid "_Preferences"
-msgstr "首选项(_P)"
+msgstr "首选项（_P）"
 
-#: ../src/gnome-abrt:299
+#: ../src/gnome-abrt:317
 msgid "_ABRT Configuration"
 msgstr "ABRT 配置(_A)"
 
-#: ../src/gnome-abrt:300
+#: ../src/gnome-abrt:318
 msgid "_Report problem with ABRT"
 msgstr "使用 ABRT 报告问题(_R)"
 
-#: ../src/gnome-abrt:304
+#: ../src/gnome-abrt:316
 msgid "_About"
-msgstr "关于(_A)"
+msgstr "关于（_A）"
 
-#: ../src/gnome-abrt:305
+#: ../src/gnome-abrt:317
 msgid "_Quit"
-msgstr "退出(_Q)"
+msgstr "退出（_Q）"
 
-#: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:289
+#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
+#: ../src/gnome_abrt/views.py:292
 msgid "Problem Reporting"
 msgstr "问题报告"
 
@@ -61,11 +67,15 @@ msgstr "问题报告"
 msgid "View and report application crashes"
 msgstr "查看并报告应用程序崩溃"
 
+#: ../src/gnome-abrt.desktop.in.h:3
+msgid "abrt;bug reporting;crash logger;"
+msgstr "abrt;bug reporting;crash logger;"
+
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr "用来和搜集、分析和报告软件问题的软件工具集合。"
+msgstr "用来收集、分析和报告软件问题的软件工具集合。"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
@@ -150,7 +160,7 @@ msgid ""
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
-"您可能已达到了 '{0}' 中观察数 inotify 的上限。正确配置 inotify 可以增加该上限。有关详情请查看 man "
+"可能已达到了 '{0}' 中观察数 inotify 的上限。正确配置 inotify 可以增加该上限。有关详情请查看 man "
 "inotify(7)。这个事件导致您无法在该程序之外出现问题数据更改时得到通知。这个事件不会影响其他功能。"
 
 #: ../src/gnome_abrt/directory_problems.py:262
@@ -168,7 +178,7 @@ msgstr "删除所选问题"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "报告(_R)"
+msgstr "报告（_R）"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
@@ -188,7 +198,7 @@ msgstr "详情（_e）"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr "显示技术细节"
+msgstr "显示技术详情"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -232,23 +242,24 @@ msgstr "名称"
 msgid "Version"
 msgstr "版本"
 
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "Detected"
-msgstr "已探测"
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "First Detected"
+msgstr "检测到的第一个问题"
 
-#: ../src/gnome_abrt/oops.glade.h:20 ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
 msgstr "已报告"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
 msgstr "未探测到问题！"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
 msgstr "未选择资源！"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
 msgstr "无资源"
 
@@ -266,9 +277,8 @@ msgid "Yesterday"
 msgstr "昨天"
 
 #: ../src/gnome_abrt/tools.py:63
-#, fuzzy
 msgid "Last week"
-msgstr "{0:d} 周前"
+msgstr "上一周"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -277,12 +287,11 @@ msgstr "{0:d} 周前"
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 周前"
 
 #: ../src/gnome_abrt/tools.py:72
-#, fuzzy
 msgid "Last month"
-msgstr "{0:d} 个月前"
+msgstr "上个月"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -290,12 +299,11 @@ msgstr "{0:d} 个月前"
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 月前"
 
 #: ../src/gnome_abrt/tools.py:80
-#, fuzzy
 msgid "Last year"
-msgstr "{0:d} 年前"
+msgstr "去年"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -305,85 +313,91 @@ msgstr "{0:d} 年前"
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 年前"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "载入 UI 定义失败"
+msgstr "查找图标 '{0}' 失败"
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "载入 UI 定义失败"
+msgstr "载入图标 '{0}': {1} 失败"
+
+#. Translators: if the kernel crashed we display the word "System"
+#. instead of "kernel". In this context "System" is like a proper
+#. package name, probably a nominative noun.
+#: ../src/gnome_abrt/views.py:146
+msgctxt "package name"
+msgid "System"
+msgstr "系统"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:149
+#: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
-msgstr ""
+msgstr "应用程序崩溃"
 
-#: ../src/gnome_abrt/views.py:151
-#, fuzzy
+#: ../src/gnome_abrt/views.py:154
 msgid "System Crash"
-msgstr "系统"
+msgstr "系统崩溃"
 
-#: ../src/gnome_abrt/views.py:153
-#, fuzzy
+#: ../src/gnome_abrt/views.py:156
 msgid "System Failure"
-msgstr "致命系统故障"
+msgstr "系统故障"
 
-#: ../src/gnome_abrt/views.py:155
+#: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
-msgstr ""
+msgstr "违规行为"
 
-#: ../src/gnome_abrt/views.py:315
+#: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
 msgstr "载入 UI 定义失败"
 
-#: ../src/gnome_abrt/views.py:831
+#: ../src/gnome_abrt/views.py:855
 msgid "Unexpected system error"
 msgstr "意外的系统错误"
 
-#: ../src/gnome_abrt/views.py:833
+#: ../src/gnome_abrt/views.py:857
 msgid "The system has encountered a problem and recovered."
 msgstr "系统遇到了一个问题，但已经恢复。"
 
-#: ../src/gnome_abrt/views.py:836
+#: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
 msgstr "致命系统故障"
 
-#: ../src/gnome_abrt/views.py:838
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
 msgstr "系统遇到了一个问题，无法继续运行。"
 
-#: ../src/gnome_abrt/views.py:851
+#: ../src/gnome_abrt/views.py:875
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "检测到问题 {0}"
 
-#: ../src/gnome_abrt/views.py:855
+#: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} 意外退出"
 
-#: ../src/gnome_abrt/views.py:858
+#: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
 msgstr "应用程序遇到了一个问题，无法继续运行。"
 
-#: ../src/gnome_abrt/views.py:861 ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
 msgstr "无"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
 msgstr "无法报告"
 
-#: ../src/gnome_abrt/views.py:890
+#: ../src/gnome_abrt/views.py:919
 msgid "Reports"
 msgstr "报告"
 
-#: ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:925
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -394,11 +408,11 @@ msgstr ""
 "\n"
 "请考虑向 Bugzilla <b>报告这个问题</b> 以便提供进一步的信息。谢谢您的合作。"
 
-#: ../src/gnome_abrt/views.py:901
+#: ../src/gnome_abrt/views.py:930
 msgid "yes"
 msgstr "是"
 
-#: ../src/gnome_abrt/views.py:903
+#: ../src/gnome_abrt/views.py:932
 msgid "no"
 msgstr "无"
 

@@ -1,6 +1,7 @@
 [Desktop Entry]
 _Name=Problem Reporting
 _Comment=View and report application crashes
+_Keywords=abrt;bug reporting;crash logger;
 Icon=gnome-abrt
 Exec=gnome-abrt
 Terminal=false

@@ -261,7 +261,7 @@ class Problem(object):
         arch = self['pkg_arch']
 
         if version and release and arch:
-            return "{0}{1}.{2}.{3}".format(epoch, version, release, arch)
+            return "{0}{1}-{2}.{3}".format(epoch, version, release, arch)
 
         return self['package']
 

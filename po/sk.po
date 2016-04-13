@@ -20,7 +20,7 @@ msgstr ""
 "language/sk/)\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Zanata 3.8.2\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282

@@ -4,8 +4,7 @@
 # 
 # Translators:
 # Momcilo Medic <medicmomcilo@gmail.com>, 2015. #zanata
-# Jakub Filak <jfilak@redhat.com>, 2016. #zanata
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Marko Kostic <marko.m.kostic@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -14,19 +13,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-05-23 01:06-0400\n"
-"Last-Translator: Momcilo Medic <medicmomcilo@gmail.com>\n"
+"PO-Revision-Date: 2016-04-12 02:59-0400\n"
+"Last-Translator: Marko Kostic <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/sr/)\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.8.2\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
-msgstr "Мој"
+msgstr "Моје"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -34,7 +33,7 @@ msgstr "Мој"
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "Системске"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
@@ -60,6 +59,8 @@ msgstr "Види и пријави програмски пад"
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
+"abrt;bug reporting;crash logger;абрт;пријава багова;пријава грешака;бележење "
+"падова;prijava bagova;prijava grešaka;beleženje padova;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -140,7 +141,7 @@ msgstr "Обриши означене проблеме"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "_Извештај"
+msgstr "П_ријави"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
@@ -156,11 +157,11 @@ msgstr "Отвори означени проблем за анализу"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr "Д_етаљи"
+msgstr "Пој_единости"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr "Прикажи стручне детаље"
+msgstr "Прикажи стручне појединости"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -184,11 +185,11 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Copy problem's ID to Clipboard"
-msgstr "_Копирај ID проблема у клипборд"
+msgstr "_Копирај ИБ проблема у клипборд"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr "Смешта ID означеног проблема у клипборд"
+msgstr "Смешта ИБ означеног проблема у клипборд"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
@@ -200,16 +201,16 @@ msgstr "Приказује оквир за филтере"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
-msgstr "Име"
+msgstr "Назив"
 
 #: ../src/gnome_abrt/oops.glade.h:18
 msgid "Version"
-msgstr "Верзија"
+msgstr "Издање"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "Први пут уочено"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
 msgid "Reported"
@@ -234,69 +235,66 @@ msgstr "Није пронађено у кешу него у обрисаном: 
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr "Будућност"
+msgstr "будућност"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr "Јуче"
+msgstr "јуче"
 
 #: ../src/gnome_abrt/tools.py:63
-#, fuzzy
 msgid "Last week"
-msgstr "Прошле недеље"
+msgstr "прошле недеље"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
 #. form is necessary for some languages which do not have plural.
 #: ../src/gnome_abrt/tools.py:67
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] "Прошле недеље"
-msgstr[1] "{0:d} недеља раније"
-msgstr[2] "{0:d} недеља раније"
+msgstr[0] "пре једне недеље"
+msgstr[1] "пре {0:d} недеље"
+msgstr[2] "пре {0:d} недеља"
 
 #: ../src/gnome_abrt/tools.py:72
-#, fuzzy
 msgid "Last month"
-msgstr "Прошли месец"
+msgstr "прошли месец"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
 #: ../src/gnome_abrt/tools.py:75
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] "Прошли месец"
-msgstr[1] "{0:d} месеци раније"
-msgstr[2] "{0:d} месеци раније"
+msgstr[0] "пре једног месеца"
+msgstr[1] "пре {0:d} месеца"
+msgstr[2] "пре {0:d} месеци"
 
 #: ../src/gnome_abrt/tools.py:80
-#, fuzzy
 msgid "Last year"
-msgstr "Прошле године"
+msgstr "прошле године"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
 #. languages which do not have plural (Chinese, Japanese, Korean)
 #. or reuse the singular form for some plural cases (21 in Russian).
 #: ../src/gnome_abrt/tools.py:85
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] "Прошле године"
-msgstr[1] "{0:d} година раније"
+msgstr[0] "пре {0:d} године"
+msgstr[1] "пре {0:d} година"
 msgstr[2] "{0:d} година раније"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "Неуспешно учитавање дефиниције корисничког окружења"
+msgstr "Нисам успео да нађем иконицу '{0}'"
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "Неуспешно учитавање дефиниције корисничког окружења"
+msgstr "Нисам успео да нађем иконицу '{0}': {1}"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -304,27 +302,25 @@ msgstr "Неуспешно учитавање дефиниције корисн�
 #: ../src/gnome_abrt/views.py:146
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "Систем"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: ../src/gnome_abrt/views.py:152
 msgid "Application Crash"
-msgstr ""
+msgstr "Пад програма"
 
 #: ../src/gnome_abrt/views.py:154
-#, fuzzy
 msgid "System Crash"
-msgstr "Систем"
+msgstr "Пад система"
 
 #: ../src/gnome_abrt/views.py:156
-#, fuzzy
 msgid "System Failure"
-msgstr "Фатална системска грешка"
+msgstr "Системски квар"
 
 #: ../src/gnome_abrt/views.py:158
 msgid "Misbehavior"
-msgstr ""
+msgstr "Непредвиђен рад"
 
 #: ../src/gnome_abrt/views.py:318
 msgid "Failed to load UI definition"
@@ -340,7 +336,7 @@ msgstr "Систем је наишао на проблем и опоравио �
 
 #: ../src/gnome_abrt/views.py:860
 msgid "Fatal system failure"
-msgstr "Фатална системска грешка"
+msgstr "Фатални системски квар"
 
 #: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and could not continue."
@@ -354,7 +350,7 @@ msgstr "{0} проблема је откривено"
 #: ../src/gnome_abrt/views.py:879
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr "{0} неочекиваних прекида"
+msgstr "{0} је неочекивано престао са радом"
 
 #: ../src/gnome_abrt/views.py:882
 msgid "The application encountered a problem and could not continue."
@@ -362,7 +358,7 @@ msgstr "Програм је наишао на проблем и не може н
 
 #: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
 msgid "N/A"
-msgstr "N/A"
+msgstr "недоступно"
 
 #: ../src/gnome_abrt/views.py:914
 msgid "cannot be reported"
@@ -379,7 +375,7 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"Овај проблем је пријављен, али <i>Bugzilla</i> карта није отворена. Нашем "
+"Овај проблем је пријављен, али <i>Bugzilla</i> тикет није отворен. Нашем "
 "развојном тиму је можда потребно више информација да поправе проблем.\n"
 "Молим да размотрите <b>пријављивање</b> на Bugzilla-у да бисте им пружили то."
 " Хвала."

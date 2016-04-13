@@ -20,7 +20,7 @@ msgstr ""
 "abrt/language/zh_TW/)\n"
 "Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.8.2\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282

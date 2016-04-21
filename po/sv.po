@@ -1,52 +1,53 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Göran Uddeborg <goeran@uddeborg.se>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
-# fedoratrans <fedoratrans@gmail.com>, 2009
+# Magnus Larsson <fedoratrans@gmail.com>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-06 10:22+0100\n"
-"PO-Revision-Date: 2014-08-30 03:40+0000\n"
+"POT-Creation-Date: 2016-04-21 11:57+0200\n"
+"PO-Revision-Date: 2013-12-18 12:33+0000\n"
 "Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/gnome-abrt/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/sv/)\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnome-abrt:228
+#: ../src/gnome-abrt:218
 msgid "My"
-msgstr "Min"
+msgstr ""
 
-#: ../src/gnome-abrt:231
+#: ../src/gnome-abrt:221
 msgid "System"
-msgstr "System"
+msgstr ""
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:240
 msgid "_Preferences"
-msgstr "_Egenskaper"
+msgstr ""
 
-#: ../src/gnome-abrt:251
+#: ../src/gnome-abrt:241
 msgid "_ABRT Configuration"
-msgstr "Konfiguration för _ABRT"
+msgstr ""
 
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:242
 msgid "_Report problem with ABRT"
-msgstr "_Rapportera problem med ABRT"
+msgstr ""
 
-#: ../src/gnome-abrt:254
+#: ../src/gnome-abrt:244
 msgid "_About"
-msgstr "_Om"
+msgstr ""
 
-#: ../src/gnome-abrt:255
+#: ../src/gnome-abrt:245
 msgid "_Quit"
-msgstr "_Avsluta"
+msgstr ""
 
 #: ../src/gnome-abrt.desktop.in.h:1 ../src/gnome_abrt/views.py:257
 msgid "Automatic Bug Reporting Tool"
@@ -64,51 +65,54 @@ msgstr ""
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"It's main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:89
+#, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:102
+#, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr ""
 
 #: ../src/gnome_abrt/dbus_problems.py:109
+#, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:151
+#: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:167
+#: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:178
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr ""
 
-#: ../src/gnome_abrt/dbus_problems.py:192
+#: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:54
 msgid "The description of problem is too short"
-msgstr "Beskrivningen av problemet är för kort."
+msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:55
 msgid ""
 "In order to get more useful reports we do not accept reports with the "
 "description shorter than 10 letters."
-msgstr "För att kunna få fler användbara rapporter så accepterar vi inte rapporter vars beskrivning är kortare än 10 bokstäver."
+msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:65
 msgid "The summary of problem is too short"
-msgstr "Sammanfattningen för problemet är för kort"
+msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:66
 msgid ""
@@ -118,69 +122,71 @@ msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:92
 msgid "Problem description"
-msgstr "Beskrivning av problemet"
+msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:100
 msgid "Summary:"
-msgstr "Sammanfattning:"
+msgstr ""
 
 #: ../src/gnome_abrt/dialogs.py:112
 msgid "_Send"
-msgstr "_Skicka"
+msgstr ""
 
 #. Sets text but text is selected :)
 #: ../src/gnome_abrt/dialogs.py:126
 msgid "A problem with ABRT"
-msgstr "Ett problem med ABRT"
+msgstr ""
 
 #: ../src/gnome_abrt/directory_problems.py:216
+#, python-brace-format
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
 
 #: ../src/gnome_abrt/directory_problems.py:262
+#, python-brace-format
 msgid "Can't open directory: '{0}'"
-msgstr "Kan inte öppna mappen: '{0}'"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr "_Ta bort"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr "Ta bort valda problem"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr "_Rapportera"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr "Skickar in problemet som har valts."
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr "Analyse_ra"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr "Öppna valt problem för analysering"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
-msgstr "_Alla problem"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
-msgstr "Visa alla kända problem från alla användare i systemet"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
-msgstr "_Öppna problemens data-mapp"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
@@ -190,71 +196,76 @@ msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
-msgstr "_Kopiera problem-ID't till klippbordet"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr "Lagrar det valda problemets ID i klippbordet"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:13
-msgid "App"
-msgstr "Applikation"
+msgid "Search"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:14
-msgid "Date"
-msgstr "Datum"
+msgid "App"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:15
-msgid "Name"
-msgstr "Namn"
+msgid "Date"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:16
-msgid "Version"
-msgstr "Version"
+msgid "Name"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:17
+msgid "Version"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "Detected"
-msgstr "Upptäckt"
+msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
+#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:674
 msgid "Reported"
-msgstr "Rapporterad"
-
-#: ../src/gnome_abrt/oops.glade.h:19
-msgid "No problems detected!"
-msgstr "Inga problem upptäcktes!"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:20
-msgid "No source selected!"
-msgstr "Ingen källa är vald!"
+msgid "No problems detected!"
+msgstr ""
 
 #: ../src/gnome_abrt/oops.glade.h:21
+msgid "No source selected!"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source"
-msgstr "Ingen källa"
+msgstr ""
 
 #: ../src/gnome_abrt/problems.py:433
+#, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr ""
 
 #: ../src/gnome_abrt/tools.py:33
 msgid "Future"
-msgstr "Framtid"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:40
 msgid "Yesterday"
-msgstr "Igår"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "week"
-msgstr "vecka"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:52
 msgid "month"
-msgstr "månad"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:55
 msgid "year"
-msgstr "år"
+msgstr ""
 
 #: ../src/gnome_abrt/tools.py:58
 msgid "Last {0!s}"
@@ -266,41 +277,36 @@ msgstr ""
 
 #: ../src/gnome_abrt/views.py:167
 msgid "Failed to load UI definition"
-msgstr "Misslyckades att ladda UI-definitionen"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:644 ../src/gnome_abrt/views.py:664
 msgid "N/A"
-msgstr "N/A"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:648
 msgid " crashed"
-msgstr "krashade"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:660
+#, python-brace-format
 msgid "{0} problem has been detected"
 msgstr ""
 
 #: ../src/gnome_abrt/views.py:677
 msgid "cannot be reported"
-msgstr "kan inte rapporteras"
+msgstr ""
 
 #: ../src/gnome_abrt/views.py:682
 msgid "Reports"
-msgstr "Rapporter"
-
-#: ../src/gnome_abrt/views.py:688
-msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:693
+#: ../src/gnome_abrt/views.py:685
 msgid "yes"
-msgstr "ja"
+msgstr ""
 
-#: ../src/gnome_abrt/views.py:695
+#: ../src/gnome_abrt/views.py:687
 msgid "no"
-msgstr "nej"
+msgstr ""
 
 #: ../src/gnome_abrt/controller.py:78
 msgid ""

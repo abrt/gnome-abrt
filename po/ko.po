@@ -3,46 +3,54 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# bardisch <kwb0128@gmail.com>, 2011
+# eukim <eukim@redhat.com>, 2011-2012
+# Jiří Moskovčák <jmoskovc@redhat.com>, 2011
+# fedoracat <raypotassium@gmail.com>, 2011-2012
+#   <raypoatssium@gmail.com>, 2011-2012, 2013
 # eukim <eukim@redhat.com>, 2014
+# Eun-Ju Kim <eukim@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-06 10:22+0100\n"
-"PO-Revision-Date: 2014-02-17 01:51+0000\n"
-"Last-Translator: eukim <eukim@redhat.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/gnome-abrt/language/ko/)\n"
+"POT-Creation-Date: 2016-04-21 11:57+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-23 12:24-0400\n"
+"Last-Translator: Eun-Ju Kim <eukim@redhat.com>\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/ko/)\n"
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.8.3\n"
 
-#: ../src/gnome-abrt:228
+#: ../src/gnome-abrt:218
 msgid "My"
-msgstr "내"
+msgstr "사용자"
 
-#: ../src/gnome-abrt:231
+#: ../src/gnome-abrt:221
 msgid "System"
 msgstr "시스템 "
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:240
 msgid "_Preferences"
 msgstr "환경 설정 (_P)"
 
-#: ../src/gnome-abrt:251
+#: ../src/gnome-abrt:241
 msgid "_ABRT Configuration"
 msgstr "ABRT 설정 (_A)"
 
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:242
 msgid "_Report problem with ABRT"
 msgstr "ABRT 관련 문제 보고 (_R) "
 
-#: ../src/gnome-abrt:254
+#: ../src/gnome-abrt:244
 msgid "_About"
 msgstr "정보(_A)"
 
-#: ../src/gnome-abrt:255
+#: ../src/gnome-abrt:245
 msgid "_Quit"
 msgstr "종료(_Q)"
 
@@ -62,35 +70,38 @@ msgstr "소프트웨어 문제 수집, 분석, 보고를 위해 고안된 소프
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"It's main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr "문제 보고 및 솔루션 검색 과정을 원활하게 하는 것을 주요 목적으로 합니다. "
 
 #: ../src/gnome_abrt/dbus_problems.py:89
+#, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "DBus 시스템 경로 '{1}'에서 신호 '{0}'의 수신자를 추가할 수 없습니다: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
+#, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "DBus 시스템 버스 '{0}' 경로 '{1}'에 연결할 수 없습니다: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
+#, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "버스 '{2}'의 경로 '{1}'에서 인터페이스 '{0}'를 얻을 수 없습니다: {3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:151
+#: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "DBus 서비스에서 문제 '{0}'에 chown 할 수 없습니다: {1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:167
+#: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "DBus 서비스에서 문제 데이터를 얻을 수 없습니다: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:178
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "DBus 서비스에서 문제 목록을 얻을 수 없습니다: {0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:192
+#: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "DBus 서비스를 통해 문제를 삭제할 수 없습니다: {0!s}"
 
@@ -132,15 +143,20 @@ msgid "A problem with ABRT"
 msgstr "ABRT 관련 문제"
 
 #: ../src/gnome_abrt/directory_problems.py:216
+#, python-brace-format
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr "inotify가 '{0}'에서 사용 가능한 감시(watch) 횟수를 넘었습니다. inotify의 설정에서 제한수를 늘리기 가능합니다. 보다 자세한 정보를 원하시면 man inotify(7)를 참조하시기 바랍니다. 이 이벤트의 문제는 이 응용 프로그램 외부에서 일어나는 문제 데이터의 변경 사항은 통보하지 않는다는 점입니다. 이 이벤트는 다른 기능에는 영향을 주지 않습니다."
+msgstr ""
+"inotify가 '{0}'에서 사용 가능한 감시(watch) 횟수를 넘었습니다. inotify의 설정에서 제한수를 늘리기 가능합니다. "
+"보다 자세한 정보를 원하시면 man inotify(7)를 참조하시기 바랍니다. 이 이벤트의 문제는 이 응용 프로그램 외부에서 일어나는 "
+"문제 데이터의 변경 사항은 통보하지 않는다는 점입니다. 이 이벤트는 다른 기능에는 영향을 주지 않습니다."
 
 #: ../src/gnome_abrt/directory_problems.py:262
+#, python-brace-format
 msgid "Can't open directory: '{0}'"
 msgstr "디렉토리를 열 수 없습니다: '{0}'"
 
@@ -195,42 +211,47 @@ msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "선택된 문제 ID를 클립보드에 저장"
 
 #: ../src/gnome_abrt/oops.glade.h:13
+msgid "Search"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "App"
 msgstr "어플 "
 
-#: ../src/gnome_abrt/oops.glade.h:14
+#: ../src/gnome_abrt/oops.glade.h:15
 msgid "Date"
 msgstr "날짜 "
 
-#: ../src/gnome_abrt/oops.glade.h:15
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Name"
 msgstr "이름 "
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:17
 msgid "Version"
 msgstr "버전 "
 
-#: ../src/gnome_abrt/oops.glade.h:17
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "Detected"
 msgstr "발견됨"
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
+#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "보고됨 "
 
-#: ../src/gnome_abrt/oops.glade.h:19
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "No problems detected!"
 msgstr "아무런 문제도 발견되지 않았습니다!"
 
-#: ../src/gnome_abrt/oops.glade.h:20
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source selected!"
 msgstr "선택된 소스가 없습니다!"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source"
 msgstr "소스 없음"
 
 #: ../src/gnome_abrt/problems.py:433
+#, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "캐시에서 찾을 수 없으나 제거되었습니다: {0}"
 
@@ -275,6 +296,7 @@ msgid " crashed"
 msgstr "충돌 "
 
 #: ../src/gnome_abrt/views.py:660
+#, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} 문제가 감지되었습니다 "
 
@@ -286,17 +308,11 @@ msgstr "보고할 수 없습니다 "
 msgid "Reports"
 msgstr "보고서"
 
-#: ../src/gnome_abrt/views.py:688
-msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr "이 문제가 보고되었습니다만 <i>Bugzilla</i> 티켓이 오픈되지 않았습니다. 문제를 해결하기 위해 개발자에게 더 많은 정보가 필요할 수 있습니다.\n더 많은 정보를 제공하기 위해 Bugzilla에 <b>보고</b>하는 것을 고려하시기 바랍니다. 감사합니다."
-
-#: ../src/gnome_abrt/views.py:693
+#: ../src/gnome_abrt/views.py:685
 msgid "yes"
 msgstr "예 "
 
-#: ../src/gnome_abrt/views.py:695
+#: ../src/gnome_abrt/views.py:687
 msgid "no"
 msgstr "아니요 "
 

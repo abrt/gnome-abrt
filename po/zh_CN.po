@@ -3,46 +3,51 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Huan Chen <chenhuan126@126.com>, 2011
+# Leah Liu <lliu@redhat.com>, 2011-2012
+# Wei Liu <LLIU@REDHAT.COM>, 2013
 # Wei Liu <LLIU@REDHAT.COM>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-06 10:22+0100\n"
-"PO-Revision-Date: 2014-02-09 08:49+0000\n"
-"Last-Translator: Wei Liu <LLIU@REDHAT.COM>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-abrt/language/zh_CN/)\n"
+"POT-Creation-Date: 2016-04-21 11:57+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2014-02-09 03:49-0500\n"
+"Last-Translator: Wei Liu <LLIU@REDHAT.COM>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
+"abrt/language/zh_CN/)\n"
+"Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.8.3\n"
 
-#: ../src/gnome-abrt:228
+#: ../src/gnome-abrt:218
 msgid "My"
 msgstr "我的"
 
-#: ../src/gnome-abrt:231
+#: ../src/gnome-abrt:221
 msgid "System"
 msgstr "系统"
 
-#: ../src/gnome-abrt:250
+#: ../src/gnome-abrt:240
 msgid "_Preferences"
 msgstr "首选项（_P）"
 
-#: ../src/gnome-abrt:251
+#: ../src/gnome-abrt:241
 msgid "_ABRT Configuration"
 msgstr "ABRT 配置（_A）"
 
-#: ../src/gnome-abrt:252
+#: ../src/gnome-abrt:242
 msgid "_Report problem with ABRT"
 msgstr "使用 ABRT 报告问题（_R）"
 
-#: ../src/gnome-abrt:254
+#: ../src/gnome-abrt:244
 msgid "_About"
 msgstr "关于（_A）"
 
-#: ../src/gnome-abrt:255
+#: ../src/gnome-abrt:245
 msgid "_Quit"
 msgstr "退出(_Q)"
 
@@ -62,35 +67,38 @@ msgstr "用来和搜集、分析和报告软件问题的软件工具集合。"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
-"It's main purpose is to ease the process of reporting an issue and finding a"
-" solution."
+"It's main purpose is to ease the process of reporting an issue and finding a "
+"solution."
 msgstr "其主要目的是减轻查找问题解决方案的过程。 "
 
 #: ../src/gnome_abrt/dbus_problems.py:89
+#, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr "无法在 DBus 系统路径  '{1}' 中添加信号  '{0}' 的接收器：{2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
+#, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
 msgstr "无法连接到 DBus 系统总线  '{0}' 路径  '{1}'：{2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
+#, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "无法在总线  '{2}' 的路径  '{1}' 中获得接口  '{0}'：{3}"
 
-#: ../src/gnome_abrt/dbus_problems.py:151
+#: ../src/gnome_abrt/dbus_problems.py:154
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
 msgstr "无法使用 chown 命令在 DBus 服务器中修改有问题的  '{0}'：{1!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:167
+#: ../src/gnome_abrt/dbus_problems.py:170
 msgid "Can't get problem data from DBus service: {0!s}"
 msgstr "无法从 DBus 服务中获取问题数据：{0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:178
+#: ../src/gnome_abrt/dbus_problems.py:181
 msgid "Can't get list of problems from DBus service: {0!s}"
 msgstr "无法从 DBus 服务中获取问题列表：{0!s}"
 
-#: ../src/gnome_abrt/dbus_problems.py:192
+#: ../src/gnome_abrt/dbus_problems.py:195
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "无法通过 DBus 服务删除问题：{0!s}"
 
@@ -132,15 +140,19 @@ msgid "A problem with ABRT"
 msgstr "ABRT 问题"
 
 #: ../src/gnome_abrt/directory_problems.py:216
+#, python-brace-format
 msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'."
-" The limit can be increased by proper configuration of inotify. For more "
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
-msgstr "您可能已达到了 '{0}' 中观察数 inotify 的上限。正确配置 inotify 可以增加该上限。有关详情请查看 man inotify(7)。这个事件导致您无法在该程序之外出现问题数据更改时得到通知。这个事件不会影响其他功能。"
+msgstr ""
+"您可能已达到了 '{0}' 中观察数 inotify 的上限。正确配置 inotify 可以增加该上限。有关详情请查看 man "
+"inotify(7)。这个事件导致您无法在该程序之外出现问题数据更改时得到通知。这个事件不会影响其他功能。"
 
 #: ../src/gnome_abrt/directory_problems.py:262
+#, python-brace-format
 msgid "Can't open directory: '{0}'"
 msgstr "无法打开目录： '{0}'"
 
@@ -195,42 +207,47 @@ msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "在剪切版中保存所选问题的 ID"
 
 #: ../src/gnome_abrt/oops.glade.h:13
+msgid "Search"
+msgstr ""
+
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "App"
 msgstr "程序"
 
-#: ../src/gnome_abrt/oops.glade.h:14
+#: ../src/gnome_abrt/oops.glade.h:15
 msgid "Date"
 msgstr "日期"
 
-#: ../src/gnome_abrt/oops.glade.h:15
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Name"
 msgstr "名称"
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:17
 msgid "Version"
 msgstr "版本"
 
-#: ../src/gnome_abrt/oops.glade.h:17
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "Detected"
 msgstr "已探测"
 
-#: ../src/gnome_abrt/oops.glade.h:18 ../src/gnome_abrt/views.py:674
+#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:674
 msgid "Reported"
 msgstr "已报告"
 
-#: ../src/gnome_abrt/oops.glade.h:19
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "No problems detected!"
 msgstr "未探测到问题！"
 
-#: ../src/gnome_abrt/oops.glade.h:20
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source selected!"
 msgstr "未选择资源！"
 
-#: ../src/gnome_abrt/oops.glade.h:21
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source"
 msgstr "无资源"
 
 #: ../src/gnome_abrt/problems.py:433
+#, python-brace-format
 msgid "Not found in cache but deleted: {0}"
 msgstr "没有在缓存中找到，但已删除： {0}"
 
@@ -275,6 +292,7 @@ msgid " crashed"
 msgstr "崩溃的"
 
 #: ../src/gnome_abrt/views.py:660
+#, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "检测到问题 {0}"
 
@@ -286,17 +304,11 @@ msgstr "无法报告"
 msgid "Reports"
 msgstr "报告"
 
-#: ../src/gnome_abrt/views.py:688
-msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
-msgstr "已报告了这个问题，但尚未生成 <i>Bugzilla</i> ticket。我们的开发人员可能需要更多信息方可解决这个问题。\n\n请考虑向 Bugzilla <b>报告这个问题</b> 以便提供进一步的信息。谢谢您的合作。"
-
-#: ../src/gnome_abrt/views.py:693
+#: ../src/gnome_abrt/views.py:685
 msgid "yes"
 msgstr "是"
 
-#: ../src/gnome_abrt/views.py:695
+#: ../src/gnome_abrt/views.py:687
 msgid "no"
 msgstr "无"
 

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <config xmlns="http://zanata.org/namespace/config/">
+  <!--<url>https://translate.engineering.redhat.com/</url>-->
   <url>https://fedora.zanata.org/</url>
   <project>gnome-abrt</project>
+  <!--<project-version>0.3.4</project-version>-->
   <project-version>rhel7</project-version>
   <project-type>gettext</project-type>
   <src-dir>po</src-dir>
   <trans-dir>po</trans-dir>
-<cconfig>
+</config>

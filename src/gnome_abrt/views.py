@@ -36,6 +36,8 @@ from gi.repository import GObject
 from gi.repository import Gio
 #pylint: disable=E0611
 from gi.repository import Pango
+#pylint: disable=E0611
+from gi.repository import GLib
 
 import humanize
 
@@ -321,8 +323,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             self.wnd_main = builder.get_object('wnd_main')
             self.box_window = builder.get_object('box_window')
+            self.box_header_left = builder.get_object('box_header_left')
             self.box_sources_switcher = builder.get_object(
                     'box_sources_switcher')
+            self.box_panel_left = builder.get_object('box_panel_left')
             self.lbl_reason = builder.get_object('lbl_reason')
             self.lbl_summary = builder.get_object('lbl_summary')
             self.lbl_app_name_value = builder.get_object('lbl_app_name_value')
@@ -391,9 +395,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                         self.box_header)
 
                 self.header_bar = Gtk.HeaderBar.new()
-                self.header_bar.pack_start(self.box_sources_switcher)
-                self.header_bar.pack_start(self.tbtn_search)
-                self.header_bar.pack_start(self.tbtn_multi_select)
+                self.header_bar.pack_start(self.box_header_left)
                 self.header_bar.pack_end(self.btn_report)
                 self.header_bar.pack_end(self.btn_delete)
 
@@ -1067,3 +1069,108 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                     self._builder.lb_problems.select_row(problem_row)
                     self._builder.menu_problem_item.popup(None, None,
                             None, None, data.button, data.time)
+
+    def get_box_header_left_offset(self):
+        # Returns the offset of box_header_left relative to the main paned
+        # widget: distance between the left edges of the widgets in LTR
+        # locales or the right edges in RTL locales.
+        box_header_left = self._builder.box_header_left
+        box_panel_left = self._builder.box_panel_left
+        paned = box_panel_left.get_parent()
+        offset = box_header_left.translate_coordinates(paned, 0, 0)[0]
+        parent = box_header_left.get_parent()
+        if parent is not None:
+            if parent.get_direction() == Gtk.TextDirection.RTL:
+                offset = paned.get_allocation().width - offset - \
+                         box_header_left.get_allocation().width
+
+        return offset
+
+    def do_box_header_left_size_allocate(self, sender):
+        # When something changes in the left group of header widgets
+        # (for example the number of "My" or "System" bugs is changed
+        # and requires more or less space) get its new minimum width
+        # and set it as the minimum width of the left panel.
+        # Unfortunately, we can't just call sender.get_preferred_width()
+        # because once we set the minimum width (set_size_request())
+        # of this box that value may be returned rather than the real
+        # minimum value required by the box. So here we repeat roughly
+        # the same algorithm which is inside the GtkBox implementation:
+        # calculate the sum of minimum widths required by the children.
+        spacing = sender.get_spacing()
+        sum_width = -spacing
+        for child in sender.get_children():
+            width = child.get_preferred_width()[0]  # child's minimum width
+            sum_width += width
+            sum_width += spacing
+
+        # Calculate the position of the box relative to its parent
+        padding = self.get_box_header_left_offset()
+
+        # This assumes that the right padding is the same as the left padding
+        self._builder.box_panel_left.set_size_request(
+                sum_width + 2 * padding, -1)
+
+        return GLib.SOURCE_REMOVE
+
+    def on_box_header_left_size_allocate(self, sender, allocation):
+        other = self._builder.box_panel_left
+
+        # Sometimes this function is called too early. All widgets must
+        # be realized in order to measure their relative position.
+        if not sender.get_realized() or not other.get_realized():
+            return
+
+        # We can't set the new size request while a widget size is being
+        # allocated because the widget must be fully measured and the new
+        # size request clears the measured flag causing a warning. For the
+        # same reason we can't set the new size request of another widget
+        # sharing the same common toplevel because the new size requsest
+        # causes resize of all its parents including the common parent which
+        # is just being allocated. To avoid this we schedule this action
+        # on idle.
+        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
+
+    def update_box_header_left_size_from_paned(self, sender):
+        # Sets the box_header_left width the same as the paned position
+        # minus optional margins
+        other = self._builder.box_header_left
+
+        # Sometimes this function is called too early. All widgets must
+        # be realized in order to measure their relative position.
+        if not sender.get_realized() or not other.get_realized():
+            return GLib.SOURCE_REMOVE
+
+        padding = self.get_box_header_left_offset()
+        self._builder.box_header_left.set_size_request(
+                sender.get_position() - 2 * padding, -1)
+
+        # Sometimes the new width request is accepted (get_size_request()
+        # returns the new value correctly) but not applied (the actual widget
+        # width is old and unnecessarily larger). Not sure whose bug this is
+        # but to workaround let's force resize.
+        self._builder.box_header_left.queue_resize()
+        return GLib.SOURCE_REMOVE
+
+    def on_paned_position_changed(self, sender, data):
+        # Alternatively we could watch box_panel_left size-allocate signal
+        # but that other method seemed to be delayed and not updated the
+        # size correctly.
+        self.update_box_header_left_size_from_paned(sender)
+
+    def on_paned_size_allocate(self, sender, allocation):
+        # Sometimes when the paned position is changed as a result of the
+        # resize of whole window (for example unmaximization) the paned
+        # position is not notified correctly. Again, not sure whose bug this
+        # is but to workaround let's watch the size of the paned and update
+        # the header box size. Same as previously, we should not resize
+        # any widget even when another widget is being allocated so schedule
+        # this action on idle.
+        GLib.idle_add(self.update_box_header_left_size_from_paned, sender)
+
+    def on_paned_map(self, sender):
+        # Also on the first appearance force the paned position changed event
+        # to update the box_header_left minimum width. Otherwise it is not
+        # adjusted to the paned handle position until a user moves the handle
+        # manually.
+        self.on_paned_position_changed(sender, None)

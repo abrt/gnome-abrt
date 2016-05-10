@@ -157,41 +157,51 @@
             <property name="can_focus">False</property>
             <property name="spacing">6</property>
             <child>
-              <object class="GtkStackSwitcher" id="box_sources_switcher">
+              <object class="GtkBox" id="box_header_left">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="spacing">6</property>
+                <signal name="size-allocate" handler="on_box_header_left_size_allocate" swapped="no"/>
+                <child>
+                  <object class="GtkStackSwitcher" id="box_sources_switcher">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="tbtn_search">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="image">image2</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="tbtn_multi_select">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="image">image1</property>
+                    <property name="use_underline">True</property>
+                    <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
                 <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkToggleButton" id="tbtn_search">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_start">35</property>
-                <property name="image">image2</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkToggleButton" id="tbtn_multi_select">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="image">image1</property>
-                <property name="use_underline">True</property>
-                <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
-              </object>
-              <packing>
-                <property name="position">3</property>
               </packing>
             </child>
             <child>
@@ -245,8 +255,10 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="position">310</property>
+            <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
+            <signal name="map" handler="on_paned_map" swapped="no"/>
             <child>
-              <object class="GtkBox" id="box1">
+              <object class="GtkBox" id="box_panel_left">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -348,7 +360,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="box2">
+              <object class="GtkBox" id="box_panel_right">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>

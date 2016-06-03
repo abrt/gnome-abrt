@@ -1,0 +1,388 @@
+# Anxhelo Lushka <an_xhelo@hotmail.com>, 2016. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-23 12:55+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-06-03 01:18-0400\n"
+"Last-Translator: Anxhelo Lushka <an_xhelo@hotmail.com>\n"
+"Language-Team: Albanian\n"
+"Language: sq\n"
+"X-Generator: Zanata 3.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#. Translators: a list header, "My" is a shortcut for "My bugs"
+#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
+msgid "My"
+msgstr "E imja"
+
+#. Translators: a list header, a shortcut for "System
+#. bugs". In this context "System" may be an adjective
+#. or a genitive noun, as required by your language.
+#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+msgctxt "bugs"
+msgid "System"
+msgstr "Sistemi"
+
+#: ../src/gnome-abrt:313
+msgid "_Preferences"
+msgstr "_Preferencat"
+
+#: ../src/gnome-abrt:316
+msgid "_About"
+msgstr "_Rreth"
+
+#: ../src/gnome-abrt:317
+msgid "_Quit"
+msgstr "_Dil"
+
+#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
+#: ../src/gnome_abrt/views.py:292
+msgid "Problem Reporting"
+msgstr "Raportimi i Problemeve"
+
+#: ../src/gnome-abrt.desktop.in.h:2
+msgid "View and report application crashes"
+msgstr "Shiko dhe raporto dështime të aplikacioneve"
+
+#: ../src/gnome-abrt.desktop.in.h:3
+msgid "abrt;bug reporting;crash logger;"
+msgstr "abrt;raportimi i problemeve;dokumentuesi i dështimeve"
+
+#: ../src/gnome-abrt.appdata.xml.in.h:1
+msgid ""
+"Collection of software tools designed for collecting, analyzing and "
+"reporting of software issues."
+msgstr ""
+"Koleksion mjetesh dhe programesh të dizenjuara për mbledhjen, analizimin dhe "
+"raportimin e problemeve të programeve."
+
+#: ../src/gnome-abrt.appdata.xml.in.h:2
+msgid ""
+"Its main purpose is to ease the process of reporting an issue and finding a "
+"solution."
+msgstr ""
+"Qëllimi i tij kryesor është të lehtësojë procesin e raportimit të një "
+"problemi dhe gjetjes së një zgjidhjeje."
+
+#: ../src/gnome_abrt/dbus_problems.py:89
+#, python-brace-format
+msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
+msgstr ""
+"'Nuk mund të shtohet marrësi i sinjalit '{0}' në shtegun DBus të sistemit "
+"'{1}': {2}"
+
+#: ../src/gnome_abrt/dbus_problems.py:102
+#, python-brace-format
+msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
+msgstr ""
+"'Nuk mund të lidhet me rrjetin DBus të sistemit '{0}' shtegu '{1}': {2}"
+
+#: ../src/gnome_abrt/dbus_problems.py:109
+#, python-brace-format
+msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
+msgstr ""
+"'Nuk mund të merret ndërfaqja '{0}' në shtegun '{1}' në rrjetin '{2}': {3}"
+
+#: ../src/gnome_abrt/dbus_problems.py:153
+msgid "Can't chown problem '{0}' over DBus service: {1!s}"
+msgstr "'Nuk mund të transmetohet problemi '{0}' mbi shërbimin DBus\" {1!s}"
+
+#: ../src/gnome_abrt/dbus_problems.py:168
+msgid "Can't get problem data from DBus service: {0!s}"
+msgstr "'Nuk mund të merren të dhënat e problemit nga shërbimi DBus: {0!s}"
+
+#: ../src/gnome_abrt/dbus_problems.py:179
+msgid "Can't get list of problems from DBus service: {0!s}"
+msgstr "'Nuk mund të merret lista e problemeve nga shërbimi DBus: {0!s}"
+
+#: ../src/gnome_abrt/dbus_problems.py:192
+msgid "Can't delete problem over DBus service: {0!s}"
+msgstr "'Nuk mund të fshihet problemi nga shërbimi DBus: {0!s}"
+
+#: ../src/gnome_abrt/directory_problems.py:216
+#, python-brace-format
+msgid ""
+"You have probably reached inotify's limit on the number of watches in '{0}'. "
+"The limit can be increased by proper configuration of inotify. For more "
+"details see man inotify(7). This event causes that you will not be notified "
+"about changes in problem data happening outside of this application. This "
+"event do not affect any other functionality."
+msgstr ""
+"'Ju me shumë mundësi keni arritur limitin e numrit të vëzhguesve të inotify "
+"në '{0}'. Limiti mund të rritet me anë të konfigurimit korrekt të inotify. "
+"Për më shumë detaje shihni man inotify(7). Ky event bën që ju të mos "
+"njoftoheni për ndryshime në të dhënat e problemit të cilat ndodhin jashtë "
+"këtij aplikacioni. Ky event nuk ndikon mbi ndonjë funksionalitet tjetër."
+
+#: ../src/gnome_abrt/directory_problems.py:262
+#, python-brace-format
+msgid "Can't open directory: '{0}'"
+msgstr "'Nuk mund të hapet direktoria: '{0}'"
+
+#: ../src/gnome_abrt/oops.glade.h:1
+msgid "_Delete"
+msgstr "_Fshi"
+
+#: ../src/gnome_abrt/oops.glade.h:2
+msgid "Delete selected problems"
+msgstr "Fshi problemet e zgjedhura"
+
+#: ../src/gnome_abrt/oops.glade.h:3
+msgid "_Report"
+msgstr "_Raporto"
+
+#: ../src/gnome_abrt/oops.glade.h:4
+msgid "Submits selected problem"
+msgstr "Paraqet problemin e zgjedhur"
+
+#: ../src/gnome_abrt/oops.glade.h:5
+msgid "Analy_ze"
+msgstr "Anali_zo"
+
+#: ../src/gnome_abrt/oops.glade.h:6
+msgid "Open selected problem for analysis"
+msgstr "Hap problemin e zgjedhur për analizim"
+
+#: ../src/gnome_abrt/oops.glade.h:7
+msgid "D_etails"
+msgstr "D_etaje"
+
+#: ../src/gnome_abrt/oops.glade.h:8
+msgid "Show technical details"
+msgstr "Trego detaje teknike"
+
+#: ../src/gnome_abrt/oops.glade.h:9
+msgid "_All problems"
+msgstr "_Të gjitha problemet"
+
+#: ../src/gnome_abrt/oops.glade.h:10
+msgid "Show all known problems from all system users"
+msgstr ""
+"Trego të gjitha problemet e njohura nga të gjithë përdoruesit e sistemit"
+
+#: ../src/gnome_abrt/oops.glade.h:11
+msgid "_Open problem's data directory"
+msgstr "_Hap direktorinë e të dhënave të problemeve"
+
+#: ../src/gnome_abrt/oops.glade.h:12
+msgid ""
+"Opens the selected problem's data directory in the default file system "
+"browser"
+msgstr ""
+"Hap direktorinë e të dhënave të problemeve të zgjedhura në shfletuesin e "
+"paravendosur të skedarëve të sistemit"
+
+#: ../src/gnome_abrt/oops.glade.h:13
+msgid "_Copy problem's ID to Clipboard"
+msgstr "_Kopjo ID e problemit në mbajtësin e shënimeve"
+
+#: ../src/gnome_abrt/oops.glade.h:14
+msgid "Stores the selected problem's ID in Clibpoard"
+msgstr "Ruan ID e problemit në mbajtësin e shënimeve"
+
+#: ../src/gnome_abrt/oops.glade.h:15
+msgid "_Filter"
+msgstr "_Filtro"
+
+#: ../src/gnome_abrt/oops.glade.h:16
+msgid "Show filter box"
+msgstr "Trego kutinë e filtrimit"
+
+#: ../src/gnome_abrt/oops.glade.h:17
+msgid "Name"
+msgstr "Emri"
+
+#: ../src/gnome_abrt/oops.glade.h:18
+msgid "Version"
+msgstr "Versioni"
+
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../src/gnome_abrt/oops.glade.h:20
+msgid "First Detected"
+msgstr "U zbulua fillimisht"
+
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
+msgid "Reported"
+msgstr "U raportua"
+
+#: ../src/gnome_abrt/oops.glade.h:22
+msgid "No problems detected!"
+msgstr "Nuk u zbuluan probleme!"
+
+#: ../src/gnome_abrt/oops.glade.h:23
+msgid "No source selected!"
+msgstr "Nuk ka burim të përzgjedhur!"
+
+#: ../src/gnome_abrt/oops.glade.h:24
+msgid "No source"
+msgstr "Nuk ka burim"
+
+#: ../src/gnome_abrt/problems.py:466
+#, python-brace-format
+msgid "Not found in cache but deleted: {0}"
+msgstr "Nuk u gjend në depon e fshehtë por u fshi: {0}"
+
+#: ../src/gnome_abrt/tools.py:42
+msgid "Future"
+msgstr "E ardhme"
+
+#: ../src/gnome_abrt/tools.py:49
+msgid "Yesterday"
+msgstr "Dje"
+
+#: ../src/gnome_abrt/tools.py:63
+msgid "Last week"
+msgstr "Javën e kaluar"
+
+#. Translators: This message will never be used for less than
+#. 2 weeks ago nor for more than one month ago. However, the singular
+#. form is necessary for some languages which do not have plural.
+#: ../src/gnome_abrt/tools.py:67
+#, python-brace-format
+msgid "{0:d} week ago"
+msgid_plural "{0:d} weeks ago"
+msgstr[0] "{0:d} javë më parë"
+msgstr[1] "{0:d} javë më parë"
+
+#: ../src/gnome_abrt/tools.py:72
+msgid "Last month"
+msgstr "Muajin e kaluar"
+
+#. Translators: This message will never be used for less than
+#. 2 months ago nor for more than one year ago. See the comment above.
+#: ../src/gnome_abrt/tools.py:75
+#, python-brace-format
+msgid "{0:d} month ago"
+msgid_plural "{0:d} months ago"
+msgstr[0] "{0:d} muaj më parë"
+msgstr[1] "{0:d} muaj më parë"
+
+#: ../src/gnome_abrt/tools.py:80
+msgid "Last year"
+msgstr "Vitin e kaluar"
+
+#. Translators: This message will never be used for less than
+#. 2 years ago. However, the singular form is necessary for some
+#. languages which do not have plural (Chinese, Japanese, Korean)
+#. or reuse the singular form for some plural cases (21 in Russian).
+#: ../src/gnome_abrt/tools.py:85
+#, python-brace-format
+msgid "{0:d} year ago"
+msgid_plural "{0:d} years ago"
+msgstr[0] "{0:d} vit më parë"
+msgstr[1] "{0:d} vite më parë"
+
+#: ../src/gnome_abrt/tools.py:115
+#, python-brace-format
+msgid "Failed to find icon '{0}'"
+msgstr "Dështoi ngarkimi i ikonës '{0}'"
+
+#: ../src/gnome_abrt/tools.py:122
+#, python-brace-format
+msgid "Failed to load icon '{0}': {1}"
+msgstr "Dështoi ngarkimi i ikonave '{0}': {1}"
+
+#. Translators: if the kernel crashed we display the word "System"
+#. instead of "kernel". In this context "System" is like a proper
+#. package name, probably a nominative noun.
+#: ../src/gnome_abrt/views.py:146
+msgctxt "package name"
+msgid "System"
+msgstr "Sistemi"
+
+#. Translators: These are the problem types displayed in the problem
+#. list under the application name
+#: ../src/gnome_abrt/views.py:152
+msgid "Application Crash"
+msgstr "Përplasje e Aplikacionit"
+
+#: ../src/gnome_abrt/views.py:154
+msgid "System Crash"
+msgstr "Përplasje e Sistemit"
+
+#: ../src/gnome_abrt/views.py:156
+msgid "System Failure"
+msgstr "Dështim i Sistemit"
+
+#: ../src/gnome_abrt/views.py:158
+msgid "Misbehavior"
+msgstr "Sjellje e gabuar"
+
+#: ../src/gnome_abrt/views.py:318
+msgid "Failed to load UI definition"
+msgstr "Dështoi ngarkimi i përcaktimit të ndërfaqes së përdoruesit"
+
+#: ../src/gnome_abrt/views.py:855
+msgid "Unexpected system error"
+msgstr "Gabim i paparashikuar i sistemit"
+
+#: ../src/gnome_abrt/views.py:857
+msgid "The system has encountered a problem and recovered."
+msgstr "Ky sistem ka hasur në një problem dhe është rikuperuar."
+
+#: ../src/gnome_abrt/views.py:860
+msgid "Fatal system failure"
+msgstr "Dështim fatal sistemi"
+
+#: ../src/gnome_abrt/views.py:862
+msgid "The system has encountered a problem and could not continue."
+msgstr "Ky sistemi ka hasur në një problem dhe nuk mund të vazhdojë."
+
+#: ../src/gnome_abrt/views.py:875
+#, python-brace-format
+msgid "{0} problem has been detected"
+msgstr "{0} problem është zbuluar"
+
+#: ../src/gnome_abrt/views.py:879
+#, python-brace-format
+msgid "{0} quit unexpectedly"
+msgstr "{0} u mbarua në mënyrë të papritur"
+
+#: ../src/gnome_abrt/views.py:882
+msgid "The application encountered a problem and could not continue."
+msgstr "Ky aplikacion pësoi një problem dhe nuk mund të vazhdojë"
+
+#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
+msgid "N/A"
+msgstr "N/A"
+
+#: ../src/gnome_abrt/views.py:914
+msgid "cannot be reported"
+msgstr "nuk mund të raportohet"
+
+#: ../src/gnome_abrt/views.py:919
+msgid "Reports"
+msgstr "Raportimet"
+
+#: ../src/gnome_abrt/views.py:925
+msgid ""
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
+msgstr ""
+"Ky problem është raportuar, por një etiketë <i>Bugzilla</i> nuk është hapur "
+"ende. Zhvilluesve tanë mund t'u duhet më shumë informacion për të zgjidhur "
+"problemin.\n"
+"Ju lutemi konsideroni ta <b>raportoni</b> tek Bugzilla në mënyrë që ta "
+"ofroni këtë. Ju faleminderit."
+
+#: ../src/gnome_abrt/views.py:930
+msgid "yes"
+msgstr "po"
+
+#: ../src/gnome_abrt/views.py:932
+msgid "no"
+msgstr "jo"
+
+#: ../src/gnome_abrt/controller.py:78
+msgid ""
+"Failed to execute the requested action because of an error in new process "
+"creation"
+msgstr ""
+"Dështoi ekzekutimi i veprimit të kërkuar për shkak të një gabimi në krijimin "
+"e një procesi të ri"

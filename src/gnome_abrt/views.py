@@ -864,16 +864,17 @@ class OopsWindow(Gtk.ApplicationWindow):
             _("The system has encountered a problem and could not continue."))
             else:
                 if not app.name:
-                    # If Application's name is unknown, display neutral
-                    # header "'Type' problem has been detected":
-                    #  Kerneloops problem has been detected
-                    #  C/C++ problem has been detected
-                    #  Python problem has been detected
-                    #  Ruby problem has been detected
-                    #  VMCore problem has been detected
-                    #  AVC problem has been detected
-                    #  Java problem has been detected
                     self._builder.lbl_reason.set_text(
+                            # Translators: If Application's name is unknown,
+                            # display neutral header
+                            # "'Type' problem has been detected". Examples:
+                            #  Kerneloops problem has been detected
+                            #  C/C++ problem has been detected
+                            #  Python problem has been detected
+                            #  Ruby problem has been detected
+                            #  VMCore problem has been detected
+                            #  AVC problem has been detected
+                            #  Java problem has been detected
                             _("{0} problem has been detected").format(
                                     problem['human_type']))
                 else:
@@ -884,8 +885,10 @@ class OopsWindow(Gtk.ApplicationWindow):
             _("The application encountered a problem and could not continue."))
 
             self._builder.lbl_app_name_value.set_text(
+                        # Translators: package name not available
                         problem['package_name'] or _("N/A"))
             self._builder.lbl_app_version_value.set_text(
+                        # Translators: package version not available
                         problem['package_version'] or _("N/A"))
             self._builder.lbl_detected_value.set_text(
                 humanize.naturaltime(datetime.datetime.now()-problem['date']))
@@ -929,8 +932,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 "Please consider also <b>reporting it</b> to Bugzilla in"
 " order to provide that. Thank you."))
                 else:
+                    # Translators: Displayed after 'Reported' if a problem
+                    # has been reported but we don't know where and when.
+                    # Probably a rare situation, usually if a problem is
+                    # reported we display a list of reports here.
                     self._builder.lbl_reported_value.set_text(_('yes'))
             else:
+                # Translators: Displayed after 'Reported' if a problem
+                # has not been reported.
                 self._builder.lbl_reported_value.set_text(_('no'))
         else:
             if self._source is not None:

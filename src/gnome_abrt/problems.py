@@ -254,7 +254,7 @@ class Problem(object):
 
         epoch = ""
         if epoch_value and epoch_value != "0":
-            epoch = "{0}:".format(epoch)
+            epoch = "{0}:".format(epoch_value)
 
         version = self['pkg_version']
         release = self['pkg_release']

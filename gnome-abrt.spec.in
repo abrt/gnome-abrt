@@ -107,6 +107,14 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Jun 07 2016 Jakub Filak <jfilak@redhat.com> 1.2.4-1
+- Translation updates
+- Add new translation languages - sq
+- More translators comments
+- One more fix for the format of a package version
+- Align the header buttons position to the sidebar size
+- Correct format of the package version
+
 * Wed Mar 23 2016 Jakub Filak <jfilak@redhat.com> 1.2.3-1
 - Translation updates
 - Let main title of the crash wrap

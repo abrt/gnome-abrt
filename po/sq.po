@@ -17,7 +17,7 @@ msgstr ""
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
-msgstr "E imja"
+msgstr "E mia"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -30,6 +30,14 @@ msgstr "Sistemi"
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
 msgstr "_Preferencat"
+
+#: ../src/gnome-abrt:317
+msgid "_ABRT Configuration"
+msgstr "_Konfigurimi i ABRT"
+
+#: ../src/gnome-abrt:318
+msgid "_Report problem with ABRT"
+msgstr "_Raporto problemet me ABRT"
 
 #: ../src/gnome-abrt:316
 msgid "_About"
@@ -50,7 +58,7 @@ msgstr "Shiko dhe raporto dështime të aplikacioneve"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr "abrt;raportimi i problemeve;dokumentuesi i dështimeve"
+msgstr "abrt;raportimi i problemeve;dokumentuesi i dështimeve;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -102,6 +110,47 @@ msgstr "'Nuk mund të merret lista e problemeve nga shërbimi DBus: {0!s}"
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
 msgstr "'Nuk mund të fshihet problemi nga shërbimi DBus: {0!s}"
+
+#: ../src/gnome_abrt/dialogs.py:55
+msgid "The description of problem is too short"
+msgstr "Përshkrimi i problemit është shumë i shkurtër"
+
+#: ../src/gnome_abrt/dialogs.py:56
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"description shorter than 10 letters."
+msgstr ""
+"Për të marrë raporte më të dobishme ne nuk pranojmë raportime me "
+"pëshkrime më të shkurtra se 10 shkronja."
+
+#: ../src/gnome_abrt/dialogs.py:66
+msgid "The summary of problem is too short"
+msgstr "Përmbledhja e problemit është shumë e shkurtër"
+
+#: ../src/gnome_abrt/dialogs.py:67
+msgid ""
+"In order to get more useful reports we do not accept reports with the "
+"summary shorter than 10 letters."
+msgstr ""
+"Për të marrë raporte më të dobishme ne nuk pranojmë raportime me "
+"përmbledhje më të shkurtra se 10 shkronja."
+
+#: ../src/gnome_abrt/dialogs.py:93
+msgid "Problem description"
+msgstr "Pëshkrimi i problemit"
+
+#: ../src/gnome_abrt/dialogs.py:101
+msgid "Summary:"
+msgstr "Përmbledhje:"
+
+#: ../src/gnome_abrt/dialogs.py:120
+msgid "_Send"
+msgstr "_Dërgo"
+
+#. Sets text but text is selected :)
+#: ../src/gnome_abrt/dialogs.py:134
+msgid "A problem with ABRT"
+msgstr "Problem me ABRT"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 #, python-brace-format

@@ -7,6 +7,7 @@
 # Leah Liu <lliu@redhat.com>, 2011-2012
 # Wei Liu <LLIU@REDHAT.COM>, 2013
 # Wei Liu <LLIU@REDHAT.COM>, 2014
+# xhuang <xhuang@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,13 +16,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-02-09 03:49-0500\n"
-"Last-Translator: Wei Liu <LLIU@REDHAT.COM>\n"
+"PO-Revision-Date: 2016-06-09 12:29-0400\n"
+"Last-Translator: xhuang <xhuang@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
 "abrt/language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.8.3\n"
+"X-Generator: Zanata 3.8.4\n"
 
 #: ../src/gnome-abrt:218
 msgid "My"
@@ -208,7 +209,7 @@ msgstr "在剪切版中保存所选问题的 ID"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "App"

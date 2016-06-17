@@ -6,6 +6,7 @@
 # fvalen <fvalen@redhat.com>, 2013-2014
 # fvalen <fvalen@redhat.com>, 2011-2012
 # fvalen <fvalen@redhat.com>, 2014
+# Terry Chuang <tchuang@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -20,7 +21,7 @@ msgstr ""
 "language/it/)\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.8.3\n"
+"X-Generator: Zanata 3.8.4\n"
 
 #: ../src/gnome-abrt:218
 msgid "My"
@@ -228,7 +229,7 @@ msgstr "Archivi l'ID del problema selezionato negli appunti"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "App"

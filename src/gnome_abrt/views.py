@@ -1086,7 +1086,14 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         box_header_left = self._builder.box_header_left
         box_panel_left = self._builder.box_panel_left
         paned = box_panel_left.get_parent()
+        if paned is None:
+            # Fatal error, we can't do anything so just return error.
+            # See also: rhbz#1347951
+            return None
+
         offset = box_header_left.translate_coordinates(paned, 0, 0)[0]
+        # We don't know who is the parent of box_header_left, it may be
+        # box_header or header_bar.
         parent = box_header_left.get_parent()
         if parent is not None:
             if parent.get_direction() == Gtk.TextDirection.RTL:
@@ -1115,6 +1122,8 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 
         # Calculate the position of the box relative to its parent
         padding = self.get_box_header_left_offset()
+        if padding is None:
+            return GLib.SOURCE_REMOVE  # Error, we won't retry
 
         # This assumes that the right padding is the same as the left padding
         self._builder.box_panel_left.set_size_request(
@@ -1151,6 +1160,9 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             return GLib.SOURCE_REMOVE
 
         padding = self.get_box_header_left_offset()
+        if padding is None:
+            return GLib.SOURCE_REMOVE  # Error, we won't retry
+
         self._builder.box_header_left.set_size_request(
                 sender.get_position() - 2 * padding, -1)
 

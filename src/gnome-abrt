@@ -360,7 +360,7 @@ class OopsApplication(Gtk.Application):
     "u should have received a copy of the GNU General Public License along wi"
     "th this program.  If not, see <http://www.gnu.org/licenses/>.")
         dialog.set_wrap_license(True)
-        dialog.set_website("https://fedorahosted.org/abrt/")
+        dialog.set_website("https://github.com/abrt/gnome-abrt")
         dialog.set_authors(["aboobed <0otibi0@gmail.com>",
                             "Allan Day <allanpday@gmail.com>",
                             "Bastien Nocera <hadess@hadess.net>",

@@ -11,8 +11,8 @@ Summary:    A utility for viewing problems that have occurred with the system
 
 Group:      User Interface/Desktops
 License:    GPLv2+
-URL:        https://fedorahosted.org/abrt/
-Source0:    https://github.com/downloads/jfilak/abrt-gnome-oops/%{name}-%{version}.tar.gz
+URL:        https://github.com/abrt/gnome-abrt
+Source0:    https://fedorahosted.org/released/abrt/%{name}-%{version}.tar.gz
 
 BuildRequires: intltool
 BuildRequires: gettext

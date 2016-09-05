@@ -5,22 +5,22 @@
 # Translators:
 # fvalen <fvalen@redhat.com>, 2013-2014
 # fvalen <fvalen@redhat.com>, 2011-2012
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Luca Ciavatta <luca.ciavatta@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 12:55+0100\n"
+"POT-Creation-Date: 2016-09-05 13:07+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-05 04:30-0500\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
+"PO-Revision-Date: 2016-07-27 08:45-0400\n"
+"Last-Translator: Luca Ciavatta <luca.ciavatta@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/it/)\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.8.4\n"
+"X-Generator: Zanata 3.9.5\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
@@ -33,7 +33,7 @@ msgstr "Mio"
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
@@ -41,16 +41,16 @@ msgstr "_Preferenze"
 
 #: ../src/gnome-abrt:316
 msgid "_About"
-msgstr "I_nformazioni"
+msgstr "_Informazioni"
 
 #: ../src/gnome-abrt:317
 msgid "_Quit"
-msgstr "_Abbandona"
+msgstr "_Esci"
 
 #: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
-#: ../src/gnome_abrt/views.py:292
+#: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Segnalazione errori"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -58,7 +58,7 @@ msgstr "Visualizza e notifica i crash dell'applicazione"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -73,6 +73,8 @@ msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"Il suo scopo principale è quello di facilitare il processo di notifica di un "
+"problema e di identificazione di una soluzione."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 #, python-brace-format
@@ -159,11 +161,11 @@ msgstr "Apri il problema selezionato per una analisi"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "_Dettagli"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "Mostra dettagli tecnici"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
@@ -195,11 +197,11 @@ msgstr "Archivi l'ID del problema selezionato negli appunti"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "_Filtra"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "Mostra i filtri"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -212,9 +214,9 @@ msgstr "Versione"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "Rilevato per la prima volta"
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:916
 msgid "Reported"
 msgstr "Riportato"
 
@@ -245,7 +247,7 @@ msgstr "Ieri"
 
 #: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "Ultima settimana"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -254,12 +256,12 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} settimana fa"
+msgstr[1] "{0:d} settimana fa"
 
 #: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "Ultimo mese"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -267,12 +269,12 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} mese fa"
+msgstr[1] "{0:d} mesi fa"
 
 #: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "Ultimo anno"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -282,94 +284,104 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} anno fa"
+msgstr[1] "{0:d} anni fa"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "Caricamento definizione UI fallito"
+msgstr "Ricerca icona '{0}' fallita"
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "Caricamento definizione UI fallito"
+msgstr "Caricamento icona '{0}': {1} fallito"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: ../src/gnome_abrt/views.py:146
+#: ../src/gnome_abrt/views.py:148
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:152
-msgid "Application Crash"
-msgstr ""
-
 #: ../src/gnome_abrt/views.py:154
-#, fuzzy
-msgid "System Crash"
-msgstr "Sistema"
+msgid "Application Crash"
+msgstr "Crash dell'applicazione"
 
 #: ../src/gnome_abrt/views.py:156
-#, fuzzy
-msgid "System Failure"
-msgstr "Sistema"
+msgid "System Crash"
+msgstr "Crash di sistema"
 
 #: ../src/gnome_abrt/views.py:158
-msgid "Misbehavior"
-msgstr ""
+msgid "System Failure"
+msgstr "Errore di sistema"
 
-#: ../src/gnome_abrt/views.py:318
+#: ../src/gnome_abrt/views.py:160
+msgid "Misbehavior"
+msgstr "Comportamento errato"
+
+#: ../src/gnome_abrt/views.py:320
 msgid "Failed to load UI definition"
 msgstr "Caricamento definizione UI fallito"
 
-#: ../src/gnome_abrt/views.py:855
-msgid "Unexpected system error"
-msgstr ""
-
 #: ../src/gnome_abrt/views.py:857
-msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgid "Unexpected system error"
+msgstr "Errore di sistema inaspettato"
 
-#: ../src/gnome_abrt/views.py:860
-msgid "Fatal system failure"
-msgstr ""
+#: ../src/gnome_abrt/views.py:859
+msgid "The system has encountered a problem and recovered."
+msgstr "Il sistema ha rilevato e ripristinato un errore."
 
 #: ../src/gnome_abrt/views.py:862
-msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgid "Fatal system failure"
+msgstr "Errore di sistema fatale"
 
-#: ../src/gnome_abrt/views.py:875
+#: ../src/gnome_abrt/views.py:864
+msgid "The system has encountered a problem and could not continue."
+msgstr "Il sistema ha riscontrato un errore e non può continuare."
+
+#. Translators: If Application's name is unknown,
+#. display neutral header
+#. "'Type' problem has been detected". Examples:
+#. Kerneloops problem has been detected
+#. C/C++ problem has been detected
+#. Python problem has been detected
+#. Ruby problem has been detected
+#. VMCore problem has been detected
+#. AVC problem has been detected
+#. Java problem has been detected
+#: ../src/gnome_abrt/views.py:878
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "È stato rilevato {0} problema"
 
-#: ../src/gnome_abrt/views.py:879
+#: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} terminato inaspettatamente"
 
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:885
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "L'applicazione ha riscontrato un errore e non può continuare."
 
-#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
+#. Translators: package name not available
+#. Translators: package version not available
+#: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:914
+#: ../src/gnome_abrt/views.py:919
 msgid "cannot be reported"
 msgstr "impossibile da riportare"
 
-#: ../src/gnome_abrt/views.py:919
+#: ../src/gnome_abrt/views.py:924
 msgid "Reports"
 msgstr "Riporti"
 
-#: ../src/gnome_abrt/views.py:925
+#: ../src/gnome_abrt/views.py:930
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -381,11 +393,17 @@ msgstr ""
 "risolvere. Per una sua risoluzione <b>riporta il problema</b> su Bugzilla. "
 "Grazie."
 
-#: ../src/gnome_abrt/views.py:930
+#. Translators: Displayed after 'Reported' if a problem
+#. has been reported but we don't know where and when.
+#. Probably a rare situation, usually if a problem is
+#. reported we display a list of reports here.
+#: ../src/gnome_abrt/views.py:939
 msgid "yes"
 msgstr "si"
 
-#: ../src/gnome_abrt/views.py:932
+#. Translators: Displayed after 'Reported' if a problem
+#. has not been reported.
+#: ../src/gnome_abrt/views.py:943
 msgid "no"
 msgstr "no"
 

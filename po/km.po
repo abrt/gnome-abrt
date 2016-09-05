@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 12:55+0100\n"
+"POT-Creation-Date: 2016-09-05 13:07+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-31 04:33-0400\n"
-"Last-Translator: Kuylim Tith <kuylim.tith@gmail.com>\n"
+"PO-Revision-Date: 2016-01-27 05:03-0500\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Khmer\n"
 "Language: km\n"
-"X-Generator: Zanata 3.8.4\n"
+"X-Generator: Zanata 3.9.5\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
@@ -41,7 +41,7 @@ msgid "_Quit"
 msgstr "_ចាកចេញ"
 
 #: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
-#: ../src/gnome_abrt/views.py:292
+#: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
 msgstr "_ការរាយការណ៍បញ្ហា"
 
@@ -199,7 +199,7 @@ msgstr "កំណែ"
 msgid "First Detected"
 msgstr ""
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:911
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:916
 msgid "Reported"
 msgstr "បានរាយការណ៍"
 
@@ -280,78 +280,90 @@ msgstr "បរាជ័យក្នុងការផ្ទុក និយម�
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: ../src/gnome_abrt/views.py:146
+#: ../src/gnome_abrt/views.py:148
 msgctxt "package name"
 msgid "System"
 msgstr ""
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:152
+#: ../src/gnome_abrt/views.py:154
 msgid "Application Crash"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:154
+#: ../src/gnome_abrt/views.py:156
 #, fuzzy
 msgid "System Crash"
 msgstr "ប្រព័ន្ធ"
 
-#: ../src/gnome_abrt/views.py:156
+#: ../src/gnome_abrt/views.py:158
 #, fuzzy
 msgid "System Failure"
 msgstr "ប្រព័ន្ធត្រូវបានបរាជ័យយ៉ាងធ្ងន់ធ្ងរ"
 
-#: ../src/gnome_abrt/views.py:158
+#: ../src/gnome_abrt/views.py:160
 msgid "Misbehavior"
 msgstr ""
 
-#: ../src/gnome_abrt/views.py:318
+#: ../src/gnome_abrt/views.py:320
 msgid "Failed to load UI definition"
 msgstr "បរាជ័យក្នុងការផ្ទុក និយមន័យ UI"
 
-#: ../src/gnome_abrt/views.py:855
+#: ../src/gnome_abrt/views.py:857
 msgid "Unexpected system error"
 msgstr "កំហុសប្រព័ន្ធដែលមិនបានរំពឹងទុក"
 
-#: ../src/gnome_abrt/views.py:857
+#: ../src/gnome_abrt/views.py:859
 msgid "The system has encountered a problem and recovered."
 msgstr "ប្រព័ន្ធបានជួបប្រទះបញ្ហា និង បានយកមកវិញ ។"
 
-#: ../src/gnome_abrt/views.py:860
+#: ../src/gnome_abrt/views.py:862
 msgid "Fatal system failure"
 msgstr "ប្រព័ន្ធត្រូវបានបរាជ័យយ៉ាងធ្ងន់ធ្ងរ"
 
-#: ../src/gnome_abrt/views.py:862
+#: ../src/gnome_abrt/views.py:864
 msgid "The system has encountered a problem and could not continue."
 msgstr "ប្រព័ន្ធបានជួបនឹងបញ្ហានិងមិនអាចបន្ដទៅមុខ ។"
 
-#: ../src/gnome_abrt/views.py:875
+#. Translators: If Application's name is unknown,
+#. display neutral header
+#. "'Type' problem has been detected". Examples:
+#. Kerneloops problem has been detected
+#. C/C++ problem has been detected
+#. Python problem has been detected
+#. Ruby problem has been detected
+#. VMCore problem has been detected
+#. AVC problem has been detected
+#. Java problem has been detected
+#: ../src/gnome_abrt/views.py:878
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} បញ្ហាត្រូវបានរកឃើញ"
 
-#: ../src/gnome_abrt/views.py:879
+#: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} ចាកចេញដោយមិនបានរំពឹងទុក"
 
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:885
 msgid "The application encountered a problem and could not continue."
 msgstr "កម្មវិធីជួបប្រទះនិឹងបញ្ហា ហើយមិនអាចបន្ដទៅមុខបាន ។"
 
-#: ../src/gnome_abrt/views.py:885 ../src/gnome_abrt/views.py:887
+#. Translators: package name not available
+#. Translators: package version not available
+#: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
 msgid "N/A"
 msgstr "មិនអាចរកបាន"
 
-#: ../src/gnome_abrt/views.py:914
+#: ../src/gnome_abrt/views.py:919
 msgid "cannot be reported"
 msgstr "មិនអាចរាយការណ៍បាន"
 
-#: ../src/gnome_abrt/views.py:919
+#: ../src/gnome_abrt/views.py:924
 msgid "Reports"
 msgstr "ការរាយការណ៍"
 
-#: ../src/gnome_abrt/views.py:925
+#: ../src/gnome_abrt/views.py:930
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -363,11 +375,17 @@ msgstr ""
 "សូមពិចារណាផងដែរលើ <b> កំពុងរាយការណ៍អំពីវា</b> ទៅកាន់ Bugzilla "
 "ក្នុងគោលបំណងផ្ដល់ព័ត៌មាន ។ សូមអរគុណ ។"
 
-#: ../src/gnome_abrt/views.py:930
+#. Translators: Displayed after 'Reported' if a problem
+#. has been reported but we don't know where and when.
+#. Probably a rare situation, usually if a problem is
+#. reported we display a list of reports here.
+#: ../src/gnome_abrt/views.py:939
 msgid "yes"
 msgstr "បាទ​/ចាស"
 
-#: ../src/gnome_abrt/views.py:932
+#. Translators: Displayed after 'Reported' if a problem
+#. has not been reported.
+#: ../src/gnome_abrt/views.py:943
 msgid "no"
 msgstr "ទេ"
 

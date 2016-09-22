@@ -474,7 +474,11 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
-        css_prv.load_from_data("GtkListBoxRow {\n"
+        # "row" selector is valid and supported in GTK>=3.20 (Fedora 24).
+        # "GtkListBoxRow" selector is no longer supported but required
+        # for GTK<3.20 (Fedora 23). It can be removed if we decide to stop
+        # supporting older systems.
+        css_prv.load_from_data("GtkListBoxRow, row {\n"
                                "  padding          : 12px;\n"
                                "}\n"
                                ".app-name-label {\n"

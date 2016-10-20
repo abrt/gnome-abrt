@@ -88,4 +88,3 @@ class Controller(object):
                 except Exception as ex:
                     logging.exception(ex)
                     sys.exit(1)
-

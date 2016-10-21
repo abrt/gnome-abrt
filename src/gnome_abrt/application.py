@@ -47,4 +47,3 @@ def find_application(cmdline, envp, pid, component):
             name=app.get_name(), icon=app.get_icon())
 
     return ret
-

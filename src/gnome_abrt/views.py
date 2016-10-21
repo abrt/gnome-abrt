@@ -25,7 +25,6 @@ import datetime
 
 #pygobject
 import gi
-gi.require_version('Gtk', '3.0')
 #pylint: disable=E0611
 from gi.repository import Gtk
 #pylint: disable=E0611
@@ -51,6 +50,7 @@ from gnome_abrt.tools import fancydate, smart_truncate, load_icon
 from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
+gi.require_version('Gtk', '3.0')
 
 def list_box_row_to_problem(list_box_row):
     return list_box_row.get_children()[0].get_problem()

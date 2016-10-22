@@ -68,6 +68,7 @@
     <property name="accel_group">ag_accelerators</property>
     <child>
       <object class="GtkMenuItem" id="mi_delete_multi">
+        <property name="tooltip_text" translatable="yes">Delete selected problems</property>
         <property name="related_action">gac_delete</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -80,6 +81,7 @@
     <property name="accel_group">ag_accelerators</property>
     <child>
       <object class="GtkMenuItem" id="mi_report">
+        <property name="tooltip_text" translatable="yes">Submits selected problem</property>
         <property name="related_action">gac_report</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -87,6 +89,7 @@
     </child>
     <child>
       <object class="GtkMenuItem" id="mi_delete">
+        <property name="tooltip_text" translatable="yes">Delete selected problems</property>
         <property name="related_action">gac_delete</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -94,6 +97,7 @@
     </child>
     <child>
       <object class="GtkMenuItem" id="mi_detail">
+        <property name="tooltip_text" translatable="yes">Show technical details</property>
         <property name="related_action">gac_detail</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -101,6 +105,7 @@
     </child>
     <child>
       <object class="GtkMenuItem" id="mi_open_directory">
+        <property name="tooltip_text" translatable="yes">Opens the selected problem's data directory in the default file system browser</property>
         <property name="related_action">gac_open_directory</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -108,6 +113,7 @@
     </child>
     <child>
       <object class="GtkMenuItem" id="mi_copy_id">
+        <property name="tooltip_text" translatable="yes">Stores the selected problem's ID in Clibpoard</property>
         <property name="related_action">gac_copy_id</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -115,6 +121,7 @@
     </child>
     <child>
       <object class="GtkMenuItem" id="mi_search">
+        <property name="tooltip_text" translatable="yes">Show filter box</property>
         <property name="related_action">gac_search</property>
         <property name="can_focus">False</property>
       </object>
@@ -171,6 +178,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="image">image2</property>
+                    <property name="tooltip_text" translatable="yes">Show filter box</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -199,6 +207,7 @@
             <child>
               <object class="GtkButton" id="btn_report">
                 <property name="label" translatable="yes">_Report</property>
+                <property name="tooltip_text" translatable="yes">Submits selected problem</property>
                 <property name="related_action">gac_report</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -220,6 +229,7 @@
             <child>
               <object class="GtkButton" id="btn_delete">
                 <property name="label" translatable="yes">_Delete</property>
+                <property name="tooltip_text" translatable="yes">Delete selected problems</property>
                 <property name="related_action">gac_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -676,6 +686,7 @@
                         <child>
                           <object class="GtkButton" id="btn_detail">
                             <property name="label">button</property>
+                            <property name="tooltip_text" translatable="yes">Show technical details</property>
                             <property name="use_action_appearance">True</property>
                             <property name="related_action">gac_detail</property>
                             <property name="visible">True</property>

@@ -107,6 +107,16 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Oct 31 2016 Jakub Filak <jfilak@redhat.com> 1.2.5-1
+- Translation updates
+- Fix some small issues to please pylint
+- Use compatible CSS selectors for both gtk 3.18 and 3.20
+- Translation updates
+- Update Project URL on the About page
+- Update the project URLs in the spec file
+- Translation updates
+- Fixed crash when calculating offsets to align the buttons
+
 * Tue Jun 07 2016 Jakub Filak <jfilak@redhat.com> 1.2.4-1
 - Translation updates
 - Add new translation languages - sq

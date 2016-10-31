@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Niv Baehr <bloop93@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -11,18 +12,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-12-23 12:43-0500\n"
+"PO-Revision-Date: 2016-09-28 01:48-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/he/)\n"
 "Language: he\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.9.5\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n==2 ? 2 : 1;\n"
+"X-Generator: Zanata 3.9.6\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
-msgstr ""
+msgstr "שלי"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -30,75 +31,75 @@ msgstr ""
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "מערכת"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
-msgstr ""
+msgstr "ה_עדפות"
 
 #: ../src/gnome-abrt:316
 msgid "_About"
-msgstr ""
+msgstr "על _אודות"
 
 #: ../src/gnome-abrt:317
 msgid "_Quit"
-msgstr ""
+msgstr "י_ציאה"
 
 #: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
 #: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
-msgstr ""
+msgstr "דיווח על בעיות"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
-msgstr "צפה ברשימת היישומים שקרסו ודווח על הקריסות"
+msgstr "דיווח על קריסת יישומים וצפייה בהם"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;בעיות;קריסה;דיווח;תקלה;בעיה;תקלות;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "אוסף כלי תכנה עבור איסוף, ניתוח ודיווח של בעיות תכנה."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "מטרתו העיקרית היא הקלה בתהליך הדיווח על בעיה ומציאת פתרון."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 #, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
+msgstr "לא ניתן להוסיף מקלט עבור האות „{0}” בנתיב מערכת DBus „{1}”: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 #, python-brace-format
 msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
+msgstr "לא ניתן להתחבר אל אפיק מערכת DBus  „{0}” בנתיב „{1}”: {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:109
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "לא ניתן לגשת לממשק „{0}” בנתיב „{1}” באפיק „{2}”: {3}"
 
 #: ../src/gnome_abrt/dbus_problems.py:153
 msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
+msgstr "לא ניתן לבצע העברת בעלים (chown) לבעיה „{0}” על גבי שירות DBus: {1!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:168
 msgid "Can't get problem data from DBus service: {0!s}"
-msgstr ""
+msgstr "לא ניתן לקבל נתוני בעיה משירות DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:179
 msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr ""
+msgstr "לא ניתן לקבל רשימת בעיות משירות DBus: {0!s}"
 
 #: ../src/gnome_abrt/dbus_problems.py:192
 msgid "Can't delete problem over DBus service: {0!s}"
-msgstr ""
+msgstr "לא ניתן למחוק בעיה משירות DBus: {0!s}"
 
 #: ../src/gnome_abrt/directory_problems.py:216
 #, python-brace-format
@@ -109,123 +110,127 @@ msgid ""
 "about changes in problem data happening outside of this application. This "
 "event do not affect any other functionality."
 msgstr ""
+"כנראה שהגעתם למכסת Inotify על מספר הצפיות ב„{0}”. ניתן להגדיל מכסה זו על ידי "
+"הגדרת תצורת Inotify בהתאם. לפרטים נוספים ראו „man inotify(7)”. בעקבות אירוע "
+"זה לא תתקבל הודעה על שינויים בנתוני הבעיה המתרחשים מחוץ ליישום זה. אירוע זה "
+"אינו משפיע על שאר התפקודים."
 
 #: ../src/gnome_abrt/directory_problems.py:262
 #, python-brace-format
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "לא ניתן לפתוח את התיקייה: „{0}”"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_מחיקה"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr ""
+msgstr "מחיקת הבעיות שנבחרו"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr ""
+msgstr "_דיווח"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr ""
+msgstr "שליחת הבעיות שנבחרו"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "ני_תוח"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "פתיחת הבעיות הנבחרות לניתוח"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "פ_רטים"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "הצגת פרטים טכניים"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
-msgstr ""
+msgstr "_כל הבעיות"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "הצגת כל הבעיות הידועות מכל המשתמשים במערכת"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_פתיחת תיקיית נתוני הבעיה"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
-msgstr ""
+msgstr "פתיחת תיקיית נתוני הבעיה שנבחרה בדפדפן מערכת הקבצים"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "_העתקת מזהה הבעיה ללוח הגזירים"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "אחסון מזהה הבעיה שנבחרה בלוח הגזירים"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "_סינון"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "הצגת תיבת סינון"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: ../src/gnome_abrt/oops.glade.h:18
 msgid "Version"
-msgstr ""
+msgstr "גרסה"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "נתגלתה לראשונה"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:916
 msgid "Reported"
-msgstr ""
+msgstr "דווחה"
 
 #: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
-msgstr ""
+msgstr "לא נתגלו בעיות!"
 
 #: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
-msgstr ""
+msgstr "לא נבחר מקור!"
 
 #: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
-msgstr ""
+msgstr "אין מקור"
 
 #: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
 msgid "Not found in cache but deleted: {0}"
-msgstr ""
+msgstr "לא נמצא במטמון אך נמחק: {0}"
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr ""
+msgstr "בעתיד"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr ""
+msgstr "אתמול"
 
 #: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "בשבוע האחרון"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -234,12 +239,13 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "לפני שבוע"
+msgstr[1] "לפני {0:d} שבועות"
+msgstr[2] "לפני שבועיים"
 
 #: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "בחודש האחרון"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -247,12 +253,13 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "לפני חודש"
+msgstr[1] "לפני {0:d} חודשים"
+msgstr[2] "לפני חודשיים"
 
 #: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "בשנה האחרונה"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -262,18 +269,19 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "לפני שנה"
+msgstr[1] "לפני {0:d} שנים"
+msgstr[2] "לפני שנתיים"
 
 #: ../src/gnome_abrt/tools.py:115
 #, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr ""
+msgstr "הצלמית '{0}' לא נמצאה"
 
 #: ../src/gnome_abrt/tools.py:122
 #, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr ""
+msgstr "טעינת הצלמית '{0}' נכשלה: {1}"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -281,45 +289,45 @@ msgstr ""
 #: ../src/gnome_abrt/views.py:148
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "מערכת"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: ../src/gnome_abrt/views.py:154
 msgid "Application Crash"
-msgstr ""
+msgstr "קריסת יישום"
 
 #: ../src/gnome_abrt/views.py:156
 msgid "System Crash"
-msgstr ""
+msgstr "קריסת מערכת"
 
 #: ../src/gnome_abrt/views.py:158
 msgid "System Failure"
-msgstr ""
+msgstr "כשל מערכתי"
 
 #: ../src/gnome_abrt/views.py:160
 msgid "Misbehavior"
-msgstr ""
+msgstr "התנהגות לא נאותה"
 
 #: ../src/gnome_abrt/views.py:320
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "טעינת הגדרת ממשק המשתמש נכשלה"
 
 #: ../src/gnome_abrt/views.py:857
 msgid "Unexpected system error"
-msgstr ""
+msgstr "שגיאת מערכת לא צפויה"
 
 #: ../src/gnome_abrt/views.py:859
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "המערכת נתקלה בבעיה והחלימה."
 
 #: ../src/gnome_abrt/views.py:862
 msgid "Fatal system failure"
-msgstr ""
+msgstr "כשל מערכתי חמור"
 
 #: ../src/gnome_abrt/views.py:864
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "המערכת נתקלה בבעיה ואינה יכולה להמשיך."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -334,30 +342,30 @@ msgstr ""
 #: ../src/gnome_abrt/views.py:878
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "התגלתה בעית {0}"
 
 #: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} הסתיים במפתיע"
 
 #: ../src/gnome_abrt/views.py:885
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "היישום נתקל בבעיה ואינו יכול להמשיך."
 
 #. Translators: package name not available
 #. Translators: package version not available
 #: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
 msgid "N/A"
-msgstr ""
+msgstr "לא זמין"
 
 #: ../src/gnome_abrt/views.py:919
 msgid "cannot be reported"
-msgstr ""
+msgstr "לא ניתן לדווח"
 
 #: ../src/gnome_abrt/views.py:924
 msgid "Reports"
-msgstr ""
+msgstr "דיווחים"
 
 #: ../src/gnome_abrt/views.py:930
 msgid ""
@@ -366,6 +374,9 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"בעיה זו דווחה, אולם לא נפתח כרטיס <i>Bugzilla</i>.  יתכן והמפתחים זקוקים "
+"למידע נוסף על מנת לפתור את הבעיה.\n"
+"נא לשקול <b>לדווח על הבעיה</b> גם ב־Bugzilla על מנת לספק את המידע. תודה."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -373,16 +384,16 @@ msgstr ""
 #. reported we display a list of reports here.
 #: ../src/gnome_abrt/views.py:939
 msgid "yes"
-msgstr ""
+msgstr "כן"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: ../src/gnome_abrt/views.py:943
 msgid "no"
-msgstr ""
+msgstr "לא"
 
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
-msgstr ""
+msgstr "ביצוע הפעולה המבוקשת נכשל עקב שגיאה ביצירת תהליך חדש."

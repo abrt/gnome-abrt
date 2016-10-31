@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: Anxhelo Lushka <an_xhelo@hotmail.com>\n"
 "Language-Team: Albanian\n"
 "Language: sq\n"
-"X-Generator: Zanata 3.9.5\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"

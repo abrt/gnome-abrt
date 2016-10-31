@@ -7,6 +7,7 @@
 # Piotr Drąg <piotrdrag@gmail.com>, 2011-2014
 # Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata
 # Piotr Drąg <piotrdrag@gmail.com>, 2016. #zanata
+# Rafał Lużyński <digitalfreak@lingonborough.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,14 +16,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-04 05:29-0400\n"
+"PO-Revision-Date: 2016-10-14 12:16-0400\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/pl/)\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.9.5\n"
+"X-Generator: Zanata 3.9.6\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
@@ -233,8 +234,7 @@ msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr ""
-"Otwiera katalog danych zaznaczonego problemu z domyślnej przeglądarce "
-"systemu plików"
+"Otwiera katalog danych zaznaczonego problemu w domyślnym menedżerze plików"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Copy problem's ID to Clipboard"
@@ -246,7 +246,7 @@ msgstr "Umieszcza identyfikator zaznaczonego problemu w schowku"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr "_Filtrowanie"
+msgstr "_Filtruj"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
@@ -288,7 +288,7 @@ msgstr "Nie odnaleziono w pamięci podręcznej, ale usunięto: {0}"
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr "Przyszłość"
+msgstr "W przyszłości"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
@@ -296,7 +296,7 @@ msgstr "Wczoraj"
 
 #: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr "Ostatni tydzień"
+msgstr "W zeszłym tygodniu"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -311,7 +311,7 @@ msgstr[2] "{0:d} tygodni temu"
 
 #: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr "Ostatni miesiąc"
+msgstr "W zeszłym miesiącu"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -325,7 +325,7 @@ msgstr[2] "{0:d} miesięcy temu"
 
 #: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr "Ostatni rok"
+msgstr "W zeszłym roku"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -423,7 +423,7 @@ msgstr "W aplikacji wystąpił problem i nie można kontynuować."
 #. Translators: package version not available
 #: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
 msgid "N/A"
-msgstr "Nie dotyczy"
+msgstr "Niedostępna"
 
 #: ../src/gnome_abrt/views.py:919
 msgid "cannot be reported"
@@ -464,5 +464,5 @@ msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
 msgstr ""
-"Wykonanie żądanego działania się nie powiodło z powodu błędu w czasie "
+"Wykonanie żądanego działania nie powiodło się z powodu błędu podczas "
 "tworzenia nowego procesu"

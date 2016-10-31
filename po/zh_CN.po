@@ -9,7 +9,7 @@
 # Alick Zhao <alick9188@gmail.com>, 2015. #zanata
 # zhouxiaobo <zhouxiaobo.500@gmail.com>, 2015. #zanata
 # Leah Liu <lliu@redhat.com>, 2016. #zanata
-# Tian Shixiong <tiansworld@gmail.com>, 2016. #zanata
+# Tian Shixiong <tiansworld@fedoraproject.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-04-08 10:42-0400\n"
-"Last-Translator: Tian Shixiong <tiansworld@gmail.com>\n"
+"Last-Translator: Tian Shixiong <tiansworld@fedoraproject.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gnome-"
 "abrt/language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.9.5\n"
+"X-Generator: Zanata 3.9.6\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282

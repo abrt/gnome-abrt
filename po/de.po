@@ -11,7 +11,7 @@
 # Mario Blättermann <mariobl@freenet.de>, 2011
 # Rainer Gromansperg <rgromans@redhat.com>, 2013
 # Roman Spirgi <rspirgi@gmail.com>, 2015. #zanata
-# FloH. <postfuerflo@gmail.com>, 2016. #zanata
+# Florian H. <postfuerflo@gmail.com>, 2016. #zanata
 # Jakub Filak <jfilak@redhat.com>, 2016. #zanata
 # Lisa Stemmler <lstemmle@redhat.com>, 2016. #zanata
 msgid ""

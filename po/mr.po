@@ -7,7 +7,7 @@
 # sandeeps <sshedmak@redhat.com>, 2013-2014
 # sandeeps <sshedmak@redhat.com>, 2013
 # Bhagyashree Padalkar <bhagyashree.iitg@gmail.com>, 2016. #zanata
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Pravin Satpute <pravins@fedoraproject.org>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-10 11:57-0400\n"
-"Last-Translator: Bhagyashree Padalkar <bhagyashree.iitg@gmail.com>\n"
+"PO-Revision-Date: 2017-04-17 01:40-0400\n"
+"Last-Translator: Pravin Satpute <pravins@fedoraproject.org>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/mr/)\n"
 "Language: mr\n"
@@ -60,7 +60,7 @@ msgstr "ऍप्लिकेशन क्रॅश पहा व कळवा"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
@@ -82,7 +82,7 @@ msgstr ""
 #, python-brace-format
 msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
 msgstr ""
-"DBus सिस्टम मार्ग '{1}': {2} वर सिग्नल '{0}'चे रिसिव्हर समाविष्ट करणे अशक्य"
+"सिग्नल '{0}'चे रिसिव्हर समाविष्ट करणे अशक्य DBus सिस्टम मार्ग वर '{1}': {2}"
 
 #: ../src/gnome_abrt/dbus_problems.py:102
 #, python-brace-format
@@ -196,7 +196,7 @@ msgstr "गाळ"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "चाळणी बॉक्स दाखवा"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
@@ -283,14 +283,14 @@ msgstr[0] "{0:d}  वर्ष अगोदर"
 msgstr[1] "{0:d}  वर्ष अगोदर"
 
 #: ../src/gnome_abrt/tools.py:115
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr "UI वर्णन लोड करण्यास अपयशी"
+msgstr "चिन्ह शोधण्यास अपयशी  '{0}'"
 
 #: ../src/gnome_abrt/tools.py:122
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr "UI वर्णन लोड करण्यास अपयशी"
+msgstr "चिन्ह लोड करण्यास अपयशी '{0}':{1}"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -307,14 +307,12 @@ msgid "Application Crash"
 msgstr "अनुप्रयोग"
 
 #: ../src/gnome_abrt/views.py:156
-#, fuzzy
 msgid "System Crash"
-msgstr "प्रणाली"
+msgstr "प्रणाली क्रॅश"
 
 #: ../src/gnome_abrt/views.py:158
-#, fuzzy
 msgid "System Failure"
-msgstr "प्रणाली"
+msgstr " प्रणाली अपयश"
 
 #: ../src/gnome_abrt/views.py:160
 msgid "Misbehavior"
@@ -338,7 +336,7 @@ msgstr " प्रणाली घातक अपयश"
 
 #: ../src/gnome_abrt/views.py:864
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "प्रणालीला अडचण आढळली आणि पुढे जाऊ शकत नाही."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -358,11 +356,11 @@ msgstr "{0} अडचण आढळली"
 #: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} अनपेक्षितरित्या बाहेर पडले"
 
 #: ../src/gnome_abrt/views.py:885
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "ऍप्लीकेशनला अडचण आढळली आणि पुढे जाऊ शकत नाही."
 
 #. Translators: package name not available
 #. Translators: package version not available

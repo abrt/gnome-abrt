@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -11,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-12-23 12:43-0500\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-03-25 06:27-0400\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/fi/)\n"
 "Language: fi\n"
@@ -22,7 +23,7 @@ msgstr ""
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
 msgid "My"
-msgstr ""
+msgstr "Omat"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -30,24 +31,24 @@ msgstr ""
 #: ../src/gnome-abrt:291 ../src/gnome-abrt:293
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "Järjestelmä"
 
 #: ../src/gnome-abrt:313
 msgid "_Preferences"
-msgstr ""
+msgstr "_Asetukset"
 
 #: ../src/gnome-abrt:316
 msgid "_About"
-msgstr ""
+msgstr "_Tietoja"
 
 #: ../src/gnome-abrt:317
 msgid "_Quit"
-msgstr ""
+msgstr "_Lopeta"
 
 #: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
 #: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Vikailmoitin"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -55,19 +56,23 @@ msgstr "Katsele ja raportoi ohjelmien kaatumisia"
 
 #: ../src/gnome-abrt.desktop.in.h:3
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;bugi;ongelma;kaatuminen;"
 
 #: ../src/gnome-abrt.appdata.xml.in.h:1
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"Kokoelma ohjelmistotyökaluja ohjelmisto-ongelmien keräämistä, analysointia "
+"ja ilmoitamista varten."
 
 #: ../src/gnome-abrt.appdata.xml.in.h:2
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"Sen päätarkoitus on helpottaa ongelmista ilmoittamista ja ratkaisun "
+"löytämistä."
 
 #: ../src/gnome_abrt/dbus_problems.py:89
 #, python-brace-format
@@ -113,102 +118,104 @@ msgstr ""
 #: ../src/gnome_abrt/directory_problems.py:262
 #, python-brace-format
 msgid "Can't open directory: '{0}'"
-msgstr ""
+msgstr "Kansiota ei voi avata: '{0}'"
 
 #: ../src/gnome_abrt/oops.glade.h:1
 msgid "_Delete"
-msgstr ""
+msgstr "_Poista"
 
 #: ../src/gnome_abrt/oops.glade.h:2
 msgid "Delete selected problems"
-msgstr ""
+msgstr "Poista valitut ongelmat"
 
 #: ../src/gnome_abrt/oops.glade.h:3
 msgid "_Report"
-msgstr ""
+msgstr "_Ilmoita"
 
 #: ../src/gnome_abrt/oops.glade.h:4
 msgid "Submits selected problem"
-msgstr ""
+msgstr "Ilmoittaa valitun ongelman"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr ""
+msgstr "_Analysoi"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
-msgstr ""
+msgstr "Avaa valitun ongelman analysointia varten"
 
 #: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
-msgstr ""
+msgstr "_Tiedot"
 
 #: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show technical details"
-msgstr ""
+msgstr "Näytä tekniset tiedot"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
-msgstr ""
+msgstr "_Kaikki ongelmat"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"
-msgstr ""
+msgstr "Näytä kaikki tunnetut ongelmat kaikilta järjestelmäkäyttäjiltä"
 
 #: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Open problem's data directory"
-msgstr ""
+msgstr "_Avaa ongelman datakansio"
 
 #: ../src/gnome_abrt/oops.glade.h:12
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr ""
+"Avaa valitun ongelman datakansion oletusarvoisessa "
+"tiedostonhallintasovelluksessa"
 
 #: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Copy problem's ID to Clipboard"
-msgstr ""
+msgstr "_Kopioi ongelman tunniste leikepöydälle"
 
 #: ../src/gnome_abrt/oops.glade.h:14
 msgid "Stores the selected problem's ID in Clibpoard"
-msgstr ""
+msgstr "Tallettaa valitun ongelman tunnisteen leikepöydälle"
 
 #: ../src/gnome_abrt/oops.glade.h:15
 msgid "_Filter"
-msgstr ""
+msgstr "_Suodata"
 
 #: ../src/gnome_abrt/oops.glade.h:16
 msgid "Show filter box"
-msgstr ""
+msgstr "Näyttää suodatustoiminnon"
 
 #: ../src/gnome_abrt/oops.glade.h:17
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: ../src/gnome_abrt/oops.glade.h:18
 msgid "Version"
-msgstr ""
+msgstr "Versio"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: ../src/gnome_abrt/oops.glade.h:20
 msgid "First Detected"
-msgstr ""
+msgstr "Ensimmäinen havainto"
 
 #: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:916
 msgid "Reported"
-msgstr ""
+msgstr "Ilmoitettu"
 
 #: ../src/gnome_abrt/oops.glade.h:22
 msgid "No problems detected!"
-msgstr ""
+msgstr "Ei havaittuja ongelmia!"
 
 #: ../src/gnome_abrt/oops.glade.h:23
 msgid "No source selected!"
-msgstr ""
+msgstr "Ei lähdettä valittuna!"
 
 #: ../src/gnome_abrt/oops.glade.h:24
 msgid "No source"
-msgstr ""
+msgstr "Ei lähdettä"
 
 #: ../src/gnome_abrt/problems.py:466
 #, python-brace-format
@@ -217,15 +224,15 @@ msgstr ""
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr ""
+msgstr "Tulevaisuudessa"
 
 #: ../src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr ""
+msgstr "Eilen"
 
 #: ../src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "Viime viikolla"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -234,12 +241,12 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} viikko sitten"
+msgstr[1] "{0:d} viikkoa sitten"
 
 #: ../src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "Viime kuussa"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -247,12 +254,12 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} kuukausi sitten"
+msgstr[1] "{0:d} kuukautta sitten"
 
 #: ../src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "Viime vuonna"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -262,18 +269,18 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} vuosi sitten"
+msgstr[1] "{0:d} vuotta sitten"
 
 #: ../src/gnome_abrt/tools.py:115
 #, python-brace-format
 msgid "Failed to find icon '{0}'"
-msgstr ""
+msgstr "Kuvaketta '{0}' ei löytynyt"
 
 #: ../src/gnome_abrt/tools.py:122
 #, python-brace-format
 msgid "Failed to load icon '{0}': {1}"
-msgstr ""
+msgstr "Kuvakkeen '{0}' lataaminen epäonnistui: {1}"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -281,45 +288,45 @@ msgstr ""
 #: ../src/gnome_abrt/views.py:148
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "Järjestelmä"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: ../src/gnome_abrt/views.py:154
 msgid "Application Crash"
-msgstr ""
+msgstr "Sovelluksen kaatuminen"
 
 #: ../src/gnome_abrt/views.py:156
 msgid "System Crash"
-msgstr ""
+msgstr "Järjestelmän kaatuminen"
 
 #: ../src/gnome_abrt/views.py:158
 msgid "System Failure"
-msgstr ""
+msgstr "Järjestelmän häiriö"
 
 #: ../src/gnome_abrt/views.py:160
 msgid "Misbehavior"
-msgstr ""
+msgstr "Huonosti käyttäminen"
 
 #: ../src/gnome_abrt/views.py:320
 msgid "Failed to load UI definition"
-msgstr ""
+msgstr "Käyttöliittymämääritysten lataaminen epäonnistui"
 
 #: ../src/gnome_abrt/views.py:857
 msgid "Unexpected system error"
-msgstr ""
+msgstr "Odottamaton järjestelmävirhe"
 
 #: ../src/gnome_abrt/views.py:859
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "Järjestelmä on kohdannut ongelman ja palautunut."
 
 #: ../src/gnome_abrt/views.py:862
 msgid "Fatal system failure"
-msgstr ""
+msgstr "Kohtalokas järjestelmävirhe"
 
 #: ../src/gnome_abrt/views.py:864
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "Järjestelmä kohtasi ongelman eikä voinut jatkaa toimintaa."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -334,30 +341,30 @@ msgstr ""
 #: ../src/gnome_abrt/views.py:878
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "\"{0}\"-ongelma havaittu"
 
 #: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} sulkeutui odottamatta"
 
 #: ../src/gnome_abrt/views.py:885
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "Sovellus kohtasi virheen eikä voinut jatkaa toimintaansa."
 
 #. Translators: package name not available
 #. Translators: package version not available
 #: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
 msgid "N/A"
-msgstr ""
+msgstr "-"
 
 #: ../src/gnome_abrt/views.py:919
 msgid "cannot be reported"
-msgstr ""
+msgstr "ei voida ilmoittaa"
 
 #: ../src/gnome_abrt/views.py:924
 msgid "Reports"
-msgstr ""
+msgstr "Ilmoitukset"
 
 #: ../src/gnome_abrt/views.py:930
 msgid ""
@@ -366,6 +373,9 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"Tästä ongelmasta on ilmoitettu, mutta <i>Bugzilla</i>-tikettiä ei ole avattu."
+" Kehittäjät tarvitsevat lisätietoja ongelman korjaamiseksi.\n"
+"<b>Ilmoitathan</b> ongelmasta Bugzillaan, kiitos."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -373,16 +383,18 @@ msgstr ""
 #. reported we display a list of reports here.
 #: ../src/gnome_abrt/views.py:939
 msgid "yes"
-msgstr ""
+msgstr "kyllä"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: ../src/gnome_abrt/views.py:943
 msgid "no"
-msgstr ""
+msgstr "ei"
 
 #: ../src/gnome_abrt/controller.py:78
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"
 msgstr ""
+"Pyydetyn toiminnon suorittaminen epäonnistui uuden prosessin luomisessa "
+"kohdatun virheen vuoksi"

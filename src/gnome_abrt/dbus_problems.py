@@ -157,7 +157,7 @@ class DBusProblemSource(problems.CachedSource):
     def get_items(self, problem_id, *args):
         info = {}
 
-        if len(args) != 0:
+        if args:
             try:
                 info = self._send_dbus_message(
                         lambda iface, *params: iface.GetInfo(*params),
@@ -260,9 +260,6 @@ class StandardProblems(DBusProblemSource.Driver):
 
 
 class ForeignProblems(DBusProblemSource.Driver):
-
-    def __init__(self, source):
-        super(ForeignProblems, self).__init__(source)
 
     @property
     def get_problems_method(self):

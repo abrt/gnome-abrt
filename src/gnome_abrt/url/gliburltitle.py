@@ -110,7 +110,7 @@ class GetURLTitleSourcePool(object):
             userdata[0](result, userdata[1])
         finally:
             self._running -= 1
-            if len(self._defered):
+            if self._defered:
                 url, readycallback, userdata = self._defered.pop()
                 self._start_resolving(url, readycallback, userdata)
 

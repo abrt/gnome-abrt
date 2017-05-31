@@ -253,7 +253,7 @@ class InitializedDirectoryProblemSource(object):
         self._watcher = INOTIFYWatcher(self._parent, self.directory, context)
 
     def get_items(self, problem_id, *args):
-        if len(args) == 0:
+        if not args:
             return {}
 
         dd = report.dd_opendir(problem_id, report.DD_OPEN_READONLY)

@@ -16,9 +16,7 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 class GnomeAbrtError(Exception):
-
-    def __init__(self, message=None):
-        super(GnomeAbrtError, self).__init__(message)
+    pass
 
 class InvalidProblem(GnomeAbrtError):
 

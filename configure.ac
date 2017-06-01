@@ -53,7 +53,7 @@ AC_ARG_WITH(nopylint,
 
 [if test "$with_nopylint" = "no"]
 [then]
-    AC_PATH_PROG([PYLINT], [python3-pylint], [no])
+    AC_PATH_PROGS([PYLINT], [python3-pylint pylint-3], [no])
     [if test "$PYLINT" = "no"]
     [then]
         [echo "The pylint program was not found in the search path. Please ensure"]

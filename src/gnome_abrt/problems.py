@@ -284,7 +284,7 @@ class Problem(object):
                 # Most common type of line in reported_to file
                 # Bugzilla: URL=http://bugzilla.com/?=123456
                 for line in self['reported_to'].split('\n'):
-                    if len(line) == 0:
+                    if not line:
                         continue
 
                     pfx_lst = []
@@ -328,7 +328,7 @@ class MultipleSources(ProblemSource):
     def __init__(self, sources):
         super(MultipleSources, self).__init__()
 
-        if len(sources) == 0:
+        if not sources:
             raise ValueError("At least one source must be passed")
 
         self.sources = sources

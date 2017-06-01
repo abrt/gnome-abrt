@@ -163,7 +163,7 @@ class GtkAppDBUSImpl(object):
                 self._primary_iface = dbus.Interface(self._primary_obj,
                         GNOME_ABRT_INTERFACE)
 
-            if len(argv) == 0:
+            if not argv:
                 argv = dbus.Array([], signature='s')
 
             self._primary_iface.command_line(argv)
@@ -232,7 +232,7 @@ class OopsApplication(Gtk.Application):
             if self._dbus_srv.send_command_line(argv):
                 return 0
 
-        if len(argv) > 0:
+        if argv:
             conf = get_configuration()
             conf['problemid'] = argv[0]
 
@@ -265,7 +265,7 @@ class OopsApplication(Gtk.Application):
                 except UnavailableSource:
                     logging.warning(str(ex))
 
-                if len(sources) == 0:
+                if not sources:
                     raise UnavailableSource(None, None,
                             message="No available problem source.")
 

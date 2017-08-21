@@ -401,8 +401,6 @@ if __name__ == "__main__":
             help=_('Be verbose'))
     CMDARGS.add_argument('-p', '--problem',
             help=_('Selected problem ID'))
-    CMDARGS.add_argument('-x', '--expert', action='store_true',
-            help=_('Expert mode'))
 
     OPTIONS = CMDARGS.parse_args()
 
@@ -414,7 +412,6 @@ if __name__ == "__main__":
     CONF = get_configuration()
     # TODO : mark this option as hidden or something like that
     CONF.add_option('problemid', default_value=None)
-    CONF.add_option('expert', default_value=(OPTIONS.expert))
 
     APP_CMDLINE = []
     if 'problem' in VARS:

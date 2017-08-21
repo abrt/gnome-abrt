@@ -45,13 +45,6 @@ class Controller(object):
 
         problem.delete()
 
-    def analyze(self, problem):
-        if not problem:
-            logging.error("BUG: Controller: Can't open detail of None problem")
-            return
-
-        self.run_event_fn("open-gui", problem)
-
     def _refresh_sources(self):
         for name, src in self.sources:
             try:

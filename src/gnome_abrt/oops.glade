@@ -23,14 +23,6 @@
       <accelerator key="Return"/>
     </child>
     <child>
-      <object class="GtkAction" id="gac_analyze">
-        <property name="label" translatable="yes">Analy_ze</property>
-        <property name="tooltip" translatable="yes">Open selected problem for analysis</property>
-        <signal name="activate" handler="on_gac_analyze_activate" swapped="no"/>
-      </object>
-      <accelerator key="Return" modifiers="GDK_CONTROL_MASK | GDK_MOD1_MASK"/>
-    </child>
-    <child>
       <object class="GtkAction" id="gac_detail">
         <property name="label" translatable="yes">D_etails</property>
         <property name="tooltip" translatable="yes">Show technical details</property>

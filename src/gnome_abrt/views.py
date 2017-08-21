@@ -527,7 +527,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         conf.set_watch('T_FMT', self._options_observer)
         conf.set_watch('D_T_FMT', self._options_observer)
         self._options_observer.option_updated(conf, 'problemid')
-        self._builder.mi_detail.set_visible(conf['expert'])
 
         # enable observer
         self._source_observer.enable()
@@ -1000,12 +999,6 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         if selected:
             wrappers.show_problem_details_for_dir(
                     selected[0].problem_id, self)
-
-    @handle_problem_and_source_errors
-    def on_gac_analyze_activate(self, action):
-        selected = self._get_selected(self.lss_problems)
-        if selected:
-            self._controller.analyze(selected[0])
 
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action):

@@ -27,11 +27,6 @@ srpm:
 run: all dist
 	PYTHONPATH="../src" ./src/gnome-abrt $(ARGS)
 
-UPLOAD_URL ?= fedorahosted.org:abrt
-
-upload: dist
-	scp $(distdir).tar.gz $$(test -n "$$UPLOAD_LOGIN" && echo "$$UPLOAD_LOGIN@")$(UPLOAD_URL)
-
 .PHONY: release-fix
 release-fix:
 	OLD_VER=$$(git describe --tags --match "[0-9]*" --abbrev=0 HEAD 2>/dev/null); \
@@ -55,6 +50,7 @@ release-major:
 
 .PHONY: release
 release:
+	maint/pull-translations || exit 1; \
 	echo "* $$(date +'%a %b %d %Y') $$(git config --get user.name) <$$(git config --get user.email)> $$NEW_VER-1" > /tmp/changelog.tmp; \
 	git log --oneline $$OLD_VER..HEAD | awk '{$$1=""; print "-" $$0} END {print ""}' | grep -v -e "- Merge" -e "- testsuite:" >> /tmp/changelog.tmp; \
 	sed "$$(grep -n changelog gnome-abrt.spec.in | head -1 | cut -f1 -d:)"'r /tmp/changelog.tmp' -i gnome-abrt.spec.in; \
@@ -63,4 +59,3 @@ release:
 	git tag "$$NEW_VER"; \
 	echo -n "$$NEW_VER" > gnome-abrt-version
 	autoconf --force
-	$(MAKE) upload

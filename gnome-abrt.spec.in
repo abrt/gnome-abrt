@@ -107,6 +107,17 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Nov 16 2017 Julius Milan <jmilan@redhat.com> 1.2.6-1
+- Translation updates
+- build: do not upload tarball to fedorahosted.org
+- Satisfy pylint v1.7.1 warnings
+- pylintrc: disable pylint no-else-return warnings
+- configure.ac: adapt to pylint binary name change on F26
+- Add fur, kk, nn languages into LINGUAS
+- Translation updates, add new languages fur,kk,nn
+- spec: do not use fedorahosted.org as source
+- maint: check pulled .po files for errors
+
 * Mon Oct 31 2016 Jakub Filak <jfilak@redhat.com> 1.2.5-1
 - Translation updates
 - Fix some small issues to please pylint

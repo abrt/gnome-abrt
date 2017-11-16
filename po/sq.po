@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-05 13:07+0200\n"
+"POT-Creation-Date: 2017-08-29 15:52+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -205,7 +205,7 @@ msgstr "Versioni"
 msgid "First Detected"
 msgstr "U zbulua fillimisht"
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:916
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:920
 msgid "Reported"
 msgstr "U raportua"
 
@@ -316,19 +316,19 @@ msgstr "Sjellje e gabuar"
 msgid "Failed to load UI definition"
 msgstr "Dështoi ngarkimi i përcaktimit të ndërfaqes së përdoruesit"
 
-#: ../src/gnome_abrt/views.py:857
+#: ../src/gnome_abrt/views.py:861
 msgid "Unexpected system error"
 msgstr "Gabim i paparashikuar i sistemit"
 
-#: ../src/gnome_abrt/views.py:859
+#: ../src/gnome_abrt/views.py:863
 msgid "The system has encountered a problem and recovered."
 msgstr "Ky sistem ka hasur në një problem dhe është rikuperuar."
 
-#: ../src/gnome_abrt/views.py:862
+#: ../src/gnome_abrt/views.py:866
 msgid "Fatal system failure"
 msgstr "Dështim fatal sistemi"
 
-#: ../src/gnome_abrt/views.py:864
+#: ../src/gnome_abrt/views.py:868
 msgid "The system has encountered a problem and could not continue."
 msgstr "Ky sistemi ka hasur në një problem dhe nuk mund të vazhdojë."
 
@@ -342,35 +342,35 @@ msgstr "Ky sistemi ka hasur në një problem dhe nuk mund të vazhdojë."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} problem është zbuluar"
 
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:886
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} u mbarua në mënyrë të papritur"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:889
 msgid "The application encountered a problem and could not continue."
 msgstr "Ky aplikacion pësoi një problem dhe nuk mund të vazhdojë"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
+#: ../src/gnome_abrt/views.py:893 ../src/gnome_abrt/views.py:896
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:919
+#: ../src/gnome_abrt/views.py:923
 msgid "cannot be reported"
 msgstr "nuk mund të raportohet"
 
-#: ../src/gnome_abrt/views.py:924
+#: ../src/gnome_abrt/views.py:928
 msgid "Reports"
 msgstr "Raportimet"
 
-#: ../src/gnome_abrt/views.py:930
+#: ../src/gnome_abrt/views.py:934
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -387,13 +387,13 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:939
+#: ../src/gnome_abrt/views.py:943
 msgid "yes"
 msgstr "po"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:943
+#: ../src/gnome_abrt/views.py:947
 msgid "no"
 msgstr "jo"
 

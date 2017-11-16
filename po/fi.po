@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-05 13:07+0200\n"
+"POT-Creation-Date: 2017-08-29 15:52+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,7 +201,7 @@ msgstr "Versio"
 msgid "First Detected"
 msgstr "Ensimmäinen havainto"
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:916
+#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:920
 msgid "Reported"
 msgstr "Ilmoitettu"
 
@@ -312,19 +312,19 @@ msgstr "Huonosti käyttäminen"
 msgid "Failed to load UI definition"
 msgstr "Käyttöliittymämääritysten lataaminen epäonnistui"
 
-#: ../src/gnome_abrt/views.py:857
+#: ../src/gnome_abrt/views.py:861
 msgid "Unexpected system error"
 msgstr "Odottamaton järjestelmävirhe"
 
-#: ../src/gnome_abrt/views.py:859
+#: ../src/gnome_abrt/views.py:863
 msgid "The system has encountered a problem and recovered."
 msgstr "Järjestelmä on kohdannut ongelman ja palautunut."
 
-#: ../src/gnome_abrt/views.py:862
+#: ../src/gnome_abrt/views.py:866
 msgid "Fatal system failure"
 msgstr "Kohtalokas järjestelmävirhe"
 
-#: ../src/gnome_abrt/views.py:864
+#: ../src/gnome_abrt/views.py:868
 msgid "The system has encountered a problem and could not continue."
 msgstr "Järjestelmä kohtasi ongelman eikä voinut jatkaa toimintaa."
 
@@ -338,35 +338,35 @@ msgstr "Järjestelmä kohtasi ongelman eikä voinut jatkaa toimintaa."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:878
+#: ../src/gnome_abrt/views.py:882
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "\"{0}\"-ongelma havaittu"
 
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:886
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} sulkeutui odottamatta"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:889
 msgid "The application encountered a problem and could not continue."
 msgstr "Sovellus kohtasi virheen eikä voinut jatkaa toimintaansa."
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:889 ../src/gnome_abrt/views.py:892
+#: ../src/gnome_abrt/views.py:893 ../src/gnome_abrt/views.py:896
 msgid "N/A"
 msgstr "-"
 
-#: ../src/gnome_abrt/views.py:919
+#: ../src/gnome_abrt/views.py:923
 msgid "cannot be reported"
 msgstr "ei voida ilmoittaa"
 
-#: ../src/gnome_abrt/views.py:924
+#: ../src/gnome_abrt/views.py:928
 msgid "Reports"
 msgstr "Ilmoitukset"
 
-#: ../src/gnome_abrt/views.py:930
+#: ../src/gnome_abrt/views.py:934
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -381,13 +381,13 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:939
+#: ../src/gnome_abrt/views.py:943
 msgid "yes"
 msgstr "kyllä"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:943
+#: ../src/gnome_abrt/views.py:947
 msgid "no"
 msgstr "ei"
 

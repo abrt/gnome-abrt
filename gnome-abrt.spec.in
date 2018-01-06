@@ -77,22 +77,6 @@ desktop-file-install \
 make check
 
 
-%post
-# update icon cache
-touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-
-%postun
-if [ $1 -eq 0 ] ; then
-    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-
-
 %files -f %{name}.lang
 %doc COPYING README.md
 %{python3_sitearch}/gnome_abrt
@@ -107,6 +91,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sat Jan 06 2018 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.6-2
+- Remove obsolete scriptlets
+
 * Thu Nov 16 2017 Julius Milan <jmilan@redhat.com> 1.2.6-1
 - Translation updates
 - build: do not upload tarball to fedorahosted.org

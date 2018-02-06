@@ -18,7 +18,13 @@ EOH
 
 build_depslist()
 {
-    DEPS_LIST=`grep "^\(Build\)\?Requires:" *.spec.in | grep -v "%{name}" | tr -s " " | tr "," "\n" | cut -f2 -d " " | grep -v "^gnome-abrt" | sort -u | while read br; do if [ "%" = ${br:0:1} ]; then grep "%define $(echo $br | sed -e 's/%{\(.*\)}/\1/')" *.spec.in | tr -s " " | cut -f4 -d" "; else echo $br ;fi ; done | tr "\n" " "`
+    PACKAGE=$1
+    TEMPFILE=$(mktemp -u --suffix=.spec)
+    sed 's/@GNOME_ABRT_VERSION@/1/' < $PACKAGE.spec.in | sed 's/@.*@//' > $TEMPFILE
+    rpmspec -P $TEMPFILE | grep "^\(Build\)\?Requires:" | \
+        tr -s " " | tr "," "\n" | cut -f2- -d " " | \
+        grep -v "^"$PACKAGE | sort -u | sed -E 's/^(.*) (.*)$/"\1 \2"/' | tr \" \'
+    rm $TEMPFILE
 }
 
 case "$1" in
@@ -27,11 +33,11 @@ case "$1" in
             exit 0
         ;;
     "sysdeps")
-            build_depslist
+            DEPS_LIST=$(build_depslist gnome-abrt)
 
             if [ "$2" == "--install" ]; then
                 set -x verbose
-                sudo dnf install --setopt=strict=0 $DEPS_LIST
+                eval sudo dnf install --setopt=strict=0 $DEPS_LIST
                 set +x verbose
             else
                 echo $DEPS_LIST

@@ -8,6 +8,7 @@
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2012
 # Ricardo Gyorfy <rgyorfy@redhat.com>, 2011
 # Daniel Lara <danniel@fedoraproject.org>, 2016. #zanata
+# Fabrício de Lima Farias <fabricio_fariaz@hotmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-06 09:08-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2018-01-30 07:10-0500\n"
+"Last-Translator: Marco Aurélio Krause <ouesten@me.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "gnome-abrt/language/pt_BR/)\n"
 "Language: pt-BR\n"
@@ -155,7 +156,7 @@ msgstr "Envia problema selecionado"
 
 #: ../src/gnome_abrt/oops.glade.h:5
 msgid "Analy_ze"
-msgstr "Ana_lizar"
+msgstr "Analizar"
 
 #: ../src/gnome_abrt/oops.glade.h:6
 msgid "Open selected problem for analysis"
@@ -171,7 +172,7 @@ msgstr "Mostrar detalhes técnicos"
 
 #: ../src/gnome_abrt/oops.glade.h:9
 msgid "_All problems"
-msgstr "Todos os problem_as"
+msgstr "Todos os problemas"
 
 #: ../src/gnome_abrt/oops.glade.h:10
 msgid "Show all known problems from all system users"

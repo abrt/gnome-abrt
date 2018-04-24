@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Meskó Balázs <meskobalazs@gmail.com>, 2016. #zanata
+# Meskó Balázs <meskobalazs@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 15:52+0200\n"
+"POT-Creation-Date: 2018-02-07 10:40+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 01:03-0500\n"
+"PO-Revision-Date: 2018-02-18 03:02-0500\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/hu/)\n"
@@ -49,6 +50,18 @@ msgstr "_Kilépés"
 #: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
 msgstr "Hibajelentés"
+
+#. Translators: This is a description of --verbose command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: ../src/gnome-abrt:407
+msgid "Be verbose"
+msgstr "Legyen részletes"
+
+#. Translators: This is a description of --problem command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: ../src/gnome-abrt:415
+msgid "Selected problem ID"
+msgstr "Kiválasztott problémaazonosító"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -149,35 +162,27 @@ msgid "Submits selected problem"
 msgstr "Kiválasztott probléma elküldése"
 
 #: ../src/gnome_abrt/oops.glade.h:5
-msgid "Analy_ze"
-msgstr "Elem_zés"
-
-#: ../src/gnome_abrt/oops.glade.h:6
-msgid "Open selected problem for analysis"
-msgstr "A kiválasztott probléma megnyitása elemzésre"
-
-#: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
 msgstr "_Részletek"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:6
 msgid "Show technical details"
 msgstr "Technikai részletek megjelenítése"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "Összes _probléma"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr ""
 "Az összes ismert probléma megjelenítése a rendszer összes felhasználójától"
 
-#: ../src/gnome_abrt/oops.glade.h:11
+#: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
 msgstr "A probléma adatkönyvtárának _megnyitása"
 
-#: ../src/gnome_abrt/oops.glade.h:12
+#: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
@@ -185,48 +190,48 @@ msgstr ""
 "Megnyitja a kiválasztott probléma adatkönyvtárát az alapértelmezett "
 "fájlböngészőben"
 
-#: ../src/gnome_abrt/oops.glade.h:13
+#: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
 msgstr "A problémaazonosító _másolása a vágólapra"
 
-#: ../src/gnome_abrt/oops.glade.h:14
+#: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "Eltárolja a kiválasztott probléma azonosítóját a vágólapon"
 
-#: ../src/gnome_abrt/oops.glade.h:15
+#: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Filter"
 msgstr "_Szűrés"
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Show filter box"
 msgstr "Szűrő doboz megjelenítése"
 
-#: ../src/gnome_abrt/oops.glade.h:17
+#: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "Név"
 
-#: ../src/gnome_abrt/oops.glade.h:18
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "Verzió"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: ../src/gnome_abrt/oops.glade.h:20
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "First Detected"
 msgstr "Elsőként észlelt"
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:920
+#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:919
 msgid "Reported"
 msgstr "Jelentve"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "No problems detected!"
 msgstr "Nem található probléma!"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source selected!"
 msgstr "Nincs forrás kiválasztva!"
 
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source"
 msgstr "Nincs forrás"
 
@@ -325,19 +330,19 @@ msgstr "Helytelen viselkedés"
 msgid "Failed to load UI definition"
 msgstr "Az UI definíció betöltése sikertelen"
 
-#: ../src/gnome_abrt/views.py:861
+#: ../src/gnome_abrt/views.py:860
 msgid "Unexpected system error"
 msgstr "Váratlan rendszerhiba"
 
-#: ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and recovered."
 msgstr "A rendszer problémába ütközött és helyreállt."
 
-#: ../src/gnome_abrt/views.py:866
+#: ../src/gnome_abrt/views.py:865
 msgid "Fatal system failure"
 msgstr "Végzetes rendszerhiba"
 
-#: ../src/gnome_abrt/views.py:868
+#: ../src/gnome_abrt/views.py:867
 msgid "The system has encountered a problem and could not continue."
 msgstr "A rendszer problémába ütközött, és nem tudott helyreállni."
 
@@ -351,35 +356,35 @@ msgstr "A rendszer problémába ütközött, és nem tudott helyreállni."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:881
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} probléma felfedezve"
 
-#: ../src/gnome_abrt/views.py:886
+#: ../src/gnome_abrt/views.py:885
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} váratlanul kilépett"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:888
 msgid "The application encountered a problem and could not continue."
 msgstr "Az alkalmazás problémába ütközött, és nem tudott folytatódni."
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:893 ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:892 ../src/gnome_abrt/views.py:895
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:923
+#: ../src/gnome_abrt/views.py:922
 msgid "cannot be reported"
 msgstr "nem jelenthető"
 
-#: ../src/gnome_abrt/views.py:928
+#: ../src/gnome_abrt/views.py:927
 msgid "Reports"
 msgstr "Jelentések"
 
-#: ../src/gnome_abrt/views.py:934
+#: ../src/gnome_abrt/views.py:933
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -396,17 +401,17 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:943
+#: ../src/gnome_abrt/views.py:942
 msgid "yes"
 msgstr "igen"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:947
+#: ../src/gnome_abrt/views.py:946
 msgid "no"
 msgstr "nem"
 
-#: ../src/gnome_abrt/controller.py:78
+#: ../src/gnome_abrt/controller.py:71
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"

@@ -1,14 +1,15 @@
 # Anxhelo Lushka <an_xhelo@hotmail.com>, 2016. #zanata
+# Jona Azizaj <jonaazizaj@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 15:52+0200\n"
+"POT-Creation-Date: 2018-02-07 10:40+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-18 03:33-0400\n"
-"Last-Translator: Anxhelo Lushka <an_xhelo@hotmail.com>\n"
+"PO-Revision-Date: 2018-04-22 03:50-0400\n"
+"Last-Translator: Jona Azizaj <jonaazizaj@gmail.com>\n"
 "Language-Team: Albanian\n"
 "Language: sq\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -43,6 +44,18 @@ msgstr "_Dil"
 #: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
 msgstr "Raportimi i Problemeve"
+
+#. Translators: This is a description of --verbose command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: ../src/gnome-abrt:407
+msgid "Be verbose"
+msgstr "Ji më i qartë"
+
+#. Translators: This is a description of --problem command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: ../src/gnome-abrt:415
+msgid "Selected problem ID"
+msgstr "ID e problemit të përzgjedhur"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -140,35 +153,27 @@ msgid "Submits selected problem"
 msgstr "Paraqet problemin e zgjedhur"
 
 #: ../src/gnome_abrt/oops.glade.h:5
-msgid "Analy_ze"
-msgstr "Anali_zo"
-
-#: ../src/gnome_abrt/oops.glade.h:6
-msgid "Open selected problem for analysis"
-msgstr "Hap problemin e zgjedhur për analizim"
-
-#: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
 msgstr "D_etaje"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:6
 msgid "Show technical details"
 msgstr "Trego detaje teknike"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "_Të gjitha problemet"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr ""
 "Trego të gjitha problemet e njohura nga të gjithë përdoruesit e sistemit"
 
-#: ../src/gnome_abrt/oops.glade.h:11
+#: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
 msgstr "_Hap direktorinë e të dhënave të problemeve"
 
-#: ../src/gnome_abrt/oops.glade.h:12
+#: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
@@ -176,48 +181,48 @@ msgstr ""
 "Hap direktorinë e të dhënave të problemeve të zgjedhura në shfletuesin e "
 "paravendosur të skedarëve të sistemit"
 
-#: ../src/gnome_abrt/oops.glade.h:13
+#: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
 msgstr "_Kopjo ID e problemit në mbajtësin e shënimeve"
 
-#: ../src/gnome_abrt/oops.glade.h:14
+#: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "Ruan ID e problemit në mbajtësin e shënimeve"
 
-#: ../src/gnome_abrt/oops.glade.h:15
+#: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Filter"
 msgstr "_Filtro"
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Show filter box"
 msgstr "Trego kutinë e filtrimit"
 
-#: ../src/gnome_abrt/oops.glade.h:17
+#: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "Emri"
 
-#: ../src/gnome_abrt/oops.glade.h:18
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "Versioni"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: ../src/gnome_abrt/oops.glade.h:20
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "First Detected"
 msgstr "U zbulua fillimisht"
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:920
+#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:919
 msgid "Reported"
 msgstr "U raportua"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "No problems detected!"
 msgstr "Nuk u zbuluan probleme!"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source selected!"
 msgstr "Nuk ka burim të përzgjedhur!"
 
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source"
 msgstr "Nuk ka burim"
 
@@ -316,19 +321,19 @@ msgstr "Sjellje e gabuar"
 msgid "Failed to load UI definition"
 msgstr "Dështoi ngarkimi i përcaktimit të ndërfaqes së përdoruesit"
 
-#: ../src/gnome_abrt/views.py:861
+#: ../src/gnome_abrt/views.py:860
 msgid "Unexpected system error"
 msgstr "Gabim i paparashikuar i sistemit"
 
-#: ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and recovered."
 msgstr "Ky sistem ka hasur në një problem dhe është rikuperuar."
 
-#: ../src/gnome_abrt/views.py:866
+#: ../src/gnome_abrt/views.py:865
 msgid "Fatal system failure"
 msgstr "Dështim fatal sistemi"
 
-#: ../src/gnome_abrt/views.py:868
+#: ../src/gnome_abrt/views.py:867
 msgid "The system has encountered a problem and could not continue."
 msgstr "Ky sistemi ka hasur në një problem dhe nuk mund të vazhdojë."
 
@@ -342,35 +347,35 @@ msgstr "Ky sistemi ka hasur në një problem dhe nuk mund të vazhdojë."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:881
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} problem është zbuluar"
 
-#: ../src/gnome_abrt/views.py:886
+#: ../src/gnome_abrt/views.py:885
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} u mbarua në mënyrë të papritur"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:888
 msgid "The application encountered a problem and could not continue."
 msgstr "Ky aplikacion pësoi një problem dhe nuk mund të vazhdojë"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:893 ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:892 ../src/gnome_abrt/views.py:895
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:923
+#: ../src/gnome_abrt/views.py:922
 msgid "cannot be reported"
 msgstr "nuk mund të raportohet"
 
-#: ../src/gnome_abrt/views.py:928
+#: ../src/gnome_abrt/views.py:927
 msgid "Reports"
 msgstr "Raportimet"
 
-#: ../src/gnome_abrt/views.py:934
+#: ../src/gnome_abrt/views.py:933
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -387,17 +392,17 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:943
+#: ../src/gnome_abrt/views.py:942
 msgid "yes"
 msgstr "po"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:947
+#: ../src/gnome_abrt/views.py:946
 msgid "no"
 msgstr "jo"
 
-#: ../src/gnome_abrt/controller.py:78
+#: ../src/gnome_abrt/controller.py:71
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"

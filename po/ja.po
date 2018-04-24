@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 15:52+0200\n"
+"POT-Creation-Date: 2018-02-07 10:40+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,6 +60,18 @@ msgstr "終了 (_Q)"
 #: ../src/gnome_abrt/views.py:294
 msgid "Problem Reporting"
 msgstr "問題の報告"
+
+#. Translators: This is a description of --verbose command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: ../src/gnome-abrt:407
+msgid "Be verbose"
+msgstr ""
+
+#. Translators: This is a description of --problem command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: ../src/gnome-abrt:415
+msgid "Selected problem ID"
+msgstr ""
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"
@@ -147,81 +159,73 @@ msgid "Submits selected problem"
 msgstr "選択した問題をサブミット"
 
 #: ../src/gnome_abrt/oops.glade.h:5
-msgid "Analy_ze"
-msgstr "分析 (_Z)"
-
-#: ../src/gnome_abrt/oops.glade.h:6
-msgid "Open selected problem for analysis"
-msgstr "選択した問題を分析するため開きます"
-
-#: ../src/gnome_abrt/oops.glade.h:7
 msgid "D_etails"
 msgstr "詳細(_E)"
 
-#: ../src/gnome_abrt/oops.glade.h:8
+#: ../src/gnome_abrt/oops.glade.h:6
 msgid "Show technical details"
 msgstr "技術的な詳細の表示"
 
-#: ../src/gnome_abrt/oops.glade.h:9
+#: ../src/gnome_abrt/oops.glade.h:7
 msgid "_All problems"
 msgstr "すべての問題(_A)"
 
-#: ../src/gnome_abrt/oops.glade.h:10
+#: ../src/gnome_abrt/oops.glade.h:8
 msgid "Show all known problems from all system users"
 msgstr "全システムユーザーの既知の問題をすべて表示"
 
-#: ../src/gnome_abrt/oops.glade.h:11
+#: ../src/gnome_abrt/oops.glade.h:9
 msgid "_Open problem's data directory"
 msgstr "問題のデータディレクトリを開く (_O)"
 
-#: ../src/gnome_abrt/oops.glade.h:12
+#: ../src/gnome_abrt/oops.glade.h:10
 msgid ""
 "Opens the selected problem's data directory in the default file system "
 "browser"
 msgstr "選択した問題のデータディレクトリをデフォルトのファイルシステムブラウザで開きます"
 
-#: ../src/gnome_abrt/oops.glade.h:13
+#: ../src/gnome_abrt/oops.glade.h:11
 msgid "_Copy problem's ID to Clipboard"
 msgstr "問題の ID をクリップボードにコピー (_C)"
 
-#: ../src/gnome_abrt/oops.glade.h:14
+#: ../src/gnome_abrt/oops.glade.h:12
 msgid "Stores the selected problem's ID in Clibpoard"
 msgstr "選択した問題の ID をクリップボードに保存します"
 
-#: ../src/gnome_abrt/oops.glade.h:15
+#: ../src/gnome_abrt/oops.glade.h:13
 msgid "_Filter"
 msgstr "フィルター(_F)"
 
-#: ../src/gnome_abrt/oops.glade.h:16
+#: ../src/gnome_abrt/oops.glade.h:14
 msgid "Show filter box"
 msgstr "フィルターボックスの表示"
 
-#: ../src/gnome_abrt/oops.glade.h:17
+#: ../src/gnome_abrt/oops.glade.h:15
 msgid "Name"
 msgstr "名前"
 
-#: ../src/gnome_abrt/oops.glade.h:18
+#: ../src/gnome_abrt/oops.glade.h:16
 msgid "Version"
 msgstr "バージョン"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: ../src/gnome_abrt/oops.glade.h:20
+#: ../src/gnome_abrt/oops.glade.h:18
 msgid "First Detected"
 msgstr "最初に検出された日付け"
 
-#: ../src/gnome_abrt/oops.glade.h:21 ../src/gnome_abrt/views.py:920
+#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:919
 msgid "Reported"
 msgstr "報告済み"
 
-#: ../src/gnome_abrt/oops.glade.h:22
+#: ../src/gnome_abrt/oops.glade.h:20
 msgid "No problems detected!"
 msgstr "問題は検出されませんでした!"
 
-#: ../src/gnome_abrt/oops.glade.h:23
+#: ../src/gnome_abrt/oops.glade.h:21
 msgid "No source selected!"
 msgstr "ソースが選択されていません!"
 
-#: ../src/gnome_abrt/oops.glade.h:24
+#: ../src/gnome_abrt/oops.glade.h:22
 msgid "No source"
 msgstr "ソースがありません"
 
@@ -317,19 +321,19 @@ msgstr "不正な動作"
 msgid "Failed to load UI definition"
 msgstr "UI 定義の読み込みに失敗しました"
 
-#: ../src/gnome_abrt/views.py:861
+#: ../src/gnome_abrt/views.py:860
 msgid "Unexpected system error"
 msgstr "予期しないシステムエラー"
 
-#: ../src/gnome_abrt/views.py:863
+#: ../src/gnome_abrt/views.py:862
 msgid "The system has encountered a problem and recovered."
 msgstr "システムが問題に遭遇したので回復しました。"
 
-#: ../src/gnome_abrt/views.py:866
+#: ../src/gnome_abrt/views.py:865
 msgid "Fatal system failure"
 msgstr "致命的なシステム障害"
 
-#: ../src/gnome_abrt/views.py:868
+#: ../src/gnome_abrt/views.py:867
 msgid "The system has encountered a problem and could not continue."
 msgstr "システムが問題に遭遇したので続行できません。"
 
@@ -343,35 +347,35 @@ msgstr "システムが問題に遭遇したので続行できません。"
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:882
+#: ../src/gnome_abrt/views.py:881
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} 件の問題が検出されました"
 
-#: ../src/gnome_abrt/views.py:886
+#: ../src/gnome_abrt/views.py:885
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} が予期せず終了しました"
 
-#: ../src/gnome_abrt/views.py:889
+#: ../src/gnome_abrt/views.py:888
 msgid "The application encountered a problem and could not continue."
 msgstr "アプリケーションが問題に遭遇したので続行できません。"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:893 ../src/gnome_abrt/views.py:896
+#: ../src/gnome_abrt/views.py:892 ../src/gnome_abrt/views.py:895
 msgid "N/A"
 msgstr "該当なし"
 
-#: ../src/gnome_abrt/views.py:923
+#: ../src/gnome_abrt/views.py:922
 msgid "cannot be reported"
 msgstr "報告できません"
 
-#: ../src/gnome_abrt/views.py:928
+#: ../src/gnome_abrt/views.py:927
 msgid "Reports"
 msgstr "報告"
 
-#: ../src/gnome_abrt/views.py:934
+#: ../src/gnome_abrt/views.py:933
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -386,17 +390,17 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:943
+#: ../src/gnome_abrt/views.py:942
 msgid "yes"
 msgstr "はい"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:947
+#: ../src/gnome_abrt/views.py:946
 msgid "no"
 msgstr "いいえ"
 
-#: ../src/gnome_abrt/controller.py:78
+#: ../src/gnome_abrt/controller.py:71
 msgid ""
 "Failed to execute the requested action because of an error in new process "
 "creation"

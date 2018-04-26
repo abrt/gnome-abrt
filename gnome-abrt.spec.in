@@ -9,7 +9,6 @@ Version:    @GNOME_ABRT_VERSION@
 Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
-Group:      User Interface/Desktops
 License:    GPLv2+
 URL:        https://github.com/abrt/gnome-abrt
 Source0:    https://github.com/abrt/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
@@ -84,13 +83,17 @@ make check
 %{_datadir}/%{name}/ui
 %{_bindir}/%{name}
 %{_datadir}/applications/*
-%{_datadir}/appdata/*
+%{_datadir}/metainfo/*
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/icons/hicolor/*/status/*
 
 
 %changelog
+* Fri Apr 27 2018 Rafal Luzynski <digitalfreak@lingonborough.com> - 1.2.6-4
+- Change appdata location according to the current guidelines
+- Remove "Group:" tag according to the current guidelines
+
 * Sat Jan 06 2018 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.6-2
 - Remove obsolete scriptlets
 

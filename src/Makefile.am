@@ -4,7 +4,7 @@ bin_SCRIPTS=gnome-abrt
 
 @INTLTOOL_XML_RULE@
 
-appdatadir = $(datadir)/appdata
+appdatadir = $(datadir)/metainfo
 app_data_in_files = gnome-abrt.appdata.xml.in
 appdata_DATA = $(app_data_in_files:.xml.in=.xml)
 

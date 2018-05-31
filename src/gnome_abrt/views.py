@@ -40,12 +40,7 @@ from gi.repository import GLib
 
 import humanize
 
-import gnome_abrt.problems as problems
-import gnome_abrt.config as config
-import gnome_abrt.wrappers as wrappers
-import gnome_abrt.errors as errors
-import gnome_abrt.desktop as desktop
-from gnome_abrt import GNOME_ABRT_UI_DIR
+from gnome_abrt import GNOME_ABRT_UI_DIR, problems, config, wrappers, errors, desktop
 from gnome_abrt.tools import fancydate, smart_truncate, load_icon
 from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
@@ -1075,6 +1070,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                     self._builder.lb_problems.select_row(problem_row)
                     self._builder.menu_problem_item.popup(None, None,
                             None, None, data.button, data.time)
+        return None
 
     def get_box_header_left_offset(self):
         # Returns the offset of box_header_left relative to the main paned

@@ -30,8 +30,8 @@ import pyinotify
 from pyinotify import WatchManager, Notifier, ProcessEvent
 
 # gnome-abrt
-import gnome_abrt.problems as problems
-import gnome_abrt.errors as errors
+from gnome_abrt import problems
+from gnome_abrt import errors
 from gnome_abrt.l10n import _
 
 class INOTIFYGlibSource(GLib.Source):

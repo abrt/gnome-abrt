@@ -17,6 +17,7 @@
 
 import datetime
 import logging
+import re
 
 # gnome-abrt
 import gnome_abrt.url
@@ -279,6 +280,7 @@ class Problem(object):
 
     def get_submission(self):
         if not self.submission:
+            reg = re.compile(r'^(?P<pfx>.*):\s*(?P<typ>\S*)=(?P<data>.*)')
             self.submission = []
             if self['reported_to']:
                 # Most common type of line in reported_to file
@@ -287,30 +289,14 @@ class Problem(object):
                     if not line:
                         continue
 
-                    pfx_lst = []
-                    i = 0
-                    for i in range(0, len(line)):
-                        if line[i] == ':':
-                            break
-                        pfx_lst.append(line[i])
+                    parsed = reg.match(line)
+                    if parsed:
+                        pfx = parsed.group('pfx')
+                        typ = parsed.group('typ')
+                        data = parsed.group('data')
+                    else:
+                        continue
 
-                    pfx = ''.join(pfx_lst)
-                    i += 1
-
-                    for i in range(i, len(line)):
-                        if line[i] != ' ':
-                            break
-
-                    typ_lst = []
-                    for i in range(i, len(line)):
-                        if line[i] == '=':
-                            break
-                        typ_lst.append(line[i])
-
-                    typ = ''.join(typ_lst)
-                    i += 1
-
-                    data = line[i:]
                     sbm = next((s for s in self.submission
                                 if s.rtype == typ and s.name == pfx), None)
 

@@ -16,7 +16,7 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 import os
-import gnome_abrt.wrappers as wrappers
+from gnome_abrt import wrappers
 
 class Application(object):
 

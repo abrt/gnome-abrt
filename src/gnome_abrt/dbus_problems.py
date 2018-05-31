@@ -22,9 +22,7 @@ import traceback
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
 
-import gnome_abrt.problems as problems
-import gnome_abrt.config as config
-import gnome_abrt.errors as errors
+from gnome_abrt import problems, config, errors
 from gnome_abrt.l10n import _
 
 BUS_NAME = 'org.freedesktop.problems'

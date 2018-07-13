@@ -280,7 +280,7 @@ class Problem(object):
 
     def get_submission(self):
         if not self.submission:
-            reg = re.compile(r'^(?P<pfx>.*):\s*(?P<typ>\S*)=(?P<data>.*)')
+            reg = re.compile(r'^(?P<pfx>.*?):\s*(?P<typ>\S*?)=(?P<data>.*)')
             self.submission = []
             if self['reported_to']:
                 # Most common type of line in reported_to file

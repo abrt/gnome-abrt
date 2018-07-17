@@ -55,7 +55,7 @@ def list_box_row_set_values(list_box_row, values):
     return list_box_row.get_children()[0].set_values(values)
 
 
-class ProblemsFilter(object):
+class ProblemsFilter:
 
     def __init__(self, list_box, list_box_selection):
         self._pattern = ""
@@ -201,7 +201,7 @@ def handle_problem_and_source_errors(func):
     return wrapper_for_instance_function
 
 
-class ListBoxSelection(object):
+class ListBoxSelection:
 
     def __init__(self, list_box, selection_changed):
         self._lb = list_box
@@ -288,7 +288,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     _TITLE = _("Problem Reporting")
 
-    class OopsGtkBuilder(object):
+    class OopsGtkBuilder:
         def __init__(self):
             builder = None
             # try to load the glade from git at first step
@@ -412,7 +412,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             return obj
 
 
-    class SourceObserver(object):
+    class SourceObserver:
         def __init__(self, wnd):
             self.wnd = wnd
             self._enabled = True
@@ -443,7 +443,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.wnd._disable_source(ex.source, ex.temporary)
 
 
-    class OptionsObserver(object):
+    class OptionsObserver:
         def __init__(self, wnd):
             self.wnd = wnd
 

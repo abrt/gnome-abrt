@@ -87,7 +87,7 @@ GNOME_ABRT_URL_POOL_CAPACITY = 10
 
 
 # because of https://bugzilla.gnome.org/show_bug.cgi?id=682331
-class GtkAppDBUSImpl(object):
+class GtkAppDBUSImpl:
     """A proxy for primary application
     """
 
@@ -107,7 +107,7 @@ class GtkAppDBUSImpl(object):
             """DBus service method accepting a new command line arguments
             """
 
-            class Arguments(object):
+            class Arguments:
                 """Adapter for Gtk class
                 """
 

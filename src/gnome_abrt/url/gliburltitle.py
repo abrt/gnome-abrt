@@ -82,7 +82,7 @@ class GetURLTitleThreadSource(GLib.Source):
         pass
 
 
-class GetURLTitleSourcePool(object):
+class GetURLTitleSourcePool:
     """Pool for reducing number of running threads at time
     """
 
@@ -115,7 +115,7 @@ class GetURLTitleSourcePool(object):
                 self._start_resolving(url, readycallback, userdata)
 
 
-class GetURLTitleSourceCache(object):
+class GetURLTitleSourceCache:
     """Asynchronous cache for URL titles
     """
 

@@ -29,7 +29,7 @@ def singleton(cls):
     return getinstance
 
 @singleton
-class Configuration(object):
+class Configuration:
 
     def __init__(self):
         self.options = {}

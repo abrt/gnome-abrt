@@ -24,7 +24,7 @@ import traceback
 from gnome_abrt import errors
 from gnome_abrt.l10n import _
 
-class Controller(object):
+class Controller:
 
     def __init__(self, sources, sigchld_assign=None):
         self.sources = sources

@@ -22,7 +22,7 @@ BuildRequires: asciidoc
 BuildRequires: xmlto
 BuildRequires: pygobject3-devel
 BuildRequires: libreport-gtk-devel > 2.4.0
-BuildRequires: libreport-python3
+BuildRequires: python3-libreport
 BuildRequires: abrt-gui-devel > 2.4.0
 BuildRequires: gtk3-devel
 BuildRequires: libX11-devel
@@ -37,7 +37,7 @@ BuildRequires: python3-humanize
 %define checkoption --with-nopylint
 %endif
 
-Requires:   libreport-python3
+Requires:   python3-libreport
 Requires:   python3-inotify
 Requires:   python3-gobject
 Requires:   python3-dbus

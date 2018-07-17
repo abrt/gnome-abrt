@@ -81,7 +81,6 @@ make check || :
 %doc COPYING README.md
 %{python3_sitearch}/gnome_abrt
 %{_datadir}/%{name}
-%{_datadir}/%{name}/ui
 %{_bindir}/%{name}
 %{_datadir}/applications/*
 %{_datadir}/metainfo/*

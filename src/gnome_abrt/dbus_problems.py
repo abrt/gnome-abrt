@@ -40,7 +40,7 @@ def get_foreign_problems_source(mainloop=None):
 
 class DBusProblemSource(problems.CachedSource):
 
-    class Driver(object):
+    class Driver:
         """Handles differences in behaviour while working with different sets
         of problems obtained from D-Bus service.
         """
@@ -198,7 +198,7 @@ class StandardProblems(DBusProblemSource.Driver):
     def __init__(self, source):
         super(StandardProblems, self).__init__(source)
 
-        class ConfigObserver(object):
+        class ConfigObserver:
             def __init__(self, source):
                 self._source = source
 

@@ -26,7 +26,7 @@ from gnome_abrt.errors import (InvalidProblem,
                                UnavailableSource)
 from gnome_abrt.l10n import _
 
-class ProblemSource(object):
+class ProblemSource:
     NEW_PROBLEM = 0
     DELETED_PROBLEM = 1
     CHANGED_PROBLEM = 2
@@ -64,13 +64,13 @@ class ProblemSource(object):
     def refresh(self):
         pass
 
-class Problem(object):
+class Problem:
     INITIAL_ELEMENTS = ['component', 'executable', 'cmdline', 'count', 'type',
                         'last_occurrence', 'time', 'reason', 'pkg_arch',
                         'pkg_epoch', 'pkg_name', 'pkg_release', 'pkg_version',
                         'environ', 'pid']
 
-    class Submission(object):
+    class Submission:
         URL = "URL"
         MSG = "MSG"
         BTHASH = "BTHASH"
@@ -319,7 +319,7 @@ class MultipleSources(ProblemSource):
 
         self.sources = sources
 
-        class SourceObserver(object):
+        class SourceObserver:
             def __init__(self, parent):
                 self.parent = parent
 

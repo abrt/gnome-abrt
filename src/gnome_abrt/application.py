@@ -18,7 +18,7 @@
 import os
 from gnome_abrt import wrappers
 
-class Application(object):
+class Application:
 
     def __init__(self, executable, name=None, icon=None):
         self.executable = executable or "N/A"

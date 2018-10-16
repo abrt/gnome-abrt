@@ -5,6 +5,7 @@
 # Translators:
 # Momcilo Medic <medicmomcilo@gmail.com>, 2015. #zanata
 # Marko Kostic <marko.m.kostic@gmail.com>, 2016. #zanata
+# Marko Kostic <marko.m.kostic@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -13,14 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-12 02:59-0400\n"
+"PO-Revision-Date: 2018-08-01 05:38+0000\n"
 "Last-Translator: Marko Kostic <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/sr/)\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
@@ -56,13 +57,13 @@ msgstr "Пријављивање проблема"
 #. displayed when a user runs: `gnome-abrt --help'
 #: ../src/gnome-abrt:407
 msgid "Be verbose"
-msgstr ""
+msgstr "Буди опширан"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: ../src/gnome-abrt:415
 msgid "Selected problem ID"
-msgstr ""
+msgstr "ИБ изабраног проблема"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"

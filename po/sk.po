@@ -5,6 +5,7 @@
 # Translators:
 # Dusan Kazik <prescott66@gmail.com>, 2015. #zanata
 # Dusan Kazik <prescott66@gmail.com>, 2016. #zanata
+# feonsu <feonsu@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -13,13 +14,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-24 04:29-0400\n"
-"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"PO-Revision-Date: 2018-09-05 01:18+0000\n"
+"Last-Translator: feonsu <feonsu@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/sk/)\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
@@ -55,13 +56,13 @@ msgstr "Nahlásenie problému"
 #. displayed when a user runs: `gnome-abrt --help'
 #: ../src/gnome-abrt:407
 msgid "Be verbose"
-msgstr ""
+msgstr "Podrobný výstup"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: ../src/gnome-abrt:415
 msgid "Selected problem ID"
-msgstr ""
+msgstr "ID vybratého problému"
 
 #: ../src/gnome-abrt.desktop.in.h:2
 msgid "View and report application crashes"

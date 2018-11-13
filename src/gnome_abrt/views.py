@@ -1061,15 +1061,13 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         elif (data.type == Gdk.EventType.BUTTON_PRESS
                 and data.button == Gdk.BUTTON_SECONDARY):
             if len(self.lss_problems.get_selected_rows()) > 1:
-                self._builder.menu_multiple_problems.popup(None, None,
-                        None, None, data.button, data.time)
+                self._builder.menu_multiple_problems.popup_at_pointer(data)
                 return True
             else:
                 problem_row = self._builder.lb_problems.get_row_at_y(data.y)
                 if problem_row:
                     self._builder.lb_problems.select_row(problem_row)
-                    self._builder.menu_problem_item.popup(None, None,
-                            None, None, data.button, data.time)
+                    self._builder.menu_problem_item.popup_at_pointer(data)
         return None
 
     def get_box_header_left_offset(self):

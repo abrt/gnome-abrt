@@ -1,257 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.1 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
-  <object class="GtkAccelGroup" id="ag_accelerators"/>
-  <object class="GtkActionGroup" id="gag_problem_actions">
-    <property name="name">problems</property>
-    <property name="accel_group">ag_accelerators</property>
-    <child>
-      <object class="GtkAction" id="gac_delete">
-        <property name="label" translatable="yes">_Delete</property>
-        <property name="tooltip" translatable="yes">Delete selected problems</property>
-        <signal name="activate" handler="on_gac_delete_activate" swapped="no"/>
-      </object>
-      <accelerator key="Delete"/>
-    </child>
-    <child>
-      <object class="GtkAction" id="gac_report">
-        <property name="label" translatable="yes">_Report</property>
-        <property name="tooltip" translatable="yes">Submits selected problem</property>
-        <signal name="activate" handler="on_gac_report_activate" swapped="no"/>
-      </object>
-      <accelerator key="Return"/>
-    </child>
-    <child>
-      <object class="GtkAction" id="gac_detail">
-        <property name="label" translatable="yes">D_etails</property>
-        <property name="tooltip" translatable="yes">Show technical details</property>
-        <signal name="activate" handler="on_gac_detail_activate" swapped="no"/>
-      </object>
-      <accelerator key="Return" modifiers="GDK_CONTROL_MASK"/>
-    </child>
-    <child>
-      <object class="GtkAction" id="gac_opt_all_problems">
-        <property name="label" translatable="yes">_All problems</property>
-        <property name="tooltip" translatable="yes">Show all known problems from all system users</property>
-        <signal name="activate" handler="on_gac_opt_all_problems_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="gac_open_directory">
-        <property name="label" translatable="yes">_Open problem's data directory</property>
-        <property name="tooltip" translatable="yes">Opens the selected problem's data directory in the default file system browser</property>
-        <signal name="activate" handler="on_gac_open_directory_activate" swapped="no"/>
-      </object>
-      <accelerator key="o" modifiers="GDK_CONTROL_MASK"/>
-    </child>
-    <child>
-      <object class="GtkAction" id="gac_copy_id">
-        <property name="label" translatable="yes">_Copy problem's ID to Clipboard</property>
-        <property name="tooltip" translatable="yes">Stores the selected problem's ID in Clibpoard</property>
-        <signal name="activate" handler="on_gac_copy_id_activate" swapped="no"/>
-      </object>
-      <accelerator key="c" modifiers="GDK_CONTROL_MASK"/>
-    </child>
-    <child>
-      <object class="GtkAction" id="gac_search">
-        <property name="label" translatable="yes">_Filter</property>
-        <property name="tooltip" translatable="yes">Show filter box</property>
-        <signal name="activate" handler="on_gac_search_activate" swapped="no"/>
-      </object>
-      <accelerator key="f" modifiers="GDK_CONTROL_MASK"/>
-    </child>
-  </object>
-  <object class="GtkMenu" id="menu_multiple_problems">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="accel_group">ag_accelerators</property>
-    <child>
-      <object class="GtkMenuItem" id="mi_delete_multi">
-        <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-        <property name="related_action">gac_delete</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-  </object>
-  <object class="GtkMenu" id="menu_problem_item">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="accel_group">ag_accelerators</property>
-    <child>
-      <object class="GtkMenuItem" id="mi_report">
-        <property name="tooltip_text" translatable="yes">Submits selected problem</property>
-        <property name="related_action">gac_report</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="mi_delete">
-        <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-        <property name="related_action">gac_delete</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="mi_detail">
-        <property name="tooltip_text" translatable="yes">Show technical details</property>
-        <property name="related_action">gac_detail</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="mi_open_directory">
-        <property name="tooltip_text" translatable="yes">Opens the selected problem's data directory in the default file system browser</property>
-        <property name="related_action">gac_open_directory</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="mi_copy_id">
-        <property name="tooltip_text" translatable="yes">Stores the selected problem's ID in Clibpoard</property>
-        <property name="related_action">gac_copy_id</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="mi_search">
-        <property name="tooltip_text" translatable="yes">Show filter box</property>
-        <property name="related_action">gac_search</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-  </object>
-  <object class="GtkImage" id="image1">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="icon_name">object-select-symbolic</property>
-  </object>
-  <object class="GtkImage" id="image2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="icon_name">edit-find-symbolic</property>
-  </object>
-  <object class="GtkWindow" id="wnd_main">
+  <template class="OopsWindow" parent="GtkApplicationWindow">
     <property name="width_request">1024</property>
     <property name="height_request">768</property>
     <property name="can_focus">False</property>
     <property name="icon_name">gnome-abrt</property>
-    <accel-groups>
-      <group name="ag_accelerators"/>
-    </accel-groups>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <property name="visible">True</property>
+        <property name="show-close-button">True</property>
+        <property name="title" translatable="yes">Problem Reporting</property>
+        <child>
+          <object class="GtkBox" id="box_header_left">
+            <property name="halign">start</property>
+            <property name="visible">True</property>
+            <property name="spacing">6</property>
+            <signal name="size-allocate" handler="on_box_header_left_size_allocate" swapped="no"/>
+            <child>
+              <object class="GtkStackSwitcher" id="box_sources_switcher">
+                <property name="hexpand">True</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="tbtn_search">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Show filter box</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="icon_name">edit-find-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="tbtn_multi_select">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_underline">True</property>
+                <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="icon_name">object-select-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_report">
+            <property name="label" translatable="yes">_Report</property>
+            <property name="tooltip_text" translatable="yes">Submits selected problem</property>
+            <property name="action-name">win.report</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_underline">True</property>
+            <style>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_delete">
+            <property name="label" translatable="yes">_Delete</property>
+            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
+            <property name="action-name">win.delete</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">end</property>
+            <property name="valign">end</property>
+            <property name="use_underline">True</property>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
+        </child>
+      </object>
+    </child>
     <child>
       <object class="GtkBox" id="box_window">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkBox" id="box_header">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="spacing">6</property>
-            <child>
-              <object class="GtkBox" id="box_header_left">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="spacing">6</property>
-                <signal name="size-allocate" handler="on_box_header_left_size_allocate" swapped="no"/>
-                <child>
-                  <object class="GtkStackSwitcher" id="box_sources_switcher">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkToggleButton" id="tbtn_search">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="image">image2</property>
-                    <property name="tooltip_text" translatable="yes">Show filter box</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkToggleButton" id="tbtn_multi_select">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="image">image1</property>
-                    <property name="use_underline">True</property>
-                    <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="btn_report">
-                <property name="label" translatable="yes">_Report</property>
-                <property name="tooltip_text" translatable="yes">Submits selected problem</property>
-                <property name="related_action">gac_report</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">end</property>
-                <property name="valign">end</property>
-                <property name="use_underline">True</property>
-                <style>
-                  <class name="suggested-action"/>
-                </style>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="pack_type">end</property>
-                <property name="position">4</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="btn_delete">
-                <property name="label" translatable="yes">_Delete</property>
-                <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-                <property name="related_action">gac_delete</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">end</property>
-                <property name="valign">end</property>
-                <property name="use_underline">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="pack_type">end</property>
-                <property name="position">5</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkPaned" id="gr_main_layout">
             <property name="visible">True</property>
@@ -685,10 +526,10 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_detail">
-                            <property name="label">button</property>
+                            <property name="label" translatable="yes">D_etails</property>
                             <property name="tooltip_text" translatable="yes">Show technical details</property>
-                            <property name="use_action_appearance">True</property>
-                            <property name="related_action">gac_detail</property>
+                            <property name="use-underline">True</property>
+                            <property name="action-name">win.details</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
@@ -815,5 +656,5 @@
         </child>
       </object>
     </child>
-  </object>
+  </template>
 </interface>

@@ -23,15 +23,10 @@ controller.py: controller.py.in Makefile
 __init__.py: __init__.py.in Makefile
 	sed -e s,\@PACKAGE\@,$(PACKAGE),g \
 	-e s,\@VERSION\@,$(VERSION),g \
-	-e s,\@GNOME_ABRT_UI_DIR\@,$(uidir),g \
+	-e s,\@PKGDATADIR\@,$(pkgdatadir),g \
 	-e s,\@localedir\@,$(localedir),g $< > $@
 
-dist_ui_DATA = oops.glade
-uidir = $(pkgdatadir)/ui
-
-gnome_abrtdir = $(pythondir)/gnome_abrt
-
-EXTRA_DIST = __init__.py.in oops.glade controller.py.in
+EXTRA_DIST = __init__.py.in controller.py.in
 
 DISTCLEANFILES = __init__.py controller.py
 

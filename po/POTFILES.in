@@ -1,10 +1,12 @@
+data/ui/oops.glade
+data/ui/oops-window.ui
+
 src/gnome-abrt
 src/gnome-abrt.desktop.in
 src/gnome-abrt.appdata.xml.in
 
 src/gnome_abrt/dbus_problems.py
 src/gnome_abrt/directory_problems.py
-src/gnome_abrt/oops.glade
 src/gnome_abrt/problems.py
 src/gnome_abrt/tools.py
 src/gnome_abrt/views.py

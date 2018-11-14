@@ -3,6 +3,7 @@
 # generated Files
 *Makefile.in
 *Makefile
+data/org.freedesktop.GnomeAbrt.gresource
 src/gnome-abrt.desktop
 src/gnome_abrt/gnome_abrt_glade.py
 src/gnome_abrt/controller.py

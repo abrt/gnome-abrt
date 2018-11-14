@@ -1,0 +1,20 @@
+/* FIXME
+ *
+ * "row" selector is valid and supported in GTK>=3.20 (Fedora 24).
+ * "GtkListBoxRow" selector is no longer supported but required
+ * for GTK<3.20 (Fedora 23). It can be removed if we decide to stop
+ * supporting older systems.
+ */
+
+GtkListBoxRow, row {
+    padding: 12px;
+}
+
+.app-name-label {
+    font-weight: bold;
+}
+
+.oops-reason {
+    font-size: 120%;
+    font-weight: bold;
+}

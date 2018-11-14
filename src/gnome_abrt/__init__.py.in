@@ -17,8 +17,14 @@
 
 PACKAGE = "@PACKAGE@"
 VERSION = "@VERSION@"
-GNOME_ABRT_UI_DIR = "@GNOME_ABRT_UI_DIR@"
+PKGDATADIR = "@PKGDATADIR@"
 
 def init():
     import gnome_abrt.l10n
     gnome_abrt.l10n.init(PACKAGE, "@localedir@")
+
+    from gi.repository import Gio
+    import os
+    resource = Gio.resource_load(
+            os.path.join(PKGDATADIR, 'org.freedesktop.GnomeAbrt.gresource'))
+    Gio.Resource._register(resource)

@@ -87,17 +87,21 @@ GNOME_ABRT_VERSION=`cat ./gnome-abrt-version`
 AC_SUBST(PYTHON_CFLAGS)
 AC_SUBST(GNOME_ABRT_VERSION)
 
-PKG_CHECK_MODULES([GTK], [gtk+-3.0])
+PKG_CHECK_MODULES([GTK], [gtk+-3.0 >= 3.10.0])
 PKG_CHECK_MODULES([LIBREPORT_GTK], [libreport-gtk > 2.0.19-3])
 PKG_CHECK_MODULES([ABRT_GUI], [abrt_gui > 2.1.6])
-PKG_CHECK_MODULES([PYGOBJECT3], [pygobject-3.0])
+PKG_CHECK_MODULES([PYGOBJECT3], [pygobject-3.0 >= 3.29.1])
 PKG_CHECK_MODULES([PYTHON], [python3])
 PKG_CHECK_MODULES([X11], [x11])
 dnl PKG_CHECK_MODULES([PYXDG], [pyxdg >= 0.19])
 
+GLIB_COMPILE_RESOURCES=`pkg-config --variable glib_compile_resources gio-2.0`
+AC_SUBST([GLIB_COMPILE_RESOURCES])
+
 AC_CONFIG_FILES([
     gnome-abrt.spec
     Makefile
+    data/Makefile
     doc/Makefile
     icons/Makefile
     src/Makefile

@@ -84,7 +84,7 @@ class DBusProblemSource(problems.CachedSource):
                     signal_name=ABRTD_DBUS_SIGNAL, path=ABRTD_DBUS_PATH)
         except dbus.exceptions.DBusException as ex:
             logging.warning(
-        "Can't add receiver of signal '{0}' on DBus system path '{1}': {2}"
+        "Can't add receiver of signal '{0}' on D-Bus system path '{1}': {2}"
                       .format(ABRTD_DBUS_SIGNAL, ABRTD_DBUS_PATH, ex))
 
         self._driver = driverclass(self)
@@ -97,7 +97,7 @@ class DBusProblemSource(problems.CachedSource):
             self._proxy = self._bus.get_object(BUS_NAME, BUS_PATH)
         except dbus.exceptions.DBusException as ex:
             raise errors.UnavailableSource(self, False,
-                    "Can't connect to DBus system bus '{0}' path '{1}': {2}"
+                    "Can't connect to D-Bus system bus '{0}' path '{1}': {2}"
                         .format(BUS_NAME, BUS_PATH, ex))
 
         try:
@@ -122,7 +122,7 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             name = ex.get_dbus_name()
             if name == "org.freedesktop.DBus.Error.ServiceUnknown":
-                logging.debug("Reconnecting to dbus: {0}".format(ex))
+                logging.debug("Reconnecting to D-Bus: {0}".format(ex))
                 self._close_problems_bus()
                 self._connect_to_problems_bus()
                 return method(self._interface, *args)
@@ -148,7 +148,7 @@ class DBusProblemSource(problems.CachedSource):
             return True
         except dbus.exceptions.DBusException as ex:
             logging.warning(
-                    "Can't chown problem '{0}' over DBus service: {1!s}"
+                    "Can't chown problem '{0}' over D-Bus service: {1!s}"
                     .format(problem_id, ex))
             return False
 
@@ -163,7 +163,7 @@ class DBusProblemSource(problems.CachedSource):
             except dbus.exceptions.DBusException as ex:
                 self._driver.on_dbus_exception(problem_id, ex)
                 logging.warning(
-                        "Can't get problem data from DBus service: {0!s}"
+                        "Can't get problem data from D-Bus service: {0!s}"
                             .format(ex))
 
         return info
@@ -174,7 +174,7 @@ class DBusProblemSource(problems.CachedSource):
             prblms = self._send_dbus_message(self._driver.get_problems_method)
         except dbus.exceptions.DBusException as ex:
             logging.warning(
-                    "Can't get list of problems from DBus service: {0!s}"
+                    "Can't get list of problems from D-Bus service: {0!s}"
                         .format(ex))
 
         return (str(pid) for pid in prblms)
@@ -187,7 +187,7 @@ class DBusProblemSource(problems.CachedSource):
         except dbus.exceptions.DBusException as ex:
             self._driver.on_dbus_exception(problem_id, ex)
             logging.warning(
-                    "Can't delete problem over DBus service: {0!s}"
+                    "Can't delete problem over D-Bus service: {0!s}"
                         .format(ex))
             return False
 

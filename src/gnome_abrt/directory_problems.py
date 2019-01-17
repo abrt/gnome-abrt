@@ -213,7 +213,7 @@ class INOTIFYWatcher:
         logging.debug("Could not add inotify for directory '{0}': '{1}'"
                             .format(directory, ex))
         logging.warning(
-"You have probably reached inotify's limit on the number of watches in '{0}'."
+"You have probably reached the inotify limit on the number of watches in '{0}'."
 " The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "

@@ -1,4 +1,4 @@
-data/ui/oops.glade
+data/ui/oops-menus.ui
 data/ui/oops-window.ui
 
 src/gnome-abrt

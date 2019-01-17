@@ -42,6 +42,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
+                <property name="tooltip_text" translatable="yes">Select multiple problems</property>
                 <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
                 <child>
                   <object class="GtkImage">
@@ -56,7 +57,7 @@
         <child>
           <object class="GtkButton" id="btn_report">
             <property name="label" translatable="yes">_Report</property>
-            <property name="tooltip_text" translatable="yes">Submits selected problem</property>
+            <property name="tooltip_text" translatable="yes">Submit selected problem</property>
             <property name="action-name">win.report</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -527,7 +528,7 @@
                         <child>
                           <object class="GtkButton" id="btn_detail">
                             <property name="label" translatable="yes">D_etails</property>
-                            <property name="tooltip_text" translatable="yes">Show technical details</property>
+                            <property name="tooltip_text" translatable="yes">Show problem details</property>
                             <property name="use-underline">True</property>
                             <property name="action-name">win.details</property>
                             <property name="visible">True</property>

@@ -17,6 +17,7 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
+import os
 import time
 import logging
 import traceback
@@ -987,8 +988,9 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_open_directory_activate(self, action, parameter):
         selection = self._get_selected(self.lss_problems)
         if selection:
-            Gio.app_info_launch_default_for_uri(
-                                'file://' + selection[0].problem_id, None)
+            if os.path.exists(selection[0].problem_id):
+                Gio.app_info_launch_default_for_uri(
+                                    'file://' + selection[0].problem_id, None)
         self.menu_problem_item.popdown()
         self.menu_multiple_problems.popdown()
 
@@ -996,8 +998,9 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         selection = self._get_selected(self.lss_problems)
         if selection:
             #pylint: disable=E1101
-            (Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-                .set_text(selection[0].problem_id, -1))
+            if os.path.exists(selection[0].problem_id):
+                (Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+                    .set_text(selection[0].problem_id, -1))
         self.menu_problem_item.popdown()
         self.menu_multiple_problems.popdown()
 

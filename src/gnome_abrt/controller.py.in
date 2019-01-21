@@ -67,9 +67,8 @@ class Controller:
                 pid = os.fork()
             except OSError as ex:
                 logging.debug(traceback.format_exc())
-                logging.error(
-                        _("Failed to execute the requested action because of"
-                          " an error in new process creation"))
+                logging.error("Failed to execute the requested action because"
+                        " of an error in new process creation")
                 return
 
             if pid == 0:

@@ -112,14 +112,14 @@ def load_icon(name=None, gicon=None, scale=1):
         return None
 
     if icon is None:
-        logging.warning(_("Failed to find icon '{0}'").format(name))
+        logging.warning("Failed to find icon '{0}'".format(name))
         return None
 
     try:
         return icon.load_icon()
     #pylint: disable=E0712
     except GLib.Error as ex:
-        logging.warning(_("Failed to load icon '{0}': {1}")
+        logging.warning("Failed to load icon '{0}': {1}"
                             .format(name, str(ex)))
 
     return None

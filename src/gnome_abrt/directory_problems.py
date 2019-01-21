@@ -213,11 +213,11 @@ class INOTIFYWatcher:
         logging.debug("Could not add inotify for directory '{0}': '{1}'"
                             .format(directory, ex))
         logging.warning(
-_("You have probably reached inotify's limit on the number of watches in '{0}'."
+"You have probably reached inotify's limit on the number of watches in '{0}'."
 " The limit can be increased by proper configuration of inotify. For more "
 "details see man inotify(7). This event causes that you will not be notified "
 "about changes in problem data happening outside of this application. This "
-"event do not affect any other functionality.").format(self._directory))
+"event do not affect any other functionality.".format(self._directory))
 
 class NotInitializedDirectorySource:
 
@@ -259,7 +259,7 @@ class InitializedDirectoryProblemSource:
         dd = report.dd_opendir(problem_id, report.DD_OPEN_READONLY)
         if not dd:
             raise errors.InvalidProblem(problem_id,
-                        _("Can't open directory: '{0}'").format(problem_id))
+                        "Can't open directory: '{0}'".format(problem_id))
 
         items = {}
         for field_name in args:

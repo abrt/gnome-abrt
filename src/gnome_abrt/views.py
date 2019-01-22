@@ -93,7 +93,7 @@ class ProblemsFilter:
 
         for i in ['component', 'reason', 'executable', 'package']:
             if problem[i] is None:
-                logging.debug("Problem '{0}' doesn't have '{1}"
+                logging.debug("Problem '{0}' doesn't have '{1}'"
                                 .format(problem.problem_id, i))
                 continue
 

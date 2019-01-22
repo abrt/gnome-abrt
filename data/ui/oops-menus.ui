@@ -17,11 +17,11 @@
         <attribute name="action">win.details</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_Open problem's data directory</attribute>
+        <attribute name="label" translatable="yes">_Open the problem data directory</attribute>
         <attribute name="action">win.open-directory</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_Copy problem's ID to Clipboard</attribute>
+        <attribute name="label" translatable="yes">_Copy the problem ID to Clipboard</attribute>
         <attribute name="action">win.copy-id</attribute>
       </item>
       <item>

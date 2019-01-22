@@ -449,8 +449,8 @@ class CachedSource(ProblemSource):
         try:
             self._remove_from_cache(problem_id)
         except ValueError as ex:
-            logging.warning(_('Not found in cache but deleted: {0}'),
-                    ex)
+            logging.warning('Not found in cache but deleted: {0}'
+                    .format(str(ex)))
             self._cache = None
             self.notify()
 

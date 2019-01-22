@@ -93,7 +93,7 @@ class GtkAppDBUSImpl:
 
     #pylint: disable=R0923
     class Service(dbus.service.Object):
-        """DBus service sitting on session bus
+        """D-Bus service sitting on session bus
         """
 
         def __init__(self, bus, bus_name, application):
@@ -104,7 +104,7 @@ class GtkAppDBUSImpl:
         @dbus.service.method(dbus_interface=GNOME_ABRT_INTERFACE,
                              in_signature='as', out_signature='')
         def command_line(self, argv):
-            """DBus service method accepting a new command line arguments
+            """D-Bus service method accepting a new command line arguments
             """
 
             class Arguments:
@@ -137,7 +137,7 @@ class GtkAppDBUSImpl:
             else:
                 self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
         except dbus.exceptions.DBusException as ex:
-            logging.warning("Can't initialize gnome-abrt's DBus services: {0}"
+            logging.warning("Can't initialize gnome-abrt's D-Bus services: {0}"
                     .format(ex))
             self._primary_obj = None
             self._service = None
@@ -169,7 +169,7 @@ class GtkAppDBUSImpl:
             self._primary_iface.command_line(argv)
             return True
         except dbus.exceptions.DBusException as ex:
-            logging.debug("Can't send command line over DBus: {0}"
+            logging.debug("Can't send command line over D-Bus: {0}"
                     .format(ex))
             return False
 

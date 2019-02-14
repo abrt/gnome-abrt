@@ -10,7 +10,7 @@ $(app_data_in_files:.xml.in=.xml): $(app_data_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
-desktop_in_files = gnome-abrt.desktop.in
+desktop_in_files = org.freedesktop.GnomeAbrt.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 $(desktop_in_files:.desktop.in=.desktop): $(desktop_in_files)

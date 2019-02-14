@@ -74,9 +74,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for gettext])
 
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION([0.17])
-
-IT_PROG_INTLTOOL([0.35.0])
+AM_GNU_GETTEXT_VERSION([0.19.6])
 
 dnl ****** END ****************************************
 

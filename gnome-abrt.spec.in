@@ -68,7 +68,7 @@ find $RPM_BUILD_ROOT -name '*.la' -or -name '*.a' | xargs rm -f
 desktop-file-install \
     --dir ${RPM_BUILD_ROOT}%{_datadir}/applications \
     --delete-original \
-    ${RPM_BUILD_ROOT}%{_datadir}/applications/%{name}.desktop
+    ${RPM_BUILD_ROOT}%{_datadir}/applications/org.freedesktop.GnomeAbrt.desktop
 
 
 %check

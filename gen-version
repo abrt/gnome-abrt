@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VN='0.2.7'
+DEF_VER='1.2.7'
 LF='
 '
 
@@ -14,6 +14,8 @@ if test -d .git -o -f .git &&
     esac
 then
     VN=$(echo "$VN" | sed -e 's/-/./g')
+else
+    VN="$DEF_VER"
 fi
 
 echo -n $VN

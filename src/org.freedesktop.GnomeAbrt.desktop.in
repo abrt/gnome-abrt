@@ -6,6 +6,6 @@ Icon=gnome-abrt
 Exec=gnome-abrt
 Terminal=false
 Type=Application
-Categories=System;
+Categories=System;X-GNOME-Utilities;
 StartupNotify=true
 X-Desktop-File-Install-Version=0.15

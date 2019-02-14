@@ -3,7 +3,7 @@ SUBDIRS = gnome_abrt
 bin_SCRIPTS=gnome-abrt
 
 appdatadir = $(datadir)/metainfo
-app_data_in_files = gnome-abrt.appdata.xml.in
+app_data_in_files = org.freedesktop.GnomeAbrt.appdata.xml.in
 appdata_DATA = $(app_data_in_files:.xml.in=.xml)
 
 $(app_data_in_files:.xml.in=.xml): $(app_data_in_files)

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.freedesktop.GnomeAbrt</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <launchable type="desktop-id">org.freedesktop.GnomeAbrt.desktop</launchable>
+  <name>Problem Reporting</name>
+  <summary>View and report application crashes</summary>
+  <project_license>GPL-3.0+</project_license>
+  <description>
+    <p>
+      Collection of software tools designed for collecting, analyzing and reporting of
+      software issues.
+    </p>
+    <p>
+      Its main purpose is to ease the process of reporting an issue and finding a solution.
+    </p>
+  </description>
+  <url type="bugtracker">https://github.com/abrt/gnome-abrt/issues</url>
+  <url type="homepage">https://github.com/abrt/gnome-abrt</url>
+  <screenshots>
+    <screenshot type="default">http://jfilak.fedorapeople.org/media/gnome-abrt.png</screenshot>
+  </screenshots>
+  <translation type="gettext">gnome-abrt</translation>
+  <update_contact>crash-catcher@lists.fedorahosted.org</update_contact>
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>HighContrast</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+  <releases>
+    <release version="1.2.7" date="2019-02-04">
+    </release>
+  </releases>
+</component>

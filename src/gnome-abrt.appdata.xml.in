@@ -3,13 +3,13 @@
 <id type="desktop">gnome-abrt.desktop</id>
 <licence>CC0</licence>
 <description>
-  <_p>
+  <p>
   Collection of software tools designed for collecting, analyzing and reporting of
   software issues.
-  </_p>
-  <_p>
+  </p>
+  <p>
   Its main purpose is to ease the process of reporting an issue and finding a solution.
-  </_p>
+  </p>
 </description>
 <url type="homepage">https://github.com/abrt/gnome-abrt</url>
 <screenshots>

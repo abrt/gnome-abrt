@@ -3,7 +3,7 @@ data/ui/oops-window.ui
 
 src/gnome-abrt
 src/org.freedesktop.GnomeAbrt.desktop.in
-src/gnome-abrt.appdata.xml.in
+src/org.freedesktop.GnomeAbrt.appdata.xml.in
 
 src/gnome_abrt/dbus_problems.py
 src/gnome_abrt/directory_problems.py

@@ -24,7 +24,6 @@ import gnome_abrt.url
 from gnome_abrt.application import find_application
 from gnome_abrt.errors import (InvalidProblem,
                                UnavailableSource)
-from gnome_abrt.l10n import _
 
 class ProblemSource:
     NEW_PROBLEM = 0

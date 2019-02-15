@@ -32,7 +32,6 @@ from pyinotify import WatchManager, Notifier, ProcessEvent
 # gnome-abrt
 from gnome_abrt import problems
 from gnome_abrt import errors
-from gnome_abrt.l10n import _
 
 class INOTIFYGlibSource(GLib.Source):
 

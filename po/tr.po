@@ -10,17 +10,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-07 10:40+0100\n"
+"POT-Creation-Date: 2019-02-14 16:01+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-04 12:40+0000\n"
+"PO-Revision-Date: 2018-03-04 12:38+0000\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/tr/)\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Zanata 4.6.2\n"
+
+#: ../data/ui/oops-menus.ui.h:1 ../data/ui/oops-window.ui.h:4
+msgid "_Report"
+msgstr "_Bildir"
+
+#: ../data/ui/oops-menus.ui.h:2 ../data/ui/oops-window.ui.h:6
+msgid "_Delete"
+msgstr "_Sil"
+
+#: ../data/ui/oops-menus.ui.h:3 ../data/ui/oops-window.ui.h:13
+msgid "D_etails"
+msgstr "_Ayrıntılar"
+
+#: ../data/ui/oops-menus.ui.h:4
+msgid "_Open the problem data directory"
+msgstr ""
+
+#: ../data/ui/oops-menus.ui.h:5
+msgid "_Copy the problem ID to Clipboard"
+msgstr ""
+
+#: ../data/ui/oops-menus.ui.h:6
+msgid "_Filter"
+msgstr "_Süzgeç"
+
+#: ../data/ui/oops-window.ui.h:1 ../src/gnome-abrt:350
+#: ../src/gnome-abrt.desktop.in.h:1
+msgid "Problem Reporting"
+msgstr "Sorun Bildirme"
+
+#: ../data/ui/oops-window.ui.h:2
+msgid "Show filter box"
+msgstr "Süzgeç kutusunu göster"
+
+#: ../data/ui/oops-window.ui.h:3
+msgid "Select multiple problems"
+msgstr ""
+
+#: ../data/ui/oops-window.ui.h:5
+msgid "Submit selected problem"
+msgstr ""
+
+#: ../data/ui/oops-window.ui.h:7
+msgid "Delete selected problems"
+msgstr "Seçili sorunlar silindi"
+
+#: ../data/ui/oops-window.ui.h:8
+msgid "Name"
+msgstr "Ad"
+
+#: ../data/ui/oops-window.ui.h:9
+msgid "Version"
+msgstr "Sürüm"
+
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../data/ui/oops-window.ui.h:11
+msgid "First Detected"
+msgstr "İlk Saptanma"
+
+#: ../data/ui/oops-window.ui.h:12 ../src/gnome_abrt/views.py:865
+msgid "Reported"
+msgstr "Bildirildi"
+
+#: ../data/ui/oops-window.ui.h:14
+msgid "Show problem details"
+msgstr ""
+
+#: ../data/ui/oops-window.ui.h:15
+msgid "No problems detected!"
+msgstr "Sorun saptanmadı!"
+
+#: ../data/ui/oops-window.ui.h:16
+msgid "No source selected!"
+msgstr "Kaynak seçilmedi!"
+
+#: ../data/ui/oops-window.ui.h:17
+msgid "No source"
+msgstr "Kaynak yok"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
@@ -46,11 +124,6 @@ msgstr "_Hakkında"
 #: ../src/gnome-abrt:317
 msgid "_Quit"
 msgstr "_Çık"
-
-#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
-#: ../src/gnome_abrt/views.py:294
-msgid "Problem Reporting"
-msgstr "Sorun Bildirme"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -86,152 +159,12 @@ msgid ""
 "solution."
 msgstr "Asıl amacı sorunu bildirme ve çözüm bulma sürecini kolaylaştırmaktır."
 
-#: ../src/gnome_abrt/dbus_problems.py:89
-#, python-brace-format
-msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr "DBus sistem yolu '{1}' üstüne '{0}' sinyal alıcısı eklenemiyor: {2}"
-
-#: ../src/gnome_abrt/dbus_problems.py:102
-#, python-brace-format
-msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr "'{1}' yolu '{0}' DBus sistem veriyoluna bağlanılamıyor: {2}"
-
-#: ../src/gnome_abrt/dbus_problems.py:109
+#: ../src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
 "'{2}' veriyolunda bulunan '{1}' yolu üzerindeki '{0}' arayüzü alınamıyor: "
 "'{3}'"
-
-#: ../src/gnome_abrt/dbus_problems.py:153
-msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
-"'{0}' sorunu DBus hizmeti üzerinden chown işlemine uğratılamıyor: {1!s}"
-
-#: ../src/gnome_abrt/dbus_problems.py:168
-msgid "Can't get problem data from DBus service: {0!s}"
-msgstr "DBus servisinden sorun verileri alınamıyor: {0!s}"
-
-#: ../src/gnome_abrt/dbus_problems.py:179
-msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr "DBus servisinden sorunlar listelenemiyor: {0!s}"
-
-#: ../src/gnome_abrt/dbus_problems.py:192
-msgid "Can't delete problem over DBus service: {0!s}"
-msgstr "Sorun DBus hizmeti üzerinden silinemiyor: {0!s}"
-
-#: ../src/gnome_abrt/directory_problems.py:216
-#, python-brace-format
-msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'. "
-"The limit can be increased by proper configuration of inotify. For more "
-"details see man inotify(7). This event causes that you will not be notified "
-"about changes in problem data happening outside of this application. This "
-"event do not affect any other functionality."
-msgstr ""
-"Büyük olasılıkla inotify'nin '{0}' içindeki izleme sayısı sınırını geçtiniz. "
-"Sınır, inotify'nin uygun yapılandırılmasıyla artırılabilir. Daha çok ayrıntı "
-"için man inotify(7) incelenebilir. Bu eylem, bu uygulamanın dışında "
-"gerçekleşen sorun verisi değişikliklerinden haberdar olmamanıza neden olur. "
-"Bu eylem başka herhangi bir işlevi etkilemez."
-
-#: ../src/gnome_abrt/directory_problems.py:262
-#, python-brace-format
-msgid "Can't open directory: '{0}'"
-msgstr "Dizin açılamıyor: '{0}'"
-
-#: ../src/gnome_abrt/oops.glade.h:1
-msgid "_Delete"
-msgstr "_Sil"
-
-#: ../src/gnome_abrt/oops.glade.h:2
-msgid "Delete selected problems"
-msgstr "Seçili sorunlar silindi"
-
-#: ../src/gnome_abrt/oops.glade.h:3
-msgid "_Report"
-msgstr "_Bildir"
-
-#: ../src/gnome_abrt/oops.glade.h:4
-msgid "Submits selected problem"
-msgstr "Seçili sorunu gönderir"
-
-#: ../src/gnome_abrt/oops.glade.h:5
-msgid "D_etails"
-msgstr "_Ayrıntılar"
-
-#: ../src/gnome_abrt/oops.glade.h:6
-msgid "Show technical details"
-msgstr "Teknik ayrıntıları göster"
-
-#: ../src/gnome_abrt/oops.glade.h:7
-msgid "_All problems"
-msgstr "_Tüm sorunlar"
-
-#: ../src/gnome_abrt/oops.glade.h:8
-msgid "Show all known problems from all system users"
-msgstr "Tüm sistem kullanıcıları için bilinen tüm sorunları göster"
-
-#: ../src/gnome_abrt/oops.glade.h:9
-msgid "_Open problem's data directory"
-msgstr "Sorunun veri dizinini _aç"
-
-#: ../src/gnome_abrt/oops.glade.h:10
-msgid ""
-"Opens the selected problem's data directory in the default file system "
-"browser"
-msgstr ""
-"Seçilen sorunun veri dizinini öntanımlı dosya sistemi tarayıcısında açar"
-
-#: ../src/gnome_abrt/oops.glade.h:11
-msgid "_Copy problem's ID to Clipboard"
-msgstr "Sorunun kimliğini panoya _kopyala"
-
-#: ../src/gnome_abrt/oops.glade.h:12
-msgid "Stores the selected problem's ID in Clibpoard"
-msgstr "Seçilen sorunun kimliğini panoda saklar"
-
-#: ../src/gnome_abrt/oops.glade.h:13
-msgid "_Filter"
-msgstr "_Süzgeç"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Show filter box"
-msgstr "Süzgeç kutusunu göster"
-
-#: ../src/gnome_abrt/oops.glade.h:15
-msgid "Name"
-msgstr "Ad"
-
-#: ../src/gnome_abrt/oops.glade.h:16
-msgid "Version"
-msgstr "Sürüm"
-
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: ../src/gnome_abrt/oops.glade.h:18
-msgid "First Detected"
-msgstr "İlk Saptanma"
-
-#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:919
-msgid "Reported"
-msgstr "Bildirildi"
-
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "No problems detected!"
-msgstr "Sorun saptanmadı!"
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "No source selected!"
-msgstr "Kaynak seçilmedi!"
-
-#: ../src/gnome_abrt/oops.glade.h:22
-msgid "No source"
-msgstr "Kaynak yok"
-
-#: ../src/gnome_abrt/problems.py:466
-#, python-brace-format
-msgid "Not found in cache but deleted: {0}"
-msgstr "Önbellekte bulunamadı ama silindi: {0}"
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -283,59 +216,45 @@ msgid_plural "{0:d} years ago"
 msgstr[0] "{0:d} yıl önce"
 msgstr[1] "{0:d} yıl önce"
 
-#: ../src/gnome_abrt/tools.py:115
-#, python-brace-format
-msgid "Failed to find icon '{0}'"
-msgstr "'{0}' simgesi bulunamadı"
-
-#: ../src/gnome_abrt/tools.py:122
-#, python-brace-format
-msgid "Failed to load icon '{0}': {1}"
-msgstr "'{0}' simgesi yüklenemedi: {1}"
-
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: ../src/gnome_abrt/views.py:148
+#: ../src/gnome_abrt/views.py:143
 msgctxt "package name"
 msgid "System"
 msgstr "Sistem"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:154
+#: ../src/gnome_abrt/views.py:149
 msgid "Application Crash"
 msgstr "Uygulama Çöküşü"
 
-#: ../src/gnome_abrt/views.py:156
+#: ../src/gnome_abrt/views.py:151
 msgid "System Crash"
 msgstr "Sistem Çöküşü"
 
-#: ../src/gnome_abrt/views.py:158
+#: ../src/gnome_abrt/views.py:153
 msgid "System Failure"
 msgstr "Sistem Arızası"
 
-#: ../src/gnome_abrt/views.py:160
+#: ../src/gnome_abrt/views.py:155
 msgid "Misbehavior"
 msgstr "İstenmeyen davranış"
 
-#: ../src/gnome_abrt/views.py:320
-msgid "Failed to load UI definition"
-msgstr "Kullanıcı arayüzü tanımı yüklenemedi"
-
-#: ../src/gnome_abrt/views.py:860
+#: ../src/gnome_abrt/views.py:806
 msgid "Unexpected system error"
 msgstr "Beklenmedik sistem hatası"
 
-#: ../src/gnome_abrt/views.py:862
+#: ../src/gnome_abrt/views.py:808
 msgid "The system has encountered a problem and recovered."
 msgstr "Sistem bir sorunla karşılaştı ve kurtarıldı."
 
-#: ../src/gnome_abrt/views.py:865
+#: ../src/gnome_abrt/views.py:811
 msgid "Fatal system failure"
 msgstr "Ölümcül sistem arızası"
 
-#: ../src/gnome_abrt/views.py:867
+#: ../src/gnome_abrt/views.py:813
 msgid "The system has encountered a problem and could not continue."
 msgstr "Sistem bir sorunla karşılaştı ve devam edemedi."
 
@@ -349,35 +268,35 @@ msgstr "Sistem bir sorunla karşılaştı ve devam edemedi."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:881
+#: ../src/gnome_abrt/views.py:827
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} sorun saptandı"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:831
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} beklenmedik biçimde çıktı"
 
-#: ../src/gnome_abrt/views.py:888
+#: ../src/gnome_abrt/views.py:834
 msgid "The application encountered a problem and could not continue."
 msgstr "Uygulama bir sorunla karşılaştı ve devam edemedi."
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:892 ../src/gnome_abrt/views.py:895
+#: ../src/gnome_abrt/views.py:838 ../src/gnome_abrt/views.py:841
 msgid "N/A"
 msgstr "YOK"
 
-#: ../src/gnome_abrt/views.py:922
+#: ../src/gnome_abrt/views.py:868
 msgid "cannot be reported"
 msgstr "bildirilemez"
 
-#: ../src/gnome_abrt/views.py:927
+#: ../src/gnome_abrt/views.py:873
 msgid "Reports"
 msgstr "Bildirmeler"
 
-#: ../src/gnome_abrt/views.py:933
+#: ../src/gnome_abrt/views.py:879
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -393,19 +312,12 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:942
+#: ../src/gnome_abrt/views.py:888
 msgid "yes"
 msgstr "evet"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:946
+#: ../src/gnome_abrt/views.py:892
 msgid "no"
 msgstr "hayır"
-
-#: ../src/gnome_abrt/controller.py:71
-msgid ""
-"Failed to execute the requested action because of an error in new process "
-"creation"
-msgstr ""
-"Yeni süreç oluşumundaki bir hatadan ötürü istenen eylem yerine getirilemedi"

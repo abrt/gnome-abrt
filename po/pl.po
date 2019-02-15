@@ -10,15 +10,16 @@
 # Rafał Lużyński <digitalfreak@lingonborough.com>, 2016. #zanata
 # Piotr Drąg <piotrdrag@gmail.com>, 2018. #zanata
 # Rafał Lużyński <digitalfreak@lingonborough.com>, 2018. #zanata
+# Piotr Drąg <piotrdrag@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-07 10:40+0100\n"
+"POT-Creation-Date: 2019-02-14 16:01+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-08 12:49+0000\n"
+"PO-Revision-Date: 2019-02-14 06:33+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/pl/)\n"
@@ -26,6 +27,84 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 4.6.2\n"
+
+#: ../data/ui/oops-menus.ui.h:1 ../data/ui/oops-window.ui.h:4
+msgid "_Report"
+msgstr "_Zgłoś"
+
+#: ../data/ui/oops-menus.ui.h:2 ../data/ui/oops-window.ui.h:6
+msgid "_Delete"
+msgstr "_Usuń"
+
+#: ../data/ui/oops-menus.ui.h:3 ../data/ui/oops-window.ui.h:13
+msgid "D_etails"
+msgstr "_Szczegóły"
+
+#: ../data/ui/oops-menus.ui.h:4
+msgid "_Open the problem data directory"
+msgstr "_Otwórz katalog danych problemu"
+
+#: ../data/ui/oops-menus.ui.h:5
+msgid "_Copy the problem ID to Clipboard"
+msgstr "S_kopiuj identyfikator problemu do schowka"
+
+#: ../data/ui/oops-menus.ui.h:6
+msgid "_Filter"
+msgstr "_Filtruj"
+
+#: ../data/ui/oops-window.ui.h:1 ../src/gnome-abrt:350
+#: ../src/gnome-abrt.desktop.in.h:1
+msgid "Problem Reporting"
+msgstr "Zgłaszanie problemów"
+
+#: ../data/ui/oops-window.ui.h:2
+msgid "Show filter box"
+msgstr "Wyświetla okno filtrowania"
+
+#: ../data/ui/oops-window.ui.h:3
+msgid "Select multiple problems"
+msgstr "Wybiera wiele problemów"
+
+#: ../data/ui/oops-window.ui.h:5
+msgid "Submit selected problem"
+msgstr "Wysyła wybrany problem"
+
+#: ../data/ui/oops-window.ui.h:7
+msgid "Delete selected problems"
+msgstr "Usuwa wybrane problemy"
+
+#: ../data/ui/oops-window.ui.h:8
+msgid "Name"
+msgstr "Nazwa"
+
+#: ../data/ui/oops-window.ui.h:9
+msgid "Version"
+msgstr "Wersja"
+
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: ../data/ui/oops-window.ui.h:11
+msgid "First Detected"
+msgstr "Pierwsze wystąpienie"
+
+#: ../data/ui/oops-window.ui.h:12 ../src/gnome_abrt/views.py:865
+msgid "Reported"
+msgstr "Zgłoszono"
+
+#: ../data/ui/oops-window.ui.h:14
+msgid "Show problem details"
+msgstr "Wyświetla informacje o problemie"
+
+#: ../data/ui/oops-window.ui.h:15
+msgid "No problems detected!"
+msgstr "Nie wykryto żadnych problemów."
+
+#: ../data/ui/oops-window.ui.h:16
+msgid "No source selected!"
+msgstr "Nie wybrano źródła."
+
+#: ../data/ui/oops-window.ui.h:17
+msgid "No source"
+msgstr "Brak źródła"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: ../src/gnome-abrt:280 ../src/gnome-abrt:282
@@ -51,11 +130,6 @@ msgstr "_O programie"
 #: ../src/gnome-abrt:317
 msgid "_Quit"
 msgstr "Za_kończ"
-
-#: ../src/gnome-abrt:350 ../src/gnome-abrt.desktop.in.h:1
-#: ../src/gnome_abrt/views.py:294
-msgid "Problem Reporting"
-msgstr "Zgłaszanie problemów"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -93,155 +167,11 @@ msgstr ""
 "Jego głównym celem jest ułatwienie procesu zgłaszania problemów "
 "i znajdowania rozwiązania."
 
-#: ../src/gnome_abrt/dbus_problems.py:89
-#, python-brace-format
-msgid "Can't add receiver of signal '{0}'on DBus system path '{1}': {2}"
-msgstr ""
-"Nie można dodać obiektu odbierającego sygnał „{0}” na ścieżce systemowej D-"
-"Bus „{1}”: {2}"
-
-#: ../src/gnome_abrt/dbus_problems.py:102
-#, python-brace-format
-msgid "Can't connect to DBus system bus '{0}' path '{1}': {2}"
-msgstr ""
-"Nie można połączyć z magistralą systemową D-Bus „{0}” na ścieżce „{1}”: {2}"
-
-#: ../src/gnome_abrt/dbus_problems.py:109
+#: ../src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
 "Nie można uzyskać interfejsu „{0}” na ścieżce „{1}” na magistrali „{2}”: {3}"
-
-#: ../src/gnome_abrt/dbus_problems.py:153
-msgid "Can't chown problem '{0}' over DBus service: {1!s}"
-msgstr ""
-"Nie można zmienić właściciela problemu „{0}” przez usługę D-Bus: {1!s}"
-
-#: ../src/gnome_abrt/dbus_problems.py:168
-msgid "Can't get problem data from DBus service: {0!s}"
-msgstr "Nie można pobrać danych problemu z usługi D-Bus: {0!s}"
-
-#: ../src/gnome_abrt/dbus_problems.py:179
-msgid "Can't get list of problems from DBus service: {0!s}"
-msgstr "Nie można pobrać listy problemów z usługi D-Bus: {0!s}"
-
-#: ../src/gnome_abrt/dbus_problems.py:192
-msgid "Can't delete problem over DBus service: {0!s}"
-msgstr "Nie można usunąć problemu przez usługę D-Bus: {0!s}"
-
-#: ../src/gnome_abrt/directory_problems.py:216
-#, python-brace-format
-msgid ""
-"You have probably reached inotify's limit on the number of watches in '{0}'. "
-"The limit can be increased by proper configuration of inotify. For more "
-"details see man inotify(7). This event causes that you will not be notified "
-"about changes in problem data happening outside of this application. This "
-"event do not affect any other functionality."
-msgstr ""
-"Prawdopodobnie osiągnięto ograniczenie inotify dotyczące liczby obserwacji "
-"w „{0}”. Ograniczenie może zostać zwiększone przez poprawną konfigurację "
-"inotify. Więcej informacji można znaleźć w „man inotify(7)”. To zdarzenie "
-"powoduje, że użytkownik nie będzie powiadamiany o zmianach w danych problemu "
-"zdarzających się poza tą aplikacją. To zdarzenie nie wpływa na żadną inną "
-"funkcjonalność."
-
-#: ../src/gnome_abrt/directory_problems.py:262
-#, python-brace-format
-msgid "Can't open directory: '{0}'"
-msgstr "Nie można otworzyć katalogu: „{0}”"
-
-#: ../src/gnome_abrt/oops.glade.h:1
-msgid "_Delete"
-msgstr "_Usuń"
-
-#: ../src/gnome_abrt/oops.glade.h:2
-msgid "Delete selected problems"
-msgstr "Usuwa zaznaczone problemy"
-
-#: ../src/gnome_abrt/oops.glade.h:3
-msgid "_Report"
-msgstr "_Zgłoś"
-
-#: ../src/gnome_abrt/oops.glade.h:4
-msgid "Submits selected problem"
-msgstr "Wysyła zaznaczony problem"
-
-#: ../src/gnome_abrt/oops.glade.h:5
-msgid "D_etails"
-msgstr "_Szczegóły"
-
-#: ../src/gnome_abrt/oops.glade.h:6
-msgid "Show technical details"
-msgstr "Wyświetla informacje techniczne"
-
-#: ../src/gnome_abrt/oops.glade.h:7
-msgid "_All problems"
-msgstr "_Wszystkie problemy"
-
-#: ../src/gnome_abrt/oops.glade.h:8
-msgid "Show all known problems from all system users"
-msgstr "Wyświetla wszystkie znane problemy od wszystkich użytkowników systemu"
-
-#: ../src/gnome_abrt/oops.glade.h:9
-msgid "_Open problem's data directory"
-msgstr "_Otwórz katalog danych problemu"
-
-#: ../src/gnome_abrt/oops.glade.h:10
-msgid ""
-"Opens the selected problem's data directory in the default file system "
-"browser"
-msgstr ""
-"Otwiera katalog danych zaznaczonego problemu w domyślnym menedżerze plików"
-
-#: ../src/gnome_abrt/oops.glade.h:11
-msgid "_Copy problem's ID to Clipboard"
-msgstr "S_kopiuj identyfikator problemu do schowka"
-
-#: ../src/gnome_abrt/oops.glade.h:12
-msgid "Stores the selected problem's ID in Clibpoard"
-msgstr "Umieszcza identyfikator zaznaczonego problemu w schowku"
-
-#: ../src/gnome_abrt/oops.glade.h:13
-msgid "_Filter"
-msgstr "_Filtruj"
-
-#: ../src/gnome_abrt/oops.glade.h:14
-msgid "Show filter box"
-msgstr "Wyświetla okno filtrowania"
-
-#: ../src/gnome_abrt/oops.glade.h:15
-msgid "Name"
-msgstr "Nazwa"
-
-#: ../src/gnome_abrt/oops.glade.h:16
-msgid "Version"
-msgstr "Wersja"
-
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: ../src/gnome_abrt/oops.glade.h:18
-msgid "First Detected"
-msgstr "Pierwsze wystąpienie"
-
-#: ../src/gnome_abrt/oops.glade.h:19 ../src/gnome_abrt/views.py:919
-msgid "Reported"
-msgstr "Zgłoszono"
-
-#: ../src/gnome_abrt/oops.glade.h:20
-msgid "No problems detected!"
-msgstr "Nie wykryto żadnych problemów."
-
-#: ../src/gnome_abrt/oops.glade.h:21
-msgid "No source selected!"
-msgstr "Nie wybrano źródła."
-
-#: ../src/gnome_abrt/oops.glade.h:22
-msgid "No source"
-msgstr "Brak źródła"
-
-#: ../src/gnome_abrt/problems.py:466
-#, python-brace-format
-msgid "Not found in cache but deleted: {0}"
-msgstr "Nie odnaleziono w pamięci podręcznej, ale usunięto: {0}"
 
 #: ../src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -296,59 +226,45 @@ msgstr[0] "{0:d} rok temu"
 msgstr[1] "{0:d} lata temu"
 msgstr[2] "{0:d} lat temu"
 
-#: ../src/gnome_abrt/tools.py:115
-#, python-brace-format
-msgid "Failed to find icon '{0}'"
-msgstr "Odnalezienie ikony „{0}” się nie powiodło"
-
-#: ../src/gnome_abrt/tools.py:122
-#, python-brace-format
-msgid "Failed to load icon '{0}': {1}"
-msgstr "Wczytanie ikony „{0}” się nie powiodło: {1}"
-
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: ../src/gnome_abrt/views.py:148
+#: ../src/gnome_abrt/views.py:143
 msgctxt "package name"
 msgid "System"
 msgstr "System"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:154
+#: ../src/gnome_abrt/views.py:149
 msgid "Application Crash"
 msgstr "Awaria aplikacji"
 
-#: ../src/gnome_abrt/views.py:156
+#: ../src/gnome_abrt/views.py:151
 msgid "System Crash"
 msgstr "Awaria systemu"
 
-#: ../src/gnome_abrt/views.py:158
+#: ../src/gnome_abrt/views.py:153
 msgid "System Failure"
 msgstr "Niepowodzenie systemu"
 
-#: ../src/gnome_abrt/views.py:160
+#: ../src/gnome_abrt/views.py:155
 msgid "Misbehavior"
 msgstr "Błędne zachowanie"
 
-#: ../src/gnome_abrt/views.py:320
-msgid "Failed to load UI definition"
-msgstr "Wczytanie definicji interfejsu użytkownika się nie powiodło"
-
-#: ../src/gnome_abrt/views.py:860
+#: ../src/gnome_abrt/views.py:806
 msgid "Unexpected system error"
 msgstr "Nieoczekiwany błąd systemu"
 
-#: ../src/gnome_abrt/views.py:862
+#: ../src/gnome_abrt/views.py:808
 msgid "The system has encountered a problem and recovered."
 msgstr "W systemie wystąpił problem, ale system został przywrócony."
 
-#: ../src/gnome_abrt/views.py:865
+#: ../src/gnome_abrt/views.py:811
 msgid "Fatal system failure"
 msgstr "Krytyczne niepowodzenie systemu"
 
-#: ../src/gnome_abrt/views.py:867
+#: ../src/gnome_abrt/views.py:813
 msgid "The system has encountered a problem and could not continue."
 msgstr "W systemie wystąpił problem i nie można kontynuować."
 
@@ -362,35 +278,35 @@ msgstr "W systemie wystąpił problem i nie można kontynuować."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:881
+#: ../src/gnome_abrt/views.py:827
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "Wykryto problem {0}"
 
-#: ../src/gnome_abrt/views.py:885
+#: ../src/gnome_abrt/views.py:831
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "Program {0} nieoczekiwanie zakończył działanie"
 
-#: ../src/gnome_abrt/views.py:888
+#: ../src/gnome_abrt/views.py:834
 msgid "The application encountered a problem and could not continue."
 msgstr "W aplikacji wystąpił problem i nie można kontynuować."
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:892 ../src/gnome_abrt/views.py:895
+#: ../src/gnome_abrt/views.py:838 ../src/gnome_abrt/views.py:841
 msgid "N/A"
 msgstr "Niedostępna"
 
-#: ../src/gnome_abrt/views.py:922
+#: ../src/gnome_abrt/views.py:868
 msgid "cannot be reported"
 msgstr "nie można zgłosić"
 
-#: ../src/gnome_abrt/views.py:927
+#: ../src/gnome_abrt/views.py:873
 msgid "Reports"
 msgstr "Zgłoszenia"
 
-#: ../src/gnome_abrt/views.py:933
+#: ../src/gnome_abrt/views.py:879
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -406,20 +322,12 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:942
+#: ../src/gnome_abrt/views.py:888
 msgid "yes"
 msgstr "tak"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:946
+#: ../src/gnome_abrt/views.py:892
 msgid "no"
 msgstr "nie"
-
-#: ../src/gnome_abrt/controller.py:71
-msgid ""
-"Failed to execute the requested action because of an error in new process "
-"creation"
-msgstr ""
-"Wykonanie żądanego działania nie powiodło się z powodu błędu podczas "
-"tworzenia nowego procesu"

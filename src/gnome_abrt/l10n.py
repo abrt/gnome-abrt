@@ -47,6 +47,9 @@ def init(progname, localedir='/usr/share/locale'):
     gettext.bindtextdomain(progname, localedir)
     gettext.textdomain(progname)
 
+    locale.bindtextdomain(progname, localedir)
+    locale.textdomain(progname)
+
 def pgettext(context, message):
     result = gettext.gettext(context + "\004" + message)
     if "\004" in result:

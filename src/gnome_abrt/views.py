@@ -313,6 +313,9 @@ class OopsWindow(Gtk.ApplicationWindow):
     vbx_problem_messages = Gtk.Template.Child()
     tbtn_search = Gtk.Template.Child()
     tbtn_multi_select = Gtk.Template.Child()
+    gd_problem_info = Gtk.Template.Child()
+    vbx_empty_page = Gtk.Template.Child()
+    vbx_no_source_page = Gtk.Template.Child()
 
     def placeholder_mapped(self, label, data):
         self.tbtn_multi_select.set_sensitive(False)
@@ -762,8 +765,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                 lnk.set_markup(
                     "<a href=\"{0}\">{1}</a>".format(sbm.data, sbm.title))
                 lnk.set_halign(Gtk.Align.START)
-                lnk.set_margin_top(5)
-                lnk.set_margin_bottom(8)
                 lnk.set_line_wrap(True)
                 lnk.set_visible(True)
 
@@ -799,7 +800,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
 
         if problem:
-            self.nb_problem_layout.set_current_page(0)
+            self.nb_problem_layout.set_visible_child(self.gd_problem_info)
             app = problem['application']
             if problem['type'] == 'Kerneloops':
                 self.lbl_reason.set_text(
@@ -892,9 +893,9 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                 self.lbl_reported_value.set_text(_('no'))
         else:
             if self._source is not None:
-                self.nb_problem_layout.set_current_page(1)
+                self.nb_problem_layout.set_visible_child(self.vbx_empty_page)
             else:
-                self.nb_problem_layout.set_current_page(2)
+                self.nb_problem_layout.set_visible_child(self.vbx_no_source_page)
 
     def _get_selected(self, selection):
         return selection.get_selected_rows()

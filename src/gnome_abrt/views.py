@@ -1066,13 +1066,17 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             sum_width += spacing
 
         # Calculate the position of the box relative to its parent
-        padding = self.get_box_header_left_offset()
-        if padding is None:
+        offset = self.get_box_header_left_offset()
+        if offset is None:
             return GLib.SOURCE_REMOVE  # Error, we won't retry
 
-        # This assumes that the right padding is the same as the left padding
-        self.box_panel_left.set_size_request(
-                sum_width + 2 * padding, -1)
+        context = self.box_header_left.get_style_context()
+        state = context.get_state()
+        padding = context.get_padding(state)
+        minimum_width = sum_width + offset + \
+                        padding.right + padding.left
+
+        self.box_panel_left.set_size_request(minimum_width, -1)
 
         return GLib.SOURCE_REMOVE
 
@@ -1105,12 +1109,12 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         if not sender.get_realized() or not other.get_realized():
             return GLib.SOURCE_REMOVE
 
-        padding = self.get_box_header_left_offset()
-        if padding is None:
+        offset = self.get_box_header_left_offset()
+        if offset is None:
             return GLib.SOURCE_REMOVE  # Error, we won't retry
 
         self.box_header_left.set_size_request(
-                sender.get_position() - 2 * padding, -1)
+                sender.get_position() - offset, -1)
 
         # Sometimes the new width request is accepted (get_size_request()
         # returns the new value correctly) but not applied (the actual widget

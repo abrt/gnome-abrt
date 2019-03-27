@@ -4,32 +4,12 @@ public_icons_themes = \
 	hicolor	\
 	$(NULL)
 
-private_icons = \
-		hicolor_status_16x16_gnome-abrt.png	\
-		hicolor_status_22x22_gnome-abrt.png	\
-		hicolor_status_24x24_gnome-abrt.png	\
-		hicolor_status_32x32_gnome-abrt.png	\
-		hicolor_status_48x48_gnome-abrt.png	\
-		hicolor_status_256x256_gnome-abrt.png
-		$(NULL)
-
-public_icons = hicolor_apps_16x16_gnome-abrt.png		\
-		hicolor_apps_22x22_gnome-abrt.png		\
-		hicolor_apps_24x24_gnome-abrt.png		\
-		hicolor_apps_32x32_gnome-abrt.png		\
-		hicolor_apps_48x48_gnome-abrt.png		\
-		hicolor_apps_256x256_gnome-abrt.png		\
+public_icons = hicolor_apps_scalable_gnome-abrt.svg		\
 		hicolor_apps_symbolic_gnome-abrt-symbolic.svg	\
-		hicolor_status_16x16_gnome-abrt.png		\
-		hicolor_status_22x22_gnome-abrt.png		\
-		hicolor_status_24x24_gnome-abrt.png		\
-		hicolor_status_32x32_gnome-abrt.png		\
-		hicolor_status_48x48_gnome-abrt.png		\
-		hicolor_status_256x256_gnome-abrt.png
 		$(NULL)
 
 
-EXTRA_DIST = $(private_icons) $(public_icons)
+EXTRA_DIST = $(public_icons)
 
 ###############################################################################
 

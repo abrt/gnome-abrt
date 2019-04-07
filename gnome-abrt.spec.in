@@ -85,7 +85,6 @@ make check || :
 %{_datadir}/metainfo/*
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/icons/hicolor/*/apps/*
-%{_datadir}/icons/hicolor/*/status/*
 
 
 %changelog

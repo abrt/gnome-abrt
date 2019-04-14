@@ -40,7 +40,6 @@ Requires:   python3-libreport
 Requires:   python3-inotify
 Requires:   python3-gobject
 Requires:   python3-dbus
-Requires:   xdg-utils
 Requires:   python3-humanize
 
 %description

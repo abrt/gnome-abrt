@@ -1,5 +1,0 @@
-PyGObjec >= 3.2.2
-https://live.gnome.org/PyGObject
-
-pyxdg >= 0.19
-http://freedesktop.org/Software/pyxdg

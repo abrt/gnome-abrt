@@ -4,32 +4,12 @@ public_icons_themes = \
 	hicolor	\
 	$(NULL)
 
-private_icons = \
-		hicolor_status_16x16_gnome-abrt.png	\
-		hicolor_status_22x22_gnome-abrt.png	\
-		hicolor_status_24x24_gnome-abrt.png	\
-		hicolor_status_32x32_gnome-abrt.png	\
-		hicolor_status_48x48_gnome-abrt.png	\
-		hicolor_status_256x256_gnome-abrt.png
-		$(NULL)
-
-public_icons = hicolor_apps_16x16_gnome-abrt.png		\
-		hicolor_apps_22x22_gnome-abrt.png		\
-		hicolor_apps_24x24_gnome-abrt.png		\
-		hicolor_apps_32x32_gnome-abrt.png		\
-		hicolor_apps_48x48_gnome-abrt.png		\
-		hicolor_apps_256x256_gnome-abrt.png		\
+public_icons = hicolor_apps_scalable_gnome-abrt.svg		\
 		hicolor_apps_symbolic_gnome-abrt-symbolic.svg	\
-		hicolor_status_16x16_gnome-abrt.png		\
-		hicolor_status_22x22_gnome-abrt.png		\
-		hicolor_status_24x24_gnome-abrt.png		\
-		hicolor_status_32x32_gnome-abrt.png		\
-		hicolor_status_48x48_gnome-abrt.png		\
-		hicolor_status_256x256_gnome-abrt.png
 		$(NULL)
 
 
-EXTRA_DIST = $(private_icons) $(public_icons)
+EXTRA_DIST = $(public_icons)
 
 ###############################################################################
 
@@ -56,14 +36,6 @@ install-icons:
 		ICONFILE=`echo $$icon | cut -d_ -f4`; \
 		mkdir -p $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT; \
 		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
-	done; \
-	for icon in $(private_icons); do \
-		THEME=`echo $$icon | cut -d_ -f1`; \
-		CONTEXT=`echo $$icon | cut -d_ -f2`; \
-		SIZE=`echo $$icon | cut -d_ -f3`; \
-		ICONFILE=`echo $$icon | cut -d_ -f4`; \
-		mkdir -p $(DESTDIR)$(pkgdatadir)/icons/$$THEME/$$SIZE/$$CONTEXT; \
-		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(pkgdatadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
 	done
 
 uninstall-icons:
@@ -73,13 +45,6 @@ uninstall-icons:
 		SIZE=`echo $$icon | cut -d_ -f3`; \
 		ICONFILE=`echo $$icon | cut -d_ -f4`; \
 		rm -f $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
-	done; \
-	for icon in $(private_icons); do \
-		THEME=`echo $$icon | cut -d_ -f1`; \
-		CONTEXT=`echo $$icon | cut -d_ -f2`; \
-		SIZE=`echo $$icon | cut -d_ -f3`; \
-		ICONFILE=`echo $$icon | cut -d_ -f4`; \
-		rm -f $(DESTDIR)$(pkgdatadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
 	done
 
 install-data-local: install-icons update-icon-cache

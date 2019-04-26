@@ -8,6 +8,7 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata
 # Yuri Chornoivan <yurchor@ukr.net>, 2016. #zanata
 # Yuri Chornoivan <yurchor@ukr.net>, 2018. #zanata
+# Yuri Chornoivan <yurchor@ukr.net>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-07 10:13+0000\n"
+"PO-Revision-Date: 2019-02-15 08:28+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/uk/)\n"
@@ -39,11 +40,11 @@ msgstr "П_одробиці"
 
 #: ../data/ui/oops-menus.ui.h:4
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "В_ідкрити каталог даних проблеми"
 
 #: ../data/ui/oops-menus.ui.h:5
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_Копіювати ідентифікатор проблеми до буфера"
 
 #: ../data/ui/oops-menus.ui.h:6
 msgid "_Filter"
@@ -60,11 +61,11 @@ msgstr "Показати панель фільтрування"
 
 #: ../data/ui/oops-window.ui.h:3
 msgid "Select multiple problems"
-msgstr ""
+msgstr "Вибрати декілька проблем"
 
 #: ../data/ui/oops-window.ui.h:5
 msgid "Submit selected problem"
-msgstr ""
+msgstr "Надіслати дані щодо позначеної проблеми"
 
 #: ../data/ui/oops-window.ui.h:7
 msgid "Delete selected problems"
@@ -89,7 +90,7 @@ msgstr "Повідомлено"
 
 #: ../data/ui/oops-window.ui.h:14
 msgid "Show problem details"
-msgstr ""
+msgstr "Показати подробиці щодо проблеми"
 
 #: ../data/ui/oops-window.ui.h:15
 msgid "No problems detected!"

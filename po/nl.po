@@ -7,6 +7,7 @@
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Geert Warrink <geert.warrink@onsnet.nu>, 2017. #zanata
 # Geert Warrink <geert.warrink@onsnet.nu>, 2018. #zanata
+# Geert Warrink <geert.warrink@onsnet.nu>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-08 05:42+0000\n"
+"PO-Revision-Date: 2019-02-21 01:17+0000\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/gnome-abrt/"
 "language/nl/)\n"
@@ -37,11 +38,11 @@ msgstr "D_etails"
 
 #: ../data/ui/oops-menus.ui.h:4
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "_Open de datamap van het probleem"
 
 #: ../data/ui/oops-menus.ui.h:5
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_Kopieer ID van probleem naar Clipboard"
 
 #: ../data/ui/oops-menus.ui.h:6
 msgid "_Filter"
@@ -58,11 +59,11 @@ msgstr "Toon filtervenster"
 
 #: ../data/ui/oops-window.ui.h:3
 msgid "Select multiple problems"
-msgstr ""
+msgstr "Selecteer meerdere problemen"
 
 #: ../data/ui/oops-window.ui.h:5
 msgid "Submit selected problem"
-msgstr ""
+msgstr "Dien geselecteerd probleem in"
 
 #: ../data/ui/oops-window.ui.h:7
 msgid "Delete selected problems"
@@ -87,7 +88,7 @@ msgstr "Gerapporteerd"
 
 #: ../data/ui/oops-window.ui.h:14
 msgid "Show problem details"
-msgstr ""
+msgstr "Toon details van het probleem"
 
 #: ../data/ui/oops-window.ui.h:15
 msgid "No problems detected!"

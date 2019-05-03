@@ -309,14 +309,6 @@ class OopsApplication(Gtk.Application):
     def do_startup(self):
         Gtk.Application.do_startup(self)
 
-        menu = Gio.Menu()
-        menu.append(_("_Preferences"), "app.preferences")
-
-        sub_menu = Gio.Menu()
-        sub_menu.append(_("_About"), "app.about")
-        sub_menu.append(_("_Quit"), "app.quit")
-        menu.append_section(None, sub_menu)
-
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)
         self.add_action(action)
@@ -329,8 +321,6 @@ class OopsApplication(Gtk.Application):
         action.connect("activate", self.on_action_quit)
         self.add_action(action)
         self.set_accels_for_action("app.quit", ["<Control>q"])
-
-        self.set_app_menu(menu)
 
     #pylint: disable=W0613
     def on_action_prefrences(self, action, parameter):

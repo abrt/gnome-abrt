@@ -54,6 +54,21 @@
           </object>
         </child>
         <child>
+          <object class="GtkMenuButton" id="app_menu_button">
+            <property name="margin-start">6</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">open-menu-symbolic</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkButton" id="btn_report">
             <property name="label" translatable="yes">_Report</property>
             <property name="tooltip_text" translatable="yes">Submit selected problem</property>

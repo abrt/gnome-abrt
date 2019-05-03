@@ -38,4 +38,14 @@
       </item>
     </section>
   </menu>
+  <menu id="app_menu">
+    <item>
+      <attribute name="label" translatable="yes">_Preferences</attribute>
+      <attribute name="action">app.preferences</attribute>
+    </item>
+    <item>
+      <attribute name="label" translatable="yes">_About Problem Reporting</attribute>
+      <attribute name="action">app.about</attribute>
+    </item>
+  </menu>
 </interface>

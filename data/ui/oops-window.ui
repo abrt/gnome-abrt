@@ -220,6 +220,9 @@
                           <object class="GtkImage" id="img_app_icon">
                             <property name="visible">True</property>
                             <property name="icon_name">image-missing-symbolic</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
                           </object>
                         </child>
                         <child>

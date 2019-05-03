@@ -306,6 +306,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     nb_problem_layout = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
+    app_menu_button = Gtk.Template.Child()
     btn_detail = Gtk.Template.Child()
     se_problems = Gtk.Template.Child()
     search_bar = Gtk.Template.Child()
@@ -387,6 +388,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         builder = Gtk.Builder()
         builder.set_translation_domain(GETTEXT_PROGNAME)
         builder.add_from_resource('/org/freedesktop/GnomeAbrt/ui/oops-menus.ui')
+
+        self.app_menu_button.set_menu_model(builder.get_object('app_menu'))
 
         self.menu_problem_item = builder.get_object('menu_problem_item')
         self.menu_problem_item = Gtk.Menu.new_from_model(self.menu_problem_item)

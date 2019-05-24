@@ -336,7 +336,7 @@ class OopsApplication(Gtk.Application):
         dialog = Gtk.AboutDialog.new()
         dialog.set_icon_name("abrt")
         dialog.set_version(gnome_abrt.VERSION)
-        dialog.set_logo_icon_name("abrt")
+        dialog.set_logo_icon_name(GNOME_ABRT_APPLICATION_ID)
         dialog.set_program_name(_("Problem Reporting"))
         dialog.set_copyright("Copyright © 2012 Red Hat, Inc")
         dialog.set_license(

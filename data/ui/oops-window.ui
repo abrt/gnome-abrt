@@ -3,7 +3,6 @@
   <template class="OopsWindow" parent="GtkApplicationWindow">
     <property name="default-width">1024</property>
     <property name="default-height">768</property>
-    <property name="icon_name">gnome-abrt</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">True</property>

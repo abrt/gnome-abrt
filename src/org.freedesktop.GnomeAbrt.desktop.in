@@ -2,7 +2,7 @@
 Name=Problem Reporting
 Comment=View and report application crashes
 Keywords=abrt;bug reporting;crash logger;
-Icon=gnome-abrt
+Icon=org.freedesktop.GnomeAbrt
 Exec=gnome-abrt
 Terminal=false
 Type=Application

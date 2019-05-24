@@ -309,6 +309,8 @@ class OopsApplication(Gtk.Application):
     def do_startup(self):
         Gtk.Application.do_startup(self)
 
+        Gtk.Window.set_default_icon_name(GNOME_ABRT_APPLICATION_ID)
+
         action = Gio.SimpleAction.new("preferences", None)
         action.connect("activate", self.on_action_prefrences)
         self.add_action(action)
@@ -334,7 +336,6 @@ class OopsApplication(Gtk.Application):
     def on_action_about(self, action, parameter):
         #pylint: disable=E1120
         dialog = Gtk.AboutDialog.new()
-        dialog.set_icon_name("abrt")
         dialog.set_version(gnome_abrt.VERSION)
         dialog.set_logo_icon_name(GNOME_ABRT_APPLICATION_ID)
         dialog.set_program_name(_("Problem Reporting"))

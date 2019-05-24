@@ -23,7 +23,6 @@ import sys
 import logging
 import signal
 import locale
-from argparse import ArgumentParser
 from gnome_abrt.wrappers import (show_events_list_dialog,
                                  can_connect_to_xserver)
 
@@ -72,115 +71,18 @@ from gnome_abrt.config import get_configuration
 from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
                                          GetURLTitleSourceCache)
 
-# dbus
-#pylint: disable=C0413
-import dbus
-#pylint: disable=C0413
-import dbus.service
-#pylint: disable=C0413
-from dbus.mainloop.glib import DBusGMainLoop
-
 GNOME_ABRT_APPLICATION_ID = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_OBJECT_PATH = '/org/freedesktop/GnomeAbrt'
 GNOME_ABRT_URL_POOL_CAPACITY = 10
 
-
-# because of https://bugzilla.gnome.org/show_bug.cgi?id=682331
-class GtkAppDBUSImpl:
-    """A proxy for primary application
-    """
-
-    #pylint: disable=R0923
-    class Service(dbus.service.Object):
-        """D-Bus service sitting on session bus
-        """
-
-        def __init__(self, bus, bus_name, application):
-            bus_name = dbus.service.BusName(bus_name, bus)
-            dbus.service.Object.__init__(self, bus_name, GNOME_ABRT_OBJECT_PATH)
-            self._app = application
-
-        @dbus.service.method(dbus_interface=GNOME_ABRT_INTERFACE,
-                             in_signature='as', out_signature='')
-        def command_line(self, argv):
-            """D-Bus service method accepting a new command line arguments
-            """
-
-            class Arguments:
-                """Adapter for Gtk class
-                """
-
-                def __init__(self, argv):
-                    self._argv = argv
-
-                def get_arguments(self):
-                    return self._argv
-
-            args = Arguments([str(a) for a in argv])
-            self._app._parse_command_line(self, args)
-
-
-    def __init__(self, bus_name, application):
-        self._app = application
-        self.mainloop = DBusGMainLoop()
-
-        self._primary_obj = None
-        self._primary_iface = None
-        self._service = None
-
-        try:
-            bus = dbus.SessionBus(mainloop=self.mainloop)
-            if bus.name_has_owner(bus_name):
-                self._primary_obj = bus.get_object(bus_name,
-                                                   GNOME_ABRT_OBJECT_PATH)
-            else:
-                self._service = GtkAppDBUSImpl.Service(bus, bus_name, self._app)
-        except dbus.exceptions.DBusException as ex:
-            logging.warning("Can't initialize gnome-abrt's D-Bus services: {0}"
-                    .format(ex))
-            self._primary_obj = None
-            self._service = None
-
-    def is_remote(self):
-        """Application is remote if connection to primary application succeeded
-        """
-
-        return self._primary_obj is not None
-
-
-    def send_command_line(self, argv):
-        """Sends command line arguments to the primary application.
-           Raises RuntimeError if an instance is not remote.
-        """
-
-        if not self.is_remote():
-            raise RuntimeError("Can't send command-line message because "
-                               "instance is not a remote application")
-
-        try:
-            if not self._primary_iface:
-                self._primary_iface = dbus.Interface(self._primary_obj,
-                        GNOME_ABRT_INTERFACE)
-
-            if not argv:
-                argv = dbus.Array([], signature='s')
-
-            self._primary_iface.command_line(argv)
-            return True
-        except dbus.exceptions.DBusException as ex:
-            logging.debug("Can't send command line over D-Bus: {0}"
-                    .format(ex))
-            return False
-
 class OopsApplication(Gtk.Application):
 
     def __init__(self):
-        Gtk.Application.__init__(self)
+        Gtk.Application.__init__(self,
+                                 application_id=GNOME_ABRT_APPLICATION_ID,
+                                 flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
-        self._dbus_srv = GtkAppDBUSImpl(GNOME_ABRT_APPLICATION_ID, self)
-        self.connect("command-line", self._parse_command_line)
-        self.set_flags(Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
         self.gcontext = None
         self.all_sources = None
         self._url_pool = GetURLTitleSourcePool(GNOME_ABRT_URL_POOL_CAPACITY)
@@ -189,6 +91,33 @@ class OopsApplication(Gtk.Application):
         # Disable because of https://bugzilla.redhat.com/show_bug.cgi?id=959811
         gnome_abrt.url.set_async_worker(lambda *args: None)
         self.gnome_settings = None
+        # pylint: disable=W0105
+        '''
+        Again a trick to make xgettext think we are C language and emit the
+        translators comment correctly.
+        See: bugs.launchpad.net/intltool/+bug/377872
+        // Translators: This is a description of --verbose command line option
+        // displayed when a user runs: `gnome-abrt --help'
+        _("Be verbose")
+        '''
+        self.add_main_option('verbose',
+                             ord('v'),
+                             GLib.OptionFlags.NONE,
+                             GLib.OptionArg.NONE,
+                             _('Be verbose'),
+                             None)
+        # pylint: disable=W0105
+        '''
+        // Translators: This is a description of --problem command line option
+        // displayed when a user runs: `gnome-abrt --help'
+        _("Selected problem ID")
+        '''
+        self.add_main_option('problem',
+                             ord('p'),
+                             GLib.OptionFlags.NONE,
+                             GLib.OptionArg.STRING,
+                             _('Select problem ID'),
+                             'PROBLEM')
 
     def _bind_to_gsettings(self, conf):
         def set_time_format(conf, gsettings):
@@ -224,19 +153,20 @@ class OopsApplication(Gtk.Application):
                 default_value=locale.nl_langinfo(locale.D_T_FMT))
         set_time_format(conf, self.gnome_settings)
 
-    #pylint: disable=W0613
-    def _parse_command_line(self, sender, gcmdargs):
-        argv = gcmdargs.get_arguments()
+    def do_command_line(self, *args, **kwargs):
+        command_line, *_ = args
+        options = command_line.get_options_dict().end().unpack()
+        configuration = get_configuration()
 
-        if self._dbus_srv.is_remote():
-            if self._dbus_srv.send_command_line(argv):
-                return 0
+        if 'verbose' in options:
+            logging.getLogger().setLevel(logging.DEBUG)
 
-        if argv:
-            conf = get_configuration()
-            conf['problemid'] = argv[0]
+        for option in options:
+            if option in configuration:
+                configuration[option] = options[option]
 
         self.activate()
+
         return 0
 
     #pylint: disable=W0221
@@ -253,7 +183,7 @@ class OopsApplication(Gtk.Application):
                 sources = []
                 try:
                     sources.append(
-                          get_standard_problems_source(self._dbus_srv.mainloop))
+                          get_standard_problems_source())
                 except UnavailableSource as ex:
                     logging.warning(str(ex))
 
@@ -385,49 +315,5 @@ class OopsApplication(Gtk.Application):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(1))
-
-    CMDARGS = ArgumentParser(
-            description=_('View and report application crashes'))
-    # pylint: disable=W0105
-    '''
-    Again a trick to make xgettext think we are C language and emit the
-    translators comment correctly.
-    See: bugs.launchpad.net/intltool/+bug/377872
-    // Translators: This is a description of --verbose command line option
-    // displayed when a user runs: `gnome-abrt --help'
-    _("Be verbose")
-    '''
-    CMDARGS.add_argument('-v', '--verbose', action='count',
-            help=_('Be verbose'))
-    # pylint: disable=W0105
-    '''
-    // Translators: This is a description of --problem command line option
-    // displayed when a user runs: `gnome-abrt --help'
-    _("Selected problem ID")
-    '''
-    CMDARGS.add_argument('-p', '--problem',
-            help=_('Selected problem ID'))
-
-    OPTIONS = CMDARGS.parse_args()
-
-    if OPTIONS.verbose is not None:
-        logging.getLogger().setLevel(logging.DEBUG)
-
-    VARS = vars(OPTIONS)
-
-    CONF = get_configuration()
-    # TODO : mark this option as hidden or something like that
-    CONF.add_option('problemid', default_value=None)
-
-    APP_CMDLINE = []
-    if 'problem' in VARS:
-        APP_CMDLINE.append(VARS['problem'])
-
-    EXIT_CODE = 1
-    APP = OopsApplication()
-    try:
-        EXIT_CODE = APP.run(APP_CMDLINE)
-    except UnavailableSource as ex:
-        logging.error(ex)
-
-    sys.exit(EXIT_CODE)
+    get_configuration().add_option('problem', default_value=None)
+    OopsApplication().run(sys.argv)

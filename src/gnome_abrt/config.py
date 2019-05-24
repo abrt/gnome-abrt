@@ -37,6 +37,9 @@ class Configuration:
     def set_watch(self, option, observer):
         self.options[option].observers.append(observer)
 
+    def __contains__(self, key):
+        return key in self.options
+
     def __getitem__(self, option):
         return self.options[option].value
 

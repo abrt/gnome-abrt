@@ -360,7 +360,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.wnd = wnd
 
         def option_updated(self, conf, option):
-            if option == 'problemid' and conf[option]:
+            if option == 'problem' and conf[option]:
                 self.wnd._select_problem_by_id(conf[option])
             if option == 'T_FMT' and conf[option]:
                 self.wnd._reload_problems(self.wnd._source)
@@ -441,10 +441,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self._options_observer = OopsWindow.OptionsObserver(self)
         conf = config.get_configuration()
-        conf.set_watch('problemid', self._options_observer)
+        conf.set_watch('problem', self._options_observer)
         conf.set_watch('T_FMT', self._options_observer)
         conf.set_watch('D_T_FMT', self._options_observer)
-        self._options_observer.option_updated(conf, 'problemid')
+        self._options_observer.option_updated(conf, 'problem')
 
         # enable observer
         self._source_observer.enable()

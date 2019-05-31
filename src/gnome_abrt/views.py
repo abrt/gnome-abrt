@@ -47,14 +47,6 @@ from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
 gi.require_version('Gtk', '3.0')
 
-def list_box_row_to_problem(list_box_row):
-    return list_box_row.get_children()[0].get_problem()
-
-
-def list_box_row_set_values(list_box_row, values):
-    return list_box_row.get_children()[0].set_values(values)
-
-
 class ProblemsFilter:
 
     def __init__(self, list_box, list_box_selection):
@@ -89,7 +81,7 @@ class ProblemsFilter:
         if not self._pattern:
             return True
 
-        problem = list_box_row_to_problem(list_box_row)
+        problem = list_box_row.get_problem()
 
         for i in ['component', 'reason', 'executable', 'package']:
             if problem[i] is None:
@@ -163,8 +155,8 @@ def problem_to_storage_values(problem):
 
 #pylint: disable=W0613
 def time_sort_func(first_row, second_row, trash):
-    fst_problem = list_box_row_to_problem(first_row)
-    scn_problem = list_box_row_to_problem(second_row)
+    fst_problem = first_row.get_problem()
+    scn_problem = second_row.get_problem()
     # skip invalid problems which were marked invalid while sorting
     if (fst_problem.problem_id in trash or
         scn_problem.problem_id in trash):
@@ -225,22 +217,20 @@ class ListBoxSelection:
         self._lb.unselect_all()
 
     def get_selected_rows(self):
-        return [list_box_row_to_problem(lbr)
-                for lbr in self._lb.get_selected_rows()]
+        return [lbr.get_problem() for lbr in self._lb.get_selected_rows()]
 
 
-class ProblemListBoxCell(Gtk.Box):
+class ProblemRow(Gtk.ListBoxRow):
 
     def __init__(self, problem_values):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL,
-                spacing=0, homogeneous=False)
-
-        self.get_style_context().add_class('problem-cell')
+        super().__init__()
 
         self._problem = problem_values[4]
 
-        self._hbox1 = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
-        self._hbox2 = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 12)
+        grid = Gtk.Grid.new()
+        grid.set_column_homogeneous(True)
+
+        self.add(grid)
 
         self._lbl_app = Gtk.Label.new(problem_values[0])
         self._lbl_app.set_halign(Gtk.Align.START)
@@ -249,27 +239,27 @@ class ProblemListBoxCell(Gtk.Box):
         self._lbl_app.set_width_chars(15)
         self._lbl_app.get_style_context().add_class('app-name-label')
 
+        grid.attach_next_to(self._lbl_app, None, Gtk.PositionType.RIGHT, 1, 1)
+
         self._lbl_date = Gtk.Label.new(problem_values[1])
         self._lbl_date.set_halign(Gtk.Align.END)
         self._lbl_date.get_style_context().add_class('dim-label')
+
+        grid.attach_next_to(self._lbl_date, self._lbl_app, Gtk.PositionType.RIGHT, 1, 1)
 
         self._lbl_type = Gtk.Label.new(problem_values[2])
         self._lbl_type.set_halign(Gtk.Align.START)
         self._lbl_type.set_alignment(0.0, 0.5)
         self._lbl_type.get_style_context().add_class('dim-label')
 
+        grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
+
         self._lbl_count = Gtk.Label.new(problem_values[3])
         self._lbl_count.set_halign(Gtk.Align.END)
         self._lbl_count.get_style_context().add_class('dim-label')
 
-        self._hbox1.pack_start(self._lbl_app, False, True, 0)
-        self._hbox1.pack_end(self._lbl_date, False, True, 0)
+        grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
-        self._hbox2.pack_start(self._lbl_type, False, True, 0)
-        self._hbox2.pack_end(self._lbl_count, False, True, 0)
-
-        self.pack_start(self._hbox1, True, True, 0)
-        self.pack_start(self._hbox2, True, True, 0)
         self.show_all()
 
     def set_values(self, problem_values):
@@ -603,7 +593,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         i = 0
         lb_row = self.lb_problems.get_row_at_index(i)
         while lb_row is not None:
-            if problem == list_box_row_to_problem(lb_row):
+            if problem == lb_row.get_problem():
                 break
 
             i += 1
@@ -625,7 +615,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._append_problem_values_to_storage(values)
 
     def _append_problem_values_to_storage(self, problem_values):
-        problem_cell = ProblemListBoxCell(problem_values)
+        problem_cell = ProblemRow(problem_values)
         self.lb_problems.insert(problem_cell, -1)
         self._clear_invalid_problems_trash()
 
@@ -670,7 +660,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self._remove_problem_from_storage(ex.problem_id)
                 return
 
-            list_box_row_set_values(problem_row, values)
+            problem_row.set_values(values)
             self.lb_problems.invalidate_sort()
             self._clear_invalid_problems_trash()
 

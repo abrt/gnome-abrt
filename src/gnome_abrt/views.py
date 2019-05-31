@@ -280,7 +280,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'OopsWindow'
 
     header_bar = Gtk.Template.Child()
-    box_window = Gtk.Template.Child()
     box_header_left = Gtk.Template.Child()
     box_sources_switcher = Gtk.Template.Child()
     box_panel_left = Gtk.Template.Child()

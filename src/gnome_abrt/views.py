@@ -294,6 +294,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     box_header_left = Gtk.Template.Child()
     box_sources_switcher = Gtk.Template.Child()
     box_panel_left = Gtk.Template.Child()
+    search_entry = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
     lbl_app_name_value = Gtk.Template.Child()
@@ -308,11 +309,8 @@ class OopsWindow(Gtk.ApplicationWindow):
     btn_report = Gtk.Template.Child()
     app_menu_button = Gtk.Template.Child()
     btn_detail = Gtk.Template.Child()
-    se_problems = Gtk.Template.Child()
-    search_bar = Gtk.Template.Child()
     vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
-    tbtn_search = Gtk.Template.Child()
     tbtn_multi_select = Gtk.Template.Child()
     gd_problem_info = Gtk.Template.Child()
     vbx_empty_page = Gtk.Template.Child()
@@ -374,11 +372,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         if not sources:
             raise ValueError("The source list cannot be empty!")
 
-        GObject.Binding.bind_property(
-                self.tbtn_search, "active",
-                self.search_bar, "search-mode-enabled",
-                GObject.BindingFlags.BIDIRECTIONAL)
-
         label = Gtk.Label.new('')
         label.show()
         self.lb_problems.set_placeholder(label)
@@ -408,8 +401,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/css/oops.css')
         stl_ctx = self.get_style_context()
         stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
-
-        self.search_bar.connect_entry(self.se_problems)
 
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
@@ -449,7 +440,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         # enable observer
         self._source_observer.enable()
 
-        self.connect("key-press-event", self._on_key_press_event)
+        self.lb_problems.connect("key-press-event", self._on_key_press_event)
 
         self._add_actions(application)
 
@@ -965,28 +956,18 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         self._filter.set_pattern(entry.get_text())
 
     def _on_key_press_event(self, sender, event):
-        return self.search_bar.handle_event(event)
-
-    def _hide_problem_filter(self):
-        self.se_problems.set_text("")
-        self.search_bar.set_search_mode(False)
-
-    def _show_problem_filter(self):
-        self.search_bar.set_search_mode(True)
-        self.se_problems.grab_focus()
-
-    @Gtk.Template.Callback()
-    def on_se_problems_key_press_event(self, sender, data):
-        if data.keyval == Gdk.KEY_Escape:
-            self._hide_problem_filter()
-
-        return False
+        handled = self.search_entry.handle_event(event)
+        if handled:
+            bounds = self.search_entry.get_selection_bounds()
+            if not bounds:
+                position = self.search_entry.get_position()
+                bounds = (position, position)
+            self.search_entry.grab_focus()
+            self.search_entry.select_region(bounds[0], bounds[1])
+        return handled
 
     def on_gac_search_activate(self, action, parameter):
-        if self.search_bar.get_search_mode():
-            self._hide_problem_filter()
-        else:
-            self._show_problem_filter()
+        self.search_entry.grab_focus()
 
     def on_gac_control_preferences_activate(self, action):
         wrappers.show_events_list_dialog(self)

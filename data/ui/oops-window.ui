@@ -101,53 +101,33 @@
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkBox" id="vbox_problems">
+              <object class="GtkSearchEntry" id="search_entry">
+                <property name="margin">6</property>
                 <property name="visible">True</property>
-                <property name="hexpand">True</property>
+                <property name="placeholder-text" translatable="yes">Type to search</property>
+                <signal name="search-changed" handler="on_se_problems_search_changed"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="vexpand">True</property>
-                <property name="orientation">vertical</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hscrollbar_policy">never</property>
+                <property name="vscrollbar_policy">automatic</property>
                 <child>
-                  <object class="GtkSearchEntry" id="search_entry">
-                    <property name="margin">6</property>
+                  <object class="GtkViewport" id="viewport1">
                     <property name="visible">True</property>
-                    <property name="placeholder-text" translatable="yes">Type to search</property>
-                    <signal name="search-changed" handler="on_se_problems_search_changed"/>
-                  </object>
-                  <packing>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkScrolledWindow" id="scrolledwindow1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">never</property>
-                    <property name="vscrollbar_policy">automatic</property>
                     <child>
-                      <object class="GtkViewport" id="viewport1">
+                      <object class="GtkListBox" id="lb_problems">
                         <property name="visible">True</property>
-                        <child>
-                          <object class="GtkListBox" id="lb_problems">
-                            <property name="visible">True</property>
-                            <property name="selection_mode">browse</property>
-                            <signal name="button-press-event" handler="problems_button_press_event" swapped="no"/>
-                          </object>
-                        </child>
+                        <property name="selection_mode">browse</property>
+                        <signal name="button-press-event" handler="problems_button_press_event" swapped="no"/>
                       </object>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
             </child>
           </object>
           <packing>

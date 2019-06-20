@@ -955,6 +955,8 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_report_activate(self, action, parameter):
         selected = self._get_selected(self.lss_problems)
         if selected and not selected[0]['not-reportable']:
+            # For gnome-shell to associate the child process windows with this application.
+            os.environ["LIBREPORT_PRGNAME"] = self.get_application().get_application_id()
             self._controller.report(selected[0])
 
     @Gtk.Template.Callback()

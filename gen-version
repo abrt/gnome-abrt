@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEF_VER='1.2.8'
+DEF_VER='1.2.9'
 LF='
 '
 

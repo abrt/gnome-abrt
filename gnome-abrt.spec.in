@@ -53,21 +53,21 @@ provides them with convenient way for managing these problems.
 
 %build
 autoconf
-%configure --prefix="/usr" %checkoption
-make
+%configure %checkoption
+%make_build
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir}
+%make_install
 %find_lang %{name}
 
 # remove all .la and .a files
-find $RPM_BUILD_ROOT -name '*.la' -or -name '*.a' | xargs rm -f
+find %{buildroot} -name '*.la' -or -name '*.a' | xargs rm -f
 
 desktop-file-install \
-    --dir ${RPM_BUILD_ROOT}%{_datadir}/applications \
+    --dir %{buildroot}%{_datadir}/applications \
     --delete-original \
-    ${RPM_BUILD_ROOT}%{_datadir}/applications/org.freedesktop.GnomeAbrt.desktop
+    %{buildroot}%{_datadir}/applications/org.freedesktop.GnomeAbrt.desktop
 
 
 %check

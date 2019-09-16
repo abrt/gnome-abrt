@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Adolfo Jayme Barrientos <fito@libreoffice.org>, 2014
 # beckerde <domingobecker@gmail.com>, 2011
@@ -20,144 +20,142 @@
 # Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-14 16:01+0100\n"
+"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
+"POT-Creation-Date: 2019-09-16 12:32+0200\n"
+"PO-Revision-Date: 2019-03-02 11:59+0000\n"
+"Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/gnome-abrt/language/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-02 11:59+0000\n"
-"Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/es/)\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: ../data/ui/oops-menus.ui.h:1 ../data/ui/oops-window.ui.h:4
+#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
 msgid "_Report"
 msgstr "_Informar"
 
-#: ../data/ui/oops-menus.ui.h:2 ../data/ui/oops-window.ui.h:6
+#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:89
 msgid "_Delete"
 msgstr "_Eliminar"
 
-#: ../data/ui/oops-menus.ui.h:3 ../data/ui/oops-window.ui.h:13
+#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:376
 msgid "D_etails"
 msgstr "_Detalles"
 
-#: ../data/ui/oops-menus.ui.h:4
+#: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
 msgstr "_Abrir el directorio de datos de problemas"
 
-#: ../data/ui/oops-menus.ui.h:5
+#: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
 msgstr "_Copiar el ID del problema"
 
-#: ../data/ui/oops-menus.ui.h:6
+#: data/ui/oops-menus.ui:28
 msgid "_Filter"
 msgstr "_Filtrar"
 
-#: ../data/ui/oops-window.ui.h:1 ../src/gnome-abrt:350
-#: ../src/gnome-abrt.desktop.in.h:1
+#: data/ui/oops-menus.ui:43
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: data/ui/oops-menus.ui:47
+msgid "_About Problem Reporting"
+msgstr ""
+
+#: data/ui/oops-window.ui:10 src/gnome-abrt:271
+#: src/org.freedesktop.GnomeAbrt.desktop.in:3
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
 msgstr "Informe de Errores"
 
-#: ../data/ui/oops-window.ui.h:2
+#: data/ui/oops-window.ui:28
 msgid "Show filter box"
 msgstr "Mostrar filtros"
 
-#: ../data/ui/oops-window.ui.h:3
+#: data/ui/oops-window.ui:43
 msgid "Select multiple problems"
 msgstr "Seleccionar varios problemas"
 
-#: ../data/ui/oops-window.ui.h:5
+#: data/ui/oops-window.ui:73
 msgid "Submit selected problem"
 msgstr "Enviar el problema seleccionado"
 
-#: ../data/ui/oops-window.ui.h:7
+#: data/ui/oops-window.ui:90
 msgid "Delete selected problems"
 msgstr "Eliminar problemas seleccionados"
 
-#: ../data/ui/oops-window.ui.h:8
+#: data/ui/oops-window.ui:261
 msgid "Name"
 msgstr "Nombre"
 
-#: ../data/ui/oops-window.ui.h:9
+#: data/ui/oops-window.ui:281
 msgid "Version"
 msgstr "Versión"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: ../data/ui/oops-window.ui.h:11
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
+#: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Primera vez"
 
-#: ../data/ui/oops-window.ui.h:12 ../src/gnome_abrt/views.py:865
+#: data/ui/oops-window.ui:335 src/gnome_abrt/views.py:869
 msgid "Reported"
 msgstr "Informado"
 
-#: ../data/ui/oops-window.ui.h:14
+#: data/ui/oops-window.ui:377
 msgid "Show problem details"
 msgstr "Mostrar detalles"
 
-#: ../data/ui/oops-window.ui.h:15
+#: data/ui/oops-window.ui:397
 msgid "No problems detected!"
 msgstr "No se detectaron problemas"
 
-#: ../data/ui/oops-window.ui.h:16
+#: data/ui/oops-window.ui:423
 msgid "No source selected!"
 msgstr "No se seleccionó ninguna fuente"
 
-#: ../data/ui/oops-window.ui.h:17
-msgid "No source"
-msgstr "Sin fuente"
+#. Translators: This is a description of --verbose command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: src/gnome-abrt:101
+msgid "Be verbose"
+msgstr "Añadir detalle"
+
+#. Translators: This is a description of --problem command line option
+#. displayed when a user runs: `gnome-abrt --help'
+#: src/gnome-abrt:113
+msgid "Selected problem ID"
+msgstr "Identificador del problema"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
-#: ../src/gnome-abrt:280 ../src/gnome-abrt:282
+#: src/gnome-abrt:210 src/gnome-abrt:212
 msgid "My"
 msgstr "Mi"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
 #. or a genitive noun, as required by your language.
-#: ../src/gnome-abrt:291 ../src/gnome-abrt:293
+#: src/gnome-abrt:221 src/gnome-abrt:223
 msgctxt "bugs"
 msgid "System"
 msgstr "Sistema"
 
-#: ../src/gnome-abrt:313
-msgid "_Preferences"
-msgstr "_Preferencias"
-
-#: ../src/gnome-abrt:316
-msgid "_About"
-msgstr "_Acerca de"
-
-#: ../src/gnome-abrt:317
-msgid "_Quit"
-msgstr "_Salir"
-
-#. Translators: This is a description of --verbose command line option
-#. displayed when a user runs: `gnome-abrt --help'
-#: ../src/gnome-abrt:407
-msgid "Be verbose"
-msgstr "Añadir detalle"
-
-#. Translators: This is a description of --problem command line option
-#. displayed when a user runs: `gnome-abrt --help'
-#: ../src/gnome-abrt:415
-msgid "Selected problem ID"
-msgstr "Identificador del problema"
-
-#: ../src/gnome-abrt.desktop.in.h:2
+#: src/org.freedesktop.GnomeAbrt.desktop.in:4
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
 msgstr "Vea e informe de cuelgues de aplicaciones"
 
-#: ../src/gnome-abrt.desktop.in.h:3
+#: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;informe de errores;bug reporting;crash logger;"
 
-#: ../src/gnome-abrt.appdata.xml.in.h:1
+#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+msgid "org.freedesktop.GnomeAbrt"
+msgstr ""
+
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
@@ -165,7 +163,7 @@ msgstr ""
 "Colección de herramientas de software diseñadas para recopilar, analizar e "
 "informar de problemas de software."
 
-#: ../src/gnome-abrt.appdata.xml.in.h:2
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
@@ -173,48 +171,48 @@ msgstr ""
 "Su propósito principal es facilitar el informe de errores y la búsqueda de "
 "una solución."
 
-#: ../src/gnome_abrt/dbus_problems.py:107
+#: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
 "No se puede obtener la interfaz '{0}' en la ruta '{1}' del bus '{2}': {3}"
 
-#: ../src/gnome_abrt/tools.py:42
+#: src/gnome_abrt/tools.py:42
 msgid "Future"
 msgstr "Futuro"
 
-#: ../src/gnome_abrt/tools.py:49
+#: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: ../src/gnome_abrt/tools.py:63
+#: src/gnome_abrt/tools.py:63
 msgid "Last week"
 msgstr "La última semana"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
 #. form is necessary for some languages which do not have plural.
-#: ../src/gnome_abrt/tools.py:67
+#: src/gnome_abrt/tools.py:67
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] "La última semana"
 msgstr[1] "Hace {0:d} semanas"
 
-#: ../src/gnome_abrt/tools.py:72
+#: src/gnome_abrt/tools.py:72
 msgid "Last month"
 msgstr "El mes pasado"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
-#: ../src/gnome_abrt/tools.py:75
+#: src/gnome_abrt/tools.py:75
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] "El mes pasado"
 msgstr[1] "Hace {0:d} meses"
 
-#: ../src/gnome_abrt/tools.py:80
+#: src/gnome_abrt/tools.py:80
 msgid "Last year"
 msgstr "El año pasado"
 
@@ -222,7 +220,7 @@ msgstr "El año pasado"
 #. 2 years ago. However, the singular form is necessary for some
 #. languages which do not have plural (Chinese, Japanese, Korean)
 #. or reuse the singular form for some plural cases (21 in Russian).
-#: ../src/gnome_abrt/tools.py:85
+#: src/gnome_abrt/tools.py:85
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
@@ -232,42 +230,42 @@ msgstr[1] "Hace {0:d} años"
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: ../src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:143
 msgctxt "package name"
 msgid "System"
 msgstr "Sistema"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: ../src/gnome_abrt/views.py:149
+#: src/gnome_abrt/views.py:149
 msgid "Application Crash"
 msgstr "Caída de aplicación"
 
-#: ../src/gnome_abrt/views.py:151
+#: src/gnome_abrt/views.py:151
 msgid "System Crash"
 msgstr "Caída de sistema"
 
-#: ../src/gnome_abrt/views.py:153
+#: src/gnome_abrt/views.py:153
 msgid "System Failure"
 msgstr "Fallo de sistema"
 
-#: ../src/gnome_abrt/views.py:155
+#: src/gnome_abrt/views.py:155
 msgid "Misbehavior"
 msgstr "Mal comportamiento"
 
-#: ../src/gnome_abrt/views.py:806
+#: src/gnome_abrt/views.py:810
 msgid "Unexpected system error"
 msgstr "Error inesperado del sistema"
 
-#: ../src/gnome_abrt/views.py:808
+#: src/gnome_abrt/views.py:812
 msgid "The system has encountered a problem and recovered."
 msgstr "El sistema acaba de recuperarse de un problema"
 
-#: ../src/gnome_abrt/views.py:811
+#: src/gnome_abrt/views.py:815
 msgid "Fatal system failure"
 msgstr "Error fatal del sistema"
 
-#: ../src/gnome_abrt/views.py:813
+#: src/gnome_abrt/views.py:817
 msgid "The system has encountered a problem and could not continue."
 msgstr "El problame ha sufrido un problema y no puede continuar"
 
@@ -281,57 +279,52 @@ msgstr "El problame ha sufrido un problema y no puede continuar"
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: ../src/gnome_abrt/views.py:827
+#: src/gnome_abrt/views.py:831
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "Se ha detectado {0} problema"
 
-#: ../src/gnome_abrt/views.py:831
+#: src/gnome_abrt/views.py:835
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} se cerró inesperadamente"
 
-#: ../src/gnome_abrt/views.py:834
+#: src/gnome_abrt/views.py:838
 msgid "The application encountered a problem and could not continue."
 msgstr "La aplicación ha sufrido un problema y no ha podido continuar"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: ../src/gnome_abrt/views.py:838 ../src/gnome_abrt/views.py:841
+#: src/gnome_abrt/views.py:842 src/gnome_abrt/views.py:845
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/gnome_abrt/views.py:868
+#: src/gnome_abrt/views.py:872
 msgid "cannot be reported"
 msgstr "no se puede informar"
 
-#: ../src/gnome_abrt/views.py:873
+#: src/gnome_abrt/views.py:877
 msgid "Reports"
 msgstr "Informes"
 
-#: ../src/gnome_abrt/views.py:879
+#: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Se ha informado de este problema, pero no se ha abierto una incidencia en "
-"<i>Bugzilla</i>. Puede que nuestros desarrolladores necesiten más "
-"información para corregir el problema.\n"
-"Considere proporcionar estos datos <b>creando un informe</b> en Bugzilla. "
-"Gracias."
+"Se ha informado de este problema, pero no se ha abierto una incidencia en <i>Bugzilla</i>. Puede que nuestros desarrolladores necesiten más información para corregir el problema.\n"
+"Considere proporcionar estos datos <b>creando un informe</b> en Bugzilla. Gracias."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: ../src/gnome_abrt/views.py:888
+#: src/gnome_abrt/views.py:892
 msgid "yes"
 msgstr "sí"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: ../src/gnome_abrt/views.py:892
+#: src/gnome_abrt/views.py:896
 msgid "no"
 msgstr "no"

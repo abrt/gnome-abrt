@@ -2,6 +2,7 @@
 Name=Problem Reporting
 Comment=View and report application crashes
 Keywords=abrt;bug reporting;crash logger;
+# Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 Icon=org.freedesktop.GnomeAbrt
 Exec=gnome-abrt
 Terminal=false

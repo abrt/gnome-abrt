@@ -116,7 +116,7 @@ class OopsApplication(Gtk.Application):
                              ord('p'),
                              GLib.OptionFlags.NONE,
                              GLib.OptionArg.STRING,
-                             _('Select problem ID'),
+                             _('Selected problem ID'),
                              'PROBLEM')
 
     def _bind_to_gsettings(self, conf):

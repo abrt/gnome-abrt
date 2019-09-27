@@ -44,7 +44,9 @@
       <attribute name="action">app.preferences</attribute>
     </item>
     <item>
-      <attribute name="label" translatable="yes">_About Problem Reporting</attribute>
+      <attribute
+          comments="Translators: This is the menu item which displays the About box. Note that &quot;Problem Reporting&quot; is the name of this application."
+          name="label" translatable="yes">_About Problem Reporting</attribute>
       <attribute name="action">app.about</attribute>
     </item>
   </menu>

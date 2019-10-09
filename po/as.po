@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Amitakhya Phukan <aphukan@fedoraproject.org>, 2012
 # Nilamdyuti Goswami <ngoswami@redhat.com>, 2011-2014
@@ -10,16 +10,17 @@
 # Julius Milan <jmilan@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2017-11-10 09:42+0000\n"
-"Last-Translator: Julius Milan <jmilan@redhat.com>\n"
-"Language-Team: Assamese (http://www.transifex.com/projects/p/gnome-abrt/language/as/)\n"
-"Language: as\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-11-10 09:42+0000\n"
+"Last-Translator: Julius Milan <jmilan@redhat.com>\n"
+"Language-Team: Assamese (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/as/)\n"
+"Language: as\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -85,8 +86,7 @@ msgstr "নাম"
 msgid "Version"
 msgstr "সংস্কৰণ"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr ""
@@ -141,7 +141,8 @@ msgstr "এপ্লিকেচন স্খলনসমূহ চাওক আ
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
 
@@ -186,6 +187,7 @@ msgstr ""
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
@@ -198,6 +200,7 @@ msgstr ""
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
@@ -212,6 +215,7 @@ msgstr ""
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -297,11 +301,15 @@ msgstr "সংবাদসমূহ"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"এই সমস্যাক সংবাদন কৰা হৈছে, কিন্তু এটা <i>Bugzilla</i> টিকেট খোলা  হোৱা নাই। আমাৰ উন্নয়নকাৰীসকলক সমস্যাৰ সমাধান কৰিবলে অধিক তথ্যৰ প্ৰয়োজন হব পাৰে।\n"
-"অধিক তথ্য প্ৰদান কৰিবলৈ অনুগ্ৰহ কৰি ইয়াক Bugzilla ত <b>সংবাদন</b> কৰাৰ কথা ভাবি চাওক। ধন্যবাদ।"
+"এই সমস্যাক সংবাদন কৰা হৈছে, কিন্তু এটা <i>Bugzilla</i> টিকেট খোলা  হোৱা নাই। "
+"আমাৰ উন্নয়নকাৰীসকলক সমস্যাৰ সমাধান কৰিবলে অধিক তথ্যৰ প্ৰয়োজন হব পাৰে।\n"
+"অধিক তথ্য প্ৰদান কৰিবলৈ অনুগ্ৰহ কৰি ইয়াক Bugzilla ত <b>সংবাদন</b> কৰাৰ কথা "
+"ভাবি চাওক। ধন্যবাদ।"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

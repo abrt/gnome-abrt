@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Yuri Chornoivan <yurchor@ukr.net>, 2011
@@ -11,17 +11,19 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2019-02-15 08:28+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/gnome-abrt/language/uk/)\n"
-"Language: uk\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"PO-Revision-Date: 2019-09-17 08:38+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/uk/)\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 4.6.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
@@ -54,7 +56,7 @@ msgstr "П_араметри"
 
 #: data/ui/oops-menus.ui:47
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_Про звітування щодо проблем"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -86,8 +88,7 @@ msgstr "Назва"
 msgid "Version"
 msgstr "Версія"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Вперше виявлено"
@@ -144,9 +145,10 @@ msgstr ""
 "abrt;bug reporting;crash logger;абрт;вади;сповіщення;аварія;журнал;записи "
 "аварій;"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -306,11 +308,16 @@ msgstr "Звіти"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"Звіт про цю проблему було створено, але квиток <i>Bugzilla</i> не було створено. Нашим розробникам може знадобитися більше інформації для виправлення проблеми.\n"
-"Будь ласка, спробуйте також <b>повідомити про неї</b> у Bugzilla, щоб надати цю інформацію. Дякуємо вам."
+"Звіт про цю проблему було створено, але квиток <i>Bugzilla</i> не було "
+"створено. Нашим розробникам може знадобитися більше інформації для "
+"виправлення проблеми.\n"
+"Будь ласка, спробуйте також <b>повідомити про неї</b> у Bugzilla, щоб надати "
+"цю інформацію. Дякуємо вам."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

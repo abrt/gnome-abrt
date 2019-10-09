@@ -2,18 +2,18 @@
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-01-27 05:03+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Khmer\n"
 "Language: km\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
 msgid "_Report"
@@ -77,8 +77,7 @@ msgstr "ឈ្មោះ"
 msgid "Version"
 msgstr "កំណែ"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr ""
@@ -133,7 +132,8 @@ msgstr "បង្ហាញ និងរាយការណ៍អំពីកា�
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
 
@@ -288,8 +288,10 @@ msgstr "ការរាយការណ៍"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
 "បញ្ហានេះត្រូវបានរាយការណ៍, ប៉ុន្ដែសំបុត្រ <i>Bugzilla</i> មិនទាន់បានបើកនៅឡើយ "
 "។ អ្នកអភិវឌ្ឍន៍ប្រហែលជាត្រូវការ ព័ត៌មានបន្ថែមដើម្បីដោះស្រាយបញ្ហា ។ "

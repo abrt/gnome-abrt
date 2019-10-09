@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Geert Warrink <geert.warrink@onsnet.nu>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
@@ -10,16 +10,17 @@
 # Geert Warrink <geert.warrink@onsnet.nu>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2019-02-21 01:17+0000\n"
-"Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/gnome-abrt/language/nl/)\n"
-"Language: nl\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-09-18 02:37+0000\n"
+"Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/nl/)\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -53,7 +54,7 @@ msgstr "_Voorkeuren"
 
 #: data/ui/oops-menus.ui:47
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_Over probleemrapportage"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -85,8 +86,7 @@ msgstr "Naam"
 msgid "Version"
 msgstr "Versie"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Voor het eerst gedetecteerd"
@@ -141,9 +141,10 @@ msgstr "Bekijk en rapporteer crashes van toepassingen"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reportage;crash logger;"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -298,11 +299,16 @@ msgstr "Rapporten"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"Dit probleem is gerapporteerd, maar een <i>Bugzilla</i> ticket is niet geopend. Onze ontwikkelaars hebben misschien meer informatie nodig om het probleem op te lossen.\n"
-"Overweeg om naar Bugzilla te <b>repporteren</b> om dat aan te bieden. Dank je wel."
+"Dit probleem is gerapporteerd, maar een <i>Bugzilla</i> ticket is niet "
+"geopend. Onze ontwikkelaars hebben misschien meer informatie nodig om het "
+"probleem op te lossen.\n"
+"Overweeg om naar Bugzilla te <b>repporteren</b> om dat aan te bieden. Dank "
+"je wel."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

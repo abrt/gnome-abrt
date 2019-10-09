@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Piotr Drąg <piotrdrag@gmail.com>, 2011-2014
@@ -13,17 +13,19 @@
 # Piotr Drąg <piotrdrag@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2019-02-14 06:33+0000\n"
-"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/language/pl/)\n"
-"Language: pl\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"PO-Revision-Date: 2019-09-20 05:02+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/pl/)\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 4.6.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
@@ -56,7 +58,7 @@ msgstr "_Preferencje"
 
 #: data/ui/oops-menus.ui:47
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_O programie"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -88,8 +90,7 @@ msgstr "Nazwa"
 msgid "Version"
 msgstr "Wersja"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Pierwsze wystąpienie"
@@ -144,9 +145,10 @@ msgstr "Wyświetlanie i zgłaszanie awarii aplikacji"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;zgłaszanie błędów;bugów;awarii;problemów;"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -305,10 +307,14 @@ msgstr "Zgłoszenia"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"Ten problem został zgłoszony, ale zgłoszenie w systemie <i>Bugzilla</i> nie zostało otwarte. Nasi programiści mogą potrzebować więcej informacji, aby go naprawić.\n"
+"Ten problem został zgłoszony, ale zgłoszenie w systemie <i>Bugzilla</i> nie "
+"zostało otwarte. Nasi programiści mogą potrzebować więcej informacji, aby go "
+"naprawić.\n"
 "Prosimy rozważyć <b>zgłoszenie go</b> — może to im pomóc. Dziękujemy."
 
 #. Translators: Displayed after 'Reported' if a problem

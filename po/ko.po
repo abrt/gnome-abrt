@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # bardisch <kwb0128@gmail.com>, 2011
 # eukim <eukim@redhat.com>, 2011-2012
@@ -11,16 +11,17 @@
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2016-01-27 05:03+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/gnome-abrt/language/ko/)\n"
-"Language: ko\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-01-27 05:03+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/ko/)\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -86,8 +87,7 @@ msgstr "이름 "
 msgid "Version"
 msgstr "버전 "
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr ""
@@ -142,7 +142,8 @@ msgstr "애플리케이션 크래시를 확인 및 보고함"
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
 
@@ -294,10 +295,13 @@ msgstr "보고서"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"이 문제가 보고되었습니다만 <i>Bugzilla</i> 티켓이 오픈되지 않았습니다. 문제를 해결하기 위해 개발자에게 더 많은 정보가 필요할 수 있습니다.\n"
+"이 문제가 보고되었습니다만 <i>Bugzilla</i> 티켓이 오픈되지 않았습니다. 문제를 해결하기 위해 개발자에게 더 많은 정보가 "
+"필요할 수 있습니다.\n"
 "더 많은 정보를 제공하기 위해 Bugzilla에 <b>보고</b>하는 것을 고려하시기 바랍니다. 감사합니다."
 
 #. Translators: Displayed after 'Reported' if a problem

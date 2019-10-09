@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jakub Filak <jfilak@redhat.com>, 2012
 # Jakub Filak <jfilak@redhat.com>, 2015. #zanata
@@ -14,16 +14,16 @@
 # Daniel Rusek <mail@asciiwolf.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2019-02-21 12:12+0000\n"
-"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
-"Language-Team: čeština <gnome-cs-list@gnome.org>\n"
-"Language: cs\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-09-24 09:58+0000\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
+"Language-Team: čeština <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -57,7 +57,7 @@ msgstr "_Předvolby"
 
 #: data/ui/oops-menus.ui:47
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "O _aplikaci Hlášení problémů"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -79,7 +79,7 @@ msgstr "Odeslat vybraný problém"
 
 #: data/ui/oops-window.ui:90
 msgid "Delete selected problems"
-msgstr "Smazat vybrané problámy"
+msgstr "Smazat vybrané problémy"
 
 #: data/ui/oops-window.ui:261
 msgid "Name"
@@ -89,8 +89,7 @@ msgstr "Název"
 msgid "Version"
 msgstr "Verze"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "První výskyt"
@@ -145,7 +144,8 @@ msgstr "Prohlédněte si a nahlaste chyby aplikací"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;reportování chyb;zaznamenávač pádů;"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
 
@@ -154,8 +154,8 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"Skupina softwarových nástrojů pro sbírání, analyzování a hlášení problémů se"
-" softwarem."
+"Skupina softwarových nástrojů pro sbírání, analyzování a hlášení problémů se "
+"softwarem."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -304,11 +304,16 @@ msgstr "Hlášení"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"Tento problém byl již nahlášen, ale dosud nebylo vytvořeno hlášení v <i>Bugzille</i>. Naši vývojáři mohou potřebovat více informací, aby mohli vyřešit tento problém.\n"
-"Zvažte prosím také <b>nahlášení</b> do Bugzilly, kde můžete více informací poskytnout. Děkujeme."
+"Tento problém byl již nahlášen, ale dosud nebylo vytvořeno hlášení v "
+"<i>Bugzille</i>. Naši vývojáři mohou potřebovat více informací, aby mohli "
+"vyřešit tento problém.\n"
+"Zvažte prosím také <b>nahlášení</b> do Bugzilly, kde můžete více informací "
+"poskytnout. Děkujeme."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

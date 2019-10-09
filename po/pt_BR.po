@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Glaucia Freitas <gcintra@redhat.com>, 2012
 # Glaucia Freitas <gcintra@redhat.com>, 2013
@@ -11,16 +11,17 @@
 # Renan Marcos Ferreira <renan.ferreira18@fatec.sp.gov.br>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.1.g00b96\n"
+"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:32+0200\n"
-"PO-Revision-Date: 2018-06-01 10:42+0000\n"
-"Last-Translator: Renan Marcos Ferreira <renan.ferreira18@fatec.sp.gov.br>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/gnome-abrt/language/pt_BR/)\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2019-09-16 12:58+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-06-01 10:42+0000\n"
+"Last-Translator: Renan Marcos Ferreira <renan.ferreira18@fatec.sp.gov.br>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
+"gnome-abrt/language/pt_BR/)\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -86,8 +87,7 @@ msgstr "Nome"
 msgid "Version"
 msgstr "Versão"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Primeiro Detectado"
@@ -142,7 +142,8 @@ msgstr "Visualizar e reportar travamentos de aplicativos"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reporting;crash logger;"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:6
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
 
@@ -301,10 +302,14 @@ msgstr "Formulários"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"Este problema foi reportado, mas não foi aberto um ticket no <i>Bugzilla</i> . Nossos desenvolvedores podem precisar de mais informações para solucionar este problema. \n"
+"Este problema foi reportado, mas não foi aberto um ticket no <i>Bugzilla</i> "
+". Nossos desenvolvedores podem precisar de mais informações para solucionar "
+"este problema. \n"
 "Considere também <b>reportá-lo</b> no Bugzilla para ajudá-los. Obrigado."
 
 #. Translators: Displayed after 'Reported' if a problem

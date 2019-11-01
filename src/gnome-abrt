@@ -42,8 +42,6 @@ import gnome_abrt
 gnome_abrt.init()
 
 #pylint: disable=C0413
-import gnome_abrt.url
-#pylint: disable=C0413
 from gnome_abrt.views import OopsWindow
 #pylint: disable=C0413
 from gnome_abrt.controller import Controller
@@ -62,9 +60,6 @@ from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _, C_
 #pylint: disable=C0413
 from gnome_abrt.config import get_configuration
-#pylint: disable=C0413
-from gnome_abrt.url.gliburltitle import (GetURLTitleSourcePool,
-                                         GetURLTitleSourceCache)
 
 GNOME_ABRT_APPLICATION_ID = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'
@@ -80,11 +75,6 @@ class OopsApplication(Gtk.Application):
 
         self.gcontext = None
         self.all_sources = None
-        self._url_pool = GetURLTitleSourcePool(GNOME_ABRT_URL_POOL_CAPACITY)
-        self._url_cache = GetURLTitleSourceCache(self._url_pool)
-        #gnome_abrt.url.set_async_worker(self._url_cache.get_url_title_async)
-        # Disable because of https://bugzilla.redhat.com/show_bug.cgi?id=959811
-        gnome_abrt.url.set_async_worker(lambda *args: None)
         self.gnome_settings = None
         # pylint: disable=W0105
         '''

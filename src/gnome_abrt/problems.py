@@ -18,9 +18,19 @@
 import datetime
 import logging
 import re
+from urllib import request
+
+from bs4 import BeautifulSoup
+
+import gi
+gi.require_version('Gio', '2.0')
+from gi.repository import Gio
+gi.require_version('GLib', '2.0')
+from gi.repository import GLib
+gi.require_version('GObject', '2.0')
+from gi.repository import GObject
 
 # gnome-abrt
-import gnome_abrt.url
 from gnome_abrt.application import find_application
 from gnome_abrt.errors import (InvalidProblem,
                                UnavailableSource)
@@ -82,12 +92,6 @@ class Problem:
             self._data = data
             self._url_done = False
 
-        def _update_title_async_cb(self, result, unused_userdata):
-            if result[1]:
-                self._title = result[1]
-                self._problem.source.notify(ProblemSource.CHANGED_PROBLEM,
-                                            self._problem)
-
         @property
         def name(self):
             return self._name
@@ -108,8 +112,28 @@ class Problem:
         def title(self):
             if self._rtype == Problem.Submission.URL and not self._url_done:
                 self._url_done = True
-                gnome_abrt.url.get_url_title_async(self._data,
-                        self._update_title_async_cb, None)
+
+                def on_update_title(source_object, res, user_data):
+                    _, title = res.propagate_value()
+                    if title:
+                        self._title = title
+                        self._problem.source.notify(ProblemSource.CHANGED_PROBLEM,
+                                                    self._problem)
+
+                task = Gio.Task.new(None, None, on_update_title, None)
+
+                def update_title(task, source_object, task_data, cancellable):
+                    try:
+                        html = request.urlopen(self._data).read().decode("UTF-8")
+                        soup = BeautifulSoup(html, "html.parser")
+                        value = GObject.Value(str, soup.title.string)
+
+                        task.return_value(value)
+                    except Exception as ex:
+                        error = GLib.Error("Fetching title for problem report failed: %s" % (ex))
+                        task.return_error(error)
+
+                task.run_in_thread(update_title)
 
             return self._title
 

@@ -45,5 +45,4 @@ python_installation.install_sources(gnome_abrt_generated_sources + gnome_abrt_so
   subdir: 'gnome_abrt',
 )
 
-subdir('url')
 subdir('wrappers')

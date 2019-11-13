@@ -228,6 +228,7 @@ class ProblemRow(Gtk.ListBoxRow):
         self._problem = problem_values[4]
 
         grid = Gtk.Grid.new()
+        grid.set_column_spacing(12)
 
         self.add(grid)
 

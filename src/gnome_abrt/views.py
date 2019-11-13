@@ -228,12 +228,12 @@ class ProblemRow(Gtk.ListBoxRow):
         self._problem = problem_values[4]
 
         grid = Gtk.Grid.new()
-        grid.set_column_homogeneous(True)
 
         self.add(grid)
 
         self._lbl_app = Gtk.Label.new(problem_values[0])
         self._lbl_app.set_halign(Gtk.Align.START)
+        self._lbl_app.set_hexpand(True)
         self._lbl_app.set_alignment(0.0, 0.5)
         self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
         self._lbl_app.set_width_chars(15)
@@ -249,6 +249,7 @@ class ProblemRow(Gtk.ListBoxRow):
 
         self._lbl_type = Gtk.Label.new(problem_values[2])
         self._lbl_type.set_halign(Gtk.Align.START)
+        self._lbl_type.set_hexpand(True)
         self._lbl_type.set_alignment(0.0, 0.5)
         self._lbl_type.get_style_context().add_class('dim-label')
 

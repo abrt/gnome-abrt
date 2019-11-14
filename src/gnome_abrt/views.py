@@ -30,8 +30,6 @@ from gi.repository import Gtk
 #pylint: disable=E0611
 from gi.repository import Gdk
 #pylint: disable=E0611
-from gi.repository import GObject
-#pylint: disable=E0611
 from gi.repository import Gio
 #pylint: disable=E0611
 from gi.repository import Pango

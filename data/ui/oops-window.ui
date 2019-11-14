@@ -16,6 +16,7 @@
             <signal name="size-allocate" handler="on_box_header_left_size_allocate" swapped="no"/>
             <child>
               <object class="GtkStackSwitcher" id="box_sources_switcher">
+                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="visible">True</property>
               </object>

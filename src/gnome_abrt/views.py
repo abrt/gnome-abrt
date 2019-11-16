@@ -758,9 +758,14 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.selected_problem = problem
 
-        sensitive_btn = problem is not None
-        self.btn_delete.set_sensitive(sensitive_btn)
-        self.btn_report.set_sensitive(sensitive_btn and not problem['not-reportable'])
+        action_enabled = problem is not None
+
+        action = self.lookup_action('delete')
+        action.set_enabled(action_enabled)
+
+        action = self.lookup_action('report')
+        action.set_enabled(action_enabled and not problem['not-reportable'])
+
         self.vbx_links.foreach(destroy_links, None)
         self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
 

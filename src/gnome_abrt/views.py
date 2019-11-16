@@ -435,40 +435,22 @@ class OopsWindow(Gtk.ApplicationWindow):
 
 
     def _add_actions(self, application):
-        action = Gio.SimpleAction.new('delete', None)
-        action.connect('activate', self.on_gac_delete_activate)
-        self.add_action(action)
+        action_entries = [
+            ('delete', self.on_gac_delete_activate,),
+            ('report', self.on_gac_report_activate,),
+            ('details', self.on_gac_detail_activate,),
+            ('open-directory', self.on_gac_open_directory_activate,),
+            ('copy-id', self.on_gac_copy_id_activate,),
+            ('search', self.on_gac_search_activate,),
+        ]
+
+        self.add_action_entries(action_entries)
 
         application.set_accels_for_action('win.delete', ['Delete'])
-
-        action = Gio.SimpleAction.new('report', None)
-        action.connect('activate', self.on_gac_report_activate)
-        self.add_action(action)
-
         application.set_accels_for_action('win.report', ['Return'])
-
-        action = Gio.SimpleAction.new('details', None)
-        action.connect('activate', self.on_gac_detail_activate)
-        self.add_action(action)
-
         application.set_accels_for_action('win.details', ['<Primary>Return'])
-
-        action = Gio.SimpleAction.new('open-directory', None)
-        action.connect('activate', self.on_gac_open_directory_activate)
-        self.add_action(action)
-
         application.set_accels_for_action('win.open-directory', ['<Primary>o'])
-
-        action = Gio.SimpleAction.new('copy-id', None)
-        action.connect('activate', self.on_gac_copy_id_activate)
-        self.add_action(action)
-
         application.set_accels_for_action('win.copy-id', ['<Primary>c'])
-
-        action = Gio.SimpleAction.new('search', None)
-        action.connect('activate', self.on_gac_search_activate)
-        self.add_action(action)
-
         application.set_accels_for_action('win.search', ['<Primary>f'])
 
     def _configure_sources(self, sources):

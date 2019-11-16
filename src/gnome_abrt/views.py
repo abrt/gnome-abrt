@@ -903,7 +903,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                 self._set_problem(None)
 
     @handle_problem_and_source_errors
-    def on_gac_delete_activate(self, action, parameter):
+    def on_gac_delete_activate(self, action, parameter, user_data):
         for prblm in self._get_selected(self.lss_problems):
             try:
                 self._controller.delete(prblm)
@@ -912,7 +912,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                 self._remove_problem_from_storage(ex.problem_id)
 
     @handle_problem_and_source_errors
-    def on_gac_detail_activate(self, action, parameter):
+    def on_gac_detail_activate(self, action, parameter, user_data):
         selected = self._get_selected(self.lss_problems)
         if selected:
             wrappers.show_problem_details_for_dir(

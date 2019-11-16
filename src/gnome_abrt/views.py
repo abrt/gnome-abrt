@@ -404,6 +404,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._configure_sources(sources)
         self._set_button_toggled(self._source.button, True)
 
+        self._add_actions(application)
+
         # a set where invalid problems found while sorting of the problem list
         # are stored
         self._trash = set()
@@ -430,8 +432,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._source_observer.enable()
 
         self.lb_problems.connect("key-press-event", self._on_key_press_event)
-
-        self._add_actions(application)
 
 
     def _add_actions(self, application):

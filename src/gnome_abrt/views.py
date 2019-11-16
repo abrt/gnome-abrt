@@ -940,9 +940,6 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     def on_gac_search_activate(self, action, parameter, user_data):
         self.search_entry.grab_focus()
 
-    def on_gac_control_preferences_activate(self, action):
-        wrappers.show_events_list_dialog(self)
-
     def on_gac_open_directory_activate(self, action, parameter, user_data):
         selection = self._get_selected(self.lss_problems)
         if selection:

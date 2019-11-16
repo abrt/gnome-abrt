@@ -932,7 +932,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                     selected[0].problem_id, self)
 
     @handle_problem_and_source_errors
-    def on_gac_report_activate(self, action, parameter):
+    def on_gac_report_activate(self, action, parameter, user_data):
         selected = self._get_selected(self.lss_problems)
         if selected and not selected[0]['not-reportable']:
             # For gnome-shell to associate the child process windows with this application.
@@ -955,13 +955,13 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             self.search_entry.select_region(bounds[0], bounds[1])
         return handled
 
-    def on_gac_search_activate(self, action, parameter):
+    def on_gac_search_activate(self, action, parameter, user_data):
         self.search_entry.grab_focus()
 
     def on_gac_control_preferences_activate(self, action):
         wrappers.show_events_list_dialog(self)
 
-    def on_gac_open_directory_activate(self, action, parameter):
+    def on_gac_open_directory_activate(self, action, parameter, user_data):
         selection = self._get_selected(self.lss_problems)
         if selection:
             if os.path.exists(selection[0].problem_id):
@@ -970,7 +970,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         self.menu_problem_item.popdown()
         self.menu_multiple_problems.popdown()
 
-    def on_gac_copy_id_activate(self, action, parameter):
+    def on_gac_copy_id_activate(self, action, parameter, user_data):
         selection = self._get_selected(self.lss_problems)
         if selection:
             #pylint: disable=E1101

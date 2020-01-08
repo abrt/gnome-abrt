@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Dusan Kazik <prescott66@gmail.com>, 2015. #zanata
 # Dusan Kazik <prescott66@gmail.com>, 2016. #zanata
@@ -12,14 +12,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2019-09-20 12:45+0000\n"
+"Last-Translator: feonsu <feonsu@gmail.com>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/gnome-abrt/language/sk/)\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-09-20 12:45+0000\n"
-"Last-Translator: feonsu <feonsu@gmail.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/sk/)\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -85,7 +84,8 @@ msgstr "Názov"
 msgid "Version"
 msgstr "Verzia"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Prvé zistenie"
@@ -140,7 +140,8 @@ msgstr "Zobrazenie a nahlasovanie pádov aplikácií"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;nahlásenie chyby;záznam o zlyhaní;chyba;zlyhanie;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr "org.freedesktop.GnomeAbrt"
@@ -158,8 +159,8 @@ msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
-"Hlavným cieľom je zjednodušenie procesu nahlásenia chyby a nájdenia riešenia."
-""
+"Hlavným cieľom je zjednodušenie procesu nahlásenia chyby a nájdenia "
+"riešenia."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
@@ -301,15 +302,11 @@ msgstr "Hlásenia"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Tento problém bol nahlásený, ale prípad na <i>Bugzille</i> nebol otvorený. "
-"Naši vývojári možno budú potrebovať viac informácií na opravenie problému.\n"
-"Prosím, zvážte <b>nahlásenie</b> na Bugzillu, kde poskytnete viac informácií."
-" Ďakujeme."
+"Tento problém bol nahlásený, ale prípad na <i>Bugzille</i> nebol otvorený. Naši vývojári možno budú potrebovať viac informácií na opravenie problému.\n"
+"Prosím, zvážte <b>nahlásenie</b> na Bugzillu, kde poskytnete viac informácií. Ďakujeme."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

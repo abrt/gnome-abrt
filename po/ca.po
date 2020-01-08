@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016. #zanata
@@ -11,14 +11,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2018-05-13 04:25+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
+"Language-Team: Catalan (http://www.transifex.com/projects/p/gnome-abrt/language/ca/)\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-13 04:25+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/ca/)\n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -84,7 +83,8 @@ msgstr "Nom"
 msgid "Version"
 msgstr "Versió"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Primer cop detectat"
@@ -139,7 +139,8 @@ msgstr "Visualitzeu i informeu les panes de les aplicacions"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;informar d'errors;registrador de panes;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -149,8 +150,8 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"Una col·lecció d'eines de programari dissenyades per a recollir, analitzar i "
-"presentar els informes de les incidències amb el programari."
+"Una col·lecció d'eines de programari dissenyades per a recollir, analitzar i"
+" presentar els informes de les incidències amb el programari."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -298,14 +299,10 @@ msgstr "Informes"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Aquest problema ha estat informat, però no s'ha obert un tiquet de "
-"<i>Bugzilla</i>. Els nostres desenvolupadors poden necessitar més informació "
-"per corregir el problema.\n"
+"Aquest problema ha estat informat, però no s'ha obert un tiquet de <i>Bugzilla</i>. Els nostres desenvolupadors poden necessitar més informació per corregir el problema.\n"
 "Considereu també <b>informar-ne</b> a Bugzilla a fi de proveir-ho. Gràcies."
 
 #. Translators: Displayed after 'Reported' if a problem

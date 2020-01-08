@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # fvalen <fvalen@redhat.com>, 2013-2014
 # fvalen <fvalen@redhat.com>, 2011-2012
@@ -12,14 +12,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2019-02-22 10:08+0000\n"
+"Last-Translator: Milo Casagrande <milo@milo.name>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/gnome-abrt/language/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-02-22 10:08+0000\n"
-"Last-Translator: Milo Casagrande <milo@milo.name>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/it/)\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -85,7 +84,8 @@ msgstr "Nome"
 msgid "Version"
 msgstr "Versione"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Rilevato la prima volta"
@@ -140,7 +140,8 @@ msgstr "Visualizza e notifica i crash dell'applicazione"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "errore;problema;abrt;bug reporting;crash logger;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -300,16 +301,11 @@ msgstr "Segnalazioni"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Questo problema è stato segnalato, ma non è stato aperto alcun ticket in "
-"<i>Bugzilla</i>. Gli sviluppatori hanno bisogno di maggiori informazioni per "
-"poterlo risolvere.\n"
-"È utile <b>segnalare il problema</b> su Bugzilla per aggiungere le "
-"informazioni necessarie."
+"Questo problema è stato segnalato, ma non è stato aperto alcun ticket in <i>Bugzilla</i>. Gli sviluppatori hanno bisogno di maggiori informazioni per poterlo risolvere.\n"
+"È utile <b>segnalare il problema</b> su Bugzilla per aggiungere le informazioni necessarie."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # A <B>, 2012
 # Felix I <ifelix25@gmail.com>, 2011-2012
@@ -15,14 +15,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2016-01-27 05:03+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/gnome-abrt/language/ta/)\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-27 05:03+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Tamil (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/ta/)\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -88,7 +87,8 @@ msgstr "பெயர்"
 msgid "Version"
 msgstr "பதிப்பு"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr ""
@@ -143,7 +143,8 @@ msgstr "பயன்பாட்டு கிரஷ்களை பார்த�
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -154,8 +155,8 @@ msgid ""
 "reporting of software issues."
 msgstr ""
 "மென்பொருளில் ஏற்படும் சிக்கல்கள் தொடர்பான விவரங்களைச் சேகரித்து பகுப்பாய்வு "
-"செய்து அறிக்கையிடுவதற்காக வடிவமைக்கப்பட்ட மென்பொருள் கருவிகளின் ஒரு தொகுப்பு."
-""
+"செய்து அறிக்கையிடுவதற்காக வடிவமைக்கப்பட்ட மென்பொருள் கருவிகளின் ஒரு "
+"தொகுப்பு."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -188,7 +189,6 @@ msgstr ""
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
@@ -201,7 +201,6 @@ msgstr ""
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
@@ -216,7 +215,6 @@ msgstr ""
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
-msgstr[1] ""
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -302,16 +300,11 @@ msgstr "அறிக்கைகள்"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"இந்த சிக்கல் அறிக்கையிடப்பட்டது, ஆனால் <i>Bugzilla</i> டிக்கட் "
-"திறக்கப்படவில்லை. எங்கள் உருவாக்குநர்கள் இந்த சிக்கலைத் தீர்ப்பதற்கு "
-"அவர்களுக்கு கூடுதல் தகவல் தேவைப்படக்கூடும்.\n"
-"அத்தகவல்களை வழங்குவதற்கு இந்த சிக்கல் குறித்து Bugzilla விலும் "
-"<b>அறிக்கையிடுவது</b> பற்றி சிந்தியுங்கள். நன்றி."
+"இந்த சிக்கல் அறிக்கையிடப்பட்டது, ஆனால் <i>Bugzilla</i> டிக்கட் திறக்கப்படவில்லை. எங்கள் உருவாக்குநர்கள் இந்த சிக்கலைத் தீர்ப்பதற்கு அவர்களுக்கு கூடுதல் தகவல் தேவைப்படக்கூடும்.\n"
+"அத்தகவல்களை வழங்குவதற்கு இந்த சிக்கல் குறித்து Bugzilla விலும் <b>அறிக்கையிடுவது</b> பற்றி சிந்தியுங்கள். நன்றி."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

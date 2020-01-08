@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2017. #zanata
 msgid ""
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2017-03-25 06:27+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish (http://www.transifex.com/projects/p/gnome-abrt/language/fi/)\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-25 06:27+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/fi/)\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -82,7 +81,8 @@ msgstr "Nimi"
 msgid "Version"
 msgstr "Versio"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Ensimmäinen havainto"
@@ -137,7 +137,8 @@ msgstr "Katsele ja raportoi ohjelmien kaatumisia"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reporting;crash logger;bugi;ongelma;kaatuminen;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -295,13 +296,10 @@ msgstr "Ilmoitukset"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Tästä ongelmasta on ilmoitettu, mutta <i>Bugzilla</i>-tikettiä ei ole avattu."
-" Kehittäjät tarvitsevat lisätietoja ongelman korjaamiseksi.\n"
+"Tästä ongelmasta on ilmoitettu, mutta <i>Bugzilla</i>-tikettiä ei ole avattu. Kehittäjät tarvitsevat lisätietoja ongelman korjaamiseksi.\n"
 "<b>Ilmoitathan</b> ongelmasta Bugzillaan, kiitos."
 
 #. Translators: Displayed after 'Reported' if a problem

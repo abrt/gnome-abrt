@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Rajesh Ranjan <rranjan@redhat.com>, 2011-2013
 # Rajesh Ranjan <rranjan@redhat.com>, 2013
@@ -14,14 +14,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2016-01-27 05:03+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Hindi (http://www.transifex.com/projects/p/gnome-abrt/language/hi/)\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-27 05:03+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hindi (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/hi/)\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -87,7 +86,8 @@ msgstr "नाम"
 msgid "Version"
 msgstr "संस्करण"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr ""
@@ -142,7 +142,8 @@ msgstr "अनुप्रयोग क्रैश को देखें औ�
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -152,8 +153,8 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"सॉफ़्टवेयर मुद्दे के संग्रहण, विश्लेषण और रिपोर्टिंग के लिए सॉफ़्टवेयर औज़ार "
-"का संग्रह."
+"सॉफ़्टवेयर मुद्दे के संग्रहण, विश्लेषण और रिपोर्टिंग के लिए सॉफ़्टवेयर औज़ार"
+" का संग्रह."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -186,7 +187,6 @@ msgstr ""
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
@@ -199,7 +199,6 @@ msgstr ""
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
@@ -214,7 +213,6 @@ msgstr ""
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
-msgstr[1] ""
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -300,15 +298,11 @@ msgstr "रिपोर्ट"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"यह समस्या रिपोर्ट किया गया है लेकिन <i>बगज़िला</i> टिकट खोला नहीं गया है. "
-"समस्या को ठीक करने के लिए हमारे डेवलेपर को अधिक सूचना चाहिए.\n"
-"कृपया <b>इसे रिपोर्ट करने</b> की सोचें - आप उनकी मदद कर सकते हैं. आपका "
-"शुक्रिया."
+"यह समस्या रिपोर्ट किया गया है लेकिन <i>बगज़िला</i> टिकट खोला नहीं गया है. समस्या को ठीक करने के लिए हमारे डेवलेपर को अधिक सूचना चाहिए.\n"
+"कृपया <b>इसे रिपोर्ट करने</b> की सोचें - आप उनकी मदद कर सकते हैं. आपका शुक्रिया."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # sandeeps <sshedmak@redhat.com>, 2011-2012
 # sandeeps <sshedmak@redhat.com>, 2013-2014
@@ -14,14 +14,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2018-04-23 08:38+0000\n"
+"Last-Translator: Pravin Satpute <pravins@fedoraproject.org>\n"
+"Language-Team: Marathi (http://www.transifex.com/projects/p/gnome-abrt/language/mr/)\n"
+"Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-23 08:38+0000\n"
-"Last-Translator: Pravin Satpute <pravins@fedoraproject.org>\n"
-"Language-Team: Marathi (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/mr/)\n"
-"Language: mr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -87,7 +86,8 @@ msgstr "नाव"
 msgid "Version"
 msgstr "आवृत्ती"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "सर्वप्रथम आढळले"
@@ -142,7 +142,8 @@ msgstr "ऍप्लिकेशन क्रॅश पहा व कळवा"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reporting;crash logger;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -301,15 +302,11 @@ msgstr "अहवाल"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"ह्या अडचणीची नोंद झाली आहे, परंतु <i>बगजिला</i> तिकीट उघडले गेले नाही. "
-"अडचणीच्या निवारणकरिता आमच्या डेव्हलपर्सना अधिक माहितीची आवश्यकता असू शकते.\n"
-"माहिती पुरवण्याकरिता कृपया त्याला बगजिलामध्ये <b>नोंदविण्याची</b> खात्री करा."
-" धन्यवाद."
+"ह्या अडचणीची नोंद झाली आहे, परंतु <i>बगजिला</i> तिकीट उघडले गेले नाही. अडचणीच्या निवारणकरिता आमच्या डेव्हलपर्सना अधिक माहितीची आवश्यकता असू शकते.\n"
+"माहिती पुरवण्याकरिता कृपया त्याला बगजिलामध्ये <b>नोंदविण्याची</b> खात्री करा. धन्यवाद."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

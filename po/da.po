@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # scootergrisen <scootergrisen@gmail.com>, 2017. #zanata
 # scootergrisen <scootergrisen@gmail.com>, 2018. #zanata
@@ -11,14 +11,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2019-09-17 09:53+0000\n"
+"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/gnome-abrt/language/da/)\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-09-17 09:53+0000\n"
-"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/da/)\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -84,7 +83,8 @@ msgstr "Navn"
 msgid "Version"
 msgstr "Version"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Først registreret"
@@ -139,7 +139,8 @@ msgstr "Vis og rapportér programnedbrud"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reporting;fejlrapportering;crash logger;nedbrudslogger;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr "org.freedesktop.GnomeAbrt"
@@ -248,8 +249,8 @@ msgstr "Uventet systemfejl"
 #: src/gnome_abrt/views.py:812
 msgid "The system has encountered a problem and recovered."
 msgstr ""
-"Systemet stødte på et problem og var i stand til at komme sig over problemet."
-""
+"Systemet stødte på et problem og var i stand til at komme sig over "
+"problemet."
 
 #: src/gnome_abrt/views.py:815
 msgid "Fatal system failure"
@@ -299,15 +300,11 @@ msgstr "Rapporter"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Problemet er blevet rapporteret men en <i>Bugzilla</i>-ticket er ikke blevet "
-"åbnet. Vores udviklere kan behøve mere information for at rette problemet.\n"
-"Overvej venligst også at <b>rapportere det</b> til Bugzilla for at kunne "
-"give det. Tak."
+"Problemet er blevet rapporteret men en <i>Bugzilla</i>-ticket er ikke blevet åbnet. Vores udviklere kan behøve mere information for at rette problemet.\n"
+"Overvej venligst også at <b>rapportere det</b> til Bugzilla for at kunne give det. Tak."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Chester Cheng <ccheng@redhat.com>, 2012-2013
 # Terry Chuang <tchuang@redhat.com>, 2011,2013
@@ -12,14 +12,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"PO-Revision-Date: 2018-06-08 03:32+0000\n"
+"Last-Translator: Peter Pan <pan93412@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-abrt/language/zh_TW/)\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-08 03:32+0000\n"
-"Last-Translator: Peter Pan <pan93412@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-"
-"abrt/language/zh_TW/)\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -85,7 +84,8 @@ msgstr "名稱"
 msgid "Version"
 msgstr "版本"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "第一次偵測到"
@@ -140,7 +140,8 @@ msgstr "檢視與回報應用程式錯誤"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reporting;crash logger;臭蟲回報;當機紀錄器;崩潰記錄器;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -291,10 +292,8 @@ msgstr "報告"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
 "此問題已經回報過，但卻沒有打開 <i>Bugzilla</i> 請票。我們的開發人員也許需要更多資訊才能修正這個問題。\n"
 "請您考慮將之<b>回報</b>到 Bugzilla 以提供相關資訊。感謝您。"

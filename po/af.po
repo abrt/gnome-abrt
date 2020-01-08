@@ -5,13 +5,13 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2019-09-16 12:58+0200\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2019-06-13 06:09+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
 "Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 "X-Project-Style: gnome\n"
@@ -78,7 +78,8 @@ msgstr "Naam"
 msgid "Version"
 msgstr "Weergawe"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#. Translators: A label for a date when the bug happened for the first time.
+#. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:308
 msgid "First Detected"
 msgstr "Eerste bespeur"
@@ -133,7 +134,8 @@ msgstr "Bekyk en rapporteer as toepassings omval"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;omval;fout;gogga;bug reporting;crash logger;"
 
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should
+#. *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -291,16 +293,11 @@ msgstr "Verslae"
 
 #: src/gnome_abrt/views.py:883
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
-"opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
-"that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
 msgstr ""
-"Hierdie probleem is gerapporteer, maar ’n <i>Bugzilla</i>-verslag is nie "
-"oopgemaak nie. Ons ontwikkelaars benodig dalk meer inligting om die probleem "
-"reg te stel.\n"
-"Oorweeg asb. om dit ook te <b>rapporteer</b> by Bugzilla om die inligting te "
-"verskaf. Dankie."
+"Hierdie probleem is gerapporteer, maar ’n <i>Bugzilla</i>-verslag is nie oopgemaak nie. Ons ontwikkelaars benodig dalk meer inligting om die probleem reg te stel.\n"
+"Oorweeg asb. om dit ook te <b>rapporteer</b> by Bugzilla om die inligting te verskaf. Dankie."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

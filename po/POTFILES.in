@@ -10,4 +10,3 @@ src/gnome_abrt/directory_problems.py
 src/gnome_abrt/problems.py
 src/gnome_abrt/tools.py
 src/gnome_abrt/views.py
-src/gnome_abrt/controller.py

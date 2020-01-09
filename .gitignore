@@ -51,7 +51,6 @@ po/stamp-po
 po/stamp-it
 po/*.gmo
 po/.intltool-merge-cache
-po/gnome-abrt.pot
 
 # Packages
 *.egg

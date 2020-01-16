@@ -764,7 +764,16 @@ class OopsWindow(Gtk.ApplicationWindow):
         action.set_enabled(action_enabled)
 
         action = self.lookup_action('report')
-        action.set_enabled(action_enabled and not problem['not-reportable'])
+        if problem['not-reportable']:
+            style_context = self.btn_report.get_style_context()
+
+            style_context.add_class("destructive-action")
+            style_context.remove_class("suggested-action")
+        else:
+            style_context = self.btn_report.get_style_context()
+
+            style_context.add_class("suggested-action")
+            style_context.remove_class("destructive-action")
 
         self.vbx_links.foreach(destroy_links, None)
         self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
@@ -921,10 +930,33 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action, parameter, user_data):
         selected = self._get_selected(self.lss_problems)
-        if selected and not selected[0]['not-reportable']:
-            # For gnome-shell to associate the child process windows with this application.
-            os.environ["LIBREPORT_PRGNAME"] = self.get_application().get_application_id()
-            self._controller.report(selected[0])
+        if not selected:
+            return
+
+        if selected[0]['not-reportable']:
+            dialog = Gtk.MessageDialog(self,
+                Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                Gtk.MessageType.QUESTION,
+                Gtk.ButtonsType.NONE,
+                _("This problem is marked as not reportable, thus reporting should only be forced if you know what it entails. Do you want to continue?"))
+            button = Gtk.Button.new_with_label(_("No"))
+
+            button.get_style_context().add_class("suggested-action")
+            button.show()
+
+            dialog.add_action_widget(button, Gtk.ResponseType.NO)
+            dialog.add_button(_("Yes"), Gtk.ResponseType.YES)
+
+            response = dialog.run()
+
+            dialog.destroy()
+
+            if response != Gtk.ResponseType.YES:
+                return
+
+        # For gnome-shell to associate the child process windows with this application.
+        os.environ["LIBREPORT_PRGNAME"] = self.get_application().get_application_id()
+        self._controller.report(selected[0])
 
     @Gtk.Template.Callback()
     @handle_problem_and_source_errors

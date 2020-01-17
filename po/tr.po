@@ -1,27 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Translators:
 # Ahmet Sezgin Duran <marjinalist1@gmail.com>, 2013
 # Emin Tufan Çetin <etcetin@gmail.com>, 2017. #zanata
 # Emin Tufan Çetin <etcetin@gmail.com>, 2018. #zanata
 # Serdar Sağlam <teknomobil@msn.com>, 2019. #zanata
+# Oğuz Ersen <oguzersen@protonmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2019-12-27 04:56+0000\n"
-"Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/tr/)\n"
+"PO-Revision-Date: 2020-01-17 02:15+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"Language-Team: Turkish <https://translate.stg.fedoraproject.org/projects/"
+"abrt/gnome-abrt/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+"X-Generator: Weblate 3.10.1\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -80,7 +80,7 @@ msgstr ""
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr "Ad"
+msgstr "İsim"
 
 #: data/ui/oops-window.ui:226
 msgid "Version"

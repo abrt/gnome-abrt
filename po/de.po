@@ -1,7 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Translators:
 # Fabian Affolter <fab@fedoraproject.org>, 2011
 # hpeters <hpeters@redhat.com>, 2013-2014
@@ -14,21 +13,22 @@
 # Florian H. <postfuerflo@gmail.com>, 2016. #zanata
 # Jakub Filak <jfilak@redhat.com>, 2016. #zanata
 # Lisa Stemmler <lstemmle@redhat.com>, 2016. #zanata
+# Mike FABIAN <mfabian@redhat.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2016-04-08 05:23+0000\n"
-"Last-Translator: Jakub Filak <jfilak@redhat.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/de/)\n"
+"PO-Revision-Date: 2020-01-17 02:15+0000\n"
+"Last-Translator: Mike FABIAN <mfabian@redhat.com>\n"
+"Language-Team: German <https://translate.stg.fedoraproject.org/projects/abrt/"
+"gnome-abrt/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10.1\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -44,11 +44,11 @@ msgstr "D_etails"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "Öffne den _Ordner mit den Problemdaten"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_Kopiere die Problem-ID in die Zwischenablage"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
@@ -61,21 +61,21 @@ msgstr "_Präferenzen"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_Info zu Fehlerberichterstattung"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr "Fehlerberichterstattung"
+msgstr "Problemberichterstattung"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "Mehrere Probleme auswählen"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "Ausgewähltes Problem einsenden"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
@@ -104,7 +104,7 @@ msgstr "Berichtet"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "Problemdetails anzeigen"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
@@ -118,13 +118,13 @@ msgstr "Kein Quelle festgelegt!"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:101
 msgid "Be verbose"
-msgstr ""
+msgstr "Ausführlich protokollieren"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:113
 msgid "Selected problem ID"
-msgstr ""
+msgstr "ID des ausgewählten Problems"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:210 src/gnome-abrt:212
@@ -142,7 +142,7 @@ msgstr "System"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "Applikationsabstürze ansehen und melden"
+msgstr "Applikationsabstürze ansehen und berichten"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
@@ -151,7 +151,7 @@ msgstr "abrt; Fehlerberichterstattung;Absturz-Datenlogger;"
 #. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -305,7 +305,7 @@ msgstr "N/A"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr "kann nicht berichtet werden"
+msgstr "kann nicht gemeldet werden"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"

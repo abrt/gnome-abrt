@@ -10,10 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"POT-Creation-Date: 2020-01-09 10:16+0100\n"
 "PO-Revision-Date: 2016-01-27 05:03+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/gnome-abrt/language/pa/)\n"
+"Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/gnome-"
+"abrt/language/pa/)\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,15 +22,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
+#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
 msgstr "ਰਿਪੋਰਟ(_R)"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:89
+#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
 msgstr "ਮਿਟਾਉ (_D)"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:376
+#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
 msgstr ""
 
@@ -49,7 +50,8 @@ msgstr ""
 msgid "_Preferences"
 msgstr "ਤਰਜੀਹਾਂ (_P)"
 
-#: data/ui/oops-menus.ui:47
+#. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
+#: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
 msgstr ""
 
@@ -59,49 +61,48 @@ msgstr ""
 msgid "Problem Reporting"
 msgstr ""
 
-#: data/ui/oops-window.ui:28
-msgid "Show filter box"
-msgstr ""
-
-#: data/ui/oops-window.ui:43
+#: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
 msgstr ""
 
-#: data/ui/oops-window.ui:73
+#: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
 msgstr ""
 
-#: data/ui/oops-window.ui:90
+#: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
 msgstr "ਚੁਣੀਆਂ ਸਮੱਸਿਆਵਾਂ ਹਟਾਓ"
 
-#: data/ui/oops-window.ui:261
+#: data/ui/oops-window.ui:108
+msgid "Type to search"
+msgstr ""
+
+#: data/ui/oops-window.ui:206
 msgid "Name"
 msgstr "ਨਾਂ"
 
-#: data/ui/oops-window.ui:281
+#: data/ui/oops-window.ui:226
 msgid "Version"
 msgstr "ਵਰਜਨ"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:308
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: data/ui/oops-window.ui:253
 msgid "First Detected"
 msgstr ""
 
-#: data/ui/oops-window.ui:335 src/gnome_abrt/views.py:869
+#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
 msgstr "ਰਿਪੋਰਟ ਕੀਤਾ"
 
-#: data/ui/oops-window.ui:377
+#: data/ui/oops-window.ui:322
 msgid "Show problem details"
 msgstr ""
 
-#: data/ui/oops-window.ui:397
+#: data/ui/oops-window.ui:342
 msgid "No problems detected!"
 msgstr "ਕੋਈ ਸਮੱਸਿਆਵਾਂ ਨਹੀਂ ਲੱਭੀਆਂ!"
 
-#: data/ui/oops-window.ui:423
+#: data/ui/oops-window.ui:368
 msgid "No source selected!"
 msgstr "ਕੋਈ ਸਰੋਤ ਨਹੀਂ ਚੁਣਿਆ ਗਿਆ!"
 
@@ -139,8 +140,7 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਕਰੈਸ਼ ਵੇਖੋ ਅਤੇ ਰਿਪ�
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#. Translators: while it is possible to have localized icons, this should
-#. *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -150,8 +150,7 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"ਸਾਫਟਵੇਅਰ ਮਾਮਲਿਆਂ ਦੇ ਸੰਗ੍ਰਿਹ, ਵਿਸ਼ਲੇਸ਼ਣ, ਅਤੇ ਸੂਚਨਾ ਲਈ ਬਣਾਏ ਗਏ ਸਾਫਟਵੇਅਰ ਸੰਦਾਂ ਦਾ"
-" ਸੰਗ੍ਰਿਹ।"
+"ਸਾਫਟਵੇਅਰ ਮਾਮਲਿਆਂ ਦੇ ਸੰਗ੍ਰਿਹ, ਵਿਸ਼ਲੇਸ਼ਣ, ਅਤੇ ਸੂਚਨਾ ਲਈ ਬਣਾਏ ਗਏ ਸਾਫਟਵੇਅਰ ਸੰਦਾਂ ਦਾ ਸੰਗ੍ਰਿਹ।"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -162,8 +161,7 @@ msgstr ""
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
-"ਇੰਟਰਫੇਸ '{0}' ਨੂੰ ਮਾਰਗ '{1}' ਉੱਪਰ bus '{2}' ਵਿੱਚ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ: {3}"
+msgstr "ਇੰਟਰਫੇਸ '{0}' ਨੂੰ ਮਾਰਗ '{1}' ਉੱਪਰ bus '{2}' ਵਿੱਚ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ: {3}"
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -215,44 +213,44 @@ msgstr[0] ""
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
 msgstr ""
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:149
+#: src/gnome_abrt/views.py:139
 msgid "Application Crash"
 msgstr ""
 
-#: src/gnome_abrt/views.py:151
+#: src/gnome_abrt/views.py:141
 #, fuzzy
 msgid "System Crash"
 msgstr "ਸਿਸਟਮ"
 
-#: src/gnome_abrt/views.py:153
+#: src/gnome_abrt/views.py:143
 #, fuzzy
 msgid "System Failure"
 msgstr "ਸਿਸਟਮ"
 
-#: src/gnome_abrt/views.py:155
+#: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
 msgstr ""
 
-#: src/gnome_abrt/views.py:810
+#: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
 msgstr ""
 
-#: src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
 msgstr ""
 
-#: src/gnome_abrt/views.py:815
+#: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
 msgstr ""
 
-#: src/gnome_abrt/views.py:817
+#: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
 
@@ -266,52 +264,55 @@ msgstr ""
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:831
+#: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} ਮੁਸ਼ਕਿਲ ਖੋਜ ਲਈ ਗਈ ਹੈ"
 
-#: src/gnome_abrt/views.py:835
+#: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr ""
 
-#: src/gnome_abrt/views.py:838
+#: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
 msgstr ""
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:842 src/gnome_abrt/views.py:845
+#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
 msgstr "N/A"
 
-#: src/gnome_abrt/views.py:872
+#: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
 msgstr "ਸੂਚਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"
 
-#: src/gnome_abrt/views.py:877
+#: src/gnome_abrt/views.py:844
 msgid "Reports"
 msgstr "ਸੂਚਨਾਵਾਂ"
 
-#: src/gnome_abrt/views.py:883
+#: src/gnome_abrt/views.py:850
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"ਇਹ ਸਮੱਸਿਆ ਸੂਚਿਤ ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ, ਪਰ ਇੱਕ <i>ਬੱਗਜ਼ਿਲਾ</i> ਟਿਕਟ ਬਣਾਈ ਨਹੀਂ ਗਈ ਹੈ। ਇਸ ਸਮੱਸਿਆ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਸਾਡੇ ਵਿਕਾਸਕਾਰਾਂ ਨੂੰ ਹੋਰ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਪੈ ਸਕਦੀ ਹੈ।\n"
+"ਇਹ ਸਮੱਸਿਆ ਸੂਚਿਤ ਕੀਤੀ ਜਾ ਚੁੱਕੀ ਹੈ, ਪਰ ਇੱਕ <i>ਬੱਗਜ਼ਿਲਾ</i> ਟਿਕਟ ਬਣਾਈ ਨਹੀਂ ਗਈ ਹੈ। ਇਸ "
+"ਸਮੱਸਿਆ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਸਾਡੇ ਵਿਕਾਸਕਾਰਾਂ ਨੂੰ ਹੋਰ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਪੈ ਸਕਦੀ ਹੈ।\n"
 "ਉਹ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਈ ਬੱਗਜ਼ਿਲਾ ਤੇ ਵੀ <b>ਇਸ ਨੂੰ ਸੂਚਿਤ ਕਰਨਾ</b> ਵਿਚਾਰੋ। ਧੰਨਵਾਦ।"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:892
+#: src/gnome_abrt/views.py:859
 msgid "yes"
 msgstr "ਹਾਂ"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:896
+#: src/gnome_abrt/views.py:863
 msgid "no"
 msgstr "ਨਹੀਂ"

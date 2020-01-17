@@ -11,10 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"POT-Creation-Date: 2020-01-09 10:16+0100\n"
 "PO-Revision-Date: 2018-06-08 03:32+0000\n"
 "Last-Translator: Peter Pan <pan93412@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-abrt/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gnome-"
+"abrt/language/zh_TW/)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,15 +23,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
+#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
 msgstr "回報(_R)"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:89
+#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
 msgstr "刪除(_D)"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:376
+#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
 msgstr "細節(_E)"
 
@@ -50,7 +51,8 @@ msgstr "過濾(_F)"
 msgid "_Preferences"
 msgstr "偏好設定(_P)"
 
-#: data/ui/oops-menus.ui:47
+#. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
+#: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
 msgstr ""
 
@@ -60,49 +62,48 @@ msgstr ""
 msgid "Problem Reporting"
 msgstr "問題回報"
 
-#: data/ui/oops-window.ui:28
-msgid "Show filter box"
-msgstr "顯示過濾方塊"
-
-#: data/ui/oops-window.ui:43
+#: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
 msgstr ""
 
-#: data/ui/oops-window.ui:73
+#: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
 msgstr ""
 
-#: data/ui/oops-window.ui:90
+#: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
 msgstr "刪除所選擇的問題"
 
-#: data/ui/oops-window.ui:261
+#: data/ui/oops-window.ui:108
+msgid "Type to search"
+msgstr ""
+
+#: data/ui/oops-window.ui:206
 msgid "Name"
 msgstr "名稱"
 
-#: data/ui/oops-window.ui:281
+#: data/ui/oops-window.ui:226
 msgid "Version"
 msgstr "版本"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:308
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: data/ui/oops-window.ui:253
 msgid "First Detected"
 msgstr "第一次偵測到"
 
-#: data/ui/oops-window.ui:335 src/gnome_abrt/views.py:869
+#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
 msgstr "已回報"
 
-#: data/ui/oops-window.ui:377
+#: data/ui/oops-window.ui:322
 msgid "Show problem details"
 msgstr ""
 
-#: data/ui/oops-window.ui:397
+#: data/ui/oops-window.ui:342
 msgid "No problems detected!"
 msgstr "沒有偵測到問題！"
 
-#: data/ui/oops-window.ui:423
+#: data/ui/oops-window.ui:368
 msgid "No source selected!"
 msgstr "未選擇來源！"
 
@@ -140,8 +141,7 @@ msgstr "檢視與回報應用程式錯誤"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;bug reporting;crash logger;臭蟲回報;當機紀錄器;崩潰記錄器;"
 
-#. Translators: while it is possible to have localized icons, this should
-#. *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -213,42 +213,42 @@ msgstr[0] "{0:d} 年前"
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
 msgstr "系統"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:149
+#: src/gnome_abrt/views.py:139
 msgid "Application Crash"
 msgstr "應用程式崩潰"
 
-#: src/gnome_abrt/views.py:151
+#: src/gnome_abrt/views.py:141
 msgid "System Crash"
 msgstr "系統崩潰"
 
-#: src/gnome_abrt/views.py:153
+#: src/gnome_abrt/views.py:143
 msgid "System Failure"
 msgstr "系統失敗"
 
-#: src/gnome_abrt/views.py:155
+#: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
 msgstr "行為錯誤"
 
-#: src/gnome_abrt/views.py:810
+#: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
 msgstr "未預期的系統錯誤"
 
-#: src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
 msgstr "系統遭遇到問題，並從中恢復過來。"
 
-#: src/gnome_abrt/views.py:815
+#: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
 msgstr "嚴重系統錯誤"
 
-#: src/gnome_abrt/views.py:817
+#: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
 msgstr "系統遭遇到問題，並且無法繼續。"
 
@@ -262,52 +262,58 @@ msgstr "系統遭遇到問題，並且無法繼續。"
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:831
+#: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "找到 {0} 個問題"
 
-#: src/gnome_abrt/views.py:835
+#: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} 未預期退出"
 
-#: src/gnome_abrt/views.py:838
+#: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
 msgstr "應用程式遭遇到問題，並且無法繼續。"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:842 src/gnome_abrt/views.py:845
+#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
 msgstr "N/A"
 
-#: src/gnome_abrt/views.py:872
+#: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
 msgstr "無法回報"
 
-#: src/gnome_abrt/views.py:877
+#: src/gnome_abrt/views.py:844
 msgid "Reports"
 msgstr "報告"
 
-#: src/gnome_abrt/views.py:883
+#: src/gnome_abrt/views.py:850
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"此問題已經回報過，但卻沒有打開 <i>Bugzilla</i> 請票。我們的開發人員也許需要更多資訊才能修正這個問題。\n"
+"此問題已經回報過，但卻沒有打開 <i>Bugzilla</i> 請票。我們的開發人員也許需要更"
+"多資訊才能修正這個問題。\n"
 "請您考慮將之<b>回報</b>到 Bugzilla 以提供相關資訊。感謝您。"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:892
+#: src/gnome_abrt/views.py:859
 msgid "yes"
 msgstr "是"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:896
+#: src/gnome_abrt/views.py:863
 msgid "no"
 msgstr "無"
+
+#~ msgid "Show filter box"
+#~ msgstr "顯示過濾方塊"

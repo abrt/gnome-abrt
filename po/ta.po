@@ -14,10 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"POT-Creation-Date: 2020-01-09 10:16+0100\n"
 "PO-Revision-Date: 2016-01-27 05:03+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Tamil (http://www.transifex.com/projects/p/gnome-abrt/language/ta/)\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/gnome-abrt/"
+"language/ta/)\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,15 +26,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
+#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
 msgstr "அறிக்கை (_R)"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:89
+#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
 msgstr "அழி (_D)"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:376
+#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
 msgstr ""
 
@@ -53,7 +54,8 @@ msgstr ""
 msgid "_Preferences"
 msgstr "முன்னுரிமைகள் (_P)"
 
-#: data/ui/oops-menus.ui:47
+#. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
+#: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
 msgstr ""
 
@@ -63,49 +65,48 @@ msgstr ""
 msgid "Problem Reporting"
 msgstr ""
 
-#: data/ui/oops-window.ui:28
-msgid "Show filter box"
-msgstr ""
-
-#: data/ui/oops-window.ui:43
+#: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
 msgstr ""
 
-#: data/ui/oops-window.ui:73
+#: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
 msgstr ""
 
-#: data/ui/oops-window.ui:90
+#: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
 msgstr "தேர்ந்தெடுத்த சிக்கல்களை நீக்கு"
 
-#: data/ui/oops-window.ui:261
+#: data/ui/oops-window.ui:108
+msgid "Type to search"
+msgstr ""
+
+#: data/ui/oops-window.ui:206
 msgid "Name"
 msgstr "பெயர்"
 
-#: data/ui/oops-window.ui:281
+#: data/ui/oops-window.ui:226
 msgid "Version"
 msgstr "பதிப்பு"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:308
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: data/ui/oops-window.ui:253
 msgid "First Detected"
 msgstr ""
 
-#: data/ui/oops-window.ui:335 src/gnome_abrt/views.py:869
+#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
 msgstr "புகாரளிக்கப்பட்டது"
 
-#: data/ui/oops-window.ui:377
+#: data/ui/oops-window.ui:322
 msgid "Show problem details"
 msgstr ""
 
-#: data/ui/oops-window.ui:397
+#: data/ui/oops-window.ui:342
 msgid "No problems detected!"
 msgstr "சிக்கல் எதுவும் கண்டுபிடிக்கப்படவில்லை!"
 
-#: data/ui/oops-window.ui:423
+#: data/ui/oops-window.ui:368
 msgid "No source selected!"
 msgstr "மூலம் தேர்ந்தெடுக்கப்படவில்லை!"
 
@@ -143,8 +144,7 @@ msgstr "பயன்பாட்டு கிரஷ்களை பார்த�
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#. Translators: while it is possible to have localized icons, this should
-#. *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -154,9 +154,8 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"மென்பொருளில் ஏற்படும் சிக்கல்கள் தொடர்பான விவரங்களைச் சேகரித்து பகுப்பாய்வு "
-"செய்து அறிக்கையிடுவதற்காக வடிவமைக்கப்பட்ட மென்பொருள் கருவிகளின் ஒரு "
-"தொகுப்பு."
+"மென்பொருளில் ஏற்படும் சிக்கல்கள் தொடர்பான விவரங்களைச் சேகரித்து பகுப்பாய்வு செய்து "
+"அறிக்கையிடுவதற்காக வடிவமைக்கப்பட்ட மென்பொருள் கருவிகளின் ஒரு தொகுப்பு."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -219,44 +218,44 @@ msgstr[0] ""
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
 msgstr ""
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:149
+#: src/gnome_abrt/views.py:139
 msgid "Application Crash"
 msgstr ""
 
-#: src/gnome_abrt/views.py:151
+#: src/gnome_abrt/views.py:141
 #, fuzzy
 msgid "System Crash"
 msgstr "கணினி"
 
-#: src/gnome_abrt/views.py:153
+#: src/gnome_abrt/views.py:143
 #, fuzzy
 msgid "System Failure"
 msgstr "கணினி"
 
-#: src/gnome_abrt/views.py:155
+#: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
 msgstr ""
 
-#: src/gnome_abrt/views.py:810
+#: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
 msgstr ""
 
-#: src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
 msgstr ""
 
-#: src/gnome_abrt/views.py:815
+#: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
 msgstr ""
 
-#: src/gnome_abrt/views.py:817
+#: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
 
@@ -270,52 +269,56 @@ msgstr ""
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:831
+#: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} சிக்கல் கண்டுபிடிக்கப்பட்டது"
 
-#: src/gnome_abrt/views.py:835
+#: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr ""
 
-#: src/gnome_abrt/views.py:838
+#: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
 msgstr ""
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:842 src/gnome_abrt/views.py:845
+#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
 msgstr "பொருந்தாது "
 
-#: src/gnome_abrt/views.py:872
+#: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
 msgstr "அறிக்கையிட முடியவில்லை"
 
-#: src/gnome_abrt/views.py:877
+#: src/gnome_abrt/views.py:844
 msgid "Reports"
 msgstr "அறிக்கைகள்"
 
-#: src/gnome_abrt/views.py:883
+#: src/gnome_abrt/views.py:850
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"இந்த சிக்கல் அறிக்கையிடப்பட்டது, ஆனால் <i>Bugzilla</i> டிக்கட் திறக்கப்படவில்லை. எங்கள் உருவாக்குநர்கள் இந்த சிக்கலைத் தீர்ப்பதற்கு அவர்களுக்கு கூடுதல் தகவல் தேவைப்படக்கூடும்.\n"
-"அத்தகவல்களை வழங்குவதற்கு இந்த சிக்கல் குறித்து Bugzilla விலும் <b>அறிக்கையிடுவது</b> பற்றி சிந்தியுங்கள். நன்றி."
+"இந்த சிக்கல் அறிக்கையிடப்பட்டது, ஆனால் <i>Bugzilla</i> டிக்கட் திறக்கப்படவில்லை. எங்கள் "
+"உருவாக்குநர்கள் இந்த சிக்கலைத் தீர்ப்பதற்கு அவர்களுக்கு கூடுதல் தகவல் தேவைப்படக்கூடும்.\n"
+"அத்தகவல்களை வழங்குவதற்கு இந்த சிக்கல் குறித்து Bugzilla விலும் <b>அறிக்கையிடுவது</b> "
+"பற்றி சிந்தியுங்கள். நன்றி."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:892
+#: src/gnome_abrt/views.py:859
 msgid "yes"
 msgstr "ஆம்"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:896
+#: src/gnome_abrt/views.py:863
 msgid "no"
 msgstr "இல்லை"

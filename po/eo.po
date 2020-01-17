@@ -1,35 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-#
-# Translators:
-# Krishnababu Krothapalli <kkrothap@redhat.com>, 2011-2013
-# Krishnababu Krothapalli <kkrothap@redhat.com>, 2013
-# Krishnababu Krothapalli <krisnababu@gmail.com>, 2014
-# Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# This file is put in the public domain.
+# Weblate <noreply@weblate.org>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
+"Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2016-01-27 05:02+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Telugu (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/te/)\n"
-"Language: te\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr "నివేదించు (_R)"
+msgstr ""
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
-msgstr "తొలగించు(_D)"
+msgstr ""
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
@@ -49,7 +41,7 @@ msgstr ""
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr "అభీష్టాలు (_P)"
+msgstr ""
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
@@ -72,7 +64,7 @@ msgstr ""
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr "ఎంపికచేసిన సమస్యలను తొలగించు"
+msgstr ""
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
@@ -80,11 +72,11 @@ msgstr ""
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr "పేరు"
+msgstr ""
 
 #: data/ui/oops-window.ui:226
 msgid "Version"
-msgstr "వర్షన్"
+msgstr ""
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
@@ -93,7 +85,7 @@ msgstr ""
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr "నివేదించిన"
+msgstr ""
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
@@ -101,11 +93,11 @@ msgstr ""
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr "ఏ సమస్యలు గుర్తించబడెలేదు!"
+msgstr ""
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr "ఏ మూలం ఎంపికచేయలేదు!"
+msgstr ""
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -122,7 +114,7 @@ msgstr ""
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:210 src/gnome-abrt:212
 msgid "My"
-msgstr "నా"
+msgstr ""
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -135,7 +127,7 @@ msgstr ""
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "అనువర్తనము క్రాషెస్‌ను దర్శించుము మరియు నివేదించుము"
+msgstr ""
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
@@ -151,28 +143,25 @@ msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"సాఫ్టువేర్ సమస్యలను సేకరించుటకు, విశ్లేషించుటకు మరియు నివేదించుటకు సాఫ్టువేర్ సాధనాలు రూపొందించబడెను."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
-"దీనియొక్క ముఖ్యోద్దేశం ఒక సమస్యను నివేదించే కార్యక్రమాన్ని సులభతరం చేయడం మరియు దానికి ఒక పరిష్కారం "
-"కనుగొనడం."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr "ఇంటర్ఫేస్ '{0}' ను పాత్ '{1}' పై బస్ '{2}' నందు పొందలేదు: {3}"
+msgstr ""
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr "భవిష్యత్తు"
+msgstr ""
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr "నిన్న"
+msgstr ""
 
 #: src/gnome_abrt/tools.py:63
 msgid "Last week"
@@ -186,6 +175,7 @@ msgstr ""
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
@@ -198,6 +188,7 @@ msgstr ""
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
@@ -212,6 +203,7 @@ msgstr ""
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -228,14 +220,12 @@ msgid "Application Crash"
 msgstr ""
 
 #: src/gnome_abrt/views.py:141
-#, fuzzy
 msgid "System Crash"
-msgstr "వ్యవస్థ"
+msgstr ""
 
 #: src/gnome_abrt/views.py:143
-#, fuzzy
 msgid "System Failure"
-msgstr "వ్యవస్థ"
+msgstr ""
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
@@ -270,7 +260,7 @@ msgstr ""
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "{0} సమస్య గుర్తించబడెను"
+msgstr ""
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
@@ -285,15 +275,15 @@ msgstr ""
 #. Translators: package version not available
 #: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
-msgstr "వర్తించదు"
+msgstr ""
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr "నివేదించలేదు"
+msgstr ""
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
-msgstr "నివేదికలు"
+msgstr ""
 
 #: src/gnome_abrt/views.py:850
 msgid ""
@@ -302,9 +292,6 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"ఈ సమస్య నివేదించబడెను, అయితే <i>బగ్‌జిల్లా</i> టికెట్ తెరువబడలేదు. సమస్యను పరిష్కరించుటకు మా "
-"అభివృద్దికారులకు మరింత సమయం పట్టవచ్చు.\n"
-"దానిని బగ్‌జిల్లా నందు <b>నివేదించునట్లు</b> చూడండి. ధన్యవాదములు."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -312,10 +299,10 @@ msgstr ""
 #. reported we display a list of reports here.
 #: src/gnome_abrt/views.py:859
 msgid "yes"
-msgstr "అవును"
+msgstr ""
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: src/gnome_abrt/views.py:863
 msgid "no"
-msgstr "కాదు"
+msgstr ""

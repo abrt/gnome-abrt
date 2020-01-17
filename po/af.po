@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2019-09-16 12:58+0200\n"
+"POT-Creation-Date: 2020-01-09 10:16+0100\n"
 "PO-Revision-Date: 2019-06-13 06:09+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
@@ -16,15 +16,15 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 "X-Project-Style: gnome\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:72
+#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
 msgstr "_Rapporteer"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:89
+#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
 msgstr "_Skrap"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:376
+#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
 msgstr "B_esonderhede"
 
@@ -44,7 +44,8 @@ msgstr "_Filtreer"
 msgid "_Preferences"
 msgstr "_Voorkeure"
 
-#: data/ui/oops-menus.ui:47
+#. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
+#: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
 msgstr ""
 
@@ -54,49 +55,48 @@ msgstr ""
 msgid "Problem Reporting"
 msgstr "Probleemrapportering"
 
-#: data/ui/oops-window.ui:28
-msgid "Show filter box"
-msgstr "Wys filterboks"
-
-#: data/ui/oops-window.ui:43
+#: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
 msgstr "Kies veelvuldige probleme"
 
-#: data/ui/oops-window.ui:73
+#: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
 msgstr "Dien gekose probleem"
 
-#: data/ui/oops-window.ui:90
+#: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
 msgstr "Skrap gekose probleme"
 
-#: data/ui/oops-window.ui:261
+#: data/ui/oops-window.ui:108
+msgid "Type to search"
+msgstr ""
+
+#: data/ui/oops-window.ui:206
 msgid "Name"
 msgstr "Naam"
 
-#: data/ui/oops-window.ui:281
+#: data/ui/oops-window.ui:226
 msgid "Version"
 msgstr "Weergawe"
 
-#. Translators: A label for a date when the bug happened for the first time.
-#. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:308
+#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
+#: data/ui/oops-window.ui:253
 msgid "First Detected"
 msgstr "Eerste bespeur"
 
-#: data/ui/oops-window.ui:335 src/gnome_abrt/views.py:869
+#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
 msgstr "Gerapporteer"
 
-#: data/ui/oops-window.ui:377
+#: data/ui/oops-window.ui:322
 msgid "Show problem details"
 msgstr "Wys probleembesonderhede"
 
-#: data/ui/oops-window.ui:397
+#: data/ui/oops-window.ui:342
 msgid "No problems detected!"
 msgstr "Geen probleme bespeur nie!"
 
-#: data/ui/oops-window.ui:423
+#: data/ui/oops-window.ui:368
 msgid "No source selected!"
 msgstr "Geen bron gekies nie!"
 
@@ -134,8 +134,7 @@ msgstr "Bekyk en rapporteer as toepassings omval"
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;omval;fout;gogga;bug reporting;crash logger;"
 
-#. Translators: while it is possible to have localized icons, this should
-#. *not* be translated in any way, shape or form.
+#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
@@ -214,42 +213,42 @@ msgstr[1] "{0:d} jaar gelede"
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
 #. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
 msgstr "Stelsel"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:149
+#: src/gnome_abrt/views.py:139
 msgid "Application Crash"
 msgstr "Toepassing wat omval"
 
-#: src/gnome_abrt/views.py:151
+#: src/gnome_abrt/views.py:141
 msgid "System Crash"
 msgstr "Stelsel wat omval"
 
-#: src/gnome_abrt/views.py:153
+#: src/gnome_abrt/views.py:143
 msgid "System Failure"
 msgstr "Stelsel wat faal"
 
-#: src/gnome_abrt/views.py:155
+#: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
 msgstr "Verkeerde gedrag"
 
-#: src/gnome_abrt/views.py:810
+#: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
 msgstr "Onverwagse stelselfout"
 
-#: src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
 msgstr "Die stelsel het ’n probleem teëgekom en het herstel."
 
-#: src/gnome_abrt/views.py:815
+#: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
 msgstr "Stelsel wat fataal faal"
 
-#: src/gnome_abrt/views.py:817
+#: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
 msgstr "Die stelsel het ’n probleem teëgekom en kon nie herstel nie."
 
@@ -263,52 +262,60 @@ msgstr "Die stelsel het ’n probleem teëgekom en kon nie herstel nie."
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:831
+#: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "Probleem met {0} is bespeur"
 
-#: src/gnome_abrt/views.py:835
+#: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr "{0} het onverwags afgesluit"
 
-#: src/gnome_abrt/views.py:838
+#: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
 msgstr "Die toepassing het ’n probleem teëgekom en kon nie herstel nie."
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:842 src/gnome_abrt/views.py:845
+#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
 msgstr "?"
 
-#: src/gnome_abrt/views.py:872
+#: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
 msgstr "kan nie gerapporteer word nie"
 
-#: src/gnome_abrt/views.py:877
+#: src/gnome_abrt/views.py:844
 msgid "Reports"
 msgstr "Verslae"
 
-#: src/gnome_abrt/views.py:883
+#: src/gnome_abrt/views.py:850
 msgid ""
-"This problem has been reported, but a <i>Bugzilla</i> ticket has not been opened. Our developers may need more information to fix the problem.\n"
-"Please consider also <b>reporting it</b> to Bugzilla in order to provide that. Thank you."
+"This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
+"opened. Our developers may need more information to fix the problem.\n"
+"Please consider also <b>reporting it</b> to Bugzilla in order to provide "
+"that. Thank you."
 msgstr ""
-"Hierdie probleem is gerapporteer, maar ’n <i>Bugzilla</i>-verslag is nie oopgemaak nie. Ons ontwikkelaars benodig dalk meer inligting om die probleem reg te stel.\n"
-"Oorweeg asb. om dit ook te <b>rapporteer</b> by Bugzilla om die inligting te verskaf. Dankie."
+"Hierdie probleem is gerapporteer, maar ’n <i>Bugzilla</i>-verslag is nie "
+"oopgemaak nie. Ons ontwikkelaars benodig dalk meer inligting om die probleem "
+"reg te stel.\n"
+"Oorweeg asb. om dit ook te <b>rapporteer</b> by Bugzilla om die inligting te "
+"verskaf. Dankie."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:892
+#: src/gnome_abrt/views.py:859
 msgid "yes"
 msgstr "ja"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:896
+#: src/gnome_abrt/views.py:863
 msgid "no"
 msgstr "nee"
+
+#~ msgid "Show filter box"
+#~ msgstr "Wys filterboks"

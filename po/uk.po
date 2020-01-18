@@ -1,30 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Translators:
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
-# Yuri Chornoivan <yurchor@ukr.net>, 2011
-# Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata
-# Yuri Chornoivan <yurchor@ukr.net>, 2016. #zanata
-# Yuri Chornoivan <yurchor@ukr.net>, 2018. #zanata
-# Yuri Chornoivan <yurchor@ukr.net>, 2019. #zanata
+# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2020.
+# Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata, 2020.
+# Yuri Chornoivan <yurchor@ukr.net>, 2016. #zanata, 2020.
+# Yuri Chornoivan <yurchor@ukr.net>, 2018. #zanata, 2020.
+# Yuri Chornoivan <yurchor@ukr.net>, 2019. #zanata, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2019-09-17 08:38+0000\n"
+"PO-Revision-Date: 2020-01-18 16:15+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/uk/)\n"
+"Language-Team: Ukrainian <https://translate.stg.fedoraproject.org/projects/"
+"abrt/gnome-abrt/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.10.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -114,7 +113,7 @@ msgstr "Не позначено джерела!"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:101
 msgid "Be verbose"
-msgstr "Докладні повідомлення"
+msgstr "Докладно"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -138,7 +137,7 @@ msgstr "Система"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "Переглянути збої програми та створити звіт"
+msgstr "Перегляд і звітування щодо аварійних завершень програм"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
@@ -301,7 +300,7 @@ msgstr "н/д"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr "не можна звітувати"
+msgstr "не може бути відзвітовано"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"

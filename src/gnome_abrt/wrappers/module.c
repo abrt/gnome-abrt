@@ -27,7 +27,6 @@ static PyMethodDef module_methods[] = {
     { "show_problem_details_for_dir", p_show_problem_details_for_dir, METH_VARARGS, "Open a dialog with technical details" },
     { "get_app_for_cmdline", p_get_app_for_cmdline, METH_VARARGS, "Get the application for a specific command-line" },
     { "get_app_for_env", p_get_app_for_env, METH_VARARGS, "Get the application for a specific environment" },
-    { "can_connect_to_xserver", p_can_connect_to_xserver, METH_VARARGS, "Testing whether it is possible to connect to the X server" },
     { NULL }
 };
 

@@ -23,12 +23,7 @@ import sys
 import logging
 import signal
 import locale
-from gnome_abrt.wrappers import (show_events_list_dialog,
-                                 can_connect_to_xserver)
-
-if not can_connect_to_xserver():
-    sys.stderr.write("Cannot connect to X server\n")
-    sys.exit(1)
+from gnome_abrt.wrappers import show_events_list_dialog
 
 # pygobject
 #pylint: disable=C0411, C0413

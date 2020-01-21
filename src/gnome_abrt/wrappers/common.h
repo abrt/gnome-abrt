@@ -29,6 +29,3 @@ PyObject *p_get_app_for_cmdline(PyObject *module, PyObject *args);
 
 /* App for an env */
 PyObject *p_get_app_for_env(PyObject *module, PyObject *args);
-
-/* Testing whether it is possible to connect to the X server */
-PyObject *p_can_connect_to_xserver(PyObject *module, PyObject *args);

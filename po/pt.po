@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Bruno Martins <bmomartins@gmail.com>, 2011
-# Manuela Silva <mmsrs@sky.com>, 2019. #zanata
+# Manuela Silva <mmsrs@sky.com>, 2019. #zanata, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2019-09-07 12:46+0000\n"
+"PO-Revision-Date: 2020-01-22 10:53+0000\n"
 "Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
-"Language-Team: Portuguese (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/pt/)\n"
+"Language-Team: Portuguese <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"X-Generator: Weblate 3.10.3\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -52,7 +52,7 @@ msgstr "_Preferências"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_Sobre o Reporte do Problema"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -99,7 +99,7 @@ msgstr "Mostrar de talhes do problema"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr "Não foram detetados problemas! "
+msgstr "Não foram detetados problemas!"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
@@ -115,7 +115,7 @@ msgstr "Seja detalhado"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:113
 msgid "Selected problem ID"
-msgstr "Id. do problema selecionada"
+msgstr "Id. do problema selecionado"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:210 src/gnome-abrt:212
@@ -142,7 +142,7 @@ msgstr "abrt;comunicação de erros;reporte de erros;registo de craches;"
 #. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -276,7 +276,7 @@ msgstr "Problemas detetatdos: {0}"
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr "{0} saiu  inesperadamente"
+msgstr "{0} saiu inesperadamente"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."

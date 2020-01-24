@@ -18,6 +18,7 @@
 */
 #include <common.h>
 #include <libreport/internal_libreport_gtk.h>
+#define NO_IMPORT_PYGOBJECT
 #include <pygobject.h>
 #include "libabrt.h"
 

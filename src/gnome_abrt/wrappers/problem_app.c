@@ -18,6 +18,7 @@
 */
 #include <common.h>
 #include <libreport/problem_utils.h>
+#define NO_IMPORT_PYGOBJECT
 #include <pygobject.h>
 
 PyObject *p_get_app_for_cmdline(PyObject *module, PyObject *args)

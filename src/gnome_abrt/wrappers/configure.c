@@ -19,6 +19,7 @@
 #include <common.h>
 #include <libreport/internal_libreport_gtk.h>
 #include <abrt/system-config-abrt.h>
+#define NO_IMPORT_PYGOBJECT
 #include <pygobject.h>
 
 PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args)

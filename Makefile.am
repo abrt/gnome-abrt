@@ -50,7 +50,6 @@ release-major:
 
 .PHONY: release
 release:
-	maint/pull-translations || exit 1; \
 	echo "* $$(LC_TIME=en_US.UTF-8 date +'%a %b %d %Y') $$(git config --get user.name) <$$(git config --get user.email)> $$NEW_VER-1" > /tmp/changelog.tmp; \
 	git log --oneline $$OLD_VER..HEAD | awk '{$$1=""; print "-" $$0} END {print ""}' | grep -v -e "- Merge" -e "- testsuite:" >> /tmp/changelog.tmp; \
 	sed "$$(grep -n changelog gnome-abrt.spec.in | head -1 | cut -f1 -d:)"'r /tmp/changelog.tmp' -i gnome-abrt.spec.in; \

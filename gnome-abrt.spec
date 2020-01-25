@@ -13,6 +13,7 @@ License:    GPLv2+
 URL:        https://github.com/abrt/gnome-abrt
 Source0:    https://github.com/abrt/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 
+BuildRequires: meson
 BuildRequires: gettext
 BuildRequires: libtool
 BuildRequires: python3-devel
@@ -32,7 +33,7 @@ BuildRequires: python3-gobject
 BuildRequires: python3-dbus
 BuildRequires: python3-humanize
 %else
-%define checkoption --with-nopylint
+%define checkoption -Dlinter=disabled
 %endif
 
 Requires:   python3-libreport
@@ -51,13 +52,12 @@ provides them with convenient way for managing these problems.
 
 
 %build
-autoconf
-%configure %checkoption
-%make_build
+%meson %{nil}
+%meson_build
 
 
 %install
-%make_install
+%meson_install
 %find_lang %{name}
 
 # remove all .la and .a files
@@ -71,7 +71,7 @@ desktop-file-install \
 
 %check
 # do not fail on pylint warnings
-make check || :
+%meson_test || :
 
 
 %files -f %{name}.lang

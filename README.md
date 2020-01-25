@@ -20,29 +20,23 @@ gnome-abrt is part of [the ABRT project](https://github.com/abrt/).
 
 ### Development dependencies
 
-Build dependencies can be listed by:
+Build dependencies can be installed using:
 
-    $ ./autogen.sh sysdeps
-
-or installed by:
-
-    $ ./autogen.sh sysdeps --install
-
-The dependency installer gets the data from [the rpm spec file](gnome-abrt.spec.in)
+    # dnf builddep --spec gnome-abrt.spec
 
 ### Building from sources
 
 When you have all dependencies installed run the following commands:
 
-    $ ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --sharedstatedir=/var/lib
-    $ make
+    $ meson build
+    $ ninja -C build
 
 ### Checking
 
 gnome-abrt uses pylint to validate source codes. If pylint prints out any issue,
 the test will fail. Run the test by:
 
-    $ make check
+    $ ninja -C build test
 
 Configure pylint in [pylintrc](pylintrc).
 
@@ -53,20 +47,12 @@ following form:
 
 ### Running
 
-If you want to run gnome-abrt from the source directory, you must configure
-PYTHONPATH to point to `src/`. Makefile provides a convenient target for
-running the tool from the source directory:
+A run target is provided for running gnome-abrt with built changes:
 
-    $ make run
-
-You can pass command line arguments trough `ARGS` environment variable:
-
-    $ make run ARGS=-vvv
+    $ ninja -C build run
 
 ### Installing
 
 If you need an rpm package, run:
 
-    $ make rpm
-
-otherwise check [INSTALL](INSTALL) for more details.
+    $ ninja -C build rpm

@@ -9,4 +9,4 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
     trap "rm -rf \"$XDG_RUNTIME_DIR\"" EXIT
 fi
 
-$PYLINT --rcfile=$PYLINTRC $@
+python3 -m pylint $@

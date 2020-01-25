@@ -1,0 +1,26 @@
+custom_target('gnome-abrt.1',
+  build_by_default: true,
+  command: [
+    xmlto,
+    '-o', '@OUTDIR@',
+    'man',
+    '@INPUT@'
+  ],
+  depend_files: files('asciidoc.conf'),
+  input: custom_target('gnome-abrt.xml',
+    command: [
+      asciidoc,
+      '--backend=docbook',
+      '--doctype=manpage',
+      '--conf-file=@0@'.format(join_paths(meson.current_source_dir(), 'asciidoc.conf')),
+      '--attribute=abrt_version=@0@'.format(meson.project_version()),
+      '--out-file=@OUTPUT@',
+      '@INPUT@',
+    ],
+    input: files('gnome-abrt.txt'),
+    output: 'gnome-abrt.xml',
+  ),
+  install: true,
+  install_dir: join_paths(mandir, 'man1'),
+  output: 'gnome-abrt.1',
+)

@@ -1,0 +1,2 @@
+option('docs', type: 'boolean', value: true)
+option('linter', type: 'feature', value: 'enabled')

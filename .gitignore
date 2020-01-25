@@ -20,7 +20,6 @@ depcomp
 missing
 m4
 aclocal.m4
-gnome-abrt.spec
 install-sh
 libtool
 ltmain.sh

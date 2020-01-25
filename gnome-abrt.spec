@@ -5,7 +5,7 @@
 #         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
 
 Name:       gnome-abrt
-Version:    @GNOME_ABRT_VERSION@
+Version:    1.2.9
 Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 

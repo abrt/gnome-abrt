@@ -3,6 +3,8 @@
 #       can't use filter because the package doesn't met any of the required criteria
 #         ! Noarch package       ... caused by libreport wrappers shared library
 #         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
+%global snapshot 0
+%global commit 3e3512d2d6c81a4ca9b3b4d3f3936c876a6482f7
 
 Name:       gnome-abrt
 Version:    1.2.9
@@ -10,8 +12,12 @@ Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 License:    GPLv2+
-URL:        https://github.com/abrt/gnome-abrt
-Source0:    https://github.com/abrt/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+URL:        https://github.com/abrt/%{name}
+%if 0%{?snapshot}
+Source0:    %{url}/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
+%else
+Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+%endif
 
 BuildRequires: meson
 BuildRequires: gettext

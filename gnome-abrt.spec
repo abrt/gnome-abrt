@@ -7,7 +7,7 @@
 %global commit 3e3512d2d6c81a4ca9b3b4d3f3936c876a6482f7
 
 Name:       gnome-abrt
-Version:    1.2.9
+Version:    1.3.0
 Release:    1%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
@@ -92,6 +92,9 @@ desktop-file-install \
 
 
 %changelog
+* Wed Jan 29 2020 Ernestas Kulik <ekulik@redhat.com> 1.3.0-1
+- Update to 1.3.0
+- Replace Autotools bits with Meson
 * Fri Apr 26 2019 Ernestas Kulik <ekulik@redhat.com> - 1.2.8-1
 - Update to 1.2.8
 

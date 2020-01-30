@@ -5,10 +5,11 @@
 #         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
 %global snapshot 0
 %global commit 3e3512d2d6c81a4ca9b3b4d3f3936c876a6482f7
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:       gnome-abrt
 Version:    1.3.0
-Release:    1%{?dist}
+Release:    1%{?snapshot:.git%{shortcommit}}%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
 License:    GPLv2+
@@ -54,7 +55,7 @@ provides them with convenient way for managing these problems.
 
 
 %prep
-%setup -q
+%autosetup -S git -n %{name}%{?snapshot:-%{commit}}
 
 
 %build

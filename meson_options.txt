@@ -1,2 +1,2 @@
 option('docs', type: 'boolean', value: true)
-option('linter', type: 'feature', value: 'enabled')
+option('lint', type: 'boolean', value: true)

@@ -13,7 +13,14 @@ gnome = import('gnome')
 i18n = import('i18n')
 python = import('python')
 
-python_installation = python.find_installation('python3')
+python_modules = []
+if get_option('lint')
+  python_modules += 'pylint'
+endif
+
+python_installation = python.find_installation('python3',
+  modules: python_modules
+)
 
 abrt_dep = dependency('abrt')
 gio_dep = dependency('gio-2.0')
@@ -25,14 +32,11 @@ python_dep = dependency('python3')
 asciidoc = find_program('asciidoc',
   required: get_option('docs'),
 )
-pylint = find_program('pylint',
-  disabler: true,
-  required: get_option('linter'),
-)
-runpylint = find_program('runpylint.sh',
-  disabler: true,
-  required: pylint.found(),
-)
+if get_option('lint')
+  runpylint = find_program('runpylint.sh')
+else
+  runpylint = disabler()
+endif
 tito = find_program('tito',
   required: false,
   disabler: true,

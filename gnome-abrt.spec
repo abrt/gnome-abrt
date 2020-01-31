@@ -40,8 +40,7 @@ BuildRequires: python3-inotify
 BuildRequires: python3-gobject
 BuildRequires: python3-dbus
 BuildRequires: python3-humanize
-%else
-%define checkoption -Dlinter=disabled
+BuildRequires: python3-pylint
 %endif
 
 Requires:   python3-libreport
@@ -60,7 +59,9 @@ provides them with convenient way for managing these problems.
 
 
 %build
-%meson %{nil}
+%meson \
+    %{!?fedora:-Dlint=false} \
+    %{nil}
 %meson_build
 
 

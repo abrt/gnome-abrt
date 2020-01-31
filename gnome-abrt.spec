@@ -20,6 +20,7 @@ Source0:    %{url}/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
 Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 %endif
 
+BuildRequires: git
 BuildRequires: meson
 BuildRequires: gettext
 BuildRequires: libtool

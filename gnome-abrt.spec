@@ -66,16 +66,8 @@ provides them with convenient way for managing these problems.
 
 %install
 %meson_install
+
 %find_lang %{name}
-
-# remove all .la and .a files
-find %{buildroot} -name '*.la' -or -name '*.a' | xargs rm -f
-
-desktop-file-install \
-    --dir %{buildroot}%{_datadir}/applications \
-    --delete-original \
-    %{buildroot}%{_datadir}/applications/org.freedesktop.GnomeAbrt.desktop
-
 
 %check
 # do not fail on pylint warnings

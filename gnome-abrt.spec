@@ -3,9 +3,11 @@
 #       can't use filter because the package doesn't met any of the required criteria
 #         ! Noarch package       ... caused by libreport wrappers shared library
 #         ! no binaries in $PATH ... caused by gnome-abrt python script in /usr/bin
-%global snapshot 0
-%global commit 3e3512d2d6c81a4ca9b3b4d3f3936c876a6482f7
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
+# Uncomment when building from a git snapshot.
+#%%global snapshot 1
+#%%global commit 3e3512d2d6c81a4ca9b3b4d3f3936c876a6482f7
+#%%global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:       gnome-abrt
 Version:    1.3.0

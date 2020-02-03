@@ -85,3 +85,5 @@ provides them with convenient way for managing these problems.
 %{_datadir}/metainfo/*
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/icons/hicolor/*/apps/*
+
+%changelog

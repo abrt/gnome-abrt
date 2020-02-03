@@ -56,7 +56,7 @@ provides them with convenient way for managing these problems.
 
 
 %prep
-%autosetup -S git -n %{name}%{?snapshot:-%{commit}}
+%autosetup -S git %{?snapshot:-n %{name}%-%{commit}}
 
 
 %build

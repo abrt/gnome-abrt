@@ -40,7 +40,6 @@ BuildRequires: python3-inotify
 BuildRequires: python3-gobject
 BuildRequires: python3-dbus
 BuildRequires: python3-humanize
-BuildRequires: python3-pylint
 %endif
 
 Requires:   python3-libreport

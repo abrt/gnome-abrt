@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2020-01-22 10:53+0000\n"
+"PO-Revision-Date: 2020-02-04 20:16+0000\n"
 "Last-Translator: Igor Gorbounov <igor.gorbounov@gmail.com>\n"
 "Language-Team: Russian <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/ru/>\n"
@@ -38,11 +38,11 @@ msgstr "П_одробнее"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "О_ткрыть каталог с данными сбоя"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_Копировать ID сбоя в буфер обмена"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
@@ -55,7 +55,7 @@ msgstr "_Параметры"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "О _Problem Reporting"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -65,11 +65,11 @@ msgstr "Создание отчетов об ошибках"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "Выбрать несколько сбоев"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "Отправить выбранную ошибку"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
@@ -77,7 +77,7 @@ msgstr "Удалить выбранные"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "Введите, что искать"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
@@ -98,7 +98,7 @@ msgstr "Отправлено"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "Показать сведения об ошибке"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
@@ -144,8 +144,9 @@ msgstr "abrt;bug reporting;crash logger;абрт;ошибки;оповещени
 
 #. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
+#, fuzzy
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2020-01-22 10:53+0000\n"
+"PO-Revision-Date: 2020-01-23 15:13+0000\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Dutch <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/nl/>\n"
@@ -77,7 +77,7 @@ msgstr "Verwijder geselecteerde problemen"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "Type om te zoeken"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"

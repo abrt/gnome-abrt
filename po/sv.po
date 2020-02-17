@@ -1,32 +1,32 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Göran Uddeborg <goeran@uddeborg.se>, 2011
+# Göran Uddeborg <goeran@uddeborg.se>, 2011, 2020.
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2014
 # Magnus Larsson <fedoratrans@gmail.com>, 2009
-# Göran Uddeborg <goeran@uddeborg.se>, 2015. #zanata
-# Göran Uddeborg <goeran@uddeborg.se>, 2016. #zanata
+# Göran Uddeborg <goeran@uddeborg.se>, 2015. #zanata, 2020.
+# Göran Uddeborg <goeran@uddeborg.se>, 2016. #zanata, 2020.
 # Anders Jonsson <anders.jonsson@norsjovallen.se>, 2017. #zanata
-# Göran Uddeborg <goeran@uddeborg.se>, 2018. #zanata
-# Göran Uddeborg <goeran@uddeborg.se>, 2019. #zanata
+# Göran Uddeborg <goeran@uddeborg.se>, 2018. #zanata, 2020.
+# Göran Uddeborg <goeran@uddeborg.se>, 2019. #zanata, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2019-09-24 08:17+0000\n"
+"PO-Revision-Date: 2020-02-16 15:38+0000\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/sv/)\n"
+"Language-Team: Swedish <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10.3\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -81,7 +81,7 @@ msgstr "Ta bort valda problem"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "Typ att söka efter"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"

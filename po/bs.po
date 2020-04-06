@@ -1,26 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Arnes  <arnes99@gmail.com>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
+# Michal Fabik <mfabik@redhat.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2014-12-23 12:42+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Bosnian (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/bs/)\n"
+"PO-Revision-Date: 2020-03-13 22:38+0000\n"
+"Last-Translator: Michal Fabik <mfabik@redhat.com>\n"
+"Language-Team: Bosnian <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -110,7 +111,7 @@ msgstr ""
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:101
 msgid "Be verbose"
-msgstr ""
+msgstr "Detaljnije informacije"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'

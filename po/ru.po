@@ -7,13 +7,14 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2013-2014
 # yuliya <ypoyarko@redhat.com>, 2016. #zanata
 # Igor Gorbounov <igor.gorbounov@gmail.com>, 2018. #zanata, 2020.
+# Petr Molodyk <pamolodyk@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2020-02-04 20:16+0000\n"
-"Last-Translator: Igor Gorbounov <igor.gorbounov@gmail.com>\n"
+"PO-Revision-Date: 2020-04-01 11:38+0000\n"
+"Last-Translator: Petr Molodyk <pamolodyk@gmail.com>\n"
 "Language-Team: Russian <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/ru/>\n"
 "Language: ru\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.10.3\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -102,11 +103,11 @@ msgstr "Показать сведения об ошибке"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr "Ошибок не обнаружено"
+msgstr "Ошибок не обнаружено!"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr "Источник не выбран."
+msgstr "Источник не выбран!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -136,7 +137,7 @@ msgstr "Системные"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "Просмотреть сбои и создать отчет"
+msgstr "Просмотреть сбои приложения и создать отчет"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
@@ -144,7 +145,6 @@ msgstr "abrt;bug reporting;crash logger;абрт;ошибки;оповещени
 
 #. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
-#, fuzzy
 msgid "org.freedesktop.GnomeAbrt"
 msgstr "org.freedesktop.GnomeAbrt"
 
@@ -277,7 +277,7 @@ msgstr "В системе произошла критическая ошибка
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "Обнаружена ошибка {0}."
+msgstr "Обнаружена ошибка {0}"
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
@@ -309,8 +309,8 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"Об этой ошибке уже сообщалось, но отчет <i>Bugzilla</i> еще не создавался. "
-"Вы можете помочь разработчикам ее исправить, создав отчет. Спасибо!"
+"Об этой ошибке уже сообщалось, но отчет <i>Bugzilla</i> еще не создавался.\n"
+" Вы можете помочь разработчикам ее исправить,<b>создав отчет</b>. Спасибо."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

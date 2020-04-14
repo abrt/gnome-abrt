@@ -1,27 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Arnes  <arnes99@gmail.com>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # سـند <0sanad0@gmail.com>, 2015.
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Ahmed M. Farrag <a.m.farrag@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2016-01-27 05:03+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: ar\n"
+"PO-Revision-Date: 2020-04-08 12:40+0000\n"
+"Last-Translator: Ahmed M. Farrag <a.m.farrag@gmail.com>\n"
+"Language-Team: Arabic <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Zanata 4.6.2\n"
+"X-Generator: Weblate 3.11.3\n"
 "X-Project-Style: gnome\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
@@ -34,19 +36,19 @@ msgstr "إح_ذف"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
-msgstr ""
+msgstr "_تفاصيل"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "_فتح دليل بيانات المشكلة"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_نسخ معرّف المشكلة للحافظة"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "مر_شِّح"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
@@ -55,29 +57,29 @@ msgstr "الت_فضيلات"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_عن العلة"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr ""
+msgstr "التبليغ عن العلل"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "اختر عدة علل"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "إرسال العلة المُختارة"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr ""
+msgstr "حذف العلل المُختارة"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "اكتب لتبحث"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
@@ -90,40 +92,40 @@ msgstr "الإصدارة"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
 msgid "First Detected"
-msgstr ""
+msgstr "تاريخ أول وقوع"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr ""
+msgstr "بُلّغت"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "إظهار تفاصيل العلة"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr ""
+msgstr "لم تُكتشف علل!"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr "لم يتم إختيار المصدر"
+msgstr "لم يُختر مصدر!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:101
 msgid "Be verbose"
-msgstr ""
+msgstr "أظهر المزيد من التفاصيل"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:113
 msgid "Selected problem ID"
-msgstr ""
+msgstr "معرّف العلة المُختارة"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:210 src/gnome-abrt:212
 msgid "My"
-msgstr ""
+msgstr "الخاصة بي"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -131,102 +133,99 @@ msgstr ""
 #: src/gnome-abrt:221 src/gnome-abrt:223
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "الخاصة بالنظام"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr ""
+msgstr "عرض وتبليغ انهيارات التطبيقات"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;تبليغ العلل;تسجيل الانهيارات;"
 
 #. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
+msgstr "مجموعة أدوات برمجية مصممة لجمع وتحليل وتبليغ علل البرمجيات."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "هدفها الرئيس تسهيل عملية تبليغ العلة وإيجاد حل لها."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "لا يمكن الحصول على الواجهة '{0}' على المسار '{1}' في باص '{2}':{3}"
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr ""
+msgstr "المستقبل"
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
 msgstr "بالأمس"
 
 #: src/gnome_abrt/tools.py:63
-#, fuzzy
 msgid "Last week"
-msgstr "الأسبوع"
+msgstr "الأسبوع الماضي"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
 #. form is necessary for some languages which do not have plural.
 #: src/gnome_abrt/tools.py:67
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
 msgstr[0] "منذ {0:d} {1!s}s"
-msgstr[1] "منذ {0:d} {1!s}s"
-msgstr[2] "منذ {0:d} {1!s}s"
-msgstr[3] "منذ {0:d} {1!s}s"
-msgstr[4] "منذ {0:d} {1!s}s"
+msgstr[1] "منذ أسبوع مضى"
+msgstr[2] "منذ أسبوعين مضيا"
+msgstr[3] "منذ {0:d} أسابيع"
+msgstr[4] "منذ {0:d} أسبوع"
 msgstr[5] "منذ {0:d} {1!s}s"
 
 #: src/gnome_abrt/tools.py:72
-#, fuzzy
 msgid "Last month"
-msgstr "الشهر"
+msgstr "الشهر الماضي"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
 #: src/gnome_abrt/tools.py:75
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
 msgstr[0] "منذ {0:d} {1!s}s"
-msgstr[1] "منذ {0:d} {1!s}s"
-msgstr[2] "منذ {0:d} {1!s}s"
-msgstr[3] "منذ {0:d} {1!s}s"
-msgstr[4] "منذ {0:d} {1!s}s"
+msgstr[1] "منذ شهر"
+msgstr[2] "منذ شهرين"
+msgstr[3] "منذ {0:d} شهور"
+msgstr[4] "منذ {0:d} شهر"
 msgstr[5] "منذ {0:d} {1!s}s"
 
 #: src/gnome_abrt/tools.py:80
-#, fuzzy
 msgid "Last year"
-msgstr "السنة"
+msgstr "السنة الماضية"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
 #. languages which do not have plural (Chinese, Japanese, Korean)
 #. or reuse the singular form for some plural cases (21 in Russian).
 #: src/gnome_abrt/tools.py:85
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
 msgstr[0] "منذ {0:d} {1!s}s"
-msgstr[1] "منذ {0:d} {1!s}s"
-msgstr[2] "منذ {0:d} {1!s}s"
-msgstr[3] "منذ {0:d} {1!s}s"
-msgstr[4] "منذ {0:d} {1!s}s"
+msgstr[1] "منذ سنة"
+msgstr[2] "منذ سنتين"
+msgstr[3] "منذ {0:d} سنوات"
+msgstr[4] "منذ {0:d} سنة"
 msgstr[5] "منذ {0:d} {1!s}s"
 
 #. Translators: if the kernel crashed we display the word "System"
@@ -235,43 +234,41 @@ msgstr[5] "منذ {0:d} {1!s}s"
 #: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "النظام"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: src/gnome_abrt/views.py:139
 msgid "Application Crash"
-msgstr ""
+msgstr "انهيار تطبيق"
 
 #: src/gnome_abrt/views.py:141
-#, fuzzy
 msgid "System Crash"
-msgstr "النّظام"
+msgstr "انهيار للنّظام"
 
 #: src/gnome_abrt/views.py:143
-#, fuzzy
 msgid "System Failure"
-msgstr "النّظام"
+msgstr "فشل للنّظام"
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
-msgstr ""
+msgstr "سوء تصرف"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr ""
+msgstr "خطأ نظام غير متوقع"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "واجه النظام مشكلة وتعافى منها."
 
 #: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
-msgstr ""
+msgstr "فشل نظام خطير"
 
 #: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "واجه النظام مشكلة ولم يتمكن من المتابعة."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -286,16 +283,16 @@ msgstr ""
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "عُثر على مشكلة في {0}"
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} خرج خروجا غيرمتوقع"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "واجه التطبيق مشكلة ولم يتمكن من المتابعة."
 
 #. Translators: package name not available
 #. Translators: package version not available
@@ -305,11 +302,11 @@ msgstr "غير متوفر"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr ""
+msgstr "لا يُمكن التبليغ عنه"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
-msgstr ""
+msgstr "تقارير"
 
 #: src/gnome_abrt/views.py:850
 msgid ""
@@ -318,6 +315,10 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"بُلِّغ عن هذه المشكلة، ولكن لم تُفتح تذكرة <i>باغزيلا</i>. قد يحتاج مطورونا "
+"للمزيد من المعلومات لإصلاح المشكلة.\n"
+"رجاءً، فكر كذلك في <b>الإبلاغ عنها</b> لباغزيلا لتوفير تلك المعلومات. شكرا "
+"لك."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

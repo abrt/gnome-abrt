@@ -86,13 +86,6 @@ def fancydate(value, base_date=None):
         return msg.format(offset)
 
 
-def smart_truncate(content, length=100, suffix='...'):
-    if len(content) <= length:
-        return content
-    else:
-        return content[:length].rsplit(' ', 1)[0] + suffix
-
-
 def load_icon(name=None, gicon=None, scale=1):
     theme = Gtk.IconTheme.get_default()
 

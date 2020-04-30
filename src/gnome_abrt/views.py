@@ -39,7 +39,7 @@ from gi.repository import GLib
 import humanize
 
 from gnome_abrt import problems, config, wrappers, errors
-from gnome_abrt.tools import fancydate, smart_truncate, load_icon
+from gnome_abrt.tools import fancydate, load_icon
 from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
@@ -144,7 +144,7 @@ def problem_to_storage_values(problem):
     else:
         problem_type = _("Misbehavior")
 
-    return (smart_truncate(name, length=40),
+    return (name,
             fancydate(problem['date_last']),
             problem_type,
             problem['count'],

@@ -271,6 +271,7 @@ class Problem:
     def get_application(self):
         if not self.app:
             self.app = find_application(self['cmdline'],
+                                        self['executable'],
                                         self['environ'],
                                         self['pid'],
                                         self['component'])

@@ -16,6 +16,8 @@
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
 import os
+import os.path
+
 from gnome_abrt import wrappers
 
 class Application:
@@ -33,14 +35,14 @@ class Application:
         self.icon = icon
 
 
-def find_application(cmdline, envp, pid, component):
+def find_application(cmdline, executable, envp, pid, component):
     app = None
     if envp:
         app = wrappers.get_app_for_env(envp.split('\n'), int(pid))
     if not app and cmdline:
         app = wrappers.get_app_for_cmdline(cmdline)
     if not app:
-        return Application(cmdline.split(" ")[0] if cmdline else None,
+        return Application(os.path.basename(executable) if executable else None,
                            name=component)
 
     ret = Application(app.get_executable(),

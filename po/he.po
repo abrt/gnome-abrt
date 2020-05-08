@@ -1,24 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Niv Baehr <bloop93@gmail.com>, 2016. #zanata
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
 "POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2016-09-28 05:48+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/he/)\n"
+"PO-Revision-Date: 2020-05-01 21:40+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n==2 ? 2 : 1;\n"
-"X-Generator: Zanata 4.6.2\n"
+"X-Generator: Weblate 4.0.1\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -34,11 +35,11 @@ msgstr "פ_רטים"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "_פתיחת תיקיית נתוני התקלה"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "ה_עתקת מזהה התקלה ללוח הגזירים"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
@@ -51,7 +52,7 @@ msgstr "ה_עדפות"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_על דיווח תקלות"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:271
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -61,11 +62,11 @@ msgstr "דיווח על בעיות"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "בחירת מגוון תקלות"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "הגשת התקלה הנבחרת"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
@@ -73,7 +74,7 @@ msgstr "מחיקת הבעיות שנבחרו"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "הקלדה לחיפוש"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
@@ -94,7 +95,7 @@ msgstr "דווחה"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "הצגת פרטי התקלה"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
@@ -108,13 +109,13 @@ msgstr "לא נבחר מקור!"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:101
 msgid "Be verbose"
-msgstr ""
+msgstr "הגברת פירוט"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:113
 msgid "Selected problem ID"
-msgstr ""
+msgstr "מזהה תקלה נבחר"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:210 src/gnome-abrt:212
@@ -141,7 +142,7 @@ msgstr "abrt;bug reporting;crash logger;בעיות;קריסה;דיווח;תקל�
 #. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
 #: src/org.freedesktop.GnomeAbrt.desktop.in:7
 msgid "org.freedesktop.GnomeAbrt"
-msgstr ""
+msgstr "org.freedesktop.GnomeAbrt"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -300,7 +301,7 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"בעיה זו דווחה, אולם לא נפתח כרטיס <i>Bugzilla</i>.  יתכן והמפתחים זקוקים "
+"בעיה זו דווחה, אולם לא נפתח כרטיס <i>Bugzilla</i>. יתכן שהמפתחים זקוקים "
 "למידע נוסף על מנת לפתור את הבעיה.\n"
 "נא לשקול <b>לדווח על הבעיה</b> גם ב־Bugzilla על מנת לספק את המידע. תודה."
 

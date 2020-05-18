@@ -18,7 +18,8 @@
 import datetime
 import logging
 import re
-from urllib import request
+import sys
+import urllib
 
 from bs4 import BeautifulSoup
 
@@ -114,22 +115,25 @@ class Problem:
                 self._url_done = True
 
                 def on_update_title(source_object, res, user_data):
-                    _, title = res.propagate_value()
-                    if title:
-                        self._title = title
-                        self._problem.source.notify(ProblemSource.CHANGED_PROBLEM,
-                                                    self._problem)
+                    try:
+                        _, title = res.propagate_value()
+                        if title:
+                            self._title = title
+                            self._problem.source.notify(ProblemSource.CHANGED_PROBLEM,
+                                                        self._problem)
+                    except GLib.Error as error:
+                        print(error.message, file=sys.stderr)
 
                 task = Gio.Task.new(None, None, on_update_title, None)
 
                 def update_title(task, source_object, task_data, cancellable):
                     try:
-                        html = request.urlopen(self._data).read().decode("UTF-8")
+                        html = urllib.request.urlopen(self._data).read().decode("UTF-8")
                         soup = BeautifulSoup(html, "html.parser")
                         value = GObject.Value(str, soup.title.string)
 
                         task.return_value(value)
-                    except Exception as ex:
+                    except urllib.error.HTTPError as ex:
                         error = GLib.Error("Fetching title for problem report failed: %s" % (ex))
                         task.return_error(error)
 

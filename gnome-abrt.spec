@@ -49,6 +49,7 @@ Requires:   python3-inotify
 Requires:   python3-gobject
 Requires:   python3-dbus
 Requires:   python3-humanize
+Requires:   python3dist(beautifulsoup4)
 
 %description
 A GNOME application allows users to browse through detected problems and

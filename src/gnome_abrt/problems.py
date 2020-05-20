@@ -20,6 +20,7 @@ import logging
 import re
 import sys
 import urllib
+import urllib.error
 
 from bs4 import BeautifulSoup
 

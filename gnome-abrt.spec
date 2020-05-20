@@ -10,7 +10,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:       gnome-abrt
-Version:    1.3.2
+Version:    1.3.3
 Release:    1%{?snapshot:.git%{shortcommit}}%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 

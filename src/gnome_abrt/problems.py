@@ -19,8 +19,8 @@ import datetime
 import logging
 import re
 import sys
-import urllib
 import urllib.error
+import urllib.request
 
 from bs4 import BeautifulSoup
 

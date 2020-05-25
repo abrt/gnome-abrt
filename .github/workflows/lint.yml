@@ -1,0 +1,23 @@
+name: Run pylint
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+jobs:
+  check:
+    container:
+      image: fedora:latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v2
+
+      - name: Install build environment
+        run: dnf --assumeyes install dnf-plugins-core
+
+      - name: Install build dependencies
+        run: dnf builddep --assumeyes --spec gnome-abrt.spec
+
+      - name: Run pylint
+        run: meson test -C build --print-errorlogs lint

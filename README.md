@@ -1,3 +1,5 @@
+[![Translation status](https://translate.fedoraproject.org/widgets/abrt/-/gnome-abrt/svg-badge.svg)](https://translate.fedoraproject.org/engage/abrt/)
+
 # gnome-abrt
 
 **A utility for viewing problems that have occurred with the system.**

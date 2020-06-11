@@ -19,5 +19,8 @@ jobs:
       - name: Install build dependencies
         run: dnf builddep --assumeyes --spec gnome-abrt.spec
 
+      - name: Configure build
+        run: meson build
+
       - name: Run pylint
         run: meson test -C build --print-errorlogs lint

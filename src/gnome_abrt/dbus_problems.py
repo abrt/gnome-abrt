@@ -29,7 +29,11 @@ BUS_NAME = 'org.freedesktop.problems'
 BUS_PATH = '/org/freedesktop/problems'
 BUS_IFACE = 'org.freedesktop.problems'
 
-ABRTD_DBUS_PATH = '/org/freedesktop/problems'
+PROBLEM_ENTRY_BUS_INTERFACE = 'org.freedesktop.Problems2.Entry'
+PROPERTIES_BUS_INTERFACE = 'org.freedesktop.DBus.Properties'
+
+ABRTD_DBUS_INTERFACE = 'org.freedesktop.Problems2'
+ABRTD_DBUS_PATH = '/org/freedesktop/Problems2'
 ABRTD_DBUS_SIGNAL = 'Crash'
 
 def get_standard_problems_source(mainloop=None):
@@ -81,7 +85,8 @@ class DBusProblemSource(problems.CachedSource):
 
         try:
             self._bus.add_signal_receiver(self._on_new_problem,
-                    signal_name=ABRTD_DBUS_SIGNAL, path=ABRTD_DBUS_PATH)
+                    signal_name=ABRTD_DBUS_SIGNAL,
+                    dbus_interface=ABRTD_DBUS_INTERFACE, path=ABRTD_DBUS_PATH)
         except dbus.exceptions.DBusException as ex:
             logging.warning(
         "Can't add receiver of signal '{0}' on D-Bus system path '{1}': {2}"
@@ -129,16 +134,13 @@ class DBusProblemSource(problems.CachedSource):
 
             raise
 
-    def _on_new_problem(self, *args):
-        if len(args) < 2:
-            logging.debug(
-          "Received the new problem signal with invalid number of arguments {0}"
-                    .format(args))
-            return
-
-        prblm_id = self._driver.on_new_problem(*args)
-        if prblm_id is not None:
-            self.process_new_problem_id(prblm_id)
+    def _on_new_problem(self, object_path, uid):
+        object_path = self._driver.on_new_problem(object_path, uid)
+        if object_path:
+            problem = self._bus.get_object(BUS_NAME, object_path)
+            problem_id = problem.Get(PROBLEM_ENTRY_BUS_INTERFACE, 'ID',
+                                     dbus_interface=PROPERTIES_BUS_INTERFACE)
+            self.process_new_problem_id(problem_id)
 
     def chown_problem(self, problem_id):
         try:
@@ -218,29 +220,18 @@ class StandardProblems(DBusProblemSource.Driver):
         else:
             return lambda iface, *args: iface.GetProblems(*args)
 
-    def on_new_problem(self, *args):
+    def on_new_problem(self, object_path, uid):
         """Accepts foreign problems only if the all_problems option is enabled
         """
 
         conf = config.get_configuration()
-        try:
-            if (len(args) > 2
-                    and int(args[2]) != os.getuid()
-                    and not conf['all_problems']):
-                logging.debug("Received the new problem signal with different "
-                              "uid '{0}' ('{1}') and the all problems option "
-                              "is not configured" .format(args[2], os.getuid()))
-                return None
-        except ValueError:
-            logging.debug(traceback.format_exc())
+        if uid != os.getuid() and not conf['all_problems']:
+            logging.debug("Received the new problem signal with different "
+                          "uid '{0}' ('{1}') and the all problems option "
+                          "is not configured" .format(uid, os.getuid()))
             return None
 
-        if len(args) == 2 and not conf['all_problems']:
-            logging.debug("Received the new problem signal without the uid "
-                    "argument and the all problems option is not configured")
-            return None
-
-        return str(args[1])
+        return object_path
 
     def on_dbus_exception(self, problem_id, ex):
         """Process AuthFailure error in same way as InvalidProblemDir because
@@ -263,20 +254,15 @@ class ForeignProblems(DBusProblemSource.Driver):
     def get_problems_method(self):
         return lambda iface, *args: iface.GetForeignProblems(*args)
 
-    def on_new_problem(self, *args):
+    def on_new_problem(self, object_path, uid):
         """Accepts only foreign problems."""
 
-        args_len = len(args)
-        try:
-            if args_len == 2 or (args_len > 2 and int(args[2]) != os.getuid()):
-                return str(args[1])
-        except ValueError:
-            logging.debug(traceback.format_exc())
-            return None
+        if uid != os.getuid():
+            return object_path
 
         logging.debug("Received the new problem signal with current user's uid "
               "'{0}' ('{1}') in ForeignPorblems driver"
-                 .format(args[2], os.getuid()))
+                 .format(uid, os.getuid()))
 
         return None
 

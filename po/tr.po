@@ -10,9 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
-"Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2020-01-09 10:16+0100\n"
-"PO-Revision-Date: 2020-01-23 15:13+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-30 19:29+0200\n"
+"PO-Revision-Date: 2020-05-22 11:40+0000\n"
 "Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/tr/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
-"X-Generator: Weblate 3.10.3\n"
+"X-Generator: Weblate 4.0.4\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -54,13 +54,13 @@ msgstr "_Tercihler"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr "Sorun Raporlama _Hakkında"
+msgstr "Sorun Bildirme _Hakkında"
 
-#: data/ui/oops-window.ui:10 src/gnome-abrt:271
+#: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr "Sorun Bildir"
+msgstr "Sorun Bildirme"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
@@ -109,25 +109,25 @@ msgstr "Kaynak seçilmedi!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:101
+#: src/gnome-abrt:96
 msgid "Be verbose"
 msgstr "Ayrıntılı ol"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:113
+#: src/gnome-abrt:108
 msgid "Selected problem ID"
 msgstr "Seçilen sorun kimliği"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
-#: src/gnome-abrt:210 src/gnome-abrt:212
+#: src/gnome-abrt:205 src/gnome-abrt:207
 msgid "My"
 msgstr "Benim"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
 #. or a genitive noun, as required by your language.
-#: src/gnome-abrt:221 src/gnome-abrt:223
+#: src/gnome-abrt:216 src/gnome-abrt:218
 msgctxt "bugs"
 msgid "System"
 msgstr "Sistem"
@@ -139,12 +139,7 @@ msgstr "Uygulama çökmelerini görüntüle ve bildir"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr "abrt;hata raporlama;hata bildirme;bozulma günlükleyici;"
-
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
-#: src/org.freedesktop.GnomeAbrt.desktop.in:7
-msgid "org.freedesktop.GnomeAbrt"
-msgstr "org.freedesktop.GnomeAbrt"
+msgstr "abrt;hata bildirme;çökme günlüğü kaydedici;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -152,7 +147,7 @@ msgid ""
 "reporting of software issues."
 msgstr ""
 "Yazılım sorunlarını toplamak, incelemek ve bildirmek için tasarlanmış "
-"yazılım araçları derlemi."
+"yazılım araçları derlemesi."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -245,7 +240,7 @@ msgstr "İstenmeyen davranış"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr "Beklenmedik sistem hatası"
+msgstr "Beklenmeyen sistem hatası"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
@@ -277,7 +272,7 @@ msgstr "{0} sorun saptandı"
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr "{0} beklenmedik biçimde çıktı"
+msgstr "{0} beklenmeyen biçimde çıkış yaptı"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
@@ -304,9 +299,10 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"Bu sorun bildirildi ancak <i>Bugzilla</i> çağrısı açılmadı. "
-"Geliştiricilerimiz sorunu çözmek için daha çok bilgiye gereksinebilir.\n"
-"Lütfen bunu sağlamak için Bugzilla'ya <b>bildirmeyi</b> düşünün. Teşekkürler."
+"Bu sorun bildirildi ancak <i>Bugzilla</i> bileti açılmadı. "
+"Geliştiricilerimiz sorunu çözmek için daha çok bilgiye ihtiyaç duyabilir.\n"
+"Lütfen bunu sağlamak için Bugzilla'ya da <b>bildirmeyi</b> düşünün. "
+"Teşekkürler."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -321,6 +317,9 @@ msgstr "evet"
 #: src/gnome_abrt/views.py:863
 msgid "no"
 msgstr "hayır"
+
+#~ msgid "org.freedesktop.GnomeAbrt"
+#~ msgstr "org.freedesktop.GnomeAbrt"
 
 #~ msgid "Show filter box"
 #~ msgstr "Süzgeç kutusunu göster"

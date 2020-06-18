@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
-"Report-Msgid-Bugs-To: https://github.com/abrt/gnome-abrt/issues\n"
-"POT-Creation-Date: 2020-01-09 10:16+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-30 19:29+0200\n"
 "PO-Revision-Date: 2020-01-17 02:16+0000\n"
 "Last-Translator: Valentin Laskov <v_laskov@mail.bg>\n"
 "Language-Team: Bulgarian <https://translate.stg.fedoraproject.org/projects/"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "_About Problem Reporting"
 msgstr "_Относно Problem Reporting"
 
-#: data/ui/oops-window.ui:10 src/gnome-abrt:271
+#: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
@@ -104,25 +104,25 @@ msgstr "Не е избран източник!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:101
+#: src/gnome-abrt:96
 msgid "Be verbose"
 msgstr "с повече подробности"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:113
+#: src/gnome-abrt:108
 msgid "Selected problem ID"
 msgstr "ID на конкретен проблем"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
-#: src/gnome-abrt:210 src/gnome-abrt:212
+#: src/gnome-abrt:205 src/gnome-abrt:207
 msgid "My"
 msgstr "Мои"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
 #. or a genitive noun, as required by your language.
-#: src/gnome-abrt:221 src/gnome-abrt:223
+#: src/gnome-abrt:216 src/gnome-abrt:218
 msgctxt "bugs"
 msgid "System"
 msgstr "Системни"
@@ -134,11 +134,6 @@ msgstr "Преглед и докладване сривовете на прил�
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
-
-#. Translators: while it is possible to have localized icons, this should *not* be translated in any way, shape or form.
-#: src/org.freedesktop.GnomeAbrt.desktop.in:7
-msgid "org.freedesktop.GnomeAbrt"
 msgstr ""
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10

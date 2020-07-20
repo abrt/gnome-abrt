@@ -11,6 +11,7 @@ foreach file: gnome_abrt_wrappers_sources
 endforeach
 
 python_installation.install_sources(gnome_abrt_wrappers_sources,
+  pure: false,
   subdir: 'gnome_abrt/wrappers',
 )
 

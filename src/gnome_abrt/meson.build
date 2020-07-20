@@ -42,6 +42,7 @@ foreach file: gnome_abrt_sources
 endforeach
 
 python_installation.install_sources(gnome_abrt_generated_sources + gnome_abrt_sources,
+  pure: false,
   subdir: 'gnome_abrt',
 )
 

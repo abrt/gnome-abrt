@@ -14,13 +14,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install build environment
-        run: dnf --assumeyes install dnf-plugins-core
+        run: dnf --assumeyes install dnf-plugins-core tito
 
       - name: Install build dependencies
         run: dnf builddep --assumeyes --spec gnome-abrt.spec
 
       - name: Configure build
         run: meson build
+
+      - name: Build and install packages
+        run: |
+            meson compile -C build rpm
+            dnf --assumeyes install ./build/rpm/**/*.rpm
 
       - name: Run pylint
         run: meson test -C build --print-errorlogs lint

@@ -17,7 +17,6 @@
 
 import os
 import logging
-import traceback
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop

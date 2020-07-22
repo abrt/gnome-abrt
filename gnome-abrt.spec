@@ -38,7 +38,6 @@ BuildRequires: gtk3-devel
 %if 0%{?fedora}
 BuildRequires: python3-pylint
 BuildRequires: python3-six
-BuildRequires: python3-inotify
 BuildRequires: python3-gobject
 BuildRequires: python3-dbus
 BuildRequires: python3-humanize
@@ -47,7 +46,6 @@ BuildRequires: python3-humanize
 Requires:   glib2%{?_isa} >= 2.63.2
 Requires:   gobject-introspection%{?_isa} >= 1.63.1
 Requires:   python3-libreport
-Requires:   python3-inotify
 Requires:   python3-gobject
 Requires:   python3-dbus
 Requires:   python3-humanize

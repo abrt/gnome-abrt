@@ -50,8 +50,6 @@ from gnome_abrt.signals import glib_sigchld_signal_handler
 #pylint: disable=C0413
 from gnome_abrt.problems import MultipleSources
 #pylint: disable=C0413
-from gnome_abrt.directory_problems import DirectoryProblemSource
-#pylint: disable=C0413
 from gnome_abrt.dbus_problems import (get_standard_problems_source,
                                       get_foreign_problems_source)
 #pylint: disable=C0413
@@ -73,7 +71,6 @@ class OopsApplication(Gtk.Application):
                                  application_id=GNOME_ABRT_APPLICATION_ID,
                                  flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
-        self.gcontext = None
         self.all_sources = None
         self.gnome_settings = None
         # pylint: disable=W0105
@@ -170,14 +167,6 @@ class OopsApplication(Gtk.Application):
                     sources.append(
                           get_standard_problems_source())
                 except UnavailableSource as ex:
-                    logging.warning(str(ex))
-
-                self.gcontext = GLib.main_context_default()
-                try:
-                    path = os.path.join(GLib.get_user_cache_dir(), "abrt/spool")
-                    dps = DirectoryProblemSource(path, context=self.gcontext)
-                    sources.append(dps)
-                except UnavailableSource:
                     logging.warning(str(ex))
 
                 if not sources:

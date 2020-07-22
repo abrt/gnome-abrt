@@ -23,7 +23,6 @@ gnome_abrt_sources = [
   'application.py',
   'config.py',
   'dbus_problems.py',
-  'directory_problems.py',
   'errors.py',
   'problems.py',
   'signals.py',

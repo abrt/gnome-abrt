@@ -3,7 +3,6 @@ import xdg
 
 import problems
 import dbus_problems
-import directory_problems
 import config
 
 def dump_problems(source):
@@ -25,8 +24,7 @@ conf = config.get_configuration()
 conf.add_option("all_problems", default_value=False)
 
 observer = SourceObserver()
-sources = { "DBus" : dbus_problems.DBusProblemSource(),
-            "Directory" : directory_problems.DirectoryProblemSource(os.path.join(xdg.BaseDirectory.xdg_cache_home, "abrt/spool"))}
+sources = { "DBus" : dbus_problems.DBusProblemSource() }
 
 
 for k, v in sources.items():

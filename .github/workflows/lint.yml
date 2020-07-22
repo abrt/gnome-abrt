@@ -10,6 +10,9 @@ jobs:
       image: fedora:latest
     runs-on: ubuntu-latest
     steps:
+      - name: Install git
+        run: dnf --assumeyes install git
+
       - name: Check out sources
         uses: actions/checkout@v2
 

@@ -30,7 +30,6 @@ gnome_abrt_sources = [
   'tools.py',
   'views.py',
   'l10n.py',
-  'desktop.py',
 ]
 
 foreach file: gnome_abrt_sources

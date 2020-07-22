@@ -136,6 +136,8 @@ dummy-variables-rgx=_|dummy
 # you should avoid to define new builtins when possible.
 additional-builtins=
 
+callbacks=cb_,_cb,on_,_task_func
+
 
 [SIMILARITIES]
 

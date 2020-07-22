@@ -127,7 +127,7 @@ class Problem:
 
                 task = Gio.Task.new(None, None, on_update_title, None)
 
-                def update_title(task, source_object, task_data, cancellable):
+                def update_title_task_func(task, source_object, task_data, cancellable):
                     try:
                         html = urllib.request.urlopen(self._data).read().decode("UTF-8")
                         soup = BeautifulSoup(html, "html.parser")
@@ -138,7 +138,7 @@ class Problem:
                         error = GLib.Error("Fetching title for problem report failed: %s" % (ex))
                         task.return_error(error)
 
-                task.run_in_thread(update_title)
+                task.run_in_thread(update_title_task_func)
 
             return self._title
 

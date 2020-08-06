@@ -35,7 +35,7 @@ BuildRequires: libreport-gtk-devel > 2.4.0
 BuildRequires: python3-libreport
 BuildRequires: abrt-gui-devel > 2.4.0
 BuildRequires: gtk3-devel
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?rhel} >= 9
 BuildRequires: python3-pylint
 BuildRequires: python3-six
 BuildRequires: python3-gobject
@@ -62,7 +62,9 @@ provides them with convenient way for managing these problems.
 
 %build
 %meson \
-    %{!?fedora:-Dlint=false} \
+%if 0%{?rhel} && 0%{?rhel} < 9
+    -Dlint=false \
+%endif
     %{nil}
 %meson_build
 

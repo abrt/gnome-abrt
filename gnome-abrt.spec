@@ -62,7 +62,9 @@ provides them with convenient way for managing these problems.
 
 %build
 %meson \
-    %{!?fedora:-Dlint=false} \
+%if ! 0%{?fedora}
+    -Dlint=false \
+%endif
     %{nil}
 %meson_build
 

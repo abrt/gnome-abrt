@@ -9,21 +9,22 @@
 # s <s>, 2014
 # zz <zz>, 2012
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# Aniket Kumar <aniket.jnv@yahoo.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2016-01-27 05:03+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hindi (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/hi/)\n"
+"PO-Revision-Date: 2020-08-04 16:29+0000\n"
+"Last-Translator: Aniket Kumar <aniket.jnv@yahoo.com>\n"
+"Language-Team: Hindi <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -35,7 +36,7 @@ msgstr "मिटाएँ (_D)"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
-msgstr ""
+msgstr "विवरण"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
@@ -43,11 +44,11 @@ msgstr ""
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "समस्या ID को क्लिपबोर्ड पर कॉपी करें"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "फिल्टर(_F):"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
@@ -56,29 +57,29 @@ msgstr "वरीयताएँ (_P)"
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "समस्या रिपोर्टिंग के बारे में"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr ""
+msgstr "समस्या रिपोर्टिंग"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "कई समस्याओं का चयन करें"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "चयनित समस्या प्रस्तुत करें"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr "चुनी समस्याओं को मिटाएँ"
+msgstr "चयनित समस्याओं को मिटाएँ"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "खोजने के लिए लिखें"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
@@ -91,15 +92,15 @@ msgstr "संस्करण"
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
 msgid "First Detected"
-msgstr ""
+msgstr "पहले पता लगाया"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr "रिपोर्ट किया गया"
+msgstr "प्रतिवेदित"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "समस्या का विवरण दिखाएं"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"

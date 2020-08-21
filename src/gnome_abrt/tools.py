@@ -116,13 +116,3 @@ def load_icon(name=None, gicon=None, scale=1):
                             .format(name, str(ex)))
 
     return None
-
-
-def set_icon_from_pixbuf_with_scale(icon, pixbuf, scale=1):
-    if scale == 1 or scale is None or pixbuf is None:
-        icon.set_from_pixbuf(pixbuf)
-        return None
-
-    surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, None)
-    icon.set_from_surface(surface)
-    return None

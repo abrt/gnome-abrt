@@ -40,7 +40,6 @@ import humanize
 
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.tools import fancydate, load_icon
-from gnome_abrt.tools import set_icon_from_pixbuf_with_scale
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
 gi.require_version('Gtk', '3.0')
@@ -826,9 +825,11 @@ class OopsWindow(Gtk.ApplicationWindow):
             else:
                 self.img_app_icon.get_style_context().remove_class('dim-label')
 
-            # icon_buf can be None and if it is None, no icon will be displayed
-            set_icon_from_pixbuf_with_scale(self.img_app_icon,
-                                            icon_buf, scale)
+            for_window = self.img_app_icon.get_window()
+            surface = Gdk.cairo_surface_create_from_pixbuf(icon_buf, scale,
+                                                           for_window)
+
+            self.img_app_icon.set_from_surface(surface)
 
             self.lbl_reported_value.show()
             self.lbl_reported.set_text(_("Reported"))

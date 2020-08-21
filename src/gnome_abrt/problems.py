@@ -17,6 +17,7 @@
 
 import datetime
 import logging
+from pathlib import Path
 import re
 import sys
 import urllib.error
@@ -33,7 +34,7 @@ gi.require_version('GObject', '2.0')
 from gi.repository import GObject
 
 # gnome-abrt
-from gnome_abrt.application import find_application
+from gnome_abrt import wrappers
 from gnome_abrt.errors import (InvalidProblem,
                                UnavailableSource)
 
@@ -298,12 +299,43 @@ class Problem:
         return self.source.chown_problem(self.problem_id)
 
     def get_application(self):
+        class Application:
+            def __init__(self, name=None, icon=None):
+                self._name = name
+                self._icon = icon
+
+            @property
+            def icon(self):
+                return self._icon
+
+            @property
+            def name(self):
+                return self._name
+
         if not self.app:
-            self.app = find_application(self['cmdline'],
-                                        self['executable'],
-                                        self['environ'],
-                                        self['pid'],
-                                        self['component'])
+            application = None
+
+            if self['environ']:
+                environment = self['environ'].split('\n')
+                application = wrappers.get_app_for_env(environment,
+                                                       int(self['pid']))
+            if not application and self['cmdline']:
+                application = wrappers.get_app_for_cmdline(self['cmdline'])
+
+            if not application:
+                name = self['component']
+                if not name and self['executable']:
+                    name = Path(self['executable']).name
+
+                self.app = Application(name=name, icon=None)
+            else:
+                name = application.get_name()
+                if not name:
+                    executable = application.get_executable()
+                    name = Path(executable).name if executable else None
+
+                self.app = Application(name=name,
+                                       icon=application.get_icon())
 
         return self.app
 

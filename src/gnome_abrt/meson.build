@@ -20,7 +20,6 @@ gnome_abrt_generated_sources = [
 ]
 
 gnome_abrt_sources = [
-  'application.py',
   'config.py',
   'dbus_problems.py',
   'errors.py',

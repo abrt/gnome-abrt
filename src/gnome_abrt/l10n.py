@@ -18,6 +18,8 @@
 import gettext
 import locale
 import logging
+import os
+
 import humanize
 
 GETTEXT_PROGNAME = None
@@ -33,7 +35,6 @@ def init(progname, localedir='/usr/share/locale'):
     try:
         lcl = locale.setlocale(locale.LC_ALL, "")
     except locale.Error:
-        import os
         os.environ['LC_ALL'] = 'C'
         lcl = locale.setlocale(locale.LC_ALL, "")
 

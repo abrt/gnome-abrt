@@ -24,13 +24,8 @@ import urllib.error
 import urllib.request
 
 from bs4 import BeautifulSoup
-
-import gi
-gi.require_version('Gio', '2.0')
 from gi.repository import Gio
-gi.require_version('GLib', '2.0')
 from gi.repository import GLib
-gi.require_version('GObject', '2.0')
 from gi.repository import GObject
 
 # gnome-abrt

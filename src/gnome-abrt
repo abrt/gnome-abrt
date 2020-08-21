@@ -26,7 +26,11 @@ import sys
 # pygobject
 #pylint: disable=C0411, C0413
 import gi
+gi.require_version('Gio', '2.0')
+gi.require_version('GLib', '2.0')
+gi.require_version('GObject', '2.0')
 gi.require_version('Gtk', '3.0')
+gi.require_version('Pango', '1.0')
 #pylint: disable=E0611, C0411, C0413
 from gi.repository import Gtk
 #pylint: disable=E0611, C0411, C0413

@@ -23,8 +23,6 @@ import logging
 import traceback
 import datetime
 
-#pygobject
-import gi
 #pylint: disable=E0611
 from gi.repository import Gtk
 #pylint: disable=E0611
@@ -41,8 +39,6 @@ import humanize
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.tools import fancydate, load_icon
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
-
-gi.require_version('Gtk', '3.0')
 
 class ProblemsFilter:
 

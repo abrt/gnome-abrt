@@ -822,11 +822,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
             if icon_buf is None:
                 icon_buf = load_icon(name="system-run-symbolic", scale=scale)
-                self.img_app_icon.get_style_context().add_class(
-                                                                    'dim-label')
+                self.img_app_icon.get_style_context().add_class('dim-label')
             else:
-                self.img_app_icon.get_style_context().remove_class(
-                                                                    'dim-label')
+                self.img_app_icon.get_style_context().remove_class('dim-label')
 
             # icon_buf can be None and if it is None, no icon will be displayed
             set_icon_from_pixbuf_with_scale(self.img_app_icon,
@@ -875,9 +873,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
         if tbtn.get_active():
             self.lb_problems.set_selection_mode(
                     Gtk.SelectionMode.MULTIPLE)
-            if self.header_bar is not None:
-                self.header_bar.get_style_context().add_class(
-                                                               'selection-mode')
+            self.header_bar.get_style_context().add_class('selection-mode')
         else:
             row = self.lb_problems.get_selected_row()
             if row is None:
@@ -889,9 +885,7 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             if row is not None and self._filter.match(row):
                 self.lb_problems.select_row(row)
 
-            if self.header_bar is not None:
-                self.header_bar.get_style_context().remove_class(
-                                                               'selection-mode')
+            self.header_bar.get_style_context().remove_class('selection-mode')
 
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:

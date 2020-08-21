@@ -20,7 +20,6 @@ import signal
 import logging
 import fcntl
 
-import gi
 #pylint: disable=E0611
 from gi.repository import GLib
 

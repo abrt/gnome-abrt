@@ -18,11 +18,10 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
-import sys
+import locale
 import logging
 import signal
-import locale
-from gnome_abrt.wrappers import show_events_list_dialog
+import sys
 
 # pygobject
 #pylint: disable=C0411, C0413
@@ -57,6 +56,7 @@ from gnome_abrt.errors import UnavailableSource
 from gnome_abrt.l10n import _, C_
 #pylint: disable=C0413
 from gnome_abrt.config import get_configuration
+from gnome_abrt.wrappers import show_events_list_dialog
 
 GNOME_ABRT_APPLICATION_ID = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'

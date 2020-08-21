@@ -17,14 +17,6 @@
 
 import datetime
 import calendar
-import logging
-
-#pylint: disable=E0611
-from gi.repository import GLib
-#pylint: disable=E0611
-from gi.repository import Gtk
-#pylint: disable=E0611
-from gi.repository import Gdk
 
 from gnome_abrt.l10n import _
 from gnome_abrt.l10n import ngettext
@@ -84,35 +76,3 @@ def fancydate(value, base_date=None):
         # or reuse the singular form for some plural cases (21 in Russian).
         msg = ngettext('{0:d} year ago', '{0:d} years ago', offset)
         return msg.format(offset)
-
-
-def load_icon(name=None, gicon=None, scale=1):
-    theme = Gtk.IconTheme.get_default()
-
-    icon = None
-    if gicon is not None and name is None:
-        name = gicon.to_string()
-        icon = theme.lookup_by_gicon_for_scale(gicon, 128, scale,
-                                        Gtk.IconLookupFlags.FORCE_SIZE)
-    elif name is not None and gicon is None:
-        icon = theme.lookup_icon_for_scale(name, 128, scale,
-                                        Gtk.IconLookupFlags.FORCE_SIZE
-                                        | Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-    else:
-        logging.error("BUG: invalid arguments in load_icon():" \
-                      "name={0}, gicon={1}, scale={2}"
-                      .format(str(name), str(gicon), str(scale)))
-        return None
-
-    if icon is None:
-        logging.warning("Failed to find icon '{0}'".format(name))
-        return None
-
-    try:
-        return icon.load_icon()
-    #pylint: disable=E0712
-    except GLib.Error as ex:
-        logging.warning("Failed to load icon '{0}': {1}"
-                            .format(name, str(ex)))
-
-    return None

@@ -33,12 +33,11 @@ from gi.repository import Gio
 from gi.repository import Pango
 #pylint: disable=E0611
 from gi.repository import GLib
-
 import humanize
 
 from gnome_abrt import problems, config, wrappers, errors
-from gnome_abrt.tools import fancydate, load_icon
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
+from gnome_abrt.tools import fancydate
 
 class ProblemsFilter:
 
@@ -745,6 +744,35 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.vbx_problem_messages.pack_start(msg, False, True, 0)
 
+    def _get_reason_for_problem_type(self, application, problem_type, human_type):
+        if problem_type == 'Kerneloops':
+            return _("Unexpected system error")
+        if problem_type == 'vmcore':
+            return _("Fatal system failure")
+
+        if application.name:
+            return _("{0} quit unexpectedly").format(application.name)
+
+        # Translators: If application name is unknown,
+        # display neutral header "'Type' problem has been detected".
+        # Examples:
+        #  Kerneloops problem has been detected
+        #  C/C++ problem has been detected
+        #  Python problem has been detected
+        #  Ruby problem has been detected
+        #  VMCore problem has been detected
+        #  AVC problem has been detected
+        #  Java problem has been detected
+        return _("{0} problem has been detected").format(human_type)
+
+    def _get_summary_for_problem_type(self, problem_type):
+        if problem_type == 'Kerneloops':
+            return _("The system has encountered a problem and recovered.")
+        if problem_type == 'vmcore':
+            return _("The system has encountered a problem and could not continue.")
+
+        return _("The application encountered a problem and could not continue.")
+
     @handle_problem_and_source_errors
     def _set_problem(self, problem):
         def destroy_links(widget, _):
@@ -755,112 +783,92 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         action_enabled = problem is not None
 
-        action = self.lookup_action('delete')
-        action.set_enabled(action_enabled)
-
-        action = self.lookup_action('report')
-        action.set_enabled(action_enabled and not problem['not-reportable'])
+        self.lookup_action('delete').set_enabled(action_enabled)
+        self.lookup_action('report').set_enabled(action_enabled and not problem['not-reportable'])
 
         self.vbx_links.foreach(destroy_links, None)
         self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
 
-        if problem:
-            self.nb_problem_layout.set_visible_child(self.gd_problem_info)
-            app = problem['application']
-            if problem['type'] == 'Kerneloops':
-                self.lbl_reason.set_text(
-            _("Unexpected system error"))
-                self.lbl_summary.set_text(
-            _("The system has encountered a problem and recovered."))
-            elif problem['type'] == 'vmcore':
-                self.lbl_reason.set_text(
-            _("Fatal system failure"))
-                self.lbl_summary.set_text(
-            _("The system has encountered a problem and could not continue."))
-            else:
-                if not app.name:
-                    self.lbl_reason.set_text(
-                            # Translators: If Application's name is unknown,
-                            # display neutral header
-                            # "'Type' problem has been detected". Examples:
-                            #  Kerneloops problem has been detected
-                            #  C/C++ problem has been detected
-                            #  Python problem has been detected
-                            #  Ruby problem has been detected
-                            #  VMCore problem has been detected
-                            #  AVC problem has been detected
-                            #  Java problem has been detected
-                            _("{0} problem has been detected").format(
-                                    problem['human_type']))
-                else:
-                    self.lbl_reason.set_text(
-                            _("{0} quit unexpectedly").format(app.name))
+        if not problem:
+            self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
 
-                self.lbl_summary.set_text(
-            _("The application encountered a problem and could not continue."))
+            return
 
-            self.lbl_app_name_value.set_text(
-                        # Translators: package name not available
-                        problem['package_name'] or _("N/A"))
-            self.lbl_app_version_value.set_text(
-                        # Translators: package version not available
-                        problem['package_version'] or _("N/A"))
-            self.lbl_detected_value.set_text(
-                humanize.naturaltime(datetime.datetime.now()-problem['date']))
-            self.lbl_detected_value.set_tooltip_text(
-                problem['date'].strftime(config.get_configuration()['D_T_FMT']))
+        self.nb_problem_layout.set_visible_child(self.gd_problem_info)
 
-            icon_buf = None
-            scale = self.img_app_icon.get_scale_factor()
-            if app.icon:
-                icon_buf = load_icon(gicon=app.icon, scale=scale)
+        app = problem['application']
 
-            if icon_buf is None:
-                icon_buf = load_icon(name="system-run-symbolic", scale=scale)
-                self.img_app_icon.get_style_context().add_class('dim-label')
-            else:
-                self.img_app_icon.get_style_context().remove_class('dim-label')
+        self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
+        self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))
 
-            for_window = self.img_app_icon.get_window()
-            surface = Gdk.cairo_surface_create_from_pixbuf(icon_buf, scale,
-                                                           for_window)
+        # Translators: package name not available
+        self.lbl_app_name_value.set_text(problem['package_name'] or _("N/A"))
+        # Translators: package version not available
+        self.lbl_app_version_value.set_text(problem['package_version'] or _("N/A"))
+        self.lbl_detected_value.set_text(humanize.naturaltime(datetime.datetime.now()-problem['date']))
+        self.lbl_detected_value.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
+        theme = Gtk.IconTheme.get_default()
+        scale = self.img_app_icon.get_scale_factor()
+        style_context = self.img_app_icon.get_style_context()
+
+        style_context.remove_class(Gtk.STYLE_CLASS_DIM_LABEL)
+
+        pixbuf = None
+
+        if app.icon:
+            icon_info = theme.lookup_by_gicon_for_scale(app.icon, 128, scale,
+                                                        Gtk.IconLookupFlags.FORCE_SIZE)
+            try:
+                pixbuf = icon_info.load_icon() if icon_info else None
+            except GLib.Error as ex:
+                logging.warning('Failed to load default icon for {}: {}'.format(app.name, ex))
+
+        if not pixbuf:
+            try:
+                pixbuf = theme.load_icon_for_scale('system-run-symbolic', 128,
+                                                     scale,
+                                                     (Gtk.IconLookupFlags.FORCE_SIZE |
+                                                      Gtk.IconLookupFlags.FORCE_SYMBOLIC))
+
+                style_context.add_class(Gtk.STYLE_CLASS_DIM_LABEL)
+            except GLib.Error as ex:
+                logging.warning('Failed to load system-run-symbolic: {}'.format(ex))
+
+        if pixbuf:
+            surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, self.img_app_icon.get_window())
             self.img_app_icon.set_from_surface(surface)
+        else:
+            self.img_app_icon.clear()
 
-            self.lbl_reported_value.show()
-            self.lbl_reported.set_text(_("Reported"))
-            if problem['not-reportable']:
-                self.lbl_reported_value.set_text(
-                        _('cannot be reported'))
-                self._show_problem_links(problem['submission'])
-                self._show_problem_message(problem['not-reportable'])
-            elif problem['is_reported']:
-                if self._show_problem_links(problem['submission']):
-                    self.lbl_reported.set_text(_("Reports"))
-                    self.lbl_reported_value.hide()
+        self.lbl_reported_value.show()
+        self.lbl_reported.set_text(_("Reported"))
+        if problem['not-reportable']:
+            self.lbl_reported_value.set_text(_('cannot be reported'))
 
-                    if (not any((s.name == "Bugzilla"
-                                for s in problem['submission']))):
-                        self._show_problem_message(
+            self._show_problem_links(problem['submission'])
+            self._show_problem_message(problem['not-reportable'])
+        elif problem['is_reported']:
+            if self._show_problem_links(problem['submission']):
+                self.lbl_reported.set_text(_("Reports"))
+                self.lbl_reported_value.hide()
+
+                if not any((s.name == "Bugzilla" for s in problem['submission'])):
+                    self._show_problem_message(
 _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
 " been opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in"
 " order to provide that. Thank you."))
-                else:
-                    # Translators: Displayed after 'Reported' if a problem
-                    # has been reported but we don't know where and when.
-                    # Probably a rare situation, usually if a problem is
-                    # reported we display a list of reports here.
-                    self.lbl_reported_value.set_text(_('yes'))
             else:
                 # Translators: Displayed after 'Reported' if a problem
-                # has not been reported.
-                self.lbl_reported_value.set_text(_('no'))
+                # has been reported but we don't know where and when.
+                # Probably a rare situation, usually if a problem is
+                # reported we display a list of reports here.
+                self.lbl_reported_value.set_text(_('yes'))
         else:
-            if self._source is not None:
-                self.nb_problem_layout.set_visible_child(self.vbx_empty_page)
-            else:
-                self.nb_problem_layout.set_visible_child(self.vbx_no_source_page)
+            # Translators: Displayed after 'Reported' if a problem
+            # has not been reported.
+            self.lbl_reported_value.set_text(_('no'))
 
     def _get_selected(self, selection):
         return selection.get_selected_rows()

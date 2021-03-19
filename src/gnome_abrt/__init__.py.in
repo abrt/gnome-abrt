@@ -19,6 +19,7 @@ PACKAGE = "@PACKAGE@"
 VERSION = "@VERSION@"
 PKGDATADIR = "@PKGDATADIR@"
 
+# pylint: disable=import-outside-toplevel
 def init():
     import gnome_abrt.l10n
     gnome_abrt.l10n.init(PACKAGE, "@localedir@")

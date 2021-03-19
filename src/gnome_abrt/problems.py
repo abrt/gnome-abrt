@@ -125,7 +125,8 @@ class Problem:
 
                 def update_title_task_func(task, source_object, task_data, cancellable):
                     try:
-                        html = urllib.request.urlopen(self._data).read().decode("UTF-8")
+                        req = urllib.request.urlopen(self._data)
+                        html = req.read().decode("UTF-8")
                         soup = BeautifulSoup(html, "html.parser")
                         value = GObject.Value(str, soup.title.string)
 
@@ -137,7 +138,6 @@ class Problem:
                 task.run_in_thread(update_title_task_func)
 
             return self._title
-
 
     def __init__(self, problem_id, source):
         self.problem_id = problem_id
@@ -158,13 +158,13 @@ class Problem:
         elif isinstance(other, Problem):
             return self.problem_id == other.problem_id
 
-        raise TypeError('Not allowed type in __eq__: '
-                         + other.__class__.__name__)
+        raise TypeError("Not allowed type in __eq__: {}"
+                        .format(other.__class__.__name__))
 
     def __loaditems__(self, *args):
         if self._deleted:
             logging.debug("Accessing deleted problem '{0}'"
-                    .format(self.problem_id))
+                          .format(self.problem_id))
             return {}
 
         if self.data is None:
@@ -176,16 +176,16 @@ class Problem:
 
         return items
 
-    #pylint: disable=R0911
+    # pylint: disable=R0911
     def __getitem__(self, item, cached=True):
         def datetime_from_stamp(stamp):
             try:
                 return datetime.datetime.fromtimestamp(float(stamp))
-            except TypeError:
-                raise InvalidProblem(self.problem_id, "Empty time stamp")
-            except ValueError:
+            except TypeError as ex:
+                raise InvalidProblem(self.problem_id, "Empty timestamp") from ex
+            except ValueError as ex:
                 raise InvalidProblem(self.problem_id,
-                                     "Invalid value in time stamp")
+                                     "Invalid value in timestamp") from ex
 
         if self.data is None:
             # Load initial problem data into cache
@@ -239,7 +239,7 @@ class Problem:
     def refresh(self):
         if self._deleted:
             logging.debug("Not refreshing deleted problem '{0}'"
-                            .format(self.problem_id))
+                          .format(self.problem_id))
             return
 
         logging.debug("Refreshing problem '{0}'".format(self.problem_id))
@@ -259,7 +259,7 @@ class Problem:
 
         if not typ:
             raise InvalidProblem(self.problem_id,
-                    "Missing or corrupted 'type' file")
+                                 "Missing or corrupted 'type' file")
 
         if typ == "CCpp":
             return "C/C++"
@@ -368,7 +368,7 @@ class Problem:
 class MultipleSources(ProblemSource):
 
     def __init__(self, sources):
-        super(MultipleSources, self).__init__()
+        super().__init__()
 
         if not sources:
             raise ValueError("At least one source must be passed")
@@ -379,7 +379,7 @@ class MultipleSources(ProblemSource):
             def __init__(self, parent):
                 self.parent = parent
 
-            #pylint: disable=W0613
+            # pylint: disable=W0613
             def changed(self, source, change_type=None, problem=None):
                 self.parent.notify(change_type, problem)
 
@@ -427,7 +427,9 @@ class MultipleSources(ProblemSource):
     def get_problems(self):
         result = []
 
-        extend_result = lambda source: result.extend(source.get_problems())
+        def extend_result(source):
+            return result.extend(source.get_problems())
+
         self._foreach_source(extend_result)
 
         return result
@@ -442,7 +444,7 @@ class MultipleSources(ProblemSource):
         if self._disable_notify:
             return
 
-        super(MultipleSources, self).notify(change_type, problem)
+        super().notify(change_type, problem)
 
     def refresh(self):
         self._disable_notify = True
@@ -456,7 +458,7 @@ class MultipleSources(ProblemSource):
 class CachedSource(ProblemSource):
 
     def __init__(self):
-        super(CachedSource, self).__init__()
+        super().__init__()
 
         self._cache = None
 
@@ -506,7 +508,7 @@ class CachedSource(ProblemSource):
             self._remove_from_cache(problem_id)
         except ValueError as ex:
             logging.warning('Not found in cache but deleted: {0}'
-                    .format(str(ex)))
+                            .format(str(ex)))
             self._cache = None
             self.notify()
 

@@ -59,7 +59,7 @@ class DBusProblemSource(problems.CachedSource):
 
             raise NotImplementedError()
 
-        def on_new_problem(self, *args):
+        def on_new_problem(self, object_path, uid):
             """Process a notification about detected problem."""
 
             raise NotImplementedError()
@@ -71,7 +71,7 @@ class DBusProblemSource(problems.CachedSource):
 
 
     def __init__(self, driverclass, mainloop=None):
-        super(DBusProblemSource, self).__init__()
+        super().__init__()
 
         self._mainloop = mainloop
         if not self._mainloop:
@@ -197,7 +197,7 @@ class StandardProblems(DBusProblemSource.Driver):
     """The old behaviour."""
 
     def __init__(self, source):
-        super(StandardProblems, self).__init__(source)
+        super().__init__(source)
 
         class ConfigObserver:
             def __init__(self, source):
@@ -242,7 +242,7 @@ class StandardProblems(DBusProblemSource.Driver):
         """
 
         if ex.get_dbus_name() in ["org.freedesktop.problems.AuthFailure",
-                            "org.freedesktop.problems.InvalidProblemDir"]:
+                                  "org.freedesktop.problems.InvalidProblemDir"]:
             self._source._remove_from_cache(problem_id)
             raise errors.InvalidProblem(problem_id, ex)
 
@@ -260,8 +260,8 @@ class ForeignProblems(DBusProblemSource.Driver):
             return object_path
 
         logging.debug("Received the new problem signal with current user's uid "
-              "'{0}' ('{1}') in ForeignPorblems driver"
-                 .format(uid, os.getuid()))
+                      "'{0}' ('{1}') in ForeignPorblems driver"
+                      .format(uid, os.getuid()))
 
         return None
 

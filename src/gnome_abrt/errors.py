@@ -21,13 +21,13 @@ class GnomeAbrtError(Exception):
 class InvalidProblem(GnomeAbrtError):
 
     def __init__(self, problem_id, message=None):
-        super(InvalidProblem, self).__init__(message)
+        super().__init__(message)
 
         self.problem_id = problem_id
 
 class UnavailableSource(GnomeAbrtError):
 
     def __init__(self, source, temporary, message=None):
-        super(UnavailableSource, self).__init__(message)
+        super().__init__(message)
         self.source = source
         self.temporary = temporary

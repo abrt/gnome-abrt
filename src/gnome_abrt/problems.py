@@ -131,7 +131,9 @@ class Problem:
                         value = GObject.Value(str, soup.title.string)
 
                         task.return_value(value)
-                    except (urllib.error.HTTPError, urllib.error.URLError) as ex:
+                    except (urllib.error.HTTPError,
+                            urllib.error.URLError,
+                            ConnectionError) as ex:
                         error = GLib.Error("Fetching title for problem report failed: %s" % (ex))
                         task.return_error(error)
 

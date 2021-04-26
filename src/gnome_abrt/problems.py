@@ -155,9 +155,9 @@ class Problem:
     def __eq__(self, other):
         if not other:
             return False
-        elif isinstance(other, str):
+        if isinstance(other, str):
             return self.problem_id == other
-        elif isinstance(other, Problem):
+        if isinstance(other, Problem):
             return self.problem_id == other.problem_id
 
         raise TypeError("Not allowed type in __eq__: {}"
@@ -198,19 +198,18 @@ class Problem:
             last_ocr = self['last_occurrence']
             if last_ocr:
                 return datetime_from_stamp(last_ocr)
-            else:
-                return datetime_from_stamp(self['time'])
-        elif item == 'application':
+            return datetime_from_stamp(self['time'])
+        if item == 'application':
             return self.get_application()
-        elif item == 'is_reported':
+        if item == 'is_reported':
             return self.is_reported()
-        elif item == 'submission':
+        if item == 'submission':
             return self.get_submission()
-        elif item == 'human_type':
+        if item == 'human_type':
             return self.get_human_type()
-        elif item == 'package_name':
+        if item == 'package_name':
             return self.get_package_name()
-        elif item == 'package_version':
+        if item == 'package_version':
             return self.get_package_version()
 
         if cached and item in self.data:
@@ -395,7 +394,7 @@ class MultipleSources(ProblemSource):
             # check if the other is a component
             if other in self.sources:
                 return True
-            elif not isinstance(other, MultipleSources):
+            if not isinstance(other, MultipleSources):
                 # the other source is not a component and cannot be self because
                 # it is not an instance of MultipleSources
                 return False

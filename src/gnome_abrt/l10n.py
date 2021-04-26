@@ -55,7 +55,6 @@ def pgettext(context, message):
     result = gettext.gettext(context + "\004" + message)
     if "\004" in result:
         return message
-    else:
-        return result
+    return result
 
 C_ = pgettext

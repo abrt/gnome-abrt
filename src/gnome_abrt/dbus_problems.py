@@ -208,8 +208,7 @@ class StandardProblems(DBusProblemSource.Driver):
         conf = config.get_configuration()
         if conf['all_problems']:
             return lambda iface, *args: iface.GetAllProblems(*args)
-        else:
-            return lambda iface, *args: iface.GetProblems(*args)
+        return lambda iface, *args: iface.GetProblems(*args)
 
     def on_new_problem(self, object_path, uid):
         """Accepts foreign problems only if the all_problems option is enabled

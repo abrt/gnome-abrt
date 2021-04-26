@@ -37,7 +37,7 @@ def fancydate(value, base_date=None):
 
     if tmdt.days == 0:
         return old_date.time().strftime(get_configuration()['T_FMT'])
-    elif tmdt.days == 1:
+    if tmdt.days == 1:
         return _('Yesterday')
 
     # this week - return a name of a day
@@ -58,7 +58,7 @@ def fancydate(value, base_date=None):
         # form is necessary for some languages which do not have plural.
         msg = ngettext('{0:d} week ago', '{0:d} weeks ago', offset)
         return msg.format(offset)
-    elif old_date.year == base_date.year:
+    if old_date.year == base_date.year:
         offset = base_date.month - old_date.month
         if offset == 1:
             return _('Last month')
@@ -66,13 +66,12 @@ def fancydate(value, base_date=None):
         # 2 months ago nor for more than one year ago. See the comment above.
         msg = ngettext('{0:d} month ago', '{0:d} months ago', offset)
         return msg.format(offset)
-    else:
-        offset = base_date.year - old_date.year
-        if offset == 1:
-            return _('Last year')
-        # Translators: This message will never be used for less than
-        # 2 years ago. However, the singular form is necessary for some
-        # languages which do not have plural (Chinese, Japanese, Korean)
-        # or reuse the singular form for some plural cases (21 in Russian).
-        msg = ngettext('{0:d} year ago', '{0:d} years ago', offset)
-        return msg.format(offset)
+    offset = base_date.year - old_date.year
+    if offset == 1:
+        return _('Last year')
+    # Translators: This message will never be used for less than
+    # 2 years ago. However, the singular form is necessary for some
+    # languages which do not have plural (Chinese, Japanese, Korean)
+    # or reuse the singular form for some plural cases (21 in Russian).
+    msg = ngettext('{0:d} year ago', '{0:d} years ago', offset)
+    return msg.format(offset)

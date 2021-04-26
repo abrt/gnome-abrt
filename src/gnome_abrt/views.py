@@ -973,11 +973,10 @@ _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
             if len(self.lss_problems.get_selected_rows()) > 1:
                 self.menu_multiple_problems.popup_at_pointer(data)
                 return True
-            else:
-                problem_row = self.lb_problems.get_row_at_y(data.y)
-                if problem_row:
-                    self.lb_problems.select_row(problem_row)
-                    self.menu_problem_item.popup_at_pointer(data)
+            problem_row = self.lb_problems.get_row_at_y(data.y)
+            if problem_row:
+                self.lb_problems.select_row(problem_row)
+                self.menu_problem_item.popup_at_pointer(data)
         return None
 
     def get_box_header_left_offset(self):

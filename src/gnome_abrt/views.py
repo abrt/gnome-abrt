@@ -77,8 +77,7 @@ class ProblemsFilter:
 
         for i in ['component', 'reason', 'executable', 'package']:
             if problem[i] is None:
-                logging.debug("Problem '{0}' doesn't have '{1}'"
-                                .format(problem.problem_id, i))
+                logging.debug("Problem '%s' doesn't have '%s'", problem.problem_id, i)
                 continue
 
             # _pattern is 'ascii' and problem[i] is 'dbus.String'
@@ -456,7 +455,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             try:
                 label = format_button_source_name(name, src)
             except errors.UnavailableSource:
-                logging.debug("Unavailable source: {0}".format(name))
+                logging.debug("Unavailable source: %s", name)
                 continue
 
             src_btn = Gtk.ToggleButton.new_with_label(label)
@@ -584,7 +583,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         try:
             values = problem_to_storage_values(problem)
         except errors.InvalidProblem:
-            logging.debug("Exception: {0}".format(traceback.format_exc()))
+            logging.debug("Exception: %s", traceback.format_exc())
             return
 
         self._append_problem_values_to_storage(values)
@@ -631,7 +630,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             try:
                 values = problem_to_storage_values(problem)
             except errors.InvalidProblem as ex:
-                logging.debug("Exception: {0}".format(traceback.format_exc()))
+                logging.debug("Exception: %s", traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)
                 return
 
@@ -654,8 +653,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 try:
                     storage_problems.append(problem_to_storage_values(p))
                 except errors.InvalidProblem:
-                    logging.debug("Exception: {0}"
-                            .format(traceback.format_exc()))
+                    logging.debug("Exception: %s", traceback.format_exc())
 
         old_selection = self._get_selected(self.lss_problems)
 
@@ -709,8 +707,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         if problem_row is not None:
             self.lb_problems.select_row(problem_row)
         else:
-            logging.debug("Can't select problem id '{0}' because the id was "
-                    "not found".format(problem_id))
+            logging.debug("Can't select problem id '%s' because the id was not found", problem_id)
 
     def _show_problem_links(self, submissions):
         if not submissions:
@@ -822,7 +819,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             try:
                 pixbuf = icon_info.load_icon() if icon_info else None
             except GLib.Error as ex:
-                logging.warning('Failed to load default icon for {}: {}'.format(app.name, ex))
+                logging.warning('Failed to load default icon for %s: %s', app.name, ex)
 
         if not pixbuf:
             try:
@@ -833,7 +830,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
                 style_context.add_class(Gtk.STYLE_CLASS_DIM_LABEL)
             except GLib.Error as ex:
-                logging.warning('Failed to load system-run-symbolic: {}'.format(ex))
+                logging.warning('Failed to load system-run-symbolic: %s', ex)
 
         if pixbuf:
             surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, self.img_app_icon.get_window())

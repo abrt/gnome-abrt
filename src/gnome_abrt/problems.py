@@ -64,7 +64,7 @@ class ProblemSource:
             logging.debug(ex)
 
     def notify(self, change_type=None, problem=None):
-        logging.debug("{0} : Notify".format(self.__class__.__name__))
+        logging.debug("%s : Notify", self.__class__.__name__)
         for observer in self._observers:
             observer.changed(self, change_type, problem)
 
@@ -163,8 +163,7 @@ class Problem:
 
     def __loaditems__(self, *args):
         if self._deleted:
-            logging.debug("Accessing deleted problem '{0}'"
-                          .format(self.problem_id))
+            logging.debug("Accessing deleted problem '%s'", self.problem_id)
             return {}
 
         if self.data is None:
@@ -238,11 +237,10 @@ class Problem:
 
     def refresh(self):
         if self._deleted:
-            logging.debug("Not refreshing deleted problem '{0}'"
-                          .format(self.problem_id))
+            logging.debug("Not refreshing deleted problem '%s'", self.problem_id)
             return
 
-        logging.debug("Refreshing problem '{0}'".format(self.problem_id))
+        logging.debug("Refreshing problem '%s'", self.problem_id)
         self.data = None
         self.submission = None
         self.source.notify(ProblemSource.CHANGED_PROBLEM, self)
@@ -418,7 +416,7 @@ class MultipleSources(ProblemSource):
                 callback(self.sources[i])
                 i += 1
             except UnavailableSource as ex:
-                logging.debug("{0}".format(str(ex)))
+                logging.debug("%s", str(ex))
                 if not ex.temporary:
                     self._pop_source(i)
                 else:
@@ -507,8 +505,7 @@ class CachedSource(ProblemSource):
         try:
             self._remove_from_cache(problem_id)
         except ValueError as ex:
-            logging.warning('Not found in cache but deleted: {0}'
-                            .format(str(ex)))
+            logging.warning('Not found in cache but deleted: %s', str(ex))
             self._cache = None
             self.notify()
 

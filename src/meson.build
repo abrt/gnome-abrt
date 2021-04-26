@@ -39,6 +39,6 @@ if runpylint.found()
     depends: [
       gnome_abrt_wrappers_module,
     ],
-    timeout: 120, # 2 minutes
+    timeout: 180, # 3 minutes
   )
 endif

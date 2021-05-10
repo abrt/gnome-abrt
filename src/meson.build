@@ -26,8 +26,8 @@ gnome_abrt_main = configure_file(
 
 subdir('gnome_abrt')
 
-if runpylint.found()
-  test('lint', runpylint,
+if pylint.found()
+  test('lint', pylint,
     args: [
       # This will not fail during configuration if pylintrc is missing:
       # https://github.com/mesonbuild/meson/issues/6175

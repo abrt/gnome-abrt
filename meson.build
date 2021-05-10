@@ -33,9 +33,9 @@ asciidoc = find_program('asciidoc',
   required: get_option('docs'),
 )
 if get_option('lint')
-  runpylint = find_program('runpylint.sh')
+  pylint = find_program('pylint-3')
 else
-  runpylint = disabler()
+  pylint = disabler()
 endif
 tito = find_program('tito',
   required: false,

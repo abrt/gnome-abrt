@@ -30,7 +30,7 @@ Build dependencies can be installed using:
 
 When you have all dependencies installed run the following commands:
 
-    $ meson build
+    $ meson build --prefix=/usr
     $ ninja -C build
 
 ### Checking

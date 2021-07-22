@@ -133,7 +133,8 @@ class Problem:
                         task.return_value(value)
                     except (urllib.error.HTTPError,
                             urllib.error.URLError,
-                            ConnectionError) as ex:
+                            ConnectionError,
+                            UnicodeDecodeError) as ex:
                         error = GLib.Error("Fetching title for problem report failed: %s" % (ex))
                         task.return_error(error)
 

@@ -15,13 +15,14 @@
 # Lisa Stemmler <lstemmle@redhat.com>, 2016. #zanata
 # Mike FABIAN <mfabian@redhat.com>, 2020.
 # Tobias Weise <tobias.weise@web.de>, 2020.
+# KrishnaBabu K <k.meetme@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-04-18 22:40+0000\n"
-"Last-Translator: Tobias Weise <tobias.weise@web.de>\n"
+"PO-Revision-Date: 2021-10-13 15:05+0000\n"
+"Last-Translator: KrishnaBabu K <k.meetme@gmail.com>\n"
 "Language-Team: German <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/de/>\n"
 "Language: de\n"
@@ -29,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.1\n"
+"X-Generator: Weblate 4.8\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"

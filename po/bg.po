@@ -2,29 +2,30 @@
 # This file is put in the public domain.
 # Weblate <noreply@weblate.org>, 2020.
 # Valentin Laskov <v_laskov@mail.bg>, 2020.
+# Nickys Music Group <nickys.music.group@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-01-17 02:16+0000\n"
-"Last-Translator: Valentin Laskov <v_laskov@mail.bg>\n"
-"Language-Team: Bulgarian <https://translate.stg.fedoraproject.org/projects/"
-"abrt/gnome-abrt/bg/>\n"
+"PO-Revision-Date: 2021-01-04 15:36+0000\n"
+"Last-Translator: Nickys Music Group <nickys.music.group@gmail.com>\n"
+"Language-Team: Bulgarian <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10.1\n"
+"X-Generator: Weblate 4.4\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr ""
+msgstr "Съобщи"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
-msgstr ""
+msgstr "_Изтриване"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
@@ -40,11 +41,11 @@ msgstr ""
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "_Филтър"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr ""
+msgstr "_Предпочитания"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
@@ -159,7 +160,7 @@ msgstr ""
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr ""
+msgstr "Бъдеще"
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"

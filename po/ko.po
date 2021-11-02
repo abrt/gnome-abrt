@@ -7,99 +7,100 @@
 # eukim <eukim@redhat.com>, 2011-2012
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # fedoracat <raypotassium@gmail.com>, 2011-2012
-#   <raypoatssium@gmail.com>, 2011-2012, 2013
+# <raypoatssium@gmail.com>, 2011-2012, 2013
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
+# simmon <simmon@nplob.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2016-01-27 05:03+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/gnome-abrt/"
-"language/ko/)\n"
+"PO-Revision-Date: 2021-04-13 06:02+0000\n"
+"Last-Translator: simmon <simmon@nplob.com>\n"
+"Language-Team: Korean <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 4.6.2\n"
+"X-Generator: Weblate 4.5.3\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr "보고(_R) "
+msgstr "_보고"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
-msgstr "삭제(_D)"
+msgstr "_삭제"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
-msgstr ""
+msgstr "상세정보"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "_개방 문제 자료 디렉토리"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_클립보드에 문제 ID 복사"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "_제거"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr "환경 설정 (_P)"
+msgstr "_환경 설정"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_문제 보고에 대하여"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr ""
+msgstr "문제 보고"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "여러 문제 선택"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "선택된 문제 제출"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr "선택한 문제 삭제 "
+msgstr "선택한 문제 삭제"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "검색을 위한 입력"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr "이름 "
+msgstr "이름"
 
 #: data/ui/oops-window.ui:226
 msgid "Version"
-msgstr "버전 "
+msgstr "버전"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
 msgid "First Detected"
-msgstr ""
+msgstr "최초 감지"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr "보고됨 "
+msgstr "보고됩니다"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "문제를 상세히 보여주기"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
@@ -113,13 +114,13 @@ msgstr "선택된 소스가 없습니다!"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:96
 msgid "Be verbose"
-msgstr ""
+msgstr "자세하게"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:108
 msgid "Selected problem ID"
-msgstr ""
+msgstr "선택한 문제 ID"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:205 src/gnome-abrt:207
@@ -132,16 +133,16 @@ msgstr "내"
 #: src/gnome-abrt:216 src/gnome-abrt:218
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "시스템"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "애플리케이션 크래시를 확인 및 보고함"
+msgstr "응용프로그램 충돌을 확인 및 보고합니다"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt; 버그 보고;충돌 기록기;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
@@ -154,7 +155,7 @@ msgstr ""
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "이 주요 목적은 문제와 해결책을 찾는 보고 과정을 쉽게 합니다."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
@@ -163,15 +164,15 @@ msgstr "버스 '{2}'의 경로 '{1}'에서 인터페이스 '{0}'를 얻을 수 �
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr "향후 "
+msgstr "향후"
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr "어제 "
+msgstr "어제"
 
 #: src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "지난 주"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -180,11 +181,11 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 몇 주 전"
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "지난 달"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -192,11 +193,11 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 몇 달 전"
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "지낸 해"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -206,7 +207,7 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
+msgstr[0] "{0:d} 몇년 전"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -214,43 +215,41 @@ msgstr[0] ""
 #: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "시스템"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: src/gnome_abrt/views.py:139
 msgid "Application Crash"
-msgstr ""
+msgstr "응용프로그램 충돌"
 
 #: src/gnome_abrt/views.py:141
-#, fuzzy
 msgid "System Crash"
-msgstr "시스템 "
+msgstr "시스템 충돌"
 
 #: src/gnome_abrt/views.py:143
-#, fuzzy
 msgid "System Failure"
-msgstr "시스템 "
+msgstr "시스템 실패"
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
-msgstr ""
+msgstr "잘못 된 행위"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr ""
+msgstr "기대하지 않는 시스템 오류"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "시스템이 문제가 발생였고 회복되었습니다."
 
 #: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
-msgstr ""
+msgstr "치명적인 시스템 실패"
 
 #: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "시스템에 문제가 발생하여 계속 진행 할 수 없습니다."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -265,26 +264,26 @@ msgstr ""
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "{0} 문제가 감지되었습니다 "
+msgstr "{0} 문제가 감지되었습니다"
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} 의도치 않게 중지 되었습니다"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "응용프로그램에 문제가 발생하였으며 계속 진행 할 수 없습니다."
 
 #. Translators: package name not available
 #. Translators: package version not available
 #: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
-msgstr "해당 없음 "
+msgstr "해당 없음"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr "보고할 수 없습니다 "
+msgstr "보고 할 수 없습니다"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
@@ -308,10 +307,10 @@ msgstr ""
 #. reported we display a list of reports here.
 #: src/gnome_abrt/views.py:859
 msgid "yes"
-msgstr "예 "
+msgstr "예"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: src/gnome_abrt/views.py:863
 msgid "no"
-msgstr "아니요 "
+msgstr "아니요"

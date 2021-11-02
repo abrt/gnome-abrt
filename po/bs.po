@@ -6,13 +6,14 @@
 # Arnes  <arnes99@gmail.com>, 2011
 # Jiří Moskovčák <jmoskovc@redhat.com>, 2011
 # Michal Fabik <mfabik@redhat.com>, 2020.
+# Enes Bosnic <ebosnic@msn.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-03-13 22:38+0000\n"
-"Last-Translator: Michal Fabik <mfabik@redhat.com>\n"
+"PO-Revision-Date: 2021-04-17 09:02+0000\n"
+"Last-Translator: Enes Bosnic <ebosnic@msn.com>\n"
 "Language-Team: Bosnian <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/bs/>\n"
 "Language: bs\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.11.2\n"
+"X-Generator: Weblate 4.5.3\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -29,67 +30,67 @@ msgstr "Izvještaj"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
-msgstr ""
+msgstr "_Obriši"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
-msgstr ""
+msgstr "D_etalji"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "_Otvori problematični podatkovni direktorijum"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_Kopiraj ID problema u međuspremnik"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "_Filter"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr ""
+msgstr "_Preference"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "_O izvještavanju o problemima"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr ""
+msgstr "Izvještavanje o problemu"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "Odaberi više problema"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "Pošalji odabrani problem"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr ""
+msgstr "Obriši odabrani problem"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "Unos za pretragu"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: data/ui/oops-window.ui:226
 msgid "Version"
-msgstr ""
+msgstr "Verzija"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
 msgid "First Detected"
-msgstr ""
+msgstr "Prvo detektovani"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
@@ -97,15 +98,15 @@ msgstr "Izvještaj"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "Pokaži detalje problema"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr ""
+msgstr "Nema detektovanih problema!"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr ""
+msgstr "Nije odabran izvor!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -117,12 +118,12 @@ msgstr "Detaljnije informacije"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:108
 msgid "Selected problem ID"
-msgstr ""
+msgstr "Odaberi ID problema"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:205 src/gnome-abrt:207
 msgid "My"
-msgstr ""
+msgstr "Moj"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -130,45 +131,49 @@ msgstr ""
 #: src/gnome-abrt:216 src/gnome-abrt:218
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "Pogledaj i izvijesti aplikacijske padove"
+msgstr "Pregledati i prijaviti rušenje aplikacija"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;buba izvještavanja:rušenja dnevnik;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"Kolekcija programskih alata dizajniranih za prikupljanje, analizu i "
+"izvještavanje o programskim problemima."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"Osnovna namjena je da olakša proces izvještavanja o problemima i pronalazak "
+"rješenja."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "Nemrem dohvatiti interfejs '{0}' na putanji '{1}' u bus-u '{2}': {3}"
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr ""
+msgstr "Budućnost"
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr ""
+msgstr "Jučer"
 
 #: src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "Prošla sedmica"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -177,11 +182,13 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
+msgstr[0] "{0:d} sedmicu prije"
+msgstr[1] "{0:d} sedmica prije"
+msgstr[2] "{0:d} sedmica prije"
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "Prošli mjesec"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -189,11 +196,13 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
+msgstr[0] "{0:d} mjesec prije"
+msgstr[1] "{0:d} mjeseci prije"
+msgstr[2] "{0:d} mjeseci prije"
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "Prošla godina"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -203,7 +212,9 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
+msgstr[0] "{0:d} prošla godina"
+msgstr[1] "{0:d} prošle godine"
+msgstr[2] "{0:d} prošle godine"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -211,41 +222,41 @@ msgstr[0] ""
 #: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: src/gnome_abrt/views.py:139
 msgid "Application Crash"
-msgstr ""
+msgstr "Aplikacija srušena"
 
 #: src/gnome_abrt/views.py:141
 msgid "System Crash"
-msgstr ""
+msgstr "Sistem srušen"
 
 #: src/gnome_abrt/views.py:143
 msgid "System Failure"
-msgstr ""
+msgstr "Sistemska greška"
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
-msgstr ""
+msgstr "Neponašanje"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr ""
+msgstr "Neočekivana sistemska greška"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "Sistem je registrovao problem i oporavio se od istog."
 
 #: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
-msgstr ""
+msgstr "Fatalna sistemska greška"
 
 #: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "Sistem je registrovao problem i nije u mogućnosti nastaviti svoj rad."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -260,30 +271,31 @@ msgstr ""
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} problema je pronađeno"
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} ugašen neočekivano"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
 msgstr ""
+"Aplikacija je registrovala problem i nije u mogućnosti nastaviti svoj rad."
 
 #. Translators: package name not available
 #. Translators: package version not available
 #: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr ""
+msgstr "ne može se prijaviti"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
-msgstr ""
+msgstr "Izvještaji"
 
 #: src/gnome_abrt/views.py:850
 msgid ""
@@ -292,6 +304,11 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"Ovaj problem je prijavljen, ali ticket na <i>Bugzilla</i> nije otvoren. Naši "
+"programeri eventualno trebaju dodatne informacije kako bi otklonili problem."
+"\n"
+"Molimo također razmotrite <b>prijavljivanje</b> na Bugzilla-u u cilju "
+"dostavljanja istih. Hvala vam."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -299,10 +316,10 @@ msgstr ""
 #. reported we display a list of reports here.
 #: src/gnome_abrt/views.py:859
 msgid "yes"
-msgstr ""
+msgstr "da"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: src/gnome_abrt/views.py:863
 msgid "no"
-msgstr ""
+msgstr "ne"

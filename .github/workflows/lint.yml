@@ -23,11 +23,11 @@ jobs:
         run: dnf builddep --assumeyes --spec gnome-abrt.spec
 
       - name: Configure build
-        run: meson build
+        run: meson setup build
 
       - name: Build and install packages
         run: |
-            meson compile -C build rpm
+            meson compile -C build rpm -v
             dnf --assumeyes install ./build/rpm/**/*.rpm
 
       - name: Run pylint

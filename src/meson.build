@@ -35,6 +35,7 @@ if pylint.found()
       # This will not fail during configuration if pylintrc is missing:
       # https://github.com/mesonbuild/meson/issues/6175
       '--rcfile=@0@'.format(join_paths(meson.project_source_root(), 'pylintrc')),
+      '--limit-inference-results=5',
       'gnome-abrt',
       'gnome_abrt',
     ],

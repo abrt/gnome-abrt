@@ -93,8 +93,8 @@ class ProblemsFilter:
 
                 # _pattern is 'str' and sbm.data is 'dbus.String', so we need
                 # to convert sbm.data to a regular 'str'
-                rid = str(sbm.data)
-                rid = rid.rstrip('/').split('/')[-1].split('=')[-1]
+                rid = str(sbm.data).rstrip('/')
+                rid = rid.rsplit('/', maxsplit=1)[-1].rsplit('=', maxsplit=1)[-1]
                 if self._pattern in rid:
                     return True
 

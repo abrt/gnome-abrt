@@ -125,8 +125,8 @@ class Problem:
 
                 def update_title_task_func(task, source_object, task_data, cancellable):
                     try:
-                        req = urllib.request.urlopen(self._data)
-                        html = req.read().decode("UTF-8")
+                        with urllib.request.urlopen(self._data) as req:
+                            html = req.read().decode("UTF-8")
                         soup = BeautifulSoup(html, "html.parser")
                         value = GObject.Value(str, soup.title.string)
 

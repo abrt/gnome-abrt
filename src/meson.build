@@ -3,7 +3,7 @@ i18n.merge_file(
   install: true,
   install_dir: join_paths(datadir, 'metainfo'),
   output: 'org.freedesktop.GnomeAbrt.appdata.xml',
-  po_dir: join_paths(meson.source_root(), 'po'),
+  po_dir: join_paths(meson.project_source_root(), 'po'),
   type: 'xml'
 )
 
@@ -12,7 +12,7 @@ i18n.merge_file(
   install: true,
   install_dir: join_paths(datadir, 'applications'),
   output: 'org.freedesktop.GnomeAbrt.desktop',
-  po_dir: join_paths(meson.source_root(), 'po'),
+  po_dir: join_paths(meson.project_source_root(), 'po'),
   type: 'desktop'
 )
 
@@ -31,7 +31,7 @@ if pylint.found()
     args: [
       # This will not fail during configuration if pylintrc is missing:
       # https://github.com/mesonbuild/meson/issues/6175
-      '--rcfile=@0@'.format(join_paths(meson.source_root(), 'pylintrc')),
+      '--rcfile=@0@'.format(join_paths(meson.project_source_root(), 'pylintrc')),
       'gnome-abrt',
       'gnome_abrt',
     ],

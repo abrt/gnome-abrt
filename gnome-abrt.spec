@@ -23,7 +23,7 @@ Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 %endif
 
 BuildRequires: git-core
-BuildRequires: meson
+BuildRequires: meson >= 0.59.0
 BuildRequires: gettext
 BuildRequires: libtool
 BuildRequires: python3-devel

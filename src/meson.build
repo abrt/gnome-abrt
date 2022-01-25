@@ -27,6 +27,9 @@ gnome_abrt_main = configure_file(
 subdir('gnome_abrt')
 
 if pylint.found()
+  lint_env = environment({
+    'GDK_BACKEND': '-',
+  })
   test('lint', pylint,
     args: [
       # This will not fail during configuration if pylintrc is missing:
@@ -35,10 +38,11 @@ if pylint.found()
       'gnome-abrt',
       'gnome_abrt',
     ],
-    workdir: meson.current_build_dir(),
     depends: [
       gnome_abrt_wrappers_module,
     ],
+    env: lint_env,
     timeout: 180, # 3 minutes
+    workdir: meson.current_build_dir(),
   )
 endif

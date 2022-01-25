@@ -43,8 +43,6 @@ def init(progname, localedir='/usr/share/locale'):
     except IOError as ex:
         logging.debug("Unsupported locale '%s': %s", lcl, str(ex))
 
-    gettext.bind_textdomain_codeset(progname,
-                                    locale.nl_langinfo(locale.CODESET))
     gettext.bindtextdomain(progname, localedir)
     gettext.textdomain(progname)
 

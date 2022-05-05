@@ -8,13 +8,14 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2016. #zanata, 2020.
 # Yuri Chornoivan <yurchor@ukr.net>, 2018. #zanata, 2020.
 # Yuri Chornoivan <yurchor@ukr.net>, 2019. #zanata, 2020.
+# Martin Nozistance <nozistance@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-01-24 21:28+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2022-04-12 19:17+0000\n"
+"Last-Translator: Martin Nozistance <nozistance@gmail.com>\n"
 "Language-Team: Ukrainian <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/uk/>\n"
 "Language: uk\n"
@@ -23,11 +24,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.10.3\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr "З_вітувати"
+msgstr "_Звітувати"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"

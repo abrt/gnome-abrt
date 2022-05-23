@@ -717,10 +717,10 @@ class OopsWindow(Gtk.ApplicationWindow):
         link_added = False
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
+                title_escaped = GLib.markup_escape_text(sbm.title)
                 lnk = Gtk.Label.new(sbm.title)
                 lnk.set_use_markup(True)
-                lnk.set_markup(
-                    "<a href=\"{0}\">{1}</a>".format(sbm.data, sbm.title))
+                lnk.set_markup(f"<a href=\"{sbm.data}\">{title_escaped}</a>")
                 lnk.set_halign(Gtk.Align.START)
                 lnk.set_line_wrap(True)
                 lnk.set_visible(True)

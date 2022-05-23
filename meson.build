@@ -47,12 +47,6 @@ xmlto = find_program('xmlto',
   required: get_option('docs')
 )
 
-configure_file(
-  copy: true,
-  input: 'gnome-abrt.spec',
-  output: 'gnome-abrt.spec',
-)
-
 subdir('data')
 subdir('doc')
 subdir('icons')

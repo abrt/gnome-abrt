@@ -8,13 +8,14 @@
 # سـند <0sanad0@gmail.com>, 2015.
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 # Ahmed M. Farrag <a.m.farrag@gmail.com>, 2020.
+# Mostafa Gamal <mostafa.2c6@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-04-08 12:40+0000\n"
-"Last-Translator: Ahmed M. Farrag <a.m.farrag@gmail.com>\n"
+"PO-Revision-Date: 2022-05-23 17:18+0000\n"
+"Last-Translator: Mostafa Gamal <mostafa.2c6@gmail.com>\n"
 "Language-Team: Arabic <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/ar/>\n"
 "Language: ar\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.11.3\n"
+"X-Generator: Weblate 4.12.2\n"
 "X-Project-Style: gnome\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
@@ -63,7 +64,7 @@ msgstr "_عن العلة"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr "التبليغ عن العلل"
+msgstr "التبليغ عن الأخطاء"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
@@ -138,7 +139,7 @@ msgstr "الخاصة بالنظام"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "عرض وتبليغ انهيارات التطبيقات"
+msgstr "عرض وتبليغ عن إنهيار التطبيق"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
@@ -180,12 +181,12 @@ msgstr "الأسبوع الماضي"
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] "منذ {0:d} {1!s}s"
+msgstr[0] "{0:d}دون أسبوع"
 msgstr[1] "منذ أسبوع مضى"
 msgstr[2] "منذ أسبوعين مضيا"
 msgstr[3] "منذ {0:d} أسابيع"
-msgstr[4] "منذ {0:d} أسبوع"
-msgstr[5] "منذ {0:d} {1!s}s"
+msgstr[4] "منذ {0:d}أسابيع"
+msgstr[5] "منذ {0:d} أسبوع"
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
@@ -197,12 +198,12 @@ msgstr "الشهر الماضي"
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] "منذ {0:d} {1!s}s"
+msgstr[0] "منذ أدنى من شهر"
 msgstr[1] "منذ شهر"
 msgstr[2] "منذ شهرين"
 msgstr[3] "منذ {0:d} شهور"
-msgstr[4] "منذ {0:d} شهر"
-msgstr[5] "منذ {0:d} {1!s}s"
+msgstr[4] "منذ {0:d} أشهر"
+msgstr[5] "منذ {0:d} شهور"
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
@@ -216,12 +217,12 @@ msgstr "السنة الماضية"
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] "منذ {0:d} {1!s}s"
+msgstr[0] "منذ أقل من سنة"
 msgstr[1] "منذ سنة"
 msgstr[2] "منذ سنتين"
 msgstr[3] "منذ {0:d} سنوات"
 msgstr[4] "منذ {0:d} سنة"
-msgstr[5] "منذ {0:d} {1!s}s"
+msgstr[5] "منذ {0:d} سنة"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper

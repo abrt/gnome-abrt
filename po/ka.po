@@ -1,120 +1,123 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Weblate <noreply@weblate.org>, 2020.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-06-15 15:18+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr ""
+msgstr "ანგარიში"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
-msgstr ""
+msgstr "_წაშლა"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
-msgstr ""
+msgstr "დეტალები"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "პრობლემის მონაცემების საქაღალდის გახსნა"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "პრობლემის ID-ის ბაფერში კოპირება"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "_ფილტრი"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr ""
+msgstr "_გამართვა"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "პრობლემების ანგარიშის გადაგზავნის შესახებ"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr ""
+msgstr "პრობლემის გადაგზავნა"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "ბევრი პრობლემის მონიშვნა"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "მონიშნული პრობლემის გადაგზავნა"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr ""
+msgstr "მონიშნული პრობლემების წაშლა"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "მოსაძებნად აკრიფეთ"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: data/ui/oops-window.ui:226
 msgid "Version"
-msgstr ""
+msgstr "ვერსია"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
 msgid "First Detected"
-msgstr ""
+msgstr "პირველი ნაპოვნი"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr ""
+msgstr "გადაგზავნილია"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "პრობლემის დეტალების ჩვენება"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr ""
+msgstr "პრობლემები ნაპოვნი არაა!"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr ""
+msgstr "წყარო მონიშნული არაა!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:96
 msgid "Be verbose"
-msgstr ""
+msgstr "დამატებითი შეტყობინებები"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:108
 msgid "Selected problem ID"
-msgstr ""
+msgstr "მონიშნული პრობლემის ID"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:205 src/gnome-abrt:207
 msgid "My"
-msgstr ""
+msgstr "ჩემი"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -122,45 +125,50 @@ msgstr ""
 #: src/gnome-abrt:216 src/gnome-abrt:218
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "სისტემა"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr ""
+msgstr "აპლიკაციების ავარიული დასრულების ნახვა და გადაგზავნა"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;bug reporting;crash logger;შეცდომებისგადაგზავნა;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"პროგრამული უზრუნველყოფის ინსტრუმენტების კოლექცია, რომელიც შექმნილია "
+"პროგრამული უზრუნველყოფის შესახებ ინფორმაციის შეგროვების, ანალიზისა და "
+"ანგარიშებისთვის."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
+"მისი მთავარი მიზანია პრობლემის მოხსენების გაგზავნის პროცესის შემსუბუქება და "
+"გადაწყვეტის პოვნის გაადვილება."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
+msgstr "შეუძლებელია ინტერფეისის '{0}' ბილიკზე '{1}' მატარებელში '{2}':{3}"
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
-msgstr ""
+msgstr "მომავალი"
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr ""
+msgstr "გუშინ"
 
 #: src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "წინა კვირაში"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -169,12 +177,12 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} კვირის წინ"
+msgstr[1] "{0:d} კვირის წინ"
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "წინა თვეში"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -182,12 +190,12 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} თვის წინ"
+msgstr[1] "{0:d} თვის წინ"
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "შარშან"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -197,8 +205,8 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0:d} წლის წინ"
+msgstr[1] "{0:d} წლის წინ"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -206,41 +214,41 @@ msgstr[1] ""
 #: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "სისტემა"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: src/gnome_abrt/views.py:139
 msgid "Application Crash"
-msgstr ""
+msgstr "აპლიკაციის ავარიული დასრულება"
 
 #: src/gnome_abrt/views.py:141
 msgid "System Crash"
-msgstr ""
+msgstr "სისტემის ავარია"
 
 #: src/gnome_abrt/views.py:143
 msgid "System Failure"
-msgstr ""
+msgstr "სისტემური შეცდომა"
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
-msgstr ""
+msgstr "არასწორი ქცევა"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr ""
+msgstr "გაუთვალისწინებელი სისტემური შეცდომა"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
-msgstr ""
+msgstr "სისტემამ პრობლემა აღმოაჩინა, მაგრამ გამოვლინდა და გასწორდა."
 
 #: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
-msgstr ""
+msgstr "სისტემის ფატალურ შეცდომა"
 
 #: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
-msgstr ""
+msgstr "სისტემამ პრობლემა აღმოაჩნია და მუშაობას ვეღარ გააგრძელებს."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -255,30 +263,30 @@ msgstr ""
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "ნაპოვნია {0} პრობლემა"
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} მოულოდნელად გაითიშა"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "სისტემამ პრობლემა აღმოაჩნია და მუშაობას ვეღარ გააგრძელებს."
 
 #. Translators: package name not available
 #. Translators: package version not available
 #: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
 msgid "N/A"
-msgstr ""
+msgstr "არარსებული"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr ""
+msgstr "გადაგზავნა შეუძლებელია"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
-msgstr ""
+msgstr "ანგარიში"
 
 #: src/gnome_abrt/views.py:850
 msgid ""
@@ -287,6 +295,9 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"პრობლემა დაფიქსირდა, მაგრამ <i>Bugzilla-ის</i> ბილეთი არ გახსნილა. ჩვენს "
+"დეველოპერებს შეიძლება პრობლემის მოსაგვარებლად მეტი ინფორმაცია დასჭირდეთ.\n"
+"გთხოვთ, განიხილოთ ასევე <b>შეატყობინოთ</b> Bugzilla-ს, რათა უზრუნველყოთ ეს."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -294,10 +305,10 @@ msgstr ""
 #. reported we display a list of reports here.
 #: src/gnome_abrt/views.py:859
 msgid "yes"
-msgstr ""
+msgstr "დიახ"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: src/gnome_abrt/views.py:863
 msgid "no"
-msgstr ""
+msgstr "no"

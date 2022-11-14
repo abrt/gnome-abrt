@@ -31,7 +31,7 @@ ngettext = gettext.ngettext
 def init(progname, localedir='/usr/share/locale'):
     global GETTEXT_PROGNAME
     GETTEXT_PROGNAME = progname
-    lcl = 'C'
+
     try:
         lcl = locale.setlocale(locale.LC_ALL, "")
     except locale.Error:

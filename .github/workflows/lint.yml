@@ -1,4 +1,4 @@
-name: Run pylint
+name: Run Pylint
 on:
   pull_request:
     branches: [master]
@@ -10,25 +10,20 @@ jobs:
       image: fedora:latest
     runs-on: ubuntu-latest
     steps:
-      - name: Install git
-        run: dnf --assumeyes install git
-
       - name: Check out sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install build environment
-        run: dnf --assumeyes install dnf-plugins-core tito
+        run: dnf --assumeyes install dnf-plugins-core python3-pylint tito
 
       - name: Install build dependencies
-        run: dnf builddep --assumeyes --spec gnome-abrt.spec
+        run: dnf --assumeyes builddep --spec gnome-abrt.spec
 
       - name: Configure build
         run: meson setup build
 
       - name: Build and install packages
-        run: |
-            meson compile -C build rpm -v
-            dnf --assumeyes install ./build/rpm/**/*.rpm
+        run: ninja -v -C build
 
-      - name: Run pylint
+      - name: Run Pylint
         run: meson test -C build --print-errorlogs lint

@@ -14,7 +14,7 @@ Version:    1.4.2
 Release:    1%{?snapshot:.git%{shortcommit}}%{?dist}
 Summary:    A utility for viewing problems that have occurred with the system
 
-License:    GPLv2+
+License:    GPL-2.0-or-later
 URL:        https://github.com/abrt/%{name}
 %if 0%{?snapshot}
 Source0:    %{url}/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz

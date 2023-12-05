@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Weblate <noreply@weblate.org>, 2020.
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2022-06-15 15:18+0000\n"
+"PO-Revision-Date: 2023-07-14 05:21+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/ka/>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr "ანგარიში"
+msgstr "_ანგარიში"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
@@ -272,7 +272,7 @@ msgstr "{0} მოულოდნელად გაითიშა"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
-msgstr "სისტემამ პრობლემა აღმოაჩნია და მუშაობას ვეღარ გააგრძელებს."
+msgstr "აპლიკაციამ პრობლემა აღმოაჩნია და მუშაობას ვეღარ გააგრძელებს."
 
 #. Translators: package name not available
 #. Translators: package version not available
@@ -286,7 +286,7 @@ msgstr "გადაგზავნა შეუძლებელია"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
-msgstr "ანგარიში"
+msgstr "ანგარიშები"
 
 #: src/gnome_abrt/views.py:850
 msgid ""

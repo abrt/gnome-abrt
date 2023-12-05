@@ -5,7 +5,7 @@
 # Translators:
 # Chester Cheng <ccheng@redhat.com>, 2012-2013
 # Terry Chuang <tchuang@redhat.com>, 2011,2013
-# Cheng-Chia Tseng <pswo10680@gmail.com>, 2017. #zanata
+# Cheng-Chia Tseng <pswo10680@gmail.com>, 2017. #zanata, 2023.
 # Peter Pan <pan93412@gmail.com>, 2018. #zanata
 # Enfong Cao <nelson22768384@gmail.com>, 2021.
 msgid ""
@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2021-03-27 05:01+0000\n"
-"Last-Translator: Enfong Cao <nelson22768384@gmail.com>\n"
+"PO-Revision-Date: 2023-11-10 11:29+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.fedoraproject.org/"
 "projects/abrt/gnome-abrt/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.1\n"
+"X-Generator: Weblate 5.1.1\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -38,7 +38,7 @@ msgstr "細節(_E)"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "開啟問題資料目錄(_O)"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
@@ -77,7 +77,7 @@ msgstr "刪除所選擇的問題"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "輸入以搜尋"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
@@ -98,7 +98,7 @@ msgstr "已回報"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "顯示問題細節"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
@@ -112,7 +112,7 @@ msgstr "未選擇來源！"
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:96
 msgid "Be verbose"
-msgstr "詳細訊息"
+msgstr "詳盡模式"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'

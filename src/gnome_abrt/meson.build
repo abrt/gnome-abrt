@@ -25,7 +25,6 @@ gnome_abrt_sources = [
   'errors.py',
   'problems.py',
   'signals.py',
-  'tools.py',
   'views.py',
   'l10n.py',
 ]

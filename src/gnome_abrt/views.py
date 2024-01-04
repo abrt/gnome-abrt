@@ -37,7 +37,6 @@ import humanize
 
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
-from gnome_abrt.tools import fancydate
 
 class ProblemsFilter:
 
@@ -139,7 +138,7 @@ def problem_to_storage_values(problem):
         problem_type = _("Misbehavior")
 
     return (name,
-            fancydate(problem['date_last']),
+            humanize.naturaltime(datetime.datetime.now()-problem['date_last']),
             problem_type,
             problem['count'],
             problem)

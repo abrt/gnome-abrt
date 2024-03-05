@@ -10,13 +10,14 @@
 # <raypoatssium@gmail.com>, 2011-2012, 2013
 # Matej Habrnal <mhabrnal@redhat.com>, 2016. #zanata
 # simmon <simmon@nplob.com>, 2021.
+# 김인수 <simmon@nplob.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2021-04-13 06:02+0000\n"
-"Last-Translator: simmon <simmon@nplob.com>\n"
+"PO-Revision-Date: 2024-02-19 02:36+0000\n"
+"Last-Translator: 김인수 <simmon@nplob.com>\n"
 "Language-Team: Korean <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/ko/>\n"
 "Language: ko\n"
@@ -24,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.3\n"
+"X-Generator: Weblate 5.4\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -36,28 +37,28 @@ msgstr "_삭제"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
 msgid "D_etails"
-msgstr "상세정보"
+msgstr "상세정보(_E)"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr "_개방 문제 자료 디렉토리"
+msgstr "문제되는 자료 디렉토리 개방(_O)"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr "_클립보드에 문제 ID 복사"
+msgstr "클립보드에 문제 ID 복사(_C)"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr "_제거"
+msgstr "필터(_F)"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr "_환경 설정"
+msgstr "환경 설정(_P)"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
 msgid "_About Problem Reporting"
-msgstr "_문제 보고에 대하여"
+msgstr "문제 보고 정보(_A)"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
@@ -108,7 +109,7 @@ msgstr "아무런 문제도 발견되지 않았습니다!"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr "선택된 소스가 없습니다!"
+msgstr "선택된 원천이 없습니다!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -138,18 +139,17 @@ msgstr "시스템"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "응용프로그램 충돌을 확인 및 보고합니다"
+msgstr "응용프로그램 충돌 확인 및 보고"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr "abrt; 버그 보고;충돌 기록기;"
+msgstr "abrt;결점 보고;충돌 기록기;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
-msgstr ""
-"소프트웨어 문제 수집, 분석, 보고를 위해 고안된 소프트웨어 도구 모음입니다."
+msgstr "소프트웨어 문제 수집, 분석, 보고를 위해 고안된 소프트웨어 도구 모음."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
@@ -160,7 +160,7 @@ msgstr "이 주요 목적은 문제와 해결책을 찾는 보고 과정을 쉽�
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr "버스 '{2}'의 경로 '{1}'에서 인터페이스 '{0}'를 얻을 수 없습니다: {3}"
+msgstr "버스에서 연결장치 '{0}'을 가져 올 수 없습니다( '{1}'의 경로에서) '{2}': {3}"
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -193,7 +193,7 @@ msgstr "지난 달"
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] "{0:d} 몇 달 전"
+msgstr[0] "{0:d} 몇달 전"
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
@@ -233,15 +233,15 @@ msgstr "시스템 실패"
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
-msgstr "잘못 된 행위"
+msgstr "잘못된 행위"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr "기대하지 않는 시스템 오류"
+msgstr "예상치 못한 시스템 오류"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
-msgstr "시스템이 문제가 발생였고 회복되었습니다."
+msgstr "시스템이 문제에 빠졌고 복구되었습니다."
 
 #: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
@@ -249,7 +249,7 @@ msgstr "치명적인 시스템 실패"
 
 #: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
-msgstr "시스템에 문제가 발생하여 계속 진행 할 수 없습니다."
+msgstr "시스템에 문제가 빠졌고 계속 진행 할 수 없습니다."
 
 #. Translators: If Application's name is unknown,
 #. display neutral header
@@ -273,7 +273,7 @@ msgstr "{0} 의도치 않게 중지 되었습니다"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
-msgstr "응용프로그램에 문제가 발생하였으며 계속 진행 할 수 없습니다."
+msgstr "응용프로그램이 문제에 빠졌고 계속 진행 할 수 없습니다."
 
 #. Translators: package name not available
 #. Translators: package version not available
@@ -296,10 +296,10 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"이 문제가 보고되었습니다만 <i>Bugzilla</i> 티켓이 오픈되지 않았습니다. 문제"
-"를 해결하기 위해 개발자에게 더 많은 정보가 필요할 수 있습니다.\n"
-"더 많은 정보를 제공하기 위해 Bugzilla에 <b>보고</b>하는 것을 고려하시기 바랍"
-"니다. 감사합니다."
+"이 문제는 보고되었지만 <i>Bugzilla</i> 티켓이 열리지 않았습니다. 문제를 "
+"해결하기 위해 개발자는 더 많은 정보가 필요 할 수 있습니다.\n"
+"정보를 제공하기 위해 Bugzilla에 <b>보고</b>하는 것도 고려해 주세요. "
+"감사합니다."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

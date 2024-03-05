@@ -7,13 +7,14 @@
 # Emin Tufan Çetin <etcetin@gmail.com>, 2018. #zanata
 # Serdar Sağlam <teknomobil@msn.com>, 2019. #zanata
 # Oğuz Ersen <oguzersen@protonmail.com>, 2020.
+# Sabri Ünal <libreajans@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-05-22 11:40+0000\n"
-"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"PO-Revision-Date: 2024-02-26 01:36+0000\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/tr/>\n"
 "Language: tr\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
-"X-Generator: Weblate 4.0.4\n"
+"X-Generator: Weblate 5.4\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -80,7 +81,7 @@ msgstr "Aramak için yazın"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr "İsim"
+msgstr "Ad"
 
 #: data/ui/oops-window.ui:226
 msgid "Version"

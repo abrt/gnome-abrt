@@ -25,8 +25,9 @@ python_installation = python.find_installation('python3',
 )
 
 abrt_dep = dependency('abrt')
+adwaita_dep = dependency('libadwaita-1')
 gio_dep = dependency('gio-2.0')
-gtk_dep = dependency('gtk+-3.0')
+gtk_dep = dependency('gtk4')
 libreport_gtk_dep = dependency('libreport-gtk')
 pygobject_dep = dependency('pygobject-3.0', version: '>= 3.29.1')
 python_dep = dependency('python3')

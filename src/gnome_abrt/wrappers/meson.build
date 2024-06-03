@@ -27,6 +27,7 @@ gnome_abrt_wrappers_module = python_installation.extension_module('_wrappers', g
   subdir: 'gnome_abrt/wrappers',
   dependencies: [
     abrt_dep,
+    adwaita_dep,
     gio_dep,
     gtk_dep,
     libreport_gtk_dep,

@@ -34,7 +34,8 @@ BuildRequires: pkgconfig(pygobject-3.0)
 BuildRequires: libreport-gtk-devel > 2.14.0
 BuildRequires: python3-libreport
 BuildRequires: abrt-gui-devel > 2.14.0
-BuildRequires: gtk3-devel
+BuildRequires: gtk4-devel
+BuildRequires: libadwaita-devel
 %if 0%{?fedora}
 BuildRequires: python3-six
 BuildRequires: python3-gobject

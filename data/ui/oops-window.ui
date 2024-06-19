@@ -6,16 +6,15 @@
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">True</property>
-        <property name="show-close-button">True</property>
-        <property name="title" translatable="yes">Problem Reporting</property>
         <child>
           <object class="GtkBox" id="box_header_left">
             <property name="halign">start</property>
             <property name="visible">True</property>
             <property name="spacing">6</property>
-            <signal name="size-allocate" handler="on_box_header_left_size_allocate" swapped="no"/>
+            <signal name="notify::allocation" handler="on_box_header_left_size_allocate" swapped="no"/>
             <child>
               <object class="GtkStackSwitcher" id="box_sources_switcher">
+                <property name="stack">nb_problem_layout</property> <!-- Link to the GtkStack -->
                 <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="visible">True</property>
@@ -40,19 +39,25 @@
           </object>
         </child>
         <child>
-          <object class="GtkMenuButton" id="app_menu_button">
-            <property name="margin-start">6</property>
+          <object class="GtkLabel">
             <property name="visible">True</property>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="icon-name">open-menu-symbolic</property>
-              </object>
-            </child>
+            <property name="label" translatable="yes">Problem Reporting</property>
+             <property name="halign">center</property>
+             <property name="valign">center</property>
           </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_delete">
+            <property name="label" translatable="yes">_Delete</property>
+            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
+            <property name="action-name">win.delete</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">end</property>
+            <property name="valign">end</property>
+            <property name="use_underline">True</property>
+          </object>
         </child>
         <child>
           <object class="GtkButton" id="btn_report">
@@ -67,25 +72,31 @@
               <class name="suggested-action"/>
             </style>
           </object>
-          <packing>
-            <property name="pack_type">end</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btn_delete">
-            <property name="label" translatable="yes">_Delete</property>
-            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-            <property name="action-name">win.delete</property>
+          <object class="GtkButton" id="btn_close">
+            <property name="label" translatable="yes">_Close</property>
+            <property name="tooltip_text" translatable="yes">Close the application</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="halign">end</property>
             <property name="valign">end</property>
             <property name="use_underline">True</property>
+            <signal name="clicked" handler="on_close_button_clicked" swapped="no"/>
           </object>
-          <packing>
-            <property name="pack_type">end</property>
-          </packing>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="app_menu_button">
+            <property name="margin-start">6</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">open-menu-symbolic</property>
+              </object>
+            </child>
+          </object>
         </child>
       </object>
     </child>
@@ -96,14 +107,14 @@
         <property name="position">310</property>
         <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
         <signal name="map" handler="on_paned_map" swapped="no"/>
-        <signal name="size-allocate" handler="on_paned_size_allocate" swapped="no"/>
         <child>
           <object class="GtkBox" id="box_panel_left">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkSearchEntry" id="search_entry">
-                <property name="margin">6</property>
+                <property name="margin-start">6</property>
+                <property name="margin-end">6</property>
                 <property name="visible">True</property>
                 <property name="placeholder-text" translatable="yes">Type to search</property>
                 <signal name="search-changed" handler="on_se_problems_search_changed"/>
@@ -123,7 +134,6 @@
                       <object class="GtkListBox" id="lb_problems">
                         <property name="visible">True</property>
                         <property name="selection_mode">browse</property>
-                        <signal name="button-press-event" handler="problems_button_press_event" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -131,16 +141,13 @@
               </object>
             </child>
           </object>
-          <packing>
-            <property name="resize">False</property>
-            <property name="shrink">False</property>
-          </packing>
         </child>
         <child>
           <object class="GtkStack" id="nb_problem_layout">
             <property name="visible">True</property>
-            <property name="expand">True</property>
-            <property name="margin">18</property>
+            <property name="hexpand">True</property>
+            <property name="margin-start">18</property>
+            <property name="margin-end">18</property>
             <child>
               <object class="GtkBox" id="gd_problem_info">
                 <property name="visible">True</property>
@@ -184,7 +191,7 @@
                             <property name="visible">True</property>
                             <property name="xalign">0</property>
                             <property name="yalign">0</property>
-                            <property name="label">Application can't continue becuase of received signal</property>
+                            <property name="label">Application can't continue because of received signal</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
                           </object>
@@ -227,11 +234,11 @@
                         <style>
                           <class name="dim-label"/>
                         </style>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">0</property>
+                        </layout> 
                       </object>
-                      <packing>
-                        <property name="top-attach">1</property>
-                        <property name="left-attach">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="lbl_app_version_value">
@@ -240,11 +247,11 @@
                         <property name="label">2.0.13-2</property>
                         <property name="selectable">True</property>
                         <property name="ellipsize">end</property>
+                        <layout>
+                            <property name="column">0</property>
+                            <property name="row">1</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="top-attach">1</property>
-                        <property name="left-attach">1</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="lbl_detected">
@@ -254,11 +261,11 @@
                         <style>
                           <class name="dim-label"/>
                         </style>
+                        <layout>
+                          <property name="row">0</property>
+                          <property name="column">2</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">2</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="lbl_detected_value">
@@ -266,11 +273,11 @@
                         <property name="halign">start</property>
                         <property name="label">2013-04-09 18:55</property>
                         <property name="selectable">True</property>
+                        <layout>
+                          <property name="row">1</property>
+                          <property name="column">2</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">2</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="lbl_reported">
@@ -282,11 +289,11 @@
                         <style>
                           <class name="dim-label"/>
                         </style>
+                        <layout>
+                          <property name="row">0</property>
+                          <property name="column">3</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">3</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="vbx_links">
@@ -295,17 +302,17 @@
                         <property name="spacing">12</property>
                         <child>
                           <object class="GtkLabel" id="lbl_reported_value">
-                            <property name="no_show_all">True</property>
+                            <property name="visible">False</property>
                             <property name="halign">start</property>
                             <property name="label">no</property>
                             <property name="selectable">True</property>
                           </object>
                         </child>
+                        <layout>
+                          <property name="row">1</property>
+                          <property name="column">3</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">3</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
@@ -345,16 +352,8 @@
                       <class name="dim-label"/>
                     </style>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <object class="GtkBox" id="vbx_no_source_page">
@@ -371,16 +370,8 @@
                       <class name="dim-label"/>
                     </style>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="position">2</property>
-              </packing>
             </child>
           </object>
         </child>

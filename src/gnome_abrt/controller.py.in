@@ -71,7 +71,9 @@ class Controller:
                 return
 
             if pid == 0:
-                exctbl = "@libexecdir@/abrt-handle-event"
+                #exctbl = "@libexecdir@/abrt-handle-event"
+                # Replace @libexecdir@ with the actual path to the executable
+                exctbl = "/usr/libexec/abrt-handle-event"
                 args = [exctbl, "-e", event, "--", problem.problem_id]
                 try:
                     os.execvp(exctbl, args)

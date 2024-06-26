@@ -501,25 +501,25 @@ class OopsWindow(Gtk.ApplicationWindow):
         return 
     '''
 
+    
     #jft - added this into init
-    def problems_button_press_event(self, sender, data):
-        # getattribute() used because number as first character in name
-        # is syntax error
-        if (data.type == type.__getattribute__(Gdk.EventType, '2BUTTON_PRESS')
-                and data.button == Gdk.BUTTON_PRIMARY):
+    def problems_button_press_event(self, gesture, n_press, x, y):
+    # Determine the type of click based on the number of presses
+        if n_press == 2:  # Double click
             action = self.lookup_action('report')
             action.activate()
-        elif (data.type == Gdk.EventType.BUTTON_PRESS
-                and data.button == Gdk.BUTTON_SECONDARY):
-            if len(self.lss_problems.get_selected_rows()) > 1:
-                self.menu_multiple_problems.set_parent(self) #jft
-                self.menu_multiple_problems.popup_at_pointer(data)
-                return True
-            problem_row = self.lb_problems.get_row_at_y(data.y)
-            if problem_row:
-                self.lb_problems.select_row(problem_row)
-                self.menu_problem_item.set_parent(self)
-                self.menu_problem_item.popup_at_pointer(data)
+        elif n_press == 1:  # Single click
+            button = gesture.get_current_button()
+            if button == Gdk.BUTTON_SECONDARY:
+                if len(self.lss_problems.get_selected_rows()) > 1:
+                    self.menu_multiple_problems.set_parent(self)
+                    self.menu_multiple_problems.popup_at_pointer(None)
+                    return True
+                problem_row = self.lb_problems.get_row_at_y(y)
+                if problem_row:
+                    self.lb_problems.select_row(problem_row)
+                    self.menu_problem_item.set_parent(self)
+                    self.menu_problem_item.popup_at_pointer(None)
         return None
     
     #jft - added this into init
@@ -744,7 +744,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         selected = problem in self._get_selected(self.lss_problems)
 
-        problem_row.destroy()
+        #problem_row.destroy()
+        # Use unparent instead of destroy
+        problem_row.unparent()
 
         if selected:
             for i in range(index, -1, -1):
@@ -909,7 +911,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     @handle_problem_and_source_errors
     def _set_problem(self, problem):
-        def destroy_links(widget, _):
+        def destroy_links(widget):
             if widget != self.lbl_reported_value:
                 widget.destroy()
 
@@ -920,8 +922,16 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lookup_action('delete').set_enabled(action_enabled)
         self.lookup_action('report').set_enabled(action_enabled and not problem['not-reportable'])
 
-        self.vbx_links.foreach(destroy_links, None)
-        self.vbx_problem_messages.foreach(lambda w, u: w.destroy(), None)
+        # Iterate through children and destroy them
+        child = self.vbx_links.get_first_child()
+        while child:
+            destroy_links(child)
+            child = child.get_next_sibling()
+
+        child = self.vbx_problem_messages.get_first_child()
+        while child:
+            child.destroy()
+            child = child.get_next_sibling()
 
 
         if not problem:
@@ -948,29 +958,31 @@ class OopsWindow(Gtk.ApplicationWindow):
         scale = self.img_app_icon.get_scale_factor()
         style_context = self.img_app_icon.get_style_context()
 
-        style_context.remove_class(Gtk.STYLE_CLASS_DIM_LABEL)
+        style_context.remove_class('dim-label')  # Use the string directly
 
         pixbuf = None
 
         if app.icon:
             icon_info = theme.lookup_by_gicon(app.icon, 128, Gtk.IconLookupFlags.FORCE_SIZE)
-            try:
-                pixbuf = icon_info.load_icon() if icon_info else None
-            except GLib.Error as ex:
+            if icon_info:
+                pixbuf = icon_info
+            else:
+                #logging.warning('Failed to load default icon for %s: %s', app.name, ex)
                 logging.warning('Failed to load default icon for %s: %s', app.name, ex)
 
         if not pixbuf:
             try:
-                pixbuf = theme.lookup_icon('system-run-symbolic', None, 128, scale, Gtk.TextDirection.NONE,
-                                           (Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_SYMBOLIC))
-
-                style_context.add_class(Gtk.STYLE_CLASS_DIM_LABEL)
+                icon_info = theme.lookup_icon('system-run-symbolic', None, 128, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SYMBOLIC)
+                if icon_info:
+                    pixbuf = icon_info
+                style_context.add_class('dim-label')
             except GLib.Error as ex:
                 logging.warning('Failed to load system-run-symbolic: %s', ex)
 
         if pixbuf:
-            surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, self.img_app_icon.get_window())
-            self.img_app_icon.set_from_surface(surface)
+            #surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, self.img_app_icon.get_window())
+            #self.img_app_icon.set_from_surface(surface)
+            self.img_app_icon.set_from_paintable(pixbuf)
         else:
             self.img_app_icon.clear()
 
@@ -1048,8 +1060,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     def on_gac_detail_activate(self, action, parameter, user_data):
         selected = self._get_selected(self.lss_problems)
         if selected:
-            wrappers.show_problem_details_for_dir(
-                    selected[0].problem_id, self)
+            wrappers.show_problem_details_for_dir(selected[0].problem_id, self)
 
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action, parameter, user_data):

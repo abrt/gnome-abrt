@@ -285,8 +285,10 @@ class OopsApplication(Gtk.Application):
         if windows:
             dialog.set_transient_for(windows[0])
 
-        dialog.run()
-        dialog.destroy()
+        #dialog.run()
+        dialog.present()
+        #dialog.destroy()
+        dialog.connect("response", lambda d, r: d.destroy())
 
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):

@@ -20,6 +20,7 @@
 import os
 import time
 import logging
+logging.basicConfig(level=logging.DEBUG) #jft
 import traceback
 import datetime
 import gi
@@ -280,6 +281,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     box_header_left = Gtk.Template.Child()
     box_sources_switcher = Gtk.Template.Child()
     box_panel_left = Gtk.Template.Child()
+    search_entry = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
     lbl_app_name_value = Gtk.Template.Child()
@@ -300,8 +302,8 @@ class OopsWindow(Gtk.ApplicationWindow):
     gd_problem_info = Gtk.Template.Child()
     vbx_empty_page = Gtk.Template.Child()
     vbx_no_source_page = Gtk.Template.Child()
-    search_entry = Gtk.Template.Child()
     gr_main_layout = Gtk.Template.Child()
+    btn_close = Gtk.Template.Child()
 
     def placeholder_mapped(self, label, data):
         self.tbtn_multi_select.set_sensitive(False)
@@ -375,7 +377,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         #self.menu_problem_item = Gtk.Menu.new_from_model(self.menu_problem_item)
         self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item) #jft
 
-        #self.menu_problem_item.attach_to_widget(self) #jft comment
+        #self.menu_problem_item.attach_to_widget(self) #jft
 
         self.menu_multiple_problems = builder.get_object(
                 'menu_multiple_problems')
@@ -383,14 +385,16 @@ class OopsWindow(Gtk.ApplicationWindow):
         #        self.menu_multiple_problems)
         self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems) #jft
 
-        #self.menu_multiple_problems.attach_to_widget(self) #jft comment
+        #self.menu_multiple_problems.attach_to_widget(self) #jft
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/css/oops.css')
         stl_ctx = self.get_style_context()
         #stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
-        stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv, 6000) #jft
+        #stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv, 6000) #jft
+        stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv,
+                                                  Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
@@ -433,122 +437,22 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._source_observer.enable()
 
         #self.lb_problems.connect("key-press-event", self._on_key_press_event)
-        #self.connect("key-press-event", self._on_key_press_event)
         key_controller = Gtk.EventControllerKey()
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
+        self.tbtn_multi_select.connect('toggled', self.on_tbtn_multi_select_toggled)
+        self.btn_close.connect("clicked", self.on_close_button_clicked)
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate) #jft
         self.gr_main_layout.connect("notify::allocation", self.on_paned_layout_changed) #jft
-        #self.connect('toggled', self.on_tbtn_multi_select_toggled) #jft
         self.search_entry.connect('search-changed', self.on_se_problems_search_changed) #jft
-        #self.lb_problems.connect('button-press-event', self.problems_button_press_event) #jft
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
 
     #jft
-    @Gtk.Template.Callback()
     def on_close_button_clicked(self, button):
         self.close()
-
-    #jft - added this into init
-    #@Gtk.Template.Callback()  # Added this decorator to connect the signal
-    def on_tbtn_multi_select_toggled(self, tbtn):  # Ensured this method is inside the class
-        if tbtn.get_active():
-            self.lb_problems.set_selection_mode(
-                    Gtk.SelectionMode.MULTIPLE)
-            self.header_bar.get_style_context().add_class('selection-mode')
-        else:
-            row = self.lb_problems.get_selected_row()
-            if row is None:
-                row = self.lb_problems.get_row_at_index(0)
-
-            self.lb_problems.set_selection_mode(
-                    Gtk.SelectionMode.BROWSE)
-
-            if row is not None and self._filter.match(row):
-                self.lb_problems.select_row(row)
-
-            self.header_bar.get_style_context().remove_class('selection-mode')
-
-    #jft -  added this into init
-    @handle_problem_and_source_errors
-    def on_se_problems_search_changed(self, entry):
-        self._filter.set_pattern(entry.get_text())
-
-    #jft - added this into init
-    def _on_key_press_event(self, controller, keyval, keycode, state):
-        handled = self.search_entry.emit("key-press-event", keyval, keycode, state)
-        if handled:
-            bounds = self.search_entry.get_selection_bounds()
-            if not bounds:
-                position = self.search_entry.get_position()
-                bounds = (position, position)
-            self.search_entry.grab_focus()
-            self.search_entry.select_region(bounds[0], bounds[1])
-        return handled
-    '''
-    def _on_key_press_event(self, sender, event):
-        handled = self.search_entry.handle_event(event)
-        if handled:
-            bounds = self.search_entry.get_selection_bounds()
-            if not bounds:
-                position = self.search_entry.get_position()
-                bounds = (position, position)
-            self.search_entry.grab_focus()
-            self.search_entry.select_region(bounds[0], bounds[1])
-        return 
-    '''
-
-    
-    #jft - added this into init
-    def problems_button_press_event(self, gesture, n_press, x, y):
-    # Determine the type of click based on the number of presses
-        if n_press == 2:  # Double click
-            action = self.lookup_action('report')
-            action.activate()
-        elif n_press == 1:  # Single click
-            button = gesture.get_current_button()
-            if button == Gdk.BUTTON_SECONDARY:
-                if len(self.lss_problems.get_selected_rows()) > 1:
-                    self.menu_multiple_problems.set_parent(self)
-                    self.menu_multiple_problems.popup_at_pointer(None)
-                    return True
-                problem_row = self.lb_problems.get_row_at_y(y)
-                if problem_row:
-                    self.lb_problems.select_row(problem_row)
-                    self.menu_problem_item.set_parent(self)
-                    self.menu_problem_item.popup_at_pointer(None)
-        return None
-    
-    #jft - added this into init
-    def on_box_header_left_size_allocate(self, sender):
-        other = self.box_panel_left
-
-        # Sometimes this function is called too early. All widgets must
-        # be realized in order to measure their relative position.
-        if not sender.get_realized() or not other.get_realized():
-            return
-
-        # We can't set the new size request while a widget size is being
-        # allocated because the widget must be fully measured and the new
-        # size request clears the measured flag causing a warning. For the
-        # same reason we can't set the new size request of another widget
-        # sharing the same common toplevel because the new size requsest
-        # causes resize of all its parents including the common parent which
-        # is just being allocated. To avoid this we schedule this action
-        # on idle.
-        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
-
-    #jft - added this into init
-    def on_paned_layout_changed(self, sender):
-        self.update_box_header_left_size_from_paned(sender)
-
-    #jft - added this into init
-    def on_paned_map(self, sender):
-        self.on_paned_layout_changed(sender)
-
 
     def _add_actions(self, application):
         action_entries = [
@@ -589,13 +493,11 @@ class OopsWindow(Gtk.ApplicationWindow):
             src_btn.source = src
             #jft
             #self.box_sources_switcher.pack_start(src_btn, False, True, 0)
-            # Create a new page for each source
+            #creating a new page for each source
             source_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
             source_page.append(src_btn)
-
-            # Add the source page to the stack
+            #adding the source page to the stack
             stack.add_titled(source_page, name, label)
-
 
             # add an extra member name (I don't like it but it so easy)
             src.name = name
@@ -745,7 +647,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         selected = problem in self._get_selected(self.lss_problems)
 
         #problem_row.destroy()
-        # Use unparent instead of destroy
+        #using unparent instead of destroy
         problem_row.unparent()
 
         if selected:
@@ -862,7 +764,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 lnk.set_use_markup(True)
                 lnk.set_markup(f"<a href=\"{sbm.data}\">{title_escaped}</a>")
                 lnk.set_halign(Gtk.Align.START)
-                lnk.set_line_wrap(True)
+                lnk.set_wrap(True)
                 lnk.set_visible(True)
                 self.vbx_links.append(lnk) #jft
                 link_added = True
@@ -875,7 +777,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         msg.set_visible(True)
         msg.set_halign(Gtk.Align.START)
         msg.set_valign(Gtk.Align.START)
-        msg.set_line_wrap(True)
+        msg.set_wrap(True)
         msg.set_selectable(True)
         msg.set_xalign(0)
         self.vbx_problem_messages.append(msg) #jft
@@ -913,7 +815,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _set_problem(self, problem):
         def destroy_links(widget):
             if widget != self.lbl_reported_value:
-                widget.destroy()
+                widget.unparent()
 
         self.selected_problem = problem
 
@@ -930,7 +832,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         child = self.vbx_problem_messages.get_first_child()
         while child:
-            child.destroy()
+            child.unparent()
             child = child.get_next_sibling()
 
 
@@ -968,7 +870,7 @@ class OopsWindow(Gtk.ApplicationWindow):
                 pixbuf = icon_info
             else:
                 #logging.warning('Failed to load default icon for %s: %s', app.name, ex)
-                logging.warning('Failed to load default icon for %s: %s', app.name, ex)
+                logging.warning('Failed to load default icon for %s', app.name)
 
         if not pixbuf:
             try:
@@ -1017,9 +919,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _get_selected(self, selection):
         return selection.get_selected_rows()
-    '''
-    @Gtk.Template.Callback()
+    
+    #jft
     def on_tbtn_multi_select_toggled(self, tbtn):
+        '''
         if tbtn.get_active():
             self.lb_problems.set_selection_mode(
                     Gtk.SelectionMode.MULTIPLE)
@@ -1036,7 +939,27 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.lb_problems.select_row(row)
 
             self.header_bar.get_style_context().remove_class('selection-mode')
-    '''
+        '''
+        if tbtn.get_active():
+            self.lb_problems.set_selection_mode(Gtk.SelectionMode.MULTIPLE)
+            self.header_bar.get_style_context().add_class('selection-mode')
+
+            # Select all rows
+            row = self.lb_problems.get_first_child()
+            while row:
+                self.lb_problems.select_row(row)
+                row = row.get_next_sibling()
+        else:
+            row = self.lb_problems.get_selected_row()
+            if row is None:
+                row = self.lb_problems.get_row_at_index(0)
+
+            self.lb_problems.set_selection_mode(Gtk.SelectionMode.BROWSE)
+
+            if row is not None and self._filter.match(row):
+                self.lb_problems.select_row(row)
+
+            self.header_bar.get_style_context().remove_class('selection-mode')
             
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
@@ -1055,12 +978,53 @@ class OopsWindow(Gtk.ApplicationWindow):
             except errors.InvalidProblem as ex:
                 logging.debug(traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)
+    '''
+    def show_problem_details_for_dir(self, problem_id, parent_window):
+        logging.debug("In show_problem_details_for_dir with problem_id: %s", problem_id)
+        logging.debug("Parent window type: %s", type(parent_window))
+        # Temporary: Just show a basic dialog
+        dialog = Gtk.MessageDialog(
+            transient_for=parent_window,
+            modal=True,
+            message_type=Gtk.MessageType.INFO,
+            buttons=Gtk.ButtonsType.OK,
+            text="Problem Details",
+        )
+
+        # Create a label for the secondary text and add it to the dialog
+        secondary_text = Gtk.Label(label=f"Details for problem ID: {problem_id}")
+        secondary_text.set_wrap(True)
+        secondary_text.set_margin_top(10)
+        secondary_text.set_margin_bottom(10)
+        dialog.get_content_area().append(secondary_text)
+
+        dialog.show()
+        dialog.connect("response", lambda d, r: d.destroy())
+    '''
 
     @handle_problem_and_source_errors
     def on_gac_detail_activate(self, action, parameter, user_data):
         selected = self._get_selected(self.lss_problems)
         if selected:
-            wrappers.show_problem_details_for_dir(selected[0].problem_id, self)
+            problem_id = selected[0].problem_id
+            wrappers.show_problem_details_for_dir(problem_id, self)
+            '''
+            problem_id = selected[0].problem_id
+            logging.debug("Selected problem ID: %s", problem_id)
+            logging.debug("Self Type: %s", type(self))
+            logging.debug("Selected Object Type: %s", type(selected[0]))
+
+            # Ensure the correct instance and usage for show_problem_details_for_dir
+            if hasattr(wrappers, 'show_problem_details_for_dir'):
+                try:
+                    #wrappers.show_problem_details_for_dir(problem_id, self)
+                    self.show_problem_details_for_dir(problem_id, self)
+                except Exception as ex:
+                    logging.exception("Error calling show_problem_details_for_dir: %s", ex)
+            else:
+                logging.error("Function show_problem_details_for_dir not found in wrappers")
+            '''
+
 
     @handle_problem_and_source_errors
     def on_gac_report_activate(self, action, parameter, user_data):
@@ -1069,23 +1033,25 @@ class OopsWindow(Gtk.ApplicationWindow):
             # For gnome-shell to associate the child process windows with this application.
             os.environ["LIBREPORT_PRGNAME"] = self.get_application().get_application_id()
             self._controller.report(selected[0])
-    '''
-    @Gtk.Template.Callback()
+    
+    #jft
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())
 
-    def _on_key_press_event(self, sender, event):
-        handled = self.search_entry.handle_event(event)
-        if handled:
+    #jft
+    def _on_key_press_event(self, controller, keyval, keycode, state):
+        if self.search_entry.get_visible() and self.search_entry.has_focus():
+            self.search_entry.emit_stop_by_name("key-pressed")
             bounds = self.search_entry.get_selection_bounds()
             if not bounds:
                 position = self.search_entry.get_position()
                 bounds = (position, position)
             self.search_entry.grab_focus()
             self.search_entry.select_region(bounds[0], bounds[1])
-        return handled
-    '''
+            return True
+        return False
+    
 
     def on_gac_search_activate(self, action, parameter, user_data):
         self.search_entry.grab_focus()
@@ -1131,6 +1097,25 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.menu_problem_item.popup_at_pointer(data)
         return None
     '''
+    #jft
+    def problems_button_press_event(self, gesture, n_press, x, y):
+    # Determine the type of click based on the number of presses
+        if n_press == 2:  # Double click
+            action = self.lookup_action('report')
+            action.activate()
+        elif n_press == 1:  # Single click
+            button = gesture.get_current_button()
+            if button == Gdk.BUTTON_SECONDARY:
+                if len(self.lss_problems.get_selected_rows()) > 1:
+                    self.menu_multiple_problems.set_parent(self)
+                    self.menu_multiple_problems.popup_at_pointer(None)
+                    return True
+                problem_row = self.lb_problems.get_row_at_y(y)
+                if problem_row:
+                    self.lb_problems.select_row(problem_row)
+                    self.menu_problem_item.set_parent(self)
+                    self.menu_problem_item.popup_at_pointer(None)
+        return None
         
     def get_box_header_left_offset(self):
         # Returns the offset of box_header_left relative to the main paned
@@ -1188,12 +1173,11 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         return GLib.SOURCE_REMOVE
 
-    #@Gtk.Template.Callback()
-    #def on_box_header_left_size_allocate(self, sender, allocation):
-    # #jft
+    
+    #jft
     '''
     @Gtk.Template.Callback()
-    def on_box_header_left_layout_changed(self, sender):
+    def on_box_header_left_size_allocate(self, sender, allocation):
         other = self.box_panel_left
 
         # Sometimes this function is called too early. All widgets must
@@ -1209,9 +1193,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         # causes resize of all its parents including the common parent which
         # is just being allocated. To avoid this we schedule this action
         # on idle.
-        GLib.idle_add(self.do_box_header_left_layout_changed, sender)
-    '''
-    '''
+        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
+
     def update_box_header_left_size_from_paned(self, sender):
         # Sets the box_header_left width the same as the paned position
         # minus optional margins
@@ -1262,6 +1245,26 @@ class OopsWindow(Gtk.ApplicationWindow):
         # manually.
         self.on_paned_position_changed(sender, None)
     '''
+
+    #jft
+    def on_box_header_left_size_allocate(self, sender):
+        other = self.box_panel_left
+
+        # Sometimes this function is called too early. All widgets must
+        # be realized in order to measure their relative position.
+        if not sender.get_realized() or not other.get_realized():
+            return
+
+        # We can't set the new size request while a widget size is being
+        # allocated because the widget must be fully measured and the new
+        # size request clears the measured flag causing a warning. For the
+        # same reason we can't set the new size request of another widget
+        # sharing the same common toplevel because the new size requsest
+        # causes resize of all its parents including the common parent which
+        # is just being allocated. To avoid this we schedule this action
+        # on idle.
+        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
+
     def update_box_header_left_size_from_paned(self, sender):
         other = self.box_header_left
 
@@ -1276,12 +1279,11 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.box_header_left.queue_resize()
         return GLib.SOURCE_REMOVE
-    '''
-    @Gtk.Template.Callback()
+    
+    #jft
     def on_paned_layout_changed(self, sender):
         self.update_box_header_left_size_from_paned(sender)
-    
-    @Gtk.Template.Callback()
+
+    #jft
     def on_paned_map(self, sender):
         self.on_paned_layout_changed(sender)
-    '''

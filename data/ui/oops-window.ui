@@ -3,6 +3,7 @@
   <template class="OopsWindow" parent="GtkApplicationWindow">
     <property name="default-width">1024</property>
     <property name="default-height">768</property>
+    <property name="title">Problem Reporting</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">True</property>
@@ -27,7 +28,6 @@
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
                 <property name="tooltip_text" translatable="yes">Select multiple problems</property>
-                <signal name="toggled" handler="on_tbtn_multi_select_toggled" swapped="no"/>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
@@ -38,19 +38,22 @@
             </child>
           </object>
         </child>
-        <child>
-          <object class="GtkLabel">
+        <child type="end">
+          <object class="GtkMenuButton" id="app_menu_button">
+            <property name="margin-start">6</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">Problem Reporting</property>
-             <property name="halign">center</property>
-             <property name="valign">center</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">open-menu-symbolic</property>
+              </object>
+            </child>
           </object>
         </child>
-        <child>
-          <object class="GtkButton" id="btn_delete">
-            <property name="label" translatable="yes">_Delete</property>
-            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-            <property name="action-name">win.delete</property>
+        <child type="end">
+          <object class="GtkButton" id="btn_close">
+            <property name="label" translatable="yes">_Close</property>
+            <property name="tooltip_text" translatable="yes">Close the application</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -59,7 +62,7 @@
             <property name="use_underline">True</property>
           </object>
         </child>
-        <child>
+        <child type="end">
           <object class="GtkButton" id="btn_report">
             <property name="label" translatable="yes">_Report</property>
             <property name="tooltip_text" translatable="yes">Submit selected problem</property>
@@ -73,29 +76,17 @@
             </style>
           </object>
         </child>
-        <child>
-          <object class="GtkButton" id="btn_close">
-            <property name="label" translatable="yes">_Close</property>
-            <property name="tooltip_text" translatable="yes">Close the application</property>
+        <child type="end">
+          <object class="GtkButton" id="btn_delete">
+            <property name="label" translatable="yes">_Delete</property>
+            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
+            <property name="action-name">win.delete</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="halign">end</property>
             <property name="valign">end</property>
             <property name="use_underline">True</property>
-            <signal name="clicked" handler="on_close_button_clicked" swapped="no"/>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="app_menu_button">
-            <property name="margin-start">6</property>
-            <property name="visible">True</property>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="icon-name">open-menu-symbolic</property>
-              </object>
-            </child>
           </object>
         </child>
       </object>
@@ -161,6 +152,7 @@
                       <object class="GtkImage" id="img_app_icon">
                         <property name="visible">True</property>
                         <property name="icon_name">image-missing-symbolic</property>
+                        <property name="pixel-size">128</property>
                         <style>
                           <class name="icon-dropshadow"/>
                         </style>
@@ -215,6 +207,10 @@
                         <style>
                           <class name="dim-label"/>
                         </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
                     </child>
                     <child>
@@ -224,6 +220,10 @@
                         <property name="label">app</property>
                         <property name="selectable">True</property>
                         <property name="ellipsize">end</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
                     </child>
                     <child>
@@ -235,8 +235,8 @@
                           <class name="dim-label"/>
                         </style>
                         <layout>
-                          <property name="column">1</property>
-                          <property name="row">0</property>
+                          <property name="column">0</property>
+                          <property name="row">1</property>
                         </layout> 
                       </object>
                     </child>
@@ -248,7 +248,7 @@
                         <property name="selectable">True</property>
                         <property name="ellipsize">end</property>
                         <layout>
-                            <property name="column">0</property>
+                            <property name="column">1</property>
                             <property name="row">1</property>
                         </layout>
                       </object>
@@ -262,8 +262,8 @@
                           <class name="dim-label"/>
                         </style>
                         <layout>
-                          <property name="row">0</property>
-                          <property name="column">2</property>
+                          <property name="column">0</property>
+                          <property name="row">2</property>
                         </layout>
                       </object>
                     </child>
@@ -274,8 +274,8 @@
                         <property name="label">2013-04-09 18:55</property>
                         <property name="selectable">True</property>
                         <layout>
-                          <property name="row">1</property>
-                          <property name="column">2</property>
+                          <property name="column">1</property>
+                          <property name="row">2</property>
                         </layout>
                       </object>
                     </child>
@@ -290,8 +290,8 @@
                           <class name="dim-label"/>
                         </style>
                         <layout>
-                          <property name="row">0</property>
-                          <property name="column">3</property>
+                          <property name="column">0</property>
+                          <property name="row">3</property>
                         </layout>
                       </object>
                     </child>
@@ -309,8 +309,8 @@
                           </object>
                         </child>
                         <layout>
-                          <property name="row">1</property>
-                          <property name="column">3</property>
+                          <property name="column">1</property>
+                          <property name="row">3</property>
                         </layout>
                       </object>
                     </child>

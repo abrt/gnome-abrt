@@ -18,3 +18,7 @@ GtkListBoxRow, row {
     font-size: 120%;
     font-weight: bold;
 }
+
+.tbtn_multi_select-color {
+    color: blue;
+}

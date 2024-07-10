@@ -20,7 +20,6 @@
 import os
 import time
 import logging
-logging.basicConfig(level=logging.DEBUG) #jft
 import traceback
 import datetime
 import gi
@@ -449,6 +448,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
+        self.lbl_reason.get_style_context().add_class('oops-reason')
 
     #jft
     def on_close_button_clicked(self, button):
@@ -922,33 +922,10 @@ class OopsWindow(Gtk.ApplicationWindow):
     
     #jft
     def on_tbtn_multi_select_toggled(self, tbtn):
-        '''
-        if tbtn.get_active():
-            self.lb_problems.set_selection_mode(
-                    Gtk.SelectionMode.MULTIPLE)
-            self.header_bar.get_style_context().add_class('selection-mode')
-        else:
-            row = self.lb_problems.get_selected_row()
-            if row is None:
-                row = self.lb_problems.get_row_at_index(0)
-
-            self.lb_problems.set_selection_mode(
-                    Gtk.SelectionMode.BROWSE)
-
-            if row is not None and self._filter.match(row):
-                self.lb_problems.select_row(row)
-
-            self.header_bar.get_style_context().remove_class('selection-mode')
-        '''
         if tbtn.get_active():
             self.lb_problems.set_selection_mode(Gtk.SelectionMode.MULTIPLE)
             self.header_bar.get_style_context().add_class('selection-mode')
-
-            # Select all rows
-            row = self.lb_problems.get_first_child()
-            while row:
-                self.lb_problems.select_row(row)
-                row = row.get_next_sibling()
+            self.tbtn_multi_select.get_style_context().add_class('tbtn_multi_select-color')
         else:
             row = self.lb_problems.get_selected_row()
             if row is None:
@@ -978,7 +955,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             except errors.InvalidProblem as ex:
                 logging.debug(traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)
-    '''
+    
     def show_problem_details_for_dir(self, problem_id, parent_window):
         logging.debug("In show_problem_details_for_dir with problem_id: %s", problem_id)
         logging.debug("Parent window type: %s", type(parent_window))
@@ -1000,7 +977,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         dialog.show()
         dialog.connect("response", lambda d, r: d.destroy())
-    '''
+    
 
     @handle_problem_and_source_errors
     def on_gac_detail_activate(self, action, parameter, user_data):

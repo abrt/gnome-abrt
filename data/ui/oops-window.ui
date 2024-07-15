@@ -101,6 +101,7 @@
         <property name="position">310</property>
         <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
         <signal name="map" handler="on_paned_map" swapped="no"/>
+        <signal name="notify::allocation" handler="on_paned_size_allocate" swapped="no"/>
         <child>
           <object class="GtkBox" id="box_panel_left">
             <property name="visible">True</property>

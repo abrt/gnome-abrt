@@ -443,7 +443,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.tbtn_multi_select.connect('toggled', self.on_tbtn_multi_select_toggled)
         self.btn_close.connect("clicked", self.on_close_button_clicked)
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate) #jft
-        self.gr_main_layout.connect("notify::allocation", self.on_paned_layout_changed) #jft
+        self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate) #jft
         self.search_entry.connect('search-changed', self.on_se_problems_search_changed) #jft
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
@@ -920,7 +920,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _get_selected(self, selection):
         return selection.get_selected_rows()
     
-    #jft
+    
     def on_tbtn_multi_select_toggled(self, tbtn):
         if tbtn.get_active():
             self.lb_problems.set_selection_mode(Gtk.SelectionMode.MULTIPLE)
@@ -956,28 +956,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                 logging.debug(traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)
     
-    def show_problem_details_for_dir(self, problem_id, parent_window):
-        logging.debug("In show_problem_details_for_dir with problem_id: %s", problem_id)
-        logging.debug("Parent window type: %s", type(parent_window))
-        # Temporary: Just show a basic dialog
-        dialog = Gtk.MessageDialog(
-            transient_for=parent_window,
-            modal=True,
-            message_type=Gtk.MessageType.INFO,
-            buttons=Gtk.ButtonsType.OK,
-            text="Problem Details",
-        )
-
-        # Create a label for the secondary text and add it to the dialog
-        secondary_text = Gtk.Label(label=f"Details for problem ID: {problem_id}")
-        secondary_text.set_wrap(True)
-        secondary_text.set_margin_top(10)
-        secondary_text.set_margin_bottom(10)
-        dialog.get_content_area().append(secondary_text)
-
-        dialog.show()
-        dialog.connect("response", lambda d, r: d.destroy())
-    
 
     @handle_problem_and_source_errors
     def on_gac_detail_activate(self, action, parameter, user_data):
@@ -985,22 +963,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         if selected:
             problem_id = selected[0].problem_id
             wrappers.show_problem_details_for_dir(problem_id, self)
-            '''
-            problem_id = selected[0].problem_id
-            logging.debug("Selected problem ID: %s", problem_id)
-            logging.debug("Self Type: %s", type(self))
-            logging.debug("Selected Object Type: %s", type(selected[0]))
-
-            # Ensure the correct instance and usage for show_problem_details_for_dir
-            if hasattr(wrappers, 'show_problem_details_for_dir'):
-                try:
-                    #wrappers.show_problem_details_for_dir(problem_id, self)
-                    self.show_problem_details_for_dir(problem_id, self)
-                except Exception as ex:
-                    logging.exception("Error calling show_problem_details_for_dir: %s", ex)
-            else:
-                logging.error("Function show_problem_details_for_dir not found in wrappers")
-            '''
 
 
     @handle_problem_and_source_errors
@@ -1011,12 +973,11 @@ class OopsWindow(Gtk.ApplicationWindow):
             os.environ["LIBREPORT_PRGNAME"] = self.get_application().get_application_id()
             self._controller.report(selected[0])
     
-    #jft
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())
 
-    #jft
+    
     def _on_key_press_event(self, controller, keyval, keycode, state):
         if self.search_entry.get_visible() and self.search_entry.has_focus():
             self.search_entry.emit_stop_by_name("key-pressed")
@@ -1052,29 +1013,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.menu_problem_item.popdown()
         self.menu_multiple_problems.popdown()
 
-    '''
-    @Gtk.Template.Callback()
-    def problems_button_press_event(self, sender, data):
-        # getattribute() used because number as first character in name
-        # is syntax error
-        if (data.type == type.__getattribute__(Gdk.EventType, '2BUTTON_PRESS')
-                and data.button == Gdk.BUTTON_PRIMARY):
-            action = self.lookup_action('report')
-            action.activate()
-        elif (data.type == Gdk.EventType.BUTTON_PRESS
-                and data.button == Gdk.BUTTON_SECONDARY):
-            if len(self.lss_problems.get_selected_rows()) > 1:
-                self.menu_multiple_problems.set_parent(self) #jft
-                self.menu_multiple_problems.popup_at_pointer(data)
-                return True
-            problem_row = self.lb_problems.get_row_at_y(data.y)
-            if problem_row:
-                self.lb_problems.select_row(problem_row)
-                self.menu_problem_item.set_parent(self)
-                self.menu_problem_item.popup_at_pointer(data)
-        return None
-    '''
-    #jft
+    
     def problems_button_press_event(self, gesture, n_press, x, y):
     # Determine the type of click based on the number of presses
         if n_press == 2:  # Double click
@@ -1150,10 +1089,8 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         return GLib.SOURCE_REMOVE
 
+
     
-    #jft
-    '''
-    @Gtk.Template.Callback()
     def on_box_header_left_size_allocate(self, sender, allocation):
         other = self.box_panel_left
 
@@ -1177,74 +1114,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         # minus optional margins
         other = self.box_header_left
 
-        # Sometimes this function is called too early. All widgets must
-        # be realized in order to measure their relative position.
-        if not sender.get_realized() or not other.get_realized():
-            return GLib.SOURCE_REMOVE
-
-        offset = self.get_box_header_left_offset()
-        if offset is None:
-            return GLib.SOURCE_REMOVE  # Error, we won't retry
-
-        self.box_header_left.set_size_request(
-                sender.get_position() - offset, -1)
-
-        # Sometimes the new width request is accepted (get_size_request()
-        # returns the new value correctly) but not applied (the actual widget
-        # width is old and unnecessarily larger). Not sure whose bug this is
-        # but to workaround let's force resize.
-        self.box_header_left.queue_resize()
-        return GLib.SOURCE_REMOVE
-
-    @Gtk.Template.Callback()
-    def on_paned_position_changed(self, sender, data):
-        # Alternatively we could watch box_panel_left size-allocate signal
-        # but that other method seemed to be delayed and not updated the
-        # size correctly.
-        self.update_box_header_left_size_from_paned(sender)
-
-    @Gtk.Template.Callback()
-    def on_paned_size_allocate(self, sender, allocation):
-        # Sometimes when the paned position is changed as a result of the
-        # resize of whole window (for example unmaximization) the paned
-        # position is not notified correctly. Again, not sure whose bug this
-        # is but to workaround let's watch the size of the paned and update
-        # the header box size. Same as previously, we should not resize
-        # any widget even when another widget is being allocated so schedule
-        # this action on idle.
-        GLib.idle_add(self.update_box_header_left_size_from_paned, sender)
-
-    @Gtk.Template.Callback()
-    def on_paned_map(self, sender):
-        # Also on the first appearance force the paned position changed event
-        # to update the box_header_left minimum width. Otherwise it is not
-        # adjusted to the paned handle position until a user moves the handle
-        # manually.
-        self.on_paned_position_changed(sender, None)
-    '''
-
-    #jft
-    def on_box_header_left_size_allocate(self, sender):
-        other = self.box_panel_left
 
         # Sometimes this function is called too early. All widgets must
         # be realized in order to measure their relative position.
-        if not sender.get_realized() or not other.get_realized():
-            return
-
-        # We can't set the new size request while a widget size is being
-        # allocated because the widget must be fully measured and the new
-        # size request clears the measured flag causing a warning. For the
-        # same reason we can't set the new size request of another widget
-        # sharing the same common toplevel because the new size requsest
-        # causes resize of all its parents including the common parent which
-        # is just being allocated. To avoid this we schedule this action
-        # on idle.
-        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
-
-    def update_box_header_left_size_from_paned(self, sender):
-        other = self.box_header_left
-
         if not sender.get_realized() or not other.get_realized():
             return GLib.SOURCE_REMOVE
 
@@ -1254,13 +1126,37 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.box_header_left.set_size_request(sender.get_position() - offset, -1)
 
+        # Sometimes the new width request is accepted (get_size_request()
+        # returns the new value correctly) but not applied (the actual widget
+        # width is old and unnecessarily larger). Not sure whose bug this is
+        # but to workaround let's force resize.
         self.box_header_left.queue_resize()
         return GLib.SOURCE_REMOVE
     
-    #jft
-    def on_paned_layout_changed(self, sender):
+    
+    def on_paned_position_changed(self, sender):
+        # Alternatively we could watch box_panel_left size-allocate signal
+        # but that other method seemed to be delayed and not updated the
+        # size correctly.
         self.update_box_header_left_size_from_paned(sender)
 
-    #jft
+    
+    
+    def on_paned_size_allocate(self, sender, allocation):
+        # Sometimes when the paned position is changed as a result of the
+        # resize of whole window (for example unmaximization) the paned
+        # position is not notified correctly. Again, not sure whose bug this
+        # is but to workaround let's watch the size of the paned and update
+        # the header box size. Same as previously, we should not resize
+        # any widget even when another widget is being allocated so schedule
+        # this action on idle.
+        GLib.idle_add(self.update_box_header_left_size_from_paned, sender)
+    
+
+    
     def on_paned_map(self, sender):
-        self.on_paned_layout_changed(sender)
+        # Also on the first appearance force the paned position changed event
+        # to update the box_header_left minimum width. Otherwise it is not
+        # adjusted to the paned handle position until a user moves the handle
+        # manually.
+        self.on_paned_position_changed(sender)

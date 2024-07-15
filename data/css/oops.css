@@ -20,5 +20,5 @@ GtkListBoxRow, row {
 }
 
 .tbtn_multi_select-color {
-    color: blue;
+    background-color: blue;
 }

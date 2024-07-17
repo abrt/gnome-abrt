@@ -647,9 +647,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         selected = problem in self._get_selected(self.lss_problems)
 
-        #problem_row.destroy()
         #using unparent instead of destroy
-        problem_row.unparent()
+        # Completely remove the row and free the resources
+        self.lb_problems.remove(problem_row)
+        problem_row.destroy()
 
         if selected:
             for i in range(index, -1, -1):

@@ -442,9 +442,10 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.tbtn_multi_select.connect('toggled', self.on_tbtn_multi_select_toggled)
         self.btn_close.connect("clicked", self.on_close_button_clicked)
-        self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate) #jft
-        self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate) #jft
-        self.search_entry.connect('search-changed', self.on_se_problems_search_changed) #jft
+        self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
+        self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
+        self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
+        self.search_entry.connect('search-changed', self.on_se_problems_search_changed)
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
@@ -1134,7 +1135,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         return GLib.SOURCE_REMOVE
     
     
-    def on_paned_position_changed(self, sender):
+    def on_paned_position_changed(self, sender, data):
         # Alternatively we could watch box_panel_left size-allocate signal
         # but that other method seemed to be delayed and not updated the
         # size correctly.
@@ -1159,4 +1160,4 @@ class OopsWindow(Gtk.ApplicationWindow):
         # to update the box_header_left minimum width. Otherwise it is not
         # adjusted to the paned handle position until a user moves the handle
         # manually.
-        self.on_paned_position_changed(sender)
+        self.on_paned_position_changed(sender, None)

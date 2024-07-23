@@ -40,7 +40,11 @@ PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args)
         GtkWidget *dialog = problem_details_dialog_new(problem_data, wnd);
 
         if (dialog != NULL)
-            gtk_dialog_run(GTK_DIALOG(dialog));
+        {
+            gtk_window_set_modal(GTK_WINDOW(dialog), true);
+            g_signal_connect(dialog, "response", G_CALLBACK(gtk_window_destroy), NULL);
+            gtk_widget_set_visible(dialog, TRUE);
+        }
     }
 
     Py_RETURN_NONE;

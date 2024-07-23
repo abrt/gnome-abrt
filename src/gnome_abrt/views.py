@@ -302,7 +302,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     vbx_empty_page = Gtk.Template.Child()
     vbx_no_source_page = Gtk.Template.Child()
     gr_main_layout = Gtk.Template.Child()
-    btn_close = Gtk.Template.Child()
 
     def placeholder_mapped(self, label, data):
         self.tbtn_multi_select.set_sensitive(False)
@@ -441,7 +440,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.add_controller(key_controller)
 
         self.tbtn_multi_select.connect('toggled', self.on_tbtn_multi_select_toggled)
-        self.btn_close.connect("clicked", self.on_close_button_clicked)
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
         self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
@@ -451,9 +449,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lb_problems.add_controller(gesture)
         self.lbl_reason.get_style_context().add_class('oops-reason')
 
-    #jft
-    def on_close_button_clicked(self, button):
-        self.close()
 
     def _add_actions(self, application):
         action_entries = [
@@ -1126,7 +1121,11 @@ class OopsWindow(Gtk.ApplicationWindow):
         if offset is None:
             return GLib.SOURCE_REMOVE
 
-        self.box_header_left.set_size_request(sender.get_position() - offset, -1)
+        # the value of sender.get_position() - offset may result in a negative value
+        # which is invalid for set_size_request.
+        #self.box_header_left.set_size_request(sender.get_position() - offset, -1)
+        width = max(sender.get_position() - offset, 0)
+        self.box_header_left.set_size_request(width, -1)
 
         # Sometimes the new width request is accepted (get_size_request()
         # returns the new value correctly) but not applied (the actual widget

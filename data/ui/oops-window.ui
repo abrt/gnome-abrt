@@ -53,18 +53,7 @@
             </child>
           </object>
         </child>
-        <child type="end">
-          <object class="GtkButton" id="btn_close">
-            <property name="label" translatable="yes">_Close</property>
-            <property name="tooltip_text" translatable="yes">Close the application</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="halign">end</property>
-            <property name="valign">end</property>
-            <property name="use_underline">True</property>
-          </object>
-        </child>
+        
         <child type="end">
           <object class="GtkButton" id="btn_report">
             <property name="label" translatable="yes">_Report</property>

@@ -2,13 +2,14 @@
 # This file is put in the public domain.
 # Weblate <noreply@weblate.org>, 2020.
 # Namatullah Khan <khan.namatullah@gmail.com>, 2022.
+# Shehroz Kaleem <me@shehroz.pk>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2022-08-08 17:19+0000\n"
-"Last-Translator: Namatullah Khan <khan.namatullah@gmail.com>\n"
+"PO-Revision-Date: 2024-07-28 10:38+0000\n"
+"Last-Translator: Shehroz Kaleem <me@shehroz.pk>\n"
 "Language-Team: Urdu <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/ur/>\n"
 "Language: ur\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
@@ -106,7 +107,7 @@ msgstr ""
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:96
 msgid "Be verbose"
-msgstr ""
+msgstr "بلیغ ہوجائیں"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'

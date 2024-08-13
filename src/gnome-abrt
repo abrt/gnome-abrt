@@ -220,10 +220,6 @@ class OopsApplication(Gtk.Application):
 
         Gtk.Window.set_default_icon_name(GNOME_ABRT_APPLICATION_ID)
 
-        action = Gio.SimpleAction.new("preferences", None)
-        action.connect("activate", self.on_action_prefrences)
-        self.add_action(action)
-
         action = Gio.SimpleAction.new("about", None)
         action.connect("activate", self.on_action_about)
         self.add_action(action)
@@ -288,7 +284,8 @@ class OopsApplication(Gtk.Application):
         #dialog.run()
         dialog.present()
         #dialog.destroy()
-        dialog.connect("response", lambda d, r: d.destroy())
+        #dialog.connect("response", lambda d, r: d.destroy())
+        #dialog.connect("close", dialog.destroy)
 
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):

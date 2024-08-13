@@ -22,3 +22,8 @@ GtkListBoxRow, row {
 .tbtn_multi_select-color {
     background-color: blue;
 }
+
+
+.window {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+}

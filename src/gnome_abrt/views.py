@@ -294,7 +294,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
     app_menu_button = Gtk.Template.Child()
-    btn_detail = Gtk.Template.Child()
     vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
     tbtn_multi_select = Gtk.Template.Child()
@@ -358,6 +357,8 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if not sources:
             raise ValueError("The source list cannot be empty!")
+
+        self.get_style_context().add_class('window')
 
         label = Gtk.Label.new('')
         label.show()
@@ -439,6 +440,15 @@ class OopsWindow(Gtk.ApplicationWindow):
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
+        # Ensure buttons are packed only once
+        if self.btn_delete.get_parent() is None:
+            self.header_bar.pack_end(self.btn_delete)
+        if self.btn_report.get_parent() is None:
+            self.header_bar.pack_end(self.btn_report)
+        if self.app_menu_button.get_parent() is None:
+            self.header_bar.pack_end(self.app_menu_button)
+        self.box_header_left.set_hexpand(True)
+
         self.tbtn_multi_select.connect('toggled', self.on_tbtn_multi_select_toggled)
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
@@ -454,7 +464,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         action_entries = [
             ('delete', self.on_gac_delete_activate,),
             ('report', self.on_gac_report_activate,),
-            ('details', self.on_gac_detail_activate,),
             ('open-directory', self.on_gac_open_directory_activate,),
             ('copy-id', self.on_gac_copy_id_activate,),
             ('search', self.on_gac_search_activate,),
@@ -464,7 +473,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         application.set_accels_for_action('win.delete', ['Delete'])
         application.set_accels_for_action('win.report', ['Return'])
-        application.set_accels_for_action('win.details', ['<Primary>Return'])
         application.set_accels_for_action('win.open-directory', ['<Primary>o'])
         application.set_accels_for_action('win.copy-id', ['<Primary>c'])
         application.set_accels_for_action('win.search', ['<Primary>f'])
@@ -953,13 +961,6 @@ class OopsWindow(Gtk.ApplicationWindow):
                 logging.debug(traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)
     
-
-    @handle_problem_and_source_errors
-    def on_gac_detail_activate(self, action, parameter, user_data):
-        selected = self._get_selected(self.lss_problems)
-        if selected:
-            problem_id = selected[0].problem_id
-            wrappers.show_problem_details_for_dir(problem_id, self)
 
 
     @handle_problem_and_source_errors

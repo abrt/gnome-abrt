@@ -37,6 +37,8 @@ from gi.repository import Pango
 from gi.repository import GLib
 import humanize
 
+from gi.repository import GObject
+
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
@@ -1020,13 +1022,17 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.menu_problem_item.popdown()
         self.menu_multiple_problems.popdown()
 
+    
     def on_gac_copy_id_activate(self, action, parameter, user_data):
         selection = self._get_selected(self.lss_problems)
         if selection:
-            #pylint: disable=E1101
-            if os.path.exists(selection[0].problem_id):
-                (Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-                    .set_text(selection[0].problem_id, -1))
+            problem_id = selection[0].problem_id
+            clipboard = Gdk.Display.get_default().get_clipboard()
+            value = GObject.Value()
+            value.init(GObject.TYPE_STRING)
+            value.set_string(problem_id)
+            content_provider = Gdk.ContentProvider.new_for_value(value)
+            clipboard.set_content(content_provider)
         self.menu_problem_item.popdown()
         self.menu_multiple_problems.popdown()
 

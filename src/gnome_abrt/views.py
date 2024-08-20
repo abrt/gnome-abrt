@@ -259,6 +259,20 @@ class ProblemRow(Gtk.ListBoxRow):
 
         grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
+        #check button instead of toggle button for multiple selection and deselection
+        self._check_button = Gtk.CheckButton.new()
+        self._check_button.set_visible(True)
+        self._check_button.set_active(False)
+        self._check_button.connect('toggled', self.on_check_button_toggled)
+
+        grid.attach_next_to(self._check_button, self._lbl_count, Gtk.PositionType.RIGHT, 1, 1)
+
+    def on_check_button_toggled(self, button):
+        if button.get_active():
+            self.get_style_context().add_class('selected-row')
+        else:
+            self.get_style_context().remove_class('selected-row')
+
     def set_values(self, problem_values):
         self._lbl_app.set_text(problem_values[0])
         self._lbl_date.set_text(problem_values[1])
@@ -296,17 +310,17 @@ class OopsWindow(Gtk.ApplicationWindow):
     app_menu_button = Gtk.Template.Child()
     vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
-    tbtn_multi_select = Gtk.Template.Child()
+    #tbtn_multi_select = Gtk.Template.Child()
     gd_problem_info = Gtk.Template.Child()
     vbx_empty_page = Gtk.Template.Child()
     vbx_no_source_page = Gtk.Template.Child()
     gr_main_layout = Gtk.Template.Child()
 
-    def placeholder_mapped(self, label, data):
-        self.tbtn_multi_select.set_sensitive(False)
+    #def placeholder_mapped(self, label, data):
+    #    self.tbtn_multi_select.set_sensitive(False)
 
-    def placeholder_unmapped(self, label, data):
-        self.tbtn_multi_select.set_sensitive(True)
+    #def placeholder_unmapped(self, label, data):
+    #    self.tbtn_multi_select.set_sensitive(True)
 
     class SourceObserver:
         def __init__(self, wnd):
@@ -357,14 +371,14 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if not sources:
             raise ValueError("The source list cannot be empty!")
-
+        
         self.get_style_context().add_class('window')
 
-        label = Gtk.Label.new('')
-        label.show()
-        self.lb_problems.set_placeholder(label)
-        label.connect('map', self.placeholder_mapped, self)
-        label.connect('unmap', self.placeholder_unmapped, self)
+        #label = Gtk.Label.new('')
+        #label.show()
+        #self.lb_problems.set_placeholder(label)
+        #label.connect('map', self.placeholder_mapped, self)
+        #label.connect('unmap', self.placeholder_unmapped, self)
 
         builder = Gtk.Builder()
         builder.set_translation_domain(GETTEXT_PROGNAME)
@@ -449,7 +463,7 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.header_bar.pack_end(self.app_menu_button)
         self.box_header_left.set_hexpand(True)
 
-        self.tbtn_multi_select.connect('toggled', self.on_tbtn_multi_select_toggled)
+        
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
         self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
@@ -650,10 +664,9 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         selected = problem in self._get_selected(self.lss_problems)
 
-        #using unparent instead of destroy
-        # Completely remove the row and free the resources
+        #completely removing the row from the list
         self.lb_problems.remove(problem_row)
-        problem_row.destroy()
+        problem_row.unparent()  #safely removing the row without destroying it
 
         if selected:
             for i in range(index, -1, -1):
@@ -925,23 +938,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     def _get_selected(self, selection):
         return selection.get_selected_rows()
     
-    
-    def on_tbtn_multi_select_toggled(self, tbtn):
-        if tbtn.get_active():
-            self.lb_problems.set_selection_mode(Gtk.SelectionMode.MULTIPLE)
-            self.header_bar.get_style_context().add_class('selection-mode')
-            self.tbtn_multi_select.get_style_context().add_class('tbtn_multi_select-color')
-        else:
-            row = self.lb_problems.get_selected_row()
-            if row is None:
-                row = self.lb_problems.get_row_at_index(0)
-
-            self.lb_problems.set_selection_mode(Gtk.SelectionMode.BROWSE)
-
-            if row is not None and self._filter.match(row):
-                self.lb_problems.select_row(row)
-
-            self.header_bar.get_style_context().remove_class('selection-mode')
             
     def on_tvs_problems_changed(self, selection):
         if not self._reloading:
@@ -952,15 +948,27 @@ class OopsWindow(Gtk.ApplicationWindow):
                 # Clear window because of empty list of problems!
                 self._set_problem(None)
 
+    
     @handle_problem_and_source_errors
     def on_gac_delete_activate(self, action, parameter, user_data):
-        for prblm in self._get_selected(self.lss_problems):
+        #initializing an empty list for rows to delete
+        rows_to_delete = []
+        row = self.lb_problems.get_first_child()
+
+        while row is not None:
+            #checking if the check button in the row is active
+            if row._check_button.get_active():
+                rows_to_delete.append(row)
+            row = row.get_next_sibling()
+
+        #delete the selected rows
+        for row in rows_to_delete:
             try:
-                self._controller.delete(prblm)
+                self._controller.delete(row.get_problem())
+                self.lb_problems.remove(row)
             except errors.InvalidProblem as ex:
                 logging.debug(traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)
-    
 
 
     @handle_problem_and_source_errors

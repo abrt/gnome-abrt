@@ -22,24 +22,6 @@
                 <property name="visible">True</property>
               </object>
             </child>
-            <child>
-              <object class="GtkToggleButton" id="tbtn_multi_select">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_underline">True</property>
-                <property name="tooltip_text" translatable="yes">Select multiple problems</property>
-                <style>
-                <class name="tbtn_multi_select-color"/>
-                </style>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="icon_name">object-select-symbolic</property>
-                  </object>
-                </child>
-              </object>
-            </child>
           </object>
         </child>
         <child type="end">

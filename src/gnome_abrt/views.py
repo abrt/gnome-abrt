@@ -305,6 +305,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     lb_problems = Gtk.Template.Child()
     img_app_icon = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
+    dark_mode_switch = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
     app_menu_button = Gtk.Template.Child()
@@ -372,7 +373,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         if not sources:
             raise ValueError("The source list cannot be empty!")
         
-        self.get_style_context().add_class('window')
+        #self.get_style_context().add_class('window')
+        self.dark_mode_switch.set_active(False)
+        self.dark_mode_switch.connect("state-set", self.on_dark_mode_toggled)
 
         #label = Gtk.Label.new('')
         #label.show()
@@ -472,6 +475,14 @@ class OopsWindow(Gtk.ApplicationWindow):
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
         self.lbl_reason.get_style_context().add_class('oops-reason')
+
+    def on_dark_mode_toggled(self, switch, state):
+        settings = Gtk.Settings.get_default()
+        if state:
+            settings.set_property("gtk-application-prefer-dark-theme", True)
+        else:
+            settings.set_property("gtk-application-prefer-dark-theme", False)
+        return True
 
 
     def _add_actions(self, application):

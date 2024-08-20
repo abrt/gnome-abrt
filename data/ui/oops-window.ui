@@ -67,6 +67,15 @@
             <property name="use_underline">True</property>
           </object>
         </child>
+        <child type="end">
+            <object class="GtkSwitch" id="dark_mode_switch">
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="active">False</property>
+                <property name="visible">True</property>
+                <signal name="state-set" handler="on_dark_mode_switch_toggled" swapped="no"/>
+            </object>
+        </child>
       </object>
     </child>
     <child>

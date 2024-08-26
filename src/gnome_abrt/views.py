@@ -26,7 +26,7 @@ import gi
 
 #pylint: disable=E0611
 gi.require_version('Gtk', '4.0')
-from gi.repository import Gtk
+from gi.repository import Gtk, Adw
 #pylint: disable=E0611
 from gi.repository import Gdk
 #pylint: disable=E0611
@@ -307,7 +307,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     lb_problems = Gtk.Template.Child()
     img_app_icon = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
-    dark_mode_switch = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
     app_menu_button = Gtk.Template.Child()
@@ -374,10 +373,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if not sources:
             raise ValueError("The source list cannot be empty!")
-        
-        #self.get_style_context().add_class('window')
-        self.dark_mode_switch.set_active(False)
-        self.dark_mode_switch.connect("state-set", self.on_dark_mode_toggled)
 
         #label = Gtk.Label.new('')
         #label.show()
@@ -459,6 +454,10 @@ class OopsWindow(Gtk.ApplicationWindow):
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
+        self.style_manager = Adw.StyleManager.get_default()
+        self.update_theme()
+        self.style_manager.connect("notify::color-scheme", self.on_theme_changed)
+
         # Ensure buttons are packed only once
         if self.btn_delete.get_parent() is None:
             self.header_bar.pack_end(self.btn_delete)
@@ -478,13 +477,18 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lb_problems.add_controller(gesture)
         self.lbl_reason.get_style_context().add_class('oops-reason')
 
-    def on_dark_mode_toggled(self, switch, state):
-        settings = Gtk.Settings.get_default()
-        if state:
-            settings.set_property("gtk-application-prefer-dark-theme", True)
+    def on_theme_changed(self, style_manager, _):
+        """Handle theme changes."""
+        self.update_theme()
+
+    def update_theme(self):
+        """Update the application theme based on system preference."""
+        if self.style_manager.get_color_scheme() == Adw.ColorScheme.FORCE_DARK:
+            logging.debug("Dark theme activated")
+        elif self.style_manager.get_color_scheme() == Adw.ColorScheme.FORCE_LIGHT:
+            logging.debug("Light theme activated")
         else:
-            settings.set_property("gtk-application-prefer-dark-theme", False)
-        return True
+            logging.debug("System theme activated")
 
 
     def _add_actions(self, application):

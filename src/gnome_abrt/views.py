@@ -261,20 +261,6 @@ class ProblemRow(Gtk.ListBoxRow):
 
         grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
-        #check button instead of toggle button for multiple selection and deselection
-        self._check_button = Gtk.CheckButton.new()
-        self._check_button.set_visible(True)
-        self._check_button.set_active(False)
-        self._check_button.connect('toggled', self.on_check_button_toggled)
-
-        grid.attach_next_to(self._check_button, self._lbl_count, Gtk.PositionType.RIGHT, 1, 1)
-
-    def on_check_button_toggled(self, button):
-        if button.get_active():
-            self.get_style_context().add_class('selected-row')
-        else:
-            self.get_style_context().remove_class('selected-row')
-
     def set_values(self, problem_values):
         self._lbl_app.set_text(problem_values[0])
         self._lbl_date.set_text(problem_values[1])
@@ -968,21 +954,17 @@ class OopsWindow(Gtk.ApplicationWindow):
     
     @handle_problem_and_source_errors
     def on_gac_delete_activate(self, action, parameter, user_data):
-        #initializing an empty list for rows to delete
-        rows_to_delete = []
-        row = self.lb_problems.get_first_child()
-
-        while row is not None:
-            #checking if the check button in the row is active
-            if row._check_button.get_active():
-                rows_to_delete.append(row)
-            row = row.get_next_sibling()
-
-        #delete the selected rows
-        for row in rows_to_delete:
+        # Get the selected row (single selection)
+        selected = self._get_selected(self.lss_problems)
+        
+        if selected:
             try:
-                self._controller.delete(row.get_problem())
-                self.lb_problems.remove(row)
+                # Delete the selected problem
+                self._controller.delete(selected[0])
+                # Find the corresponding row and remove it from the list
+                problem_row = self._find_problem_row(selected[0])
+                if problem_row:
+                    self.lb_problems.remove(problem_row)
             except errors.InvalidProblem as ex:
                 logging.debug(traceback.format_exc())
                 self._remove_problem_from_storage(ex.problem_id)

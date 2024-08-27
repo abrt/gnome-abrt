@@ -33,7 +33,7 @@ gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('Pango', '1.0')
 #pylint: disable=E0611, C0411, C0413
-from gi.repository import Gtk
+from gi.repository import Gtk, Adw
 #pylint: disable=E0611, C0411, C0413
 from gi.repository import GLib
 #pylint: disable=E0611, C0411, C0413
@@ -71,6 +71,9 @@ GNOME_ABRT_URL_POOL_CAPACITY = 10
 class OopsApplication(Gtk.Application):
 
     def __init__(self):
+        # Initialize Adwaita
+        Adw.init()
+
         Gtk.Application.__init__(self,
                                  application_id=GNOME_ABRT_APPLICATION_ID,
                                  flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)

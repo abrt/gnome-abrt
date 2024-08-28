@@ -255,17 +255,10 @@ class ProblemRow(Gtk.ListBoxRow):
 
         grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
 
-        self._lbl_count = Gtk.Label.new(problem_values[3])
-        self._lbl_count.set_halign(Gtk.Align.END)
-        self._lbl_count.get_style_context().add_class('dim-label')
-
-        grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
-
     def set_values(self, problem_values):
         self._lbl_app.set_text(problem_values[0])
         self._lbl_date.set_text(problem_values[1])
         self._lbl_type.set_text(problem_values[2])
-        self._lbl_count.set_text(problem_values[3])
         self._problem = problem_values[4]
 
     def get_problem(self):
@@ -290,6 +283,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     lbl_detected_value = Gtk.Template.Child()
     lbl_reported = Gtk.Template.Child()
     lbl_reported_value = Gtk.Template.Child()
+    lbl_times_detected_value = Gtk.Template.Child()
     lb_problems = Gtk.Template.Child()
     img_app_icon = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
@@ -298,17 +292,10 @@ class OopsWindow(Gtk.ApplicationWindow):
     app_menu_button = Gtk.Template.Child()
     vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
-    #tbtn_multi_select = Gtk.Template.Child()
     gd_problem_info = Gtk.Template.Child()
     vbx_empty_page = Gtk.Template.Child()
     vbx_no_source_page = Gtk.Template.Child()
     gr_main_layout = Gtk.Template.Child()
-
-    #def placeholder_mapped(self, label, data):
-    #    self.tbtn_multi_select.set_sensitive(False)
-
-    #def placeholder_unmapped(self, label, data):
-    #    self.tbtn_multi_select.set_sensitive(True)
 
     class SourceObserver:
         def __init__(self, wnd):
@@ -359,12 +346,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         if not sources:
             raise ValueError("The source list cannot be empty!")
-
-        #label = Gtk.Label.new('')
-        #label.show()
-        #self.lb_problems.set_placeholder(label)
-        #label.connect('map', self.placeholder_mapped, self)
-        #label.connect('unmap', self.placeholder_unmapped, self)
 
         builder = Gtk.Builder()
         builder.set_translation_domain(GETTEXT_PROGNAME)
@@ -876,7 +857,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lbl_detected_value.set_text(humanize.naturaltime(datetime.datetime.now()-problem['date']))
         self.lbl_detected_value.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
-        
+        self.lbl_times_detected_value.set_text(str(problem['count']))
+
         theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default()) #jft
         scale = self.img_app_icon.get_scale_factor()
         style_context = self.img_app_icon.get_style_context()

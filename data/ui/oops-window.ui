@@ -27,15 +27,18 @@
           </object>
         </child>
         <child type="end">
-          <object class="GtkMenuButton" id="app_menu_button">
-            <property name="margin-start">6</property>
+          <object class="GtkButton" id="btn_delete">
+            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
+            <property name="action-name">win.delete</property>
             <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
+            <property name="icon-name">user-trash-symbolic</property>
             <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="icon-name">open-menu-symbolic</property>
+              <object class="AdwButtonContent">
+                <property name="icon-name">user-trash-symbolic</property>
               </object>
             </child>
           </object>
@@ -67,23 +70,6 @@
             </child>
           </object>
         </child>
-        <child type="end">
-          <object class="GtkButton" id="btn_delete">
-            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-            <property name="action-name">win.delete</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="icon-name">user-trash-symbolic</property>
-            <child>
-              <object class="AdwButtonContent">
-                <property name="icon-name">user-trash-symbolic</property>
-              </object>
-            </child>
-          </object>
-        </child>
       </object>
     </child>
     <child>
@@ -99,12 +85,31 @@
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkSearchEntry" id="search_entry">
-                <property name="margin-start">6</property>
-                <property name="margin-end">6</property>
-                <property name="visible">True</property>
-                <property name="placeholder-text" translatable="yes">Type to search</property>
-                <signal name="search-changed" handler="on_se_problems_search_changed"/>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="hexpand">True</property>
+                <child>
+                  <object class="GtkSearchEntry" id="search_entry">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="placeholder-text" translatable="yes">Type to search</property>
+                    <signal name="search-changed" handler="on_se_problems_search_changed"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="app_menu_button">
+                    <property name="margin-start">6</property>
+                    <property name="visible">True</property>
+                    <property name="halign">end</property>
+                    <property name="valign">center</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="icon-name">open-menu-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -196,7 +201,6 @@
                           <object class="GtkBox">
                             <property name="orientation">horizontal</property>
                             <property name="spacing">12</property>
-                            <property name="margin-start">36</property>
                             <child>
                               <object class="GtkLabel" id="lbl_app_name">
                                 <property name="visible">True</property>

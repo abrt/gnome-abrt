@@ -22,3 +22,10 @@ GtkListBoxRow, row {
 .tbtn_multi_select-color {
     background-color: blue;
 }
+
+.type-label {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 12px;
+}

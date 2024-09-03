@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="OopsWindow" parent="GtkApplicationWindow">
-    <property name="default-width">1024</property>
+    <property name="default-width">1100</property>
     <property name="default-height">768</property>
     <property name="title">Problem Reporting</property>
     <requires lib="gtk" version="4.0"/>
@@ -16,74 +16,6 @@
             <property name="spacing">6</property>
             <property name="hexpand">True</property>
             <signal name="notify::allocation" handler="on_box_header_left_size_allocate" swapped="no"/>
-            <child>
-              <object class="GtkStackSwitcher" id="box_sources_switcher">
-                <property name="stack">nb_problem_layout</property> <!-- Link to the GtkStack -->
-                <property name="halign">center</property>
-                <property name="hexpand">True</property>
-                <property name="visible">True</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton" id="btn_delete">
-            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-            <property name="action-name">win.delete</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="icon-name">user-trash-symbolic</property>
-            <child>
-              <object class="AdwButtonContent">
-                <property name="icon-name">user-trash-symbolic</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton" id="btn_report">
-            <property name="label" translatable="yes">_Report</property>
-            <property name="can_focus">True</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="tooltip_text" translatable="yes">Submit selected problem</property>
-            <property name="action-name">win.report</property>
-            <child>
-              <object class="GtkBox">
-                <property name="orientation">horizontal</property>
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkImage">
-                    <property name="icon-name">document-new-symbolic</property>
-                    <property name="pixel-size">16</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Create Report...</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkPaned" id="gr_main_layout">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="position">310</property>
-        <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
-        <signal name="map" handler="on_paned_map" swapped="no"/>
-        <signal name="notify::allocation" handler="on_paned_size_allocate" swapped="no"/>
-        <child>
-          <object class="GtkBox" id="box_panel_left">
-            <property name="visible">True</property>
-            <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">horizontal</property>
@@ -113,6 +45,30 @@
               </object>
             </child>
             <child>
+              <object class="GtkStackSwitcher" id="box_sources_switcher">
+                <property name="stack">nb_problem_layout</property>
+                <property name="halign">center</property>
+                <property name="hexpand">True</property>
+                <property name="visible">False</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkPaned" id="gr_main_layout">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="position">310</property>
+        <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
+        <signal name="map" handler="on_paned_map" swapped="no"/>
+        <signal name="notify::allocation" handler="on_paned_size_allocate" swapped="no"/>
+        <child>
+          <object class="GtkBox" id="box_panel_left">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="vexpand">True</property>
                 <property name="visible">True</property>
@@ -141,11 +97,64 @@
             <property name="margin-start">100</property>
             <property name="margin-end">100</property>
             <property name="margin-top">50</property>
+            
             <child>
               <object class="GtkBox" id="gd_problem_info">
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">18</property>
+                <child>
+                  <object class="GtkBox" id="action_buttons_box">
+                    <property name="visible">True</property>
+                    <property name="orientation">horizontal</property>
+                    <property name="halign">end</property>
+                    <child>
+                      <object class="GtkButton" id="btn_report">
+                        <property name="label" translatable="yes">_Report</property>
+                        <property name="can_focus">True</property>
+                        <property name="halign">end</property>
+                        <property name="valign">center</property>
+                        <property name="tooltip_text" translatable="yes">Submit selected problem</property>
+                        <property name="action-name">win.report</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon-name">document-new-symbolic</property>
+                                <property name="pixel-size">16</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Create Report...</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="btn_delete">
+                        <property name="tooltip_text" translatable="yes">Delete selected problems</property>
+                        <property name="action-name">win.delete</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="halign">end</property>
+                        <property name="valign">center</property>
+                        <property name="margin-start">5</property>
+                        <property name="icon-name">user-trash-symbolic</property>
+                        <child>
+                          <object class="AdwButtonContent">
+                            <property name="icon-name">user-trash-symbolic</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
@@ -192,6 +201,18 @@
                         </child>
                       </object>
                     </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_type_crash">
+                    <property name="visible">True</property>
+                    <property name="label">System Failure</property>
+                    <property name="xalign">0</property>
+                    <property name="wrap">True</property>
+                    <property name="halign">start</property>
+                    <style>
+                      <class name="type-label"/>
+                    </style>
                   </object>
                 </child>
                 <child>

@@ -278,6 +278,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     search_entry = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
+    lbl_type_crash = Gtk.Template.Child()
     lbl_app_name_value = Gtk.Template.Child()
     lbl_app_version_value = Gtk.Template.Child()
     lbl_detected_value = Gtk.Template.Child()
@@ -287,6 +288,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     lb_problems = Gtk.Template.Child()
     img_app_icon = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
+    action_buttons_box = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
     app_menu_button = Gtk.Template.Child()
@@ -434,7 +436,6 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.header_bar.pack_end(self.app_menu_button)
         self.box_header_left.set_hexpand(True)
 
-        
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
         self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
@@ -842,10 +843,25 @@ class OopsWindow(Gtk.ApplicationWindow):
             self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
 
             return
-
+        
         self.nb_problem_layout.set_visible_child(self.gd_problem_info)
 
         app = problem['application']
+
+        #lbl_type_crash
+        problem_type_crash = problem['type']
+        if problem_type_crash == "CCpp":
+            # Translators: These are the problem types displayed in the problem
+            # list under the application name
+            problem_type_crash = _("Application Crash")
+        elif problem_type_crash == "vmcore":
+            problem_type_crash = _("System Crash")
+        elif problem_type_crash == "Kerneloops":
+            problem_type_crash = _("System Failure")
+        else:
+            problem_type_crash = _("Misbehavior")
+        self.lbl_type_crash.set_text(problem_type_crash)
+        self.lbl_type_crash.get_style_context().add_class('type-label')
 
         self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
         self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))

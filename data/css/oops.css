@@ -8,6 +8,8 @@
 
 GtkListBoxRow, row {
     padding: 12px;
+    margin: 5px;
+    border-radius: 12px;
 }
 
 .app-name-label {

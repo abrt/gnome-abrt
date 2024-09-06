@@ -222,6 +222,13 @@ class ProblemRow(Gtk.ListBoxRow):
 
         self._problem = problem_values[4]
 
+        
+        #applying margins directly on the ListBoxRow
+        self.set_margin_top(5)
+        self.set_margin_bottom(5)
+        self.set_margin_start(5)
+        self.set_margin_end(5)
+
         grid = Gtk.Grid.new()
         grid.set_column_spacing(12)
 
@@ -288,7 +295,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     lb_problems = Gtk.Template.Child()
     img_app_icon = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
-    action_buttons_box = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
     app_menu_button = Gtk.Template.Child()

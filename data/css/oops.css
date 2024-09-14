@@ -25,9 +25,20 @@ GtkListBoxRow, row {
     background-color: blue;
 }
 
-.type-label {
+.type-box {
     background-color: #ff0000;
     color: #ffffff;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.times-detected-label {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 50%;
 }

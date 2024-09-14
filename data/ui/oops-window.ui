@@ -152,16 +152,6 @@
                     <property name="visible">True</property>
                     <property name="spacing">12</property>
                     <child>
-                      <object class="GtkImage" id="img_app_icon">
-                        <property name="visible">True</property>
-                        <property name="icon_name">image-missing-symbolic</property>
-                        <property name="pixel-size">128</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                      </object>
-                    </child>
-                    <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
                         <property name="hexpand">True</property>
@@ -196,15 +186,28 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="lbl_type_crash">
-                    <property name="visible">True</property>
-                    <property name="label">System Failure</property>
-                    <property name="xalign">0</property>
-                    <property name="wrap">True</property>
+                  <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="spacing">6</property>
                     <property name="halign">start</property>
                     <style>
-                      <class name="type-label"/>
+                      <class name="type-box"/>
                     </style>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">dialog-warning-symbolic</property>
+                        <property name="pixel-size">16</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lbl_type_crash">
+                        <property name="visible">True</property>
+                        <property name="label">System Failure</property>
+                        <property name="xalign">0</property>
+                        <property name="wrap">True</property>
+                        <property name="halign">start</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <child>

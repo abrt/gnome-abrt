@@ -262,10 +262,22 @@ class ProblemRow(Gtk.ListBoxRow):
 
         grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
 
+        self._lbl_count = Gtk.Label.new(problem_values[3])
+        self._lbl_count.set_halign(Gtk.Align.END)
+        self._lbl_count.get_style_context().add_class('times-detected-label')
+        #showing lbl_count if the count is greater than 1
+        if int(problem_values[3]) > 1:
+            self._lbl_count.show()
+        else:
+            self._lbl_count.hide()
+
+        grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
+
     def set_values(self, problem_values):
         self._lbl_app.set_text(problem_values[0])
         self._lbl_date.set_text(problem_values[1])
         self._lbl_type.set_text(problem_values[2])
+        self._lbl_count.set_text(problem_values[3])
         self._problem = problem_values[4]
 
     def get_problem(self):
@@ -293,7 +305,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     lbl_reported_value = Gtk.Template.Child()
     lbl_times_detected_value = Gtk.Template.Child()
     lb_problems = Gtk.Template.Child()
-    img_app_icon = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
@@ -867,7 +878,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         else:
             problem_type_crash = _("Misbehavior")
         self.lbl_type_crash.set_text(problem_type_crash)
-        self.lbl_type_crash.get_style_context().add_class('type-label')
+        self.lbl_type_crash.get_style_context().add_class('type-box')
 
         self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
         self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))
@@ -880,38 +891,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lbl_detected_value.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
         self.lbl_times_detected_value.set_text(str(problem['count']))
-
-        theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default()) #jft
-        scale = self.img_app_icon.get_scale_factor()
-        style_context = self.img_app_icon.get_style_context()
-
-        style_context.remove_class('dim-label')  # Use the string directly
-
-        pixbuf = None
-
-        if app.icon:
-            icon_info = theme.lookup_by_gicon(app.icon, 128, Gtk.IconLookupFlags.FORCE_SIZE)
-            if icon_info:
-                pixbuf = icon_info
-            else:
-                #logging.warning('Failed to load default icon for %s: %s', app.name, ex)
-                logging.warning('Failed to load default icon for %s', app.name)
-
-        if not pixbuf:
-            try:
-                icon_info = theme.lookup_icon('system-run-symbolic', None, 128, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-                if icon_info:
-                    pixbuf = icon_info
-                style_context.add_class('dim-label')
-            except GLib.Error as ex:
-                logging.warning('Failed to load system-run-symbolic: %s', ex)
-
-        if pixbuf:
-            #surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, self.img_app_icon.get_window())
-            #self.img_app_icon.set_from_surface(surface)
-            self.img_app_icon.set_from_paintable(pixbuf)
-        else:
-            self.img_app_icon.clear()
 
         self.lbl_reported_value.show()
         self.lbl_reported.set_text(_("Reported"))

@@ -54,14 +54,6 @@
                 </child>
               </object>
             </child>
-            <child>
-              <object class="GtkStackSwitcher" id="box_sources_switcher">
-                <property name="stack">nb_problem_layout</property>
-                <property name="halign">center</property>
-                <property name="hexpand">True</property>
-                <property name="visible">False</property>
-              </object>
-            </child>
           </object>
         </child>
         <child type="end">
@@ -412,24 +404,6 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="label" translatable="yes">No problems detected!</property>
-                    <property name="selectable">True</property>
-                    <style>
-                      <class name="dim-label"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="vbx_no_source_page">
-                <property name="visible">True</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel" id="lbl_no_source">
-                    <property name="visible">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="label" translatable="yes">No source selected!</property>
                     <property name="selectable">True</property>
                     <style>
                       <class name="dim-label"/>

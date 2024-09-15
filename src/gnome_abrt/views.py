@@ -292,7 +292,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     header_bar = Gtk.Template.Child()
     box_header_left = Gtk.Template.Child()
-    box_sources_switcher = Gtk.Template.Child()
     box_panel_left = Gtk.Template.Child()
     detected_crashes_label = Gtk.Template.Child()
     crash_box = Gtk.Template.Child()
@@ -316,7 +315,6 @@ class OopsWindow(Gtk.ApplicationWindow):
     vbx_problem_messages = Gtk.Template.Child()
     gd_problem_info = Gtk.Template.Child()
     vbx_empty_page = Gtk.Template.Child()
-    vbx_no_source_page = Gtk.Template.Child()
     gr_main_layout = Gtk.Template.Child()
 
     class SourceObserver:
@@ -504,7 +502,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _configure_sources(self, sources):
         stack = Gtk.Stack()
-        self.box_sources_switcher.set_stack(stack)
         for name, src in sources:
             self._all_sources.append(src)
             src.attach(self._source_observer)
@@ -516,60 +513,19 @@ class OopsWindow(Gtk.ApplicationWindow):
                 logging.debug("Unavailable source: %s", name)
                 continue
 
-            src_btn = Gtk.ToggleButton.new_with_label(label)
-            src_btn.set_visible(True)
-            # add an extra member source (I don't like it but it so easy)
-            src_btn.source = src
-            #jft
-            #self.box_sources_switcher.pack_start(src_btn, False, True, 0)
-            #creating a new page for each source
-            source_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-            source_page.append(src_btn)
-            #adding the source page to the stack
-            stack.add_titled(source_page, name, label)
-
-            # add an extra member name (I don't like it but it so easy)
             src.name = name
-            # add an extra member button (I don't like it but it so easy)
-            src.button = src_btn
-            src_btn.connect("clicked", self._on_source_btn_clicked, src)
+            src.button = None
 
         self._source = self._all_sources[0]
 
     def _update_source_button(self, source):
         name = format_button_source_name(source.name, source)
-        source.button.set_label(name)
 
     def _set_button_toggled(self, button, state):
-        # set_active() triggers the clicked signal
-        # and if we set the active in program,
-        # we don't want do any action in the clicked handler
-        self._handling_source_click = True
-        try:
-            button.set_active(state)
-        finally:
-            self._handling_source_click = False
+        pass
 
     def _on_source_btn_clicked(self, btn, args):
-        # If True, then button's state was not changed by click
-        # and we don't want to switch source
-        if self._handling_source_click:
-            return
-
-        res, old_source = self._switch_source(btn.source)
-        if not res:
-            # switching sources failed and we have to untoggle clicked
-            # source's button
-            self._set_button_toggled(btn, False)
-        else:
-            if old_source is not None:
-                # sources were switched and we have to untoggle old source's
-                # button
-                self._set_button_toggled(old_source.button, False)
-            elif not btn.get_active():
-                # source wasn't changed and we have to set toggled back if
-                # someone clicked already selected button
-                self._set_button_toggled(btn, True)
+        pass
 
     def _switch_source(self, source):
         """Sets the passed source as the selected source."""
@@ -603,18 +559,11 @@ class OopsWindow(Gtk.ApplicationWindow):
             self._set_button_toggled(real_source.button, False)
             if not temporary:
                 logging.debug("Disabling source")
-                real_source.button.set_sensitive(False)
                 self._all_sources.pop(source_index)
 
         if source != self._source:
             return
-
-        # We just disabled the currently selected source. So, we should select
-        # some other source. The simplest way is to select the first source
-        # but only if it is not the disabled source.
-        # If the disabled source is completely unavailable (not temporary) we
-        # can always select the source at index 0 because the disabled
-        # source was removed from the _all_sources list.
+        
         if (not temporary or source_index != 0) and self._all_sources:
             self._source = self._all_sources[0]
             self._set_button_toggled(self._source.button, True)
@@ -865,16 +814,23 @@ class OopsWindow(Gtk.ApplicationWindow):
             child = child.get_next_sibling()
 
 
-        if not problem:
-            self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
+        #if not problem:
+        #    self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
 
-            return
+        #    return
         
         self.nb_problem_layout.set_visible_child(self.gd_problem_info)
 
         app = problem['application']
 
         #lbl_type_crash
+        # I'm ensuring that before applying a new crash class,
+        # the old ones (application-crash, system-crash, system-failure) are removed to avoid incorrect styling
+        style_context = self.crash_box.get_style_context()
+        style_context.remove_class('application-crash')
+        style_context.remove_class('system-crash')
+        style_context.remove_class('system-failure')
+        
         problem_type_crash = problem['type']
         if problem_type_crash == "CCpp":
             # Translators: These are the problem types displayed in the problem

@@ -469,6 +469,28 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.detected_crashes_label.get_style_context().add_class('app-name-label')
         self.crash_box.get_style_context().add_class('crash-info-box')
 
+        #"map" event is emitted when the window is initialized
+        self.connect("map", self.on_window_map)
+
+    #box_header_left and box_panel_left were not properly aligned or sized the same way on window initialization.
+    #This was likely because the GTK layout system sometimes doesn't properly propagate the size allocation across all widgets immediately on startup
+    #Even though both panels are inside a GtkPaned, the initial size calculation didn't seem to synchronize their widths correctly
+    #as a result, the box_header_left width remained smaller than box_panel_left.
+    #did this to solve the issue: Force Layout Recalculation by Adjusting the Pane and slight Separator Shift
+    def on_window_map(self, widget):
+        """This function triggers when the window is first shown"""
+        #after the window is initialized, adjust the paned position slightly to the right
+        current_position = self.gr_main_layout.get_position()
+        #slightly move the separator of the paned (move it 10 pixels to the right)
+        self.gr_main_layout.set_position(current_position + 10)
+        #move it back to the original position after a slight delay
+        GLib.idle_add(self.restore_paned_position, current_position)
+
+    def restore_paned_position(self, original_position):
+        """Optional: restoring the original paned position after the adjustment - might delete later"""
+        self.gr_main_layout.set_position(original_position)
+        return False  #returning False to remove the idle callback after execution
+
     def on_theme_changed(self, style_manager, _):
         """Handle theme changes."""
         self.update_theme()

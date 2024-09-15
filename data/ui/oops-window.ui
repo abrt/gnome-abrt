@@ -21,11 +21,20 @@
                 <property name="orientation">horizontal</property>
                 <property name="hexpand">True</property>
                 <child>
-                  <object class="GtkSearchEntry" id="search_entry">
-                    <property name="visible">True</property>
+                  <object class="GtkButton" id="btn_search_icon">
+                    <property name="halign">start</property>
                     <property name="hexpand">True</property>
-                    <property name="placeholder-text" translatable="yes">Type to search</property>
-                    <signal name="search-changed" handler="on_se_problems_search_changed"/>
+                    <property name="visible">True</property>
+                    <property name="tooltip-text" translatable="yes">Search</property>
+                    <property name="icon-name">system-search-symbolic</property>
+                    <signal name="clicked" handler="on_search_icon_clicked"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Detected Crashes</property>
+                    <property name="halign">center</property>
+                    <property name="hexpand">True</property>
                   </object>
                 </child>
                 <child>
@@ -33,6 +42,7 @@
                     <property name="margin-start">6</property>
                     <property name="visible">True</property>
                     <property name="halign">end</property>
+                    <property name="hexpand">True</property>
                     <property name="valign">center</property>
                     <child>
                       <object class="GtkImage">
@@ -113,6 +123,23 @@
           <object class="GtkBox" id="box_panel_left">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
+            <child>
+                  <object class="GtkBox">
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
+                    <child>
+                      <object class="GtkSearchEntry" id="search_entry">
+                        <property name="visible">True</property>
+                        <property name="hexpand">True</property>
+                        <property name="placeholder-text" translatable="yes">Search Crashes</property>
+                        <signal name="search-changed" handler="on_se_problems_search_changed"/>
+                        <style>
+                        `<class name="search-crash"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="vexpand">True</property>

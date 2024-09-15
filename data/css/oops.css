@@ -42,3 +42,8 @@ GtkListBoxRow, row {
     padding: 4px 10px;
     border-radius: 50%;
 }
+
+.search-crash {
+    margin: 5px;
+    border-radius: 12px;
+}

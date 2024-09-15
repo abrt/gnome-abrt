@@ -294,6 +294,8 @@ class OopsWindow(Gtk.ApplicationWindow):
     box_header_left = Gtk.Template.Child()
     box_sources_switcher = Gtk.Template.Child()
     box_panel_left = Gtk.Template.Child()
+    detected_crashes_label = Gtk.Template.Child()
+    crash_box = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
     btn_search_icon = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
@@ -466,6 +468,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
         self.lbl_reason.get_style_context().add_class('oops-reason')
+        self.detected_crashes_label.get_style_context().add_class('app-name-label')
+        self.crash_box.get_style_context().add_class('crash-info-box')
 
     def on_theme_changed(self, style_manager, _):
         """Handle theme changes."""
@@ -876,14 +880,17 @@ class OopsWindow(Gtk.ApplicationWindow):
             # Translators: These are the problem types displayed in the problem
             # list under the application name
             problem_type_crash = _("Application Crash")
+            self.crash_box.get_style_context().add_class('application-crash')
         elif problem_type_crash == "vmcore":
             problem_type_crash = _("System Crash")
+            self.crash_box.get_style_context().add_class('system-crash')
         elif problem_type_crash == "Kerneloops":
             problem_type_crash = _("System Failure")
+            self.crash_box.get_style_context().add_class('system-failure')
         else:
             problem_type_crash = _("Misbehavior")
+            self.crash_box.get_style_context().add_class('application-crash')
         self.lbl_type_crash.set_text(problem_type_crash)
-        self.lbl_type_crash.get_style_context().add_class('type-box')
 
         self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
         self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))
@@ -1028,7 +1035,7 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     
     def problems_button_press_event(self, gesture, n_press, x, y):
-    # Determine the type of click based on the number of presses
+        # Determine the type of click based on the number of presses
         if n_press == 2:  # Double click
             action = self.lookup_action('report')
             action.activate()
@@ -1047,20 +1054,13 @@ class OopsWindow(Gtk.ApplicationWindow):
         return None
         
     def get_box_header_left_offset(self):
-        # Returns the offset of box_header_left relative to the main paned
-        # widget: distance between the left edges of the widgets in LTR
-        # locales or the right edges in RTL locales.
         box_header_left = self.box_header_left
         box_panel_left = self.box_panel_left
         paned = box_panel_left.get_parent()
         if paned is None:
-            # Fatal error, we can't do anything so just return error.
-            # See also: rhbz#1347951
             return None
 
         offset = box_header_left.translate_coordinates(paned, 0, 0)[0]
-        # We don't know who is the parent of box_header_left, it may be
-        # box_header or header_bar.
         parent = box_header_left.get_parent()
         if parent is not None:
             if parent.get_direction() == Gtk.TextDirection.RTL:
@@ -1070,27 +1070,17 @@ class OopsWindow(Gtk.ApplicationWindow):
         return offset
 
     def do_box_header_left_size_allocate(self, sender):
-        # When something changes in the left group of header widgets
-        # (for example the number of "My" or "System" bugs is changed
-        # and requires more or less space) get its new minimum width
-        # and set it as the minimum width of the left panel.
-        # Unfortunately, we can't just call sender.get_preferred_width()
-        # because once we set the minimum width (set_size_request())
-        # of this box that value may be returned rather than the real
-        # minimum value required by the box. So here we repeat roughly
-        # the same algorithm which is inside the GtkBox implementation:
-        # calculate the sum of minimum widths required by the children.
         spacing = sender.get_spacing()
         sum_width = -spacing
         for child in sender.get_children():
-            width = child.get_preferred_width()[0]  # child's minimum width
+            width = child.get_preferred_width()[0]
             sum_width += width
             sum_width += spacing
 
-        # Calculate the position of the box relative to its parent
+        
         offset = self.get_box_header_left_offset()
         if offset is None:
-            return GLib.SOURCE_REMOVE  # Error, we won't retry
+            return GLib.SOURCE_REMOVE
 
         context = self.box_header_left.get_style_context()
         state = context.get_state()
@@ -1106,74 +1096,37 @@ class OopsWindow(Gtk.ApplicationWindow):
     
     def on_box_header_left_size_allocate(self, sender, allocation):
         other = self.box_panel_left
-
-        # Sometimes this function is called too early. All widgets must
-        # be realized in order to measure their relative position.
         if not sender.get_realized() or not other.get_realized():
             return
-
-        # We can't set the new size request while a widget size is being
-        # allocated because the widget must be fully measured and the new
-        # size request clears the measured flag causing a warning. For the
-        # same reason we can't set the new size request of another widget
-        # sharing the same common toplevel because the new size requsest
-        # causes resize of all its parents including the common parent which
-        # is just being allocated. To avoid this we schedule this action
-        # on idle.
         GLib.idle_add(self.do_box_header_left_size_allocate, sender)
 
     def update_box_header_left_size_from_paned(self, sender):
-        # Sets the box_header_left width the same as the paned position
-        # minus optional margins
         other = self.box_header_left
 
-
-        # Sometimes this function is called too early. All widgets must
-        # be realized in order to measure their relative position.
         if not sender.get_realized() or not other.get_realized():
             return GLib.SOURCE_REMOVE
 
         offset = self.get_box_header_left_offset()
         if offset is None:
             return GLib.SOURCE_REMOVE
-
-        # the value of sender.get_position() - offset may result in a negative value
-        # which is invalid for set_size_request.
-        #self.box_header_left.set_size_request(sender.get_position() - offset, -1)
+        
         width = max(sender.get_position() - offset, 0)
         self.box_header_left.set_size_request(width, -1)
 
-        # Sometimes the new width request is accepted (get_size_request()
-        # returns the new value correctly) but not applied (the actual widget
-        # width is old and unnecessarily larger). Not sure whose bug this is
-        # but to workaround let's force resize.
+        
         self.box_header_left.queue_resize()
         return GLib.SOURCE_REMOVE
     
     
     def on_paned_position_changed(self, sender, data):
-        # Alternatively we could watch box_panel_left size-allocate signal
-        # but that other method seemed to be delayed and not updated the
-        # size correctly.
         self.update_box_header_left_size_from_paned(sender)
 
     
     
     def on_paned_size_allocate(self, sender, allocation):
-        # Sometimes when the paned position is changed as a result of the
-        # resize of whole window (for example unmaximization) the paned
-        # position is not notified correctly. Again, not sure whose bug this
-        # is but to workaround let's watch the size of the paned and update
-        # the header box size. Same as previously, we should not resize
-        # any widget even when another widget is being allocated so schedule
-        # this action on idle.
         GLib.idle_add(self.update_box_header_left_size_from_paned, sender)
     
 
     
     def on_paned_map(self, sender):
-        # Also on the first appearance force the paned position changed event
-        # to update the box_header_left minimum width. Otherwise it is not
-        # adjusted to the paned handle position until a user moves the handle
-        # manually.
         self.on_paned_position_changed(sender, None)

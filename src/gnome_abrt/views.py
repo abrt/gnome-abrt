@@ -1075,7 +1075,28 @@ class OopsWindow(Gtk.ApplicationWindow):
     
     
     def on_paned_position_changed(self, sender, data):
+        #temporarily disable resizing of the main window during pane adjustment
+        self.set_resizable(False)
+
+        #a minimum width for the left pane (box_panel_left)
+        min_left_width = 280
+
+        #maximum width of left pane
+        max_left_width = 600
+
+        #current position of the pane
+        current_position = sender.get_position()
+
+        #box_panel_left)is not resized smaller than the minimum width
+        if current_position < min_left_width:
+            sender.set_position(min_left_width)
+        elif current_position > max_left_width:
+            sender.set_position(max_left_width)
+
         self.update_box_header_left_size_from_paned(sender)
+
+        #enable window resizing after the adjustment is complete
+        self.set_resizable(True)
 
     
     

@@ -31,7 +31,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="detected_crashes_label">
                     <property name="label" translatable="yes">Detected Crashes</property>
                     <property name="halign">center</property>
                     <property name="hexpand">True</property>
@@ -213,12 +213,12 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkBox" id="crash_box">
                     <property name="orientation">horizontal</property>
                     <property name="spacing">6</property>
                     <property name="halign">start</property>
                     <style>
-                      <class name="type-box"/>
+                      <class name="crash-info-box"/>
                     </style>
                     <child>
                       <object class="GtkImage">
@@ -230,9 +230,10 @@
                       <object class="GtkLabel" id="lbl_type_crash">
                         <property name="visible">True</property>
                         <property name="label">System Failure</property>
-                        <property name="xalign">0</property>
-                        <property name="wrap">True</property>
-                        <property name="halign">start</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="hexpand">False</property>
+                        <property name="wrap">False</property>
                       </object>
                     </child>
                   </object>

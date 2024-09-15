@@ -25,16 +25,26 @@ GtkListBoxRow, row {
     background-color: blue;
 }
 
-.type-box {
-    background-color: #ff0000;
+.crash-info-box {
+    background-color: #ff9800;
     color: #ffffff;
-    padding: 4px 12px;
-    border-radius: 12px;
+    padding: 8px 12px;
+    border-radius: 16px;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+  }
+
+.application-crash {
+    background-color: #ff9800; /* Orange */
 }
 
+.system-crash {
+    background-color: #8e24aa; /* Violet */
+}
+
+.system-failure {
+    background-color: #f44336; /* Red */
+}
 
 .times-detected-label {
     background-color: #007bff;
@@ -47,3 +57,4 @@ GtkListBoxRow, row {
     margin: 5px;
     border-radius: 12px;
 }
+

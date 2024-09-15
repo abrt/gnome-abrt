@@ -295,6 +295,7 @@ class OopsWindow(Gtk.ApplicationWindow):
     box_sources_switcher = Gtk.Template.Child()
     box_panel_left = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
+    btn_search_icon = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
     lbl_type_crash = Gtk.Template.Child()
@@ -444,6 +445,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.update_theme()
         self.style_manager.connect("notify::color-scheme", self.on_theme_changed)
 
+        self.search_entry.hide()  # Ensure the search entry is hidden on load
+
         # Ensure buttons are packed only once
         if self.btn_delete.get_parent() is None:
             self.header_bar.pack_end(self.btn_delete)
@@ -456,6 +459,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
         self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
+        self.btn_search_icon.connect('clicked', self.on_search_icon_clicked)
+        self.search_entry.connect('notify::text', self.on_search_entry_text_changed)
         self.search_entry.connect('search-changed', self.on_se_problems_search_changed)
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
@@ -961,6 +966,22 @@ class OopsWindow(Gtk.ApplicationWindow):
             os.environ["LIBREPORT_PRGNAME"] = self.get_application().get_application_id()
             self._controller.report(selected[0])
     
+    
+    def on_search_entry_text_changed(self, search_entry, gparam):
+        """Hides the search entry when it is cleared (cross button clicked)."""
+        if not search_entry.get_text():
+            search_entry.hide()  # Hide the search entry if the text is empty
+
+    def on_search_icon_clicked(self, button):
+        logging.debug("search icon clicked");
+        if self.search_entry.get_visible():
+            logging.debug("hiding search entry")
+            self.search_entry.hide()
+        else:
+            logging.debug("showing search entry")
+            self.search_entry.show()
+            self.search_entry.grab_focus()
+
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
         self._filter.set_pattern(entry.get_text())

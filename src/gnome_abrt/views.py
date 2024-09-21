@@ -455,6 +455,9 @@ class OopsWindow(Gtk.ApplicationWindow):
         if self.app_menu_button.get_parent() is None:
             self.header_bar.pack_end(self.app_menu_button)
         self.box_header_left.set_hexpand(True)
+        self.header_bar.get_style_context().add_class('header-bar')
+        self.app_menu_button.get_style_context().add_class('app-menu-button')
+        self.btn_report.get_style_context().add_class('btn-report')
 
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
@@ -836,10 +839,9 @@ class OopsWindow(Gtk.ApplicationWindow):
             child = child.get_next_sibling()
 
 
-        #if not problem:
-        #    self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
-
-        #    return
+        if not problem:
+            self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
+            return
         
         self.nb_problem_layout.set_visible_child(self.gd_problem_info)
 

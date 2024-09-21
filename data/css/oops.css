@@ -1,15 +1,37 @@
-/* FIXME
- *
- * "row" selector is valid and supported in GTK>=3.20 (Fedora 24).
- * "GtkListBoxRow" selector is no longer supported but required
- * for GTK<3.20 (Fedora 23). It can be removed if we decide to stop
- * supporting older systems.
- */
-
 GtkListBoxRow, row {
     padding: 12px;
     margin: 5px;
     border-radius: 12px;
+}
+
+GtkListBoxRow:selected, row:selected {
+    background-color: #e0e0e0;
+}
+
+.header-bar {
+    background-color: #e0e0e0;
+}
+
+.app-menu-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.app-menu-button:hover {
+    background-color: #d3d3d3;
+}
+
+.app-menu-button:active {
+    background-color: #b3b3b3;
+}
+
+.app-menu-button > * {
+    background-color: transparent;
 }
 
 .app-name-label {
@@ -21,10 +43,6 @@ GtkListBoxRow, row {
     font-weight: bold;
 }
 
-.tbtn_multi_select-color {
-    background-color: blue;
-}
-
 .crash-info-box {
     background-color: #ff9800;
     color: #ffffff;
@@ -33,22 +51,23 @@ GtkListBoxRow, row {
   }
 
 .application-crash {
-    background-color: #ff9800; /* Orange */
+    background-color: #ff9800;
 }
 
 .system-crash {
-    background-color: #8e24aa; /* Violet */
+    background-color: #8e24aa;
 }
 
 .system-failure {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
 }
 
 .times-detected-label {
     background-color: #007bff;
     color: #ffffff;
-    padding: 4px 10px;
+    padding: 3px 6px;
     border-radius: 50%;
+    font-size: 10px;
 }
 
 .search-crash {
@@ -56,3 +75,14 @@ GtkListBoxRow, row {
     border-radius: 12px;
 }
 
+.btn-report {
+    background-color: transparent;
+}
+
+.btn-report:hover {
+    background-color: #d3d3d3;
+}
+
+.btn-report:active {
+    background-color: #b3b3b3;
+}

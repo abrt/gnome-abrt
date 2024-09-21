@@ -51,7 +51,7 @@ class ProblemsFilter:
         self._list_box_selection = list_box_selection
 
     def set_pattern(self, pattern):
-        self._pattern = pattern
+        self._pattern = pattern.lower()
         self._list_box.invalidate_filter()
 
         i = 0
@@ -79,14 +79,10 @@ class ProblemsFilter:
         problem = list_box_row.get_problem()
 
         for i in ['component', 'reason', 'executable', 'package']:
-            if problem[i] is None:
-                logging.debug("Problem '%s' doesn't have '%s'", problem.problem_id, i)
-                continue
-
-            # _pattern is 'ascii' and problem[i] is 'dbus.String'
-            val = str(problem[i])
-            if val and self._pattern in val:
-                return True
+            if problem[i]:
+                value = str(problem[i]).lower()
+                if self._pattern in value:
+                    return True
 
         # Check Bug tracker ID
         if problem['is_reported']:
@@ -94,25 +90,20 @@ class ProblemsFilter:
                 if problems.Problem.Submission.URL != sbm.rtype:
                     continue
 
-                # _pattern is 'str' and sbm.data is 'dbus.String', so we need
-                # to convert sbm.data to a regular 'str'
                 rid = str(sbm.data)
                 rid = rid.rstrip('/').rsplit('/', maxsplit=1)[-1]
                 rid = rid.rsplit('=', maxsplit=1)[-1]
-                if self._pattern in rid:
+                if self._pattern in rid.lower():
                     return True
 
-        # This might be confusing as users can't see problem ID in UI but it
-        # will come in handy when you want to see particular problem discovered
-        # in the system logs.
-        if self._pattern in problem.problem_id:
+        if self._pattern in problem.problem_id.lower():
             return True
 
         app = problem['application']
-        if app is None or app.name is None:
-            return False
+        if app and app.name:
+            return self._pattern in app.name.lower()
 
-        return self._pattern in app.name
+        return False
 
 
 def problem_to_storage_values(problem):
@@ -122,12 +113,6 @@ def problem_to_storage_values(problem):
         name = app.name
     else:
         name = problem['human_type']
-
-    if name == "kernel" or name.startswith("kernel-"):
-        # Translators: if the kernel crashed we display the word "System"
-        # instead of "kernel". In this context "System" is like a proper
-        # package name, probably a nominative noun.
-        name = C_("package name", "System")
 
     problem_type = problem['type']
     if problem_type == "CCpp":

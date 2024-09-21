@@ -53,8 +53,9 @@ from gnome_abrt.signals import glib_sigchld_signal_handler
 #pylint: disable=C0413
 from gnome_abrt.problems import MultipleSources
 #pylint: disable=C0413
-from gnome_abrt.dbus_problems import (get_standard_problems_source,
-                                      get_foreign_problems_source)
+from gnome_abrt.dbus_problems import get_standard_problems_source
+#from gnome_abrt.dbus_problems import (get_standard_problems_source,
+#                                      get_foreign_problems_source)
 #pylint: disable=C0413
 from gnome_abrt.errors import UnavailableSource
 #pylint: disable=C0413
@@ -190,21 +191,7 @@ class OopsApplication(Gtk.Application):
                 // Translators: a list header, "My" is a shortcut for "My bugs"
                 _("My")
                 '''
-                self.all_sources = [(_("My"), MultipleSources(sources))]
-
-                try:
-                    # pylint: disable=W0105
-                    '''
-                    The same trick as above:
-                    // Translators: a list header, a shortcut for "System
-                    // bugs". In this context "System" may be an adjective
-                    // or a genitive noun, as required by your language.
-                    C_("bugs", "System")
-                    '''
-                    self.all_sources.append((C_("bugs", "System"),
-                                get_foreign_problems_source()))
-                except UnavailableSource as ex:
-                    logging.warning(str(ex))
+                self.all_sources = [("All Problems", MultipleSources(sources))]
 
                 controller = Controller(self.all_sources,
                                         glib_sigchld_signal_handler)

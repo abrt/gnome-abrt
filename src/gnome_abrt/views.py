@@ -222,7 +222,6 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_app = Gtk.Label.new(problem_values[0])
         self._lbl_app.set_halign(Gtk.Align.START)
         self._lbl_app.set_hexpand(True)
-        #self._lbl_app.set_alignment(0.0, 0.5)
         self._lbl_app.set_xalign(0.0)
         self._lbl_app.set_yalign(0.5)
         self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
@@ -240,7 +239,6 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_type = Gtk.Label.new(problem_values[2])
         self._lbl_type.set_halign(Gtk.Align.START)
         self._lbl_type.set_hexpand(True)
-        #self._lbl_type.set_alignment(0.0, 0.5)
         self._lbl_type.set_xalign(0.0)
         self._lbl_type.set_yalign(0.5)
         self._lbl_type.get_style_context().add_class('dim-label')
@@ -359,25 +357,16 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.app_menu_button.set_menu_model(builder.get_object('app_menu'))
 
         self.menu_problem_item = builder.get_object('menu_problem_item')
-        #self.menu_problem_item = Gtk.Menu.new_from_model(self.menu_problem_item)
-        self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item) #jft
-
-        #self.menu_problem_item.attach_to_widget(self) #jft
+        self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item)
 
         self.menu_multiple_problems = builder.get_object(
                 'menu_multiple_problems')
-        #self.menu_multiple_problems = Gtk.Menu.new_from_model(
-        #        self.menu_multiple_problems)
-        self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems) #jft
-
-        #self.menu_multiple_problems.attach_to_widget(self) #jft
+        self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems)
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/css/oops.css')
         stl_ctx = self.get_style_context()
-        #stl_ctx.add_provider_for_screen(stl_ctx.get_screen(), css_prv, 6000)
-        #stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv, 6000) #jft
         stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv,
                                                   Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
@@ -421,7 +410,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         # enable observer
         self._source_observer.enable()
 
-        #self.lb_problems.connect("key-press-event", self._on_key_press_event)
         key_controller = Gtk.EventControllerKey()
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
@@ -511,7 +499,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         application.set_accels_for_action('win.search', ['<Primary>f'])
 
     def _configure_sources(self, sources):
-        stack = Gtk.Stack()
         for name, src in sources:
             self._all_sources.append(src)
             src.attach(self._source_observer)
@@ -684,8 +671,6 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self._reloading = True
         try:
-            #self.lb_problems.foreach(lambda w, u: w.destroy(), None)
-            #jft
             child = self.lb_problems.get_first_child()
             while child:
                 next_child = child.get_next_sibling()
@@ -768,7 +753,7 @@ class OopsWindow(Gtk.ApplicationWindow):
         msg.set_wrap(True)
         msg.set_selectable(True)
         msg.set_xalign(0)
-        self.vbx_problem_messages.append(msg) #jft
+        self.vbx_problem_messages.append(msg)
 
     def _get_reason_for_problem_type(self, application, problem_type, human_type):
         if problem_type == 'Kerneloops':

@@ -182,15 +182,6 @@ class OopsApplication(Gtk.Application):
                             message="No available problem source.")
 
                 # pylint: disable=W0105
-                '''
-                This is a trick to make xgettext think we are C language
-                and emit the translators comment correctly.  It's a bug
-                in xgettext that it recognizes Python files only after
-                their .py extension, there is no way to force the format.
-                See: bugs.launchpad.net/intltool/+bug/377872
-                // Translators: a list header, "My" is a shortcut for "My bugs"
-                _("My")
-                '''
                 self.all_sources = [("All Problems", MultipleSources(sources))]
 
                 controller = Controller(self.all_sources,
@@ -264,18 +255,11 @@ class OopsApplication(Gtk.Application):
                             "Michal Toman <michal.toman@gmail.com>",
                             "Rafał Lużyński <digitalfreak@lingonborough.com>",
                             "Richard Marko <rmarko@fedoraproject.org>"])
-        #dialog.set_artists(artists)
-        #dialog.set_translator_credits(_("translator-credits"))
 
         windows = self.get_windows()
         if windows:
             dialog.set_transient_for(windows[0])
-
-        #dialog.run()
         dialog.present()
-        #dialog.destroy()
-        #dialog.connect("response", lambda d, r: d.destroy())
-        #dialog.connect("close", dialog.destroy)
 
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):

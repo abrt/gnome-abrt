@@ -117,6 +117,7 @@
             <property name="orientation">vertical</property>
             <child>
                   <object class="GtkBox">
+                    <property name="margin-top">5</property>
                     <property name="margin-start">12</property>
                     <property name="margin-end">12</property>
                     <child>
@@ -126,7 +127,7 @@
                         <property name="placeholder-text" translatable="yes">Search Crashes</property>
                         <signal name="search-changed" handler="on_se_problems_search_changed"/>
                         <style>
-                        `<class name="search-crash"/>
+                          <class name="search-crash"/>
                         </style>
                       </object>
                     </child>

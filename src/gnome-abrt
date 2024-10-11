@@ -254,7 +254,8 @@ class OopsApplication(Gtk.Application):
                             "Michael Catanzaro <mcatanzaro@gnome.org>",
                             "Michal Toman <michal.toman@gmail.com>",
                             "Rafał Lużyński <digitalfreak@lingonborough.com>",
-                            "Richard Marko <rmarko@fedoraproject.org>"])
+                            "Richard Marko <rmarko@fedoraproject.org>",
+                            "Sudip Shil <sshil@redhat.com>"])
 
         windows = self.get_windows()
         if windows:

@@ -68,11 +68,30 @@ class ProblemsFilter:
             self._list_box_selection.unselect_all()
 
     def match(self, list_box_row):
-        # None nevere matches the patter
+        # None matches the pattern
         if list_box_row is None:
             return False
+        
+        # taking problem type so that we can search by "@" 
+        problem_type = list_box_row.problem_type
 
-        # Empty string mathces everything
+        # handling special case for filtering by problem_type using "@" symbol
+        if self._pattern.startswith("@"):
+            search_type = self._pattern[1:].strip().lower()
+
+            if search_type == "":
+                return True
+            
+            if search_type == "misbehavior":
+                return problem_type == "misbehavior"
+            elif search_type == "system":
+                return problem_type in ["system failure", "system crash"]
+            elif search_type == "application":
+                return problem_type == "application crash"
+            else:
+                return False
+
+        # Empty string matches everything
         if not self._pattern:
             return True
 
@@ -206,6 +225,8 @@ class ProblemRow(Gtk.ListBoxRow):
         super().__init__()
 
         self._problem = problem_values[4]
+        # Store the problem type as a property (this is what we will filter by)
+        self.problem_type = problem_values[2].lower()  # Store as lowercase for easier comparison
 
         
         #applying margins directly on the ListBoxRow
@@ -419,6 +440,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.style_manager.connect("notify::color-scheme", self.on_theme_changed)
 
         self.search_entry.hide()  # Ensure the search entry is hidden on load
+        #function to set up the auto-completion for the search entry
+        self.setup_search_completion()
 
         # Ensure buttons are packed only once
         if self.btn_delete.get_parent() is None:
@@ -461,6 +484,48 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.gr_main_layout.set_position(current_position + 10)
         #move it back to the original position after a slight delay
         GLib.idle_add(self.restore_paned_position, current_position)
+
+    def setup_search_completion(self):
+        """Manually set up a popover to show suggestions for the search entry"""
+        #created a Gtk.ListBox to show suggestions
+        self.completion_list = Gtk.ListBox()
+        self.completion_list.set_selection_mode(Gtk.SelectionMode.SINGLE)
+
+        #suggestions to the list
+        suggestions = ["@Misbehavior", "@System", "@Application"]
+        for suggestion in suggestions:
+            row = Gtk.ListBoxRow()
+            label = Gtk.Label(label=suggestion)
+            row.set_child(label)
+            self.completion_list.append(row)
+
+        #created a popover to hold the list of suggestions
+        self.completion_popover = Gtk.Popover()
+        self.completion_popover.set_child(self.completion_list)
+        self.completion_popover.set_parent(self.search_entry)
+        self.completion_list.connect("row-activated", self.on_suggestion_selected)
+        self.search_entry.connect("changed", self.on_search_entry_changed)
+
+    def on_search_entry_changed(self, entry):
+        """Show suggestions when the user types '@'"""
+        text = entry.get_text()
+        if text.startswith("@"):
+            #after typing '@' the popover will be shown to the search entry
+            self.completion_popover.popup()
+        else:
+            #hide the popover if the user types something else
+            self.completion_popover.popdown()
+
+    def on_suggestion_selected(self, listbox, row):
+        """Handle suggestion selection from the list."""
+        suggestion = row.get_child().get_text()
+
+        #set the suggestion as the text in the search entry
+        self.search_entry.set_text(suggestion)
+        self.search_entry.set_position(-1)  #moves the cursor to the last position
+        self.completion_popover.popdown()
+        #apply the filter based on the selected suggestion
+        self._filter.set_pattern(suggestion)
 
     def restore_paned_position(self, original_position):
         """Optional: restoring the original paned position after the adjustment - might delete later"""

@@ -5,11 +5,8 @@ GtkListBoxRow, row {
 }
 
 GtkListBoxRow:selected, row:selected {
-    background-color: #e0e0e0;
-}
-
-.header-bar {
-    background-color: #e0e0e0;
+    background-color: #007bff; /* Custom blue color */
+    color: #ffffff; /* White text color for better contrast */
 }
 
 .app-menu-button {

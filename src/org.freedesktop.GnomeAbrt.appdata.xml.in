@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <launchable type="desktop-id">org.freedesktop.GnomeAbrt.desktop</launchable>
   <name>Problem Reporting</name>
+  <developer_name>The ABRT Project</developer_name>
   <summary>View and report application crashes</summary>
   <project_license>GPL-3.0+</project_license>
   <description>
@@ -18,7 +19,7 @@
   <url type="bugtracker">https://github.com/abrt/gnome-abrt/issues</url>
   <url type="homepage">https://github.com/abrt/gnome-abrt</url>
   <screenshots>
-    <screenshot type="default">http://jfilak.fedorapeople.org/media/gnome-abrt.png</screenshot>
+    <screenshot type="default"><image>https://jfilak.fedorapeople.org/media/gnome-abrt.png</image></screenshot>
   </screenshots>
   <translation type="gettext">gnome-abrt</translation>
   <update_contact>crash-catcher@lists.fedorahosted.org</update_contact>
@@ -35,4 +36,5 @@
     <release version="1.2.7" date="2019-02-04">
     </release>
   </releases>
+  <content_rating type="oars-1.1"/>
 </component>

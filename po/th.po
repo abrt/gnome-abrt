@@ -1,103 +1,110 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Weblate <noreply@weblate.org>, 2020.
+# Atirut Wattanamongkol <atirut.wattanamongkol@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-11-04 06:20+0000\n"
+"Last-Translator: Atirut Wattanamongkol <atirut.wattanamongkol@gmail.com>\n"
+"Language-Team: Thai <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr ""
+msgstr "_รายงาน"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
-msgstr ""
+msgstr "_ลบ"
 
 #: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
+#, fuzzy
 msgid "D_etails"
-msgstr ""
+msgstr "ราย_ละเอียด"
 
 #: data/ui/oops-menus.ui:20
 msgid "_Open the problem data directory"
-msgstr ""
+msgstr "เ_ปิดไดเรกทอรีข้อมูลปัญหา"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+msgstr "_คัดลอก ID ปัญหาลงคลิปบอร์ด"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr ""
+msgstr "_ตัวกรอง"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
-msgstr ""
+msgstr "_ปรับแต่ง"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:49
+#, fuzzy
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "เกี่ยวกับ “การรายงานปัญหา”"
 
 #: data/ui/oops-window.ui:10 src/gnome-abrt:266
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
+#, fuzzy
 msgid "Problem Reporting"
-msgstr ""
+msgstr "การรายงานปัญหา"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr ""
+msgstr "เลือกปัญหาหลายๆ อย่าง"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr ""
+msgstr "ส่งปัญหาที่เลือก"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
-msgstr ""
+msgstr "ลบปัญหาที่เลือก"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr ""
+msgstr "พิมพ์เพื่อค้นหา"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
-msgstr ""
+msgstr "ชื่อ"
 
 #: data/ui/oops-window.ui:226
 msgid "Version"
-msgstr ""
+msgstr "รุ่น"
 
 #. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
 #: data/ui/oops-window.ui:253
 msgid "First Detected"
-msgstr ""
+msgstr "ตรวจพบครั้งแรก"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr ""
+msgstr "รายงานแล้ว"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr ""
+msgstr "แสดงรายละเอียดปัญหา"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr ""
+msgstr "ไม่พบปัญหา!"
 
 #: data/ui/oops-window.ui:368
+#, fuzzy
 msgid "No source selected!"
-msgstr ""
+msgstr "ไม่ได้เลือกแหล่ง!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
@@ -114,7 +121,7 @@ msgstr ""
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:205 src/gnome-abrt:207
 msgid "My"
-msgstr ""
+msgstr "ของฉัน"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -122,28 +129,29 @@ msgstr ""
 #: src/gnome-abrt:216 src/gnome-abrt:218
 msgctxt "bugs"
 msgid "System"
-msgstr ""
+msgstr "ของระบบ"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr ""
+msgstr "ดูและรายงานข้อขัดข้องของแอปพลิเคชัน"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "abrt;รายงานบัค;รายงานข้อขัดข้อง;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"ชุดเครื่องมือซอฟต์แวร์ที่ออกแบบมาเพื่อการรวบรวม วิเคราะห์ และรายงานปัญหาซอฟต์แวร์"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "จุดประสงค์หลักคือเพื่ออำนวยความสะดวกในการรายงานปัญหาและค้นหาวิธีแก้ไข"
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
@@ -156,11 +164,11 @@ msgstr ""
 
 #: src/gnome_abrt/tools.py:49
 msgid "Yesterday"
-msgstr ""
+msgstr "เมื่อวาน"
 
 #: src/gnome_abrt/tools.py:63
 msgid "Last week"
-msgstr ""
+msgstr "สัปดาห์ที่แล้ว"
 
 #. Translators: This message will never be used for less than
 #. 2 weeks ago nor for more than one month ago. However, the singular
@@ -169,11 +177,11 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} week ago"
 msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
+msgstr[0] "{0:d} สัปดาห์ที่แล้ว"
 
 #: src/gnome_abrt/tools.py:72
 msgid "Last month"
-msgstr ""
+msgstr "เดือนที่แล้ว"
 
 #. Translators: This message will never be used for less than
 #. 2 months ago nor for more than one year ago. See the comment above.
@@ -181,11 +189,11 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} month ago"
 msgid_plural "{0:d} months ago"
-msgstr[0] ""
+msgstr[0] "{0:d} เดือนที่แล้ว"
 
 #: src/gnome_abrt/tools.py:80
 msgid "Last year"
-msgstr ""
+msgstr "ปีที่แล้ว"
 
 #. Translators: This message will never be used for less than
 #. 2 years ago. However, the singular form is necessary for some
@@ -195,7 +203,7 @@ msgstr ""
 #, python-brace-format
 msgid "{0:d} year ago"
 msgid_plural "{0:d} years ago"
-msgstr[0] ""
+msgstr[0] "{0:d} ปีที่แล้ว"
 
 #. Translators: if the kernel crashed we display the word "System"
 #. instead of "kernel". In this context "System" is like a proper
@@ -203,7 +211,7 @@ msgstr[0] ""
 #: src/gnome_abrt/views.py:133
 msgctxt "package name"
 msgid "System"
-msgstr ""
+msgstr "ระบบ"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
@@ -257,7 +265,7 @@ msgstr ""
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr ""
+msgstr "{0} ปิดโดยไม่คาดคิด"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."

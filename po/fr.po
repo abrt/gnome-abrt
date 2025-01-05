@@ -10,13 +10,14 @@
 # Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2018. #zanata
 # Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2019. #zanata
 # Julien Humbert <julroy67@gmail.com>, 2020.
+# Léane GRASSER <leane.grasser@proton.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2020-01-23 07:11+0000\n"
-"Last-Translator: Julien Humbert <julroy67@gmail.com>\n"
+"PO-Revision-Date: 2024-10-17 09:38+0000\n"
+"Last-Translator: Léane GRASSER <leane.grasser@proton.me>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/fr/>\n"
 "Language: fr\n"
@@ -24,11 +25,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10.3\n"
+"X-Generator: Weblate 5.7.2\n"
 
 #: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
 msgid "_Report"
-msgstr "_Rapport"
+msgstr "Signale_r"
 
 #: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
 msgid "_Delete"
@@ -44,11 +45,11 @@ msgstr "_Ouvrir le répertoire de données du problème"
 
 #: data/ui/oops-menus.ui:24
 msgid "_Copy the problem ID to Clipboard"
-msgstr "_Copier l’ID du problème dans le presse-papier"
+msgstr "_Copier l’ID du problème dans le presse-papiers"
 
 #: data/ui/oops-menus.ui:28
 msgid "_Filter"
-msgstr "_Filtre"
+msgstr "_Filtrer"
 
 #: data/ui/oops-menus.ui:43
 msgid "_Preferences"
@@ -67,11 +68,11 @@ msgstr "Signalement de problèmes"
 
 #: data/ui/oops-window.ui:30
 msgid "Select multiple problems"
-msgstr "Sélectionner de multiples incidents"
+msgstr "Sélectionner plusieurs problèmes"
 
 #: data/ui/oops-window.ui:60
 msgid "Submit selected problem"
-msgstr "Soumettre les problèmes sélectionnés"
+msgstr "Envoyer le problème sélectionné"
 
 #: data/ui/oops-window.ui:77
 msgid "Delete selected problems"
@@ -79,7 +80,7 @@ msgstr "Supprimer les problèmes sélectionnés"
 
 #: data/ui/oops-window.ui:108
 msgid "Type to search"
-msgstr "Tapez pour rechercher"
+msgstr "Saisissez pour rechercher"
 
 #: data/ui/oops-window.ui:206
 msgid "Name"
@@ -96,36 +97,36 @@ msgstr "Première détection"
 
 #: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
 msgid "Reported"
-msgstr "Rapporté"
+msgstr "Signalé"
 
 #: data/ui/oops-window.ui:322
 msgid "Show problem details"
-msgstr "Afficher les détails des problèmes"
+msgstr "Afficher les détails du problème"
 
 #: data/ui/oops-window.ui:342
 msgid "No problems detected!"
-msgstr "Aucun problème détecté !"
+msgstr "Aucun problème détecté !"
 
 #: data/ui/oops-window.ui:368
 msgid "No source selected!"
-msgstr "Aucune source sélectionnée !"
+msgstr "Aucune source sélectionnée !"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:96
 msgid "Be verbose"
-msgstr "Verbeux"
+msgstr "Sortie détaillée"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:108
 msgid "Selected problem ID"
-msgstr "ID du problème sélectionné"
+msgstr "ID du problème choisi"
 
 #. Translators: a list header, "My" is a shortcut for "My bugs"
 #: src/gnome-abrt:205 src/gnome-abrt:207
 msgid "My"
-msgstr "Mes"
+msgstr "Utilisateur"
 
 #. Translators: a list header, a shortcut for "System
 #. bugs". In this context "System" may be an adjective
@@ -138,34 +139,34 @@ msgstr "Système"
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "View and report application crashes"
-msgstr "Visualiser et signaler les incidents de l’application"
+msgstr "Voir et signaler les plantages des applications"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr "abrt;signalement de bugs;enregistreur d’incidents;"
+msgstr "abrt;signalement de bugs;enregistreur de plantages;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"Ensemble d’outils logiciels conçus pour collecter, analyser et rapporter les "
-"problèmes de logiciel."
+"Ensemble d’outils conçus pour la collecte, l’analyse et le signalement des "
+"problèmes dans les logiciels."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
-"Son but principal est de faciliter les processus de rapport de problèmes et "
-"de découverte d’une solution."
+"Son but principal est de simplifier le processus de signalement de problèmes "
+"et de découverte de solutions."
 
 #: src/gnome_abrt/dbus_problems.py:107
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
-"Impossible d’obtenir l’interface « {0} » sur le chemin « {1} » dans le bus "
-"« {2} » : {3}"
+"Impossible d’obtenir l’interface « {0} » sur le chemin « {1} » dans le bus « "
+"{2} » : {3}"
 
 #: src/gnome_abrt/tools.py:42
 msgid "Future"
@@ -229,31 +230,31 @@ msgstr "Système"
 #. list under the application name
 #: src/gnome_abrt/views.py:139
 msgid "Application Crash"
-msgstr "Incident d’application"
+msgstr "Plantage d’application"
 
 #: src/gnome_abrt/views.py:141
 msgid "System Crash"
-msgstr "Incident du Système"
+msgstr "Plantage du système"
 
 #: src/gnome_abrt/views.py:143
 msgid "System Failure"
-msgstr "Échec du Système"
+msgstr "Panne du système"
 
 #: src/gnome_abrt/views.py:145
 msgid "Misbehavior"
-msgstr "Dérèglement"
+msgstr "Comportement inattendu"
 
 #: src/gnome_abrt/views.py:777
 msgid "Unexpected system error"
-msgstr "Erreur inattendue sur le système"
+msgstr "Erreur inattendue du système"
 
 #: src/gnome_abrt/views.py:779
 msgid "The system has encountered a problem and recovered."
-msgstr "Le système a rencontré un problème et a pu récupérer."
+msgstr "Le système a rencontré un problème et la récupération a réussi."
 
 #: src/gnome_abrt/views.py:782
 msgid "Fatal system failure"
-msgstr "Échec fatal du Système"
+msgstr "Échec fatal du système"
 
 #: src/gnome_abrt/views.py:784
 msgid "The system has encountered a problem and could not continue."
@@ -272,12 +273,12 @@ msgstr "Le système a rencontré un problème et n’a pas pu continuer."
 #: src/gnome_abrt/views.py:798
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "{0} incident a été détecté"
+msgstr "Un problème de type « {0} » a été détecté"
 
 #: src/gnome_abrt/views.py:802
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr "{0} a quitté brusquement"
+msgstr "{0} s'est arrêté de manière inattendue"
 
 #: src/gnome_abrt/views.py:805
 msgid "The application encountered a problem and could not continue."
@@ -291,11 +292,11 @@ msgstr "N/A"
 
 #: src/gnome_abrt/views.py:839
 msgid "cannot be reported"
-msgstr "ne peut pas être rapporté"
+msgstr "impossible à signaler"
 
 #: src/gnome_abrt/views.py:844
 msgid "Reports"
-msgstr "Rapports"
+msgstr "Signalements"
 
 #: src/gnome_abrt/views.py:850
 msgid ""
@@ -304,11 +305,11 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"Ce problème a été rapporté, mais aucun ticket <i>Bugzilla</i> n’a été "
-"ouvert. Nos développeurs pourraient avoir besoin de plus d’informations pour "
+"Ce problème a été signalé, mais aucun ticket <i>Bugzilla</i> n’a été ouvert. "
+"Nos développeurs pourraient avoir besoin de plus d’informations pour "
 "corriger le problème.\n"
-"Veuillez envisager de <b>le rapporter</b> sur Bugzilla pour fournir ces "
-"informations. Merci de votre aide."
+"Veuillez envisager de <b>le signaler</b> également sur Bugzilla pour fournir "
+"ces informations. Merci de votre aide."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.

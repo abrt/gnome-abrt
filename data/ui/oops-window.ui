@@ -204,89 +204,24 @@
                                 <child>
                                   <object class="AdwPreferencesGroup">
                                     <child>
-                                      <object class="AdwPreferencesRow">
-                                        <child>
-                                          <object class="GtkBox">
-                                            <property name="orientation">horizontal</property>
-                                            <property name="spacing">12</property>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_app_name">
-                                                <property name="halign">start</property>
-                                                <property name="label" translatable="yes">Affected Component</property>
-                                                <property name="hexpand">False</property>
-                                                <property name="wrap">True</property>
-                                              </object>
-                                            </child>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_app_name_value">
-                                                <property name="label">kernel-core</property>
-                                                <property name="selectable">True</property>
-                                                <property name="halign">end</property>
-                                                <property name="hexpand">True</property>
-                                                <property name="ellipsize">end</property>
-                                              </object>
-                                            </child>
-                                          </object>
-                                        </child>
+                                      <object class="AdwActionRow" id="lbl_app_name">
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
+                                        <property name="title" translatable="yes">Affected Component</property>
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="AdwPreferencesRow">
-                                        <child>
-                                          <object class="GtkBox">
-                                            <property name="orientation">horizontal</property>
-                                            <property name="spacing">12</property>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_app_version">
-                                                <property name="label" translatable="yes">Component Version</property>
-                                                <property name="halign">start</property>
-                                                <property name="hexpand">False</property>
-                                              </object>
-                                            </child>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_app_version_value">
-                                                <property name="label">2.0.13-2</property>
-                                                <property name="selectable">True</property>
-                                                <property name="halign">end</property>
-                                                <property name="hexpand">True</property>
-                                                <property name="ellipsize">end</property>
-                                              </object>
-                                            </child>
-                                          </object>
-                                        </child>
+                                      <object class="AdwActionRow" id="lbl_app_version">
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
+                                        <property name="title" translatable="yes">Component Version</property>
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="AdwPreferencesRow">
-                                        <child>
-                                          <object class="GtkBox">
-                                            <property name="orientation">horizontal</property>
-                                            <property name="spacing">12</property>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_reported">
-                                                <property name="label" translatable="yes">Reported</property>
-                                                <property name="halign">start</property>
-                                                <property name="hexpand">False</property>
-                                                <property name="wrap">True</property>
-                                              </object>
-                                            </child>
-                                            <child>
-                                              <object class="GtkBox" id="vbx_links">
-                                                <property name="orientation">vertical</property>
-                                                <property name="spacing">6</property>
-                                                <property name="halign">end</property>
-                                                <property name="hexpand">True</property>
-                                                <child>
-                                                  <object class="GtkLabel" id="lbl_reported_value">
-                                                    <property name="label">cannot be reported</property>
-                                                    <property name="selectable">True</property>
-                                                    <property name="halign">end</property>
-                                                  </object>
-                                                </child>
-                                              </object>
-                                            </child>
-                                          </object>
-                                        </child>
+                                      <object class="AdwActionRow" id="lbl_reported">
+                                        <property name="title" translatable="yes">Reported</property>
                                       </object>
                                     </child>
                                   </object>
@@ -294,53 +229,19 @@
                                 <child>
                                   <object class="AdwPreferencesGroup">
                                     <child>
-                                      <object class="AdwPreferencesRow">
-                                        <child>
-                                          <object class="GtkBox">
-                                            <property name="orientation">horizontal</property>
-                                            <property name="spacing">12</property>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_detected">
-                                                <property name="label" translatable="yes">First Detected</property>
-                                                <property name="halign">start</property>
-                                                <property name="hexpand">False</property>
-                                              </object>
-                                            </child>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_detected_value">
-                                                <property name="label">a month ago</property>
-                                                <property name="selectable">True</property>
-                                                <property name="halign">end</property>
-                                                <property name="hexpand">True</property>
-                                              </object>
-                                            </child>
-                                          </object>
-                                        </child>
+                                      <object class="AdwActionRow" id="lbl_detected">
+                                        <property name="title" translatable="yes">First Detected</property>
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="AdwPreferencesRow">
-                                        <child>
-                                          <object class="GtkBox">
-                                            <property name="orientation">horizontal</property>
-                                            <property name="spacing">12</property>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_times_detected">
-                                                <property name="label" translatable="yes">Times Detected</property>
-                                                <property name="halign">start</property>
-                                                <property name="hexpand">False</property>
-                                              </object>
-                                            </child>
-                                            <child>
-                                              <object class="GtkLabel" id="lbl_times_detected_value">
-                                                <property name="label">0</property>
-                                                <property name="selectable">True</property>
-                                                <property name="halign">end</property>
-                                                <property name="hexpand">True</property>
-                                              </object>
-                                            </child>
-                                          </object>
-                                        </child>
+                                      <object class="AdwActionRow" id="lbl_times_detected">
+                                        <property name="title" translatable="yes">Times Detected</property>
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
                                       </object>
                                     </child>
                                   </object>

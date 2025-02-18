@@ -291,19 +291,17 @@ class OopsWindow(Adw.ApplicationWindow):
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
     lbl_type_crash = Gtk.Template.Child()
-    lbl_app_name_value = Gtk.Template.Child()
-    lbl_app_version_value = Gtk.Template.Child()
-    lbl_detected_value = Gtk.Template.Child()
+    lbl_app_name = Gtk.Template.Child()
+    lbl_app_version = Gtk.Template.Child()
+    lbl_detected = Gtk.Template.Child()
     lbl_reported = Gtk.Template.Child()
-    lbl_reported_value = Gtk.Template.Child()
-    lbl_times_detected_value = Gtk.Template.Child()
+    lbl_times_detected = Gtk.Template.Child()
     lb_problems = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
     menu_problem_item = Gtk.Template.Child()
     menu_multiple_problems = Gtk.Template.Child()
-    vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
 
     class SourceObserver:
@@ -705,17 +703,13 @@ class OopsWindow(Adw.ApplicationWindow):
             return False
 
         link_added = False
+        links = ""
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
                 title_escaped = GLib.markup_escape_text(sbm.title)
-                lnk = Gtk.Label.new(sbm.title)
-                lnk.set_use_markup(True)
-                lnk.set_markup(f"<a href=\"{sbm.data}\">{title_escaped}</a>")
-                lnk.set_halign(Gtk.Align.START)
-                lnk.set_wrap(True)
-                lnk.set_visible(True)
-                self.vbx_links.append(lnk) #jft
+                links += f"<a href=\"{sbm.data}\">{title_escaped}</a>"
                 link_added = True
+        self.lbl_reported.set_subtitle(links)
 
         return link_added
 
@@ -761,22 +755,12 @@ class OopsWindow(Adw.ApplicationWindow):
 
     @handle_problem_and_source_errors
     def _set_problem(self, problem):
-        def destroy_links(widget):
-            if widget != self.lbl_reported_value:
-                widget.unparent()
-
         self.selected_problem = problem
 
         action_enabled = problem is not None
 
         self.lookup_action('delete').set_enabled(action_enabled)
         self.lookup_action('report').set_enabled(action_enabled and not problem['not-reportable'])
-
-        # Iterate through children and destroy them
-        child = self.vbx_links.get_first_child()
-        while child:
-            destroy_links(child)
-            child = child.get_next_sibling()
 
         child = self.vbx_problem_messages.get_first_child()
         while child:
@@ -819,26 +803,22 @@ class OopsWindow(Adw.ApplicationWindow):
         self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))
 
         # Translators: package name not available
-        self.lbl_app_name_value.set_text(problem['package_name'] or _("N/A"))
+        self.lbl_app_name.set_subtitle(problem['package_name'] or _("N/A"))
         # Translators: package version not available
-        self.lbl_app_version_value.set_text(problem['package_version'] or _("N/A"))
-        self.lbl_detected_value.set_text(humanize.naturaltime(datetime.datetime.now()-problem['date']))
-        self.lbl_detected_value.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
+        self.lbl_app_version.set_subtitle(problem['package_version'] or _("N/A"))
+        self.lbl_detected.set_subtitle(humanize.naturaltime(datetime.datetime.now()-problem['date']))
+        self.lbl_detected.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
 
-        self.lbl_times_detected_value.set_text(str(problem['count']))
+        self.lbl_times_detected.set_subtitle(str(problem['count']))
 
-        self.lbl_reported_value.set_visible(True)
-        self.lbl_reported.set_text(_("Reported"))
+        self.lbl_reported.set_subtitle(_("Reported"))
         if problem['not-reportable']:
-            self.lbl_reported_value.set_text(_('cannot be reported'))
+            self.lbl_reported.set_subtitle(_('cannot be reported'))
 
             self._show_problem_links(problem['submission'])
             self._show_problem_message(problem['not-reportable'])
         elif problem['is_reported']:
             if self._show_problem_links(problem['submission']):
-                self.lbl_reported.set_text(_("Reports"))
-                self.lbl_reported_value.set_visible(False)
-
                 if not any((s.name == "Bugzilla" for s in problem['submission'])):
                     self._show_problem_message(
                         _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
@@ -850,11 +830,11 @@ class OopsWindow(Adw.ApplicationWindow):
                 # has been reported but we don't know where and when.
                 # Probably a rare situation, usually if a problem is
                 # reported we display a list of reports here.
-                self.lbl_reported_value.set_text(_('yes'))
+                self.lbl_reported.set_subtitle(_('yes'))
         else:
             # Translators: Displayed after 'Reported' if a problem
             # has not been reported.
-            self.lbl_reported_value.set_text(_('no'))
+            self.lbl_reported.set_subtitle(_('no'))
 
     def _get_selected(self, selection):
         return selection.get_selected_rows()

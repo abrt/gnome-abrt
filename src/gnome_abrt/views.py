@@ -416,10 +416,6 @@ class OopsWindow(Adw.ApplicationWindow):
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
-        self.style_manager = Adw.StyleManager.get_default()
-        self.update_theme()
-        self.style_manager.connect("notify::color-scheme", self.on_theme_changed)
-
         self.search_entry.hide()  # Ensure the search entry is hidden on load
         #function to set up the auto-completion for the search entry
         self.setup_search_completion()
@@ -509,20 +505,6 @@ class OopsWindow(Adw.ApplicationWindow):
         """Optional: restoring the original paned position after the adjustment - might delete later"""
         self.gr_main_layout.set_position(original_position)
         return False  #returning False to remove the idle callback after execution
-
-    def on_theme_changed(self, style_manager, _):
-        """Handle theme changes."""
-        self.update_theme()
-
-    def update_theme(self):
-        """Update the application theme based on system preference."""
-        if self.style_manager.get_color_scheme() == Adw.ColorScheme.FORCE_DARK:
-            logging.debug("Dark theme activated")
-        elif self.style_manager.get_color_scheme() == Adw.ColorScheme.FORCE_LIGHT:
-            logging.debug("Light theme activated")
-        else:
-            logging.debug("System theme activated")
-
 
     def _add_actions(self, application):
         action_entries = [

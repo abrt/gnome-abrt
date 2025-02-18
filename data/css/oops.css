@@ -2,29 +2,6 @@ GtkListBoxRow:selected, row:selected {
     background-color: #007bff; /* Custom blue color */
     color: #ffffff; /* White text color for better contrast */
 }
-
-.app-menu-button {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    outline: none;
-    padding: 0;
-    margin: 0;
-    border-radius: 5px;
-}
-
-.app-menu-button:hover {
-    background-color: #d3d3d3;
-}
-
-.app-menu-button:active {
-    background-color: #b3b3b3;
-}
-
-.app-menu-button > * {
-    background-color: transparent;
-}
-
 .app-name-label {
     font-weight: bold;
 }

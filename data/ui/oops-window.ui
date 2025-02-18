@@ -11,11 +11,9 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="AdwHeaderBar" id="header_bar">
-            <property name="visible">True</property>
             <child>
               <object class="GtkBox" id="box_header_left">
                 <property name="halign">start</property>
-                <property name="visible">True</property>
                 <property name="spacing">6</property>
                 <property name="hexpand">True</property>
                 <signal name="notify::allocation" handler="on_box_header_left_size_allocate" swapped="no"/>
@@ -27,7 +25,6 @@
                       <object class="GtkButton" id="btn_search_icon">
                         <property name="halign">start</property>
                         <property name="hexpand">True</property>
-                        <property name="visible">True</property>
                         <property name="tooltip-text" translatable="yes">Search</property>
                         <property name="icon-name">system-search-symbolic</property>
                         <signal name="clicked" handler="on_search_icon_clicked"/>
@@ -43,13 +40,11 @@
                     <child>
                       <object class="GtkMenuButton" id="app_menu_button">
                         <property name="margin-start">6</property>
-                        <property name="visible">True</property>
                         <property name="halign">end</property>
                         <property name="hexpand">True</property>
                         <property name="valign">center</property>
                         <child>
                           <object class="GtkImage">
-                            <property name="visible">True</property>
                             <property name="icon-name">open-menu-symbolic</property>
                           </object>
                         </child>
@@ -63,8 +58,6 @@
               <object class="GtkButton" id="btn_delete">
                 <property name="tooltip_text" translatable="yes">Delete selected problems</property>
                 <property name="action-name">win.delete</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -80,7 +73,6 @@
             <child type="end">
               <object class="GtkButton" id="btn_report">
                 <property name="label" translatable="yes">_Report</property>
-                <property name="can_focus">True</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
                 <property name="tooltip_text" translatable="yes">Submit selected problem</property>
@@ -108,15 +100,12 @@
         </child>
         <child>
           <object class="GtkPaned" id="gr_main_layout">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="position">310</property>
             <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
             <signal name="map" handler="on_paned_map" swapped="no"/>
             <signal name="notify::allocation" handler="on_paned_size_allocate" swapped="no"/>
             <child>
               <object class="GtkBox" id="box_panel_left">
-                <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
@@ -125,7 +114,6 @@
                     <property name="margin-end">12</property>
                     <child>
                       <object class="GtkSearchEntry" id="search_entry">
-                        <property name="visible">True</property>
                         <property name="hexpand">True</property>
                         <property name="placeholder-text" translatable="yes">Search or type @ for crash types</property>
                         <signal name="search-changed" handler="on_se_problems_search_changed"/>
@@ -139,16 +127,12 @@
                 <child>
                   <object class="GtkScrolledWindow" id="scrolledwindow1">
                     <property name="vexpand">True</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="hscrollbar_policy">never</property>
                     <property name="vscrollbar_policy">automatic</property>
                     <child>
                       <object class="GtkViewport" id="viewport1">
-                        <property name="visible">True</property>
                         <child>
                           <object class="GtkListBox" id="lb_problems">
-                            <property name="visible">True</property>
                             <property name="selection_mode">browse</property>
                           </object>
                         </child>
@@ -160,29 +144,24 @@
             </child>
             <child>
               <object class="GtkStack" id="nb_problem_layout">
-                <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="margin-start">100</property>
                 <property name="margin-end">100</property>
                 <property name="margin-top">50</property>
                 <child>
                   <object class="GtkBox" id="gd_problem_info">
-                    <property name="visible">True</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">18</property>
                     <child>
                       <object class="GtkBox">
-                        <property name="visible">True</property>
                         <property name="spacing">12</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
                             <property name="hexpand">True</property>
                             <property name="orientation">vertical</property>
                             <property name="margin-top">12</property>
                             <child>
                               <object class="GtkLabel" id="lbl_reason">
-                                <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="label">Application killed by signal</property>
                                 <property name="wrap">True</property>
@@ -196,7 +175,6 @@
                             </child>
                             <child>
                               <object class="GtkLabel" id="lbl_summary">
-                                <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="yalign">0</property>
                                 <property name="label">Application can't continue because of received signal</property>
@@ -224,7 +202,6 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="lbl_type_crash">
-                            <property name="visible">True</property>
                             <property name="label">System Failure</property>
                             <property name="halign">center</property>
                             <property name="valign">center</property>
@@ -244,7 +221,6 @@
                                 <property name="spacing">12</property>
                                 <child>
                                   <object class="GtkLabel" id="lbl_app_name">
-                                    <property name="visible">True</property>
                                     <property name="halign">start</property>
                                     <property name="label" translatable="yes">Affected Component</property>
                                     <property name="hexpand">False</property>
@@ -253,7 +229,6 @@
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="lbl_app_name_value">
-                                    <property name="visible">True</property>
                                     <property name="label">kernel-core</property>
                                     <property name="selectable">True</property>
                                     <property name="halign">end</property>
@@ -273,7 +248,6 @@
                                 <property name="spacing">12</property>
                                 <child>
                                   <object class="GtkLabel" id="lbl_app_version">
-                                    <property name="visible">True</property>
                                     <property name="label" translatable="yes">Component Version</property>
                                     <property name="halign">start</property>
                                     <property name="hexpand">False</property>
@@ -281,7 +255,6 @@
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="lbl_app_version_value">
-                                    <property name="visible">True</property>
                                     <property name="label">2.0.13-2</property>
                                     <property name="selectable">True</property>
                                     <property name="halign">end</property>
@@ -301,7 +274,6 @@
                                 <property name="spacing">12</property>
                                 <child>
                                   <object class="GtkLabel" id="lbl_reported">
-                                    <property name="visible">True</property>
                                     <property name="label" translatable="yes">Reported</property>
                                     <property name="halign">start</property>
                                     <property name="hexpand">False</property>
@@ -310,14 +282,12 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox" id="vbx_links">
-                                    <property name="visible">True</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">6</property>
                                     <property name="halign">end</property>
                                     <property name="hexpand">True</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_reported_value">
-                                        <property name="visible">True</property>
                                         <property name="label">cannot be reported</property>
                                         <property name="selectable">True</property>
                                         <property name="halign">end</property>
@@ -341,7 +311,6 @@
                                 <property name="spacing">12</property>
                                 <child>
                                   <object class="GtkLabel" id="lbl_detected">
-                                    <property name="visible">True</property>
                                     <property name="label" translatable="yes">First Detected</property>
                                     <property name="halign">start</property>
                                     <property name="hexpand">False</property>
@@ -349,7 +318,6 @@
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="lbl_detected_value">
-                                    <property name="visible">True</property>
                                     <property name="label">a month ago</property>
                                     <property name="selectable">True</property>
                                     <property name="halign">end</property>
@@ -368,7 +336,6 @@
                                 <property name="spacing">12</property>
                                 <child>
                                   <object class="GtkLabel" id="lbl_times_detected">
-                                    <property name="visible">True</property>
                                     <property name="label" translatable="yes">Times Detected</property>
                                     <property name="halign">start</property>
                                     <property name="hexpand">False</property>
@@ -376,7 +343,6 @@
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="lbl_times_detected_value">
-                                    <property name="visible">True</property>
                                     <property name="label">0</property>
                                     <property name="selectable">True</property>
                                     <property name="halign">end</property>
@@ -391,7 +357,6 @@
                     </child>
                     <child>
                       <object class="GtkBox" id="vbx_problem_messages">
-                        <property name="visible">True</property>
                         <property name="vexpand">True</property>
                         <property name="orientation">vertical</property>
                       </object>
@@ -400,11 +365,9 @@
                 </child>
                 <child>
                   <object class="GtkBox" id="vbx_empty_page">
-                    <property name="visible">True</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="lbl_no_oopses">
-                        <property name="visible">True</property>
                         <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <property name="label" translatable="yes">No problems detected!</property>

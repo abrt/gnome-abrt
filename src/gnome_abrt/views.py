@@ -42,6 +42,10 @@ from gi.repository import GObject
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
+#pylint: disable=C0413
+from gnome_abrt.controller import Controller
+#pylint: disable=C0413
+from gnome_abrt.signals import glib_sigchld_signal_handler
 
 class Problem (GObject.Object):
     __gtype_name__ = 'AbrtProblem'
@@ -138,7 +142,6 @@ def handle_problem_and_source_errors(func):
             oops_wnd._remove_problem_from_storage(ex.problem_id)
         except errors.UnavailableSource as ex:
             logging.debug(traceback.format_exc())
-            oops_wnd._disable_source(ex.source, ex.temporary)
 
         return None
 
@@ -265,20 +268,15 @@ class OopsWindow(Adw.ApplicationWindow):
             if not self._enabled:
                 return
 
-            try:
-                if source == self.wnd._source:
-                    if change_type is None:
-                        self.wnd._reload_problems(source)
-                    elif change_type == problems.ProblemSource.NEW_PROBLEM:
-                        self.wnd._add_problem_to_storage(problem)
-                    elif change_type == problems.ProblemSource.DELETED_PROBLEM:
-                        self.wnd._remove_problem_from_storage(problem)
-                    elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
-                        self.wnd._update_problem_in_storage(problem)
-
-            except errors.UnavailableSource as ex:
-                self.wnd._disable_source(ex.source, ex.temporary)
-
+            if source == self.wnd._source:
+                if change_type is None:
+                    self.wnd._reload_problems(source)
+                elif change_type == problems.ProblemSource.NEW_PROBLEM:
+                    self.wnd._add_problem_to_storage(problem)
+                elif change_type == problems.ProblemSource.DELETED_PROBLEM:
+                    self.wnd._remove_problem_from_storage(problem)
+                elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
+                    self.wnd._update_problem_in_storage(problem)
 
     class OptionsObserver:
         def __init__(self, wnd):
@@ -293,11 +291,8 @@ class OopsWindow(Adw.ApplicationWindow):
                 self.wnd._set_problem(self.wnd.selected_problem)
 
 
-    def __init__(self, application, sources, controller):
+    def __init__(self, application, source):
         super().__init__(application=application)
-
-        if not sources:
-            raise ValueError("The source list cannot be empty!")
 
         def create_problem_row(problem):
             return ProblemRow(problem)
@@ -309,13 +304,11 @@ class OopsWindow(Adw.ApplicationWindow):
         self._source_observer.disable()
 
         self._reloading = False
-        self._controller = controller
+        self._controller = Controller(source,
+                                      glib_sigchld_signal_handler)
 
         self.selected_problem = None
-        self._all_sources = []
-        self._source = None
         self._handling_source_click = False
-        self._configure_sources(sources)
 
         self._add_actions(application)
 
@@ -327,10 +320,7 @@ class OopsWindow(Adw.ApplicationWindow):
                 self.on_tvs_problems_changed)
         
         self.lb_problems.grab_focus()
-        try:
-            self._reload_problems(self._source)
-        except errors.UnavailableSource as ex:
-            self._disable_source(ex.source, ex.temporary)
+        self._reload_problems(source)
 
         self._options_observer = OopsWindow.OptionsObserver(self)
         conf = config.get_configuration()
@@ -421,69 +411,6 @@ class OopsWindow(Adw.ApplicationWindow):
         application.set_accels_for_action('win.open-directory', ['<Primary>o'])
         application.set_accels_for_action('win.copy-id', ['<Primary>c'])
         application.set_accels_for_action('win.search', ['<Primary>f'])
-
-    def _configure_sources(self, sources):
-        for name, src in sources:
-            self._all_sources.append(src)
-            src.attach(self._source_observer)
-
-            label = None
-            try:
-                label = format_button_source_name(name, src)
-            except errors.UnavailableSource:
-                logging.debug("Unavailable source: %s", name)
-                continue
-
-            src.name = name
-            src.button = None
-
-        self._source = self._all_sources[0]
-
-    def _switch_source(self, source):
-        """Sets the passed source as the selected source."""
-
-        result = True
-        old_source = None
-        if source != self._source:
-            try:
-                self._reload_problems(source)
-                old_source = self._source
-                self._source = source
-            except errors.UnavailableSource as ex:
-                self._disable_source(source, ex.temporary)
-                result = False
-
-        return (result, old_source)
-
-    def _disable_source(self, source, temporary):
-        if self._source is None or not self._all_sources:
-            return
-
-        # Some sources can be components of other sources.
-        # Problems are connected directly to the component sources, therefore
-        # exception's source is a component source, thus we have to find an
-        # instance of composite source which the unavailable component source
-        # belongs.
-        source_index = self._all_sources.index(source)
-
-        if source_index != -1:
-            real_source = self._all_sources[source_index]
-            if not temporary:
-                logging.debug("Disabling source")
-                self._all_sources.pop(source_index)
-
-        if source != self._source:
-            return
-        
-        if (not temporary or source_index != 0) and self._all_sources:
-            self._source = self._all_sources[0]
-        else:
-            self._source = None
-
-        try:
-            self._reload_problems(self._source)
-        except errors.UnavailableSource as ex:
-            self._disable_source(ex.source, ex.temporary)
 
     @handle_problem_and_source_errors
     def _find_problem_row_full(self, problem):
@@ -599,16 +526,6 @@ class OopsWindow(Adw.ApplicationWindow):
         self._set_problem(None)
 
     def _select_problem_by_id(self, problem_id):
-        # The problem could come from a different source than the currently
-        # loaded source. If so, try to switch to problem's origin source and
-        # select the problem after that.
-        if (self._source is not None and
-                problem_id not in self._source.get_problems()):
-            for source in self._all_sources:
-                if problem_id in source.get_problems():
-                    res, old_source = self._switch_source(source)
-                    break
-
         problem_row = self._find_problem_row(problem_id)
 
         if problem_row is not None:

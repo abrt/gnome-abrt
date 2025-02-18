@@ -48,15 +48,7 @@ gnome_abrt.init()
 #pylint: disable=C0413
 from gnome_abrt.views import OopsWindow
 #pylint: disable=C0413
-from gnome_abrt.controller import Controller
-#pylint: disable=C0413
-from gnome_abrt.signals import glib_sigchld_signal_handler
-#pylint: disable=C0413
-from gnome_abrt.problems import MultipleSources
-#pylint: disable=C0413
 from gnome_abrt.dbus_problems import get_standard_problems_source
-#from gnome_abrt.dbus_problems import (get_standard_problems_source,
-#                                      get_foreign_problems_source)
 #pylint: disable=C0413
 from gnome_abrt.errors import UnavailableSource
 #pylint: disable=C0413
@@ -81,7 +73,6 @@ class OopsApplication(Adw.Application):
                                  resource_base_path='/org/freedesktop/GnomeAbrt/',
                                  flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
-        self.all_sources = None
         self.gnome_settings = None
         # pylint: disable=W0105
         '''
@@ -172,23 +163,14 @@ class OopsApplication(Adw.Application):
                 conf.add_option("all_problems", default_value=False)
                 self._bind_to_gsettings(conf)
 
-                sources = []
+                # pylint: disable=W0105
                 try:
-                    sources.append(
-                          get_standard_problems_source())
+                    main_window = OopsWindow(self, get_standard_problems_source())
                 except UnavailableSource as ex:
                     logging.warning(str(ex))
-
-                if not sources:
                     raise UnavailableSource(None, None,
                             message="No available problem source.")
-
-                # pylint: disable=W0105
-                self.all_sources = [("All Problems", MultipleSources(sources))]
-
-                controller = Controller(self.all_sources,
-                                        glib_sigchld_signal_handler)
-                main_window = OopsWindow(self, self.all_sources, controller)
+                
                 main_window.present()
                 self.add_window(main_window)
         #pylint: disable=W0703

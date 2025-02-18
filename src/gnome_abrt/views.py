@@ -110,9 +110,7 @@ def problem_to_storage_values(problem):
 
 
 #pylint: disable=W0613
-def time_sort_func(first_row, second_row, trash):
-    fst_problem = first_row.problem
-    scn_problem = second_row.problem
+def time_sort_func(fst_problem, scn_problem, trash):
     # skip invalid problems which were marked invalid while sorting
     if (fst_problem.inner.problem_id in trash or
         scn_problem.inner.problem_id in trash):
@@ -297,9 +295,14 @@ class OopsWindow(Adw.ApplicationWindow):
         def create_problem_row(problem):
             return ProblemRow(problem)
         
+        # a set where invalid problems found while sorting of the problem list
+        # are stored
+        self._trash = set()
+
         self._problems = Gio.ListStore.new(Problem.__gtype__)
         self._filter_model = Gtk.FilterListModel.new(self._problems, None)
-        self.lb_problems.bind_model(self._filter_model, create_problem_row)
+        self._sort_model = Gtk.SortListModel.new(self._filter_model, Gtk.CustomSorter.new(time_sort_func, self._trash))
+        self.lb_problems.bind_model(self._sort_model, create_problem_row)
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
 
@@ -312,10 +315,6 @@ class OopsWindow(Adw.ApplicationWindow):
 
         self._add_actions(application)
 
-        # a set where invalid problems found while sorting of the problem list
-        # are stored
-        self._trash = set()
-        self.lb_problems.set_sort_func(time_sort_func, self._trash)
         self.lss_problems = ListBoxSelection(self.lb_problems,
                 self.on_tvs_problems_changed)
         

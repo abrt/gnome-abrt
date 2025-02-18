@@ -290,7 +290,7 @@ class ProblemRow(Gtk.ListBoxRow):
 
 #pylint: disable=R0902
 @Gtk.Template(resource_path='/org/freedesktop/GnomeAbrt/ui/oops-window.ui')
-class OopsWindow(Gtk.ApplicationWindow):
+class OopsWindow(Adw.ApplicationWindow):
 
     __gtype_name__ = 'OopsWindow'
 
@@ -383,13 +383,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.menu_multiple_problems = builder.get_object(
                 'menu_multiple_problems')
         self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems)
-
-        #pylint: disable=E1120
-        css_prv = Gtk.CssProvider.new()
-        css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/css/oops.css')
-        stl_ctx = self.get_style_context()
-        stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv,
-                                                  Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()

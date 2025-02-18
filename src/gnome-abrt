@@ -29,11 +29,12 @@ import gi
 gi.require_version('Gio', '2.0')
 gi.require_version('GLib', '2.0')
 gi.require_version('GObject', '2.0')
+gi.require_version('Gdk', '4.0')
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('Pango', '1.0')
 #pylint: disable=E0611, C0411, C0413
-from gi.repository import Gtk, Adw
+from gi.repository import Gdk, Gtk, Adw
 #pylint: disable=E0611, C0411, C0413
 from gi.repository import GLib
 #pylint: disable=E0611, C0411, C0413
@@ -77,6 +78,7 @@ class OopsApplication(Gtk.Application):
 
         Gtk.Application.__init__(self,
                                  application_id=GNOME_ABRT_APPLICATION_ID,
+                                 resource_base_path='/org/freedesktop/GnomeAbrt/',
                                  flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
         self.all_sources = None
@@ -200,6 +202,11 @@ class OopsApplication(Gtk.Application):
         Gtk.Application.do_startup(self)
 
         Gtk.Window.set_default_icon_name(GNOME_ABRT_APPLICATION_ID)
+
+        css_prv = Gtk.CssProvider.new()
+        css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/style.css')
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css_prv,
+                                                  Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         action = Gio.SimpleAction.new("about", None)
         action.connect("activate", self.on_action_about)

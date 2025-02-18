@@ -34,13 +34,48 @@ from gi.repository import Gio
 #pylint: disable=E0611
 from gi.repository import Pango
 #pylint: disable=E0611
-from gi.repository import GLib
+from gi.repository import GLib, GObject
 import humanize
 
 from gi.repository import GObject
 
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
+
+
+class Problem (GObject.Object):
+    __gtype_name__ = 'AbrtProblem'
+
+    _inner: problems.Problem
+
+    application = GObject.Property(
+        type=str,
+        flags=GObject.ParamFlags.READWRITE,
+    )
+
+    last_seen = GObject.Property(
+        type=str,
+        flags=GObject.ParamFlags.READWRITE,
+    )
+
+    crash_type = GObject.Property(
+        type=str,
+        flags=GObject.ParamFlags.READWRITE,
+    )
+
+    n_times = GObject.Property(
+        type=int,
+        flags=GObject.ParamFlags.READWRITE,
+    )
+
+    def __init__(self, application, last_seen, crash_type, n_times, inner):
+        super().__init__()
+
+        self.application = application
+        self.last_seen = last_seen
+        self.crash_type = crash_type
+        self.n_times = n_times
+        self.inner = inner
 
 class ProblemsFilter:
 
@@ -73,7 +108,7 @@ class ProblemsFilter:
             return False
         
         # taking problem type so that we can search by "@" 
-        problem_type = list_box_row.problem_type
+        problem_type = list_box_row.problem.crash_type
 
         # handling special case for filtering by problem_type using "@" symbol
         if self._pattern.startswith("@"):
@@ -95,7 +130,7 @@ class ProblemsFilter:
         if not self._pattern:
             return True
 
-        problem = list_box_row.get_problem()
+        problem = list_box_row.problem
 
         for i in ['component', 'reason', 'executable', 'package']:
             if problem[i]:
@@ -115,7 +150,7 @@ class ProblemsFilter:
                 if self._pattern in rid.lower():
                     return True
 
-        if self._pattern in problem.problem_id.lower():
+        if self._pattern in problem.inner.problem_id.lower():
             return True
 
         app = problem['application']
@@ -145,25 +180,26 @@ def problem_to_storage_values(problem):
     else:
         problem_type = _("Misbehavior")
 
-    return (name,
+    problem = Problem(name,
             humanize.naturaltime(datetime.datetime.now()-problem['date_last']),
             problem_type,
-            problem['count'],
+            int(problem['count']),
             problem)
+    return problem
 
 
 #pylint: disable=W0613
 def time_sort_func(first_row, second_row, trash):
-    fst_problem = first_row.get_problem()
-    scn_problem = second_row.get_problem()
+    fst_problem = first_row.problem
+    scn_problem = second_row.problem
     # skip invalid problems which were marked invalid while sorting
-    if (fst_problem.problem_id in trash or
-        scn_problem.problem_id in trash):
+    if (fst_problem.inner.problem_id in trash or
+        scn_problem.inner.problem_id in trash):
         return 0
 
     try:
-        lhs = fst_problem['date_last'].timetuple()
-        rhs = scn_problem['date_last'].timetuple()
+        lhs = fst_problem.inner['date_last'].timetuple()
+        rhs = scn_problem.inner['date_last'].timetuple()
         return time.mktime(rhs) - time.mktime(lhs)
     except errors.InvalidProblem as ex:
         trash.add(ex.problem_id)
@@ -216,24 +252,23 @@ class ListBoxSelection:
         self._lb.unselect_all()
 
     def get_selected_rows(self):
-        return [lbr.get_problem() for lbr in self._lb.get_selected_rows()]
+        return [lbr.problem for lbr in self._lb.get_selected_rows()]
 
 
 class ProblemRow(Adw.PreferencesRow):
 
-    def __init__(self, problem_values):
+    def __init__(self, problem: Problem):
         super().__init__()
 
-        self._problem = problem_values[4]
-        # Store the problem type as a property (this is what we will filter by)
-        self.problem_type = problem_values[2].lower()  # Store as lowercase for easier comparison
+
+        self.problem = problem
 
         grid = Gtk.Grid.new()
         grid.set_column_spacing(12)
 
         self.set_child(grid)
 
-        self._lbl_app = Gtk.Label.new(problem_values[0])
+        self._lbl_app = Gtk.Label.new(self.problem.application)
         self._lbl_app.set_halign(Gtk.Align.START)
         self._lbl_app.set_hexpand(True)
         self._lbl_app.set_xalign(0.0)
@@ -244,13 +279,13 @@ class ProblemRow(Adw.PreferencesRow):
 
         grid.attach_next_to(self._lbl_app, None, Gtk.PositionType.RIGHT, 1, 1)
 
-        self._lbl_date = Gtk.Label.new(problem_values[1])
+        self._lbl_date = Gtk.Label.new(self.problem.last_seen)
         self._lbl_date.set_halign(Gtk.Align.END)
         self._lbl_date.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_date, self._lbl_app, Gtk.PositionType.RIGHT, 1, 1)
 
-        self._lbl_type = Gtk.Label.new(problem_values[2])
+        self._lbl_type = Gtk.Label.new(self.problem.crash_type)
         self._lbl_type.set_halign(Gtk.Align.START)
         self._lbl_type.set_hexpand(True)
         self._lbl_type.set_xalign(0.0)
@@ -259,11 +294,11 @@ class ProblemRow(Adw.PreferencesRow):
 
         grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
 
-        self._lbl_count = Gtk.Label.new(problem_values[3])
+        self._lbl_count = Gtk.Label.new(str(self.problem.n_times))
         self._lbl_count.set_halign(Gtk.Align.END)
         self._lbl_count.add_css_class('times-detected-label')
         #showing lbl_count if the count is greater than 1
-        self._lbl_count.set_visible(int(problem_values[3]) > 1)
+        self._lbl_count.set_visible(self.problem.n_times > 1)
 
         grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
@@ -273,9 +308,6 @@ class ProblemRow(Adw.PreferencesRow):
         self._lbl_type.set_text(problem_values[2])
         self._lbl_count.set_text(problem_values[3])
         self._problem = problem_values[4]
-
-    def get_problem(self):
-        return self._problem
 
 
 #pylint: disable=R0902
@@ -350,6 +382,11 @@ class OopsWindow(Adw.ApplicationWindow):
         if not sources:
             raise ValueError("The source list cannot be empty!")
 
+        def create_problem_row(problem):
+            return ProblemRow(problem)
+        
+        self._problems = Gio.ListStore.new(Problem.__gtype__)
+        self.lb_problems.bind_model(self._problems, create_problem_row)
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
 
@@ -532,7 +569,7 @@ class OopsWindow(Adw.ApplicationWindow):
         i = 0
         lb_row = self.lb_problems.get_row_at_index(i)
         while lb_row is not None:
-            if problem == lb_row.get_problem():
+            if problem == lb_row.problem:
                 break
 
             i += 1
@@ -546,17 +583,12 @@ class OopsWindow(Adw.ApplicationWindow):
 
     def _add_problem_to_storage(self, problem):
         try:
-            values = problem_to_storage_values(problem)
+            problem = problem_to_storage_values(problem)
+            self._problems.append(problem)
         except errors.InvalidProblem:
             logging.debug("Exception: %s", traceback.format_exc())
             return
 
-        self._append_problem_values_to_storage(values)
-
-    def _append_problem_values_to_storage(self, problem_values):
-        problem_cell = ProblemRow(problem_values)
-        self.lb_problems.insert(problem_cell, -1)
-        self._clear_invalid_problems_trash()
 
     def _clear_invalid_problems_trash(self):
         # append methods trigger time_sort_func() where InvalidProblem
@@ -618,25 +650,11 @@ class OopsWindow(Adw.ApplicationWindow):
             prblms = source.get_problems()
             for p in prblms:
                 try:
-                    storage_problems.append(problem_to_storage_values(p))
+                    self._problems.append(problem_to_storage_values(p))
                 except errors.InvalidProblem:
                     logging.debug("Exception: %s", traceback.format_exc())
 
         old_selection = self._get_selected(self.lss_problems)
-
-        self._reloading = True
-        try:
-            child = self.lb_problems.get_first_child()
-            while child:
-                next_child = child.get_next_sibling()
-                self.lb_problems.remove(child)
-                child = next_child
-
-            if storage_problems:
-                for p in storage_problems:
-                    self._append_problem_values_to_storage(p)
-        finally:
-            self._reloading = False
 
         if storage_problems:
             problem_row = None
@@ -709,8 +727,8 @@ class OopsWindow(Adw.ApplicationWindow):
         if problem_type == 'vmcore':
             return _("Fatal system failure")
 
-        if application.name:
-            return _("{0} quit unexpectedly").format(application.name)
+        if application:
+            return _("{0} quit unexpectedly").format(application)
 
         # Translators: If application name is unknown,
         # display neutral header "'Type' problem has been detected".
@@ -739,7 +757,7 @@ class OopsWindow(Adw.ApplicationWindow):
         action_enabled = problem is not None
 
         self.lookup_action('delete').set_enabled(action_enabled)
-        self.lookup_action('report').set_enabled(action_enabled and not problem['not-reportable'])
+        self.lookup_action('report').set_enabled(action_enabled and not problem.inner['not-reportable'])
 
         child = self.vbx_problem_messages.get_first_child()
         while child:
@@ -752,8 +770,6 @@ class OopsWindow(Adw.ApplicationWindow):
         
         self.nb_problem_layout.set_visible_child_name("problem")
 
-        app = problem['application']
-
         #lbl_type_crash
         # I'm ensuring that before applying a new crash class,
         # the old ones (application-crash, system-crash, system-failure) are removed to avoid incorrect styling
@@ -761,44 +777,43 @@ class OopsWindow(Adw.ApplicationWindow):
         self.crash_box.remove_css_class('system-crash')
         self.crash_box.remove_css_class('system-failure')
         
-        problem_type_crash = problem['type']
-        if problem_type_crash == "CCpp":
+        if problem.crash_type == "CCpp":
             # Translators: These are the problem types displayed in the problem
             # list under the application name
-            problem_type_crash = _("Application Crash")
+            problem.crash_type = _("Application Crash")
             self.crash_box.add_css_class('application-crash')
-        elif problem_type_crash == "vmcore":
-            problem_type_crash = _("System Crash")
+        elif problem.crash_type == "vmcore":
+            problem.crash_type = _("System Crash")
             self.crash_box.add_css_class('system-crash')
-        elif problem_type_crash == "Kerneloops":
-            problem_type_crash = _("System Failure")
+        elif problem.crash_type == "Kerneloops":
+            problem.crash_type = _("System Failure")
             self.crash_box.add_css_class('system-failure')
         else:
-            problem_type_crash = _("Misbehavior")
+            problem.crash_type = _("Misbehavior")
             self.crash_box.add_css_class('application-crash')
-        self.lbl_type_crash.set_text(problem_type_crash)
+        self.lbl_type_crash.set_text(problem.crash_type)
 
-        self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
-        self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))
+        self.lbl_reason.set_text(self._get_reason_for_problem_type(problem.application, problem.inner['type'], problem.inner['human_type']))
+        self.lbl_summary.set_text(self._get_summary_for_problem_type(problem.inner['type']))
 
         # Translators: package name not available
-        self.lbl_app_name.set_subtitle(problem['package_name'] or _("N/A"))
+        self.lbl_app_name.set_subtitle(problem.inner['package_name'] or _("N/A"))
         # Translators: package version not available
-        self.lbl_app_version.set_subtitle(problem['package_version'] or _("N/A"))
-        self.lbl_detected.set_subtitle(humanize.naturaltime(datetime.datetime.now()-problem['date']))
-        self.lbl_detected.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
+        self.lbl_app_version.set_subtitle(problem.inner['package_version'] or _("N/A"))
+        self.lbl_detected.set_subtitle(humanize.naturaltime(datetime.datetime.now()-problem.inner['date']))
+        self.lbl_detected.set_tooltip_text(problem.inner['date'].strftime(config.get_configuration()['D_T_FMT']))
 
-        self.lbl_times_detected.set_subtitle(str(problem['count']))
+        self.lbl_times_detected.set_subtitle(str(problem.inner['count']))
 
         self.lbl_reported.set_subtitle(_("Reported"))
-        if problem['not-reportable']:
+        if problem.inner['not-reportable']:
             self.lbl_reported.set_subtitle(_('cannot be reported'))
 
-            self._show_problem_links(problem['submission'])
-            self._show_problem_message(problem['not-reportable'])
-        elif problem['is_reported']:
-            if self._show_problem_links(problem['submission']):
-                if not any((s.name == "Bugzilla" for s in problem['submission'])):
+            self._show_problem_links(problem.inner['submission'])
+            self._show_problem_message(problem.inner['not-reportable'])
+        elif problem.inner['is_reported']:
+            if self._show_problem_links(problem.inner['submission']):
+                if not any((s.name == "Bugzilla" for s in problem.inner['submission'])):
                     self._show_problem_message(
                         _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                           " been opened. Our developers may need more information to fix the problem.\n"

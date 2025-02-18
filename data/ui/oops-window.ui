@@ -24,7 +24,7 @@
                 <child type="top">
                   <object class="AdwHeaderBar">
                     <child type="start">
-                      <object class="GtkToggleButton" id="btn_search_icon">
+                      <object class="GtkToggleButton">
                         <property name="halign">start</property>
                         <property name="hexpand">True</property>
                         <property name="tooltip-text" translatable="yes">Search</property>
@@ -85,44 +85,28 @@
                 <child type="top">
                   <object class="AdwHeaderBar">
                     <child type="end">
-                      <object class="GtkButton" id="btn_report">
-                        <property name="label" translatable="yes">_Report</property>
-                        <property name="halign">end</property>
+                      <object class="GtkButton">
+                        <child>
+                          <object class="AdwButtonContent">
+                            <property name="icon-name">document-new-symbolic</property>
+                            <property name="label" translatable="yes">_Report</property>
+                            <property name="use-underline">True</property>
+                          </object>
+                        </child>
+                        <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="tooltip_text" translatable="yes">Submit selected problem</property>
                         <property name="action-name">win.report</property>
-                        <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="spacing">6</property>
-                            <child>
-                              <object class="GtkImage">
-                                <property name="icon-name">document-new-symbolic</property>
-                                <property name="pixel-size">16</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel">
-                                <property name="label" translatable="yes">Create Report...</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
                       </object>
                     </child>
                     <child type="end">
-                      <object class="GtkButton" id="btn_delete">
+                      <object class="GtkButton">
                         <property name="tooltip_text" translatable="yes">Delete selected problems</property>
                         <property name="action-name">win.delete</property>
                         <property name="receives_default">True</property>
-                        <property name="halign">end</property>
+                        <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="icon-name">user-trash-symbolic</property>
-                        <child>
-                          <object class="AdwButtonContent">
-                            <property name="icon-name">user-trash-symbolic</property>
-                          </object>
-                        </child>
                       </object>
                     </child>
                   </object>

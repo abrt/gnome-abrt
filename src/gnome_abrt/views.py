@@ -287,7 +287,6 @@ class OopsWindow(Adw.ApplicationWindow):
     crash_box = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
     search_bar = Gtk.Template.Child()
-    btn_search_icon = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
     lbl_type_crash = Gtk.Template.Child()
@@ -298,8 +297,6 @@ class OopsWindow(Adw.ApplicationWindow):
     lbl_times_detected = Gtk.Template.Child()
     lb_problems = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
-    btn_delete = Gtk.Template.Child()
-    btn_report = Gtk.Template.Child()
     menu_problem_item = Gtk.Template.Child()
     menu_multiple_problems = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
@@ -401,8 +398,6 @@ class OopsWindow(Adw.ApplicationWindow):
         self.search_bar.set_search_mode(False)  # Ensure the search entry is hidden on load
         #function to set up the auto-completion for the search entry
         self.setup_search_completion()
-
-        self.btn_report.add_css_class('btn-report')
 
         self.search_entry.connect('notify::text', self.on_search_entry_text_changed)
         gesture = Gtk.GestureClick.new()

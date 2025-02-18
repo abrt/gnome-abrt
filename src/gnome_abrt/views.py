@@ -247,13 +247,13 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_app.set_yalign(0.5)
         self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
         self._lbl_app.set_width_chars(15)
-        self._lbl_app.get_style_context().add_class('app-name-label')
+        self._lbl_app.add_css_class('app-name-label')
 
         grid.attach_next_to(self._lbl_app, None, Gtk.PositionType.RIGHT, 1, 1)
 
         self._lbl_date = Gtk.Label.new(problem_values[1])
         self._lbl_date.set_halign(Gtk.Align.END)
-        self._lbl_date.get_style_context().add_class('dim-label')
+        self._lbl_date.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_date, self._lbl_app, Gtk.PositionType.RIGHT, 1, 1)
 
@@ -262,13 +262,13 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_type.set_hexpand(True)
         self._lbl_type.set_xalign(0.0)
         self._lbl_type.set_yalign(0.5)
-        self._lbl_type.get_style_context().add_class('dim-label')
+        self._lbl_type.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
 
         self._lbl_count = Gtk.Label.new(problem_values[3])
         self._lbl_count.set_halign(Gtk.Align.END)
-        self._lbl_count.get_style_context().add_class('times-detected-label')
+        self._lbl_count.add_css_class('times-detected-label')
         #showing lbl_count if the count is greater than 1
         self._lbl_count.set_visible(int(problem_values[3]) > 1)
 
@@ -423,8 +423,8 @@ class OopsWindow(Adw.ApplicationWindow):
         if self.btn_report.get_parent() is None:
             self.header_bar.pack_end(self.btn_report)
         self.box_header_left.set_hexpand(True)
-        self.header_bar.get_style_context().add_class('header-bar')
-        self.btn_report.get_style_context().add_class('btn-report')
+        self.header_bar.add_css_class('header-bar')
+        self.btn_report.add_css_class('btn-report')
 
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
@@ -435,9 +435,9 @@ class OopsWindow(Adw.ApplicationWindow):
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
-        self.lbl_reason.get_style_context().add_class('oops-reason')
-        self.detected_crashes_label.get_style_context().add_class('app-name-label')
-        self.crash_box.get_style_context().add_class('crash-info-box')
+        self.lbl_reason.add_css_class('oops-reason')
+        self.detected_crashes_label.add_css_class('app-name-label')
+        self.crash_box.add_css_class('crash-info-box')
 
         #"map" event is emitted when the window is initialized
         self.connect("map", self.on_window_map)
@@ -842,26 +842,25 @@ class OopsWindow(Adw.ApplicationWindow):
         #lbl_type_crash
         # I'm ensuring that before applying a new crash class,
         # the old ones (application-crash, system-crash, system-failure) are removed to avoid incorrect styling
-        style_context = self.crash_box.get_style_context()
-        style_context.remove_class('application-crash')
-        style_context.remove_class('system-crash')
-        style_context.remove_class('system-failure')
+        self.crash_box.remove_css_class('application-crash')
+        self.crash_box.remove_css_class('system-crash')
+        self.crash_box.remove_css_class('system-failure')
         
         problem_type_crash = problem['type']
         if problem_type_crash == "CCpp":
             # Translators: These are the problem types displayed in the problem
             # list under the application name
             problem_type_crash = _("Application Crash")
-            self.crash_box.get_style_context().add_class('application-crash')
+            self.crash_box.add_css_class('application-crash')
         elif problem_type_crash == "vmcore":
             problem_type_crash = _("System Crash")
-            self.crash_box.get_style_context().add_class('system-crash')
+            self.crash_box.add_css_class('system-crash')
         elif problem_type_crash == "Kerneloops":
             problem_type_crash = _("System Failure")
-            self.crash_box.get_style_context().add_class('system-failure')
+            self.crash_box.add_css_class('system-failure')
         else:
             problem_type_crash = _("Misbehavior")
-            self.crash_box.get_style_context().add_class('application-crash')
+            self.crash_box.add_css_class('application-crash')
         self.lbl_type_crash.set_text(problem_type_crash)
 
         self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))

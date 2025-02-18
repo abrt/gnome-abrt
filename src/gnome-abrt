@@ -227,24 +227,14 @@ class OopsApplication(Adw.Application):
     #pylint: disable=W0613
     def on_action_about(self, action, parameter):
         #pylint: disable=E1120
-        dialog = Gtk.AboutDialog.new()
+        dialog = Adw.AboutDialog.new()
         dialog.set_version(gnome_abrt.VERSION)
-        dialog.set_logo_icon_name(GNOME_ABRT_APPLICATION_ID)
-        dialog.set_program_name(_("Problem Reporting"))
+        dialog.set_application_icon(GNOME_ABRT_APPLICATION_ID)
+        dialog.set_application_name(_("Problem Reporting"))
         dialog.set_copyright("Copyright © 2024 Red Hat, Inc")
-        dialog.set_license(
-    "This program is free software; you can redistribut"
-    "e it and/or modify it under the terms of the GNU General Public License "
-    "as published by the Free Software Foundation; either version 2 of the Li"
-    "cense, or (at your option) any later version.\n\nThis program is distrib"
-    "uted in the hope that it will be useful, but WITHOUT ANY WARRANTY; witho"
-    "ut even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICU"
-    "LAR PURPOSE.  See the GNU General Public License for more details.\n\nYo"
-    "u should have received a copy of the GNU General Public License along wi"
-    "th this program.  If not, see <http://www.gnu.org/licenses/>.")
-        dialog.set_wrap_license(True)
+        dialog.set_license_type(Gtk.License.GPL_3_0)
         dialog.set_website("https://github.com/abrt/gnome-abrt")
-        dialog.set_authors(["aboobed <0otibi0@gmail.com>",
+        dialog.set_developers(["aboobed <0otibi0@gmail.com>",
                             "Allan Day <allanpday@gmail.com>",
                             "Bastien Nocera <hadess@hadess.net>",
                             "Chris Lockfort <clockfort@csh.rit.edu>",
@@ -263,10 +253,7 @@ class OopsApplication(Adw.Application):
                             "Richard Marko <rmarko@fedoraproject.org>",
                             "Sudip Shil <sshil@redhat.com>"])
 
-        windows = self.get_windows()
-        if windows:
-            dialog.set_transient_for(windows[0])
-        dialog.present()
+        dialog.present(self.get_active_window())
 
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):

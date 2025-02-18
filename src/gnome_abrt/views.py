@@ -77,89 +77,6 @@ class Problem (GObject.Object):
         self.n_times = n_times
         self.inner = inner
 
-class ProblemsFilter:
-
-    def __init__(self, list_box, list_box_selection):
-        self._pattern = ""
-        self._list_box = list_box
-        self._list_box.set_filter_func(lambda row, _: self.match(row), None)
-        self._list_box_selection = list_box_selection
-
-    def set_pattern(self, pattern):
-        self._pattern = pattern.lower()
-        self._list_box.invalidate_filter()
-
-        i = 0
-        problem_row = self._list_box.get_row_at_index(i)
-        while problem_row is not None:
-            if self.match(problem_row):
-                self._list_box.select_row(problem_row)
-                break
-
-            i += 1
-            problem_row = self._list_box.get_row_at_index(i)
-
-        if problem_row is None:
-            self._list_box_selection.unselect_all()
-
-    def match(self, list_box_row):
-        # None matches the pattern
-        if list_box_row is None:
-            return False
-        
-        # taking problem type so that we can search by "@" 
-        problem_type = list_box_row.problem.crash_type
-
-        # handling special case for filtering by problem_type using "@" symbol
-        if self._pattern.startswith("@"):
-            search_type = self._pattern[1:].strip().lower()
-
-            if search_type == "":
-                return True
-            
-            if search_type == "misbehavior":
-                return problem_type == "misbehavior"
-            elif search_type == "system":
-                return problem_type in ["system failure", "system crash"]
-            elif search_type == "application":
-                return problem_type == "application crash"
-            else:
-                return False
-
-        # Empty string matches everything
-        if not self._pattern:
-            return True
-
-        problem = list_box_row.problem
-
-        for i in ['component', 'reason', 'executable', 'package']:
-            if problem[i]:
-                value = str(problem[i]).lower()
-                if self._pattern in value:
-                    return True
-
-        # Check Bug tracker ID
-        if problem['is_reported']:
-            for sbm in problem['submission']:
-                if problems.Problem.Submission.URL != sbm.rtype:
-                    continue
-
-                rid = str(sbm.data)
-                rid = rid.rstrip('/').rsplit('/', maxsplit=1)[-1]
-                rid = rid.rsplit('=', maxsplit=1)[-1]
-                if self._pattern in rid.lower():
-                    return True
-
-        if self._pattern in problem.inner.problem_id.lower():
-            return True
-
-        app = problem['application']
-        if app and app.name:
-            return self._pattern in app.name.lower()
-
-        return False
-
-
 def problem_to_storage_values(problem):
     app = problem.get_application()
 
@@ -386,7 +303,8 @@ class OopsWindow(Adw.ApplicationWindow):
             return ProblemRow(problem)
         
         self._problems = Gio.ListStore.new(Problem.__gtype__)
-        self.lb_problems.bind_model(self._problems, create_problem_row)
+        self._filter_model = Gtk.FilterListModel.new(self._problems, None)
+        self.lb_problems.bind_model(self._filter_model, create_problem_row)
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
 
@@ -407,9 +325,7 @@ class OopsWindow(Adw.ApplicationWindow):
         self.lb_problems.set_sort_func(time_sort_func, self._trash)
         self.lss_problems = ListBoxSelection(self.lb_problems,
                 self.on_tvs_problems_changed)
-        self._filter = ProblemsFilter(self.lb_problems,
-                self.lss_problems)
-
+        
         self.lb_problems.grab_focus()
         try:
             self._reload_problems(self._source)
@@ -482,7 +398,12 @@ class OopsWindow(Adw.ApplicationWindow):
         self.search_entry.set_position(-1)  #moves the cursor to the last position
         self.completion_popover.popdown()
         #apply the filter based on the selected suggestion
-        self._filter.set_pattern(suggestion)
+        suggested_crash_type = suggestion[1:].strip().lower()
+        
+        def crash_type_filter(obj1):
+            return obj1.crash_type == suggested_crash_type
+
+        self._filter_model.set_filter(Gtk.CustomFilter.new(crash_type_filter))
 
     def _add_actions(self, application):
         action_entries = [
@@ -615,8 +536,8 @@ class OopsWindow(Adw.ApplicationWindow):
         if selected:
             for i in range(index, -1, -1):
                 problem_row = self.lb_problems.get_row_at_index(i)
-                if self._filter.match(problem_row):
-                    break
+                #if self._filter.match(problem_row):
+                #    break
 
             if problem_row is not None:
                 self.lb_problems.select_row(problem_row)
@@ -665,12 +586,12 @@ class OopsWindow(Adw.ApplicationWindow):
             if problem_row is None:
                 problem_row = self.lb_problems.get_row_at_index(i)
                 i = 1
-
+            """
             while (problem_row is not None
                     and not self._filter.match(problem_row)):
                 problem_row = self.lb_problems.get_row_at_index(i)
                 i += 1
-
+            """
             if problem_row is not None:
                 self.lb_problems.select_row(problem_row)
                 return
@@ -888,8 +809,36 @@ class OopsWindow(Adw.ApplicationWindow):
 
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
-        print(type(entry))
-        self._filter.set_pattern(entry.get_text())
+        text = entry.get_text()
+        
+        def text_filter(obj1):
+            problem = obj1.inner # the inner problem
+            for i in ['component', 'reason', 'executable', 'package']:
+                if problem[i]:
+                    value = str(problem[i]).lower()
+                    if text in value:
+                        return True
+
+            # Check Bug tracker ID
+            if problem['is_reported']:
+                for sbm in problem['submission']:
+                    if problems.Problem.Submission.URL != sbm.rtype:
+                        continue
+
+                    rid = str(sbm.data)
+                    rid = rid.rstrip('/').rsplit('/', maxsplit=1)[-1]
+                    rid = rid.rsplit('=', maxsplit=1)[-1]
+                    if text in rid.lower():
+                        return True
+
+            if text in problem.inner.problem_id.lower():
+                return True
+
+            app = problem['application']
+            if app and app.name:
+                return text in app.name.lower()
+
+        self._filter_model.set_filter(Gtk.CustomFilter.new(text_filter))
 
     
     def _on_key_press_event(self, controller, keyval, keycode, state):

@@ -189,8 +189,7 @@ class OopsApplication(Adw.Application):
                 controller = Controller(self.all_sources,
                                         glib_sigchld_signal_handler)
                 main_window = OopsWindow(self, self.all_sources, controller)
-                #main_window.show_all()
-                main_window.show()
+                main_window.present()
                 self.add_window(main_window)
         #pylint: disable=W0703
         except Exception as ex:

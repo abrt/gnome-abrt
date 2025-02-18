@@ -270,10 +270,7 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_count.set_halign(Gtk.Align.END)
         self._lbl_count.get_style_context().add_class('times-detected-label')
         #showing lbl_count if the count is greater than 1
-        if int(problem_values[3]) > 1:
-            self._lbl_count.show()
-        else:
-            self._lbl_count.hide()
+        self._lbl_count.set_visible(int(problem_values[3]) > 1)
 
         grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
@@ -416,7 +413,7 @@ class OopsWindow(Adw.ApplicationWindow):
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
-        self.search_entry.hide()  # Ensure the search entry is hidden on load
+        self.search_entry.set_visible(False)  # Ensure the search entry is hidden on load
         #function to set up the auto-completion for the search entry
         self.setup_search_completion()
 
@@ -879,7 +876,7 @@ class OopsWindow(Adw.ApplicationWindow):
 
         self.lbl_times_detected_value.set_text(str(problem['count']))
 
-        self.lbl_reported_value.show()
+        self.lbl_reported_value.set_visible(True)
         self.lbl_reported.set_text(_("Reported"))
         if problem['not-reportable']:
             self.lbl_reported_value.set_text(_('cannot be reported'))
@@ -889,7 +886,7 @@ class OopsWindow(Adw.ApplicationWindow):
         elif problem['is_reported']:
             if self._show_problem_links(problem['submission']):
                 self.lbl_reported.set_text(_("Reports"))
-                self.lbl_reported_value.hide()
+                self.lbl_reported_value.set_visible(False)
 
                 if not any((s.name == "Bugzilla" for s in problem['submission'])):
                     self._show_problem_message(
@@ -952,16 +949,16 @@ class OopsWindow(Adw.ApplicationWindow):
     def on_search_entry_text_changed(self, search_entry, gparam):
         """Hides the search entry when it is cleared (cross button clicked)."""
         if not search_entry.get_text():
-            search_entry.hide()  # Hide the search entry if the text is empty
+            search_entry.set_visible(False)  # Hide the search entry if the text is empty
 
     def on_search_icon_clicked(self, button):
         logging.debug("search icon clicked");
         if self.search_entry.get_visible():
             logging.debug("hiding search entry")
-            self.search_entry.hide()
+            self.search_entry.set_visible(False)
         else:
             logging.debug("showing search entry")
-            self.search_entry.show()
+            self.search_entry.set_visible(True)
             self.search_entry.grab_focus()
 
     @handle_problem_and_source_errors

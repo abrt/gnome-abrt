@@ -38,11 +38,6 @@ ABRTD_DBUS_SIGNAL = 'Crash'
 def get_standard_problems_source(mainloop=None):
     return DBusProblemSource(StandardProblems, mainloop)
 
-'''
-def get_foreign_problems_source(mainloop=None):
-    return DBusProblemSource(ForeignProblems, mainloop)
-'''
-
 class DBusProblemSource(problems.CachedSource):
 
     class Driver:

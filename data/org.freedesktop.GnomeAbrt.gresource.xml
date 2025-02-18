@@ -4,4 +4,8 @@
     <file alias="style.css">css/oops.css</file>
     <file preprocess="xml-stripblanks">ui/oops-window.ui</file>
   </gresource>
+
+  <gresource prefix="/org/freedesktop/GnomeAbrt/">
+    <file preprocess="xml-stripblanks">sentiment-very-satisfied-symbolic.svg</file>
+  </gresource>
 </gresources>

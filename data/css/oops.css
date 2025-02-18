@@ -1,7 +1,3 @@
-GtkListBoxRow:selected, row:selected {
-    background-color: #007bff; /* Custom blue color */
-    color: #ffffff; /* White text color for better contrast */
-}
 .app-name-label {
     font-weight: bold;
 }
@@ -37,21 +33,4 @@ GtkListBoxRow:selected, row:selected {
     padding: 0px 5px;
     border-radius: 50%;
     font-size: 10px;
-}
-
-.search-crash {
-    margin: 5px;
-    border-radius: 12px;
-}
-
-.btn-report {
-    background-color: transparent;
-}
-
-.btn-report:hover {
-    background-color: #d3d3d3;
-}
-
-.btn-report:active {
-    background-color: #b3b3b3;
 }

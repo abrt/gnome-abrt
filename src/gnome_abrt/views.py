@@ -219,7 +219,7 @@ class ListBoxSelection:
         return [lbr.get_problem() for lbr in self._lb.get_selected_rows()]
 
 
-class ProblemRow(Gtk.ListBoxRow):
+class ProblemRow(Adw.PreferencesRow):
 
     def __init__(self, problem_values):
         super().__init__()
@@ -227,13 +227,6 @@ class ProblemRow(Gtk.ListBoxRow):
         self._problem = problem_values[4]
         # Store the problem type as a property (this is what we will filter by)
         self.problem_type = problem_values[2].lower()  # Store as lowercase for easier comparison
-
-        
-        #applying margins directly on the ListBoxRow
-        self.set_margin_top(5)
-        self.set_margin_bottom(5)
-        self.set_margin_start(5)
-        self.set_margin_end(5)
 
         grid = Gtk.Grid.new()
         grid.set_column_spacing(12)
@@ -291,12 +284,9 @@ class OopsWindow(Adw.ApplicationWindow):
 
     __gtype_name__ = 'OopsWindow'
 
-    header_bar = Gtk.Template.Child()
-    box_header_left = Gtk.Template.Child()
-    box_panel_left = Gtk.Template.Child()
-    detected_crashes_label = Gtk.Template.Child()
     crash_box = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
+    search_bar = Gtk.Template.Child()
     btn_search_icon = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
@@ -315,9 +305,6 @@ class OopsWindow(Adw.ApplicationWindow):
     menu_multiple_problems = Gtk.Template.Child()
     vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
-    gd_problem_info = Gtk.Template.Child()
-    vbx_empty_page = Gtk.Template.Child()
-    gr_main_layout = Gtk.Template.Child()
 
     class SourceObserver:
         def __init__(self, wnd):
@@ -413,48 +400,19 @@ class OopsWindow(Adw.ApplicationWindow):
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
-        self.search_entry.set_visible(False)  # Ensure the search entry is hidden on load
+        self.search_bar.set_search_mode(False)  # Ensure the search entry is hidden on load
         #function to set up the auto-completion for the search entry
         self.setup_search_completion()
 
-        # Ensure buttons are packed only once
-        if self.btn_delete.get_parent() is None:
-            self.header_bar.pack_end(self.btn_delete)
-        if self.btn_report.get_parent() is None:
-            self.header_bar.pack_end(self.btn_report)
-        self.box_header_left.set_hexpand(True)
-        self.header_bar.add_css_class('header-bar')
         self.btn_report.add_css_class('btn-report')
 
-        self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
-        self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
-        self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
-        self.btn_search_icon.connect('clicked', self.on_search_icon_clicked)
         self.search_entry.connect('notify::text', self.on_search_entry_text_changed)
-        self.search_entry.connect('search-changed', self.on_se_problems_search_changed)
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
         self.lbl_reason.add_css_class('oops-reason')
-        self.detected_crashes_label.add_css_class('app-name-label')
         self.crash_box.add_css_class('crash-info-box')
 
-        #"map" event is emitted when the window is initialized
-        self.connect("map", self.on_window_map)
-
-    #box_header_left and box_panel_left were not properly aligned or sized the same way on window initialization.
-    #This was likely because the GTK layout system sometimes doesn't properly propagate the size allocation across all widgets immediately on startup
-    #Even though both panels are inside a GtkPaned, the initial size calculation didn't seem to synchronize their widths correctly
-    #as a result, the box_header_left width remained smaller than box_panel_left.
-    #did this to solve the issue: Force Layout Recalculation by Adjusting the Pane and slight Separator Shift
-    def on_window_map(self, widget):
-        """This function triggers when the window is first shown"""
-        #after the window is initialized, adjust the paned position slightly to the right
-        current_position = self.gr_main_layout.get_position()
-        #slightly move the separator of the paned (move it 10 pixels to the right)
-        self.gr_main_layout.set_position(current_position + 10)
-        #move it back to the original position after a slight delay
-        GLib.idle_add(self.restore_paned_position, current_position)
 
     def setup_search_completion(self):
         """Manually set up a popover to show suggestions for the search entry"""
@@ -497,11 +455,6 @@ class OopsWindow(Adw.ApplicationWindow):
         self.completion_popover.popdown()
         #apply the filter based on the selected suggestion
         self._filter.set_pattern(suggestion)
-
-    def restore_paned_position(self, original_position):
-        """Optional: restoring the original paned position after the adjustment - might delete later"""
-        self.gr_main_layout.set_position(original_position)
-        return False  #returning False to remove the idle callback after execution
 
     def _add_actions(self, application):
         action_entries = [
@@ -830,12 +783,11 @@ class OopsWindow(Adw.ApplicationWindow):
             child.unparent()
             child = child.get_next_sibling()
 
-
         if not problem:
-            self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
+            self.nb_problem_layout.set_visible_child_name("empty")
             return
         
-        self.nb_problem_layout.set_visible_child(self.gd_problem_info)
+        self.nb_problem_layout.set_visible_child_name("problem")
 
         app = problem['application']
 
@@ -948,20 +900,21 @@ class OopsWindow(Adw.ApplicationWindow):
     def on_search_entry_text_changed(self, search_entry, gparam):
         """Hides the search entry when it is cleared (cross button clicked)."""
         if not search_entry.get_text():
-            search_entry.set_visible(False)  # Hide the search entry if the text is empty
+            self.search_bar.set_search_mode(False)  # Hide the search entry if the text is empty
 
     def on_search_icon_clicked(self, button):
         logging.debug("search icon clicked");
-        if self.search_entry.get_visible():
+        if self.search_bar.get_search_mode():
             logging.debug("hiding search entry")
-            self.search_entry.set_visible(False)
+            self.search_bar.set_search_mode(False)
         else:
             logging.debug("showing search entry")
-            self.search_entry.set_visible(True)
+            self.search_bar.set_search_mode(True)
             self.search_entry.grab_focus()
 
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
+        print(type(entry))
         self._filter.set_pattern(entry.get_text())
 
     
@@ -1024,101 +977,3 @@ class OopsWindow(Adw.ApplicationWindow):
                     self.menu_problem_item.popup_at_pointer(None)
         return None
         
-    def get_box_header_left_offset(self):
-        box_header_left = self.box_header_left
-        box_panel_left = self.box_panel_left
-        paned = box_panel_left.get_parent()
-        if paned is None:
-            return None
-
-        offset = box_header_left.translate_coordinates(paned, 0, 0)[0]
-        parent = box_header_left.get_parent()
-        if parent is not None:
-            if parent.get_direction() == Gtk.TextDirection.RTL:
-                offset = paned.get_allocation().width - offset - \
-                         box_header_left.get_allocation().width
-
-        return offset
-
-    def do_box_header_left_size_allocate(self, sender):
-        spacing = sender.get_spacing()
-        sum_width = -spacing
-        for child in sender.get_children():
-            width = child.get_preferred_width()[0]
-            sum_width += width
-            sum_width += spacing
-
-        
-        offset = self.get_box_header_left_offset()
-        if offset is None:
-            return GLib.SOURCE_REMOVE
-
-        context = self.box_header_left.get_style_context()
-        state = context.get_state()
-        padding = context.get_padding(state)
-        minimum_width = sum_width + offset + \
-                        padding.right + padding.left
-
-        self.box_panel_left.set_size_request(minimum_width, -1)
-
-        return GLib.SOURCE_REMOVE
-
-
-    
-    def on_box_header_left_size_allocate(self, sender, allocation):
-        other = self.box_panel_left
-        if not sender.get_realized() or not other.get_realized():
-            return
-        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
-
-    def update_box_header_left_size_from_paned(self, sender):
-        other = self.box_header_left
-
-        if not sender.get_realized() or not other.get_realized():
-            return GLib.SOURCE_REMOVE
-
-        offset = self.get_box_header_left_offset()
-        if offset is None:
-            return GLib.SOURCE_REMOVE
-        
-        width = max(sender.get_position() - offset, 0)
-        self.box_header_left.set_size_request(width, -1)
-
-        
-        self.box_header_left.queue_resize()
-        return GLib.SOURCE_REMOVE
-    
-    
-    def on_paned_position_changed(self, sender, data):
-        #temporarily disable resizing of the main window during pane adjustment
-        self.set_resizable(False)
-
-        #a minimum width for the left pane (box_panel_left)
-        min_left_width = 280
-
-        #maximum width of left pane
-        max_left_width = 600
-
-        #current position of the pane
-        current_position = sender.get_position()
-
-        #box_panel_left)is not resized smaller than the minimum width
-        if current_position < min_left_width:
-            sender.set_position(min_left_width)
-        elif current_position > max_left_width:
-            sender.set_position(max_left_width)
-
-        self.update_box_header_left_size_from_paned(sender)
-
-        #enable window resizing after the adjustment is complete
-        self.set_resizable(True)
-
-    
-    
-    def on_paned_size_allocate(self, sender, allocation):
-        GLib.idle_add(self.update_box_header_left_size_from_paned, sender)
-    
-
-    
-    def on_paned_map(self, sender):
-        self.on_paned_position_changed(sender, None)

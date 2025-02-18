@@ -2,7 +2,6 @@
 <gresources>
   <gresource prefix="/org/freedesktop/GnomeAbrt">
     <file alias="style.css">css/oops.css</file>
-    <file preprocess="xml-stripblanks">ui/oops-menus.ui</file>
     <file preprocess="xml-stripblanks">ui/oops-window.ui</file>
   </gresource>
 </gresources>

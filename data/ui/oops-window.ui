@@ -43,6 +43,7 @@
                         <property name="halign">end</property>
                         <property name="hexpand">True</property>
                         <property name="valign">center</property>
+                        <property name="menu-model">app_menu</property>
                         <child>
                           <object class="GtkImage">
                             <property name="icon-name">open-menu-symbolic</property>
@@ -386,4 +387,52 @@
       </object>
     </child>
   </template>
+  <object class="GtkPopoverMenu" id="menu_problem_item">
+    <property name="menu-model">menu_problem_item_model</property>
+  </object>
+  <object class="GtkPopoverMenu" id="menu_multiple_problems">
+    <property name="menu-model">menu_multiple_problems_model</property>
+  </object>
+  <menu id="menu_problem_item_model">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Report</attribute>
+        <attribute name="action">win.report</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Delete</attribute>
+        <attribute name="action">win.delete</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">D_etails</attribute>
+        <attribute name="action">win.details</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Open problem data directory</attribute>
+        <attribute name="action">win.open-directory</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Copy problem directory path to clipboard</attribute>
+        <attribute name="action">win.copy-id</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Filter</attribute>
+        <attribute name="action">win.search</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="menu_multiple_problems_model">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Delete</attribute>
+        <attribute name="action">win.delete</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="app_menu">
+    <item>
+      <attribute comments="Translators: This is the menu item which displays the About box. Note that &quot;Problem Reporting&quot; is the name of this application." name="label" translatable="yes">_About Problem Reporting</attribute>
+      <attribute name="action">app.about</attribute>
+    </item>
+  </menu>
 </interface>

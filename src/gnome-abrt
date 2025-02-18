@@ -70,13 +70,13 @@ GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_OBJECT_PATH = '/org/freedesktop/GnomeAbrt'
 GNOME_ABRT_URL_POOL_CAPACITY = 10
 
-class OopsApplication(Gtk.Application):
+class OopsApplication(Adw.Application):
 
     def __init__(self):
         # Initialize Adwaita
         Adw.init()
 
-        Gtk.Application.__init__(self,
+        Adw.Application.__init__(self,
                                  application_id=GNOME_ABRT_APPLICATION_ID,
                                  resource_base_path='/org/freedesktop/GnomeAbrt/',
                                  flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)

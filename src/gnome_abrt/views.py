@@ -314,7 +314,8 @@ class OopsWindow(Adw.ApplicationWindow):
     nb_problem_layout = Gtk.Template.Child()
     btn_delete = Gtk.Template.Child()
     btn_report = Gtk.Template.Child()
-    app_menu_button = Gtk.Template.Child()
+    menu_problem_item = Gtk.Template.Child()
+    menu_multiple_problems = Gtk.Template.Child()
     vbx_links = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
     gd_problem_info = Gtk.Template.Child()
@@ -370,19 +371,6 @@ class OopsWindow(Adw.ApplicationWindow):
 
         if not sources:
             raise ValueError("The source list cannot be empty!")
-
-        builder = Gtk.Builder()
-        builder.set_translation_domain(GETTEXT_PROGNAME)
-        builder.add_from_resource('/org/freedesktop/GnomeAbrt/ui/oops-menus.ui')
-
-        self.app_menu_button.set_menu_model(builder.get_object('app_menu'))
-
-        self.menu_problem_item = builder.get_object('menu_problem_item')
-        self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item)
-
-        self.menu_multiple_problems = builder.get_object(
-                'menu_multiple_problems')
-        self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems)
 
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
@@ -441,11 +429,8 @@ class OopsWindow(Adw.ApplicationWindow):
             self.header_bar.pack_end(self.btn_delete)
         if self.btn_report.get_parent() is None:
             self.header_bar.pack_end(self.btn_report)
-        if self.app_menu_button.get_parent() is None:
-            self.header_bar.pack_end(self.app_menu_button)
         self.box_header_left.set_hexpand(True)
         self.header_bar.get_style_context().add_class('header-bar')
-        self.app_menu_button.get_style_context().add_class('app-menu-button')
         self.btn_report.get_style_context().add_class('btn-report')
 
         self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)

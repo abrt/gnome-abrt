@@ -327,7 +327,6 @@ class OopsWindow(Adw.ApplicationWindow):
                     elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
                         self.wnd._update_problem_in_storage(problem)
 
-                self.wnd._update_source_button(source)
             except errors.UnavailableSource as ex:
                 self.wnd._disable_source(ex.source, ex.temporary)
 
@@ -362,7 +361,6 @@ class OopsWindow(Adw.ApplicationWindow):
         self._source = None
         self._handling_source_click = False
         self._configure_sources(sources)
-        self._set_button_toggled(self._source.button, True)
 
         self._add_actions(application)
 
@@ -483,15 +481,6 @@ class OopsWindow(Adw.ApplicationWindow):
 
         self._source = self._all_sources[0]
 
-    def _update_source_button(self, source):
-        name = format_button_source_name(source.name, source)
-
-    def _set_button_toggled(self, button, state):
-        pass
-
-    def _on_source_btn_clicked(self, btn, args):
-        pass
-
     def _switch_source(self, source):
         """Sets the passed source as the selected source."""
 
@@ -521,7 +510,6 @@ class OopsWindow(Adw.ApplicationWindow):
 
         if source_index != -1:
             real_source = self._all_sources[source_index]
-            self._set_button_toggled(real_source.button, False)
             if not temporary:
                 logging.debug("Disabling source")
                 self._all_sources.pop(source_index)
@@ -531,7 +519,6 @@ class OopsWindow(Adw.ApplicationWindow):
         
         if (not temporary or source_index != 0) and self._all_sources:
             self._source = self._all_sources[0]
-            self._set_button_toggled(self._source.button, True)
         else:
             self._source = None
 
@@ -681,9 +668,6 @@ class OopsWindow(Adw.ApplicationWindow):
             for source in self._all_sources:
                 if problem_id in source.get_problems():
                     res, old_source = self._switch_source(source)
-                    if res:
-                        self._set_button_toggled(old_source.button, False)
-                        self._set_button_toggled(source.button, True)
                     break
 
         problem_row = self._find_problem_row(problem_id)

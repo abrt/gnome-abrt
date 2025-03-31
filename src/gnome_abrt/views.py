@@ -34,7 +34,7 @@ from gi.repository import Gio
 #pylint: disable=E0611
 from gi.repository import Pango
 #pylint: disable=E0611
-from gi.repository import GLib
+from gi.repository import GLib, GObject
 import humanize
 
 from gi.repository import GObject
@@ -42,88 +42,44 @@ from gi.repository import GObject
 from gnome_abrt import problems, config, wrappers, errors
 from gnome_abrt.l10n import _, C_, GETTEXT_PROGNAME
 
-class ProblemsFilter:
+#pylint: disable=C0413
+from gnome_abrt.controller import Controller
+#pylint: disable=C0413
+from gnome_abrt.signals import glib_sigchld_signal_handler
 
-    def __init__(self, list_box, list_box_selection):
-        self._pattern = ""
-        self._list_box = list_box
-        self._list_box.set_filter_func(lambda row, _: self.match(row), None)
-        self._list_box_selection = list_box_selection
+class Problem (GObject.Object):
+    __gtype_name__ = 'AbrtProblem'
 
-    def set_pattern(self, pattern):
-        self._pattern = pattern.lower()
-        self._list_box.invalidate_filter()
+    _inner: problems.Problem
 
-        i = 0
-        problem_row = self._list_box.get_row_at_index(i)
-        while problem_row is not None:
-            if self.match(problem_row):
-                self._list_box.select_row(problem_row)
-                break
+    application = GObject.Property(
+        type=str,
+        flags=GObject.ParamFlags.READWRITE,
+    )
 
-            i += 1
-            problem_row = self._list_box.get_row_at_index(i)
+    last_seen = GObject.Property(
+        type=str,
+        flags=GObject.ParamFlags.READWRITE,
+    )
 
-        if problem_row is None:
-            self._list_box_selection.unselect_all()
+    crash_type = GObject.Property(
+        type=str,
+        flags=GObject.ParamFlags.READWRITE,
+    )
 
-    def match(self, list_box_row):
-        # None matches the pattern
-        if list_box_row is None:
-            return False
-        
-        # taking problem type so that we can search by "@" 
-        problem_type = list_box_row.problem_type
+    n_times = GObject.Property(
+        type=int,
+        flags=GObject.ParamFlags.READWRITE,
+    )
 
-        # handling special case for filtering by problem_type using "@" symbol
-        if self._pattern.startswith("@"):
-            search_type = self._pattern[1:].strip().lower()
+    def __init__(self, application, last_seen, crash_type, n_times, inner):
+        super().__init__()
 
-            if search_type == "":
-                return True
-            
-            if search_type == "misbehavior":
-                return problem_type == "misbehavior"
-            elif search_type == "system":
-                return problem_type in ["system failure", "system crash"]
-            elif search_type == "application":
-                return problem_type == "application crash"
-            else:
-                return False
-
-        # Empty string matches everything
-        if not self._pattern:
-            return True
-
-        problem = list_box_row.get_problem()
-
-        for i in ['component', 'reason', 'executable', 'package']:
-            if problem[i]:
-                value = str(problem[i]).lower()
-                if self._pattern in value:
-                    return True
-
-        # Check Bug tracker ID
-        if problem['is_reported']:
-            for sbm in problem['submission']:
-                if problems.Problem.Submission.URL != sbm.rtype:
-                    continue
-
-                rid = str(sbm.data)
-                rid = rid.rstrip('/').rsplit('/', maxsplit=1)[-1]
-                rid = rid.rsplit('=', maxsplit=1)[-1]
-                if self._pattern in rid.lower():
-                    return True
-
-        if self._pattern in problem.problem_id.lower():
-            return True
-
-        app = problem['application']
-        if app and app.name:
-            return self._pattern in app.name.lower()
-
-        return False
-
+        self.application = application
+        self.last_seen = last_seen
+        self.crash_type = crash_type
+        self.n_times = n_times
+        self.inner = inner
 
 def problem_to_storage_values(problem):
     app = problem.get_application()
@@ -145,25 +101,24 @@ def problem_to_storage_values(problem):
     else:
         problem_type = _("Misbehavior")
 
-    return (name,
+    problem = Problem(name,
             humanize.naturaltime(datetime.datetime.now()-problem['date_last']),
             problem_type,
-            problem['count'],
+            int(problem['count']),
             problem)
+    return problem
 
 
 #pylint: disable=W0613
-def time_sort_func(first_row, second_row, trash):
-    fst_problem = first_row.get_problem()
-    scn_problem = second_row.get_problem()
+def time_sort_func(fst_problem, scn_problem, trash):
     # skip invalid problems which were marked invalid while sorting
-    if (fst_problem.problem_id in trash or
-        scn_problem.problem_id in trash):
+    if (fst_problem.inner.problem_id in trash or
+        scn_problem.inner.problem_id in trash):
         return 0
 
     try:
-        lhs = fst_problem['date_last'].timetuple()
-        rhs = scn_problem['date_last'].timetuple()
+        lhs = fst_problem.inner['date_last'].timetuple()
+        rhs = scn_problem.inner['date_last'].timetuple()
         return time.mktime(rhs) - time.mktime(lhs)
     except errors.InvalidProblem as ex:
         trash.add(ex.problem_id)
@@ -185,7 +140,6 @@ def handle_problem_and_source_errors(func):
             oops_wnd._remove_problem_from_storage(ex.problem_id)
         except errors.UnavailableSource as ex:
             logging.debug(traceback.format_exc())
-            oops_wnd._disable_source(ex.source, ex.temporary)
 
         return None
 
@@ -216,64 +170,53 @@ class ListBoxSelection:
         self._lb.unselect_all()
 
     def get_selected_rows(self):
-        return [lbr.get_problem() for lbr in self._lb.get_selected_rows()]
+        return [lbr.problem for lbr in self._lb.get_selected_rows()]
 
 
-class ProblemRow(Gtk.ListBoxRow):
+class ProblemRow(Adw.PreferencesRow):
 
-    def __init__(self, problem_values):
+    def __init__(self, problem: Problem):
         super().__init__()
 
-        self._problem = problem_values[4]
-        # Store the problem type as a property (this is what we will filter by)
-        self.problem_type = problem_values[2].lower()  # Store as lowercase for easier comparison
 
-        
-        #applying margins directly on the ListBoxRow
-        self.set_margin_top(5)
-        self.set_margin_bottom(5)
-        self.set_margin_start(5)
-        self.set_margin_end(5)
+        self.problem = problem
 
         grid = Gtk.Grid.new()
         grid.set_column_spacing(12)
 
         self.set_child(grid)
 
-        self._lbl_app = Gtk.Label.new(problem_values[0])
+        self._lbl_app = Gtk.Label.new(self.problem.application)
         self._lbl_app.set_halign(Gtk.Align.START)
         self._lbl_app.set_hexpand(True)
         self._lbl_app.set_xalign(0.0)
         self._lbl_app.set_yalign(0.5)
         self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
         self._lbl_app.set_width_chars(15)
-        self._lbl_app.get_style_context().add_class('app-name-label')
+        self._lbl_app.add_css_class('app-name-label')
 
         grid.attach_next_to(self._lbl_app, None, Gtk.PositionType.RIGHT, 1, 1)
 
-        self._lbl_date = Gtk.Label.new(problem_values[1])
+        self._lbl_date = Gtk.Label.new(self.problem.last_seen)
         self._lbl_date.set_halign(Gtk.Align.END)
-        self._lbl_date.get_style_context().add_class('dim-label')
+        self._lbl_date.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_date, self._lbl_app, Gtk.PositionType.RIGHT, 1, 1)
 
-        self._lbl_type = Gtk.Label.new(problem_values[2])
+        self._lbl_type = Gtk.Label.new(self.problem.crash_type)
         self._lbl_type.set_halign(Gtk.Align.START)
         self._lbl_type.set_hexpand(True)
         self._lbl_type.set_xalign(0.0)
         self._lbl_type.set_yalign(0.5)
-        self._lbl_type.get_style_context().add_class('dim-label')
+        self._lbl_type.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
 
-        self._lbl_count = Gtk.Label.new(problem_values[3])
+        self._lbl_count = Gtk.Label.new(str(self.problem.n_times))
         self._lbl_count.set_halign(Gtk.Align.END)
-        self._lbl_count.get_style_context().add_class('times-detected-label')
+        self._lbl_count.add_css_class('times-detected-label')
         #showing lbl_count if the count is greater than 1
-        if int(problem_values[3]) > 1:
-            self._lbl_count.show()
-        else:
-            self._lbl_count.hide()
+        self._lbl_count.set_visible(self.problem.n_times > 1)
 
         grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
@@ -284,42 +227,29 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_count.set_text(problem_values[3])
         self._problem = problem_values[4]
 
-    def get_problem(self):
-        return self._problem
-
 
 #pylint: disable=R0902
 @Gtk.Template(resource_path='/org/freedesktop/GnomeAbrt/ui/oops-window.ui')
-class OopsWindow(Gtk.ApplicationWindow):
+class OopsWindow(Adw.ApplicationWindow):
 
     __gtype_name__ = 'OopsWindow'
 
-    header_bar = Gtk.Template.Child()
-    box_header_left = Gtk.Template.Child()
-    box_panel_left = Gtk.Template.Child()
-    detected_crashes_label = Gtk.Template.Child()
     crash_box = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
-    btn_search_icon = Gtk.Template.Child()
+    search_bar = Gtk.Template.Child()
     lbl_reason = Gtk.Template.Child()
     lbl_summary = Gtk.Template.Child()
     lbl_type_crash = Gtk.Template.Child()
-    lbl_app_name_value = Gtk.Template.Child()
-    lbl_app_version_value = Gtk.Template.Child()
-    lbl_detected_value = Gtk.Template.Child()
+    lbl_app_name = Gtk.Template.Child()
+    lbl_app_version = Gtk.Template.Child()
+    lbl_detected = Gtk.Template.Child()
     lbl_reported = Gtk.Template.Child()
-    lbl_reported_value = Gtk.Template.Child()
-    lbl_times_detected_value = Gtk.Template.Child()
+    lbl_times_detected = Gtk.Template.Child()
     lb_problems = Gtk.Template.Child()
     nb_problem_layout = Gtk.Template.Child()
-    btn_delete = Gtk.Template.Child()
-    btn_report = Gtk.Template.Child()
-    app_menu_button = Gtk.Template.Child()
-    vbx_links = Gtk.Template.Child()
+    menu_problem_item = Gtk.Template.Child()
+    menu_multiple_problems = Gtk.Template.Child()
     vbx_problem_messages = Gtk.Template.Child()
-    gd_problem_info = Gtk.Template.Child()
-    vbx_empty_page = Gtk.Template.Child()
-    gr_main_layout = Gtk.Template.Child()
 
     class SourceObserver:
         def __init__(self, wnd):
@@ -336,21 +266,15 @@ class OopsWindow(Gtk.ApplicationWindow):
             if not self._enabled:
                 return
 
-            try:
-                if source == self.wnd._source:
-                    if change_type is None:
-                        self.wnd._reload_problems(source)
-                    elif change_type == problems.ProblemSource.NEW_PROBLEM:
-                        self.wnd._add_problem_to_storage(problem)
-                    elif change_type == problems.ProblemSource.DELETED_PROBLEM:
-                        self.wnd._remove_problem_from_storage(problem)
-                    elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
-                        self.wnd._update_problem_in_storage(problem)
-
-                self.wnd._update_source_button(source)
-            except errors.UnavailableSource as ex:
-                self.wnd._disable_source(ex.source, ex.temporary)
-
+            if source == self.wnd._source:
+                if change_type is None:
+                    self.wnd._reload_problems(source)
+                elif change_type == problems.ProblemSource.NEW_PROBLEM:
+                    self.wnd._add_problem_to_storage(problem)
+                elif change_type == problems.ProblemSource.DELETED_PROBLEM:
+                    self.wnd._remove_problem_from_storage(problem)
+                elif change_type == problems.ProblemSource.CHANGED_PROBLEM:
+                    self.wnd._update_problem_in_storage(problem)
 
     class OptionsObserver:
         def __init__(self, wnd):
@@ -365,61 +289,37 @@ class OopsWindow(Gtk.ApplicationWindow):
                 self.wnd._set_problem(self.wnd.selected_problem)
 
 
-    def __init__(self, application, sources, controller):
+    def __init__(self, application, source):
         super().__init__(application=application)
 
-        if not sources:
-            raise ValueError("The source list cannot be empty!")
+        def create_problem_row(problem):
+            return ProblemRow(problem)
+        
+        # a set where invalid problems found while sorting of the problem list
+        # are stored
+        self._trash = set()
 
-        builder = Gtk.Builder()
-        builder.set_translation_domain(GETTEXT_PROGNAME)
-        builder.add_from_resource('/org/freedesktop/GnomeAbrt/ui/oops-menus.ui')
-
-        self.app_menu_button.set_menu_model(builder.get_object('app_menu'))
-
-        self.menu_problem_item = builder.get_object('menu_problem_item')
-        self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item)
-
-        self.menu_multiple_problems = builder.get_object(
-                'menu_multiple_problems')
-        self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems)
-
-        #pylint: disable=E1120
-        css_prv = Gtk.CssProvider.new()
-        css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/css/oops.css')
-        stl_ctx = self.get_style_context()
-        stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv,
-                                                  Gtk.STYLE_PROVIDER_PRIORITY_USER)
-
+        self._problems = Gio.ListStore.new(Problem.__gtype__)
+        self._filter_model = Gtk.FilterListModel.new(self._problems, None)
+        self._sort_model = Gtk.SortListModel.new(self._filter_model, Gtk.CustomSorter.new(time_sort_func, self._trash))
+        self.lb_problems.bind_model(self._sort_model, create_problem_row)
         self._source_observer = OopsWindow.SourceObserver(self)
         self._source_observer.disable()
 
         self._reloading = False
-        self._controller = controller
+        self._controller = Controller(source,
+                                      glib_sigchld_signal_handler)
 
         self.selected_problem = None
-        self._all_sources = []
-        self._source = None
         self._handling_source_click = False
-        self._configure_sources(sources)
-        self._set_button_toggled(self._source.button, True)
 
         self._add_actions(application)
 
-        # a set where invalid problems found while sorting of the problem list
-        # are stored
-        self._trash = set()
-        self.lb_problems.set_sort_func(time_sort_func, self._trash)
         self.lss_problems = ListBoxSelection(self.lb_problems,
                 self.on_tvs_problems_changed)
-        self._filter = ProblemsFilter(self.lb_problems,
-                self.lss_problems)
-
+        
         self.lb_problems.grab_focus()
-        try:
-            self._reload_problems(self._source)
-        except errors.UnavailableSource as ex:
-            self._disable_source(ex.source, ex.temporary)
+        self._reload_problems(source)
 
         self._options_observer = OopsWindow.OptionsObserver(self)
         conf = config.get_configuration()
@@ -435,55 +335,17 @@ class OopsWindow(Gtk.ApplicationWindow):
         key_controller.connect("key-pressed", self._on_key_press_event)
         self.add_controller(key_controller)
 
-        self.style_manager = Adw.StyleManager.get_default()
-        self.update_theme()
-        self.style_manager.connect("notify::color-scheme", self.on_theme_changed)
-
-        self.search_entry.hide()  # Ensure the search entry is hidden on load
+        self.search_bar.set_search_mode(False)  # Ensure the search entry is hidden on load
         #function to set up the auto-completion for the search entry
         self.setup_search_completion()
 
-        # Ensure buttons are packed only once
-        if self.btn_delete.get_parent() is None:
-            self.header_bar.pack_end(self.btn_delete)
-        if self.btn_report.get_parent() is None:
-            self.header_bar.pack_end(self.btn_report)
-        if self.app_menu_button.get_parent() is None:
-            self.header_bar.pack_end(self.app_menu_button)
-        self.box_header_left.set_hexpand(True)
-        self.header_bar.get_style_context().add_class('header-bar')
-        self.app_menu_button.get_style_context().add_class('app-menu-button')
-        self.btn_report.get_style_context().add_class('btn-report')
-
-        self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
-        self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
-        self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
-        self.btn_search_icon.connect('clicked', self.on_search_icon_clicked)
         self.search_entry.connect('notify::text', self.on_search_entry_text_changed)
-        self.search_entry.connect('search-changed', self.on_se_problems_search_changed)
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
-        self.lbl_reason.get_style_context().add_class('oops-reason')
-        self.detected_crashes_label.get_style_context().add_class('app-name-label')
-        self.crash_box.get_style_context().add_class('crash-info-box')
+        self.lbl_reason.add_css_class('oops-reason')
+        self.crash_box.add_css_class('crash-info-box')
 
-        #"map" event is emitted when the window is initialized
-        self.connect("map", self.on_window_map)
-
-    #box_header_left and box_panel_left were not properly aligned or sized the same way on window initialization.
-    #This was likely because the GTK layout system sometimes doesn't properly propagate the size allocation across all widgets immediately on startup
-    #Even though both panels are inside a GtkPaned, the initial size calculation didn't seem to synchronize their widths correctly
-    #as a result, the box_header_left width remained smaller than box_panel_left.
-    #did this to solve the issue: Force Layout Recalculation by Adjusting the Pane and slight Separator Shift
-    def on_window_map(self, widget):
-        """This function triggers when the window is first shown"""
-        #after the window is initialized, adjust the paned position slightly to the right
-        current_position = self.gr_main_layout.get_position()
-        #slightly move the separator of the paned (move it 10 pixels to the right)
-        self.gr_main_layout.set_position(current_position + 10)
-        #move it back to the original position after a slight delay
-        GLib.idle_add(self.restore_paned_position, current_position)
 
     def setup_search_completion(self):
         """Manually set up a popover to show suggestions for the search entry"""
@@ -525,26 +387,12 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.search_entry.set_position(-1)  #moves the cursor to the last position
         self.completion_popover.popdown()
         #apply the filter based on the selected suggestion
-        self._filter.set_pattern(suggestion)
+        suggested_crash_type = suggestion[1:].strip().lower()
+        
+        def crash_type_filter(obj1):
+            return obj1.crash_type == suggested_crash_type
 
-    def restore_paned_position(self, original_position):
-        """Optional: restoring the original paned position after the adjustment - might delete later"""
-        self.gr_main_layout.set_position(original_position)
-        return False  #returning False to remove the idle callback after execution
-
-    def on_theme_changed(self, style_manager, _):
-        """Handle theme changes."""
-        self.update_theme()
-
-    def update_theme(self):
-        """Update the application theme based on system preference."""
-        if self.style_manager.get_color_scheme() == Adw.ColorScheme.FORCE_DARK:
-            logging.debug("Dark theme activated")
-        elif self.style_manager.get_color_scheme() == Adw.ColorScheme.FORCE_LIGHT:
-            logging.debug("Light theme activated")
-        else:
-            logging.debug("System theme activated")
-
+        self._filter_model.set_filter(Gtk.CustomFilter.new(crash_type_filter))
 
     def _add_actions(self, application):
         action_entries = [
@@ -563,86 +411,12 @@ class OopsWindow(Gtk.ApplicationWindow):
         application.set_accels_for_action('win.copy-id', ['<Primary>c'])
         application.set_accels_for_action('win.search', ['<Primary>f'])
 
-    def _configure_sources(self, sources):
-        for name, src in sources:
-            self._all_sources.append(src)
-            src.attach(self._source_observer)
-
-            label = None
-            try:
-                label = format_button_source_name(name, src)
-            except errors.UnavailableSource:
-                logging.debug("Unavailable source: %s", name)
-                continue
-
-            src.name = name
-            src.button = None
-
-        self._source = self._all_sources[0]
-
-    def _update_source_button(self, source):
-        name = format_button_source_name(source.name, source)
-
-    def _set_button_toggled(self, button, state):
-        pass
-
-    def _on_source_btn_clicked(self, btn, args):
-        pass
-
-    def _switch_source(self, source):
-        """Sets the passed source as the selected source."""
-
-        result = True
-        old_source = None
-        if source != self._source:
-            try:
-                self._reload_problems(source)
-                old_source = self._source
-                self._source = source
-            except errors.UnavailableSource as ex:
-                self._disable_source(source, ex.temporary)
-                result = False
-
-        return (result, old_source)
-
-    def _disable_source(self, source, temporary):
-        if self._source is None or not self._all_sources:
-            return
-
-        # Some sources can be components of other sources.
-        # Problems are connected directly to the component sources, therefore
-        # exception's source is a component source, thus we have to find an
-        # instance of composite source which the unavailable component source
-        # belongs.
-        source_index = self._all_sources.index(source)
-
-        if source_index != -1:
-            real_source = self._all_sources[source_index]
-            self._set_button_toggled(real_source.button, False)
-            if not temporary:
-                logging.debug("Disabling source")
-                self._all_sources.pop(source_index)
-
-        if source != self._source:
-            return
-        
-        if (not temporary or source_index != 0) and self._all_sources:
-            self._source = self._all_sources[0]
-            self._set_button_toggled(self._source.button, True)
-        else:
-            self._source = None
-
-        try:
-            self._reload_problems(self._source)
-        except errors.UnavailableSource as ex:
-            self._disable_source(ex.source, ex.temporary)
-
     @handle_problem_and_source_errors
     def _find_problem_row_full(self, problem):
         i = 0
         lb_row = self.lb_problems.get_row_at_index(i)
         while lb_row is not None:
-            if problem == lb_row.get_problem():
+            if problem == lb_row.problem:
                 break
 
             i += 1
@@ -656,17 +430,12 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     def _add_problem_to_storage(self, problem):
         try:
-            values = problem_to_storage_values(problem)
+            problem = problem_to_storage_values(problem)
+            self._problems.append(problem)
         except errors.InvalidProblem:
             logging.debug("Exception: %s", traceback.format_exc())
             return
 
-        self._append_problem_values_to_storage(values)
-
-    def _append_problem_values_to_storage(self, problem_values):
-        problem_cell = ProblemRow(problem_values)
-        self.lb_problems.insert(problem_cell, -1)
-        self._clear_invalid_problems_trash()
 
     def _clear_invalid_problems_trash(self):
         # append methods trigger time_sort_func() where InvalidProblem
@@ -693,8 +462,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         if selected:
             for i in range(index, -1, -1):
                 problem_row = self.lb_problems.get_row_at_index(i)
-                if self._filter.match(problem_row):
-                    break
+                #if self._filter.match(problem_row):
+                #    break
 
             if problem_row is not None:
                 self.lb_problems.select_row(problem_row)
@@ -728,25 +497,11 @@ class OopsWindow(Gtk.ApplicationWindow):
             prblms = source.get_problems()
             for p in prblms:
                 try:
-                    storage_problems.append(problem_to_storage_values(p))
+                    self._problems.append(problem_to_storage_values(p))
                 except errors.InvalidProblem:
                     logging.debug("Exception: %s", traceback.format_exc())
 
         old_selection = self._get_selected(self.lss_problems)
-
-        self._reloading = True
-        try:
-            child = self.lb_problems.get_first_child()
-            while child:
-                next_child = child.get_next_sibling()
-                self.lb_problems.remove(child)
-                child = next_child
-
-            if storage_problems:
-                for p in storage_problems:
-                    self._append_problem_values_to_storage(p)
-        finally:
-            self._reloading = False
 
         if storage_problems:
             problem_row = None
@@ -757,12 +512,12 @@ class OopsWindow(Gtk.ApplicationWindow):
             if problem_row is None:
                 problem_row = self.lb_problems.get_row_at_index(i)
                 i = 1
-
+            """
             while (problem_row is not None
                     and not self._filter.match(problem_row)):
                 problem_row = self.lb_problems.get_row_at_index(i)
                 i += 1
-
+            """
             if problem_row is not None:
                 self.lb_problems.select_row(problem_row)
                 return
@@ -770,19 +525,6 @@ class OopsWindow(Gtk.ApplicationWindow):
         self._set_problem(None)
 
     def _select_problem_by_id(self, problem_id):
-        # The problem could come from a different source than the currently
-        # loaded source. If so, try to switch to problem's origin source and
-        # select the problem after that.
-        if (self._source is not None and
-                problem_id not in self._source.get_problems()):
-            for source in self._all_sources:
-                if problem_id in source.get_problems():
-                    res, old_source = self._switch_source(source)
-                    if res:
-                        self._set_button_toggled(old_source.button, False)
-                        self._set_button_toggled(source.button, True)
-                    break
-
         problem_row = self._find_problem_row(problem_id)
 
         if problem_row is not None:
@@ -795,17 +537,13 @@ class OopsWindow(Gtk.ApplicationWindow):
             return False
 
         link_added = False
+        links = ""
         for sbm in submissions:
             if problems.Problem.Submission.URL == sbm.rtype:
                 title_escaped = GLib.markup_escape_text(sbm.title)
-                lnk = Gtk.Label.new(sbm.title)
-                lnk.set_use_markup(True)
-                lnk.set_markup(f"<a href=\"{sbm.data}\">{title_escaped}</a>")
-                lnk.set_halign(Gtk.Align.START)
-                lnk.set_wrap(True)
-                lnk.set_visible(True)
-                self.vbx_links.append(lnk) #jft
+                links += f"<a href=\"{sbm.data}\">{title_escaped}</a>"
                 link_added = True
+        self.lbl_reported.set_subtitle(links)
 
         return link_added
 
@@ -826,8 +564,8 @@ class OopsWindow(Gtk.ApplicationWindow):
         if problem_type == 'vmcore':
             return _("Fatal system failure")
 
-        if application.name:
-            return _("{0} quit unexpectedly").format(application.name)
+        if application:
+            return _("{0} quit unexpectedly").format(application)
 
         # Translators: If application name is unknown,
         # display neutral header "'Type' problem has been detected".
@@ -851,87 +589,68 @@ class OopsWindow(Gtk.ApplicationWindow):
 
     @handle_problem_and_source_errors
     def _set_problem(self, problem):
-        def destroy_links(widget):
-            if widget != self.lbl_reported_value:
-                widget.unparent()
-
         self.selected_problem = problem
 
         action_enabled = problem is not None
 
         self.lookup_action('delete').set_enabled(action_enabled)
-        self.lookup_action('report').set_enabled(action_enabled and not problem['not-reportable'])
-
-        # Iterate through children and destroy them
-        child = self.vbx_links.get_first_child()
-        while child:
-            destroy_links(child)
-            child = child.get_next_sibling()
+        self.lookup_action('report').set_enabled(action_enabled and not problem.inner['not-reportable'])
 
         child = self.vbx_problem_messages.get_first_child()
         while child:
             child.unparent()
             child = child.get_next_sibling()
 
-
         if not problem:
-            self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
+            self.nb_problem_layout.set_visible_child_name("empty")
             return
         
-        self.nb_problem_layout.set_visible_child(self.gd_problem_info)
-
-        app = problem['application']
+        self.nb_problem_layout.set_visible_child_name("problem")
 
         #lbl_type_crash
         # I'm ensuring that before applying a new crash class,
         # the old ones (application-crash, system-crash, system-failure) are removed to avoid incorrect styling
-        style_context = self.crash_box.get_style_context()
-        style_context.remove_class('application-crash')
-        style_context.remove_class('system-crash')
-        style_context.remove_class('system-failure')
+        self.crash_box.remove_css_class('application-crash')
+        self.crash_box.remove_css_class('system-crash')
+        self.crash_box.remove_css_class('system-failure')
         
-        problem_type_crash = problem['type']
-        if problem_type_crash == "CCpp":
+        if problem.crash_type == "CCpp":
             # Translators: These are the problem types displayed in the problem
             # list under the application name
-            problem_type_crash = _("Application Crash")
-            self.crash_box.get_style_context().add_class('application-crash')
-        elif problem_type_crash == "vmcore":
-            problem_type_crash = _("System Crash")
-            self.crash_box.get_style_context().add_class('system-crash')
-        elif problem_type_crash == "Kerneloops":
-            problem_type_crash = _("System Failure")
-            self.crash_box.get_style_context().add_class('system-failure')
+            problem.crash_type = _("Application Crash")
+            self.crash_box.add_css_class('application-crash')
+        elif problem.crash_type == "vmcore":
+            problem.crash_type = _("System Crash")
+            self.crash_box.add_css_class('system-crash')
+        elif problem.crash_type == "Kerneloops":
+            problem.crash_type = _("System Failure")
+            self.crash_box.add_css_class('system-failure')
         else:
-            problem_type_crash = _("Misbehavior")
-            self.crash_box.get_style_context().add_class('application-crash')
-        self.lbl_type_crash.set_text(problem_type_crash)
+            problem.crash_type = _("Misbehavior")
+            self.crash_box.add_css_class('application-crash')
+        self.lbl_type_crash.set_text(problem.crash_type)
 
-        self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
-        self.lbl_summary.set_text(self._get_summary_for_problem_type(problem['type']))
+        self.lbl_reason.set_text(self._get_reason_for_problem_type(problem.application, problem.inner['type'], problem.inner['human_type']))
+        self.lbl_summary.set_text(self._get_summary_for_problem_type(problem.inner['type']))
 
         # Translators: package name not available
-        self.lbl_app_name_value.set_text(problem['package_name'] or _("N/A"))
+        self.lbl_app_name.set_subtitle(problem.inner['package_name'] or _("N/A"))
         # Translators: package version not available
-        self.lbl_app_version_value.set_text(problem['package_version'] or _("N/A"))
-        self.lbl_detected_value.set_text(humanize.naturaltime(datetime.datetime.now()-problem['date']))
-        self.lbl_detected_value.set_tooltip_text(problem['date'].strftime(config.get_configuration()['D_T_FMT']))
+        self.lbl_app_version.set_subtitle(problem.inner['package_version'] or _("N/A"))
+        self.lbl_detected.set_subtitle(humanize.naturaltime(datetime.datetime.now()-problem.inner['date']))
+        self.lbl_detected.set_tooltip_text(problem.inner['date'].strftime(config.get_configuration()['D_T_FMT']))
 
-        self.lbl_times_detected_value.set_text(str(problem['count']))
+        self.lbl_times_detected.set_subtitle(str(problem.inner['count']))
 
-        self.lbl_reported_value.show()
-        self.lbl_reported.set_text(_("Reported"))
-        if problem['not-reportable']:
-            self.lbl_reported_value.set_text(_('cannot be reported'))
+        self.lbl_reported.set_subtitle(_("Reported"))
+        if problem.inner['not-reportable']:
+            self.lbl_reported.set_subtitle(_('cannot be reported'))
 
-            self._show_problem_links(problem['submission'])
-            self._show_problem_message(problem['not-reportable'])
-        elif problem['is_reported']:
-            if self._show_problem_links(problem['submission']):
-                self.lbl_reported.set_text(_("Reports"))
-                self.lbl_reported_value.hide()
-
-                if not any((s.name == "Bugzilla" for s in problem['submission'])):
+            self._show_problem_links(problem.inner['submission'])
+            self._show_problem_message(problem.inner['not-reportable'])
+        elif problem.inner['is_reported']:
+            if self._show_problem_links(problem.inner['submission']):
+                if not any((s.name == "Bugzilla" for s in problem.inner['submission'])):
                     self._show_problem_message(
                         _("This problem has been reported, but a <i>Bugzilla</i> ticket has not"
                           " been opened. Our developers may need more information to fix the problem.\n"
@@ -942,11 +661,11 @@ class OopsWindow(Gtk.ApplicationWindow):
                 # has been reported but we don't know where and when.
                 # Probably a rare situation, usually if a problem is
                 # reported we display a list of reports here.
-                self.lbl_reported_value.set_text(_('yes'))
+                self.lbl_reported.set_subtitle(_('yes'))
         else:
             # Translators: Displayed after 'Reported' if a problem
             # has not been reported.
-            self.lbl_reported_value.set_text(_('no'))
+            self.lbl_reported.set_subtitle(_('no'))
 
     def _get_selected(self, selection):
         return selection.get_selected_rows()
@@ -992,21 +711,50 @@ class OopsWindow(Gtk.ApplicationWindow):
     def on_search_entry_text_changed(self, search_entry, gparam):
         """Hides the search entry when it is cleared (cross button clicked)."""
         if not search_entry.get_text():
-            search_entry.hide()  # Hide the search entry if the text is empty
+            self.search_bar.set_search_mode(False)  # Hide the search entry if the text is empty
 
     def on_search_icon_clicked(self, button):
         logging.debug("search icon clicked");
-        if self.search_entry.get_visible():
+        if self.search_bar.get_search_mode():
             logging.debug("hiding search entry")
-            self.search_entry.hide()
+            self.search_bar.set_search_mode(False)
         else:
             logging.debug("showing search entry")
-            self.search_entry.show()
+            self.search_bar.set_search_mode(True)
             self.search_entry.grab_focus()
 
     @handle_problem_and_source_errors
     def on_se_problems_search_changed(self, entry):
-        self._filter.set_pattern(entry.get_text())
+        text = entry.get_text()
+        
+        def text_filter(obj1):
+            problem = obj1.inner # the inner problem
+            for i in ['component', 'reason', 'executable', 'package']:
+                if problem[i]:
+                    value = str(problem[i]).lower()
+                    if text in value:
+                        return True
+
+            # Check Bug tracker ID
+            if problem['is_reported']:
+                for sbm in problem['submission']:
+                    if problems.Problem.Submission.URL != sbm.rtype:
+                        continue
+
+                    rid = str(sbm.data)
+                    rid = rid.rstrip('/').rsplit('/', maxsplit=1)[-1]
+                    rid = rid.rsplit('=', maxsplit=1)[-1]
+                    if text in rid.lower():
+                        return True
+
+            if text in problem.inner.problem_id.lower():
+                return True
+
+            app = problem['application']
+            if app and app.name:
+                return text in app.name.lower()
+
+        self._filter_model.set_filter(Gtk.CustomFilter.new(text_filter))
 
     
     def _on_key_press_event(self, controller, keyval, keycode, state):
@@ -1068,101 +816,3 @@ class OopsWindow(Gtk.ApplicationWindow):
                     self.menu_problem_item.popup_at_pointer(None)
         return None
         
-    def get_box_header_left_offset(self):
-        box_header_left = self.box_header_left
-        box_panel_left = self.box_panel_left
-        paned = box_panel_left.get_parent()
-        if paned is None:
-            return None
-
-        offset = box_header_left.translate_coordinates(paned, 0, 0)[0]
-        parent = box_header_left.get_parent()
-        if parent is not None:
-            if parent.get_direction() == Gtk.TextDirection.RTL:
-                offset = paned.get_allocation().width - offset - \
-                         box_header_left.get_allocation().width
-
-        return offset
-
-    def do_box_header_left_size_allocate(self, sender):
-        spacing = sender.get_spacing()
-        sum_width = -spacing
-        for child in sender.get_children():
-            width = child.get_preferred_width()[0]
-            sum_width += width
-            sum_width += spacing
-
-        
-        offset = self.get_box_header_left_offset()
-        if offset is None:
-            return GLib.SOURCE_REMOVE
-
-        context = self.box_header_left.get_style_context()
-        state = context.get_state()
-        padding = context.get_padding(state)
-        minimum_width = sum_width + offset + \
-                        padding.right + padding.left
-
-        self.box_panel_left.set_size_request(minimum_width, -1)
-
-        return GLib.SOURCE_REMOVE
-
-
-    
-    def on_box_header_left_size_allocate(self, sender, allocation):
-        other = self.box_panel_left
-        if not sender.get_realized() or not other.get_realized():
-            return
-        GLib.idle_add(self.do_box_header_left_size_allocate, sender)
-
-    def update_box_header_left_size_from_paned(self, sender):
-        other = self.box_header_left
-
-        if not sender.get_realized() or not other.get_realized():
-            return GLib.SOURCE_REMOVE
-
-        offset = self.get_box_header_left_offset()
-        if offset is None:
-            return GLib.SOURCE_REMOVE
-        
-        width = max(sender.get_position() - offset, 0)
-        self.box_header_left.set_size_request(width, -1)
-
-        
-        self.box_header_left.queue_resize()
-        return GLib.SOURCE_REMOVE
-    
-    
-    def on_paned_position_changed(self, sender, data):
-        #temporarily disable resizing of the main window during pane adjustment
-        self.set_resizable(False)
-
-        #a minimum width for the left pane (box_panel_left)
-        min_left_width = 280
-
-        #maximum width of left pane
-        max_left_width = 600
-
-        #current position of the pane
-        current_position = sender.get_position()
-
-        #box_panel_left)is not resized smaller than the minimum width
-        if current_position < min_left_width:
-            sender.set_position(min_left_width)
-        elif current_position > max_left_width:
-            sender.set_position(max_left_width)
-
-        self.update_box_header_left_size_from_paned(sender)
-
-        #enable window resizing after the adjustment is complete
-        self.set_resizable(True)
-
-    
-    
-    def on_paned_size_allocate(self, sender, allocation):
-        GLib.idle_add(self.update_box_header_left_size_from_paned, sender)
-    
-
-    
-    def on_paned_map(self, sender):
-        self.on_paned_position_changed(sender, None)

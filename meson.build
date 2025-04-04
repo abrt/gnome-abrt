@@ -1,4 +1,4 @@
-project('gnome-abrt', 'c', meson_version : '>= 0.63.0', license : 'GPL3+', version : '1.5.1')
+project('gnome-abrt', 'c', meson_version : '>= 0.63.0', license : 'GPL3+', version : '1.5.2')
 
 bindir = get_option('bindir')
 datadir = get_option('datadir')

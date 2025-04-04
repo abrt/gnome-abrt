@@ -45,6 +45,7 @@ BuildRequires: python3-humanize
 
 Requires:   glib2%{?_isa} >= 2.63.2
 Requires:   gobject-introspection%{?_isa} >= 1.63.1
+Requires:   libadwaita
 Requires:   python3-libreport
 Requires:   python3-gobject
 Requires:   python3-dbus

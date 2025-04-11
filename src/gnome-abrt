@@ -29,11 +29,12 @@ import gi
 gi.require_version('Gio', '2.0')
 gi.require_version('GLib', '2.0')
 gi.require_version('GObject', '2.0')
+gi.require_version('Gdk', '4.0')
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('Pango', '1.0')
 #pylint: disable=E0611, C0411, C0413
-from gi.repository import Gtk, Adw
+from gi.repository import Gdk, Gtk, Adw
 #pylint: disable=E0611, C0411, C0413
 from gi.repository import GLib
 #pylint: disable=E0611, C0411, C0413
@@ -47,15 +48,7 @@ gnome_abrt.init()
 #pylint: disable=C0413
 from gnome_abrt.views import OopsWindow
 #pylint: disable=C0413
-from gnome_abrt.controller import Controller
-#pylint: disable=C0413
-from gnome_abrt.signals import glib_sigchld_signal_handler
-#pylint: disable=C0413
-from gnome_abrt.problems import MultipleSources
-#pylint: disable=C0413
 from gnome_abrt.dbus_problems import get_standard_problems_source
-#from gnome_abrt.dbus_problems import (get_standard_problems_source,
-#                                      get_foreign_problems_source)
 #pylint: disable=C0413
 from gnome_abrt.errors import UnavailableSource
 #pylint: disable=C0413
@@ -69,17 +62,17 @@ GNOME_ABRT_INTERFACE = 'org.freedesktop.GnomeAbrt'
 GNOME_ABRT_OBJECT_PATH = '/org/freedesktop/GnomeAbrt'
 GNOME_ABRT_URL_POOL_CAPACITY = 10
 
-class OopsApplication(Gtk.Application):
+class OopsApplication(Adw.Application):
 
     def __init__(self):
         # Initialize Adwaita
         Adw.init()
 
-        Gtk.Application.__init__(self,
+        Adw.Application.__init__(self,
                                  application_id=GNOME_ABRT_APPLICATION_ID,
+                                 resource_base_path='/org/freedesktop/GnomeAbrt/',
                                  flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
 
-        self.all_sources = None
         self.gnome_settings = None
         # pylint: disable=W0105
         '''
@@ -170,25 +163,15 @@ class OopsApplication(Gtk.Application):
                 conf.add_option("all_problems", default_value=False)
                 self._bind_to_gsettings(conf)
 
-                sources = []
+                # pylint: disable=W0105
                 try:
-                    sources.append(
-                          get_standard_problems_source())
+                    main_window = OopsWindow(self, get_standard_problems_source())
                 except UnavailableSource as ex:
                     logging.warning(str(ex))
-
-                if not sources:
                     raise UnavailableSource(None, None,
                             message="No available problem source.")
-
-                # pylint: disable=W0105
-                self.all_sources = [("All Problems", MultipleSources(sources))]
-
-                controller = Controller(self.all_sources,
-                                        glib_sigchld_signal_handler)
-                main_window = OopsWindow(self, self.all_sources, controller)
-                #main_window.show_all()
-                main_window.show()
+                
+                main_window.present()
                 self.add_window(main_window)
         #pylint: disable=W0703
         except Exception as ex:
@@ -200,6 +183,11 @@ class OopsApplication(Gtk.Application):
         Gtk.Application.do_startup(self)
 
         Gtk.Window.set_default_icon_name(GNOME_ABRT_APPLICATION_ID)
+
+        css_prv = Gtk.CssProvider.new()
+        css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/style.css')
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css_prv,
+                                                  Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         action = Gio.SimpleAction.new("about", None)
         action.connect("activate", self.on_action_about)
@@ -221,24 +209,14 @@ class OopsApplication(Gtk.Application):
     #pylint: disable=W0613
     def on_action_about(self, action, parameter):
         #pylint: disable=E1120
-        dialog = Gtk.AboutDialog.new()
+        dialog = Adw.AboutDialog.new()
         dialog.set_version(gnome_abrt.VERSION)
-        dialog.set_logo_icon_name(GNOME_ABRT_APPLICATION_ID)
-        dialog.set_program_name(_("Problem Reporting"))
+        dialog.set_application_icon(GNOME_ABRT_APPLICATION_ID)
+        dialog.set_application_name(_("Problem Reporting"))
         dialog.set_copyright("Copyright © 2024 Red Hat, Inc")
-        dialog.set_license(
-    "This program is free software; you can redistribut"
-    "e it and/or modify it under the terms of the GNU General Public License "
-    "as published by the Free Software Foundation; either version 2 of the Li"
-    "cense, or (at your option) any later version.\n\nThis program is distrib"
-    "uted in the hope that it will be useful, but WITHOUT ANY WARRANTY; witho"
-    "ut even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICU"
-    "LAR PURPOSE.  See the GNU General Public License for more details.\n\nYo"
-    "u should have received a copy of the GNU General Public License along wi"
-    "th this program.  If not, see <http://www.gnu.org/licenses/>.")
-        dialog.set_wrap_license(True)
+        dialog.set_license_type(Gtk.License.GPL_3_0)
         dialog.set_website("https://github.com/abrt/gnome-abrt")
-        dialog.set_authors(["aboobed <0otibi0@gmail.com>",
+        dialog.set_developers(["aboobed <0otibi0@gmail.com>",
                             "Allan Day <allanpday@gmail.com>",
                             "Bastien Nocera <hadess@hadess.net>",
                             "Chris Lockfort <clockfort@csh.rit.edu>",
@@ -257,10 +235,7 @@ class OopsApplication(Gtk.Application):
                             "Richard Marko <rmarko@fedoraproject.org>",
                             "Sudip Shil <sshil@redhat.com>"])
 
-        windows = self.get_windows()
-        if windows:
-            dialog.set_transient_for(windows[0])
-        dialog.present()
+        dialog.present(self.get_active_window())
 
     #pylint: disable=W0613
     def on_action_quit(self, action, parameter):

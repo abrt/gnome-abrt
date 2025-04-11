@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/freedesktop/GnomeAbrt">
-    <file>css/oops.css</file>
-    <file preprocess="xml-stripblanks">ui/oops-menus.ui</file>
+    <file alias="style.css">css/oops.css</file>
     <file preprocess="xml-stripblanks">ui/oops-window.ui</file>
+  </gresource>
+
+  <gresource prefix="/org/freedesktop/GnomeAbrt/">
+    <file preprocess="xml-stripblanks">sentiment-very-satisfied-symbolic.svg</file>
   </gresource>
 </gresources>

@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 19:29+0200\n"
+"POT-Creation-Date: 2024-11-25 10:14-0300\n"
 "PO-Revision-Date: 2022-03-22 15:17+0000\n"
 "Last-Translator: Yuto Nishiwaki <nishiwakiyuto.per@gmail.com>\n"
 "Language-Team: Japanese <https://translate.fedoraproject.org/projects/abrt/"
@@ -33,125 +33,122 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.11.2\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
+#: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
 msgstr "報告(_R)"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
+#: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:35
 msgid "_Delete"
 msgstr "削除 (_D)"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
+#: data/ui/oops-menus.ui:15
 msgid "D_etails"
 msgstr "詳細(_E)"
 
-#: data/ui/oops-menus.ui:20
-msgid "_Open the problem data directory"
+#: data/ui/oops-menus.ui:19
+#, fuzzy
+#| msgid "_Open the problem data directory"
+msgid "_Open problem data directory"
 msgstr "問題データの場所を開く(_O)"
 
-#: data/ui/oops-menus.ui:24
-msgid "_Copy the problem ID to Clipboard"
+#: data/ui/oops-menus.ui:23
+#, fuzzy
+#| msgid "_Copy the problem ID to Clipboard"
+msgid "_Copy problem directory path to clipboard"
 msgstr "問題IDをクリップボードにコピー"
 
-#: data/ui/oops-menus.ui:28
+#: data/ui/oops-menus.ui:27
 msgid "_Filter"
 msgstr "フィルター(_F)"
 
-#: data/ui/oops-menus.ui:43
-msgid "_Preferences"
-msgstr "設定 (_P)"
-
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
-#: data/ui/oops-menus.ui:49
+#: data/ui/oops-menus.ui:44
 msgid "_About Problem Reporting"
 msgstr "問題の報告について(_A)"
 
-#: data/ui/oops-window.ui:10 src/gnome-abrt:266
-#: src/org.freedesktop.GnomeAbrt.desktop.in:3
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
-msgid "Problem Reporting"
-msgstr "問題の報告"
+#: data/ui/oops-window.ui:28
+msgid "Search"
+msgstr ""
 
-#: data/ui/oops-window.ui:30
-msgid "Select multiple problems"
-msgstr "複数の問題を選択"
+#: data/ui/oops-window.ui:35
+#, fuzzy
+#| msgid "Delete selected problems"
+msgid "Detected Crashes"
+msgstr "選択した問題を削除"
 
-#: data/ui/oops-window.ui:60
-msgid "Submit selected problem"
-msgstr "選択された問題を提出"
-
-#: data/ui/oops-window.ui:77
+#: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
 msgstr "選択した問題を削除"
 
-#: data/ui/oops-window.ui:108
-msgid "Type to search"
-msgstr "入力して検索"
+#: data/ui/oops-window.ui:83
+msgid "Submit selected problem"
+msgstr "選択された問題を提出"
 
-#: data/ui/oops-window.ui:206
-msgid "Name"
-msgstr "名前"
+#: data/ui/oops-window.ui:97
+msgid "Create Report..."
+msgstr ""
 
-#: data/ui/oops-window.ui:226
-msgid "Version"
-msgstr "バージョン"
+#: data/ui/oops-window.ui:127
+msgid "Search or type @ for crash types"
+msgstr ""
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:253
-msgid "First Detected"
-msgstr "最初に検出された日付け"
+#: data/ui/oops-window.ui:246
+msgid "Affected Component"
+msgstr ""
 
-#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
+#: data/ui/oops-window.ui:274
+msgid "Component Version"
+msgstr ""
+
+#: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
 msgstr "報告済み"
 
-#: data/ui/oops-window.ui:322
-msgid "Show problem details"
-msgstr "問題の詳細を表示"
-
 #: data/ui/oops-window.ui:342
+msgid "First Detected"
+msgstr "最初に検出された日付け"
+
+#: data/ui/oops-window.ui:369
+#, fuzzy
+#| msgid "First Detected"
+msgid "Times Detected"
+msgstr "最初に検出された日付け"
+
+#: data/ui/oops-window.ui:407
 msgid "No problems detected!"
 msgstr "問題は検出されませんでした!"
 
-#: data/ui/oops-window.ui:368
-msgid "No source selected!"
-msgstr "ソースが選択されていません!"
-
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:96
+#: src/gnome-abrt:91
 msgid "Be verbose"
 msgstr "冗長な出力"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:108
+#: src/gnome-abrt:103
 msgid "Selected problem ID"
 msgstr "選択された問題ID"
 
-#. Translators: a list header, "My" is a shortcut for "My bugs"
-#: src/gnome-abrt:205 src/gnome-abrt:207
-msgid "My"
-msgstr "ユーザー"
+#: src/gnome-abrt:227 src/org.freedesktop.GnomeAbrt.desktop.in:2
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
+msgid "Problem Reporting"
+msgstr "問題の報告"
 
-#. Translators: a list header, a shortcut for "System
-#. bugs". In this context "System" may be an adjective
-#. or a genitive noun, as required by your language.
-#: src/gnome-abrt:216 src/gnome-abrt:218
-msgctxt "bugs"
-msgid "System"
-msgstr "システム"
-
-#: src/org.freedesktop.GnomeAbrt.desktop.in:4
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
+#: src/org.freedesktop.GnomeAbrt.desktop.in:3
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:8
 msgid "View and report application crashes"
 msgstr "アプリケーションクラッシュの表示とレポート"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:5
+#: src/org.freedesktop.GnomeAbrt.desktop.in:4
 msgid "abrt;bug reporting;crash logger;"
 msgstr "abrt;バグ報告;クラッシュログ機能;"
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
+msgid "The ABRT Project"
+msgstr ""
+
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
@@ -159,110 +156,52 @@ msgstr ""
 "ソフトウェア関連の問題の収集、分析、報告を目的として設計されたソフトウェア"
 "ツールの集合です。"
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:15
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr "主な目的は、問題の報告および解決策の発見を容易にすることです。"
 
-#: src/gnome_abrt/dbus_problems.py:107
+#: src/gnome_abrt/dbus_problems.py:113
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr ""
 "バス '{2}' 内のパス '{1}' のインターフェース '{0}' を取得できません: {3}"
 
-#: src/gnome_abrt/tools.py:42
-msgid "Future"
-msgstr "今後"
-
-#: src/gnome_abrt/tools.py:49
-msgid "Yesterday"
-msgstr "昨日"
-
-#: src/gnome_abrt/tools.py:63
-msgid "Last week"
-msgstr "先週"
-
-#. Translators: This message will never be used for less than
-#. 2 weeks ago nor for more than one month ago. However, the singular
-#. form is necessary for some languages which do not have plural.
-#: src/gnome_abrt/tools.py:67
-#, python-brace-format
-msgid "{0:d} week ago"
-msgid_plural "{0:d} weeks ago"
-msgstr[0] "{0:d} 週間前"
-
-#: src/gnome_abrt/tools.py:72
-msgid "Last month"
-msgstr "先月"
-
-#. Translators: This message will never be used for less than
-#. 2 months ago nor for more than one year ago. See the comment above.
-#: src/gnome_abrt/tools.py:75
-#, python-brace-format
-msgid "{0:d} month ago"
-msgid_plural "{0:d} months ago"
-msgstr[0] "{0:d} ヶ月前"
-
-#: src/gnome_abrt/tools.py:80
-msgid "Last year"
-msgstr "昨年"
-
-#. Translators: This message will never be used for less than
-#. 2 years ago. However, the singular form is necessary for some
-#. languages which do not have plural (Chinese, Japanese, Korean)
-#. or reuse the singular form for some plural cases (21 in Russian).
-#: src/gnome_abrt/tools.py:85
-#, python-brace-format
-msgid "{0:d} year ago"
-msgid_plural "{0:d} years ago"
-msgstr[0] "{0:d} 年前"
-
-#. Translators: if the kernel crashed we display the word "System"
-#. instead of "kernel". In this context "System" is like a proper
-#. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:133
-msgctxt "package name"
-msgid "System"
-msgstr "システム"
-
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:139
+#: src/gnome_abrt/views.py:140 src/gnome_abrt/views.py:897
 msgid "Application Crash"
 msgstr "アプリケーションのクラッシュ"
 
-#: src/gnome_abrt/views.py:141
+#: src/gnome_abrt/views.py:142 src/gnome_abrt/views.py:900
 msgid "System Crash"
 msgstr "システムのクラッシュ"
 
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:144 src/gnome_abrt/views.py:903
 msgid "System Failure"
 msgstr "システム障害"
 
-#: src/gnome_abrt/views.py:145
+#: src/gnome_abrt/views.py:146 src/gnome_abrt/views.py:906
 msgid "Misbehavior"
 msgstr "不正な動作"
 
-#: src/gnome_abrt/views.py:777
+#: src/gnome_abrt/views.py:825
 msgid "Unexpected system error"
 msgstr "予期しないシステムエラー"
 
-#: src/gnome_abrt/views.py:779
-msgid "The system has encountered a problem and recovered."
-msgstr "システムが問題に遭遇したので回復しました。"
-
-#: src/gnome_abrt/views.py:782
+#: src/gnome_abrt/views.py:827
 msgid "Fatal system failure"
 msgstr "致命的なシステム障害"
 
-#: src/gnome_abrt/views.py:784
-msgid "The system has encountered a problem and could not continue."
-msgstr "システムが問題に遭遇したので続行できません。"
+#: src/gnome_abrt/views.py:830
+#, python-brace-format
+msgid "{0} quit unexpectedly"
+msgstr "{0} が予期せず終了しました"
 
-#. Translators: If Application's name is unknown,
-#. display neutral header
-#. "'Type' problem has been detected". Examples:
+#. Translators: If application name is unknown,
+#. display neutral header "'Type' problem has been detected".
+#. Examples:
 #. Kerneloops problem has been detected
 #. C/C++ problem has been detected
 #. Python problem has been detected
@@ -270,35 +209,38 @@ msgstr "システムが問題に遭遇したので続行できません。"
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:798
+#: src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} 件の問題が検出されました"
 
-#: src/gnome_abrt/views.py:802
-#, python-brace-format
-msgid "{0} quit unexpectedly"
-msgstr "{0} が予期せず終了しました"
+#: src/gnome_abrt/views.py:846
+msgid "The system has encountered a problem and recovered."
+msgstr "システムが問題に遭遇したので回復しました。"
 
-#: src/gnome_abrt/views.py:805
+#: src/gnome_abrt/views.py:848
+msgid "The system has encountered a problem and could not continue."
+msgstr "システムが問題に遭遇したので続行できません。"
+
+#: src/gnome_abrt/views.py:850
 msgid "The application encountered a problem and could not continue."
 msgstr "アプリケーションが問題に遭遇したので続行できません。"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:914 src/gnome_abrt/views.py:916
 msgid "N/A"
 msgstr "該当なし"
 
-#: src/gnome_abrt/views.py:839
+#: src/gnome_abrt/views.py:925
 msgid "cannot be reported"
 msgstr "報告できません"
 
-#: src/gnome_abrt/views.py:844
+#: src/gnome_abrt/views.py:931
 msgid "Reports"
 msgstr "報告"
 
-#: src/gnome_abrt/views.py:850
+#: src/gnome_abrt/views.py:936
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -315,15 +257,77 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:859
+#: src/gnome_abrt/views.py:945
 msgid "yes"
 msgstr "はい"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:863
+#: src/gnome_abrt/views.py:949
 msgid "no"
 msgstr "いいえ"
+
+#~ msgid "_Preferences"
+#~ msgstr "設定 (_P)"
+
+#~ msgid "Select multiple problems"
+#~ msgstr "複数の問題を選択"
+
+#~ msgid "Type to search"
+#~ msgstr "入力して検索"
+
+#~ msgid "Name"
+#~ msgstr "名前"
+
+#~ msgid "Version"
+#~ msgstr "バージョン"
+
+#~ msgid "Show problem details"
+#~ msgstr "問題の詳細を表示"
+
+#~ msgid "No source selected!"
+#~ msgstr "ソースが選択されていません!"
+
+#~ msgid "My"
+#~ msgstr "ユーザー"
+
+#~ msgctxt "bugs"
+#~ msgid "System"
+#~ msgstr "システム"
+
+#~ msgid "Future"
+#~ msgstr "今後"
+
+#~ msgid "Yesterday"
+#~ msgstr "昨日"
+
+#~ msgid "Last week"
+#~ msgstr "先週"
+
+#, python-brace-format
+#~ msgid "{0:d} week ago"
+#~ msgid_plural "{0:d} weeks ago"
+#~ msgstr[0] "{0:d} 週間前"
+
+#~ msgid "Last month"
+#~ msgstr "先月"
+
+#, python-brace-format
+#~ msgid "{0:d} month ago"
+#~ msgid_plural "{0:d} months ago"
+#~ msgstr[0] "{0:d} ヶ月前"
+
+#~ msgid "Last year"
+#~ msgstr "昨年"
+
+#, python-brace-format
+#~ msgid "{0:d} year ago"
+#~ msgid_plural "{0:d} years ago"
+#~ msgstr[0] "{0:d} 年前"
+
+#~ msgctxt "package name"
+#~ msgid "System"
+#~ msgstr "システム"
 
 #~ msgid "Show filter box"
 #~ msgstr "フィルターボックスの表示"

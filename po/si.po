@@ -2,13 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-abrt package.
 # Hela Basa <r45xveza@pm.me>, 2021.
+# Malaka Jayasinghe <malakat100@gmail.com>, 2025.
+# Malaka Tharumuthu <malakat100@gmail.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 19:29+0200\n"
-"PO-Revision-Date: 2021-08-18 19:04+0000\n"
-"Last-Translator: Hela Basa <r45xveza@pm.me>\n"
+"POT-Creation-Date: 2024-11-25 10:14-0300\n"
+"PO-Revision-Date: 2025-06-29 14:42+0000\n"
+"Last-Translator: Malaka Tharumuthu <malakat100@gmail.com>\n"
 "Language-Team: Sinhala <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/si/>\n"
 "Language: si\n"
@@ -16,238 +19,172 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 5.12.2\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
+#: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
 msgstr "වාර්තාව (_R)"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
+#: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:35
 msgid "_Delete"
-msgstr ""
+msgstr "මකන්න"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
+#: data/ui/oops-menus.ui:15
 msgid "D_etails"
-msgstr ""
+msgstr "විස්තර"
 
-#: data/ui/oops-menus.ui:20
-msgid "_Open the problem data directory"
-msgstr ""
+#: data/ui/oops-menus.ui:19
+#, fuzzy
+#| msgid "_Open the problem data directory"
+msgid "_Open problem data directory"
+msgstr "ප්‍රශ්න දත්ත බහලුම විවෘත කරන්න"
 
-#: data/ui/oops-menus.ui:24
-msgid "_Copy the problem ID to Clipboard"
-msgstr ""
+#: data/ui/oops-menus.ui:23
+#, fuzzy
+#| msgid "_Copy the problem ID to Clipboard"
+msgid "_Copy problem directory path to clipboard"
+msgstr "ප්‍රශ්න හැඳුනුම් අංකය ක්ලිප්බෝර්ඩ් වෙත පිටපත් කරන්න"
 
-#: data/ui/oops-menus.ui:28
+#: data/ui/oops-menus.ui:27
 msgid "_Filter"
 msgstr "පෙරහන (_F)"
 
-#: data/ui/oops-menus.ui:43
-msgid "_Preferences"
-msgstr ""
-
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
-#: data/ui/oops-menus.ui:49
+#: data/ui/oops-menus.ui:44
 msgid "_About Problem Reporting"
-msgstr ""
+msgstr "ගැටළු වාර්තා කිරීම ගැන"
 
-#: data/ui/oops-window.ui:10 src/gnome-abrt:266
-#: src/org.freedesktop.GnomeAbrt.desktop.in:3
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
-msgid "Problem Reporting"
-msgstr ""
+#: data/ui/oops-window.ui:28
+msgid "Search"
+msgstr "සොයන්න"
 
-#: data/ui/oops-window.ui:30
-msgid "Select multiple problems"
-msgstr ""
+#: data/ui/oops-window.ui:35
+msgid "Detected Crashes"
+msgstr "හඳුනාගත් දෝෂ"
 
-#: data/ui/oops-window.ui:60
-msgid "Submit selected problem"
-msgstr ""
-
-#: data/ui/oops-window.ui:77
+#: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
-msgstr ""
+msgstr "තෝරාගත් ගැටළු මකන්න"
 
-#: data/ui/oops-window.ui:108
-msgid "Type to search"
-msgstr ""
+#: data/ui/oops-window.ui:83
+msgid "Submit selected problem"
+msgstr "තෝරාගත් ගැටලුව ඉදිරිපත් කරන්න"
 
-#: data/ui/oops-window.ui:206
-msgid "Name"
-msgstr "නම"
+#: data/ui/oops-window.ui:97
+msgid "Create Report..."
+msgstr "වාර්තාවක් සාදන්න..."
 
-#: data/ui/oops-window.ui:226
-msgid "Version"
-msgstr "අනුවාදය"
+#: data/ui/oops-window.ui:127
+msgid "Search or type @ for crash types"
+msgstr "ගැටළු වර්ග සෙවීම සඳහා @ යොදන්න"
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:253
-msgid "First Detected"
-msgstr ""
+#: data/ui/oops-window.ui:246
+msgid "Affected Component"
+msgstr "බලපෑ සංරචකය"
 
-#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
+#: data/ui/oops-window.ui:274
+msgid "Component Version"
+msgstr "සංරචක අනුවාදය"
+
+#: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
-msgstr ""
-
-#: data/ui/oops-window.ui:322
-msgid "Show problem details"
-msgstr ""
+msgstr "වාර්තා කර ඇත"
 
 #: data/ui/oops-window.ui:342
-msgid "No problems detected!"
-msgstr ""
+msgid "First Detected"
+msgstr "මුලින්ම හඳුනාගත් දිනය"
 
-#: data/ui/oops-window.ui:368
-msgid "No source selected!"
-msgstr ""
+#: data/ui/oops-window.ui:369
+msgid "Times Detected"
+msgstr "හඳුනාගත් වාර ගණන"
+
+#: data/ui/oops-window.ui:407
+msgid "No problems detected!"
+msgstr "කිසිදු ගැටලුවක් හඳුනාගෙන නොමැත!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:96
+#: src/gnome-abrt:91
 msgid "Be verbose"
-msgstr ""
+msgstr "විස්තරාත්මක වන්න"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:108
+#: src/gnome-abrt:103
 msgid "Selected problem ID"
-msgstr ""
+msgstr "තෝරාගත් ප්‍රශ්න හැඳුනුම් අංකය"
 
-#. Translators: a list header, "My" is a shortcut for "My bugs"
-#: src/gnome-abrt:205 src/gnome-abrt:207
-msgid "My"
-msgstr "මාගේ"
+#: src/gnome-abrt:227 src/org.freedesktop.GnomeAbrt.desktop.in:2
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
+msgid "Problem Reporting"
+msgstr "ගැටළු වාර්තා කිරීම"
 
-#. Translators: a list header, a shortcut for "System
-#. bugs". In this context "System" may be an adjective
-#. or a genitive noun, as required by your language.
-#: src/gnome-abrt:216 src/gnome-abrt:218
-msgctxt "bugs"
-msgid "System"
-msgstr "පද්ධතිය"
+#: src/org.freedesktop.GnomeAbrt.desktop.in:3
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:8
+msgid "View and report application crashes"
+msgstr "යෙදුම් බිඳ වැටීම් බැලීම සහ වාර්තා කිරීම"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
-msgid "View and report application crashes"
-msgstr ""
-
-#: src/org.freedesktop.GnomeAbrt.desktop.in:5
 msgid "abrt;bug reporting;crash logger;"
-msgstr ""
+msgstr "අවසන් කරන්න; දෝෂ වාර්තාකරණය; ක්‍රැෂ් ලොගර්;"
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
+msgid "The ABRT Project"
+msgstr "ABRT ව්‍යාපෘතිය"
+
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
+"මෘදුකාංග ගැටළු එකතු කිරීම, විශ්ලේෂණය කිරීම සහ වාර්තා කිරීම සඳහා නිර්මාණය කර ඇති මෘදුකාංග "
+"මෙවලම් එකතුව."
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:15
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr ""
+msgstr "එහි ප්‍රධාන අරමුණ වන්නේ ගැටලුවක් වාර්තා කිරීමේ සහ විසඳුමක් සෙවීමේ ක්‍රියාවලිය පහසු කිරීමයි."
 
-#: src/gnome_abrt/dbus_problems.py:107
+#: src/gnome_abrt/dbus_problems.py:113
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
-
-#: src/gnome_abrt/tools.py:42
-msgid "Future"
-msgstr ""
-
-#: src/gnome_abrt/tools.py:49
-msgid "Yesterday"
-msgstr "ඊයේ"
-
-#: src/gnome_abrt/tools.py:63
-msgid "Last week"
-msgstr "පසුගිය සතිය"
-
-#. Translators: This message will never be used for less than
-#. 2 weeks ago nor for more than one month ago. However, the singular
-#. form is necessary for some languages which do not have plural.
-#: src/gnome_abrt/tools.py:67
-#, python-brace-format
-msgid "{0:d} week ago"
-msgid_plural "{0:d} weeks ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/gnome_abrt/tools.py:72
-msgid "Last month"
-msgstr "පසුගිය මාසය"
-
-#. Translators: This message will never be used for less than
-#. 2 months ago nor for more than one year ago. See the comment above.
-#: src/gnome_abrt/tools.py:75
-#, python-brace-format
-msgid "{0:d} month ago"
-msgid_plural "{0:d} months ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/gnome_abrt/tools.py:80
-msgid "Last year"
-msgstr "පසුගිය අවුරුද්ද"
-
-#. Translators: This message will never be used for less than
-#. 2 years ago. However, the singular form is necessary for some
-#. languages which do not have plural (Chinese, Japanese, Korean)
-#. or reuse the singular form for some plural cases (21 in Russian).
-#: src/gnome_abrt/tools.py:85
-#, python-brace-format
-msgid "{0:d} year ago"
-msgid_plural "{0:d} years ago"
-msgstr[0] ""
-msgstr[1] ""
-
-#. Translators: if the kernel crashed we display the word "System"
-#. instead of "kernel". In this context "System" is like a proper
-#. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:133
-msgctxt "package name"
-msgid "System"
-msgstr "පද්ධතිය"
+msgstr "අතුරුමුහුණත ලබා ගත නොහැක.'{0}'මාර්ගයේ'{1}'බස් තුළ'{2}':'{3}'"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:139
+#: src/gnome_abrt/views.py:140 src/gnome_abrt/views.py:897
 msgid "Application Crash"
-msgstr ""
+msgstr "යෙදුම කඩා වැටීමක්"
 
-#: src/gnome_abrt/views.py:141
+#: src/gnome_abrt/views.py:142 src/gnome_abrt/views.py:900
 msgid "System Crash"
-msgstr ""
+msgstr "පද්ධතිය කඩා වැටීම"
 
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:144 src/gnome_abrt/views.py:903
 msgid "System Failure"
-msgstr ""
+msgstr "පද්ධති දෝෂය"
 
-#: src/gnome_abrt/views.py:145
+#: src/gnome_abrt/views.py:146 src/gnome_abrt/views.py:906
 msgid "Misbehavior"
-msgstr ""
+msgstr "අනුචිත ක්‍රියාකාරීත්වය"
 
-#: src/gnome_abrt/views.py:777
+#: src/gnome_abrt/views.py:825
 msgid "Unexpected system error"
-msgstr ""
+msgstr "අපේක්ෂිත නොවූ පද්ධති දෝෂයක්"
 
-#: src/gnome_abrt/views.py:779
-msgid "The system has encountered a problem and recovered."
-msgstr ""
-
-#: src/gnome_abrt/views.py:782
+#: src/gnome_abrt/views.py:827
 msgid "Fatal system failure"
-msgstr ""
+msgstr "ගැඹුරු පද්ධති අසාර්ථකත්වය"
 
-#: src/gnome_abrt/views.py:784
-msgid "The system has encountered a problem and could not continue."
-msgstr ""
+#: src/gnome_abrt/views.py:830
+#, python-brace-format
+msgid "{0} quit unexpectedly"
+msgstr "{0} අපේක්ෂිත නොවූ ලෙස අත්හරි ඇත"
 
-#. Translators: If Application's name is unknown,
-#. display neutral header
-#. "'Type' problem has been detected". Examples:
+#. Translators: If application name is unknown,
+#. display neutral header "'Type' problem has been detected".
+#. Examples:
 #. Kerneloops problem has been detected
 #. C/C++ problem has been detected
 #. Python problem has been detected
@@ -255,52 +192,124 @@ msgstr ""
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:798
+#: src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr ""
+msgstr "{0} ගැටළුවක් හඳුනාගෙන ඇත"
 
-#: src/gnome_abrt/views.py:802
-#, python-brace-format
-msgid "{0} quit unexpectedly"
-msgstr ""
+#: src/gnome_abrt/views.py:846
+msgid "The system has encountered a problem and recovered."
+msgstr "පද්ධතියට ගැටළුවක් හමුවුණද, එය සාර්ථකව ප්‍රතිසාධනය කර ඇත."
 
-#: src/gnome_abrt/views.py:805
+#: src/gnome_abrt/views.py:848
+msgid "The system has encountered a problem and could not continue."
+msgstr "පද්ධතියට ගැටළුවක් හමුවී ඇති අතර, එය ඉදිරියට ක්‍රියාත්මක විය නොහැක."
+
+#: src/gnome_abrt/views.py:850
 msgid "The application encountered a problem and could not continue."
-msgstr ""
+msgstr "යෙදුමට ගැටළුවක් හමුවී ඇති අතර, එය ඉදිරියට ක්‍රියාත්මක විය නොහැක."
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:914 src/gnome_abrt/views.py:916
 msgid "N/A"
 msgstr "අ/නොවේ"
 
-#: src/gnome_abrt/views.py:839
+#: src/gnome_abrt/views.py:925
 msgid "cannot be reported"
-msgstr ""
+msgstr "වාර්තා කර නොහැක"
 
-#: src/gnome_abrt/views.py:844
+#: src/gnome_abrt/views.py:931
 msgid "Reports"
 msgstr "වාර්තා"
 
-#: src/gnome_abrt/views.py:850
+#: src/gnome_abrt/views.py:936
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
+"මෙම ගැටළුව වාර්තා කර ඇති අතර, <i>Bugzilla දෝෂ නිරාකරණ පද්ධතිය</i> ටිකට්පතක් විවෘත කර "
+"නැත. අපගේ සංවර්ධකයින්ට ගැටළුව විසඳීමට තවත් තොරතුරු අවශ්‍ය විය හැක. \n"
+"කරුණාකර එය <b>Bugzilla දෝෂ නිරාකරණ පද්ධතිය</b> වෙත වාර්තා කිරීමට මැනවින් සැළකිල්ලෙන් "
+"බලන්න. ස්තූතියි."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:859
+#: src/gnome_abrt/views.py:945
 msgid "yes"
-msgstr ""
+msgstr "ඔව්"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:863
+#: src/gnome_abrt/views.py:949
 msgid "no"
-msgstr ""
+msgstr "නැහැ"
+
+#~ msgid "_Preferences"
+#~ msgstr "මනාප"
+
+#~ msgid "Select multiple problems"
+#~ msgstr "ගැටළු කිහිපයක් තෝරන්න"
+
+#~ msgid "Type to search"
+#~ msgstr "සෙවීමට ටයිප් කරන්න"
+
+#~ msgid "Name"
+#~ msgstr "නම"
+
+#~ msgid "Version"
+#~ msgstr "අනුවාදය"
+
+#~ msgid "Show problem details"
+#~ msgstr "ගැටළු විස්තර පෙන්වන්න"
+
+#~ msgid "No source selected!"
+#~ msgstr "මූලාශ්‍රයක් තෝරාගෙන නැත!"
+
+#~ msgid "My"
+#~ msgstr "මාගේ"
+
+#~ msgctxt "bugs"
+#~ msgid "System"
+#~ msgstr "පද්ධතිය"
+
+#~ msgid "Future"
+#~ msgstr "අනාගතය"
+
+#~ msgid "Yesterday"
+#~ msgstr "ඊයේ"
+
+#~ msgid "Last week"
+#~ msgstr "පසුගිය සතිය"
+
+#, python-brace-format
+#~ msgid "{0:d} week ago"
+#~ msgid_plural "{0:d} weeks ago"
+#~ msgstr[0] "{0:d} සතියකට පෙර"
+#~ msgstr[1] "{0:d} සති කිහිපයකට පෙර"
+
+#~ msgid "Last month"
+#~ msgstr "පසුගිය මාසය"
+
+#, python-brace-format
+#~ msgid "{0:d} month ago"
+#~ msgid_plural "{0:d} months ago"
+#~ msgstr[0] "{0:d} මාසයකට පෙර"
+#~ msgstr[1] "{0:d} මාස කිහිපයකට පෙර"
+
+#~ msgid "Last year"
+#~ msgstr "පසුගිය අවුරුද්ද"
+
+#, python-brace-format
+#~ msgid "{0:d} year ago"
+#~ msgid_plural "{0:d} years ago"
+#~ msgstr[0] "{0:d} අවුරුදුකට පෙර"
+#~ msgstr[1] "{0:d} අවුරුදු පෙර"
+
+#~ msgctxt "package name"
+#~ msgid "System"
+#~ msgstr "පද්ධතිය"

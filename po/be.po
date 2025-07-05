@@ -1,195 +1,185 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Translators:
-# Ahmet Sezgin Duran <marjinalist1@gmail.com>, 2013
-# Emin Tufan Çetin <etcetin@gmail.com>, 2017. #zanata
-# Emin Tufan Çetin <etcetin@gmail.com>, 2018. #zanata
-# Serdar Sağlam <teknomobil@msn.com>, 2019. #zanata
-# Oğuz Ersen <oguzersen@protonmail.com>, 2020.
-# Sabri Ünal <libreajans@gmail.com>, 2024.
+# This file is distributed under the same license as the gnome-abrt package.
+# Yauhen Bugamol <bugamol@users.noreply.translate.fedoraproject.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
+"Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 10:14-0300\n"
-"PO-Revision-Date: 2024-02-26 01:36+0000\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <https://translate.fedoraproject.org/projects/abrt/"
-"gnome-abrt/tr/>\n"
-"Language: tr\n"
+"PO-Revision-Date: 2025-04-23 18:27+0000\n"
+"Last-Translator: Yauhen Bugamol "
+"<bugamol@users.noreply.translate.fedoraproject.org>\n"
+"Language-Team: Belarusian <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/be/>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>1);\n"
-"X-Generator: Weblate 5.4\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11\n"
 
 #: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
-msgstr "_Bildir"
+msgstr "_Паведаміць"
 
 #: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:35
 msgid "_Delete"
-msgstr "_Sil"
+msgstr "_Выдаліць"
 
 #: data/ui/oops-menus.ui:15
 msgid "D_etails"
-msgstr "_Ayrıntılar"
+msgstr "П_адрабязнасці"
 
 #: data/ui/oops-menus.ui:19
-#, fuzzy
-#| msgid "_Open the problem data directory"
 msgid "_Open problem data directory"
-msgstr "Sorunlu veri dizinini _Aç"
+msgstr "_Адкрыць каталог з данымі аб праблеме"
 
 #: data/ui/oops-menus.ui:23
-#, fuzzy
-#| msgid "_Copy the problem ID to Clipboard"
 msgid "_Copy problem directory path to clipboard"
-msgstr "Sorunlu kimliği Pano'ya _Kopyala"
+msgstr "С_капіяваць ID праблемы ў буфер абмену"
 
 #: data/ui/oops-menus.ui:27
 msgid "_Filter"
-msgstr "_Süzgeç"
+msgstr "_Фільтр"
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
 #: data/ui/oops-menus.ui:44
 msgid "_About Problem Reporting"
-msgstr "Sorun Bildirme _Hakkında"
+msgstr "_Аб праграме"
 
 #: data/ui/oops-window.ui:28
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: data/ui/oops-window.ui:35
-#, fuzzy
-#| msgid "Delete selected problems"
 msgid "Detected Crashes"
-msgstr "Seçili sorunlar silindi"
+msgstr "Выяўленыя праблемы"
 
 #: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
-msgstr "Seçili sorunlar silindi"
+msgstr "Выдаліць выбраныя праблемы"
 
 #: data/ui/oops-window.ui:83
 msgid "Submit selected problem"
-msgstr "Seçili sorunu gönder"
+msgstr "Адправіць справаздачу пра выбраную праблему"
 
 #: data/ui/oops-window.ui:97
 msgid "Create Report..."
-msgstr ""
+msgstr "Стварыць справаздачу..."
 
 #: data/ui/oops-window.ui:127
 msgid "Search or type @ for crash types"
-msgstr ""
+msgstr "Пошук змесціва па тыпу або па ўсіх тыпах"
 
 #: data/ui/oops-window.ui:246
 msgid "Affected Component"
-msgstr ""
+msgstr "Закрануты кампанент"
 
 #: data/ui/oops-window.ui:274
 msgid "Component Version"
-msgstr ""
+msgstr "Версія кампанента"
 
 #: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
-msgstr "Bildirildi"
+msgstr "Адпраўлена"
 
 #: data/ui/oops-window.ui:342
 msgid "First Detected"
-msgstr "İlk Saptanma"
+msgstr "Упершыню выяўлена"
 
 #: data/ui/oops-window.ui:369
-#, fuzzy
-#| msgid "First Detected"
 msgid "Times Detected"
-msgstr "İlk Saptanma"
+msgstr "Выяўлена разоў"
 
 #: data/ui/oops-window.ui:407
 msgid "No problems detected!"
-msgstr "Sorun saptanmadı!"
+msgstr "Праблемы не выяўлены!"
 
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:91
 msgid "Be verbose"
-msgstr "Ayrıntılı ol"
+msgstr "Падрабязны вывад"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
 #: src/gnome-abrt:103
 msgid "Selected problem ID"
-msgstr "Seçilen sorun kimliği"
+msgstr "ID выбранай праблемы"
 
 #: src/gnome-abrt:227 src/org.freedesktop.GnomeAbrt.desktop.in:2
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
 msgid "Problem Reporting"
-msgstr "Sorun Bildirme"
+msgstr "Справаздачы аб праблемах"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:8
 msgid "View and report application crashes"
-msgstr "Uygulama çökmelerini görüntüle ve bildir"
+msgstr "Прагляд і стварэнне справаздач пра аварыйныя спыненні праграмы"
 
 #: src/org.freedesktop.GnomeAbrt.desktop.in:4
 msgid "abrt;bug reporting;crash logger;"
-msgstr "abrt;hata bildirme;çökme günlüğü kaydedici;"
+msgstr ""
+"abrt;bug reporting;crash logger;памылкі;паведаміць пра "
+"памылку;справаздача;збой;аварыйнае спыненне;журнал памылак;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "The ABRT Project"
-msgstr ""
+msgstr "Праект ABRT"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
-"Yazılım sorunlarını toplamak, incelemek ve bildirmek için tasarlanmış "
-"yazılım araçları derlemesi."
+"Набор праграм для збірання і аналізу інфармацыі пра памылкі, а таксама "
+"адпраўкі справаздач пра іх."
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:15
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
-msgstr "Asıl amacı sorunu bildirme ve çözüm bulma sürecini kolaylaştırmaktır."
+msgstr ""
+"Галоўная задача – спрасціць адпраўку справаздач пра памылкі і рашэнне "
+"праблем."
 
 #: src/gnome_abrt/dbus_problems.py:113
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
-msgstr ""
-"'{2}' veriyolunda bulunan '{1}' yolu üzerindeki '{0}' arayüzü alınamıyor: "
-"'{3}'"
+msgstr "Не ўдалося атрымаць інтэрфейс «{0}» па шляху «{1}» шыны «{2}»: {3}"
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
 #: src/gnome_abrt/views.py:140 src/gnome_abrt/views.py:897
 msgid "Application Crash"
-msgstr "Uygulama Çöküşü"
+msgstr "Аварыйнае спыненне праграмы"
 
 #: src/gnome_abrt/views.py:142 src/gnome_abrt/views.py:900
 msgid "System Crash"
-msgstr "Sistem Çöküşü"
+msgstr "Аварыйнае спыненне сістэмы"
 
 #: src/gnome_abrt/views.py:144 src/gnome_abrt/views.py:903
 msgid "System Failure"
-msgstr "Sistem Arızası"
+msgstr "Адмова сістэмы"
 
 #: src/gnome_abrt/views.py:146 src/gnome_abrt/views.py:906
 msgid "Misbehavior"
-msgstr "İstenmeyen davranış"
+msgstr "Няправільныя паводзіны"
 
 #: src/gnome_abrt/views.py:825
 msgid "Unexpected system error"
-msgstr "Beklenmeyen sistem hatası"
+msgstr "Нечаканая памылка сістэмы"
 
 #: src/gnome_abrt/views.py:827
 msgid "Fatal system failure"
-msgstr "Ölümcül sistem arızası"
+msgstr "Крытычная памылка сістэмы"
 
 #: src/gnome_abrt/views.py:830
 #, python-brace-format
 msgid "{0} quit unexpectedly"
-msgstr "{0} beklenmeyen biçimde çıkış yaptı"
+msgstr "Праца «{0}» нечакана завяршылася"
 
 #. Translators: If application name is unknown,
 #. display neutral header "'Type' problem has been detected".
@@ -204,33 +194,33 @@ msgstr "{0} beklenmeyen biçimde çıkış yaptı"
 #: src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} problem has been detected"
-msgstr "{0} sorun saptandı"
+msgstr "Выяўлена праблема {0}"
 
 #: src/gnome_abrt/views.py:846
 msgid "The system has encountered a problem and recovered."
-msgstr "Sistem bir sorunla karşılaştı ve kurtarıldı."
+msgstr "Сістэма сутыкнулася з праблемай, праца была адноўлена."
 
 #: src/gnome_abrt/views.py:848
 msgid "The system has encountered a problem and could not continue."
-msgstr "Sistem bir sorunla karşılaştı ve devam edemedi."
+msgstr "Сістэма сутыкнулася з праблемай і не магла працягваць працу."
 
 #: src/gnome_abrt/views.py:850
 msgid "The application encountered a problem and could not continue."
-msgstr "Uygulama bir sorunla karşılaştı ve devam edemedi."
+msgstr "Праграма сутыкнулася з праблемай і не магла працягваць працу."
 
 #. Translators: package name not available
 #. Translators: package version not available
 #: src/gnome_abrt/views.py:914 src/gnome_abrt/views.py:916
 msgid "N/A"
-msgstr "YOK"
+msgstr "Н/Д"
 
 #: src/gnome_abrt/views.py:925
 msgid "cannot be reported"
-msgstr "bildirilemez"
+msgstr "немагчыма адправіць справаздачу"
 
 #: src/gnome_abrt/views.py:931
 msgid "Reports"
-msgstr "Bildirmeler"
+msgstr "Справаздачы"
 
 #: src/gnome_abrt/views.py:936
 msgid ""
@@ -239,10 +229,11 @@ msgid ""
 "Please consider also <b>reporting it</b> to Bugzilla in order to provide "
 "that. Thank you."
 msgstr ""
-"Bu sorun bildirildi ancak <i>Bugzilla</i> bileti açılmadı. "
-"Geliştiricilerimiz sorunu çözmek için daha çok bilgiye ihtiyaç duyabilir.\n"
-"Lütfen bunu sağlamak için Bugzilla'ya da <b>bildirmeyi</b> düşünün. "
-"Teşekkürler."
+"Пра гэту праблему ўжо паведамлялася, але заяўка <i>Bugzilla</i> яшчэ не "
+"адкрыта. Нашым распрацоўнікам можа спатрэбіцца больш інфармацыі для рашэння "
+"праблемы\n"
+"Вы можаце таксама <b>адправіць справаздачу</b> ў Bugzilla, каб дапоўніць "
+"звесткі. Дзякуй."
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has been reported but we don't know where and when.
@@ -250,81 +241,10 @@ msgstr ""
 #. reported we display a list of reports here.
 #: src/gnome_abrt/views.py:945
 msgid "yes"
-msgstr "evet"
+msgstr "так"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
 #: src/gnome_abrt/views.py:949
 msgid "no"
-msgstr "hayır"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Tercihler"
-
-#~ msgid "Select multiple problems"
-#~ msgstr "Birden fazla sorun seç"
-
-#~ msgid "Type to search"
-#~ msgstr "Aramak için yazın"
-
-#~ msgid "Name"
-#~ msgstr "Ad"
-
-#~ msgid "Version"
-#~ msgstr "Sürüm"
-
-#~ msgid "Show problem details"
-#~ msgstr "Sorun ayrıntılarını göster"
-
-#~ msgid "No source selected!"
-#~ msgstr "Kaynak seçilmedi!"
-
-#~ msgid "My"
-#~ msgstr "Benim"
-
-#~ msgctxt "bugs"
-#~ msgid "System"
-#~ msgstr "Sistem"
-
-#~ msgid "Future"
-#~ msgstr "Gelecek"
-
-#~ msgid "Yesterday"
-#~ msgstr "Dün"
-
-#~ msgid "Last week"
-#~ msgstr "Geçen hafta"
-
-#, python-brace-format
-#~ msgid "{0:d} week ago"
-#~ msgid_plural "{0:d} weeks ago"
-#~ msgstr[0] "{0:d} hafta önce"
-#~ msgstr[1] "{0:d} hafta önce"
-
-#~ msgid "Last month"
-#~ msgstr "Geçen ay"
-
-#, python-brace-format
-#~ msgid "{0:d} month ago"
-#~ msgid_plural "{0:d} months ago"
-#~ msgstr[0] "{0:d} ay önce"
-#~ msgstr[1] "{0:d} ay önce"
-
-#~ msgid "Last year"
-#~ msgstr "Geçen yıl"
-
-#, python-brace-format
-#~ msgid "{0:d} year ago"
-#~ msgid_plural "{0:d} years ago"
-#~ msgstr[0] "{0:d} yıl önce"
-#~ msgstr[1] "{0:d} yıl önce"
-
-#~ msgctxt "package name"
-#~ msgid "System"
-#~ msgstr "Sistem"
-
-#~ msgid "org.freedesktop.GnomeAbrt"
-#~ msgstr "org.freedesktop.GnomeAbrt"
-
-#~ msgid "Show filter box"
-#~ msgstr "Süzgeç kutusunu göster"
+msgstr "не"

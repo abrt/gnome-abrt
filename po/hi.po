@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 19:29+0200\n"
+"POT-Creation-Date: 2024-11-25 10:14-0300\n"
 "PO-Revision-Date: 2020-08-16 11:29+0000\n"
 "Last-Translator: Aniket Kumar <aniket.jnv@yahoo.com>\n"
 "Language-Team: Hindi <https://translate.fedoraproject.org/projects/abrt/"
@@ -26,238 +26,174 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.1.1\n"
 
-#: data/ui/oops-menus.ui:8 data/ui/oops-window.ui:59
+#: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
 msgstr "रिपोर्ट करें (_R)"
 
-#: data/ui/oops-menus.ui:12 data/ui/oops-menus.ui:36 data/ui/oops-window.ui:76
+#: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:35
 msgid "_Delete"
 msgstr "मिटाएँ (_D)"
 
-#: data/ui/oops-menus.ui:16 data/ui/oops-window.ui:321
+#: data/ui/oops-menus.ui:15
 msgid "D_etails"
 msgstr "विवरण"
 
-#: data/ui/oops-menus.ui:20
-msgid "_Open the problem data directory"
+#: data/ui/oops-menus.ui:19
+#, fuzzy
+#| msgid "_Open the problem data directory"
+msgid "_Open problem data directory"
 msgstr "_ डेटा समस्या निर्देशिका को खोलें"
 
-#: data/ui/oops-menus.ui:24
-msgid "_Copy the problem ID to Clipboard"
+#: data/ui/oops-menus.ui:23
+#, fuzzy
+#| msgid "_Copy the problem ID to Clipboard"
+msgid "_Copy problem directory path to clipboard"
 msgstr "समस्या ID को क्लिपबोर्ड पर कॉपी करें"
 
-#: data/ui/oops-menus.ui:28
+#: data/ui/oops-menus.ui:27
 msgid "_Filter"
 msgstr "फिल्टर(_F)"
 
-#: data/ui/oops-menus.ui:43
-msgid "_Preferences"
-msgstr "वरीयताएँ (_P)"
-
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
-#: data/ui/oops-menus.ui:49
+#: data/ui/oops-menus.ui:44
 msgid "_About Problem Reporting"
 msgstr "समस्या रिपोर्टिंग के बारे में"
 
-#: data/ui/oops-window.ui:10 src/gnome-abrt:266
-#: src/org.freedesktop.GnomeAbrt.desktop.in:3
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
-msgid "Problem Reporting"
-msgstr "समस्या रिपोर्टिंग"
+#: data/ui/oops-window.ui:28
+msgid "Search"
+msgstr ""
 
-#: data/ui/oops-window.ui:30
-msgid "Select multiple problems"
-msgstr "कई समस्याओं का चयन करें"
+#: data/ui/oops-window.ui:35
+#, fuzzy
+#| msgid "Delete selected problems"
+msgid "Detected Crashes"
+msgstr "चयनित समस्याओं को मिटाएँ"
 
-#: data/ui/oops-window.ui:60
-msgid "Submit selected problem"
-msgstr "चयनित समस्या प्रस्तुत करें"
-
-#: data/ui/oops-window.ui:77
+#: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
 msgstr "चयनित समस्याओं को मिटाएँ"
 
-#: data/ui/oops-window.ui:108
-msgid "Type to search"
-msgstr "खोजने के लिए लिखें"
+#: data/ui/oops-window.ui:83
+msgid "Submit selected problem"
+msgstr "चयनित समस्या प्रस्तुत करें"
 
-#: data/ui/oops-window.ui:206
-msgid "Name"
-msgstr "नाम"
+#: data/ui/oops-window.ui:97
+msgid "Create Report..."
+msgstr ""
 
-#: data/ui/oops-window.ui:226
-msgid "Version"
-msgstr "संस्करण"
+#: data/ui/oops-window.ui:127
+msgid "Search or type @ for crash types"
+msgstr ""
 
-#. Translators: A label for a date when the bug happened for the first time. Please keep this label short, below 156px if possible.
-#: data/ui/oops-window.ui:253
-msgid "First Detected"
-msgstr "पहले पता लगाया"
+#: data/ui/oops-window.ui:246
+msgid "Affected Component"
+msgstr ""
 
-#: data/ui/oops-window.ui:280 src/gnome_abrt/views.py:836
+#: data/ui/oops-window.ui:274
+msgid "Component Version"
+msgstr ""
+
+#: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
 msgstr "प्रतिवेदित"
 
-#: data/ui/oops-window.ui:322
-msgid "Show problem details"
-msgstr "समस्या का विवरण दिखाएं"
-
 #: data/ui/oops-window.ui:342
+msgid "First Detected"
+msgstr "पहले पता लगाया"
+
+#: data/ui/oops-window.ui:369
+#, fuzzy
+#| msgid "First Detected"
+msgid "Times Detected"
+msgstr "पहले पता लगाया"
+
+#: data/ui/oops-window.ui:407
 msgid "No problems detected!"
 msgstr "कोई समस्या नहीं मिली!"
 
-#: data/ui/oops-window.ui:368
-msgid "No source selected!"
-msgstr "कोई स्रोत नहीं चुना गया!"
-
 #. Translators: This is a description of --verbose command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:96
+#: src/gnome-abrt:91
 msgid "Be verbose"
 msgstr "वाचाल बनें"
 
 #. Translators: This is a description of --problem command line option
 #. displayed when a user runs: `gnome-abrt --help'
-#: src/gnome-abrt:108
+#: src/gnome-abrt:103
 msgid "Selected problem ID"
 msgstr "चयनित समस्या आईडी"
 
-#. Translators: a list header, "My" is a shortcut for "My bugs"
-#: src/gnome-abrt:205 src/gnome-abrt:207
-msgid "My"
-msgstr "मेरा"
+#: src/gnome-abrt:227 src/org.freedesktop.GnomeAbrt.desktop.in:2
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
+msgid "Problem Reporting"
+msgstr "समस्या रिपोर्टिंग"
 
-#. Translators: a list header, a shortcut for "System
-#. bugs". In this context "System" may be an adjective
-#. or a genitive noun, as required by your language.
-#: src/gnome-abrt:216 src/gnome-abrt:218
-msgctxt "bugs"
-msgid "System"
-msgstr "प्रणाली"
-
-#: src/org.freedesktop.GnomeAbrt.desktop.in:4
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
+#: src/org.freedesktop.GnomeAbrt.desktop.in:3
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:8
 msgid "View and report application crashes"
 msgstr "अनुप्रयोग क्रैश को देखें और रिपोर्ट करें"
 
-#: src/org.freedesktop.GnomeAbrt.desktop.in:5
+#: src/org.freedesktop.GnomeAbrt.desktop.in:4
 msgid "abrt;bug reporting;crash logger;"
 msgstr "स्वचालित बग रिपोर्टिंग उपकरण; बग रिपोर्टिंग; क्रैश लॉगर;"
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:10
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
+msgid "The ABRT Project"
+msgstr ""
+
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr "सॉफ़्टवेयर मुद्दे के संग्रहण, विश्लेषण और रिपोर्टिंग के लिए सॉफ़्टवेयर औज़ार का संग्रह."
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:14
+#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:15
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
 msgstr ""
-"इसका मुख्य उद्देश्य किसी समस्या की रिपोर्ट करने और समाधान खोजने की प्रक्रिया "
-"को आसान बनाना है।"
+"इसका मुख्य उद्देश्य किसी समस्या की रिपोर्ट करने और समाधान खोजने की प्रक्रिया को आसान "
+"बनाना है।"
 
-#: src/gnome_abrt/dbus_problems.py:107
+#: src/gnome_abrt/dbus_problems.py:113
 #, python-brace-format
 msgid "Can't get interface '{0}' on path '{1}' in bus '{2}': {3}"
 msgstr "अंतरफलक '{0}' को '{1}' पथ पर '{2}' में पा नहीं सका: {3}"
 
-#: src/gnome_abrt/tools.py:42
-msgid "Future"
-msgstr "भविष्य"
-
-#: src/gnome_abrt/tools.py:49
-msgid "Yesterday"
-msgstr "कल"
-
-#: src/gnome_abrt/tools.py:63
-msgid "Last week"
-msgstr "पिछले सप्ताह"
-
-#. Translators: This message will never be used for less than
-#. 2 weeks ago nor for more than one month ago. However, the singular
-#. form is necessary for some languages which do not have plural.
-#: src/gnome_abrt/tools.py:67
-#, python-brace-format
-msgid "{0:d} week ago"
-msgid_plural "{0:d} weeks ago"
-msgstr[0] "{0:d}सप्ताह पहले"
-msgstr[1] "{0:d}सप्ताह पहले"
-
-#: src/gnome_abrt/tools.py:72
-msgid "Last month"
-msgstr "पिछले महीने"
-
-#. Translators: This message will never be used for less than
-#. 2 months ago nor for more than one year ago. See the comment above.
-#: src/gnome_abrt/tools.py:75
-#, python-brace-format
-msgid "{0:d} month ago"
-msgid_plural "{0:d} months ago"
-msgstr[0] "{0:d}महीने पहले"
-msgstr[1] "{0:d}महीने पहले"
-
-#: src/gnome_abrt/tools.py:80
-msgid "Last year"
-msgstr "पिछले साल"
-
-#. Translators: This message will never be used for less than
-#. 2 years ago. However, the singular form is necessary for some
-#. languages which do not have plural (Chinese, Japanese, Korean)
-#. or reuse the singular form for some plural cases (21 in Russian).
-#: src/gnome_abrt/tools.py:85
-#, python-brace-format
-msgid "{0:d} year ago"
-msgid_plural "{0:d} years ago"
-msgstr[0] "{0:d}साल पहले"
-msgstr[1] "{0:d}साल पहले"
-
-#. Translators: if the kernel crashed we display the word "System"
-#. instead of "kernel". In this context "System" is like a proper
-#. package name, probably a nominative noun.
-#: src/gnome_abrt/views.py:133
-msgctxt "package name"
-msgid "System"
-msgstr "प्रणाली"
-
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:139
+#: src/gnome_abrt/views.py:140 src/gnome_abrt/views.py:897
 msgid "Application Crash"
 msgstr "एप्लिकेशन क्रैश"
 
-#: src/gnome_abrt/views.py:141
+#: src/gnome_abrt/views.py:142 src/gnome_abrt/views.py:900
 msgid "System Crash"
 msgstr "तंत्र क्रैश"
 
-#: src/gnome_abrt/views.py:143
+#: src/gnome_abrt/views.py:144 src/gnome_abrt/views.py:903
 msgid "System Failure"
 msgstr "प्रणाली की विफलता"
 
-#: src/gnome_abrt/views.py:145
+#: src/gnome_abrt/views.py:146 src/gnome_abrt/views.py:906
 msgid "Misbehavior"
 msgstr "दुर्व्यवहार"
 
-#: src/gnome_abrt/views.py:777
+#: src/gnome_abrt/views.py:825
 msgid "Unexpected system error"
 msgstr "अनपेक्षित प्रणाली त्रुटि"
 
-#: src/gnome_abrt/views.py:779
-msgid "The system has encountered a problem and recovered."
-msgstr "प्रणाली ने एक समस्या का सामना किया है और उस से बचा लिया गया है."
-
-#: src/gnome_abrt/views.py:782
+#: src/gnome_abrt/views.py:827
 msgid "Fatal system failure"
 msgstr "घातक प्रणाली की विफलता"
 
-#: src/gnome_abrt/views.py:784
-msgid "The system has encountered a problem and could not continue."
-msgstr "प्रणाली ने एक समस्या का सामना किया है और जारी नहीं रह सका है।"
+#: src/gnome_abrt/views.py:830
+#, python-brace-format
+msgid "{0} quit unexpectedly"
+msgstr "{0}अप्रत्याशित रूप से छोड़ दिया"
 
-#. Translators: If Application's name is unknown,
-#. display neutral header
-#. "'Type' problem has been detected". Examples:
+#. Translators: If application name is unknown,
+#. display neutral header "'Type' problem has been detected".
+#. Examples:
 #. Kerneloops problem has been detected
 #. C/C++ problem has been detected
 #. Python problem has been detected
@@ -265,35 +201,38 @@ msgstr "प्रणाली ने एक समस्या का साम�
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:798
+#: src/gnome_abrt/views.py:842
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr "{0} समस्या आयी"
 
-#: src/gnome_abrt/views.py:802
-#, python-brace-format
-msgid "{0} quit unexpectedly"
-msgstr "{0}अप्रत्याशित रूप से छोड़ दिया"
+#: src/gnome_abrt/views.py:846
+msgid "The system has encountered a problem and recovered."
+msgstr "प्रणाली ने एक समस्या का सामना किया है और उस से बचा लिया गया है."
 
-#: src/gnome_abrt/views.py:805
+#: src/gnome_abrt/views.py:848
+msgid "The system has encountered a problem and could not continue."
+msgstr "प्रणाली ने एक समस्या का सामना किया है और जारी नहीं रह सका है।"
+
+#: src/gnome_abrt/views.py:850
 msgid "The application encountered a problem and could not continue."
 msgstr "एप्लिकेशन को एक समस्या का सामना करना पड़ा और यह जारी नहीं रह सका।"
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:809 src/gnome_abrt/views.py:812
+#: src/gnome_abrt/views.py:914 src/gnome_abrt/views.py:916
 msgid "N/A"
 msgstr "लागू नहीं"
 
-#: src/gnome_abrt/views.py:839
+#: src/gnome_abrt/views.py:925
 msgid "cannot be reported"
 msgstr "रिपोर्ट नहीं किया जा सकता है"
 
-#: src/gnome_abrt/views.py:844
+#: src/gnome_abrt/views.py:931
 msgid "Reports"
 msgstr "रिपोर्ट"
 
-#: src/gnome_abrt/views.py:850
+#: src/gnome_abrt/views.py:936
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -308,12 +247,77 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:859
+#: src/gnome_abrt/views.py:945
 msgid "yes"
 msgstr "हाँ"
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:863
+#: src/gnome_abrt/views.py:949
 msgid "no"
 msgstr "नहीं"
+
+#~ msgid "_Preferences"
+#~ msgstr "वरीयताएँ (_P)"
+
+#~ msgid "Select multiple problems"
+#~ msgstr "कई समस्याओं का चयन करें"
+
+#~ msgid "Type to search"
+#~ msgstr "खोजने के लिए लिखें"
+
+#~ msgid "Name"
+#~ msgstr "नाम"
+
+#~ msgid "Version"
+#~ msgstr "संस्करण"
+
+#~ msgid "Show problem details"
+#~ msgstr "समस्या का विवरण दिखाएं"
+
+#~ msgid "No source selected!"
+#~ msgstr "कोई स्रोत नहीं चुना गया!"
+
+#~ msgid "My"
+#~ msgstr "मेरा"
+
+#~ msgctxt "bugs"
+#~ msgid "System"
+#~ msgstr "प्रणाली"
+
+#~ msgid "Future"
+#~ msgstr "भविष्य"
+
+#~ msgid "Yesterday"
+#~ msgstr "कल"
+
+#~ msgid "Last week"
+#~ msgstr "पिछले सप्ताह"
+
+#, python-brace-format
+#~ msgid "{0:d} week ago"
+#~ msgid_plural "{0:d} weeks ago"
+#~ msgstr[0] "{0:d}सप्ताह पहले"
+#~ msgstr[1] "{0:d}सप्ताह पहले"
+
+#~ msgid "Last month"
+#~ msgstr "पिछले महीने"
+
+#, python-brace-format
+#~ msgid "{0:d} month ago"
+#~ msgid_plural "{0:d} months ago"
+#~ msgstr[0] "{0:d}महीने पहले"
+#~ msgstr[1] "{0:d}महीने पहले"
+
+#~ msgid "Last year"
+#~ msgstr "पिछले साल"
+
+#, python-brace-format
+#~ msgid "{0:d} year ago"
+#~ msgid_plural "{0:d} years ago"
+#~ msgstr[0] "{0:d}साल पहले"
+#~ msgstr[1] "{0:d}साल पहले"
+
+#~ msgctxt "package name"
+#~ msgid "System"
+#~ msgstr "प्रणाली"

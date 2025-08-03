@@ -1,8 +1,8 @@
 i18n.merge_file(
-  input: 'org.freedesktop.GnomeAbrt.appdata.xml.in',
+  input: 'org.freedesktop.GnomeAbrt.metainfo.xml.in',
   install: true,
   install_dir: join_paths(datadir, 'metainfo'),
-  output: 'org.freedesktop.GnomeAbrt.appdata.xml',
+  output: 'org.freedesktop.GnomeAbrt.metainfo.xml',
   po_dir: join_paths(meson.project_source_root(), 'po'),
   type: 'xml'
 )

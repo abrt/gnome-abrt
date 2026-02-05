@@ -4,13 +4,13 @@
 #
 # Translators:
 # Mr James Hewitt <james.hewitt@gmail.com>, 2020.
-# Andi Chandler <andi@gowling.com>, 2022, 2023.
+# Andi Chandler <andi@gowling.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 10:14-0300\n"
-"PO-Revision-Date: 2023-02-10 22:20+0000\n"
+"PO-Revision-Date: 2025-10-16 14:54+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://translate.fedoraproject.org/"
 "projects/abrt/gnome-abrt/en_GB/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.2\n"
+"X-Generator: Weblate 5.13.3\n"
 
 #: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
@@ -34,16 +34,12 @@ msgid "D_etails"
 msgstr "D_etails"
 
 #: data/ui/oops-menus.ui:19
-#, fuzzy
-#| msgid "_Open the problem data directory"
 msgid "_Open problem data directory"
-msgstr "_Open the problem data directory"
+msgstr "_Open problem data directory"
 
 #: data/ui/oops-menus.ui:23
-#, fuzzy
-#| msgid "_Copy the problem ID to Clipboard"
 msgid "_Copy problem directory path to clipboard"
-msgstr "_Copy the problem ID to Clipboard"
+msgstr "_Copy problem directory path to clipboard"
 
 #: data/ui/oops-menus.ui:27
 msgid "_Filter"
@@ -56,13 +52,11 @@ msgstr "_About Problem Reporting"
 
 #: data/ui/oops-window.ui:28
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: data/ui/oops-window.ui:35
-#, fuzzy
-#| msgid "Delete selected problems"
 msgid "Detected Crashes"
-msgstr "Delete selected problems"
+msgstr "Detected Crashes"
 
 #: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
@@ -74,19 +68,19 @@ msgstr "Submit selected problem"
 
 #: data/ui/oops-window.ui:97
 msgid "Create Report..."
-msgstr ""
+msgstr "Create Report..."
 
 #: data/ui/oops-window.ui:127
 msgid "Search or type @ for crash types"
-msgstr ""
+msgstr "Search or type @ for crash types"
 
 #: data/ui/oops-window.ui:246
 msgid "Affected Component"
-msgstr ""
+msgstr "Affected Component"
 
 #: data/ui/oops-window.ui:274
 msgid "Component Version"
-msgstr ""
+msgstr "Component Version"
 
 #: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
@@ -97,10 +91,8 @@ msgid "First Detected"
 msgstr "First Detected"
 
 #: data/ui/oops-window.ui:369
-#, fuzzy
-#| msgid "First Detected"
 msgid "Times Detected"
-msgstr "First Detected"
+msgstr "Times Detected"
 
 #: data/ui/oops-window.ui:407
 msgid "No problems detected!"
@@ -134,7 +126,7 @@ msgstr "abrt;bug reporting;crash logger;"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "The ABRT Project"
-msgstr ""
+msgstr "The ABRT Project"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
 msgid ""

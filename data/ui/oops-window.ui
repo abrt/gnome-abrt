@@ -1,421 +1,313 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="OopsWindow" parent="GtkApplicationWindow">
+  <template class="OopsWindow" parent="AdwApplicationWindow">
     <property name="default-width">1100</property>
     <property name="default-height">768</property>
     <property name="title" translatable="yes">Problem Reporting</property>
     <requires lib="gtk" version="4.0"/>
     <requires lib="adwaita" version="1.0"/>
-    <child type="titlebar">
-      <object class="AdwHeaderBar" id="header_bar">
-        <property name="visible">True</property>
-        <child>
-          <object class="GtkBox" id="box_header_left">
-            <property name="halign">start</property>
-            <property name="visible">True</property>
-            <property name="spacing">6</property>
-            <property name="hexpand">True</property>
-            <signal name="notify::allocation" handler="on_box_header_left_size_allocate" swapped="no"/>
-            <child>
-              <object class="GtkBox">
-                <property name="orientation">horizontal</property>
-                <property name="hexpand">True</property>
-                <child>
-                  <object class="GtkButton" id="btn_search_icon">
-                    <property name="halign">start</property>
-                    <property name="hexpand">True</property>
-                    <property name="visible">True</property>
-                    <property name="tooltip-text" translatable="yes">Search</property>
-                    <property name="icon-name">system-search-symbolic</property>
-                    <signal name="clicked" handler="on_search_icon_clicked"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="detected_crashes_label">
-                    <property name="label" translatable="yes">Detected Crashes</property>
-                    <property name="halign">center</property>
-                    <property name="hexpand">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuButton" id="app_menu_button">
-                    <property name="margin-start">6</property>
-                    <property name="visible">True</property>
-                    <property name="halign">end</property>
-                    <property name="hexpand">True</property>
-                    <property name="valign">center</property>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="icon-name">open-menu-symbolic</property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton" id="btn_delete">
-            <property name="tooltip_text" translatable="yes">Delete selected problems</property>
-            <property name="action-name">win.delete</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="margin-start">5</property>
-            <property name="icon-name">user-trash-symbolic</property>
-            <child>
-              <object class="AdwButtonContent">
-                <property name="icon-name">user-trash-symbolic</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton" id="btn_report">
-            <property name="label" translatable="yes">_Report</property>
-            <property name="can_focus">True</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="tooltip_text" translatable="yes">Submit selected problem</property>
-            <property name="action-name">win.report</property>
-            <child>
-              <object class="GtkBox">
-                <property name="orientation">horizontal</property>
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkImage">
-                    <property name="icon-name">document-new-symbolic</property>
-                    <property name="pixel-size">16</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Create Report...</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
+    <property name="width-request">360</property>
+    <property name="height-request">200</property>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 400sp</condition>
+        <setter object="split_view" property="collapsed">True</setter>
       </object>
     </child>
-    <child>
-      <object class="GtkPaned" id="gr_main_layout">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="position">310</property>
-        <signal name="notify::position" handler="on_paned_position_changed" swapped="no"/>
-        <signal name="map" handler="on_paned_map" swapped="no"/>
-        <signal name="notify::allocation" handler="on_paned_size_allocate" swapped="no"/>
-        <child>
-          <object class="GtkBox" id="box_panel_left">
-            <property name="visible">True</property>
-            <property name="orientation">vertical</property>
-            <child>
-                  <object class="GtkBox">
-                    <property name="margin-top">5</property>
-                    <property name="margin-start">12</property>
-                    <property name="margin-end">12</property>
-                    <child>
-                      <object class="GtkSearchEntry" id="search_entry">
-                        <property name="visible">True</property>
+    <property name="content">
+      <object class="AdwNavigationSplitView" id="split_view">
+        <property name="sidebar">
+          <object class="AdwNavigationPage">
+            <property name="title" translatable="yes">Detected Crashes</property>
+            <property name="child">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                    <child type="start">
+                      <object class="GtkToggleButton">
+                        <property name="halign">start</property>
                         <property name="hexpand">True</property>
-                        <property name="placeholder-text" translatable="yes">Search or type @ for crash types</property>
-                        <signal name="search-changed" handler="on_se_problems_search_changed"/>
-                        <style>
-                          <class name="search-crash"/>
-                        </style>
+                        <property name="tooltip-text" translatable="yes">Search</property>
+                        <property name="icon-name">system-search-symbolic</property>
+                        <property name="active" bind-source="search_bar" bind-property="search-mode-enabled" bind-flags="sync-create|bidirectional" />
+                        <signal name="toggled" handler="on_search_icon_clicked"/>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="GtkMenuButton" id="app_menu_button">
+                        <property name="halign">end</property>
+                        <property name="hexpand">True</property>
+                        <property name="valign">center</property>
+                        <property name="menu-model">app_menu</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">open-menu-symbolic</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
                 </child>
-            <child>
-              <object class="GtkScrolledWindow" id="scrolledwindow1">
-                <property name="vexpand">True</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">never</property>
-                <property name="vscrollbar_policy">automatic</property>
+                <child type="top">
+                  <object class="GtkSearchBar" id="search_bar">
+                    <child>
+                      <object class="GtkSearchEntry" id="search_entry">
+                        <property name="placeholder-text" translatable="yes">Search or type @ for crash types</property>
+                        <signal name="search-changed" handler="on_se_problems_search_changed"/>
+                        <accessibility>
+                          <property name="label" translatable="yes">Search</property>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </child>
                 <child>
-                  <object class="GtkViewport" id="viewport1">
-                    <property name="visible">True</property>
+                  <object class="GtkScrolledWindow">
+                    <property name="vexpand">True</property>
+                    <property name="hscrollbar_policy">never</property>
+                    <property name="vscrollbar_policy">automatic</property>
                     <child>
                       <object class="GtkListBox" id="lb_problems">
-                        <property name="visible">True</property>
                         <property name="selection_mode">browse</property>
                       </object>
                     </child>
                   </object>
                 </child>
               </object>
-            </child>
+            </property>
           </object>
-        </child>
-        <child>
-          <object class="GtkStack" id="nb_problem_layout">
-            <property name="visible">True</property>
-            <property name="hexpand">True</property>
-            <property name="margin-start">100</property>
-            <property name="margin-end">100</property>
-            <property name="margin-top">50</property>
-            <child>
-              <object class="GtkBox" id="gd_problem_info">
-                <property name="visible">True</property>
-                <property name="orientation">vertical</property>
-                <property name="spacing">18</property>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="spacing">12</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="hexpand">True</property>
-                        <property name="orientation">vertical</property>
-                        <property name="margin-top">12</property>
+        </property>
+        <property name="content">
+          <object class="AdwNavigationPage">
+            <property name="title" translatable="yes">Problem Reporting</property>
+            <property name="child">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                    <child type="end">
+                      <object class="GtkButton">
                         <child>
-                          <object class="GtkLabel" id="lbl_reason">
-                            <property name="visible">True</property>
-                            <property name="xalign">0</property>
-                            <property name="label">Application killed by signal</property>
-                            <property name="wrap">True</property>
-                            <property name="wrap-mode">word-char</property>
-                            <property name="width-chars">20</property>
-                            <property name="selectable">True</property>
-                            <style>
-                              <class name="oops-reason"/>
-                            </style>
+                          <object class="AdwButtonContent">
+                            <property name="icon-name">document-new-symbolic</property>
+                            <property name="label" translatable="yes">_Report</property>
+                            <property name="use-underline">True</property>
                           </object>
                         </child>
-                        <child>
-                          <object class="GtkLabel" id="lbl_summary">
-                            <property name="visible">True</property>
-                            <property name="xalign">0</property>
-                            <property name="yalign">0</property>
-                            <property name="label">Application can't continue because of received signal</property>
-                            <property name="wrap">True</property>
-                            <property name="selectable">True</property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkBox" id="crash_box">
-                    <property name="orientation">horizontal</property>
-                    <property name="spacing">6</property>
-                    <property name="halign">start</property>
-                    <style>
-                      <class name="crash-info-box"/>
-                    </style>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="icon-name">dialog-warning-symbolic</property>
-                        <property name="pixel-size">16</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="lbl_type_crash">
-                        <property name="visible">True</property>
-                        <property name="label">System Failure</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
-                        <property name="hexpand">False</property>
-                        <property name="wrap">False</property>
+                        <property name="tooltip_text" translatable="yes">Submit selected problem</property>
+                        <property name="action-name">win.report</property>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="GtkButton">
+                        <property name="tooltip_text" translatable="yes">Delete selected problems</property>
+                        <property name="action-name">win.delete</property>
+                        <property name="receives_default">True</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="icon-name">user-trash-symbolic</property>
                       </object>
                     </child>
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPreferencesGroup">
+
+                  <object class="AdwClamp">
                     <child>
-                      <object class="AdwPreferencesRow">
+
+                      <object class="GtkStack" id="nb_problem_layout">
+                        <property name="hexpand">True</property>
                         <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="spacing">12</property>
-                            <child>
-                              <object class="GtkLabel" id="lbl_app_name">
-                                <property name="visible">True</property>
-                                <property name="halign">start</property>
-                                <property name="label" translatable="yes">Affected Component</property>
-                                <property name="hexpand">False</property>
-                                <property name="wrap">True</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="lbl_app_name_value">
-                                <property name="visible">True</property>
-                                <property name="label">kernel-core</property>
-                                <property name="selectable">True</property>
-                                <property name="halign">end</property>
-                                <property name="hexpand">True</property>
-                                <property name="ellipsize">end</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="AdwPreferencesRow">
-                        <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="spacing">12</property>
-                            <child>
-                              <object class="GtkLabel" id="lbl_app_version">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">Component Version</property>
-                                <property name="halign">start</property>
-                                <property name="hexpand">False</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="lbl_app_version_value">
-                                <property name="visible">True</property>
-                                <property name="label">2.0.13-2</property>
-                                <property name="selectable">True</property>
-                                <property name="halign">end</property>
-                                <property name="hexpand">True</property>
-                                <property name="ellipsize">end</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="AdwPreferencesRow">
-                        <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="spacing">12</property>
-                            <child>
-                              <object class="GtkLabel" id="lbl_reported">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">Reported</property>
-                                <property name="halign">start</property>
-                                <property name="hexpand">False</property>
-                                <property name="wrap">True</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="vbx_links">
-                                <property name="visible">True</property>
+                          <object class="GtkStackPage">
+                            <property name="name">problem</property>
+                            <property name="child">
+
+                              <object class="GtkBox" id="gd_problem_info">
                                 <property name="orientation">vertical</property>
-                                <property name="spacing">6</property>
-                                <property name="halign">end</property>
-                                <property name="hexpand">True</property>
+                                <property name="spacing">18</property>
+                                <property name="margin-top">30</property>
                                 <child>
-                                  <object class="GtkLabel" id="lbl_reported_value">
-                                    <property name="visible">True</property>
-                                    <property name="label">cannot be reported</property>
-                                    <property name="selectable">True</property>
-                                    <property name="halign">end</property>
+                                  <object class="GtkBox">
+                                    <property name="spacing">12</property>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="hexpand">True</property>
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                          <object class="GtkLabel" id="lbl_reason">
+                                            <property name="xalign">0</property>
+                                            <property name="label">Application killed by signal</property>
+                                            <property name="wrap">True</property>
+                                            <property name="wrap-mode">word-char</property>
+                                            <property name="width-chars">20</property>
+                                            <property name="selectable">True</property>
+                                            <style>
+                                              <class name="oops-reason"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="lbl_summary">
+                                            <property name="xalign">0</property>
+                                            <property name="yalign">0</property>
+                                            <property name="label">Application can't continue because of received signal</property>
+                                            <property name="wrap">True</property>
+                                            <property name="selectable">True</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="crash_box">
+                                    <property name="orientation">horizontal</property>
+                                    <property name="spacing">6</property>
+                                    <property name="halign">start</property>
+                                    <style>
+                                      <class name="crash-info-box"/>
+                                    </style>
+                                    <child>
+                                      <object class="GtkImage">
+                                        <property name="icon-name">dialog-warning-symbolic</property>
+                                        <property name="pixel-size">16</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel" id="lbl_type_crash">
+                                        <property name="label">System Failure</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">False</property>
+                                        <property name="wrap">False</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwPreferencesGroup">
+                                    <child>
+                                      <object class="AdwActionRow" id="lbl_app_name">
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
+                                        <property name="title" translatable="yes">Affected Component</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="AdwActionRow" id="lbl_app_version">
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
+                                        <property name="title" translatable="yes">Component Version</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="AdwActionRow" id="lbl_reported">
+                                        <property name="title" translatable="yes">Reported</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwPreferencesGroup">
+                                    <child>
+                                      <object class="AdwActionRow" id="lbl_detected">
+                                        <property name="title" translatable="yes">First Detected</property>
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="AdwActionRow" id="lbl_times_detected">
+                                        <property name="title" translatable="yes">Times Detected</property>
+                                        <style>
+                                          <class name="property"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="vbx_problem_messages">
+                                    <property name="vexpand">True</property>
+                                    <property name="orientation">vertical</property>
                                   </object>
                                 </child>
                               </object>
-                            </child>
+                            </property>
                           </object>
                         </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="AdwPreferencesGroup">
-                    <child>
-                      <object class="AdwPreferencesRow">
                         <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="spacing">12</property>
-                            <child>
-                              <object class="GtkLabel" id="lbl_detected">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">First Detected</property>
-                                <property name="halign">start</property>
-                                <property name="hexpand">False</property>
+                          <object class="GtkStackPage">
+                            <property name="name">empty</property>
+                            <property name="child">
+                              <object class="AdwStatusPage" id="vbx_empty_page">
+                                <property name="title" translatable="yes">No problems detected!</property>
+                                <property name="icon-name">sentiment-very-satisfied-symbolic</property>
                               </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="lbl_detected_value">
-                                <property name="visible">True</property>
-                                <property name="label">a month ago</property>
-                                <property name="selectable">True</property>
-                                <property name="halign">end</property>
-                                <property name="hexpand">True</property>
-                              </object>
-                            </child>
+                            </property>
                           </object>
                         </child>
                       </object>
                     </child>
-                    <child>
-                      <object class="AdwPreferencesRow">
-                        <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="spacing">12</property>
-                            <child>
-                              <object class="GtkLabel" id="lbl_times_detected">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">Times Detected</property>
-                                <property name="halign">start</property>
-                                <property name="hexpand">False</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="lbl_times_detected_value">
-                                <property name="visible">True</property>
-                                <property name="label">0</property>
-                                <property name="selectable">True</property>
-                                <property name="halign">end</property>
-                                <property name="hexpand">True</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkBox" id="vbx_problem_messages">
-                    <property name="visible">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="orientation">vertical</property>
                   </object>
                 </child>
               </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="vbx_empty_page">
-                <property name="visible">True</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel" id="lbl_no_oopses">
-                    <property name="visible">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="label" translatable="yes">No problems detected!</property>
-                    <property name="selectable">True</property>
-                    <style>
-                      <class name="dim-label"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-            </child>
+            </property>
           </object>
-        </child>
+        </property>
       </object>
-    </child>
+    </property>
   </template>
+  <object class="GtkPopoverMenu" id="menu_problem_item">
+    <property name="menu-model">menu_problem_item_model</property>
+  </object>
+  <object class="GtkPopoverMenu" id="menu_multiple_problems">
+    <property name="menu-model">menu_multiple_problems_model</property>
+  </object>
+  <menu id="menu_problem_item_model">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Report</attribute>
+        <attribute name="action">win.report</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Delete</attribute>
+        <attribute name="action">win.delete</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">D_etails</attribute>
+        <attribute name="action">win.details</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Open problem data directory</attribute>
+        <attribute name="action">win.open-directory</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Copy problem directory path to clipboard</attribute>
+        <attribute name="action">win.copy-id</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Filter</attribute>
+        <attribute name="action">win.search</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="menu_multiple_problems_model">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Delete</attribute>
+        <attribute name="action">win.delete</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="app_menu">
+    <item>
+      <attribute comments="Translators: This is the menu item which displays the About box. Note that &quot;Problem Reporting&quot; is the name of this application." name="label" translatable="yes">_About Problem Reporting</attribute>
+      <attribute name="action">app.about</attribute>
+    </item>
+  </menu>
 </interface>

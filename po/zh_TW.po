@@ -9,13 +9,14 @@
 # Peter Pan <pan93412@gmail.com>, 2018. #zanata
 # Enfong Cao <nelson22768384@gmail.com>, 2021.
 # hsu zangmen <chzang55@gmail.com>, 2025.
+# Alang Hsu <alang.hsu@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 10:14-0300\n"
-"PO-Revision-Date: 2025-04-02 00:46+0000\n"
-"Last-Translator: hsu zangmen <chzang55@gmail.com>\n"
+"PO-Revision-Date: 2026-08-01 11:17+0000\n"
+"Last-Translator: Alang Hsu <alang.hsu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.fedoraproject.org/"
 "projects/abrt/gnome-abrt/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 2026.7.1\n"
 
 #: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
@@ -38,16 +39,12 @@ msgid "D_etails"
 msgstr "細節(_E)"
 
 #: data/ui/oops-menus.ui:19
-#, fuzzy
-#| msgid "_Open the problem data directory"
 msgid "_Open problem data directory"
 msgstr "開啟問題資料目錄(_O)"
 
 #: data/ui/oops-menus.ui:23
-#, fuzzy
-#| msgid "_Copy the problem ID to Clipboard"
 msgid "_Copy problem directory path to clipboard"
-msgstr "複製問題 ID 至剪貼簿(_C)"
+msgstr "複製有問題目錄的路徑至剪貼簿(_C)"
 
 #: data/ui/oops-menus.ui:27
 msgid "_Filter"
@@ -60,13 +57,11 @@ msgstr "關於問題回報(_A)"
 
 #: data/ui/oops-window.ui:28
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: data/ui/oops-window.ui:35
-#, fuzzy
-#| msgid "Delete selected problems"
 msgid "Detected Crashes"
-msgstr "刪除所選擇的問題"
+msgstr "檢測到當機"
 
 #: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
@@ -78,19 +73,19 @@ msgstr "提交所選問題"
 
 #: data/ui/oops-window.ui:97
 msgid "Create Report..."
-msgstr ""
+msgstr "建立報告..."
 
 #: data/ui/oops-window.ui:127
 msgid "Search or type @ for crash types"
-msgstr ""
+msgstr "搜尋或輸入 @ 以取得當機類型"
 
 #: data/ui/oops-window.ui:246
 msgid "Affected Component"
-msgstr ""
+msgstr "影響的組件"
 
 #: data/ui/oops-window.ui:274
 msgid "Component Version"
-msgstr ""
+msgstr "組件版本"
 
 #: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
@@ -101,10 +96,8 @@ msgid "First Detected"
 msgstr "第一次偵測到"
 
 #: data/ui/oops-window.ui:369
-#, fuzzy
-#| msgid "First Detected"
 msgid "Times Detected"
-msgstr "第一次偵測到"
+msgstr "偵測次數"
 
 #: data/ui/oops-window.ui:407
 msgid "No problems detected!"
@@ -138,7 +131,7 @@ msgstr "abrt;bug reporting;crash logger;臭蟲回報;當機紀錄器;崩潰記�
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
 msgid "The ABRT Project"
-msgstr ""
+msgstr "ABRT 專案"
 
 #: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
 msgid ""

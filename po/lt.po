@@ -1,14 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Weblate <noreply@weblate.org>, 2020.
+# Marija Grineviciute <marijagrine@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 10:14-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-02-14 12:58+0000\n"
+"Last-Translator: Marija Grineviciute <marijagrine@protonmail.com>\n"
+"Language-Team: Lithuanian <https://translate.fedoraproject.org/projects/abrt/"
+"gnome-abrt/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,14 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
-msgstr ""
+msgstr "_Pranešti"
 
 #: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:35
 msgid "_Delete"
-msgstr ""
+msgstr "_Ištrinti"
 
 #: data/ui/oops-menus.ui:15
 msgid "D_etails"

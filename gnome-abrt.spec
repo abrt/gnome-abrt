@@ -8,6 +8,7 @@
 #%%global snapshot 1
 %global commit 3e3512d2d6c81a4ca9b3b4d3f3936c876a6482f7
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
+%global debug_package %{nil}
 
 Name:       gnome-abrt
 Version:    1.5.2

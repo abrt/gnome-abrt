@@ -24,11 +24,9 @@ python_installation = python.find_installation('python3',
   modules: python_modules
 )
 
-abrt_dep = dependency('abrt')
 adwaita_dep = dependency('libadwaita-1')
 gio_dep = dependency('gio-2.0')
 gtk_dep = dependency('gtk4')
-libreport_gtk_dep = dependency('libreport-gtk')
 pygobject_dep = dependency('pygobject-3.0', version: '>= 3.29.1')
 python_dep = dependency('python3')
 
@@ -92,6 +90,9 @@ run_target('run',
   ],
   depends: [
     gnome_abrt_resources,
-    gnome_abrt_wrappers_module,
+  ],
+  env: [
+    'PYTHONPATH=@0@/src:@1@/src'.format(meson.project_build_root(), meson.project_source_root()),
+    'GNOME_ABRT_RESOURCE=@0@/data/org.freedesktop.GnomeAbrt.gresource'.format(meson.project_build_root()),
   ],
 )

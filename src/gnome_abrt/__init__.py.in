@@ -15,6 +15,9 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
+import os
+from gi.repository import Gio
+
 PACKAGE = "@PACKAGE@"
 VERSION = "@VERSION@"
 PKGDATADIR = "@PKGDATADIR@"
@@ -24,8 +27,15 @@ def init():
     import gnome_abrt.l10n
     gnome_abrt.l10n.init(PACKAGE, "@localedir@")
 
-    from gi.repository import Gio
-    import os
-    resource = Gio.resource_load(
-            os.path.join(PKGDATADIR, 'org.freedesktop.GnomeAbrt.gresource'))
+    resource_path = os.environ.get('GNOME_ABRT_RESOURCE')
+    if not resource_path or not os.path.exists(resource_path):
+        resource_path = os.path.join(PKGDATADIR, 'org.freedesktop.GnomeAbrt.gresource')
+
+    if not os.path.exists(resource_path):
+        # Fallback to local build directory when running uninstalled
+        candidate = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'org.freedesktop.GnomeAbrt.gresource')
+        if os.path.exists(candidate):
+            resource_path = candidate
+
+    resource = Gio.resource_load(resource_path)
     Gio.Resource._register(resource)

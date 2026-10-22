@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk" version="4.0"/>
   <menu id="menu_problem_item">
     <section>
       <item>
@@ -10,10 +10,6 @@
       <item>
         <attribute name="label" translatable="yes">_Delete</attribute>
         <attribute name="action">win.delete</attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">D_etails</attribute>
-        <attribute name="action">win.details</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">_Open problem data directory</attribute>

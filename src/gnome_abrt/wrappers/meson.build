@@ -14,25 +14,3 @@ python_installation.install_sources(gnome_abrt_wrappers_sources,
   pure: false,
   subdir: 'gnome_abrt/wrappers',
 )
-
-gnome_abrt_wrappers_module_sources = [
-  'common.h',
-  'configure.c',
-  'module.c',
-  'problem_app.c',
-  'problem_details.c',
-]
-
-gnome_abrt_wrappers_module = python_installation.extension_module('_wrappers', gnome_abrt_wrappers_module_sources,
-  subdir: 'gnome_abrt/wrappers',
-  dependencies: [
-    abrt_dep,
-    adwaita_dep,
-    gio_dep,
-    gtk_dep,
-    libreport_gtk_dep,
-    pygobject_dep,
-    python_dep
-  ],
-  install: true,
-)

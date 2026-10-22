@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-25 10:14-0300\n"
+"POT-Creation-Date: 2026-10-22 17:16+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,80 +17,82 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
+#: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:77
 msgid "_Report"
 msgstr ""
 
-#: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:35
+#: data/ui/oops-menus.ui:11 data/ui/oops-menus.ui:31
 msgid "_Delete"
 msgstr ""
 
 #: data/ui/oops-menus.ui:15
-msgid "D_etails"
-msgstr ""
-
-#: data/ui/oops-menus.ui:19
 msgid "_Open problem data directory"
 msgstr ""
 
-#: data/ui/oops-menus.ui:23
+#: data/ui/oops-menus.ui:19
 msgid "_Copy problem directory path to clipboard"
 msgstr ""
 
-#: data/ui/oops-menus.ui:27
+#: data/ui/oops-menus.ui:23
 msgid "_Filter"
 msgstr ""
 
 #. Translators: This is the menu item which displays the About box. Note that "Problem Reporting" is the name of this application.
-#: data/ui/oops-menus.ui:44
+#: data/ui/oops-menus.ui:40
 msgid "_About Problem Reporting"
 msgstr ""
 
-#: data/ui/oops-window.ui:28
+#: data/ui/oops-window.ui:6 src/gnome-abrt:227
+#: src/org.freedesktop.GnomeAbrt.desktop.in:2
+#: src/org.freedesktop.GnomeAbrt.metainfo.xml.in:6
+msgid "Problem Reporting"
+msgstr ""
+
+#: data/ui/oops-window.ui:27
 msgid "Search"
 msgstr ""
 
-#: data/ui/oops-window.ui:35
+#: data/ui/oops-window.ui:34
 msgid "Detected Crashes"
 msgstr ""
 
-#: data/ui/oops-window.ui:61
+#: data/ui/oops-window.ui:60
 msgid "Delete selected problems"
 msgstr ""
 
-#: data/ui/oops-window.ui:83
+#: data/ui/oops-window.ui:81
 msgid "Submit selected problem"
 msgstr ""
 
-#: data/ui/oops-window.ui:97
+#: data/ui/oops-window.ui:95
 msgid "Create Report..."
 msgstr ""
 
-#: data/ui/oops-window.ui:127
+#: data/ui/oops-window.ui:124
 msgid "Search or type @ for crash types"
 msgstr ""
 
-#: data/ui/oops-window.ui:246
+#: data/ui/oops-window.ui:243
 msgid "Affected Component"
 msgstr ""
 
-#: data/ui/oops-window.ui:274
+#: data/ui/oops-window.ui:271
 msgid "Component Version"
 msgstr ""
 
-#: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
+#: data/ui/oops-window.ui:299 src/gnome_abrt/views.py:915
 msgid "Reported"
 msgstr ""
 
-#: data/ui/oops-window.ui:342
+#: data/ui/oops-window.ui:339
 msgid "First Detected"
 msgstr ""
 
-#: data/ui/oops-window.ui:369
+#: data/ui/oops-window.ui:366
 msgid "Times Detected"
 msgstr ""
 
-#: data/ui/oops-window.ui:407
+#: data/ui/oops-window.ui:404
 msgid "No problems detected!"
 msgstr ""
 
@@ -106,13 +108,8 @@ msgstr ""
 msgid "Selected problem ID"
 msgstr ""
 
-#: src/gnome-abrt:227 src/org.freedesktop.GnomeAbrt.desktop.in:2
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:6
-msgid "Problem Reporting"
-msgstr ""
-
 #: src/org.freedesktop.GnomeAbrt.desktop.in:3
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:8
+#: src/org.freedesktop.GnomeAbrt.metainfo.xml.in:8
 msgid "View and report application crashes"
 msgstr ""
 
@@ -120,17 +117,17 @@ msgstr ""
 msgid "abrt;bug reporting;crash logger;"
 msgstr ""
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:7
+#: src/org.freedesktop.GnomeAbrt.metainfo.xml.in:7
 msgid "The ABRT Project"
 msgstr ""
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:11
+#: src/org.freedesktop.GnomeAbrt.metainfo.xml.in:11
 msgid ""
 "Collection of software tools designed for collecting, analyzing and "
 "reporting of software issues."
 msgstr ""
 
-#: src/org.freedesktop.GnomeAbrt.appdata.xml.in:15
+#: src/org.freedesktop.GnomeAbrt.metainfo.xml.in:15
 msgid ""
 "Its main purpose is to ease the process of reporting an issue and finding a "
 "solution."
@@ -143,31 +140,31 @@ msgstr ""
 
 #. Translators: These are the problem types displayed in the problem
 #. list under the application name
-#: src/gnome_abrt/views.py:140 src/gnome_abrt/views.py:897
+#: src/gnome_abrt/views.py:141 src/gnome_abrt/views.py:889
 msgid "Application Crash"
 msgstr ""
 
-#: src/gnome_abrt/views.py:142 src/gnome_abrt/views.py:900
+#: src/gnome_abrt/views.py:143 src/gnome_abrt/views.py:892
 msgid "System Crash"
 msgstr ""
 
-#: src/gnome_abrt/views.py:144 src/gnome_abrt/views.py:903
+#: src/gnome_abrt/views.py:145 src/gnome_abrt/views.py:895
 msgid "System Failure"
 msgstr ""
 
-#: src/gnome_abrt/views.py:146 src/gnome_abrt/views.py:906
+#: src/gnome_abrt/views.py:147 src/gnome_abrt/views.py:898
 msgid "Misbehavior"
 msgstr ""
 
-#: src/gnome_abrt/views.py:825
+#: src/gnome_abrt/views.py:821
 msgid "Unexpected system error"
 msgstr ""
 
-#: src/gnome_abrt/views.py:827
+#: src/gnome_abrt/views.py:823
 msgid "Fatal system failure"
 msgstr ""
 
-#: src/gnome_abrt/views.py:830
+#: src/gnome_abrt/views.py:826
 #, python-brace-format
 msgid "{0} quit unexpectedly"
 msgstr ""
@@ -182,38 +179,38 @@ msgstr ""
 #. VMCore problem has been detected
 #. AVC problem has been detected
 #. Java problem has been detected
-#: src/gnome_abrt/views.py:842
+#: src/gnome_abrt/views.py:838
 #, python-brace-format
 msgid "{0} problem has been detected"
 msgstr ""
 
-#: src/gnome_abrt/views.py:846
+#: src/gnome_abrt/views.py:842
 msgid "The system has encountered a problem and recovered."
 msgstr ""
 
-#: src/gnome_abrt/views.py:848
+#: src/gnome_abrt/views.py:844
 msgid "The system has encountered a problem and could not continue."
 msgstr ""
 
-#: src/gnome_abrt/views.py:850
+#: src/gnome_abrt/views.py:846
 msgid "The application encountered a problem and could not continue."
 msgstr ""
 
 #. Translators: package name not available
 #. Translators: package version not available
-#: src/gnome_abrt/views.py:914 src/gnome_abrt/views.py:916
+#: src/gnome_abrt/views.py:906 src/gnome_abrt/views.py:908
 msgid "N/A"
 msgstr ""
 
-#: src/gnome_abrt/views.py:925
+#: src/gnome_abrt/views.py:917
 msgid "cannot be reported"
 msgstr ""
 
-#: src/gnome_abrt/views.py:931
+#: src/gnome_abrt/views.py:923
 msgid "Reports"
 msgstr ""
 
-#: src/gnome_abrt/views.py:936
+#: src/gnome_abrt/views.py:928
 msgid ""
 "This problem has been reported, but a <i>Bugzilla</i> ticket has not been "
 "opened. Our developers may need more information to fix the problem.\n"
@@ -225,12 +222,12 @@ msgstr ""
 #. has been reported but we don't know where and when.
 #. Probably a rare situation, usually if a problem is
 #. reported we display a list of reports here.
-#: src/gnome_abrt/views.py:945
+#: src/gnome_abrt/views.py:937
 msgid "yes"
 msgstr ""
 
 #. Translators: Displayed after 'Reported' if a problem
 #. has not been reported.
-#: src/gnome_abrt/views.py:949
+#: src/gnome_abrt/views.py:941
 msgid "no"
 msgstr ""

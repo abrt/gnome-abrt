@@ -287,7 +287,7 @@ class ProblemRow(Gtk.ListBoxRow):
 
 #pylint: disable=R0902
 @Gtk.Template(resource_path='/org/freedesktop/GnomeAbrt/ui/oops-window.ui')
-class OopsWindow(Gtk.ApplicationWindow):
+class OopsWindow(Adw.ApplicationWindow):
 
     __gtype_name__ = 'OopsWindow'
 

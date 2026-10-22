@@ -11,23 +11,6 @@ foreach file: gnome_abrt_wrappers_sources
 endforeach
 
 python_installation.install_sources(gnome_abrt_wrappers_sources,
-  pure: false,
+  pure: true,
   subdir: 'gnome_abrt/wrappers',
-)
-
-gnome_abrt_wrappers_module_sources = [
-  'common.h',
-  'module.c',
-  'problem_app.c',
-]
-
-gnome_abrt_wrappers_module = python_installation.extension_module('_wrappers', gnome_abrt_wrappers_module_sources,
-  subdir: 'gnome_abrt/wrappers',
-  dependencies: [
-    gio_dep,
-    libreport_gtk_dep,
-    pygobject_dep,
-    python_dep
-  ],
-  install: true,
 )

@@ -26,6 +26,7 @@ import gi
 
 #pylint: disable=E0611
 gi.require_version('Gtk', '4.0')
+gi.require_version('Adw', '1')
 from gi.repository import Gtk, Adw
 #pylint: disable=E0611
 from gi.repository import Gdk
@@ -247,13 +248,13 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_app.set_yalign(0.5)
         self._lbl_app.set_ellipsize(Pango.EllipsizeMode.END)
         self._lbl_app.set_width_chars(15)
-        self._lbl_app.get_style_context().add_class('app-name-label')
+        self._lbl_app.add_css_class('app-name-label')
 
         grid.attach_next_to(self._lbl_app, None, Gtk.PositionType.RIGHT, 1, 1)
 
         self._lbl_date = Gtk.Label.new(problem_values[1])
         self._lbl_date.set_halign(Gtk.Align.END)
-        self._lbl_date.get_style_context().add_class('dim-label')
+        self._lbl_date.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_date, self._lbl_app, Gtk.PositionType.RIGHT, 1, 1)
 
@@ -262,18 +263,14 @@ class ProblemRow(Gtk.ListBoxRow):
         self._lbl_type.set_hexpand(True)
         self._lbl_type.set_xalign(0.0)
         self._lbl_type.set_yalign(0.5)
-        self._lbl_type.get_style_context().add_class('dim-label')
+        self._lbl_type.add_css_class('dim-label')
 
         grid.attach_next_to(self._lbl_type, self._lbl_app, Gtk.PositionType.BOTTOM, 1, 1)
 
         self._lbl_count = Gtk.Label.new(problem_values[3])
         self._lbl_count.set_halign(Gtk.Align.END)
-        self._lbl_count.get_style_context().add_class('times-detected-label')
-        #showing lbl_count if the count is greater than 1
-        if int(problem_values[3]) > 1:
-            self._lbl_count.show()
-        else:
-            self._lbl_count.hide()
+        self._lbl_count.add_css_class('times-detected-label')
+        self._lbl_count.set_visible(int(problem_values[3]) > 1)
 
         grid.attach_next_to(self._lbl_count, self._lbl_type, Gtk.PositionType.RIGHT, 1, 1)
 
@@ -379,16 +376,17 @@ class OopsWindow(Gtk.ApplicationWindow):
 
         self.menu_problem_item = builder.get_object('menu_problem_item')
         self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item)
+        self.menu_problem_item.set_parent(self.lb_problems)
 
         self.menu_multiple_problems = builder.get_object(
                 'menu_multiple_problems')
         self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems)
+        self.menu_multiple_problems.set_parent(self.lb_problems)
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
         css_prv.load_from_resource('/org/freedesktop/GnomeAbrt/css/oops.css')
-        stl_ctx = self.get_style_context()
-        stl_ctx.add_provider_for_display(Gdk.Display.get_default(), css_prv,
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css_prv,
                                                   Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self._source_observer = OopsWindow.SourceObserver(self)
@@ -451,22 +449,20 @@ class OopsWindow(Gtk.ApplicationWindow):
         if self.app_menu_button.get_parent() is None:
             self.header_bar.pack_end(self.app_menu_button)
         self.box_header_left.set_hexpand(True)
-        self.header_bar.get_style_context().add_class('header-bar')
-        self.app_menu_button.get_style_context().add_class('app-menu-button')
-        self.btn_report.get_style_context().add_class('btn-report')
+        self.header_bar.add_css_class('header-bar')
+        self.app_menu_button.add_css_class('app-menu-button')
+        self.btn_report.add_css_class('btn-report')
 
-        self.box_header_left.connect("notify::allocation", self.on_box_header_left_size_allocate)
         self.gr_main_layout.connect("notify::position", self.on_paned_position_changed)
-        self.gr_main_layout.connect("notify::allocation", self.on_paned_size_allocate)
         self.btn_search_icon.connect('clicked', self.on_search_icon_clicked)
         self.search_entry.connect('notify::text', self.on_search_entry_text_changed)
         self.search_entry.connect('search-changed', self.on_se_problems_search_changed)
         gesture = Gtk.GestureClick.new()
         gesture.connect("pressed", self.problems_button_press_event)
         self.lb_problems.add_controller(gesture)
-        self.lbl_reason.get_style_context().add_class('oops-reason')
-        self.detected_crashes_label.get_style_context().add_class('app-name-label')
-        self.crash_box.get_style_context().add_class('crash-info-box')
+        self.lbl_reason.add_css_class('oops-reason')
+        self.detected_crashes_label.add_css_class('app-name-label')
+        self.crash_box.add_css_class('crash-info-box')
 
         #"map" event is emitted when the window is initialized
         self.connect("map", self.on_window_map)
@@ -862,49 +858,45 @@ class OopsWindow(Gtk.ApplicationWindow):
         self.lookup_action('delete').set_enabled(action_enabled)
         self.lookup_action('report').set_enabled(action_enabled and not problem['not-reportable'])
 
-        # Iterate through children and destroy them
+        # Iterate through children and remove them
         child = self.vbx_links.get_first_child()
         while child:
-            destroy_links(child)
-            child = child.get_next_sibling()
+            next_child = child.get_next_sibling()
+            if child != self.lbl_reported_value:
+                child.unparent()
+            child = next_child
 
-        child = self.vbx_problem_messages.get_first_child()
-        while child:
+        while child := self.vbx_problem_messages.get_first_child():
             child.unparent()
-            child = child.get_next_sibling()
-
 
         if not problem:
-            self.nb_problem_layout.set_visible_child(self.vbx_empty_page if self._source else self.vbx_no_source_page)
+            self.nb_problem_layout.set_visible_child(self.vbx_empty_page)
             return
-        
+
         self.nb_problem_layout.set_visible_child(self.gd_problem_info)
 
         app = problem['application']
 
         #lbl_type_crash
-        # I'm ensuring that before applying a new crash class,
-        # the old ones (application-crash, system-crash, system-failure) are removed to avoid incorrect styling
-        style_context = self.crash_box.get_style_context()
-        style_context.remove_class('application-crash')
-        style_context.remove_class('system-crash')
-        style_context.remove_class('system-failure')
-        
+        self.crash_box.remove_css_class('application-crash')
+        self.crash_box.remove_css_class('system-crash')
+        self.crash_box.remove_css_class('system-failure')
+
         problem_type_crash = problem['type']
         if problem_type_crash == "CCpp":
             # Translators: These are the problem types displayed in the problem
             # list under the application name
             problem_type_crash = _("Application Crash")
-            self.crash_box.get_style_context().add_class('application-crash')
+            self.crash_box.add_css_class('application-crash')
         elif problem_type_crash == "vmcore":
             problem_type_crash = _("System Crash")
-            self.crash_box.get_style_context().add_class('system-crash')
+            self.crash_box.add_css_class('system-crash')
         elif problem_type_crash == "Kerneloops":
             problem_type_crash = _("System Failure")
-            self.crash_box.get_style_context().add_class('system-failure')
+            self.crash_box.add_css_class('system-failure')
         else:
             problem_type_crash = _("Misbehavior")
-            self.crash_box.get_style_context().add_class('application-crash')
+            self.crash_box.add_css_class('application-crash')
         self.lbl_type_crash.set_text(problem_type_crash)
 
         self.lbl_reason.set_text(self._get_reason_for_problem_type(app, problem['type'], problem['human_type']))
@@ -1057,15 +1049,21 @@ class OopsWindow(Gtk.ApplicationWindow):
         elif n_press == 1:  # Single click
             button = gesture.get_current_button()
             if button == Gdk.BUTTON_SECONDARY:
+                rect = Gdk.Rectangle()
+                rect.x = int(x)
+                rect.y = int(y)
+                rect.width = 1
+                rect.height = 1
                 if len(self.lss_problems.get_selected_rows()) > 1:
-                    self.menu_multiple_problems.set_parent(self)
-                    self.menu_multiple_problems.popup_at_pointer(None)
+                    self.menu_multiple_problems.set_pointing_to(rect)
+                    self.menu_multiple_problems.popup()
                     return True
                 problem_row = self.lb_problems.get_row_at_y(y)
                 if problem_row:
                     self.lb_problems.select_row(problem_row)
-                    self.menu_problem_item.set_parent(self)
-                    self.menu_problem_item.popup_at_pointer(None)
+                    self.menu_problem_item.set_pointing_to(rect)
+                    self.menu_problem_item.popup()
+                    return True
         return None
         
     def get_box_header_left_offset(self):
@@ -1075,40 +1073,34 @@ class OopsWindow(Gtk.ApplicationWindow):
         if paned is None:
             return None
 
-        offset = box_header_left.translate_coordinates(paned, 0, 0)[0]
+        coords = box_header_left.translate_coordinates(paned, 0, 0)
+        if coords is None:
+            return None
+        offset = coords[0]
         parent = box_header_left.get_parent()
         if parent is not None:
             if parent.get_direction() == Gtk.TextDirection.RTL:
-                offset = paned.get_allocation().width - offset - \
-                         box_header_left.get_allocation().width
+                offset = paned.get_width() - offset - box_header_left.get_width()
 
         return offset
 
     def do_box_header_left_size_allocate(self, sender):
         spacing = sender.get_spacing()
         sum_width = -spacing
-        for child in sender.get_children():
-            width = child.get_preferred_width()[0]
-            sum_width += width
-            sum_width += spacing
+        child = sender.get_first_child()
+        while child:
+            sum_width += child.get_preferred_size().natural_size.width + spacing
+            child = child.get_next_sibling()
 
-        
         offset = self.get_box_header_left_offset()
         if offset is None:
             return GLib.SOURCE_REMOVE
 
-        context = self.box_header_left.get_style_context()
-        state = context.get_state()
-        padding = context.get_padding(state)
-        minimum_width = sum_width + offset + \
-                        padding.right + padding.left
-
+        minimum_width = sum_width + offset
         self.box_panel_left.set_size_request(minimum_width, -1)
 
         return GLib.SOURCE_REMOVE
 
-
-    
     def on_box_header_left_size_allocate(self, sender, allocation):
         other = self.box_panel_left
         if not sender.get_realized() or not other.get_realized():

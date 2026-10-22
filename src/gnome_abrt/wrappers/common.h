@@ -16,16 +16,15 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 */
+#ifndef GNOME_ABRT_WRAPPERS_COMMON_H
+#define GNOME_ABRT_WRAPPERS_COMMON_H
+
 #include <Python.h>
-
-/* module-level functions */
-PyObject *p_show_events_list_dialog(PyObject *module, PyObject *args);
-
-/* Problem Details */
-PyObject *p_show_problem_details_for_dir(PyObject *module, PyObject *args);
 
 /* App for a command-line */
 PyObject *p_get_app_for_cmdline(PyObject *module, PyObject *args);
 
 /* App for an env */
 PyObject *p_get_app_for_env(PyObject *module, PyObject *args);
+
+#endif

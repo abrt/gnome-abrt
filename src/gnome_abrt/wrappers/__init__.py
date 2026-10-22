@@ -15,8 +15,21 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
 
+import subprocess
+
 #pylint: disable=E0611
-from gnome_abrt.wrappers._wrappers import (show_events_list_dialog,
-                                           show_problem_details_for_dir,
-                                           get_app_for_cmdline,
+from gnome_abrt.wrappers._wrappers import (get_app_for_cmdline,
                                            get_app_for_env)
+
+
+def show_events_list_dialog(parent_window=None):
+    """Launch system-config-abrt as an external process if available."""
+    try:
+        subprocess.Popen(['system-config-abrt'])
+    except Exception:
+        pass
+
+
+def show_problem_details_for_dir(problem_dir, parent_window=None):
+    """Obsolete in GTK4 port: details are shown directly in main window."""
+    pass

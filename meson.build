@@ -94,4 +94,8 @@ run_target('run',
     gnome_abrt_resources,
     gnome_abrt_wrappers_module,
   ],
+  env: [
+    'PYTHONPATH=@0@/src:@1@/src'.format(meson.project_build_root(), meson.project_source_root()),
+    'GNOME_ABRT_RESOURCE=@0@/data/org.freedesktop.GnomeAbrt.gresource'.format(meson.project_build_root()),
+  ],
 )

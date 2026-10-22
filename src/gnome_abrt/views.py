@@ -376,12 +376,12 @@ class OopsWindow(Adw.ApplicationWindow):
 
         self.menu_problem_item = builder.get_object('menu_problem_item')
         self.menu_problem_item = Gtk.PopoverMenu.new_from_model(self.menu_problem_item)
-        self.menu_problem_item.set_parent(self.lb_problems)
+        self.menu_problem_item.set_parent(self)
 
         self.menu_multiple_problems = builder.get_object(
                 'menu_multiple_problems')
         self.menu_multiple_problems = Gtk.PopoverMenu.new_from_model(self.menu_multiple_problems)
-        self.menu_multiple_problems.set_parent(self.lb_problems)
+        self.menu_multiple_problems.set_parent(self)
 
         #pylint: disable=E1120
         css_prv = Gtk.CssProvider.new()
@@ -732,11 +732,10 @@ class OopsWindow(Adw.ApplicationWindow):
 
         self._reloading = True
         try:
-            child = self.lb_problems.get_first_child()
-            while child:
-                next_child = child.get_next_sibling()
-                self.lb_problems.remove(child)
-                child = next_child
+            row = self.lb_problems.get_row_at_index(0)
+            while row is not None:
+                self.lb_problems.remove(row)
+                row = self.lb_problems.get_row_at_index(0)
 
             if storage_problems:
                 for p in storage_problems:

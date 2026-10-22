@@ -191,7 +191,7 @@ class OopsApplication(Adw.Application):
 
     #pylint: disable=W0221
     def do_startup(self):
-        super().do_startup()
+        Adw.Application.do_startup(self)
 
         Gtk.Window.set_default_icon_name(GNOME_ABRT_APPLICATION_ID)
 

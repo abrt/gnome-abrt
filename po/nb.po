@@ -4,13 +4,15 @@
 #
 # Translators:
 # Agostino Montanaro <telometto@protonmail.com>, 2021.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Gaston Courtade <courtade.gaston@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 10:14-0300\n"
-"PO-Revision-Date: 2021-05-29 10:02+0000\n"
-"Last-Translator: Agostino Montanaro <telometto@protonmail.com>\n"
+"PO-Revision-Date: 2026-04-14 09:58+0000\n"
+"Last-Translator: Gaston Courtade <courtade.gaston@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://translate.fedoraproject.org/"
 "projects/abrt/gnome-abrt/nb_NO/>\n"
 "Language: nb\n"
@@ -18,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6.2\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
@@ -55,13 +57,11 @@ msgstr "_Om problemrapportering"
 
 #: data/ui/oops-window.ui:28
 msgid "Search"
-msgstr ""
+msgstr "Søk"
 
 #: data/ui/oops-window.ui:35
-#, fuzzy
-#| msgid "Delete selected problems"
 msgid "Detected Crashes"
-msgstr "Slett valgte problemer"
+msgstr "Registrerte krasj"
 
 #: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
@@ -73,19 +73,19 @@ msgstr "Send inn valgte problemer"
 
 #: data/ui/oops-window.ui:97
 msgid "Create Report..."
-msgstr ""
+msgstr "Opprett rapport..."
 
 #: data/ui/oops-window.ui:127
 msgid "Search or type @ for crash types"
-msgstr ""
+msgstr "Søk eller skriv @ for krasjtyper"
 
 #: data/ui/oops-window.ui:246
 msgid "Affected Component"
-msgstr ""
+msgstr "Berørt komponent"
 
 #: data/ui/oops-window.ui:274
 msgid "Component Version"
-msgstr ""
+msgstr "Komponentversjon"
 
 #: data/ui/oops-window.ui:302 src/gnome_abrt/views.py:923
 msgid "Reported"
@@ -96,10 +96,8 @@ msgid "First Detected"
 msgstr "Først oppdaget"
 
 #: data/ui/oops-window.ui:369
-#, fuzzy
-#| msgid "First Detected"
 msgid "Times Detected"
-msgstr "Først oppdaget"
+msgstr "Ganger oppdaget"
 
 #: data/ui/oops-window.ui:407
 msgid "No problems detected!"

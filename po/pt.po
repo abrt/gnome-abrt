@@ -7,13 +7,14 @@
 # Manuela Silva <mmsrs@sky.com>, 2019. #zanata, 2020.
 # Tiago João Mateus de Almeida <tjamadeira@gmail.com>, 2020.
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2021.
+# Manuela Silva <transserv.ptg@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-abrt 1.2.9.3.g80d2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 10:14-0300\n"
-"PO-Revision-Date: 2021-02-11 21:53+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2026-07-24 13:17+0000\n"
+"Last-Translator: Manuela Silva <transserv.ptg@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.fedoraproject.org/projects/abrt/"
 "gnome-abrt/pt/>\n"
 "Language: pt\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 2026.7.1\n"
 
 #: data/ui/oops-menus.ui:7 data/ui/oops-window.ui:79
 msgid "_Report"
@@ -36,16 +37,13 @@ msgid "D_etails"
 msgstr "D_etalhes"
 
 #: data/ui/oops-menus.ui:19
-#, fuzzy
-#| msgid "_Open the problem data directory"
 msgid "_Open problem data directory"
 msgstr "_Abrir a diretoria de dados dos problemas"
 
 #: data/ui/oops-menus.ui:23
-#, fuzzy
-#| msgid "_Copy the problem ID to Clipboard"
 msgid "_Copy problem directory path to clipboard"
-msgstr "_Copiar a Id. do problema para a Área de Transferência"
+msgstr ""
+"_Copiar o caminho da diretoria de problemas para a área de transferência"
 
 #: data/ui/oops-menus.ui:27
 msgid "_Filter"
@@ -61,10 +59,8 @@ msgid "Search"
 msgstr ""
 
 #: data/ui/oops-window.ui:35
-#, fuzzy
-#| msgid "Delete selected problems"
 msgid "Detected Crashes"
-msgstr "Eliminar os problemas selecionados"
+msgstr "Detetados Craches"
 
 #: data/ui/oops-window.ui:61
 msgid "Delete selected problems"
